@@ -183,6 +183,8 @@ public class DialogueActionRegistry {
                 ObjectiveType firstType = firstObj.getType();
                 if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.FETCH_ITEM) {
                     resolveAndPlacePoi(quest, firstObj, ctx.store(), ctx.playerRef());
+                } else if (firstType == ObjectiveType.PEACEFUL_FETCH) {
+                    setupPeacefulFetchPoi(quest, ctx.store(), ctx.playerRef());
                 } else if (firstType == ObjectiveType.TALK_TO_NPC) {
                     setTargetNpcParticle(quest.getVariableBindings(), ctx.store());
                 } else {
@@ -835,6 +837,63 @@ public class DialogueActionRegistry {
 
         LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
             quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
+    }
+
+    /**
+     * Set up POI bindings for a PEACEFUL_FETCH objective so the existing
+     * {@link com.chonbosmods.quest.POIProximitySystem} places a chest when the
+     * player arrives at the target settlement. Falls back to the quest-giver's
+     * own settlement if no cross-settlement target exists.
+     */
+    private void setupPeacefulFetchPoi(QuestInstance quest,
+                                        Store<EntityStore> store,
+                                        Ref<EntityStore> playerRef) {
+        Map<String, String> bindings = quest.getVariableBindings();
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        if (settlements == null) {
+            bindings.put("poi_available", "false");
+            return;
+        }
+
+        // Try target settlement first, fall back to quest giver's own settlement
+        String targetKey = bindings.get("target_npc_settlement_key");
+        SettlementRecord target = targetKey != null ? settlements.getByCell(targetKey) : null;
+        if (target == null) {
+            target = settlements.getByCell(quest.getSourceSettlementId());
+        }
+        if (target == null) {
+            LOGGER.atWarning().log("PEACEFUL_FETCH: no settlement found for quest %s", quest.getQuestId());
+            bindings.put("poi_available", "false");
+            return;
+        }
+
+        int sx = (int) target.getPosX();
+        int sy = (int) target.getPosY();
+        int sz = (int) target.getPosZ();
+
+        bindings.put("poi_x", String.valueOf(sx));
+        bindings.put("poi_y", String.valueOf(sy));
+        bindings.put("poi_z", String.valueOf(sz));
+        bindings.put("poi_available", "true");
+        bindings.put("poi_mob_state", "PENDING");
+
+        // Save so proximity system picks up the bindings
+        Nat20PlayerData pd = store.getComponent(playerRef, Natural20.getPlayerDataType());
+        if (pd != null) {
+            QuestStateManager sm = Natural20.getInstance().getQuestSystem().getStateManager();
+            Map<String, QuestInstance> allQuests = sm.getActiveQuests(pd);
+            allQuests.put(quest.getQuestId(), quest);
+            sm.saveActiveQuests(pd, allQuests);
+
+            com.hypixel.hytale.server.core.entity.entities.Player player =
+                store.getComponent(playerRef, com.hypixel.hytale.server.core.entity.entities.Player.getComponentType());
+            if (player != null) {
+                QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), pd);
+            }
+        }
+
+        LOGGER.atInfo().log("PEACEFUL_FETCH: POI set at settlement (%d, %d, %d) for quest %s",
+            sx, sy, sz, quest.getQuestId());
     }
 
     /**
