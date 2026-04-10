@@ -246,9 +246,7 @@ public class QuestGenerator {
         String summary = switch (obj.getType()) {
             case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
             case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-            case FETCH_ITEM -> "hostile".equals(bindings.get("fetch_variant"))
-                ? "retrieve " + obj.getTargetLabel() + " from " + bindings.getOrDefault("subject_name", "the area")
-                : "recover " + obj.getTargetLabel();
+            case FETCH_ITEM -> "retrieve " + obj.getTargetLabel();
             case PEACEFUL_FETCH -> "pick up " + obj.getTargetLabel();
             case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
         };
