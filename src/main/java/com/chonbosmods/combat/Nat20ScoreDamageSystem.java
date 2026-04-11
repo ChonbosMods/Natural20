@@ -13,15 +13,19 @@ import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
+import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Applies D&D ability score bonuses to damage events in the Filter Group:
- * DEX modifier reduces fall damage, STR modifier increases melee damage.
+ * DEX modifier reduces fall damage, STR modifier increases melee damage,
+ * INT modifier increases elemental damage (fire/ice/void/poison).
  * Stateless system: no per-player tracking or cleanup needed.
  */
 public class Nat20ScoreDamageSystem extends DamageEventSystem {
@@ -29,6 +33,13 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
     private static final float BONUS_MULTIPLIER = 10.0f;
+
+    private int fireCauseIdx = Integer.MIN_VALUE;
+    private int iceCauseIdx = Integer.MIN_VALUE;
+    private int voidCauseIdx = Integer.MIN_VALUE;
+    private int poisonCauseIdx = Integer.MIN_VALUE;
+    private boolean elementalIndicesResolved = false;
+    private final Set<Integer> elementalCauses = ConcurrentHashMap.newKeySet();
 
     @Override
     public Query<EntityStore> getQuery() {
@@ -57,9 +68,10 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         Damage.Source source = damage.getSource();
         if (source instanceof Damage.EntitySource entitySource) {
             handleMeleeDamage(entitySource, store, damage);
-        }
 
-        // --- INT magical bonus: stub for Phase 4 ---
+            // --- INT elemental damage bonus (fire/ice/void/poison) ---
+            handleElementalDamage(entitySource, store, damage);
+        }
     }
 
     /**
@@ -119,6 +131,64 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
                     playerUuid.toString().substring(0, 8),
                     strMod, bonus, original, original + bonus);
         }
+    }
+
+    /**
+     * INT elemental bonus: if attacker is a player dealing elemental damage
+     * (fire/ice/void/poison), add INT_modifier * BONUS_MULTIPLIER flat damage.
+     */
+    private void handleElementalDamage(Damage.EntitySource entitySource,
+                                       Store<EntityStore> store, Damage damage) {
+        resolveElementalIndices();
+
+        DamageCause cause = damage.getCause();
+        if (cause == null) return;
+
+        int causeIdx = DamageCause.getAssetMap().getIndex(cause.getId());
+        if (!elementalCauses.contains(causeIdx)) return;
+
+        Ref<EntityStore> attackerRef = entitySource.getRef();
+        if (attackerRef == null || !attackerRef.isValid()) return;
+
+        Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
+        if (attackerPlayer == null) return;
+
+        PlayerStats stats = resolvePlayerStats(attackerRef, store);
+        if (stats == null) return;
+
+        int intMod = stats.getModifier(Stat.INT);
+        if (intMod <= 0) return;
+
+        float bonus = intMod * BONUS_MULTIPLIER;
+        float original = damage.getAmount();
+        damage.setAmount(original + bonus);
+
+        UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
+        if (CombatDebugSystem.isEnabled(playerUuid)) {
+            LOGGER.atInfo().log("[ScoreDamage:INT] player=%s intMod=%d bonus=%.1f damage=%.1f->%.1f cause=%s",
+                    playerUuid.toString().substring(0, 8),
+                    intMod, bonus, original, original + bonus,
+                    cause.getId());
+        }
+    }
+
+    /**
+     * Lazily resolve elemental DamageCause indices from the asset map.
+     */
+    private void resolveElementalIndices() {
+        if (elementalIndicesResolved) return;
+        elementalIndicesResolved = true;
+
+        var assetMap = DamageCause.getAssetMap();
+        fireCauseIdx = assetMap.getIndex("Nat20Fire");
+        iceCauseIdx = assetMap.getIndex("Nat20Ice");
+        voidCauseIdx = assetMap.getIndex("Nat20Void");
+        poisonCauseIdx = assetMap.getIndex("Nat20Poison");
+
+        if (fireCauseIdx >= 0) elementalCauses.add(fireCauseIdx);
+        if (iceCauseIdx >= 0) elementalCauses.add(iceCauseIdx);
+        if (voidCauseIdx >= 0) elementalCauses.add(voidCauseIdx);
+        if (poisonCauseIdx >= 0) elementalCauses.add(poisonCauseIdx);
     }
 
     /**
