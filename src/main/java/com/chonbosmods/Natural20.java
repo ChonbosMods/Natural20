@@ -377,7 +377,6 @@ public class Natural20 extends JavaPlugin {
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
             if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
             if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);  // clears tracked state
-            if (scoreBonusSystem != null) scoreBonusSystem.removePlayer(uuid);
             if (scoreRegenSystem != null) scoreRegenSystem.removePlayer(uuid);
             Nat20ScoreDirtyFlag.removePlayer(uuid);
         });
