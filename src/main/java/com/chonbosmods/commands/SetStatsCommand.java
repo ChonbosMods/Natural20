@@ -1,6 +1,7 @@
 package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.stats.Stat;
 import com.hypixel.hytale.component.Ref;
@@ -81,6 +82,7 @@ public class SetStatsCommand extends AbstractPlayerCommand {
         }
 
         data.setStats(newStats);
+        Nat20ScoreDirtyFlag.markDirty(playerRef.getUuid());
         context.sendMessage(Message.raw("Stats set: " + confirmation));
     }
 }

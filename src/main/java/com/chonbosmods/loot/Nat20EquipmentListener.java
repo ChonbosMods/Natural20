@@ -1,6 +1,7 @@
 package com.chonbosmods.loot;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.chonbosmods.stats.PlayerStats;
@@ -152,6 +153,7 @@ public class Nat20EquipmentListener {
                 Nat20ItemDisplayData displayData = lootSystem.getItemRenderer().resolve(newStack, playerStats);
                 playerCache.put(slotName, new EquippedEntry(newLootData, displayData));
             }
+            Nat20ScoreDirtyFlag.markDirty(playerId);
         }
     }
 
