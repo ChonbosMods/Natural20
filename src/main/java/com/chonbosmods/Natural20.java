@@ -3,6 +3,7 @@ package com.chonbosmods;
 import com.chonbosmods.combat.CombatDebugSystem;
 import com.chonbosmods.combat.Nat20AbsorptionSystem;
 import com.chonbosmods.combat.Nat20AttackSpeedSystem;
+import com.chonbosmods.combat.Nat20CritSystem;
 import com.chonbosmods.combat.Nat20DeepWoundsSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
 import com.chonbosmods.combat.Nat20ScoreBonusSystem;
@@ -101,6 +102,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20ScoreBonusSystem scoreBonusSystem;
     private Nat20ScoreRegenSystem scoreRegenSystem;
     private Nat20ScoreDamageSystem scoreDamageSystem;
+    private Nat20CritSystem critSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -364,6 +366,9 @@ public class Natural20 extends JavaPlugin {
 
         scoreDamageSystem = new Nat20ScoreDamageSystem();
         getEntityStoreRegistry().registerSystem(scoreDamageSystem);
+
+        critSystem = new Nat20CritSystem();
+        getEntityStoreRegistry().registerSystem(critSystem);
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
