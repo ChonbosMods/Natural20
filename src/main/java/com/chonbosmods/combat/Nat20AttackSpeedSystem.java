@@ -14,7 +14,7 @@ import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.server.core.entity.InteractionChain;
+import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.entity.InteractionManager;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
@@ -24,7 +24,7 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
-import java.util.Map;
+import java.util.EnumSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -124,36 +124,29 @@ public class Nat20AttackSpeedSystem {
             InteractionManager im = store.getComponent(ref, imType);
             if (im == null) return;
 
-            // Apply time shift to all active chains
-            Map<Integer, InteractionChain> chains = im.getChains();
-            if (chains != null) {
-                for (InteractionChain chain : chains.values()) {
-                    chain.setTimeShift(bonus);
-                }
+            // Apply global time shift to all interaction types (persists between swings)
+            for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
+                im.setGlobalTimeShift(type, bonus);
             }
 
             activeShifts.put(playerUuid, bonus);
 
             if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s timeShift=%.3f (applied to %d chains)",
-                        playerUuid.toString().substring(0, 8), bonus,
-                        chains != null ? chains.size() : 0);
+                LOGGER.atInfo().log("[AttackSpeed] player=%s globalTimeShift=%.3f",
+                        playerUuid.toString().substring(0, 8), bonus);
             }
         } else if (previousShift != null) {
             // Reset time shift when weapon unequipped
             InteractionManager im = store.getComponent(ref, imType);
             if (im != null) {
-                Map<Integer, InteractionChain> chains = im.getChains();
-                if (chains != null) {
-                    for (InteractionChain chain : chains.values()) {
-                        chain.setTimeShift(0.0f);
-                    }
+                for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
+                    im.setGlobalTimeShift(type, 0.0f);
                 }
             }
             activeShifts.remove(playerUuid);
 
             if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s RESET (no attack_speed affix)",
+                LOGGER.atInfo().log("[AttackSpeed] player=%s RESET",
                         playerUuid.toString().substring(0, 8));
             }
         }
