@@ -22,6 +22,7 @@ import com.hypixel.hytale.component.dependency.SystemDependency;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
 import com.hypixel.hytale.protocol.InteractionType;
+import com.hypixel.hytale.server.core.entity.InteractionChain;
 import com.hypixel.hytale.server.core.entity.InteractionManager;
 import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
@@ -34,6 +35,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -54,16 +56,17 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
     private static final double SOFTCAP_K = 100.0;
 
     private final Nat20LootSystem lootSystem;
-    private final ComponentType<EntityStore, InteractionManager> imType;
     private final Query<EntityStore> query;
     private final Set<Dependency<EntityStore>> dependencies;
+
+    /** Lazily resolved: InteractionModule may not be ready during setup(). */
+    private volatile ComponentType<EntityStore, InteractionManager> imType;
 
     /** Track last applied shift per player to avoid redundant logging. */
     private final ConcurrentHashMap<UUID, Float> activeShifts = new ConcurrentHashMap<>();
 
     public Nat20AttackSpeedSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
-        this.imType = InteractionModule.get().getInteractionManagerComponent();
         this.query = Query.and(new Query[]{
                 Query.any(), UUIDComponent.getComponentType(), Player.getComponentType()
         });
@@ -88,6 +91,15 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
                      @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
         if (dt <= 0.0f) return;
 
+        // Lazy init: InteractionModule isn't available during setup()
+        if (imType == null) {
+            try {
+                imType = InteractionModule.get().getInteractionManagerComponent();
+            } catch (Exception e) {
+                return;
+            }
+        }
+
         UUIDComponent uuidComp = chunk.getComponent(index, UUIDComponent.getComponentType());
         if (uuidComp == null || uuidComp.getUuid() == null) return;
         UUID playerUuid = uuidComp.getUuid();
@@ -100,9 +112,15 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
         float bonus = computeAttackSpeedBonus(store, ref);
 
         if (bonus > 0) {
-            // Apply global time shift to all interaction types every tick
+            // Apply global time shift (affects future chains) + per-chain shift (affects active swings)
             for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                 im.setGlobalTimeShift(type, bonus);
+            }
+            Map<Integer, InteractionChain> chains = im.getChains();
+            if (chains != null) {
+                for (InteractionChain chain : chains.values()) {
+                    chain.setTimeShift(bonus);
+                }
             }
 
             Float previous = activeShifts.put(playerUuid, bonus);
@@ -115,9 +133,15 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
         } else {
             Float previous = activeShifts.remove(playerUuid);
             if (previous != null) {
-                // Clear time shift
+                // Clear time shift on global and active chains
                 for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                     im.setGlobalTimeShift(type, 0.0f);
+                }
+                Map<Integer, InteractionChain> chains = im.getChains();
+                if (chains != null) {
+                    for (InteractionChain chain : chains.values()) {
+                        chain.setTimeShift(0.0f);
+                    }
                 }
                 if (CombatDebugSystem.isEnabled(playerUuid)) {
                     LOGGER.atInfo().log("[AttackSpeed] player=%s RESET",
