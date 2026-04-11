@@ -31,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Nat20EquipmentListener {
 
-    record EquippedEntry(Nat20LootData lootData, @Nullable Nat20ItemDisplayData displayData) {}
+    public record EquippedEntry(Nat20LootData lootData, @Nullable Nat20ItemDisplayData displayData) {}
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
@@ -56,6 +56,14 @@ public class Nat20EquipmentListener {
      */
     public Nat20InventoryChangeSystem createSystem() {
         return new Nat20InventoryChangeSystem();
+    }
+
+    /**
+     * Get all currently-equipped loot data for a player, keyed by slot name.
+     * Used by Nat20ScoreBonusSystem to recompute affix modifiers when scores change.
+     */
+    public Map<String, EquippedEntry> getEquippedItems(UUID playerId) {
+        return equippedCache.getOrDefault(playerId, Map.of());
     }
 
     /**

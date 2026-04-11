@@ -360,7 +360,7 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(focusedMindSystem);
 
         // Phase 3: persistent score bonus systems
-        scoreBonusSystem = new Nat20ScoreBonusSystem();
+        scoreBonusSystem = new Nat20ScoreBonusSystem(lootSystem, equipmentListener);
         getEntityStoreRegistry().registerSystem(scoreBonusSystem);
 
         scoreRegenSystem = new Nat20ScoreRegenSystem();

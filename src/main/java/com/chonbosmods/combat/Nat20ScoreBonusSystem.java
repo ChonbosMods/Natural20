@@ -2,6 +2,12 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.loot.AffixType;
+import com.chonbosmods.loot.Nat20EquipmentListener;
+import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.loot.def.AffixValueRange;
+import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
@@ -49,6 +55,8 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     private static final String KEY_CON_STAMINA = "nat20:con_max_stamina";
     private static final String KEY_INT_MANA    = "nat20:int_max_mana";
 
+    private final Nat20LootSystem lootSystem;
+    private final Nat20EquipmentListener equipmentListener;
     private final Query<EntityStore> query;
 
     /** Cached stat indices, resolved lazily on first dirty tick. */
@@ -57,7 +65,9 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     private int manaIdx    = -1;
     private boolean indicesResolved = false;
 
-    public Nat20ScoreBonusSystem() {
+    public Nat20ScoreBonusSystem(Nat20LootSystem lootSystem, Nat20EquipmentListener equipmentListener) {
+        this.lootSystem = lootSystem;
+        this.equipmentListener = equipmentListener;
         this.query = Query.and(new Query[]{
                 Query.any(), UUIDComponent.getComponentType(), Player.getComponentType()
         });
@@ -113,7 +123,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         // WIS -> perception (stored on playerData, not a stat modifier)
         playerData.setPerception(wisMod * BONUS_MULTIPLIER);
 
-        // Gear affix recomputation: deferred to Phase 4 (needs PlayerScoreChangeEvent)
+        recomputeGearAffixes(statMap, uuid, stats);
 
         Nat20ScoreDirtyFlag.clearDirty(uuid);
 
@@ -165,5 +175,49 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         manaIdx    = assetMap.getIndex("Mana");
 
         // Movement speed: handled by Nat20MovementSpeedSystem (bridges DEX to MovementManager)
+    }
+
+    /**
+     * Recompute all equipped gear affix modifiers with current ability scores.
+     * Uses putModifier (idempotent overwrite) to avoid the clamp-down problem
+     * that remove-then-put would cause.
+     */
+    private void recomputeGearAffixes(EntityStatMap statMap, UUID playerId, PlayerStats playerStats) {
+        var equipped = equipmentListener.getEquippedItems(playerId);
+        if (equipped.isEmpty()) return;
+
+        for (var entry : equipped.entrySet()) {
+            String slotName = entry.getKey();
+            Nat20LootData lootData = entry.getValue().lootData();
+            if (lootData == null) continue;
+
+            for (var rolledAffix : lootData.getAffixes()) {
+                Nat20AffixDef affixDef = lootSystem.getAffixRegistry().get(rolledAffix.id());
+                if (affixDef == null || affixDef.targetStat() == null) continue;
+                if (affixDef.type() == AffixType.EFFECT || affixDef.type() == AffixType.ABILITY) continue;
+
+                AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
+                if (range == null) continue;
+
+                double baseValue = range.interpolate(lootData.getLootLevel());
+                double effectiveValue = baseValue;
+
+                if (affixDef.statScaling() != null) {
+                    Stat primary = affixDef.statScaling().primary();
+                    int modifier = playerStats.getModifier(primary);
+                    effectiveValue = baseValue * (1.0 + modifier * affixDef.statScaling().factor());
+                }
+
+                int statIndex = EntityStatType.getAssetMap().getIndex(affixDef.targetStat());
+                if (statIndex < 0) continue;
+
+                String key = "nat20:affix:" + rolledAffix.id() + ":" + slotName;
+                var calcType = "MULTIPLICATIVE".equals(affixDef.modifierType())
+                    ? StaticModifier.CalculationType.MULTIPLICATIVE
+                    : StaticModifier.CalculationType.ADDITIVE;
+                statMap.putModifier(statIndex, key, new StaticModifier(
+                        Modifier.ModifierTarget.MAX, calcType, (float) effectiveValue));
+            }
+        }
     }
 }
