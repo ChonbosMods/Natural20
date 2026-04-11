@@ -6,6 +6,7 @@ import com.chonbosmods.combat.Nat20AttackSpeedSystem;
 import com.chonbosmods.combat.Nat20CritSystem;
 import com.chonbosmods.combat.Nat20DeepWoundsSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
+import com.chonbosmods.combat.Nat20MovementSpeedSystem;
 import com.chonbosmods.combat.Nat20ScoreBonusSystem;
 import com.chonbosmods.combat.Nat20ScoreDamageSystem;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
@@ -103,6 +104,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20ScoreRegenSystem scoreRegenSystem;
     private Nat20ScoreDamageSystem scoreDamageSystem;
     private Nat20CritSystem critSystem;
+    private Nat20MovementSpeedSystem movementSpeedSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -370,6 +372,10 @@ public class Natural20 extends JavaPlugin {
         critSystem = new Nat20CritSystem();
         getEntityStoreRegistry().registerSystem(critSystem);
 
+        // DEX -> movement speed (bridges DEX modifier to MovementManager baseSpeed)
+        movementSpeedSystem = new Nat20MovementSpeedSystem();
+        getEntityStoreRegistry().registerSystem(movementSpeedSystem);
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -382,6 +388,7 @@ public class Natural20 extends JavaPlugin {
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
             if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
             if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);  // clears tracked state
+            if (movementSpeedSystem != null) movementSpeedSystem.removePlayer(uuid);
             if (scoreRegenSystem != null) scoreRegenSystem.removePlayer(uuid);
             Nat20ScoreDirtyFlag.removePlayer(uuid);
         });

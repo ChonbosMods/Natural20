@@ -108,7 +108,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         // INT -> max Mana
         applyModifier(statMap, manaIdx, KEY_INT_MANA, intMod);
 
-        // DEX -> movement speed: deferred to Phase 4 (needs MovementManager fallback, no stat type exists)
+        // DEX -> movement speed: handled by Nat20MovementSpeedSystem
 
         // WIS -> perception (stored on playerData, not a stat modifier)
         playerData.setPerception(wisMod * BONUS_MULTIPLIER);
@@ -164,7 +164,6 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         staminaIdx = assetMap.getIndex("Stamina");
         manaIdx    = assetMap.getIndex("Mana");
 
-        // Movement speed: no EntityStatType exists in vanilla Hytale.
-        // Deferred to Phase 4 alongside Attack Speed (both need MovementManager/AAF).
+        // Movement speed: handled by Nat20MovementSpeedSystem (bridges DEX to MovementManager)
     }
 }
