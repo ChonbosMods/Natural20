@@ -5,6 +5,10 @@ import com.chonbosmods.combat.Nat20AbsorptionSystem;
 import com.chonbosmods.combat.Nat20AttackSpeedSystem;
 import com.chonbosmods.combat.Nat20DeepWoundsSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
+import com.chonbosmods.combat.Nat20ScoreBonusSystem;
+import com.chonbosmods.combat.Nat20ScoreDamageSystem;
+import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
+import com.chonbosmods.combat.Nat20ScoreRegenSystem;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.cave.UndergroundStructurePlacer;
@@ -94,6 +98,9 @@ public class Natural20 extends JavaPlugin {
     private Nat20AttackSpeedSystem attackSpeedSystem;
     private Nat20DeepWoundsSystem deepWoundsSystem;
     private Nat20FocusedMindSystem focusedMindSystem;
+    private Nat20ScoreBonusSystem scoreBonusSystem;
+    private Nat20ScoreRegenSystem scoreRegenSystem;
+    private Nat20ScoreDamageSystem scoreDamageSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -348,6 +355,16 @@ public class Natural20 extends JavaPlugin {
         focusedMindSystem = new Nat20FocusedMindSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(focusedMindSystem);
 
+        // Phase 3: persistent score bonus systems
+        scoreBonusSystem = new Nat20ScoreBonusSystem();
+        getEntityStoreRegistry().registerSystem(scoreBonusSystem);
+
+        scoreRegenSystem = new Nat20ScoreRegenSystem();
+        getEntityStoreRegistry().registerSystem(scoreRegenSystem);
+
+        scoreDamageSystem = new Nat20ScoreDamageSystem();
+        getEntityStoreRegistry().registerSystem(scoreDamageSystem);
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -360,6 +377,8 @@ public class Natural20 extends JavaPlugin {
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
             if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
             if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);  // clears tracked state
+            if (scoreRegenSystem != null) scoreRegenSystem.removePlayer(uuid);
+            Nat20ScoreDirtyFlag.removePlayer(uuid);
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking
@@ -374,6 +393,9 @@ public class Natural20 extends JavaPlugin {
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
             // focusedMindSystem is an ECS ticking system, no manual player tracking needed
             // attackSpeedSystem is an ECS ticking system, no manual player tracking needed
+
+            // Mark player dirty so Phase 3 score bonuses are applied on connect
+            Nat20ScoreDirtyFlag.markDirty(uuid);
         });
 
         // Register quest POI marker provider on every world
