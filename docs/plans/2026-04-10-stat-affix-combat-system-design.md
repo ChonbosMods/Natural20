@@ -186,9 +186,11 @@ Each affix type defines its own `k` in config JSON. Aggressive `k` for crit chan
 
 ---
 
-## Phase 3: Persistent Score Bonuses
+## Phase 3: Persistent Score Bonuses — COMPLETE (2026-04-10)
 
 **Goal**: wire the six D&D ability scores to their always-on stat effects, independent of gear.
+
+**Status**: Complete. Three systems implemented and smoke-tested. DEX movement speed deferred to Phase 4 (grouped with Attack Speed: both need MovementManager/AAF). See `docs/plans/2026-04-10-phase3-persistent-score-bonuses.md` for implementation details.
 
 ### Core System
 
@@ -254,9 +256,15 @@ When `PlayerScoreChangeEvent` fires, all currently equipped items must recompute
 
 ---
 
-## Phase 4: Remaining 14 Affixes
+## Phase 4: Remaining 14 Affixes + Deferred Phase 3 Items
 
-**Goal**: batch-implement all remaining affixes. Each is a variation on a pattern proven in Phase 2.
+**Goal**: batch-implement all remaining affixes, plus deferred items from Phase 3. Each is a variation on a pattern proven in Phase 2.
+
+### Deferred from Phase 3
+
+- **DEX movement speed + Attack Speed**: no EntityStatType for movement speed in vanilla Hytale. Both need MovementManager/AAF integration. Grouped together.
+- **Gear affix recomputation on score change**: needs PlayerScoreChangeEvent to trigger full equipment re-evaluation
+- **INT magical damage bonus**: needs damage type flagging to distinguish melee from magical DamageCauses
 
 ### Implementation Order
 
@@ -339,15 +347,14 @@ Each affix tested individually via `/nat20 combattest <affix_id> <level>` with a
 ## Phase Dependencies
 
 ```
-Phase 1: Test Harness
+Phase 1: Test Harness ✅
     ↓
-Phase 2: Four Proof Affixes ←── also builds softcap utility
+Phase 2: Four Proof Affixes ✅ ←── also builds softcap utility
     ↓
-Phase 3: Persistent Bonuses ←── uses softcap, regen intercept pattern from Phase 2
+Phase 3: Persistent Bonuses ✅ ←── uses softcap, regen intercept pattern from Phase 2
     ↓
-Phase 4: Remaining 14 Affixes ←── all patterns proven, batch work
-    ↓
+Phase 4: Remaining 14 Affixes + Deferred ←── all patterns proven, batch work
+    ↓                                         includes DEX speed, attack speed,
+    ↓                                         gear recomp, INT magic flagging
 Phase 5: Polish & Tuning
 ```
-
-Phases 2 and 3 are independent of each other (both depend only on Phase 1), but building Phase 2 first de-risks the damage pipeline and proves the regen intercept pattern that Phase 3 reuses.
