@@ -92,59 +92,97 @@ Each affix type defines its own `k` in config JSON. Aggressive `k` for crit chan
 
 ---
 
-## Phase 2: Four Proof Affixes
+## Phase 2: Four Proof Affixes — COMPLETE (2026-04-10)
 
 **Goal**: wire one affix per damage pipeline pattern, proving all four hooks work against the test harness.
 
-### 2a: Absorption (Filter Group)
+**Status**: All four systems implemented and smoke-tested. Three fully proven, one architecturally proven but visually incomplete.
+
+### 2a: Absorption (Filter Group) — PROVEN ✅
 
 **What it proves**: intercepting and modifying incoming damage before health is affected.
 
-- `Nat20AbsorptionSystem` extending `DamageEventSystem`, registered in Filter Group
-- On incoming damage to a player with Absorption affix equipped:
-  - Check cooldown timer (transient component on player, fixed server-config value)
-  - If cooldown expired: compute absorbed amount (capped per-hit percentage), subtract from mana via `statMap.subtractStatValue(manaIndex, absorbed)`, reduce `damage.setAmount()` by same amount, reset cooldown timer
-  - If cooldown active: skip entirely, no partial absorption
-- Effective absorption percentage = `softcap(base × (1 + WIS_mod × scale_factor), k)`
-- **Test**: equip absorption weapon, `/nat20 setstats WIS 18`, let attacker dummy hit you. Debug log shows mana drop + reduced health damage. Take another hit within cooldown window: full damage, no mana change.
+**Proven method**: `DamageEventSystem` registered in `DamageModule.get().getFilterDamageGroup()`. System fires on all damage events, checks if target is a player, scans weapon + armor for `nat20:absorption` affix, computes effective absorption with WIS scaling and softcap, then:
+- Drains mana via `EntityStatMap.subtractStatValue(manaIdx, absorbed)`
+- Reduces damage via `damage.setAmount(incoming - absorbed)`
+- Per-player cooldown tracked in `ConcurrentHashMap<UUID, Long>` (5 seconds)
 
-### 2b: Deep Wounds (Inspect Group proc)
+**Key SDK patterns**:
+- `EntityStatValue.set()` is **protected**: use `subtractStatValue()` / `addStatValue()` / `setStatValue()` on EntityStatMap
+- `EntityStatType.getAssetMap().getIndex("Mana")` resolves mana stat index
+- `InventoryComponent.getItemInHand(store, ref)` for weapon, `InventoryComponent.getCombined(store, ref, armorComponentTypes)` for armor scan
 
-**What it proves**: firing post-damage entity effects via EffectControllerComponent.
+**Test result**: At Rare + loot 0.8 + WIS 18: raw=0.320 (32%), softcapped effective=0.195 (19.5%). Incoming 10.6 damage → absorbed 2.1, mana 100→98, damage reduced to 8.5. Cooldown correctly blocks absorption for 5s between activations.
 
-- Create `Entity/Effects/nat20_bleed.json`: periodic DOT, red drip particles, audio tick, `OverlapBehavior: Extend`
-- Create `Entity/DamageCauses/nat20_bleed_tick.json`: physical DOT damage type
-- In Inspect Group system: on melee hit with Deep Wounds affix, roll proc chance scaled by STR modifier, apply via `EffectControllerComponent.addEffect(targetRef, bleedEffect, duration, OverlapBehavior.EXTEND, store)`
-- Both proc chance and per-tick damage scale with STR: `softcap(base × (1 + STR_mod × scale_factor), k)`
-- **Test**: equip deep wounds weapon, `/nat20 setstats STR 18`, hit passive dummy. Debug log shows proc roll, bleed particles on dummy, periodic damage ticks.
+**Files**: `Nat20AbsorptionSystem.java`, `absorption.json`
 
-### 2c: Attack Speed (Custom stat / InteractionChain)
+### 2b: Deep Wounds (Inspect Group proc) — PROVEN ✅
 
-**What it proves**: modifying native interaction timing from gear affix data.
+**What it proves**: post-damage observation, proc chance rolling, and applying ongoing DOT.
 
-- `Nat20AttackSpeedSystem` extending `EntityTickingSystem`, queries players with active weapon
-- Read attack speed affix value from equipped weapon BSON, compute effective value with softcap
-- Apply via `InteractionChain.setTimeShift(float)` on active chains, or `InteractionManager.setGlobalTimeShift(InteractionType, float)`
-- Client animation sync via `UpdateItemPlayerAnimations` packet if visual desync is noticeable
-- Reset to default time shift when weapon is unequipped
-- **Test**: equip attack speed weapon, `/nat20 setstats DEX 18`, swing at passive dummy. Visibly faster swing rate vs. bare-handed baseline.
+**Proven method**: `DamageEventSystem` registered in `DamageModule.get().getInspectDamageGroup()`. On melee hit, extracts attacker player from `Damage.EntitySource`, scans weapon for `nat20:deep_wounds` affix, rolls proc chance (25%), and on proc stores bleed state in `ConcurrentHashMap<Ref<EntityStore>, BleedState>`. A `ScheduledExecutorService` ticks every 500ms, dispatching to `world.execute()` to apply periodic health drain via `statMap.subtractStatValue(healthIdx, perTickDamage)`.
 
-### 2d: Focused Mind (Passive tick)
+**Key SDK patterns**:
+- `damage.getSource()` → cast to `Damage.EntitySource` → `entitySource.getRef()` for attacker entity
+- Manual DOT via scheduled executor + `world.execute()` dispatch (EffectControllerComponent API unverified)
+- Direct health drain bypasses damage pipeline: no visual damage numbers/particles (acceptable for Phase 2)
 
-**What it proves**: per-tick regen manipulation based on movement state.
+**Test result**: At Rare + loot 0.8 + STR 18: base=4.00, effective=6.88, softcapped total=4.37, perTick=0.44 over 10 ticks (5s). Bleed correctly drains target HP between hits. New proc replaces existing bleed.
 
-- `Nat20FocusedMindSystem` extending `EntityTickingSystem`, queries players with Focused Mind affix equipped
-- Read `MovementStates.idle` from `MovementStatesComponent`
-- When idle: detect mana regen delta (current - previous tick's value), multiply by WIS-scaled bonus, write boosted value back via `statMap.setStatValue()`
-- Track previous mana values per player in `ConcurrentHashMap<UUID, Float>`
-- Ticks stop boosting immediately on movement
-- Effective regen multiplier = `softcap(base × (1 + WIS_mod × scale_factor), k)`
-- **Test**: `/nat20 setstats WIS 16`, equip focused mind weapon, stand still near dummies. Debug log shows boosted mana regen. Start moving: regen returns to normal rate.
+**Files**: `Nat20DeepWoundsSystem.java`, `deep_wounds.json`
+
+### 2c: Attack Speed (InteractionChain) — PARTIALLY PROVEN ⚠️
+
+**What it proves**: ECS ticking system architecture, InteractionManager component access, and time shift API.
+
+**Proven method**: `EntityTickingSystem<EntityStore>` with `SystemDependency(Order.AFTER, InteractionSystems.TickInteractionManagerSystem.class)`. Gets InteractionManager via `InteractionModule.get().getInteractionManagerComponent()` (must lazy-init: null during `setup()`). Applies `im.setGlobalTimeShift(InteractionType, bonus)` for all types + `chain.setTimeShift(bonus)` on active chains.
+
+**Result**: Time shift value **sticks and reads back correctly** (`chain.getTimeShift()` returns applied value), but **vanilla Hytale does not use it for swing timing**. Full visual effect requires AttackAnimationsFramework's interaction pipeline (intercepts interaction entries, modifies timing, syncs client animations via `HytalePerPlayerItemAnimationSyncService`).
+
+**Key SDK patterns**:
+- `InteractionModule.get().getInteractionManagerComponent()` returns `ComponentType<EntityStore, InteractionManager>` — must be called at runtime, not during `setup()`
+- `InteractionManager` is an ECS component at `com.hypixel.hytale.server.core.entity.InteractionManager`
+- `InteractionChain` at `com.hypixel.hytale.server.core.entity.InteractionChain` with `setTimeShift(float)` / `getTimeShift()` / `getType()`
+- `InteractionType` enum at `com.hypixel.hytale.protocol.InteractionType`
+- `UUIDComponent.getComponentType()` needed in ECS query for player identification
+- Query: `Query.and(Query.any(), UUIDComponent.getComponentType(), Player.getComponentType())`
+
+**For Phase 4**: either add AAF as a dependency, or decompile `HytalePerPlayerItemAnimationSyncService` to replicate client animation sync.
+
+**Files**: `Nat20AttackSpeedSystem.java`, `attack_speed.json`
+
+### 2d: Focused Mind (Passive tick) — PROVEN ✅
+
+**What it proves**: per-tick regen manipulation based on player movement state.
+
+**Proven method**: `EntityTickingSystem<EntityStore>` that runs every game tick. Tracks per-player position and mana via `ConcurrentHashMap<UUID, PlayerState>`. Detects idle by comparing position between ticks (`distanceSq < 0.01`). When idle and mana increased since last tick (natural regen), multiplies the delta by the affix bonus and adds via `statMap.addStatValue(manaIdx, boost)`. Running at game tick rate produces smooth mana gain that matches native regen cadence (no visible jumps).
+
+**Key SDK patterns**:
+- Position from `TransformComponent.getPosition()` (getX/getY/getZ)
+- `statMap.addStatValue(statIdx, amount)` to boost regen (public, unlike `set()`)
+- `statMap.get(statIdx).getMax()` for clamping
+- ECS ticking at game tick rate for smooth stat changes (ScheduledExecutorService at 1s causes visible "jumps")
+
+**Test result**: At Rare + loot 0.8 + WIS 18: effective bonus=74.4%. Native mana regen 5.0/sec, boosted to ~8.7/sec. Smooth regen visible on client. Stops immediately on movement, resumes on idle.
+
+**Files**: `Nat20FocusedMindSystem.java`, `focused_mind.json`
 
 ### Also Built in Phase 2
 
-- `Nat20Softcap.softcap(value, k)` utility function
-- Softcap config JSON with per-affix `k` values, loaded via `withConfig()`
+- `Nat20Softcap.softcap(value, k)` utility: `value / (1 + value/k)`
+- `/nat20 setmana <amount>` dev command for testing mana-dependent affixes
+- Fix: EFFECT/ABILITY affixes skip `StaticModifier` path in `Nat20ModifierManager` (suppresses fake-stat warnings)
+- Fix: new affix JSONs must be added to `Nat20AffixRegistry.BUILTIN_FILES` hardcoded list
+- Softcap k values: Absorption=0.50, Deep Wounds=12.0, Attack Speed=0.35, Focused Mind=2.0
+
+### Phase 2 Divergences from Plan
+
+1. **Deep Wounds uses manual DOT, not EffectControllerComponent**: `EffectControllerComponent.addEffect()` API unverified. Manual health drain via `subtractStatValue()` works but produces no visual particles/damage numbers. Migration to native effects deferred to Phase 4.
+2. **Attack Speed requires AAF for visual effect**: `setTimeShift()` API confirmed working (values stick, read back correctly) but vanilla engine ignores it for swing timing. Architecture correct for AAF integration.
+3. **Focused Mind uses position-based idle detection, not MovementStatesComponent**: `MovementStatesComponent` API unverified. Position delta comparison is reliable and proven.
+4. **Both Focused Mind and Attack Speed are ECS EntityTickingSystems**: original plan called for ScheduledExecutorService. ECS systems are better: game-tick-rate execution avoids visible stat jumps, proper thread safety, automatic entity iteration.
+5. **Softcap k values are hardcoded constants, not loaded from config JSON**: `withConfig()` approach deferred. Constants in each system class are sufficient for Phase 2.
+6. **Players have 0 mana by default**: `/nat20 setmana` command added as workaround. Phase 3 will set base mana pool from INT score.
 
 ---
 
