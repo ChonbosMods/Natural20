@@ -42,7 +42,7 @@ public class Nat20AbsorptionSystem extends DamageEventSystem {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:absorption";
-    private static final long COOLDOWN_MS = 3000L;
+    private static final long COOLDOWN_MS = 5000L;
 
     private final Nat20LootSystem lootSystem;
     private final ConcurrentHashMap<UUID, Long> cooldowns = new ConcurrentHashMap<>();
