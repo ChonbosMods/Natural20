@@ -11,9 +11,14 @@ import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
+import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
@@ -21,129 +26,98 @@ import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
-import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import java.util.Set;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
- * Focused Mind affix system: boosts mana regeneration for idle players.
- * Ticks every 1 second. When a player is standing still and their mana
- * increased since the last tick (natural regen), the increase is multiplied
- * by the affix's effective bonus.
+ * Focused Mind affix system: ECS ticking system that boosts mana regeneration
+ * for idle players. Runs every game tick so the boost is smooth and matches
+ * native regen cadence (no visible "jumps").
+ *
+ * <p>Detects idle state by comparing position between ticks. When a player is
+ * standing still and their mana increased since last tick (natural regen),
+ * multiplies the increase by the affix bonus.
  */
-public class Nat20FocusedMindSystem {
+public class Nat20FocusedMindSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:focused_mind";
     private static final double IDLE_THRESHOLD_SQ = 0.01;
+    private static final double SOFTCAP_K = 2.0;
+
+    /** Log at most once per second (20 ticks) to avoid spamming. */
+    private static final int LOG_INTERVAL_TICKS = 20;
 
     private final Nat20LootSystem lootSystem;
-    private final Set<UUID> trackedPlayers = ConcurrentHashMap.newKeySet();
+    private final Query<EntityStore> query;
     private final ConcurrentHashMap<UUID, PlayerState> playerStates = new ConcurrentHashMap<>();
-    private ScheduledExecutorService executor;
 
     public Nat20FocusedMindSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
-    }
-
-    public void addPlayer(UUID uuid) {
-        trackedPlayers.add(uuid);
-    }
-
-    public void removePlayer(UUID uuid) {
-        trackedPlayers.remove(uuid);
-        playerStates.remove(uuid);
-    }
-
-    public void start() {
-        executor = Executors.newSingleThreadScheduledExecutor(r -> {
-            Thread t = new Thread(r, "nat20-focused-mind");
-            t.setDaemon(true);
-            return t;
-        });
-        executor.scheduleAtFixedRate(this::tick, 1, 1, TimeUnit.SECONDS);
-    }
-
-    public void shutdown() {
-        if (executor != null) {
-            executor.shutdownNow();
-        }
-        trackedPlayers.clear();
-        playerStates.clear();
-    }
-
-    private void tick() {
-        if (trackedPlayers.isEmpty()) return;
-
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-
-        world.execute(() -> {
-            Store<EntityStore> store = world.getEntityStore().getStore();
-            int manaIdx = EntityStatType.getAssetMap().getIndex("Mana");
-            if (manaIdx < 0) return;
-
-            for (UUID playerUuid : trackedPlayers) {
-                try {
-                    tickPlayer(world, store, playerUuid, manaIdx);
-                } catch (Exception e) {
-                    LOGGER.atWarning().withCause(e).log("Error ticking focused mind for %s", playerUuid);
-                }
-            }
+        this.query = Query.and(new Query[]{
+                Query.any(), UUIDComponent.getComponentType(), Player.getComponentType()
         });
     }
 
-    private void tickPlayer(World world, Store<EntityStore> store, UUID playerUuid, int manaIdx) {
-        Ref<EntityStore> entityRef = world.getEntityRef(playerUuid);
-        if (entityRef == null) return;
+    @Nonnull
+    @Override
+    public Query<EntityStore> getQuery() {
+        return query;
+    }
 
-        TransformComponent transform = store.getComponent(entityRef, TransformComponent.getComponentType());
+    @Override
+    public void tick(float dt, int index, @Nonnull ArchetypeChunk<EntityStore> chunk,
+                     @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
+        if (dt <= 0.0f) return;
+
+        UUIDComponent uuidComp = chunk.getComponent(index, UUIDComponent.getComponentType());
+        if (uuidComp == null || uuidComp.getUuid() == null) return;
+        UUID playerUuid = uuidComp.getUuid();
+
+        Ref<EntityStore> ref = chunk.getReferenceTo(index);
+
+        TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) return;
 
         double x = transform.getPosition().getX();
         double y = transform.getPosition().getY();
         double z = transform.getPosition().getZ();
 
-        EntityStatMap statMap = store.getComponent(entityRef, EntityStatMap.getComponentType());
+        EntityStatMap statMap = store.getComponent(ref, EntityStatMap.getComponentType());
         if (statMap == null) return;
+
+        int manaIdx = EntityStatType.getAssetMap().getIndex("Mana");
+        if (manaIdx < 0) return;
 
         float currentMana = statMap.get(manaIdx).get();
 
         PlayerState prev = playerStates.get(playerUuid);
         if (prev == null) {
-            // First tick: store baseline state
             playerStates.put(playerUuid, new PlayerState(x, y, z, currentMana));
             return;
         }
 
-        // Check idle: position barely changed since last tick
+        // Check idle
         double dx = x - prev.lastX;
         double dy = y - prev.lastY;
         double dz = z - prev.lastZ;
         boolean idle = (dx * dx + dy * dy + dz * dz) < IDLE_THRESHOLD_SQ;
 
-        // Check if mana increased (natural regen)
+        // Check if mana increased (natural regen tick)
         float manaDelta = currentMana - prev.lastMana;
-        boolean manaIncreased = manaDelta > 0;
 
-        if (idle && manaIncreased) {
-            // Scan equipped items for focused_mind affix
-            double totalBonus = computeTotalBonus(store, entityRef);
+        if (idle && manaDelta > 0) {
+            double totalBonus = computeTotalBonus(store, ref);
 
             if (totalBonus > 0) {
-                // Apply softcap (k=2.0)
-                double effectiveBonus = Nat20Softcap.softcap(totalBonus, 2.0);
-
-                // Boost = natural regen delta * bonus multiplier
+                double effectiveBonus = Nat20Softcap.softcap(totalBonus, SOFTCAP_K);
                 float boost = (float) (manaDelta * effectiveBonus);
 
-                // Clamp to max mana
+                // Clamp to max
                 float maxMana = statMap.get(manaIdx).getMax();
                 float newMana = Math.min(currentMana + boost, maxMana);
                 boost = newMana - currentMana;
@@ -151,59 +125,57 @@ public class Nat20FocusedMindSystem {
                 if (boost > 0) {
                     statMap.addStatValue(manaIdx, boost);
 
-                    if (CombatDebugSystem.isEnabled(playerUuid)) {
-                        LOGGER.atInfo().log("[FocusedMind] player=%s idle=true delta=%.2f raw=%.3f effective=%.3f boost=%.2f mana=%.0f->%.0f",
+                    // Log once per second, not every tick
+                    prev.ticksSinceLog++;
+                    if (prev.ticksSinceLog >= LOG_INTERVAL_TICKS && CombatDebugSystem.isEnabled(playerUuid)) {
+                        LOGGER.atInfo().log("[FocusedMind] player=%s idle bonus=%.0f%% mana=%.0f/%.0f",
                                 playerUuid.toString().substring(0, 8),
-                                manaDelta, totalBonus, effectiveBonus, boost,
-                                currentMana, currentMana + boost);
+                                effectiveBonus * 100.0,
+                                statMap.get(manaIdx).get(), maxMana);
+                        prev.ticksSinceLog = 0;
                     }
                 }
+
+                prev.lastMana = statMap.get(manaIdx).get();
+            } else {
+                prev.lastMana = currentMana;
             }
+        } else {
+            prev.lastMana = currentMana;
+            prev.ticksSinceLog = 0;
         }
 
-        // Update stored state
         prev.lastX = x;
         prev.lastY = y;
         prev.lastZ = z;
-        prev.lastMana = idle && manaIncreased ? statMap.get(manaIdx).get() : currentMana;
     }
 
-    /**
-     * Scan weapon in hand and all armor slots for the focused_mind affix,
-     * summing up effective values from all equipped pieces.
-     */
     private double computeTotalBonus(Store<EntityStore> store, Ref<EntityStore> entityRef) {
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         PlayerStats playerStats = resolvePlayerStats(entityRef, store);
         double total = 0.0;
 
-        // Weapon in hand
         ItemStack weapon = InventoryComponent.getItemInHand(store, entityRef);
         if (weapon != null && !weapon.isEmpty()) {
-            total += scanItemForFocusedMind(weapon, affixRegistry, playerStats);
+            total += scanItemForAffix(weapon, affixRegistry, playerStats);
         }
 
-        // All armor slots
         @SuppressWarnings("unchecked")
-        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
+        CombinedItemContainer armor = InventoryComponent.getCombined(
                 store, entityRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
-        if (armorContainer != null) {
-            short armorCapacity = armorContainer.getCapacity();
-            for (short slot = 0; slot < armorCapacity; slot++) {
-                ItemStack armorPiece = armorContainer.getItemStack(slot);
-                if (armorPiece == null || armorPiece.isEmpty()) continue;
-                total += scanItemForFocusedMind(armorPiece, affixRegistry, playerStats);
+        if (armor != null) {
+            for (short slot = 0; slot < armor.getCapacity(); slot++) {
+                ItemStack piece = armor.getItemStack(slot);
+                if (piece == null || piece.isEmpty()) continue;
+                total += scanItemForAffix(piece, affixRegistry, playerStats);
             }
         }
 
         return total;
     }
 
-    /**
-     * Scan a single item for the focused_mind affix and compute its effective value.
-     */
-    private double scanItemForFocusedMind(ItemStack item, Nat20AffixRegistry affixRegistry,
-                                           PlayerStats playerStats) {
+    private double scanItemForAffix(ItemStack item, Nat20AffixRegistry affixRegistry,
+                                     PlayerStats playerStats) {
         Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
         if (lootData == null) return 0.0;
 
@@ -231,9 +203,7 @@ public class Nat20FocusedMindSystem {
         return 0.0;
     }
 
-    /**
-     * Resolve the player's D&D stats for affix scaling, or null if unavailable.
-     */
+    @Nullable
     private PlayerStats resolvePlayerStats(Ref<EntityStore> playerRef, Store<EntityStore> store) {
         try {
             Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
@@ -243,12 +213,15 @@ public class Nat20FocusedMindSystem {
         }
     }
 
-    /**
-     * Mutable per-player state for tracking position and mana between ticks.
-     */
+    /** Clean up state on disconnect. */
+    public void removePlayer(UUID uuid) {
+        playerStates.remove(uuid);
+    }
+
     private static class PlayerState {
         double lastX, lastY, lastZ;
         float lastMana;
+        int ticksSinceLog;
 
         PlayerState(double x, double y, double z, float mana) {
             this.lastX = x;

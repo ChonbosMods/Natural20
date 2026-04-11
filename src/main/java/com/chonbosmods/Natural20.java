@@ -344,8 +344,9 @@ public class Natural20 extends JavaPlugin {
         attackSpeedSystem = new Nat20AttackSpeedSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(attackSpeedSystem);
 
-        // Create focused mind affix system (scheduled tick, not ECS: boosts mana regen while idle)
+        // Register focused mind affix system (ECS ticking: smooth mana regen boost while idle)
         focusedMindSystem = new Nat20FocusedMindSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(focusedMindSystem);
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
@@ -358,7 +359,7 @@ public class Natural20 extends JavaPlugin {
             CombatDebugSystem.removePlayer(uuid);
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
             if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
-            if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);
+            if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);  // clears tracked state
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking
@@ -371,7 +372,7 @@ public class Natural20 extends JavaPlugin {
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
-            if (focusedMindSystem != null) focusedMindSystem.addPlayer(uuid);
+            // focusedMindSystem is an ECS ticking system, no manual player tracking needed
             // attackSpeedSystem is an ECS ticking system, no manual player tracking needed
         });
 
@@ -443,9 +444,6 @@ public class Natural20 extends JavaPlugin {
         // Start deep wounds bleed ticker (after loot system loaded affix defs)
         deepWoundsSystem.startBleedTicker();
 
-        // Start focused mind idle mana regen ticker
-        focusedMindSystem.start();
-
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
 
@@ -497,9 +495,6 @@ public class Natural20 extends JavaPlugin {
         }
         if (deepWoundsSystem != null) {
             deepWoundsSystem.shutdown();
-        }
-        if (focusedMindSystem != null) {
-            focusedMindSystem.shutdown();
         }
         // Clear marker state
         QuestMarkerManager.INSTANCE.clear();
