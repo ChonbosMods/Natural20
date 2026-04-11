@@ -21,10 +21,9 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
+import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
-import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
-import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -56,6 +55,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
     private final Nat20LootSystem lootSystem;
     private final ConcurrentHashMap<Ref<EntityStore>, BleedState> activeBleeds = new ConcurrentHashMap<>();
     private ScheduledExecutorService bleedExecutor;
+    private int bleedCauseIdx = -1;
 
     public Nat20DeepWoundsSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -170,13 +170,16 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
     private void tickBleeds() {
         if (activeBleeds.isEmpty()) return;
 
+        if (bleedCauseIdx < 0) {
+            bleedCauseIdx = DamageCause.getAssetMap().getIndex("Nat20Bleed");
+            if (bleedCauseIdx < 0) return;
+        }
+
         World world = Natural20.getInstance().getDefaultWorld();
         if (world == null) return;
 
         world.execute(() -> {
             Store<EntityStore> store = world.getEntityStore().getStore();
-            int healthIdx = EntityStatType.getAssetMap().getIndex("Health");
-            if (healthIdx < 0) return;
 
             Iterator<Map.Entry<Ref<EntityStore>, BleedState>> it = activeBleeds.entrySet().iterator();
             while (it.hasNext()) {
@@ -189,13 +192,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                     continue;
                 }
 
-                EntityStatMap statMap = store.getComponent(targetRef, EntityStatMap.getComponentType());
-                if (statMap == null) {
-                    it.remove();
-                    continue;
-                }
-
-                statMap.subtractStatValue(healthIdx, (float) state.perTickDamage);
+                store.invoke(targetRef, new Damage(Damage.NULL_SOURCE, bleedCauseIdx, (float) state.perTickDamage));
                 state.remainingTicks--;
 
                 if (state.remainingTicks <= 0) {
