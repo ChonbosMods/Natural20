@@ -52,8 +52,7 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:attack_speed";
-    // TODO: restore to 0.35 after testing
-    private static final double SOFTCAP_K = 100.0;
+    private static final double SOFTCAP_K = 0.35;
 
     private final Nat20LootSystem lootSystem;
     private final Query<EntityStore> query;
@@ -126,7 +125,7 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
             Float previous = activeShifts.put(playerUuid, bonus);
             if (previous == null || Float.compare(previous, bonus) != 0) {
                 if (CombatDebugSystem.isEnabled(playerUuid)) {
-                    LOGGER.atInfo().log("[AttackSpeed] player=%s globalTimeShift=%.3f",
+                    LOGGER.atInfo().log("[AttackSpeed] player=%s timeShift=%.3f (applied, visual effect requires AAF)",
                             playerUuid.toString().substring(0, 8), bonus);
                 }
             }
