@@ -41,8 +41,9 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
 
-    /** All score bonuses are multiplied by this for testing visibility. */
+    /** Score bonus multipliers for testing. Tune in Phase 5. */
     private static final float BONUS_MULTIPLIER = 10.0f;
+    private static final float STAMINA_MULTIPLIER = 5.0f;
 
     // Modifier keys: unique per stat source so they don't collide with gear affixes
     private static final String KEY_CON_HEALTH  = "nat20:con_max_health";
@@ -105,8 +106,8 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         // CON -> max Health
         applyModifier(statMap, healthIdx, KEY_CON_HEALTH, conMod);
 
-        // CON -> max Stamina
-        applyModifier(statMap, staminaIdx, KEY_CON_STAMINA, conMod);
+        // CON -> max Stamina (lower multiplier to avoid overwhelming the pool)
+        applyModifierScaled(statMap, staminaIdx, KEY_CON_STAMINA, conMod, STAMINA_MULTIPLIER);
 
         // INT -> max Mana
         applyModifier(statMap, manaIdx, KEY_INT_MANA, intMod);
@@ -128,10 +129,11 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         Nat20ScoreDirtyFlag.clearDirty(uuid);
 
         if (CombatDebugSystem.isEnabled(uuid)) {
-            LOGGER.atInfo().log("[ScoreBonus] player=%s CON=%+d HP/STA=%+.0f INT=%+d MANA=%+.0f "
+            LOGGER.atInfo().log("[ScoreBonus] player=%s CON=%+d HP=%+.0f STA=%+.0f INT=%+d MANA=%+.0f "
                             + "DEX=%+d SPD=%+.0f WIS=%+d PERC=%.0f",
                     uuid.toString().substring(0, 8),
                     conMod, conMod * BONUS_MULTIPLIER,
+                    conMod * STAMINA_MULTIPLIER,
                     intMod, intMod * BONUS_MULTIPLIER,
                     dexMod, dexMod * BONUS_MULTIPLIER,
                     wisMod, wisMod * BONUS_MULTIPLIER);
@@ -145,8 +147,12 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
      * Only removes when the modifier is zero (no bonus to apply).
      */
     private void applyModifier(EntityStatMap statMap, int statIndex, String key, int modifier) {
+        applyModifierScaled(statMap, statIndex, key, modifier, BONUS_MULTIPLIER);
+    }
+
+    private void applyModifierScaled(EntityStatMap statMap, int statIndex, String key, int modifier, float multiplier) {
         if (statIndex < 0) return;
-        float value = modifier * BONUS_MULTIPLIER;
+        float value = modifier * multiplier;
         if (value == 0) {
             statMap.removeModifier(statIndex, key);
         } else {
