@@ -139,18 +139,23 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     }
 
     /**
-     * Remove the old modifier (if any) and apply a new one for the given stat index.
+     * Apply a score-derived modifier to a stat. Uses putModifier directly (overwrite)
+     * instead of remove-then-put, because the remove step causes the engine to clamp
+     * the current stat value down to the temporarily reduced max.
+     * Only removes when the modifier is zero (no bonus to apply).
      */
     private void applyModifier(EntityStatMap statMap, int statIndex, String key, int modifier) {
         if (statIndex < 0) return;
-        statMap.removeModifier(statIndex, key);
         float value = modifier * BONUS_MULTIPLIER;
-        StaticModifier mod = new StaticModifier(
-                Modifier.ModifierTarget.MAX,
-                StaticModifier.CalculationType.ADDITIVE,
-                value
-        );
-        statMap.putModifier(statIndex, key, mod);
+        if (value == 0) {
+            statMap.removeModifier(statIndex, key);
+        } else {
+            statMap.putModifier(statIndex, key, new StaticModifier(
+                    Modifier.ModifierTarget.MAX,
+                    StaticModifier.CalculationType.ADDITIVE,
+                    value
+            ));
+        }
     }
 
     /**
@@ -170,6 +175,33 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         speedIdx = assetMap.getIndex("MovementSpeed");
         if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
             speedIdx = assetMap.getIndex("hytale:movement_speed");
+        }
+
+        // Try more name variations for movement speed
+        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
+            speedIdx = assetMap.getIndex("Movement_Speed");
+        }
+        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
+            speedIdx = assetMap.getIndex("Speed");
+        }
+        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
+            speedIdx = assetMap.getIndex("MoveSpeed");
+        }
+        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
+            // Log all stat names we can probe
+            String[] probes = {"MovementSpeed", "hytale:movement_speed", "Movement_Speed",
+                    "Speed", "MoveSpeed", "Walk_Speed", "WalkSpeed", "BaseSpeed",
+                    "movement_speed", "hytale:MovementSpeed", "Run_Speed", "RunSpeed"};
+            StringBuilder found = new StringBuilder("[ScoreBonus] Stat index probes: ");
+            for (String probe : probes) {
+                int idx = assetMap.getIndex(probe);
+                found.append(probe).append("=").append(idx).append(" ");
+            }
+            // Also probe known working stats for reference
+            found.append("| Known: Health=").append(healthIdx)
+                  .append(" Stamina=").append(staminaIdx)
+                  .append(" Mana=").append(manaIdx);
+            LOGGER.atInfo().log(found.toString());
         }
     }
 
