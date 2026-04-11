@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:deep_wounds",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.deep_wounds",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "STR", "Factor": 0.18 },
+  "TargetStat": "BleedDamage",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 1.0, "Max": 2.0 },
+    "Uncommon":  { "Min": 1.5, "Max": 3.0 },
+    "Rare":      { "Min": 2.0, "Max": 4.5 },
+    "Epic":      { "Min": 3.5, "Max": 7.0 },
+    "Legendary": { "Min": 5.0, "Max": 10.0 }
+  },
+  "Description": "On melee hit, 25% chance to inflict a bleed that deals scaling damage over 5 seconds.",
+  "Cooldown": null,
+  "ProcChance": "25%"
+}

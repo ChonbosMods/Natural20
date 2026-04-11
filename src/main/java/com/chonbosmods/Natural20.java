@@ -2,6 +2,7 @@ package com.chonbosmods;
 
 import com.chonbosmods.combat.CombatDebugSystem;
 import com.chonbosmods.combat.Nat20AbsorptionSystem;
+import com.chonbosmods.combat.Nat20DeepWoundsSystem;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.cave.UndergroundStructurePlacer;
@@ -88,6 +89,7 @@ public class Natural20 extends JavaPlugin {
     private Config<Nat20GlobalData> globalConfig;
     private java.util.concurrent.ScheduledExecutorService npcSyncExecutor;
     private Nat20AbsorptionSystem absorptionSystem;
+    private Nat20DeepWoundsSystem deepWoundsSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -330,6 +332,10 @@ public class Natural20 extends JavaPlugin {
         absorptionSystem = new Nat20AbsorptionSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(absorptionSystem);
 
+        // Register deep wounds affix system (Inspect Group: bleed DOT on melee hit)
+        deepWoundsSystem = new Nat20DeepWoundsSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(deepWoundsSystem);
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -419,6 +425,9 @@ public class Natural20 extends JavaPlugin {
         // Load loot system configs
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
 
+        // Start deep wounds bleed ticker (after loot system loaded affix defs)
+        deepWoundsSystem.startBleedTicker();
+
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
 
@@ -467,6 +476,9 @@ public class Natural20 extends JavaPlugin {
         }
         if (npcSyncExecutor != null) {
             npcSyncExecutor.shutdownNow();
+        }
+        if (deepWoundsSystem != null) {
+            deepWoundsSystem.shutdown();
         }
         // Clear marker state
         QuestMarkerManager.INSTANCE.clear();
