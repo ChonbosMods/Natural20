@@ -4,6 +4,7 @@ import com.chonbosmods.combat.CombatDebugSystem;
 import com.chonbosmods.combat.Nat20AbsorptionSystem;
 import com.chonbosmods.combat.Nat20AttackSpeedSystem;
 import com.chonbosmods.combat.Nat20DeepWoundsSystem;
+import com.chonbosmods.combat.Nat20FocusedMindSystem;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
 import com.chonbosmods.cave.UndergroundStructurePlacer;
@@ -92,6 +93,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20AbsorptionSystem absorptionSystem;
     private Nat20AttackSpeedSystem attackSpeedSystem;
     private Nat20DeepWoundsSystem deepWoundsSystem;
+    private Nat20FocusedMindSystem focusedMindSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -342,6 +344,9 @@ public class Natural20 extends JavaPlugin {
         attackSpeedSystem = new Nat20AttackSpeedSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(attackSpeedSystem);
 
+        // Create focused mind affix system (scheduled tick, not ECS: boosts mana regen while idle)
+        focusedMindSystem = new Nat20FocusedMindSystem(lootSystem);
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -353,6 +358,7 @@ public class Natural20 extends JavaPlugin {
             CombatDebugSystem.removePlayer(uuid);
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
             if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
+            if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking
@@ -365,6 +371,7 @@ public class Natural20 extends JavaPlugin {
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
+            if (focusedMindSystem != null) focusedMindSystem.addPlayer(uuid);
             // attackSpeedSystem is an ECS ticking system, no manual player tracking needed
         });
 
@@ -436,6 +443,9 @@ public class Natural20 extends JavaPlugin {
         // Start deep wounds bleed ticker (after loot system loaded affix defs)
         deepWoundsSystem.startBleedTicker();
 
+        // Start focused mind idle mana regen ticker
+        focusedMindSystem.start();
+
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
 
@@ -487,6 +497,9 @@ public class Natural20 extends JavaPlugin {
         }
         if (deepWoundsSystem != null) {
             deepWoundsSystem.shutdown();
+        }
+        if (focusedMindSystem != null) {
+            focusedMindSystem.shutdown();
         }
         // Clear marker state
         QuestMarkerManager.INSTANCE.clear();

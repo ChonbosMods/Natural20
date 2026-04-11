@@ -36,7 +36,7 @@ public class Nat20AffixRegistry {
             "the_sage.json", "the_titan.json", "violent.json", "warding.json",
             "wrathful.json"
         },
-        "effect", new String[]{"absorption.json", "attack_speed.json", "deep_wounds.json", "revitalizing.json", "thorned.json", "thunderstruck.json", "vampiric.json"},
+        "effect", new String[]{"absorption.json", "attack_speed.json", "deep_wounds.json", "focused_mind.json", "revitalizing.json", "thorned.json", "thunderstruck.json", "vampiric.json"},
         "ability", new String[]{"radial.json", "telepathic.json"}
     );
 

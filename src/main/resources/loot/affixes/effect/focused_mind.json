@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:focused_mind",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.focused_mind",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon", "armor"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
+  "TargetStat": "ManaRegen",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.20, "Max": 0.40 },
+    "Uncommon":  { "Min": 0.35, "Max": 0.60 },
+    "Rare":      { "Min": 0.50, "Max": 0.80 },
+    "Epic":      { "Min": 0.70, "Max": 1.20 },
+    "Legendary": { "Min": 1.00, "Max": 1.80 }
+  },
+  "Description": "Boosts mana regeneration while standing still.",
+  "Cooldown": null,
+  "ProcChance": null
+}
