@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:attack_speed",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.attack_speed",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon"],
+  "StatRequirement": { "DEX": 12 },
+  "StatScaling": { "Primary": "DEX", "Factor": 0.10 },
+  "TargetStat": "InteractionSpeed",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.03, "Max": 0.06 },
+    "Uncommon":  { "Min": 0.05, "Max": 0.10 },
+    "Rare":      { "Min": 0.08, "Max": 0.15 },
+    "Epic":      { "Min": 0.12, "Max": 0.22 },
+    "Legendary": { "Min": 0.18, "Max": 0.30 }
+  },
+  "Description": "Increases attack speed based on DEX, applied as a periodic stat modifier to wielder.",
+  "Cooldown": null,
+  "ProcChance": null
+}
