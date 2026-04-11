@@ -5,7 +5,6 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
-import com.hypixel.hytale.assetstore.map.AssetMapWithIndexes;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
@@ -49,7 +48,6 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     private static final String KEY_CON_HEALTH  = "nat20:con_max_health";
     private static final String KEY_CON_STAMINA = "nat20:con_max_stamina";
     private static final String KEY_INT_MANA    = "nat20:int_max_mana";
-    private static final String KEY_DEX_SPEED   = "nat20:dex_move_speed";
 
     private final Query<EntityStore> query;
 
@@ -57,7 +55,6 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     private int healthIdx  = -1;
     private int staminaIdx = -1;
     private int manaIdx    = -1;
-    private int speedIdx   = -1;
     private boolean indicesResolved = false;
 
     public Nat20ScoreBonusSystem() {
@@ -100,7 +97,6 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         PlayerStats stats = PlayerStats.from(playerData);
         int conMod = stats.getModifier(Stat.CON);
         int intMod = stats.getModifier(Stat.INT);
-        int dexMod = stats.getModifier(Stat.DEX);
         int wisMod = stats.getModifier(Stat.WIS);
 
         // CON -> max Health
@@ -112,30 +108,21 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         // INT -> max Mana
         applyModifier(statMap, manaIdx, KEY_INT_MANA, intMod);
 
-        // DEX -> movement speed
-        if (speedIdx >= 0) {
-            applyModifier(statMap, speedIdx, KEY_DEX_SPEED, dexMod);
-        } else {
-            LOGGER.atWarning().log("[ScoreBonus] MovementSpeed stat not found: "
-                    + "tried 'MovementSpeed' and 'hytale:movement_speed'");
-        }
+        // DEX -> movement speed: deferred to Phase 4 (needs MovementManager fallback, no stat type exists)
 
         // WIS -> perception (stored on playerData, not a stat modifier)
         playerData.setPerception(wisMod * BONUS_MULTIPLIER);
 
-        // Trigger gear affix recomputation when scores change
-        recomputeGearAffixes(uuid);
+        // Gear affix recomputation: deferred to Phase 4 (needs PlayerScoreChangeEvent)
 
         Nat20ScoreDirtyFlag.clearDirty(uuid);
 
         if (CombatDebugSystem.isEnabled(uuid)) {
-            LOGGER.atInfo().log("[ScoreBonus] player=%s CON=%+d HP=%+.0f STA=%+.0f INT=%+d MANA=%+.0f "
-                            + "DEX=%+d SPD=%+.0f WIS=%+d PERC=%.0f",
+            LOGGER.atInfo().log("[ScoreBonus] player=%s CON=%+d HP=%+.0f STA=%+.0f INT=%+d MANA=%+.0f WIS=%+d PERC=%.0f",
                     uuid.toString().substring(0, 8),
                     conMod, conMod * BONUS_MULTIPLIER,
                     conMod * STAMINA_MULTIPLIER,
                     intMod, intMod * BONUS_MULTIPLIER,
-                    dexMod, dexMod * BONUS_MULTIPLIER,
                     wisMod, wisMod * BONUS_MULTIPLIER);
         }
     }
@@ -177,50 +164,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         staminaIdx = assetMap.getIndex("Stamina");
         manaIdx    = assetMap.getIndex("Mana");
 
-        // Try both possible names for movement speed
-        speedIdx = assetMap.getIndex("MovementSpeed");
-        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
-            speedIdx = assetMap.getIndex("hytale:movement_speed");
-        }
-
-        // Try more name variations for movement speed
-        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
-            speedIdx = assetMap.getIndex("Movement_Speed");
-        }
-        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
-            speedIdx = assetMap.getIndex("Speed");
-        }
-        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
-            speedIdx = assetMap.getIndex("MoveSpeed");
-        }
-        if (speedIdx == AssetMapWithIndexes.NOT_FOUND) {
-            // Log all stat names we can probe
-            String[] probes = {"MovementSpeed", "hytale:movement_speed", "Movement_Speed",
-                    "Speed", "MoveSpeed", "Walk_Speed", "WalkSpeed", "BaseSpeed",
-                    "movement_speed", "hytale:MovementSpeed", "Run_Speed", "RunSpeed"};
-            StringBuilder found = new StringBuilder("[ScoreBonus] Stat index probes: ");
-            for (String probe : probes) {
-                int idx = assetMap.getIndex(probe);
-                found.append(probe).append("=").append(idx).append(" ");
-            }
-            // Also probe known working stats for reference
-            found.append("| Known: Health=").append(healthIdx)
-                  .append(" Stamina=").append(staminaIdx)
-                  .append(" Mana=").append(manaIdx);
-            LOGGER.atInfo().log(found.toString());
-        }
-    }
-
-    /**
-     * Recompute gear affix modifiers after a score change. Score-based scaling
-     * on gear affixes means the effective values change when ability scores do.
-     *
-     * <p>Stub: will be wired in Phase 4 when PlayerScoreChangeEvent is available
-     * to trigger full equipment re-evaluation through Nat20EquipmentListener.
-     */
-    private void recomputeGearAffixes(UUID uuid) {
-        // No-op: Phase 4 will fire PlayerScoreChangeEvent here, which
-        // Nat20EquipmentListener will handle to strip and reapply all
-        // gear modifiers with updated PlayerStats.
+        // Movement speed: no EntityStatType exists in vanilla Hytale.
+        // Deferred to Phase 4 alongside Attack Speed (both need MovementManager/AAF).
     }
 }
