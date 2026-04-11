@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:crit_chance",
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.crit_chance",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon"],
+  "StatRequirement": null,
+  "StatScaling": { "Primary": "DEX", "Factor": 0.12 },
+  "TargetStat": "Nat20CritChance",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.03, "Max": 0.05 },
+    "Uncommon":  { "Min": 0.05, "Max": 0.08 },
+    "Rare":      { "Min": 0.07, "Max": 0.12 },
+    "Epic":      { "Min": 0.10, "Max": 0.18 },
+    "Legendary": { "Min": 0.15, "Max": 0.25 }
+  },
+  "Description": "Chance to deal a critical hit with increased damage.",
+  "Cooldown": null,
+  "ProcChance": null
+}
