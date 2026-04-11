@@ -256,34 +256,93 @@ When `PlayerScoreChangeEvent` fires, all currently equipped items must recompute
 
 ---
 
-## Phase 4: Remaining 14 Affixes + Deferred Phase 3 Items
+## Phase 4: Deferred Systems + Crit/Bleed VFX — COMPLETE (2026-04-11)
 
-**Goal**: batch-implement all remaining affixes, plus deferred items from Phase 3. Each is a variation on a pattern proven in Phase 2.
+**Goal**: resolve deferred Phase 3 items and build the crit/bleed damage visibility systems.
 
-### Deferred from Phase 3
+**Status**: All six subsystems implemented. Pending smoke test.
 
-- **DEX movement speed + Attack Speed**: no EntityStatType for movement speed in vanilla Hytale. Both need MovementManager/AAF integration. Grouped together.
-- **Gear affix recomputation on score change**: needs PlayerScoreChangeEvent to trigger full equipment re-evaluation
-- **INT magical damage bonus**: needs damage type flagging to distinguish melee from magical DamageCauses
+### What Was Built
 
-### Implementation Order
+1. **Custom DamageCause assets** (6): `Nat20Critical` (gold #ffaa00), `Nat20Bleed` (dark red #cc0000), `Nat20Fire` (orange #ff6600), `Nat20Ice` (cyan #66ccff), `Nat20Void` (purple #aa44ff), `Nat20Poison` (green #44cc44). All inherit from `Physical`.
 
-**4a: Crit system** (Crit Chance + Crit Damage as a pair):
-- Create `Entity/Stats/nat20_crit_chance.json` and `nat20_crit_damage.json` custom stat types
-- Create `Entity/DamageCauses/nat20_critical.json` with yellow `damageTextColor`
-- Crit Chance (DEX affix): writes `StaticModifier` to `nat20:crit_chance` stat
-- Crit resolution system in Filter Group: read crit chance stat, roll, set crit flag
-- Crit Damage (STR affix): reads crit flag, multiplies `damage.setAmount()`
-- Swap DamageCause to `nat20:critical`, inject `IMPACT_PARTICLES` and `IMPACT_SOUND_EFFECT`
+2. **Custom EntityStatType assets** (2): `Nat20CritChance` (0.0–1.0), `Nat20CritDamage` (1.0–10.0, initial 1.5).
 
-**4b: Remaining Filter Group** (proven by Absorption):
+3. **Crit affix definitions** (2): `crit_chance` (STAT type, DEX-scaled, ADDITIVE to Nat20CritChance) and `crit_damage` (STAT type, STR-scaled, ADDITIVE to Nat20CritDamage). Both are `STAT` type so `Nat20ModifierManager` applies them automatically via the equipment listener.
+
+4. **Nat20CritSystem**: `DamageEventSystem` in Filter Group. Reads `Nat20CritChance` stat from attacker, rolls `ThreadLocalRandom`, multiplies damage by `Nat20CritDamage` stat, swaps `DamageCause` to `Nat20Critical` for gold damage text.
+
+5. **Bleed visibility**: `Nat20DeepWoundsSystem.tickBleeds()` changed from silent `statMap.subtractStatValue()` to `store.invoke(targetRef, new Damage(NULL_SOURCE, bleedCauseIdx, amount))`. Target now sees red damage numbers each bleed tick.
+
+6. **DEX movement speed**: `Nat20MovementSpeedSystem` (`EntityTickingSystem`). Bridges DEX modifier to `MovementManager.getSettings().baseSpeed` with 4% per DEX modifier point. Drift reconciliation every tick (tolerance 0.02f). Raises `maxSpeedMultiplier` to 3.0f. Syncs to client via `mm.update(playerRef.getPacketHandler())`.
+
+7. **Attack speed client animation sync**: `Nat20AttackSpeedSystem` now sends `UpdateItemPlayerAnimations` packets with boosted `ItemAnimation.speed` on attack animations (swing, stab, slash, strike, attack, combo keywords). Tracks `AnimSyncState` per player, restores baseline on bonus removal.
+
+8. **Gear affix recomputation**: `Nat20ScoreBonusSystem` now accepts `Nat20LootSystem` + `Nat20EquipmentListener`. After applying score bonuses, iterates all equipped items and re-`putModifier`s affix values with updated stat scaling. Idempotent overwrite avoids the clamp-down problem.
+
+9. **INT elemental damage bonus**: `Nat20ScoreDamageSystem` resolves four elemental `DamageCause` indices (`Nat20Fire`, `Nat20Ice`, `Nat20Void`, `Nat20Poison`). When a player deals elemental damage, adds `INT_modifier * 10.0` flat bonus.
+
+### Files Created
+
+- `src/main/resources/Server/Entity/Damage/Nat20Critical.json`
+- `src/main/resources/Server/Entity/Damage/Nat20Bleed.json`
+- `src/main/resources/Server/Entity/Damage/Nat20Fire.json`
+- `src/main/resources/Server/Entity/Damage/Nat20Ice.json`
+- `src/main/resources/Server/Entity/Damage/Nat20Void.json`
+- `src/main/resources/Server/Entity/Damage/Nat20Poison.json`
+- `src/main/resources/Server/Entity/Stats/Nat20CritChance.json`
+- `src/main/resources/Server/Entity/Stats/Nat20CritDamage.json`
+- `src/main/resources/loot/affixes/effect/crit_chance.json`
+- `src/main/resources/loot/affixes/effect/crit_damage.json`
+- `src/main/java/com/chonbosmods/combat/Nat20CritSystem.java`
+- `src/main/java/com/chonbosmods/combat/Nat20MovementSpeedSystem.java`
+
+### Files Modified
+
+- `src/main/java/com/chonbosmods/combat/Nat20DeepWoundsSystem.java` (bleed → real damage)
+- `src/main/java/com/chonbosmods/combat/Nat20AttackSpeedSystem.java` (animation sync)
+- `src/main/java/com/chonbosmods/combat/Nat20ScoreBonusSystem.java` (gear recomp)
+- `src/main/java/com/chonbosmods/combat/Nat20ScoreDamageSystem.java` (INT elemental)
+- `src/main/java/com/chonbosmods/loot/Nat20EquipmentListener.java` (expose cache)
+- `src/main/java/com/chonbosmods/loot/registry/Nat20AffixRegistry.java` (crit affixes)
+- `src/main/java/com/chonbosmods/Natural20.java` (registration)
+
+### Phase 4 Divergences from Plan
+
+1. **Bleed uses DamageCause, not particles.** Plan called for custom bleed particle effects. Instead, bleed ticks fire real `Damage` events with `Nat20Bleed` cause (dark red damage text). This is simpler and gives better visual feedback (damage numbers + hurt animation) than hunting for suitable built-in particle system IDs. No custom particle systems are definable by plugins.
+2. **Crit uses DamageCause swap only, no IMPACT_PARTICLES.** Plan called for injecting particles via `Damage.IMPACT_PARTICLES` MetaStore. Deferred: finding the right built-in particle system ID requires runtime enumeration. The gold damage text via `Nat20Critical` DamageCause is sufficient visual feedback for now.
+3. **No AAF dependency for attack speed.** Plan considered AAF integration. Instead, raw SDK APIs are used: `setGlobalTimeShift()` + `setTimeShift()` for server-side speed, `UpdateItemPlayerAnimations` packet for client animation visual sync.
+4. **INT bonus limited to four specific elements, not generic "magical".** Plan said "distinguish melee from magical DamageCauses." Instead, INT bonus applies only to four custom elemental DamageCauses: `Nat20Fire`, `Nat20Ice`, `Nat20Void`, `Nat20Poison`. These are the four damage types our affixes will use.
+5. **Crit affixes are STAT type, not EFFECT.** Plan implied EFFECT type. Changed to STAT so `Nat20ModifierManager` applies `StaticModifier` to custom stat types automatically via the equipment listener. The crit system just reads stat values.
+6. **Gear recomp uses dirty flag, not PlayerScoreChangeEvent.** Plan called for a custom event. The existing `Nat20ScoreDirtyFlag` already fires on score changes. `Nat20ScoreBonusSystem` recomputes gear affixes in the same dirty-flag tick.
+7. **`DamageModule.get().dealDamage()` does not exist.** Bleed uses `store.invoke(targetRef, new Damage(...))` to fire ECS damage events through the full pipeline.
+8. **`MovementSettings` is at `com.hypixel.hytale.protocol.MovementSettings`**, not in the player movement package as originally assumed.
+
+### Test Criteria
+
+- `/nat20 testweapon crit_chance` + `/nat20 testweapon crit_damage`, hit dummy: gold damage numbers on crits
+- `/nat20 testweapon deep_wounds`, hit dummy: red damage numbers tick on target when bleed procs
+- `/nat20 setstats DEX 20`: movement visibly faster. DEX 10: normal speed
+- Attack speed weapon: swing animation visually faster
+- Equip stat-scaled weapon, then `/nat20 setstats STR 20`: debug log shows updated affix values
+- INT elemental: infrastructure for Phase 5 affixes (Fire, Arcane Edge)
+
+---
+
+## Phase 5: Remaining Affixes
+
+**Goal**: batch-implement all remaining affixes. The affix list will be reviewed and edited before this phase begins. Each is a variation on a pattern proven in Phase 2.
+
+### Affix List (to be finalized before Phase 5 starts)
+
+**Filter Group** (proven by Absorption):
 - Block Proficiency (STR): intercept blocked hits, scale damage reduction
 - Backstab (DEX): check target aggro state, bonus damage if unaggro'd
 - Knockback Resist (CON): add multiplier < 1.0 to `KnockbackComponent.modifiers`
 - Flinch Resist (CON): conditionally cancel hit animation below threshold
 - Guard Break Resist (CON): scale stamina drain threshold
 
-**4c: Remaining Inspect Group procs** (proven by Deep Wounds):
+**Inspect Group procs** (proven by Deep Wounds):
 - Fire (INT): roll chance, apply native `hytale:burning` via EffectControllerComponent, duration scales with INT
 - Arcane Edge (INT): fire secondary `Damage` event with `nat20:magical` DamageCause
 - Spell Attunement (INT): modifier read by mana drain system before subtracting cost
@@ -291,23 +350,14 @@ When `PlayerScoreChangeEvent` fires, all currently equipped items must recompute
 - Health Regen on Kill (WIS): kill detection via `DeathComponent`, immediate `addStatValue` on killer's health
 - Rally (CHA): kill detection, broadcast Entity Effect to allies within radius
 
-**4d: Aura system** (newest pattern):
-- Commanding Presence (CHA): `EntityTickingSystem` with spatial query via `SpatialResource.getSpatialStructure().collect(position, radius, refs)` for nearby players. Broadcast flat damage bonus as `StaticModifier`. Remove when source player moves out of range or unequips.
+**Aura system** (newest pattern):
+- Commanding Presence (CHA): `EntityTickingSystem` with spatial query for nearby players. Broadcast flat damage bonus as `StaticModifier`. Remove when source player moves out of range or unequips.
 
-### New Assets
-
-- `Entity/Effects/nat20_fear.json` (debuff: outgoing damage reduction)
-- `Entity/DamageCauses/nat20_magical.json` (Arcane Edge secondary hit)
-- `Entity/DamageCauses/nat20_critical.json` (yellow damage text)
-- `Entity/Stats/nat20_crit_chance.json` and `nat20_crit_damage.json`
-
-### Test Criteria
-
-Each affix tested individually via `/nat20 combattest <affix_id> <level>` with appropriate stat overrides. Crit system tested end-to-end: equip both Crit Chance and Crit Damage weapons (or a weapon with both affixes), hit dummy repeatedly, observe yellow crit numbers in damage log.
+*This list is a starting point. Affixes may be added, removed, or renamed before implementation begins.*
 
 ---
 
-## Phase 5: Polish & Softcap Tuning
+## Phase 6: Polish & Softcap Tuning
 
 **Goal**: tune all softcap `k` values, verify affix interactions under stacking, and harden edge cases.
 
@@ -326,7 +376,7 @@ Each affix tested individually via `/nat20 combattest <affix_id> <level>` with a
 | Absorption + Flinch Resist | Absorption reduces first, flinch checks reduced amount |
 | Attack Speed + Backstab | Fast swings don't trivialize aggro window |
 | Commanding Presence + Rally | Aura modifiers don't accumulate on allies |
-| Multiple `nat20:` modifiers on same stat | Remove-before-rewrite prevents drift |
+| Multiple `nat20:` modifiers on same stat | Overwrite prevents drift |
 
 ### Edge Cases
 
@@ -353,8 +403,9 @@ Phase 2: Four Proof Affixes ✅ ←── also builds softcap utility
     ↓
 Phase 3: Persistent Bonuses ✅ ←── uses softcap, regen intercept pattern from Phase 2
     ↓
-Phase 4: Remaining 14 Affixes + Deferred ←── all patterns proven, batch work
-    ↓                                         includes DEX speed, attack speed,
-    ↓                                         gear recomp, INT magic flagging
-Phase 5: Polish & Tuning
+Phase 4: Deferred + Crit/Bleed VFX ✅ ←── DEX speed, attack speed anim sync, gear recomp,
+    ↓                                       INT elemental, crit system, bleed visibility
+Phase 5: Remaining Affixes ←── list finalized before start, batch work
+    ↓
+Phase 6: Polish & Tuning
 ```

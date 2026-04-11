@@ -1,5 +1,15 @@
 package com.chonbosmods.combat;
 
+import com.chonbosmods.Natural20;
+import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.loot.RolledAffix;
+import com.chonbosmods.loot.def.AffixValueRange;
+import com.chonbosmods.loot.def.Nat20AffixDef;
+import com.chonbosmods.loot.registry.Nat20AffixRegistry;
+import com.chonbosmods.stats.PlayerStats;
+import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
@@ -8,35 +18,42 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
-import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
-import com.hypixel.hytale.server.core.modules.entitystats.EntityStatValue;
-import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import javax.annotation.Nullable;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Resolves critical hits for player melee attacks in the Filter Group.
- * Reads Nat20CritChance and Nat20CritDamage stat values (set by StaticModifier
- * from equipped crit affixes) and rolls for a crit on each hit. On crit,
- * multiplies damage and swaps DamageCause to Nat20Critical for gold text.
- * Stateless system: no per-player tracking or cleanup needed.
+ * Scans the attacker's weapon for crit_chance and crit_damage affixes,
+ * rolls for a crit, multiplies damage, and swaps DamageCause to Nat20Critical
+ * for gold damage text. Same affix-scanning pattern as DeepWounds and AttackSpeed.
  */
 public class Nat20CritSystem extends DamageEventSystem {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
 
-    // Lazily resolved indices (asset maps not ready during construction)
-    private int critChanceIdx = -1;
-    private int critDamageIdx = -1;
+    private static final String CRIT_CHANCE_ID = "nat20:crit_chance";
+    private static final String CRIT_DAMAGE_ID = "nat20:crit_damage";
+    private static final double BASE_CRIT_MULTIPLIER = 1.5;
+    private static final double SOFTCAP_K_CHANCE = 0.30;
+    private static final double SOFTCAP_K_DAMAGE = 2.0;
+
+    private final Nat20LootSystem lootSystem;
     private int critCauseIdx = -1;
-    private boolean indicesResolved = false;
+    private boolean causeResolved = false;
+
+    public Nat20CritSystem(Nat20LootSystem lootSystem) {
+        this.lootSystem = lootSystem;
+    }
 
     @Override
     public Query<EntityStore> getQuery() {
@@ -54,67 +71,98 @@ public class Nat20CritSystem extends DamageEventSystem {
                        Damage damage) {
         if (damage.isCancelled()) return;
 
-        // Only process melee hits from entities
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
 
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
-        // Only process player attacks
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
         if (attackerPlayer == null) return;
 
-        // Lazily resolve asset indices
-        if (!indicesResolved) {
-            resolveIndices();
-            if (!indicesResolved) return;
+        if (!causeResolved) {
+            critCauseIdx = DamageCause.getAssetMap().getIndex("Nat20Critical");
+            causeResolved = true;
+            if (critCauseIdx < 0) {
+                LOGGER.atWarning().log("[Crit] Nat20Critical DamageCause not found");
+            }
+        }
+        if (critCauseIdx < 0) return;
+
+        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
+        if (weapon == null || weapon.isEmpty()) return;
+
+        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (lootData == null) return;
+
+        PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
+        Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
+
+        // Compute effective crit chance
+        double critChance = computeAffixValue(CRIT_CHANCE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_CHANCE);
+        if (critChance <= 0) return;
+
+        UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
+
+        if (CombatDebugSystem.isEnabled(playerUuid)) {
+            double critDmgBonus = computeAffixValue(CRIT_DAMAGE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_DAMAGE);
+            LOGGER.atInfo().log("[Crit:check] player=%s chance=%.1f%% dmgBonus=%.2f",
+                    playerUuid.toString().substring(0, 8),
+                    critChance * 100, critDmgBonus);
         }
 
-        // Read crit stats from attacker's EntityStatMap
-        EntityStatMap statMap = store.getComponent(attackerRef, EntityStatMap.getComponentType());
-        if (statMap == null) return;
+        // Roll
+        if (ThreadLocalRandom.current().nextDouble() >= critChance) return;
 
-        float critChance = statMap.get(critChanceIdx).get();
-        if (critChance <= 0.0f) return;
+        // Crit! Compute damage multiplier
+        double critDmgBonus = computeAffixValue(CRIT_DAMAGE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_DAMAGE);
+        double critMultiplier = BASE_CRIT_MULTIPLIER + critDmgBonus;
 
-        // Roll for crit
-        if (ThreadLocalRandom.current().nextFloat() >= critChance) return;
-
-        // Crit hit: read damage multiplier, floor at 1.0
-        float critDamageMultiplier = statMap.get(critDamageIdx).get();
-        if (critDamageMultiplier < 1.0f) critDamageMultiplier = 1.0f;
-
-        float originalDamage = damage.getAmount();
-        float critDamage = originalDamage * critDamageMultiplier;
-        damage.setAmount(critDamage);
-
-        // Swap DamageCause for gold text
+        float original = damage.getAmount();
+        float critted = (float) (original * critMultiplier);
+        damage.setAmount(critted);
         damage.setDamageCauseIndex(critCauseIdx);
 
-        // Debug logging
-        UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
         if (CombatDebugSystem.isEnabled(playerUuid)) {
-            LOGGER.atInfo().log("[Crit] player=%s chance=%.2f multiplier=%.2f damage=%.1f->%.1f",
+            LOGGER.atInfo().log("[Crit] player=%s chance=%.1f%% mult=%.2fx damage=%.1f->%.1f",
                     playerUuid.toString().substring(0, 8),
-                    critChance, critDamageMultiplier,
-                    originalDamage, critDamage);
+                    critChance * 100, critMultiplier, original, critted);
         }
     }
 
-    /**
-     * Lazily resolve stat and DamageCause indices from asset maps.
-     */
-    private void resolveIndices() {
-        critChanceIdx = EntityStatType.getAssetMap().getIndex("Nat20CritChance");
-        critDamageIdx = EntityStatType.getAssetMap().getIndex("Nat20CritDamage");
-        critCauseIdx = DamageCause.getAssetMap().getIndex("Nat20Critical");
+    private double computeAffixValue(String affixId, Nat20LootData lootData,
+                                      Nat20AffixRegistry affixRegistry,
+                                      @Nullable PlayerStats playerStats, double softcapK) {
+        for (RolledAffix rolledAffix : lootData.getAffixes()) {
+            if (!affixId.equals(rolledAffix.id())) continue;
 
-        if (critChanceIdx >= 0 && critDamageIdx >= 0 && critCauseIdx >= 0) {
-            indicesResolved = true;
-        } else {
-            LOGGER.atWarning().log("[Crit] Failed to resolve indices: critChance=%d critDamage=%d critCause=%d",
-                    critChanceIdx, critDamageIdx, critCauseIdx);
+            Nat20AffixDef def = affixRegistry.get(affixId);
+            if (def == null) return 0;
+
+            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+            if (range == null) return 0;
+
+            double baseValue = range.interpolate(lootData.getLootLevel());
+            double effectiveValue = baseValue;
+
+            if (playerStats != null && def.statScaling() != null) {
+                Stat primary = def.statScaling().primary();
+                int modifier = playerStats.getModifier(primary);
+                effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+            }
+
+            return Nat20Softcap.softcap(effectiveValue, softcapK);
+        }
+        return 0;
+    }
+
+    @Nullable
+    private PlayerStats resolvePlayerStats(Ref<EntityStore> playerRef, Store<EntityStore> store) {
+        try {
+            Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
+            return playerData != null ? PlayerStats.from(playerData) : null;
+        } catch (Exception e) {
+            return null;
         }
     }
 }

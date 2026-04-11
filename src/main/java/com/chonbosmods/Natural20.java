@@ -369,7 +369,7 @@ public class Natural20 extends JavaPlugin {
         scoreDamageSystem = new Nat20ScoreDamageSystem();
         getEntityStoreRegistry().registerSystem(scoreDamageSystem);
 
-        critSystem = new Nat20CritSystem();
+        critSystem = new Nat20CritSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(critSystem);
 
         // DEX -> movement speed (bridges DEX modifier to MovementManager baseSpeed)
