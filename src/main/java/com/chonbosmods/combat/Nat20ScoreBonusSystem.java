@@ -22,6 +22,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ECS ticking system that applies D&D ability score modifiers as persistent
@@ -58,6 +59,11 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
     private int manaIdx    = -1;
     private int speedIdx   = -1;
     private boolean indicesResolved = false;
+
+    /** Track previous bonus per player per stat key, so we can bump current values on increase. */
+    private final ConcurrentHashMap<UUID, float[]> previousBonuses = new ConcurrentHashMap<>();
+    // Array indices: 0=health, 1=stamina, 2=mana
+    private static final int PREV_HEALTH = 0, PREV_STAMINA = 1, PREV_MANA = 2;
 
     public Nat20ScoreBonusSystem() {
         this.query = Query.and(new Query[]{
@@ -102,14 +108,29 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         int dexMod = stats.getModifier(Stat.DEX);
         int wisMod = stats.getModifier(Stat.WIS);
 
+        float healthBonus = conMod * BONUS_MULTIPLIER;
+        float staminaBonus = conMod * BONUS_MULTIPLIER;
+        float manaBonus = intMod * BONUS_MULTIPLIER;
+
+        // Get previous bonuses to compute deltas
+        float[] prev = previousBonuses.computeIfAbsent(uuid, k -> new float[3]);
+
         // CON -> max Health
         applyModifier(statMap, healthIdx, KEY_CON_HEALTH, conMod);
+        bumpCurrentValue(statMap, healthIdx, healthBonus - prev[PREV_HEALTH]);
 
         // CON -> max Stamina
         applyModifier(statMap, staminaIdx, KEY_CON_STAMINA, conMod);
+        bumpCurrentValue(statMap, staminaIdx, staminaBonus - prev[PREV_STAMINA]);
 
         // INT -> max Mana
         applyModifier(statMap, manaIdx, KEY_INT_MANA, intMod);
+        bumpCurrentValue(statMap, manaIdx, manaBonus - prev[PREV_MANA]);
+
+        // Store current bonuses for next recalc
+        prev[PREV_HEALTH] = healthBonus;
+        prev[PREV_STAMINA] = staminaBonus;
+        prev[PREV_MANA] = manaBonus;
 
         // DEX -> movement speed
         if (speedIdx >= 0) {
@@ -156,6 +177,21 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
                     value
             ));
         }
+    }
+
+    /**
+     * When the max bonus increases, bump the current value by the delta so the
+     * player doesn't feel like they "lost" stats. When the max bonus decreases,
+     * do nothing (let natural regen handle it).
+     */
+    private void bumpCurrentValue(EntityStatMap statMap, int statIndex, float delta) {
+        if (statIndex < 0 || delta <= 0) return;
+        statMap.addStatValue(statIndex, delta);
+    }
+
+    /** Clean up tracked state on disconnect. */
+    public void removePlayer(UUID uuid) {
+        previousBonuses.remove(uuid);
     }
 
     /**
