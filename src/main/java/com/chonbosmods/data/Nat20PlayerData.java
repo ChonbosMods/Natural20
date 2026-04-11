@@ -43,6 +43,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("TopicRecapNodes", STRING_MAP_CODEC), Nat20PlayerData::setTopicRecapNodesRaw, Nat20PlayerData::getTopicRecapNodesRaw)
             .addField(new KeyedCodec<>("NpcClosingValences", STRING_MAP_CODEC), Nat20PlayerData::setNpcClosingValencesRaw, Nat20PlayerData::getNpcClosingValencesRaw)
             .addField(new KeyedCodec<>("DiscoveredSettlements", STRING_SET_CODEC), Nat20PlayerData::setDiscoveredSettlements, Nat20PlayerData::getDiscoveredSettlements)
+            .addField(new KeyedCodec<>("Perception", Codec.FLOAT), Nat20PlayerData::setPerception, Nat20PlayerData::getPerception)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -69,6 +70,8 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     // Settlement discovery tracking (cellKeys of settlements this player has visited)
     private Set<String> discoveredSettlements = new HashSet<>();
+
+    private float perception = 0.0f;
 
     public Nat20PlayerData() {
     }
@@ -444,6 +447,16 @@ public class Nat20PlayerData implements Component<EntityStore> {
         }
     }
 
+    // --- Perception ---
+
+    public float getPerception() {
+        return perception;
+    }
+
+    public void setPerception(float perception) {
+        this.perception = perception;
+    }
+
     // --- Discovered Settlements ---
 
     public Set<String> getDiscoveredSettlements() {
@@ -496,6 +509,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.savedSessions = new HashMap<>(this.savedSessions);
         copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
         copy.discoveredSettlements = new HashSet<>(this.discoveredSettlements);
+        copy.perception = this.perception;
         return copy;
     }
 }
