@@ -338,8 +338,9 @@ public class Natural20 extends JavaPlugin {
         deepWoundsSystem = new Nat20DeepWoundsSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(deepWoundsSystem);
 
-        // Create attack speed affix system (periodic tick, not an ECS system)
+        // Register attack speed affix system (ECS ticking system, runs AFTER TickInteractionManagerSystem)
         attackSpeedSystem = new Nat20AttackSpeedSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(attackSpeedSystem);
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
@@ -351,7 +352,7 @@ public class Natural20 extends JavaPlugin {
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.removePlayer(uuid);
             CombatDebugSystem.removePlayer(uuid);
             if (absorptionSystem != null) absorptionSystem.removePlayer(uuid);
-            if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);
+            if (attackSpeedSystem != null) attackSpeedSystem.removePlayer(uuid);  // clears tracked shift state
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking
@@ -364,7 +365,7 @@ public class Natural20 extends JavaPlugin {
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
-            if (attackSpeedSystem != null) attackSpeedSystem.addPlayer(uuid);
+            // attackSpeedSystem is an ECS ticking system, no manual player tracking needed
         });
 
         // Register quest POI marker provider on every world
@@ -435,9 +436,6 @@ public class Natural20 extends JavaPlugin {
         // Start deep wounds bleed ticker (after loot system loaded affix defs)
         deepWoundsSystem.startBleedTicker();
 
-        // Start attack speed periodic tick (after loot system loaded affix defs)
-        attackSpeedSystem.start();
-
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
 
@@ -489,9 +487,6 @@ public class Natural20 extends JavaPlugin {
         }
         if (deepWoundsSystem != null) {
             deepWoundsSystem.shutdown();
-        }
-        if (attackSpeedSystem != null) {
-            attackSpeedSystem.shutdown();
         }
         // Clear marker state
         QuestMarkerManager.INSTANCE.clear();

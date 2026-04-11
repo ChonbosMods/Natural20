@@ -11,143 +11,118 @@ import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.dependency.Dependency;
+import com.hypixel.hytale.component.dependency.Order;
+import com.hypixel.hytale.component.dependency.SystemDependency;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.entity.InteractionManager;
+import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.interaction.InteractionModule;
-import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.modules.interaction.system.InteractionSystems;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
- * Attack Speed affix system: periodically scans online players' equipped weapons for
- * the attack_speed affix and applies a time shift to their InteractionManager chains.
+ * Attack Speed affix system: ECS ticking system that applies interaction time shifts
+ * to players wielding weapons with the attack_speed affix.
  *
- * <p>Uses the InteractionManager ECS component (obtained via InteractionModule) to
- * call {@code setGlobalTimeShift()} and {@code chain.setTimeShift()} on active chains.
- * Positive time shift = faster interactions.
- *
- * <p>Runs on a 250ms tick via a daemon ScheduledExecutorService, dispatching entity
- * work to the world thread via {@code world.execute()}.
+ * <p>Runs AFTER {@code TickInteractionManagerSystem} each game tick, matching the
+ * pattern used by AttackAnimationsFramework. This ensures the time shift is applied
+ * after the engine's native interaction tick and persists until the next tick.
  */
-public class Nat20AttackSpeedSystem {
+public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:attack_speed";
     // TODO: restore to 0.35 after testing
     private static final double SOFTCAP_K = 100.0;
-    private static final long TICK_INTERVAL_MS = 250L;
 
     private final Nat20LootSystem lootSystem;
-    private final Set<UUID> trackedPlayers = ConcurrentHashMap.newKeySet();
+    private final ComponentType<EntityStore, InteractionManager> imType;
+    private final Query<EntityStore> query;
+    private final Set<Dependency<EntityStore>> dependencies;
+
+    /** Track last applied shift per player to avoid redundant logging. */
     private final ConcurrentHashMap<UUID, Float> activeShifts = new ConcurrentHashMap<>();
-    private ScheduledExecutorService executor;
 
     public Nat20AttackSpeedSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
-    }
-
-    public void addPlayer(UUID uuid) {
-        trackedPlayers.add(uuid);
-    }
-
-    public void removePlayer(UUID uuid) {
-        trackedPlayers.remove(uuid);
-        activeShifts.remove(uuid);
-    }
-
-    public void start() {
-        executor = Executors.newSingleThreadScheduledExecutor(r -> {
-            Thread t = new Thread(r, "nat20-attack-speed");
-            t.setDaemon(true);
-            return t;
+        this.imType = InteractionModule.get().getInteractionManagerComponent();
+        this.query = Query.and(new Query[]{
+                Query.any(), UUIDComponent.getComponentType(), Player.getComponentType()
         });
-        executor.scheduleAtFixedRate(this::tick, TICK_INTERVAL_MS, TICK_INTERVAL_MS, TimeUnit.MILLISECONDS);
+        this.dependencies = Set.of(
+                new SystemDependency<>(Order.AFTER, InteractionSystems.TickInteractionManagerSystem.class)
+        );
     }
 
-    public void shutdown() {
-        if (executor != null) {
-            executor.shutdownNow();
-        }
-        activeShifts.clear();
+    @Nonnull
+    @Override
+    public Query<EntityStore> getQuery() {
+        return query;
     }
 
-    private void tick() {
-        if (trackedPlayers.isEmpty()) return;
-
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-
-        world.execute(() -> {
-            Store<EntityStore> store = world.getEntityStore().getStore();
-            ComponentType<EntityStore, InteractionManager> imType =
-                    InteractionModule.get().getInteractionManagerComponent();
-
-            for (UUID playerUuid : trackedPlayers) {
-                try {
-                    processPlayer(world, store, playerUuid, imType);
-                } catch (Exception e) {
-                    LOGGER.atWarning().withCause(e).log("Error processing attack speed for player %s",
-                            playerUuid.toString().substring(0, 8));
-                }
-            }
-        });
+    @Override
+    public Set<Dependency<EntityStore>> getDependencies() {
+        return dependencies;
     }
 
-    private void processPlayer(World world, Store<EntityStore> store, UUID playerUuid,
-                                ComponentType<EntityStore, InteractionManager> imType) {
-        Ref<EntityStore> ref = world.getEntityRef(playerUuid);
-        if (ref == null) return;
+    @Override
+    public void tick(float dt, int index, @Nonnull ArchetypeChunk<EntityStore> chunk,
+                     @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
+        if (dt <= 0.0f) return;
 
-        Player player = store.getComponent(ref, Player.getComponentType());
-        if (player == null) return;
+        UUIDComponent uuidComp = chunk.getComponent(index, UUIDComponent.getComponentType());
+        if (uuidComp == null || uuidComp.getUuid() == null) return;
+        UUID playerUuid = uuidComp.getUuid();
+
+        InteractionManager im = chunk.getComponent(index, imType);
+        if (im == null) return;
+
+        Ref<EntityStore> ref = chunk.getReferenceTo(index);
 
         float bonus = computeAttackSpeedBonus(store, ref);
-        Float previousShift = activeShifts.get(playerUuid);
 
         if (bonus > 0) {
-            if (previousShift != null && Float.compare(previousShift, bonus) == 0) return;
-
-            InteractionManager im = store.getComponent(ref, imType);
-            if (im == null) return;
-
-            // Apply global time shift to all interaction types (persists between swings)
+            // Apply global time shift to all interaction types every tick
             for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                 im.setGlobalTimeShift(type, bonus);
             }
 
-            activeShifts.put(playerUuid, bonus);
-
-            if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s globalTimeShift=%.3f",
-                        playerUuid.toString().substring(0, 8), bonus);
+            Float previous = activeShifts.put(playerUuid, bonus);
+            if (previous == null || Float.compare(previous, bonus) != 0) {
+                if (CombatDebugSystem.isEnabled(playerUuid)) {
+                    LOGGER.atInfo().log("[AttackSpeed] player=%s globalTimeShift=%.3f",
+                            playerUuid.toString().substring(0, 8), bonus);
+                }
             }
-        } else if (previousShift != null) {
-            // Reset time shift when weapon unequipped
-            InteractionManager im = store.getComponent(ref, imType);
-            if (im != null) {
+        } else {
+            Float previous = activeShifts.remove(playerUuid);
+            if (previous != null) {
+                // Clear time shift
                 for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                     im.setGlobalTimeShift(type, 0.0f);
                 }
-            }
-            activeShifts.remove(playerUuid);
-
-            if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s RESET",
-                        playerUuid.toString().substring(0, 8));
+                if (CombatDebugSystem.isEnabled(playerUuid)) {
+                    LOGGER.atInfo().log("[AttackSpeed] player=%s RESET",
+                            playerUuid.toString().substring(0, 8));
+                }
             }
         }
     }
@@ -202,5 +177,10 @@ public class Nat20AttackSpeedSystem {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /** Clean up tracked state on disconnect. */
+    public void removePlayer(UUID uuid) {
+        activeShifts.remove(uuid);
     }
 }
