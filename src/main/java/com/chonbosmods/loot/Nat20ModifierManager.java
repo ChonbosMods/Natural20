@@ -1,5 +1,6 @@
 package com.chonbosmods.loot;
 
+import com.chonbosmods.loot.AffixType;
 import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.GemBonus;
 import com.chonbosmods.loot.def.Nat20AffixDef;
@@ -105,6 +106,9 @@ public class Nat20ModifierManager {
         for (var rolledAffix : lootData.getAffixes()) {
             Nat20AffixDef affixDef = affixRegistry.get(rolledAffix.id());
             if (affixDef == null || affixDef.targetStat() == null) continue;
+
+            // EFFECT/ABILITY affixes are handled by their own systems, not StaticModifiers
+            if (affixDef.type() == AffixType.EFFECT || affixDef.type() == AffixType.ABILITY) continue;
 
             // Check stat requirements: skip modifier if player doesn't meet minimums
             if (affixDef.statRequirement() != null && playerStats != null) {
