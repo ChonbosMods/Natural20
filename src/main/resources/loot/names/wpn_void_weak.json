@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_void_weak",
+  "display_name": "Void Weakness (Debuff)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "void_weakness",
+  "element": "void",
+  "mechanic": "debuff_vulnerability",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Untethered", "Loosened", "Fading", "Unmoored", "Drifting", "Threadworn", "Ungrounded", "Seam-Worn", "Ward-Faded", "Wane-Brushed", "Rift-Split", "Veil-Parted"],
+    "uncommon": ["Veil-Tattered", "Anchor-Worn", "Wane-Clouded", "Boundary-Dim", "Rift-Opened", "Shade-Porous", "Ward-Dimmed", "Ether-Faded", "Dusk-Thinned", "Gloom-Stricken", "Tether-Frayed", "Eclipse-Paled"],
+    "rare": ["Voidtorn", "Rift-Gaunt", "Wane-Hollow", "Anchor-Frayed", "Shade-Split", "Null-Porous", "Veil-Stripped", "Abyss-Opened", "Ether-Fissured", "Nether-Paled", "Gloom-Hollowed", "Rift-Thinned"],
+    "epic": ["Voidworn", "Rift-Hollowed", "Null-Splintered", "Shade-Sunken", "Abyss-Crumbled", "Wane-Severed", "Null-Parted", "Veil-Erased", "Ether-Collapsed", "Anchor-Broken", "Nether-Fissured", "Eclipse-Severed"],
+    "legendary": ["Voidforsaken", "Null-Shriven", "Rift-Harrowed", "Abyssgaunt", "Wane-Dissolved", "Voidshatter", "Null-Revoked", "Ether-Scathed", "Anchor-Lost", "Abyss-Bleached", "Veil-Annulled", "Rift-Blasted"]
+  }
+}

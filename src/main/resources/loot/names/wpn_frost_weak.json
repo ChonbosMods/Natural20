@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_frost_weak",
+  "display_name": "Ice Weakness (Debuff)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "ice_weakness",
+  "element": "ice",
+  "mechanic": "debuff_vulnerability",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Bare", "Threadbare", "Unclad", "Wind-Worn", "Shivering", "Unsheltered", "Draft-Nipped", "Cloak-Stripped", "Chill-Prone", "Exposed", "Frost-Thin", "Warmthless"],
+    "uncommon": ["Frostbare", "Windscoured", "Marrow-Thin", "Chill-Bared", "Hoar-Bitten", "Bleakened", "Unwarmed", "Warmth-Shorn", "Sleet-Worn", "Boreal-Numb", "Winter-Gaunt", "Thaw-Starved"],
+    "rare": ["Winterbare", "Thaw-Robbed", "Hoarscoured", "Frostgaunt", "Shiver-Struck", "Sleet-Raked", "Rime-Cracked", "Warmth-Bereft", "Cold-Stripped", "Glacier-Bared", "Frost-Riven", "Floe-Thinned"],
+    "epic": ["Rime-Stripped", "Frosthollow", "Winter-Cleft", "Blizzard-Bared", "Coldgrasp", "Ice-Shattered", "Tundra-Gripped", "Hoar-Splintered", "Thaw-Denied", "Tundra-Flayed", "Boreal-Blasted", "Winter-Razed"],
+    "legendary": ["Frostshatter", "Wintersunder", "Worldchill", "Glaciergaunt", "Cold-Shattered", "Boreal-Undone", "Fimbul-Riven", "Glacier-Ruined", "Frost-Condemned", "Winter-Unmade", "Rime-Blighted", "Arctic-Graven"]
+  }
+}

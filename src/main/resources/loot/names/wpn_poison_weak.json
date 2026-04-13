@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_poison_weak",
+  "display_name": "Poison Weakness (Debuff)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "poison_weakness",
+  "element": "poison",
+  "mechanic": "debuff_vulnerability",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Sickly", "Porous", "Pallid", "Thinblood", "Poxed", "Foul", "Ailing", "Frail", "Mouldering", "Languid", "Wasting", "Haggard"],
+    "uncommon": ["Vein-Thin", "Humour-Weak", "Pox-Ripe", "Ward-Eroded", "Tonic-Starved", "Flux-Prone", "Vigour-Spent", "Remedy-Scarce", "Herb-Barren", "Malady-Bent", "Pox-Riddled", "Salve-Robbed"],
+    "rare": ["Antidote-Bereft", "Blightsick", "Venom-Paled", "Toxin-Marred", "Pox-Hollowed", "Plague-Prone", "Venom-Pierced", "Cure-Denied", "Ichor-Rotted", "Ward-Broken", "Miasma-Ridden", "Contagion-Bred"],
+    "epic": ["Blight-Wracked", "Marrow-Porous", "Vein-Exposed", "Ichor-Drenched", "Plague-Sunken", "Toxin-Wracked", "Salve-Cursed", "Humour-Curdled", "Pox-Ravaged", "Venom-Hollowed", "Remedy-Flayed", "Miasma-Bloated"],
+    "legendary": ["Venomruin", "Plaguerend", "Ichor-Hollow", "Toxinflayed", "Pox-Undone", "Blight-Gutted", "Miasma-Blighted", "Contagion-Shorn", "Venom-Breached", "Plague-Scathed", "Cure-Revoked", "Malady-Stricken"]
+  }
+}
