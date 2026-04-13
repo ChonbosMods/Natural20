@@ -1,0 +1,17 @@
+{
+  "family_id": "arm_poison_res",
+  "display_name": "Poison Resistance",
+  "position": "prefix",
+  "slot": "armor",
+  "affix_id": "poison_resistance",
+  "element": "poison",
+  "mechanic": "reduce_poison_damage_taken",
+  "stat": "INT",
+  "tiers": {
+    "common": ["Herb-Rubbed", "Mint-Lined", "Sage-Treated", "Charcoal-Dusted", "Clay-Sealed", "Beeswax-Coated", "Root-Washed", "Camphor-Rubbed", "Poultice-Lined", "Nettle-Cured", "Resin-Sealed", "Bark-Treated"],
+    "uncommon": ["Antidote-Washed", "Purified", "Toxin-Sealed", "Toad-Skinned", "Venom-Warded", "Alchemist-Made", "Salve-Treated", "Tincture-Sealed", "Apothecary-Sewn", "Elixir-Lined", "Distilled", "Cleansed"],
+    "rare": ["Poison-Warded", "Serpent-Guarded", "Apothecary", "Toxin-Purged", "Wyvern-Skinned", "Neutralized", "Alembic-Crafted", "Curative-Sewn", "Basilisk-Sealed", "Serpent-Warded", "Antivenom-Lined", "Purgative-Lined"],
+    "epic": ["Venom-Guarded", "Toxinbane", "Basilisk-Warded", "Venombane", "Hydra-Warded", "Naga-Crafted", "Curative-Made", "Remedyguard", "Detoxified", "Naga-Blooded", "Inoculated", "Restorative"],
+    "legendary": ["Venom-Conquered", "Toxin-Quelled", "Hydra-Guarded", "Naga-Skinned", "Poisonbane", "Antidote-Sealed", "Panaceaguard", "Serpent-Blooded", "Immaculate", "Purge-Warded", "Elixir-Crafted", "Poisonguard"]
+  }
+}

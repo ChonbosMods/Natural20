@@ -1,0 +1,17 @@
+{
+  "family_id": "arm_void_res",
+  "display_name": "Void Resistance",
+  "position": "prefix",
+  "slot": "armor",
+  "affix_id": "void_resistance",
+  "element": "void",
+  "mechanic": "reduce_void_damage_taken",
+  "stat": "INT",
+  "tiers": {
+    "common": ["Blessed", "Sanctified", "Hymn-Blessed", "Shrine-Touched", "Faith-Bound", "Hallowed", "Chapel-Blessed", "Vigil-Marked", "Pilgrim-Touched", "Rite-Washed", "Cloister-Sewn", "Hymn-Threaded"],
+    "uncommon": ["Warded", "Anchor-Warded", "Sigil-Marked", "Consecrated", "Tether-Bound", "Rune-Grounded", "Glyph-Etched", "Covenant-Washed", "Sanctum-Grounded", "Warden-Blessed", "Aegis-Marked", "Threshold-Sewn"],
+    "rare": ["Soul-Anchored", "Void-Warded", "Sanctum-Blessed", "Binding-Wrought", "Spirit-Bolted", "Ward-Hallowed", "Oath-Blessed", "Bulwark-Blessed", "Bastion-Bolted", "Anchor-Wrought", "Aegis-Bolted", "Glyph-Warded"],
+    "epic": ["Void-Impervious", "Soul-Wrought", "Sanctum-Guarded", "Tether-Wrought", "Voidbane", "Pact-Warded", "Bulwark-Warded", "Ward-Bolted", "Aegis-Wrought", "Bastion-Welded", "Hallowed-Guard", "Vigil-Wrought"],
+    "legendary": ["Soul-Welded", "Void-Hallowed", "Sanctum-Wrought", "Anchor-Hallowed", "Voidbane-Guard", "Pact-Hallowed", "Aegis-Guard", "Ward-Wrought", "Oathbound", "Sanctum-Welded", "Vigil-Hallowed", "Bulwark-Wrought"]
+  }
+}

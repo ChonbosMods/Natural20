@@ -1,0 +1,17 @@
+{
+  "family_id": "arm_frost_res",
+  "display_name": "Ice Resistance",
+  "position": "prefix",
+  "slot": "armor",
+  "affix_id": "ice_resistance",
+  "element": "ice",
+  "mechanic": "reduce_ice_damage_taken",
+  "stat": "INT",
+  "tiers": {
+    "common": ["Wool-Lined", "Fur-Padded", "Fleece-Warmed", "Down-Filled", "Goat-Pelted", "Blubber-Daubed", "Felt-Layered", "Hide-Wrapped", "Pelt-Lined", "Straw-Stuffed", "Quilted-Warm", "Tallow-Smeared"],
+    "uncommon": ["Bear-Pelted", "Winter-Proofed", "Thaw-Charmed", "Snow-Proofed", "Ice-Shielded", "Boar-Hide", "Fleece-Lined", "Wool-Doubled", "Insulated", "Warmth-Imbued", "Kettle-Warmed", "Moss-Padded"],
+    "rare": ["Yeti-Pelted", "Tundra-Woven", "North-Layered", "Polar-Shielded", "Avalanche-Proof", "Blizzard-Tested", "Pelt-Doubled", "Ermine-Wrapped", "Stone-Warmed", "Spring-Warmed", "Snowguard", "Winterward"],
+    "epic": ["Mammoth-Hide", "Polar-Steeled", "Rime-Sheathed", "Coldbane", "Everwarmed", "Frostproof", "Tundra-Proof", "Glacier-Walled", "Behemoth-Pelted", "Frostguard", "Boreal-Charmed", "Storm-Insulated"],
+    "legendary": ["Winter-Woven", "Tundra-Tested", "Mammoth-Boned", "Glacierplate", "Frostbane", "Solsticeguard", "Deepfrost", "Colossus-Hide", "Winterheart", "Glacier-Scaled", "Borealshield", "Winterbane"]
+  }
+}

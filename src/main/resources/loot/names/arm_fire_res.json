@@ -1,0 +1,17 @@
+{
+  "family_id": "arm_fire_res",
+  "display_name": "Fire Resistance",
+  "position": "prefix",
+  "slot": "armor",
+  "affix_id": "fire_resistance",
+  "element": "fire",
+  "mechanic": "reduce_fire_damage_taken",
+  "stat": "INT",
+  "tiers": {
+    "common": ["Soot-Daubed", "Charcloth", "Ash-Daubed", "Cinder-Dusted", "Kiln-Dried", "Soot-Rubbed", "Clay-Baked", "Smoke-Cured", "Chalk-Rubbed", "Firebrick", "Coal-Dusted", "Char-Wrapped"],
+    "uncommon": ["Fireproofed", "Salamander-Hide", "Forge-Tempered", "Cinderbark", "Ember-Quenched", "Slag-Plated", "Magma-Hardened", "Flameward", "Spark-Proofed", "Kiln-Tempered", "Scoria-Cured", "Hearthguard"],
+    "rare": ["Flameguard", "Drake-Scaled", "Magma-Cooled", "Ignition-Ward", "Lava-Quenched", "Pyre-Tested", "Firedrake-Clad", "Crucible-Forged", "Basalt-Plated", "Slag-Scaled", "Molten-Cast", "Cinder-Hardened"],
+    "epic": ["Inferno-Proof", "Wyrm-Scaled", "Caldera-Forged", "Flamebane", "Magma-Doused", "Firebane", "Pyreguard", "Wyvern-Scaled", "Dragonhide", "Obsidian-Clad", "Magma-Cast", "Furnace-Proved"],
+    "legendary": ["Flame-Proof", "Drake-Forged", "Volcano-Tested", "Sunguard", "Pyre-Woven", "Hearthbane", "Dragon-Plated", "Hellfire-Ward", "Lava-Tempered", "Dragonscale", "Ifrit-Clad", "Pyreshield"]
+  }
+}

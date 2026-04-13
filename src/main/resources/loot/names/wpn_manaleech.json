@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_manaleech",
+  "display_name": "Mana Leech",
+  "position": "suffix",
+  "slot": "weapon",
+  "affix_id": "mana_leech",
+  "element": null,
+  "mechanic": "percent_damage_returned_as_mana",
+  "stat": "INT",
+  "tiers": {
+    "common": [
+      "the Sprite",
+      "the Wisp",
+      "the Pixie",
+      "the Dewdrop",
+      "the Glow-Moth",
+      "the Firefly",
+      "the Glimmer",
+      "the Mote",
+      "the Glowworm",
+      "the Flicker",
+      "the Lantern-Bug",
+      "the Spark-Mite"
+    ],
+    "uncommon": [
+      "the Familiar",
+      "Arcane Siphon",
+      "the Nymph",
+      "the Nixie",
+      "the Will-Light",
+      "Arcane Thirst",
+      "the Fetch",
+      "the Puck",
+      "the Sylph",
+      "the Changeling",
+      "the Spellmoth",
+      "Fey Hunger"
+    ],
+    "rare": [
+      "the Siren",
+      "the Revenant",
+      "the Wraith",
+      "Arcane Hunger",
+      "Arcane Rapture",
+      "the Specter",
+      "the Enchantress",
+      "the Dullahan",
+      "the Hex-Drinker",
+      "Mystic Thirst",
+      "the Spellthief",
+      "Mystic Harvest"
+    ],
+    "epic": [
+      "the Thought-Eater",
+      "Ether Feast",
+      "the Banshee",
+      "Arcane Dominion",
+      "the Arcane Maw",
+      "the Ether-Drinker",
+      "the Ether-Siren",
+      "Arcane Frenzy",
+      "the Spell-Wraith",
+      "Runic Ascendance",
+      "the Mystic Ravener",
+      "Ether Tempest"
+    ],
+    "legendary": [
+      "the Arcane Titan",
+      "Ether Dominion",
+      "the Spellflood",
+      "the Mana-Wraith",
+      "the Ether Devourer",
+      "the Ether Tide",
+      "Arcane Deluge",
+      "the Spell-Devourer",
+      "the Mystic Flood",
+      "Runic Cataclysm",
+      "the Mana Monarch",
+      "the Arcanivore"
+    ]
+  }
+}

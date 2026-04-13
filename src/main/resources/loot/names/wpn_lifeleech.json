@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_lifeleech",
+  "display_name": "Life Leech",
+  "position": "suffix",
+  "slot": "weapon",
+  "affix_id": "life_leech",
+  "element": null,
+  "mechanic": "percent_damage_returned_as_health",
+  "stat": "DEX",
+  "tiers": {
+    "common": [
+      "the Tick",
+      "the Leech",
+      "the Mosquito",
+      "the Lamprey",
+      "Thirsting",
+      "the Flea",
+      "the Mite",
+      "the Louse",
+      "the Parasite",
+      "the Gnat",
+      "the Remora",
+      "the Horsefly"
+    ],
+    "uncommon": [
+      "the Wolf",
+      "the Bat",
+      "the Bloodworm",
+      "the Ferret",
+      "the Hound",
+      "Sanguine Fangs",
+      "the Jackal",
+      "the Stoat",
+      "the Marten",
+      "the Weasel-Fang",
+      "Crimson Nip",
+      "the Blood-Bat"
+    ],
+    "rare": [
+      "the Predator",
+      "Blood Harvest",
+      "the Stalker",
+      "Crimson Thirst",
+      "the Raptor",
+      "Scarlet Fangs",
+      "the Harrier",
+      "Bloodfang",
+      "the Blood-Hawk",
+      "Ravenous Edge",
+      "the Huntress",
+      "the Blood-Drake"
+    ],
+    "epic": [
+      "the Dire Wolf",
+      "Blood Frenzy",
+      "the Alpha",
+      "Crimson Hunger",
+      "the Gore-Hawk",
+      "Sanguine Reign",
+      "the Bloodhound",
+      "Vampiric Fury",
+      "the Ravener",
+      "Gorging Maw",
+      "the Crimson Alpha",
+      "Predatory Wrath"
+    ],
+    "legendary": [
+      "the Blood Titan",
+      "Crimson Dominion",
+      "the Exsanguinator",
+      "Primal Hunger",
+      "the Gore-Tyrant",
+      "the Bloodtide",
+      "the Sanguine King",
+      "Devouring Thirst",
+      "the Ravening Maw",
+      "the Crimson Flood",
+      "Ravening Feast",
+      "the Blood Monarch"
+    ]
+  }
+}
