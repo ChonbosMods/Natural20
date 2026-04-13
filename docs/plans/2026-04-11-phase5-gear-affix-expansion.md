@@ -1542,8 +1542,14 @@ All three remaining weapon effects verified.
 - `[WaterBreathing] bonus=+84% maxOxygen=184` with WIS 20 at Rare/0.8
 - Oxygen value preserved on equip/unequip (snapshot + restore via `setStatValue`)
 
-#### Remaining: Light Foot, Rally
-- Deferred to SDK investigation.
+#### 31. Light Foot (`nat20:light_foot`) — PASSED
+- Sprint stamina drain is hardcoded at -0.1/0.1s (1.0/sec) in Stamina Regenerating config
+- System detects sprinting via position delta + stamina below max, compensates by adding stamina back proportionally
+- `[LightFoot] reduction=21.2% compensation=0.0071/tick` confirmed at DEX 20 Rare/0.8
+- Stamina drains noticeably slower while sprinting
+
+#### Remaining: Rally
+- On-kill buff to nearby allies. Needs kill detection + spatial query.
 
 ---
 
