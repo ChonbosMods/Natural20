@@ -13,6 +13,7 @@ import com.chonbosmods.combat.Nat20BackstabSystem;
 import com.chonbosmods.combat.Nat20BlockProficiencySystem;
 import com.chonbosmods.combat.Nat20CrushingBlowSystem;
 import com.chonbosmods.combat.Nat20EvasionSystem;
+import com.chonbosmods.combat.Nat20RallyAmplifySystem;
 import com.chonbosmods.combat.Nat20RallySystem;
 import com.chonbosmods.combat.Nat20ResilienceSystem;
 import com.chonbosmods.combat.Nat20LightFootSystem;
@@ -461,7 +462,9 @@ public class Natural20 extends JavaPlugin {
         // Phase 5 Batch 8: utility armor + on-kill
         getEntityStoreRegistry().registerSystem(new Nat20WaterBreathingSystem(lootSystem));
         getEntityStoreRegistry().registerSystem(new Nat20LightFootSystem(lootSystem));
-        getEntityStoreRegistry().registerSystem(new Nat20RallySystem(lootSystem));
+        Nat20RallySystem rallySystem = new Nat20RallySystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(rallySystem);
+        getEntityStoreRegistry().registerSystem(new Nat20RallyAmplifySystem(rallySystem));
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {

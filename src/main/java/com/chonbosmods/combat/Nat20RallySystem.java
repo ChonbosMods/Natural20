@@ -7,6 +7,7 @@ import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.Nat20AffixDef;
+import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
@@ -35,6 +36,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Rally: on kill, nearby allies receive a temporary damage bonus EntityEffect.
@@ -55,6 +57,11 @@ public class Nat20RallySystem extends DamageEventSystem {
     private boolean effectResolved;
     private int healthIdx = Integer.MIN_VALUE;
     private boolean statResolved;
+
+    // Track rallied players: UUID -> RallyState
+    private final ConcurrentHashMap<UUID, RallyState> ralliedPlayers = new ConcurrentHashMap<>();
+
+    record RallyState(double damageBonus, long expiryMs) {}
 
     public Nat20RallySystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -116,36 +123,82 @@ public class Nat20RallySystem extends DamageEventSystem {
             Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
             if (def == null) return;
 
+            // Compute rally bonus
+            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+            if (range == null) return;
+
+            double baseValue = range.interpolate(lootData.getLootLevel());
+            double effectiveValue = baseValue;
+            PlayerStats stats = resolvePlayerStats(attackerRef, store);
+            if (stats != null && def.statScaling() != null) {
+                Stat primary = def.statScaling().primary();
+                int modifier = stats.getModifier(primary);
+                effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+            }
+            effectiveValue = Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
+
             UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
             TransformComponent attackerTransform = store.getComponent(attackerRef, TransformComponent.getComponentType());
             if (attackerTransform == null) return;
 
             Vector3d attackerPos = attackerTransform.getPosition();
+            long expiryMs = System.currentTimeMillis() + 12000; // 12s matches EntityEffect Duration
 
-            // Find nearby entities
+            // Find nearby allied players
             List<Ref<EntityStore>> nearby = TargetUtil.getAllEntitiesInSphere(attackerPos, RALLY_RADIUS, store);
             int buffed = 0;
 
             for (Ref<EntityStore> allyRef : nearby) {
                 if (!allyRef.isValid()) continue;
-                if (allyRef.equals(attackerRef)) continue; // Don't buff self
+                if (allyRef.equals(attackerRef)) continue;
 
                 Player allyPlayer = store.getComponent(allyRef, Player.getComponentType());
                 if (allyPlayer == null) continue;
 
-                EffectControllerComponent effectCtrl =
-                        store.getComponent(allyRef, EffectControllerComponent.getComponentType());
-                if (effectCtrl == null) continue;
+                UUID allyUuid = allyPlayer.getPlayerRef().getUuid();
 
-                effectCtrl.addEffect(allyRef, rallyEffect, commandBuffer);
+                // Apply visual effect (replace-not-stack)
+                RallyState previous = ralliedPlayers.put(allyUuid,
+                        new RallyState(effectiveValue, expiryMs));
+                boolean isNew = previous == null || System.currentTimeMillis() > previous.expiryMs;
+                if (isNew) {
+                    EffectControllerComponent effectCtrl =
+                            store.getComponent(allyRef, EffectControllerComponent.getComponentType());
+                    if (effectCtrl != null) {
+                        effectCtrl.addEffect(allyRef, rallyEffect, commandBuffer);
+                    }
+                }
                 buffed++;
             }
 
             if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[Rally] kill confirmed: buffed %d nearby allies within %.0f blocks",
-                        buffed, RALLY_RADIUS);
+                LOGGER.atInfo().log("[Rally] kill confirmed: bonus=+%.1f%% buffed=%d allies within %.0f blocks",
+                        effectiveValue * 100, buffed, RALLY_RADIUS);
             }
             return;
+        }
+    }
+
+    /**
+     * Called by Nat20RallyAmplifySystem. Returns damage bonus if player has active rally buff.
+     */
+    public double getRallyBonus(UUID playerUuid) {
+        RallyState state = ralliedPlayers.get(playerUuid);
+        if (state == null) return 0;
+        if (System.currentTimeMillis() > state.expiryMs) {
+            ralliedPlayers.remove(playerUuid);
+            return 0;
+        }
+        return state.damageBonus;
+    }
+
+    @Nullable
+    private PlayerStats resolvePlayerStats(Ref<EntityStore> playerRef, Store<EntityStore> store) {
+        try {
+            Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
+            return playerData != null ? PlayerStats.from(playerData) : null;
+        } catch (Exception e) {
+            return null;
         }
     }
 

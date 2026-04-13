@@ -348,7 +348,7 @@ When `PlayerScoreChangeEvent` fires, all currently equipped items must recompute
 
 **Goal**: implement all remaining combat affixes. Each affix maps to a proven pattern from Phase 2/4. The affix list has been reviewed, edited, and finalized through a brainstorming session.
 
-**Status**: All affix systems implemented. `./gradlew compileJava` passes. **Smoke testing in progress**: Batches 1-5 PASSED (2026-04-13). Fear affix removed. Unified DOT tick system, debuff replace-not-stack pattern, hex short-duration visual cleanup all proven. See `docs/plans/2026-04-11-phase5-gear-affix-expansion.md` for per-affix test procedures and results.
+**Status**: ALL BATCHES PASSED (2026-04-13). All affix systems implemented, smoke-tested, and confirmed working. Fear and Flinch Resist removed. Guard Break Resist folded into Block Proficiency. See `docs/plans/2026-04-11-phase5-gear-affix-expansion.md` for full test results.
 
 **Deferred to SDK investigation during smoke test**: Flinch Resist, Guard Break Resist, Resilience (no system classes: need API for flinch suppression, block stamina drain, effect duration manipulation). Water Breathing, Light Foot (need stat name discovery for breath and sprint stamina cost). Block Proficiency (system exists but blocking state detection is a TODO).
 

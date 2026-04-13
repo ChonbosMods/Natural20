@@ -1548,8 +1548,13 @@ All three remaining weapon effects verified.
 - `[LightFoot] reduction=21.2% compensation=0.0071/tick` confirmed at DEX 20 Rare/0.8
 - Stamina drains noticeably slower while sprinting
 
-#### Remaining: Rally
-- On-kill buff to nearby allies. Needs kill detection + spatial query.
+#### 32. Rally (`nat20:rally`) — PASSED
+- Kill detection: `targetHP <= damage.getAmount()` in Inspect Group
+- Spatial query: `TargetUtil.getAllEntitiesInSphere(pos, 20.0, store)` for nearby allies
+- `[Rally] kill confirmed: bonus=+11.6% buffed=1 allies within 20 blocks` with second player nearby
+- Companion `Nat20RallyAmplifySystem` (Filter Group) boosts rallied player's outgoing damage
+- Replace-not-stack with expiry-aware pattern on visual EntityEffect
+- Duration: 12s, CHA-scaled
 
 ---
 
