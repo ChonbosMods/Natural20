@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_frost_dot",
+  "display_name": "Cold (Ice DOT)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "cold",
+  "element": "ice",
+  "mechanic": "proc_dot",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Numbing", "Seeping", "Frost-Creep", "Biting", "Bone-Chill", "Draft", "Creeping-Cold", "Tingling", "Numb-Creep", "Chill-Seep", "Slow-Freeze", "Damp-Cold"],
+    "uncommon": ["Marrow-Cold", "Deepfreeze", "Frost-Wicking", "Gnawing", "Chill-Borer", "Ice-Seep", "Frost-Gnawing", "Chill-Crawl", "Ice-Creeping", "Frost-Leeching", "Cold-Burrowing", "Rime-Seeping"],
+    "rare": ["Hypothermal", "Frost-Vein", "Cryo-Bleeding", "Rime-Crawl", "Glacial-Creep", "Coldbore", "Frost-Consuming", "Rime-Blooming", "Deep-Chill", "Cryo-Creeping", "Hoar-Spreading", "Ice-Burrowing"],
+    "epic": ["Frost-Raking", "Rime-Consuming", "Winterseep", "Cryo-Bleed", "Heartfrost", "Frost-Gorging", "Cryo-Veiled", "Glacial-Feeding", "Hoar-Mantled", "Frost-Cloaked", "Chill-Spired", "Ice-Wasting"],
+    "legendary": ["Fimbulwinter", "Marrowchill", "Icevein", "Coldtide", "Frost-Deepened", "Hoar-Throned", "Glacial-Maw", "Frostspawn", "Rime-Entombed", "Wintermaw", "Frostgrip", "Boreal-Tide"]
+  }
+}

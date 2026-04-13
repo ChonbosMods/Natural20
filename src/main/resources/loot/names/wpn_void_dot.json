@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_void_dot",
+  "display_name": "Corrupt (Void DOT)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "corrupt",
+  "element": "void",
+  "mechanic": "proc_dot",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Eroding", "Fraying", "Thinning", "Wearing", "Unraveling", "Waning", "Dimming", "Blurring", "Dulling", "Loosening", "Gnawing-Void", "Seep-Dark"],
+    "uncommon": ["Corroding", "Entropy-Tinged", "Dissolving", "Consuming", "Leaching", "Sapping", "Null-Seeping", "Void-Creeping", "Ether-Drain", "Shade-Leaching", "Dusk-Eroding", "Gloom-Seeping"],
+    "rare": ["Void-Rot", "Unmaking", "Null-Welling", "Entropy-Scored", "Essence-Drain", "Rift-Spreading", "Void-Dripping", "Null-Crawling", "Abyss-Seeping", "Nether-Seeping", "Eclipse-Gnawed", "Entropy-Seeded"],
+    "epic": ["Annihilant", "Void-Consuming", "Null-Fraying", "Oblivion-Seep", "Reality-Fray", "Essence-Eater", "Null-Devouring", "Void-Shrouded", "Rift-Rending", "Entropy-Husked", "Abyss-Maw", "Null-Fading"],
+    "legendary": ["Entropy-Drowned", "Null-Emptied", "Void-Devoured", "Oblivion-Tide", "Reality-Eaten", "Entropy-Bled", "Null-Severed", "Void-Sundered", "Rift-Unraveled", "Oblivion-Sired", "Abyss-Scoured", "Nether-Tide"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_fire_dot",
+  "display_name": "Ignite (Fire DOT)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "ignite",
+  "element": "fire",
+  "mechanic": "proc_dot",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Smoldering", "Ember-Lit", "Sparking", "Catching", "Flickering", "Slow-Burn", "Smoldered", "Ash-Trailing", "Smoke-Rising", "Spark-Laden", "Coal-Bright", "Charring"],
+    "uncommon": ["Lingering", "Clinging", "Ember-Fed", "Spreading", "Char-Traced", "Creeping-Flame", "Ash-Wicking", "Fire-Crawling", "Tinder-Spread", "Cinder-Drip", "Scorch-Creep", "Spark-Spread"],
+    "rare": ["Wildfire", "Emberstorm", "Firespread", "Ash-Wake", "Conflagrant", "Pyre-Seeded", "Flashover", "Flame-Veiled", "Scorchtide", "Blaze-Sown", "Cinder-Blooming", "Inferno-Spread"],
+    "epic": ["Incendiary", "Immolating", "Ever-Burning", "Flashpoint", "Cinder-Gorging", "Ignis-Wreath", "Pyre-Cloaked", "Flame-Devouring", "Ash-Mantled", "Conflagrating", "Pyroclasm", "Blaze-Limned"],
+    "legendary": ["Ashfall", "Pyre-Undying", "Embertide", "Dawnfire", "Flamewake", "Cinder-Spired", "Firestorm", "Ash-Rooted", "Pyrewarden", "Emberdawn", "Flameveil", "Scorchborn"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_void_flat",
+  "display_name": "Void (Flat Damage)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "void",
+  "element": "void",
+  "mechanic": "flat_elemental_damage",
+  "stat": null,
+  "tiers": {
+    "common": ["Dim", "Murky", "Dusky", "Shaded", "Umbral", "Gloaming", "Hazy", "Shadowy", "Dusk-Tinged", "Vesper", "Unlit", "Shrouded"],
+    "uncommon": ["Shadowed", "Twilight", "Penumbral", "Eclipsed", "Nighthusk", "Darkened", "Null-Scarred", "Dusk-Notched", "Eventhorn", "Gloom-Rinsed", "Nether-Dimmed", "Shade-Scoured"],
+    "rare": ["Void-Scored", "Abyssal", "Netherglass", "Stygian", "Umbra-Scoured", "Darkling", "Rift-Cleft", "Eldritch", "Null-Draped", "Nether-Pitted", "Eclipse-Rent", "Void-Gnawed"],
+    "epic": ["Null-Split", "Eventide", "Voidshard", "Starless", "Oblivian", "Netherdark", "Rift-Haloed", "Null-Cloven", "Abyss-Ground", "Eclipse-Dimmed", "Dusk-Shrouded", "Nether-Husked"],
+    "legendary": ["Aeon-Dark", "Void-Lashed", "Nullheart", "Epoch-Shroud", "Cosmovoid", "Nether-Consumed", "Null-Abraded", "Abyss-Folded", "Eclipse-Bled", "Rift-Bleeding", "Oblivion-Cleft", "Void-Drowned"]
+  }
+}

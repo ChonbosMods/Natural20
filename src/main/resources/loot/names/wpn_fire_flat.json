@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_fire_flat",
+  "display_name": "Fire (Flat Damage)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "fire",
+  "element": "fire",
+  "mechanic": "flat_elemental_damage",
+  "stat": null,
+  "tiers": {
+    "common": ["Warm", "Heated", "Smoked", "Singed", "Ruddy", "Tinder", "Toasted", "Ashen", "Fuming", "Glowing", "Flushed", "Char-Kissed"],
+    "uncommon": ["Blazing", "Scorching", "Kindled", "Molten", "Flaring", "Branded", "Igneous", "Torchlit", "Brimstone", "Ember-Steeped", "Cauterized", "Forge-Bright"],
+    "rare": ["Volcanic", "Searing", "Pyre-Glazed", "Cindered", "Firebrand", "Magmatic", "Caldera-Hewn", "Lavasteel", "Kiln-Spun", "Incandescent", "Vulcanite", "Emberlaced"],
+    "epic": ["Infernal", "Cinder-Smelted", "Pyrethral", "Erupting", "Flame-Tempered", "Crucible", "Hellfire-Etched", "Magma-Cored", "Ashensteel", "Immolant", "Pyre-Ringed", "Bale-Quenched"],
+    "legendary": ["Solarian", "Sunforge", "Hearthless", "Embersun", "Phoenixheart", "Primoflame", "Corona-Gilt", "Starflame", "Cinder-Veined", "Dragonhearth", "Sunspire", "Heliosteel"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_frost_flat",
+  "display_name": "Frost (Flat Damage)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "frost",
+  "element": "ice",
+  "mechanic": "flat_elemental_damage",
+  "stat": null,
+  "tiers": {
+    "common": ["Chilled", "Frosted", "Brisk", "Rimed", "Cooled", "Wintry", "Nipped", "Dew-Cold", "Crisp", "Hoary", "Pale-Cold", "Chill-Glazed"],
+    "uncommon": ["Glacial", "Frozen", "Hoarfrost", "Frigid", "Sleet-Rinsed", "Ice-Rimmed", "Crystal-Limned", "Floe-Spun", "Gelid", "Rime-Kissed", "Cold-Drawn", "Shiver-Honed"],
+    "rare": ["Boreal", "Permafrost", "Cryonic", "Hail-Braced", "Frostbitten", "Rime-Dipped", "Tundra-Ringed", "Ice-Folded", "Glacier-Edged", "Coldshard", "Arctic", "Wintersteel"],
+    "epic": ["Tundral", "Blizzard-Lashed", "Everfrost", "Shiversteel", "Winterwrath", "Icecore", "Glacier-Smelted", "Hoar-Veined", "Sleetsteel", "Avalanche-Honed", "Cryo-Steeped", "Boreal-Gilt"],
+    "legendary": ["Glacier-Heart", "Fimbulcraft", "Polarsteel", "Frostspire", "Rime-Cored", "Winterdeep", "Glacierspine", "Boreal-Drawn", "Fimbulsteel", "Icethorn", "Floe-Carved", "Crystalline"]
+  }
+}
