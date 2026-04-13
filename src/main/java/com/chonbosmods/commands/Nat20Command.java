@@ -29,5 +29,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new CombatTestCommand());
         addSubCommand(new TestWeaponCommand());
         addSubCommand(new SetManaCommand());
+        addSubCommand(new MobNameCommand());
     }
 }
