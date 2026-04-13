@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_poison_flat",
+  "display_name": "Poison (Flat Damage)",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "poison",
+  "element": "poison",
+  "mechanic": "flat_elemental_damage",
+  "stat": null,
+  "tiers": {
+    "common": [
+      "Bitter",
+      "Stinging",
+      "Nettled",
+      "Brined",
+      "Acrid",
+      "Tainted",
+      "Brackish",
+      "Galling",
+      "Waspish",
+      "Thorned",
+      "Sap-Coated",
+      "Thistle-Dipped"
+    ],
+    "uncommon": [
+      "Venomous",
+      "Toxic",
+      "Adder-Stained",
+      "Hemlock",
+      "Asp-Tongued",
+      "Viperish",
+      "Envenomed",
+      "Belladonna",
+      "Foxglove",
+      "Wolfsbane",
+      "Fang-Laced",
+      "Serpent-Dipped"
+    ],
+    "rare": [
+      "Virulent",
+      "Banecoated",
+      "Cobra-Spined",
+      "Nightshade",
+      "Wyrmtoxin",
+      "Serpentine",
+      "Scorpion-Tipped",
+      "Drake-Fanged",
+      "Viperscale",
+      "Naga-Brewed",
+      "Toxin-Soaked",
+      "Basilisk-Traced"
+    ],
+    "epic": [
+      "Basilisk",
+      "Deathcap",
+      "Ophidian",
+      "Wyvern-Laced",
+      "Manticore",
+      "Noxious",
+      "Hydra-Fanged",
+      "Cockatrice",
+      "Gorgon-Spined",
+      "Chimera-Stung",
+      "Wyrm-Tongued",
+      "Viper-Barbed"
+    ],
+    "legendary": [
+      "Hydravenom",
+      "Typhon-Fanged",
+      "Worldbane",
+      "Apothecarion",
+      "Ouroboric",
+      "Leviathan-Stung",
+      "Serpent-Gilded",
+      "Hydra-Distilled",
+      "Typhon-Spined",
+      "Lamia-Traced",
+      "Basilisk-Brewed",
+      "Naga-Bathed"
+    ]
+  }
+}
