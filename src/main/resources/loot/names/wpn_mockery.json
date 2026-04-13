@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_mockery",
+  "display_name": "Vicious Mockery",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "vicious_mockery",
+  "element": "social",
+  "mechanic": "universal_debuff",
+  "stat": "CHA",
+  "tiers": {
+    "common": ["Taunting", "Jeering", "Mocking", "Sneering", "Ribbing", "Goading", "Gibing", "Needling", "Scoffing", "Disdainful", "Snide", "Spiteful"],
+    "uncommon": ["Scornful", "Derisive", "Cutting", "Barbed", "Sardonic", "Belittling", "Acerbic", "Caustic", "Biting-Wit", "Thorn-Tongued", "Ridiculing", "Acid-Lipped"],
+    "rare": ["Humiliating", "Withering", "Eviscerating", "Sharp-Tongued", "Lacerating", "Mortifying", "Scathing", "Ruthless", "Tongue-Flaying", "Wit-Honed", "Razor-Worded", "Scorning"],
+    "epic": ["Devastating", "Ruinous", "Ego-Rending", "Merciless-Scorn", "Dignity-Razing", "Renown-Slaying", "Pride-Flaying", "Wit-Sharpened", "Scorn-Barbed", "Shame-Branding", "Glory-Mocking", "Honour-Flensing"],
+    "legendary": ["Crown-Toppling", "Pride-Killing", "Will-Shattering", "Majesty-Slain", "Legend-Mocking", "Throne-Scouring", "Scorn-Honed", "Name-Unmaking", "Fame-Shredding", "Renown-Wracked", "Scorn-Enthroned", "Glory-Forsaken"]
+  }
+}

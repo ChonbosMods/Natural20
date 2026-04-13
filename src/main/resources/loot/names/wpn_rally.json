@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_rally",
+  "display_name": "Rally",
+  "position": "suffix",
+  "slot": "weapon",
+  "affix_id": "rally",
+  "element": null,
+  "mechanic": "on_kill_ally_damage_buff",
+  "stat": "CHA",
+  "tiers": {
+    "common": [
+      "the Corporal",
+      "Brave Hearts",
+      "the Standard",
+      "First Triumph",
+      "the Bugler",
+      "Shared Courage",
+      "the Recruit",
+      "Steady Morale",
+      "the Pennant",
+      "True Valor",
+      "the Oath",
+      "Common Resolve"
+    ],
+    "uncommon": [
+      "the Captain",
+      "Rising Spirits",
+      "the War-Horn",
+      "Bold Advance",
+      "the Banner",
+      "Hearty Cheers",
+      "the Lieutenant",
+      "Stirring Words",
+      "the Clarion",
+      "Rallied Strength",
+      "the Ensign",
+      "Kindled Valor"
+    ],
+    "rare": [
+      "the Commander",
+      "Battle Hymn",
+      "the War-Drum",
+      "Glorious Victory",
+      "the Vanguard",
+      "Rallying Cry",
+      "the Marshal",
+      "Thundering Cheer",
+      "the Oathkeeper",
+      "Fierce Resolve",
+      "the Warleader",
+      "Valor Ascendant"
+    ],
+    "epic": [
+      "the Warlord",
+      "Triumphant March",
+      "the War-Crown",
+      "Grand Conquest",
+      "the Legion",
+      "Warlord Command",
+      "the High Marshal",
+      "Roaring Triumph",
+      "the War-Sage",
+      "Resounding Glory",
+      "the Iron Banner",
+      "Commanding Fury"
+    ],
+    "legendary": [
+      "the Conqueror",
+      "Undying Triumph",
+      "the War-King",
+      "the Hosts Awakened",
+      "the Emperor's Voice",
+      "the Victory Song",
+      "the Throne-Bearer",
+      "Legions United",
+      "the Grand Marshal",
+      "the Rallying Storm",
+      "Conquest Unbroken",
+      "the War Incarnate"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_hex",
+  "display_name": "Hex",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "hex",
+  "element": "arcane",
+  "mechanic": "curse_proc",
+  "stat": "WIS",
+  "tiers": {
+    "common": ["Jinxed", "Ill-Starred", "Hexed", "Omen-Touched", "Unlucky", "Wayward", "Baleful", "Ill-Fated", "Crossed", "Luckless", "Woe-Cursed", "Doomed"],
+    "uncommon": ["Cursed", "Bewitched", "Bane-Marked", "Doom-Bent", "Spell-Scarred", "Witch-Bound", "Hag-Wrought", "Hex-Branded", "Fate-Twisted", "Sigil-Seared", "Woe-Drenched", "Curse-Laced"],
+    "rare": ["Maledicted", "Warlock-Wrought", "Doom-Wreathed", "Coven-Sealed", "Rune-Cursed", "Balefire", "Hex-Hammered", "Witch-Crowned", "Pact-Sworn", "Fate-Scarred", "Wyrd-Bound", "Bale-Crafted"],
+    "epic": ["Anathema", "Doom-Crowned", "Hex-Tangled", "Coven-Blessed", "Malediction", "Ruinspell", "Curse-Wreathed", "Wyrd-Spoken", "Pact-Wrought", "Bane-Girded", "Coven-Sworn", "Fate-Warped"],
+    "legendary": ["Damnation", "Cursefall", "Doom-Wrought", "Hex-Threaded", "Bane-Spoken", "Maledictus", "Curse-Harrowed", "Wyrd-Shackled", "Hex-Forsaken", "Doom-Branded", "Coven-Conjured", "Pact-Forsaken"]
+  }
+}

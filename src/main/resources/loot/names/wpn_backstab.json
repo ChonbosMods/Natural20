@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_backstab",
+  "display_name": "Backstab",
+  "position": "suffix",
+  "slot": "weapon",
+  "affix_id": "backstab",
+  "element": null,
+  "mechanic": "bonus_damage_unaggrod_target",
+  "stat": "DEX",
+  "tiers": {
+    "common": [
+      "the Pickpocket",
+      "Sly Hands",
+      "the Cutpurse",
+      "the Sharper",
+      "the Sneak",
+      "Quiet Steps",
+      "the Filcher",
+      "Deft Palms",
+      "the Urchin",
+      "Light Touch",
+      "the Pilferer",
+      "the Cutthroat"
+    ],
+    "uncommon": [
+      "the Footpad",
+      "Silent Strike",
+      "the Prowler",
+      "Night Ambush",
+      "the Lurker",
+      "Hidden Blades",
+      "the Skulker",
+      "Veiled Edge",
+      "the Brigand",
+      "Midnight Fang",
+      "the Creeper",
+      "Muffled Steel"
+    ],
+    "rare": [
+      "the Assassin",
+      "Phantom Strike",
+      "the Ambusher",
+      "Sudden Death",
+      "the Nightblade",
+      "Unseen Edge",
+      "the Night-Fang",
+      "Killing Quiet",
+      "the Knife-Dancer",
+      "Fell Reckoning",
+      "the Night-Striker",
+      "Lethal Cunning"
+    ],
+    "epic": [
+      "the Phantom",
+      "Death Unseen",
+      "the Ghost-King",
+      "Silent Doom",
+      "the Ghost-Knife",
+      "Lethal Silence",
+      "the Night-Reaper",
+      "Phantom Fang",
+      "the Night-Crown",
+      "Shrouded Demise",
+      "the Veil-Lord",
+      "Whispered Ruin"
+    ],
+    "legendary": [
+      "the Deathwhisper",
+      "the Living Phantom",
+      "the Unseen",
+      "the Last Breath",
+      "the Phantom Crown",
+      "Death's Embrace",
+      "the Ghost Throne",
+      "the Night-Stalker",
+      "the Dread Silence",
+      "the Specter's Fang",
+      "the Night Incarnate",
+      "the Reaper's Cloak"
+    ]
+  }
+}

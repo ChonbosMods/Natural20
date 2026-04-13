@@ -1,0 +1,17 @@
+{
+  "family_id": "wpn_crush",
+  "display_name": "Crushing Blow",
+  "position": "prefix",
+  "slot": "weapon",
+  "affix_id": "crushing_blow",
+  "element": "physical",
+  "mechanic": "percent_hp_on_hit",
+  "stat": "STR",
+  "tiers": {
+    "common": ["Heavy", "Weighted", "Leaden", "Dense", "Thudding", "Blunt", "Stout", "Solid", "Ponderous", "Thick-Headed", "Iron-Heavy", "Lumpish"],
+    "uncommon": ["Crushing", "Hammering", "Bone-Jarring", "Thunderous", "Pounding", "Ironshod", "Maul-Driven", "Boulder-Hewn", "Sledge-Capped", "Hammer-Forged", "Ground-Shaking", "Quake-Charged"],
+    "rare": ["Skull-Splitting", "Ramming", "Siege-Born", "Anvil-Struck", "Stone-Fisted", "Tremor", "Bone-Shattering", "Craghewn", "Siege-Forged", "Ram-Headed", "Rubble-Strewn", "Battering"],
+    "epic": ["Cataclysmic", "Earth-Shaking", "Titan-Forged", "Avalanche", "Earthbreaker", "Colossus", "Monolith-Fall", "Quake-Born", "Landslide", "Peak-Sunder", "Megalith", "Seismic"],
+    "legendary": ["Mountain-Fell", "Tectonic", "Earthrend", "Titan-Felled", "Continent-Crack", "Fault-Breaker", "Crag-Sunder", "Epoch-Hammer", "Bedrock-Rend", "Titan-Cast", "Bastion-Fall", "Crater-Pounded"]
+  }
+}

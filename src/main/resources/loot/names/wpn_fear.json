@@ -1,0 +1,82 @@
+{
+  "family_id": "wpn_fear",
+  "display_name": "Fear",
+  "position": "suffix",
+  "slot": "weapon",
+  "affix_id": "fear",
+  "element": null,
+  "mechanic": "debuff_reduces_target_damage",
+  "stat": "CHA",
+  "tiers": {
+    "common": [
+      "Unease",
+      "the Shiver",
+      "Gooseflesh",
+      "Hushed Dread",
+      "the Tremor",
+      "Gnawing Worry",
+      "the Quiver",
+      "Ill Foreboding",
+      "the Unsettling",
+      "Quiet Menace",
+      "the Disquiet",
+      "Rising Hackles"
+    ],
+    "uncommon": [
+      "the Frightful",
+      "Growing Dread",
+      "the Fell Gaze",
+      "Creeping Fear",
+      "the Hollow Stare",
+      "Dread Presence",
+      "the Haunting",
+      "Shaken Nerve",
+      "the Grim Stare",
+      "Rising Panic",
+      "the Ghastly",
+      "Baleful Regard"
+    ],
+    "rare": [
+      "the Dreaded",
+      "Deep Terror",
+      "the Night-Gazer",
+      "Iron Dread",
+      "Mortal Fear",
+      "the Harrower",
+      "Dread Visage",
+      "the Horror",
+      "Grim Reckoning",
+      "the Fear-Bringer",
+      "Wretched Aura",
+      "the Dread-Eyed"
+    ],
+    "epic": [
+      "the Terror",
+      "Abject Horror",
+      "Dread Manifest",
+      "Paralyzing Gaze",
+      "the Fear-Wreathed",
+      "Waking Nightmare",
+      "the Dread Lord",
+      "Ruinous Dread",
+      "the Nightmare",
+      "Withering Gaze",
+      "the Fell Omen",
+      "Dire Visitation"
+    ],
+    "legendary": [
+      "the Ceaseless Dread",
+      "Ashen Terror",
+      "the Desolation",
+      "Hollow Dread",
+      "the Dread Incarnate",
+      "the Nameless Dread",
+      "the Abomination",
+      "the Dread Unending",
+      "the Pale Monarch",
+      "Crawling Horror",
+      "the Fear Enthroned",
+      "the Waking Horror"
+    ]
+  }
+}

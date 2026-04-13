@@ -11,7 +11,7 @@ Name pool dir: `src/main/resources/loot/names/`
 | 0 | Global Census | ALL 33 | 33 | **DONE** |
 | 1 | Elemental Damage (Weapons) | flat + dot families | 8 | **DONE** (149 names replaced) |
 | 2 | Elemental Weakness (Weapons) | weakness families | 4 | **DONE** (~134 names replaced) |
-| 3 | Debuff/Utility (Weapons) | crush, backstab, fear, hex, mockery, rally | 6 | TODO |
+| 3 | Debuff/Utility (Weapons) | crush, backstab, fear, hex, mockery, rally | 6 | **DONE** (~71 names replaced) |
 | 4 | Sustain (Weapons) + Elemental Resist (Armor) | leech + elem res | 6 | TODO |
 | 5 | Physical Defense (Armor) | phys res, thorns, guardbreak, flinch, resilience | 5 | TODO |
 | 6 | Mobility/Utility (Armor) | evasion, waterbreath, gallant, lightfoot | 4 | TODO |
