@@ -149,21 +149,10 @@ public class Nat20MobNameGenerator {
             return null;
         }
 
+        List<MobNameAppellation> eligibleTitles = filterAppellations(appellations, rarity);
+
         for (int attempt = 0; attempt < MAX_RETRY; attempt++) {
-            MobNameWord prefix = eligiblePrefixes.get(random.nextInt(eligiblePrefixes.size()));
-            MobNameWord suffix = eligibleSuffixes.get(random.nextInt(eligibleSuffixes.size()));
-
-            String baseName = prefix.word() + suffix.word().toLowerCase();
-
-            // Roll for title appellation
-            String fullName = baseName;
-            if (shouldAddTitle(rarity, random)) {
-                List<MobNameAppellation> eligibleTitles = filterAppellations(appellations, rarity);
-                if (!eligibleTitles.isEmpty()) {
-                    MobNameAppellation title = eligibleTitles.get(random.nextInt(eligibleTitles.size()));
-                    fullName = baseName + " " + title.title();
-                }
-            }
+            String fullName = buildName(eligiblePrefixes, eligibleSuffixes, eligibleTitles, rarity, random);
 
             // Dedup check
             if (!recentNames.contains(fullName)) {
@@ -172,19 +161,8 @@ public class Nat20MobNameGenerator {
             }
         }
 
-        // Exhausted retries: accept the last generated name anyway
-        MobNameWord prefix = eligiblePrefixes.get(random.nextInt(eligiblePrefixes.size()));
-        MobNameWord suffix = eligibleSuffixes.get(random.nextInt(eligibleSuffixes.size()));
-        String fallback = prefix.word() + suffix.word().toLowerCase();
-
-        if (shouldAddTitle(rarity, random)) {
-            List<MobNameAppellation> eligibleTitles = filterAppellations(appellations, rarity);
-            if (!eligibleTitles.isEmpty()) {
-                MobNameAppellation title = eligibleTitles.get(random.nextInt(eligibleTitles.size()));
-                fallback = fallback + " " + title.title();
-            }
-        }
-
+        // Exhausted retries: accept whatever we get
+        String fallback = buildName(eligiblePrefixes, eligibleSuffixes, eligibleTitles, rarity, random);
         recordName(fallback);
         return fallback;
     }
@@ -209,6 +187,21 @@ public class Nat20MobNameGenerator {
             }
         }
         return result;
+    }
+
+    // ── Name construction ────────────────────────────────────────────────
+
+    private String buildName(List<MobNameWord> prefixPool, List<MobNameWord> suffixPool,
+                             List<MobNameAppellation> titlePool, MobNameRarity rarity, Random random) {
+        MobNameWord prefix = prefixPool.get(random.nextInt(prefixPool.size()));
+        MobNameWord suffix = suffixPool.get(random.nextInt(suffixPool.size()));
+        String baseName = prefix.word() + suffix.word().toLowerCase();
+
+        if (shouldAddTitle(rarity, random) && !titlePool.isEmpty()) {
+            MobNameAppellation title = titlePool.get(random.nextInt(titlePool.size()));
+            return baseName + " " + title.title();
+        }
+        return baseName;
     }
 
     // ── Title rules ──────────────────────────────────────────────────────
