@@ -1536,7 +1536,13 @@ All three remaining weapon effects verified.
 - Scans all active debuffs (`isDebuff()` + not infinite + remaining > 0) and drains extra duration per tick
 - Debuff count visibly drops faster with resilience equipped
 
-#### Remaining: Water Breathing, Light Foot, Rally
+#### 30. Water Breathing (`nat20:water_breathing`) — PASSED
+- Oxygen stat discovered: `Oxygen` (max 100, regen +25/0.5s above water, -3/0.5s underwater)
+- `StaticModifier(MAX, ADDITIVE)` on Oxygen stat, same pattern as CON→MaxHP
+- `[WaterBreathing] bonus=+84% maxOxygen=184` with WIS 20 at Rare/0.8
+- Oxygen value preserved on equip/unequip (snapshot + restore via `setStatValue`)
+
+#### Remaining: Light Foot, Rally
 - Deferred to SDK investigation.
 
 ---
