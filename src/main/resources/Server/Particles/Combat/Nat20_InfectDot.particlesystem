@@ -1,0 +1,7 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Effect_Poison", "PositionOffset": { "Y": 0.5 } }
+  ],
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

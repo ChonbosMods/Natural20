@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:poison_weakness",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.poison_weakness",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon", "ranged_weapon"],
+  "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
+  "TargetStat": "PoisonWeakness",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.10, "Max": 0.15 },
+    "Uncommon":  { "Min": 0.13, "Max": 0.20 },
+    "Rare":      { "Min": 0.18, "Max": 0.28 },
+    "Epic":      { "Min": 0.25, "Max": 0.38 },
+    "Legendary": { "Min": 0.30, "Max": 0.45 }
+  },
+  "Description": "On hit, target takes increased poison damage from all sources for a short time."
+}

@@ -1,0 +1,59 @@
+{
+  "RenderMode": "BlendLinear",
+  "EmitOffset": {
+    "X": { "Min": 0.1, "Max": 0.2 },
+    "Y": { "Min": 0.1, "Max": 0.3 },
+    "Z": { "Min": 0.1, "Max": 0.2 }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "LinearFiltering": true,
+  "LightInfluence": 0,
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 0.5,
+  "TrailSpawnerRotationMultiplier": 1,
+  "MaxConcurrentParticles": 2,
+  "ParticleLifeSpan": { "Min": 0.6, "Max": 0.8 },
+  "SpawnRate": { "Min": 3, "Max": 5 },
+  "InitialVelocity": {
+    "Speed": { "Min": 0.08, "Max": 0.3 },
+    "Yaw": { "Min": -30, "Max": 30 },
+    "Pitch": { "Min": 90, "Max": 90 }
+  },
+  "Attractors": [
+    {
+      "Position": { "X": 0, "Y": 0, "Z": 0 },
+      "RadialAxis": { "X": 0, "Y": 1, "Z": 0 },
+      "Radius": 0,
+      "RadialTangentImpulse": -0.8,
+      "LinearAcceleration": { "X": 0, "Y": 0.2, "Z": 0 }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/Ice/Snowflake.png",
+    "FrameSize": { "Width": 64, "Height": 64 },
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "None",
+    "Animation": {
+      "0": {
+        "FrameIndex": { "Min": 0, "Max": 0 },
+        "Opacity": 0.5,
+        "Color": "#555555",
+        "Scale": { "X": { "Min": 1.6, "Max": 1.6 }, "Y": { "Min": 1.6, "Max": 1.6 } },
+        "Rotation": { "Z": { "Min": 0, "Max": 0 } }
+      },
+      "20": { "Opacity": 0.8 },
+      "60": { "Opacity": 1.0 },
+      "85": { "Opacity": 0.8, "Color": "#444444" },
+      "100": {
+        "Opacity": 0, "Color": "#000000",
+        "Rotation": { "Z": { "Min": -45, "Max": 45 } },
+        "Scale": { "X": { "Min": 1.6, "Max": 2.4 }, "Y": { "Min": 4.0, "Max": 5.6 } }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Rotation": { "Z": { "Min": -10, "Max": 10 } },
+      "Scale": { "X": { "Min": 0.12, "Max": 0.16 }, "Y": { "Min": 0.12, "Max": 0.16 } },
+      "Opacity": 1, "Color": "#555555", "FrameIndex": { "Min": 0, "Max": 0 }
+    }
+  }
+}

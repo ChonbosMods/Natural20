@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "VoidSplash", "PositionOffset": { "Y": 0.5 } },
+    { "SpawnerId": "VoidSmoke_Impact", "PositionOffset": { "Y": 0.3 } }
+  ],
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

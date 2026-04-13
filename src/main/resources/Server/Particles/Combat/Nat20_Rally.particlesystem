@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "MAgic_Hit_DustGold", "PositionOffset": { "Y": 1.2 } },
+    { "SpawnerId": "Explosio_Medium_Flash_Glow", "PositionOffset": { "Y": 1.2 } }
+  ],
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

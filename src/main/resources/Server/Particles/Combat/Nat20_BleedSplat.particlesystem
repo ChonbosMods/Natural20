@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Sauce_Splash_Stream", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false },
+    { "SpawnerId": "Sauce_Splash_Drops2", "PositionOffset": { "Y": 0.5 } }
+  ],
+  "LifeSpan": 0.4,
+  "CullDistance": 75
+}

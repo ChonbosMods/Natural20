@@ -189,6 +189,14 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         if (iceCauseIdx >= 0) elementalCauses.add(iceCauseIdx);
         if (voidCauseIdx >= 0) elementalCauses.add(voidCauseIdx);
         if (poisonCauseIdx >= 0) elementalCauses.add(poisonCauseIdx);
+
+        // Also recognize vanilla elemental causes
+        int vanillaFire = assetMap.getIndex("Fire");
+        int vanillaIce = assetMap.getIndex("Ice");
+        int vanillaPoison = assetMap.getIndex("Poison");
+        if (vanillaFire >= 0) elementalCauses.add(vanillaFire);
+        if (vanillaIce >= 0) elementalCauses.add(vanillaIce);
+        if (vanillaPoison >= 0) elementalCauses.add(vanillaPoison);
     }
 
     /**

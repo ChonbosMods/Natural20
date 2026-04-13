@@ -3,8 +3,29 @@ package com.chonbosmods;
 import com.chonbosmods.combat.CombatDebugSystem;
 import com.chonbosmods.combat.Nat20AbsorptionSystem;
 import com.chonbosmods.combat.Nat20AttackSpeedSystem;
+import com.chonbosmods.combat.Nat20CombatParticleSystem;
 import com.chonbosmods.combat.Nat20CritSystem;
 import com.chonbosmods.combat.Nat20DeepWoundsSystem;
+import com.chonbosmods.combat.Nat20DotTickSystem;
+import com.chonbosmods.combat.Nat20ElementalDamageSystem;
+import com.chonbosmods.combat.Nat20ElementalDotSystem;
+import com.chonbosmods.combat.Nat20BackstabSystem;
+import com.chonbosmods.combat.Nat20BlockProficiencySystem;
+import com.chonbosmods.combat.Nat20CrushingBlowSystem;
+import com.chonbosmods.combat.Nat20EvasionSystem;
+import com.chonbosmods.combat.Nat20RallySystem;
+import com.chonbosmods.combat.Nat20ThornsSystem;
+import com.chonbosmods.combat.Nat20GallantReduceSystem;
+import com.chonbosmods.combat.Nat20GallantSystem;
+import com.chonbosmods.combat.Nat20HexConsumeSystem;
+import com.chonbosmods.combat.Nat20HexSystem;
+import com.chonbosmods.combat.Nat20LifeLeechSystem;
+import com.chonbosmods.combat.Nat20ManaLeechSystem;
+import com.chonbosmods.combat.Nat20ViciousMockeryAmplifySystem;
+import com.chonbosmods.combat.Nat20ViciousMockerySystem;
+import com.chonbosmods.combat.Nat20WeaknessAmplifySystem;
+import com.chonbosmods.combat.Nat20WeaknessApplySystem;
+import com.chonbosmods.combat.Nat20ResistanceSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
 import com.chonbosmods.combat.Nat20MovementSpeedSystem;
 import com.chonbosmods.combat.Nat20ScoreBonusSystem;
@@ -105,6 +126,15 @@ public class Natural20 extends JavaPlugin {
     private Nat20ScoreDamageSystem scoreDamageSystem;
     private Nat20CritSystem critSystem;
     private Nat20MovementSpeedSystem movementSpeedSystem;
+    private Nat20ElementalDamageSystem elementalDamageSystem;
+    private Nat20DotTickSystem dotTickSystem;
+    private Nat20ElementalDotSystem elementalDotSystem;
+    private Nat20LifeLeechSystem lifeLeechSystem;
+    private Nat20ManaLeechSystem manaLeechSystem;
+    private Nat20ViciousMockerySystem viciousMockerySystem;
+    private Nat20HexSystem hexSystem;
+    private Nat20GallantSystem gallantSystem;
+    private Nat20WeaknessApplySystem weaknessApplySystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -343,17 +373,25 @@ public class Natural20 extends JavaPlugin {
         // Register combat debug logging system (post-damage inspection)
         getEntityStoreRegistry().registerSystem(new CombatDebugSystem());
 
+        // Register combat particle system (gold crit bursts, red bleed splats)
+        getEntityStoreRegistry().registerSystem(new Nat20CombatParticleSystem());
+
         // Register absorption affix system (Filter Group: redirects damage to mana)
         absorptionSystem = new Nat20AbsorptionSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(absorptionSystem);
 
         // Register deep wounds affix system (Inspect Group: bleed DOT on melee hit)
-        deepWoundsSystem = new Nat20DeepWoundsSystem(lootSystem);
+        // Unified DOT tick system: all DOTs on an entity share one tick phase
+        dotTickSystem = new Nat20DotTickSystem();
+        getEntityStoreRegistry().registerSystem(dotTickSystem);
+
+        deepWoundsSystem = new Nat20DeepWoundsSystem(lootSystem, dotTickSystem);
         getEntityStoreRegistry().registerSystem(deepWoundsSystem);
 
         // Register attack speed affix system (ECS ticking system, runs AFTER TickInteractionManagerSystem)
         attackSpeedSystem = new Nat20AttackSpeedSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(attackSpeedSystem);
+
 
         // Register focused mind affix system (ECS ticking: smooth mana regen boost while idle)
         focusedMindSystem = new Nat20FocusedMindSystem(lootSystem);
@@ -376,6 +414,53 @@ public class Natural20 extends JavaPlugin {
         movementSpeedSystem = new Nat20MovementSpeedSystem();
         getEntityStoreRegistry().registerSystem(movementSpeedSystem);
 
+        // Phase 5 Batch 1: flat elemental damage (fire/frost/poison/void on hit)
+        elementalDamageSystem = new Nat20ElementalDamageSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(elementalDamageSystem);
+
+        // Phase 5 Batch 2: elemental proc DOTs (ignite/cold/infect/corrupt)
+        elementalDotSystem = new Nat20ElementalDotSystem(lootSystem, dotTickSystem);
+        getEntityStoreRegistry().registerSystem(elementalDotSystem);
+
+        // Phase 5 Batch 3: leech pair (life leech + mana leech)
+        lifeLeechSystem = new Nat20LifeLeechSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(lifeLeechSystem);
+        manaLeechSystem = new Nat20ManaLeechSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(manaLeechSystem);
+
+        // Phase 5 Batch 4: debuff/curse weapon effects
+        viciousMockerySystem = new Nat20ViciousMockerySystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(viciousMockerySystem);
+        getEntityStoreRegistry().registerSystem(new Nat20ViciousMockeryAmplifySystem(viciousMockerySystem));
+        hexSystem = new Nat20HexSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(hexSystem);
+        getEntityStoreRegistry().registerSystem(new Nat20HexConsumeSystem(hexSystem));
+        gallantSystem = new Nat20GallantSystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(gallantSystem);
+        getEntityStoreRegistry().registerSystem(new Nat20GallantReduceSystem(gallantSystem));
+
+        // Phase 5 Batch 5: elemental weakness + resistance
+        weaknessApplySystem = new Nat20WeaknessApplySystem(lootSystem);
+        getEntityStoreRegistry().registerSystem(weaknessApplySystem);
+        getEntityStoreRegistry().registerSystem(new Nat20WeaknessAmplifySystem(weaknessApplySystem));
+        getEntityStoreRegistry().registerSystem(new Nat20ResistanceSystem(lootSystem));
+
+        // Phase 5 Batch 6: remaining weapon effects
+        getEntityStoreRegistry().registerSystem(new Nat20CrushingBlowSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20BackstabSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20BlockProficiencySystem(lootSystem));
+
+        // Phase 5 Batch 7: defensive armor affixes
+        getEntityStoreRegistry().registerSystem(new Nat20ThornsSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20EvasionSystem(lootSystem));
+        // Flinch Resist, Guard Break Resist, Resilience: affix JSONs registered but systems
+        // deferred pending SDK investigation during smoke testing
+
+        // Phase 5 Batch 8: utility armor + on-kill
+        // Water Breathing, Light Foot: affix JSONs registered, systems deferred pending
+        // SDK investigation (breath stat name, sprint stamina cost stat)
+        getEntityStoreRegistry().registerSystem(new Nat20RallySystem(lootSystem));
+
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
             UUID uuid = event.getPlayerRef().getUuid();
@@ -390,6 +475,7 @@ public class Natural20 extends JavaPlugin {
             if (focusedMindSystem != null) focusedMindSystem.removePlayer(uuid);  // clears tracked state
             if (movementSpeedSystem != null) movementSpeedSystem.removePlayer(uuid);
             if (scoreRegenSystem != null) scoreRegenSystem.removePlayer(uuid);
+            if (hexSystem != null) hexSystem.removePlayer(uuid);
             Nat20ScoreDirtyFlag.removePlayer(uuid);
         });
 
@@ -475,9 +561,6 @@ public class Natural20 extends JavaPlugin {
         // Load loot system configs
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
 
-        // Start deep wounds bleed ticker (after loot system loaded affix defs)
-        deepWoundsSystem.startBleedTicker();
-
         // Rehydrate persisted unique items and inject I18n entries
         lootSystem.getItemRegistry().rehydrateAll();
 
@@ -526,9 +609,6 @@ public class Natural20 extends JavaPlugin {
         }
         if (npcSyncExecutor != null) {
             npcSyncExecutor.shutdownNow();
-        }
-        if (deepWoundsSystem != null) {
-            deepWoundsSystem.shutdown();
         }
         // Clear marker state
         QuestMarkerManager.INSTANCE.clear();

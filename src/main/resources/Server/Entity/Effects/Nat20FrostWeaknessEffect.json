@@ -1,0 +1,11 @@
+{
+  "ApplicationEffects": {
+    "Particles": [
+      { "SystemId": "Nat20_IceWeakness" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 10
+}

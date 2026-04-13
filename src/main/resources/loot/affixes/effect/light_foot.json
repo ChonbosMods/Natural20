@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:light_foot",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.light_foot",
+  "NamePosition": "SUFFIX",
+  "Categories": ["armor"],
+  "StatScaling": { "Primary": "DEX", "Factor": 0.12 },
+  "TargetStat": "LightFoot",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.08, "Max": 0.12 },
+    "Uncommon":  { "Min": 0.10, "Max": 0.18 },
+    "Rare":      { "Min": 0.15, "Max": 0.25 },
+    "Epic":      { "Min": 0.20, "Max": 0.30 },
+    "Legendary": { "Min": 0.25, "Max": 0.35 }
+  },
+  "Description": "Reduces stamina cost while sprinting."
+}

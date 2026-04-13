@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Impact_Acid_Drops_Hit", "PositionOffset": { "Y": 0.5 } }
+  ],
+  "LifeSpan": 0.4,
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

@@ -17,47 +17,43 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
+import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
-import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
-import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
-import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 /**
- * Deep Wounds affix system: on melee hit, has a chance to inflict a bleed DOT on the target.
- * The bleed deals periodic health drain over 5 seconds (10 ticks at 500ms intervals).
- *
- * <p>Runs in the Inspect Group so it observes finalized damage without modifying it.
- * Overlap behavior: a new bleed replaces any existing bleed on the same target (reset ticks).
+ * Deep Wounds affix: on melee hit, chance to apply the Nat20BleedEffect EntityEffect
+ * to the target. The effect ticks through Hytale's native damage pipeline with a
+ * Nat20Bleed DamageCause, so its hits are picked up by Nat20CombatParticleSystem
+ * for the red bleed particle overlay.
  */
 public class Nat20DeepWoundsSystem extends DamageEventSystem {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:deep_wounds";
-    private static final int BLEED_TICKS = 10;
-    private static final long TICK_INTERVAL_MS = 500L;
+    private static final String EFFECT_ID = "Nat20BleedEffect";
+
+    private static final float DOT_DURATION = 20.0f;
 
     private final Nat20LootSystem lootSystem;
-    private final ConcurrentHashMap<Ref<EntityStore>, BleedState> activeBleeds = new ConcurrentHashMap<>();
-    private ScheduledExecutorService bleedExecutor;
-    public Nat20DeepWoundsSystem(Nat20LootSystem lootSystem) {
+    private final Nat20DotTickSystem dotTickSystem;
+    private EntityEffect bleedEffect;
+    private boolean effectResolved;
+
+    public Nat20DeepWoundsSystem(Nat20LootSystem lootSystem, Nat20DotTickSystem dotTickSystem) {
         this.lootSystem = lootSystem;
+        this.dotTickSystem = dotTickSystem;
     }
 
     @Override
@@ -76,7 +72,6 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                        Damage damage) {
         if (damage.isCancelled()) return;
 
-        // Extract attacker: must be a player via EntitySource
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
 
@@ -88,126 +83,84 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
 
         UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
 
-        // Get attacker's weapon
         ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
         if (weapon == null || weapon.isEmpty()) return;
 
         Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
         if (lootData == null) return;
 
-        // Scan weapon affixes for deep_wounds
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         for (RolledAffix rolledAffix : lootData.getAffixes()) {
             if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
             Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
-            if (def == null) return;
+            if (def == null) {
+                LOGGER.atWarning().log("[DeepWounds] affix def missing for %s", AFFIX_ID);
+                return;
+            }
 
-            // Parse proc chance and roll
             double procChance = parseProcChance(def.procChance());
+            double roll = ThreadLocalRandom.current().nextDouble();
+            LOGGER.atInfo().log("[DeepWounds] roll: attacker=%s chance=%.2f roll=%.3f proc=%s",
+                    attackerUuid.toString().substring(0, 8),
+                    procChance, roll, (roll <= procChance));
             if (procChance <= 0) return;
-            if (ThreadLocalRandom.current().nextDouble() > procChance) return;
+            if (roll > procChance) return;
 
-            // Compute effective bleed total
-            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            if (range == null) return;
-
-            double baseValue = range.interpolate(lootData.getLootLevel());
-            double effectiveValue = baseValue;
-
-            PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
-            if (playerStats != null && def.statScaling() != null) {
-                Stat primary = def.statScaling().primary();
-                int modifier = playerStats.getModifier(primary);
-                effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+            if (!resolveEffect()) {
+                LOGGER.atWarning().log("[DeepWounds] effect '%s' unavailable; skipping proc", EFFECT_ID);
+                return;
             }
 
-            double bleedTotal = Nat20Softcap.softcap(effectiveValue, 12.0);
-            double perTickDamage = bleedTotal / BLEED_TICKS;
-
-            // Apply bleed to target (replace if already bleeding)
             Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-            activeBleeds.put(targetRef, new BleedState(perTickDamage, BLEED_TICKS));
-
-            // Debug logging
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s base=%.2f effective=%.2f total=%.2f perTick=%.2f ticks=%d",
-                        attackerUuid.toString().substring(0, 8),
-                        baseValue, effectiveValue, bleedTotal, perTickDamage, BLEED_TICKS);
+            EffectControllerComponent effectController =
+                    store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+            if (effectController == null) {
+                LOGGER.atWarning().log("[DeepWounds] target has no EffectControllerComponent; skipping");
+                return;
             }
 
-            // Only process the first matching affix
+            // Register with unified tick system so bleed syncs with other DOTs
+            boolean isNew = dotTickSystem.registerDot(targetRef,
+                    Nat20DotTickSystem.DotType.BLEED, attackerRef, DOT_DURATION);
+
+            // Only apply visual EntityEffect on first application to prevent particle stacking
+            if (isNew) {
+                effectController.addEffect(targetRef, bleedEffect, commandBuffer);
+            }
+
+            LOGGER.atInfo().log("[DeepWounds] new=%s effect=%s target=%s",
+                    isNew, EFFECT_ID, targetRef);
+
+            if (CombatDebugSystem.isEnabled(attackerUuid)) {
+                AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+                double baseValue = range != null ? range.interpolate(lootData.getLootLevel()) : 0;
+                double effectiveValue = baseValue;
+                PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
+                if (playerStats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int modifier = playerStats.getModifier(primary);
+                    effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+                }
+                double bleedTotal = Nat20Softcap.softcap(effectiveValue, 12.0);
+                LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s base=%.2f effective=%.2f softcapped=%.2f effect=%s",
+                        attackerUuid.toString().substring(0, 8),
+                        baseValue, effectiveValue, bleedTotal, EFFECT_ID);
+            }
             return;
         }
     }
 
-    /**
-     * Start the bleed tick executor. Called from Natural20.start() after loot system is loaded.
-     */
-    public void startBleedTicker() {
-        bleedExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
-            Thread t = new Thread(r, "nat20-deep-wounds-bleed");
-            t.setDaemon(true);
-            return t;
-        });
-        bleedExecutor.scheduleAtFixedRate(this::tickBleeds, TICK_INTERVAL_MS, TICK_INTERVAL_MS, TimeUnit.MILLISECONDS);
-    }
-
-    /**
-     * Shut down the bleed executor. Called from Natural20.shutdown().
-     */
-    public void shutdown() {
-        if (bleedExecutor != null) {
-            bleedExecutor.shutdownNow();
+    private boolean resolveEffect() {
+        if (effectResolved) return bleedEffect != null;
+        bleedEffect = EntityEffect.getAssetMap().getAsset(EFFECT_ID);
+        effectResolved = true;
+        if (bleedEffect == null) {
+            LOGGER.atWarning().log("[DeepWounds] EntityEffect '%s' not found in asset map", EFFECT_ID);
         }
-        activeBleeds.clear();
+        return bleedEffect != null;
     }
 
-    /**
-     * Periodic bleed tick: dispatches to the world thread to apply health drain.
-     */
-    private void tickBleeds() {
-        if (activeBleeds.isEmpty()) return;
-
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-
-        world.execute(() -> {
-            Store<EntityStore> store = world.getEntityStore().getStore();
-            int healthIdx = EntityStatType.getAssetMap().getIndex("Health");
-            if (healthIdx < 0) return;
-
-            Iterator<Map.Entry<Ref<EntityStore>, BleedState>> it = activeBleeds.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry<Ref<EntityStore>, BleedState> entry = it.next();
-                Ref<EntityStore> targetRef = entry.getKey();
-                BleedState state = entry.getValue();
-
-                if (!targetRef.isValid()) {
-                    it.remove();
-                    continue;
-                }
-
-                EntityStatMap statMap = store.getComponent(targetRef, EntityStatMap.getComponentType());
-                if (statMap == null) {
-                    it.remove();
-                    continue;
-                }
-
-                statMap.subtractStatValue(healthIdx, (float) state.perTickDamage);
-                state.remainingTicks--;
-
-                if (state.remainingTicks <= 0) {
-                    it.remove();
-                }
-            }
-        });
-    }
-
-    /**
-     * Parse a proc chance string like "25%" into a double (0.25).
-     * Returns 0 if the string is null or unparseable.
-     */
     private static double parseProcChance(@Nullable String procChanceStr) {
         if (procChanceStr == null || procChanceStr.isEmpty()) return 0.0;
         try {
@@ -222,9 +175,6 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
         }
     }
 
-    /**
-     * Resolve the player's D&D stats for affix scaling, or null if unavailable.
-     */
     @Nullable
     private PlayerStats resolvePlayerStats(Ref<EntityStore> playerRef, Store<EntityStore> store) {
         try {
@@ -232,19 +182,6 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
             return playerData != null ? PlayerStats.from(playerData) : null;
         } catch (Exception e) {
             return null;
-        }
-    }
-
-    /**
-     * Mutable bleed state tracked per bleeding entity.
-     */
-    private static class BleedState {
-        final double perTickDamage;
-        int remainingTicks;
-
-        BleedState(double perTickDamage, int remainingTicks) {
-            this.perTickDamage = perTickDamage;
-            this.remainingTicks = remainingTicks;
         }
     }
 }

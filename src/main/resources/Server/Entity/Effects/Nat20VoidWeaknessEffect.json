@@ -1,0 +1,11 @@
+{
+  "ApplicationEffects": {
+    "Particles": [
+      { "SystemId": "Nat20_VoidWeakness" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 10
+}

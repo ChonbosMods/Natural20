@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Impact_Ice_Fragments", "PositionOffset": { "Y": 0.5 } }
+  ],
+  "LifeSpan": 0.2,
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

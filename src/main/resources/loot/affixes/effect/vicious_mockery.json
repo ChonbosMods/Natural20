@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:vicious_mockery",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.vicious_mockery",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon", "ranged_weapon"],
+  "StatScaling": { "Primary": "CHA", "Factor": 0.15 },
+  "TargetStat": "ViciousMockery",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.08, "Max": 0.12 },
+    "Uncommon":  { "Min": 0.10, "Max": 0.16 },
+    "Rare":      { "Min": 0.14, "Max": 0.22 },
+    "Epic":      { "Min": 0.20, "Max": 0.30 },
+    "Legendary": { "Min": 0.25, "Max": 0.35 }
+  },
+  "Description": "On hit, target takes increased damage from all sources for a short time."
+}

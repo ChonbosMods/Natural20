@@ -1,0 +1,11 @@
+{
+  "ApplicationEffects": {
+    "Particles": [
+      { "SystemId": "Nat20_ViciousMockery" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 8
+}

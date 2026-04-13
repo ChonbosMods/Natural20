@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:water_breathing",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.water_breathing",
+  "NamePosition": "SUFFIX",
+  "Categories": ["armor"],
+  "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
+  "TargetStat": "WaterBreathing",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.20, "Max": 0.40 },
+    "Uncommon":  { "Min": 0.35, "Max": 0.60 },
+    "Rare":      { "Min": 0.50, "Max": 0.90 },
+    "Epic":      { "Min": 0.80, "Max": 1.30 },
+    "Legendary": { "Min": 1.00, "Max": 1.80 }
+  },
+  "Description": "Greatly increases breath capacity underwater."
+}

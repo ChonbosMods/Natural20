@@ -1,0 +1,9 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Projectile_Fire_Static_Core", "PositionOffset": { "Y": 0.5 } },
+    { "SpawnerId": "Projectile_Fire_Static_Sparks", "PositionOffset": { "Y": 0.5 } }
+  ],
+  "LifeSpan": 0.4,
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

@@ -1,0 +1,19 @@
+{
+  "Id": "nat20:gallant",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.gallant",
+  "NamePosition": "SUFFIX",
+  "Categories": ["armor"],
+  "StatScaling": { "Primary": "CHA", "Factor": 0.12 },
+  "TargetStat": "Gallant",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.08, "Max": 0.12 },
+    "Uncommon":  { "Min": 0.10, "Max": 0.16 },
+    "Rare":      { "Min": 0.12, "Max": 0.18 },
+    "Epic":      { "Min": 0.14, "Max": 0.20 },
+    "Legendary": { "Min": 0.16, "Max": 0.22 }
+  },
+  "Description": "When struck, chance to reduce attacker's damage output.",
+  "ProcChance": "100%"
+}

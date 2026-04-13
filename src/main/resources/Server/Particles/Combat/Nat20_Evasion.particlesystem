@@ -1,0 +1,8 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Explosion_Medium_Shockwave", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false }
+  ],
+  "LifeSpan": 0.3,
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:fire_resistance",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.fire_resistance",
+  "NamePosition": "SUFFIX",
+  "Categories": ["armor"],
+  "StatScaling": { "Primary": "INT", "Factor": 0.12 },
+  "TargetStat": "FireResistance",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.05, "Max": 0.08 },
+    "Uncommon":  { "Min": 0.07, "Max": 0.12 },
+    "Rare":      { "Min": 0.10, "Max": 0.18 },
+    "Epic":      { "Min": 0.15, "Max": 0.24 },
+    "Legendary": { "Min": 0.20, "Max": 0.30 }
+  },
+  "Description": "Reduces incoming fire damage."
+}

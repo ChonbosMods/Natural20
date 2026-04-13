@@ -1,0 +1,18 @@
+{
+  "Id": "nat20:hex",
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.hex",
+  "NamePosition": "PREFIX",
+  "Categories": ["melee_weapon", "ranged_weapon"],
+  "StatScaling": { "Primary": "WIS", "Factor": 0.18 },
+  "TargetStat": "HexDamage",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.15, "Max": 0.25 },
+    "Uncommon":  { "Min": 0.20, "Max": 0.35 },
+    "Rare":      { "Min": 0.30, "Max": 0.50 },
+    "Epic":      { "Min": 0.45, "Max": 0.65 },
+    "Legendary": { "Min": 0.60, "Max": 0.80 }
+  },
+  "Description": "On hit, curse the target. Your next hit against them deals bonus damage, consuming the curse."
+}

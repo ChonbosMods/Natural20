@@ -1,0 +1,16 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#100600",
+    "EntityTopTint": "#cf2302",
+    "WorldSoundEventId": "SFX_Effect_Burn_World",
+    "LocalSoundEventId": "SFX_Effect_Burn_World",
+    "Particles": [
+      { "SystemId": "Effect_Fire" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 20,
+  "DeathMessageKey": "server.general.deathCause.ignite"
+}

@@ -1,0 +1,13 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#332200",
+    "EntityTopTint": "#ffcc00",
+    "Particles": [
+      { "SystemId": "Nat20_Rally" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": false,
+  "Duration": 12
+}

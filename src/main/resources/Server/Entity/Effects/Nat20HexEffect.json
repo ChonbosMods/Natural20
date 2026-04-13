@@ -1,0 +1,13 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#1a0033",
+    "EntityTopTint": "#9933ff",
+    "Particles": [
+      { "SystemId": "Nat20_Hex" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 1
+}

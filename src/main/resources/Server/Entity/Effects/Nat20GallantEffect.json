@@ -1,0 +1,13 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#0a001a",
+    "EntityTopTint": "#6633aa",
+    "Particles": [
+      { "SystemId": "Nat20_Gallant" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 7
+}

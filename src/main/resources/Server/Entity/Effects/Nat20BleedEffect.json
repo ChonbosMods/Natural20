@@ -1,0 +1,16 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#2a0000",
+    "EntityTopTint": "#cc0000",
+    "WorldSoundEventId": "SFX_Daggers_T2_Stab_Impact",
+    "LocalSoundEventId": "SFX_Daggers_T2_Stab_Impact",
+    "Particles": [
+      { "SystemId": "Dagger_Signature_Status" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 20,
+  "DeathMessageKey": "server.general.deathCause.bleed"
+}

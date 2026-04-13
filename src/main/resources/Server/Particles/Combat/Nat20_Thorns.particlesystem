@@ -1,0 +1,9 @@
+{
+  "Spawners": [
+    { "SpawnerId": "Impact_Critical_Sparks", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false },
+    { "SpawnerId": "Explosion_Medium_Sparks_Out", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false }
+  ],
+  "LifeSpan": 0.3,
+  "BoundingRadius": 50,
+  "CullDistance": 75
+}

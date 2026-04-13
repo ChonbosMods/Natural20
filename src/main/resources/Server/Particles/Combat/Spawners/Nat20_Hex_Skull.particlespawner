@@ -1,0 +1,75 @@
+{
+  "RenderMode": "BlendLinear",
+  "EmitOffset": {
+    "X": { "Min": 0.1, "Max": 0.2 },
+    "Y": { "Min": 0.1, "Max": 0.3 },
+    "Z": { "Min": 0.1, "Max": 0.2 }
+  },
+  "ParticleRotationInfluence": "Billboard",
+  "LinearFiltering": true,
+  "LightInfluence": 0,
+  "ParticleRotateWithSpawner": false,
+  "TrailSpawnerPositionMultiplier": 0.5,
+  "TrailSpawnerRotationMultiplier": 1,
+  "MaxConcurrentParticles": 2,
+  "ParticleLifeSpan": { "Min": 0.6, "Max": 0.8 },
+  "SpawnRate": { "Min": 3, "Max": 5 },
+  "InitialVelocity": {
+    "Speed": { "Min": 0.08, "Max": 0.3 },
+    "Yaw": { "Min": -30, "Max": 30 },
+    "Pitch": { "Min": 90, "Max": 90 }
+  },
+  "Attractors": [
+    {
+      "Position": { "X": 0, "Y": 0, "Z": 0 },
+      "RadialAxis": { "X": 0, "Y": 1, "Z": 0 },
+      "Radius": 0,
+      "RadialTangentImpulse": -0.8,
+      "LinearAcceleration": { "X": 0, "Y": 0.2, "Z": 0 }
+    }
+  ],
+  "Particle": {
+    "Texture": "Particles/Textures/Shapes/Effect_Poison_Face1.png",
+    "FrameSize": { "Width": 128, "Height": 128 },
+    "ScaleRatioConstraint": "OneToOne",
+    "UVOption": "RandomFlipU",
+    "Animation": {
+      "0": {
+        "FrameIndex": { "Min": 0, "Max": 0 },
+        "Opacity": 0,
+        "Color": "#9933ff",
+        "Scale": { "X": { "Min": 0.8, "Max": 0.8 }, "Y": { "Min": 0.8, "Max": 0.8 } },
+        "Rotation": { "Z": { "Min": 0, "Max": 0 } }
+      },
+      "20": {
+        "FrameIndex": { "Min": 0, "Max": 0 },
+        "Opacity": 0.6
+      },
+      "25": {
+        "FrameIndex": { "Min": 1, "Max": 1 },
+        "Opacity": 0.8
+      },
+      "38": { "FrameIndex": { "Min": 2, "Max": 2 }, "Opacity": 0.9 },
+      "45": { "FrameIndex": { "Min": 3, "Max": 3 } },
+      "53": { "FrameIndex": { "Min": 4, "Max": 4 } },
+      "60": { "FrameIndex": { "Min": 5, "Max": 5 }, "Opacity": 0.9 },
+      "67": { "FrameIndex": { "Min": 6, "Max": 6 } },
+      "75": { "FrameIndex": { "Min": 7, "Max": 7 }, "Opacity": 0.75 },
+      "83": { "FrameIndex": { "Min": 8, "Max": 8 }, "Opacity": 0.7 },
+      "90": { "FrameIndex": { "Min": 9, "Max": 9 }, "Opacity": 0.4 },
+      "100": {
+        "Opacity": 0,
+        "Color": "#6622aa",
+        "Rotation": { "Z": { "Min": -45, "Max": 45 } },
+        "Scale": { "X": { "Min": 0.8, "Max": 1.2 }, "Y": { "Min": 2.0, "Max": 2.8 } }
+      }
+    },
+    "InitialAnimationFrame": {
+      "Rotation": { "Z": { "Min": -10, "Max": 10 } },
+      "Scale": { "X": { "Min": 0.06, "Max": 0.08 }, "Y": { "Min": 0.06, "Max": 0.08 } },
+      "Opacity": 1,
+      "Color": "#9933ff",
+      "FrameIndex": { "Min": 0, "Max": 0 }
+    }
+  }
+}

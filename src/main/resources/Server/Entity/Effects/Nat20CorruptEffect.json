@@ -1,0 +1,16 @@
+{
+  "ApplicationEffects": {
+    "EntityBottomTint": "#1a0033",
+    "EntityTopTint": "#aa44ff",
+    "WorldSoundEventId": "SFX_Effect_Burn_World",
+    "LocalSoundEventId": "SFX_Effect_Burn_World",
+    "Particles": [
+      { "SystemId": "Nat20_CorruptDot" }
+    ]
+  },
+  "OverlapBehavior": "Overwrite",
+  "Infinite": false,
+  "Debuff": true,
+  "Duration": 20,
+  "DeathMessageKey": "server.general.deathCause.corrupt"
+}

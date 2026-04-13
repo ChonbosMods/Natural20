@@ -43,6 +43,7 @@ public class Nat20CritSystem extends DamageEventSystem {
 
     private static final String CRIT_CHANCE_ID = "nat20:crit_chance";
     private static final String CRIT_DAMAGE_ID = "nat20:crit_damage";
+    public static final String FORCE_CRIT_ID = "nat20:force_crit";
     private static final double BASE_CRIT_MULTIPLIER = 1.5;
     private static final double SOFTCAP_K_CHANCE = 0.30;
     private static final double SOFTCAP_K_DAMAGE = 2.0;
@@ -98,21 +99,28 @@ public class Nat20CritSystem extends DamageEventSystem {
         PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
-        // Compute effective crit chance
-        double critChance = computeAffixValue(CRIT_CHANCE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_CHANCE);
-        if (critChance <= 0) return;
-
         UUID playerUuid = attackerPlayer.getPlayerRef().getUuid();
+
+        // Dev-only guaranteed-crit marker: /nat20 testcritweapon applies this affix ID
+        // so the tester can verify the crit visual/sound pipeline without RNG.
+        boolean forcedCrit = hasAffix(FORCE_CRIT_ID, lootData);
+        double critChance;
+        if (forcedCrit) {
+            critChance = 1.0;
+        } else {
+            critChance = computeAffixValue(CRIT_CHANCE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_CHANCE);
+            if (critChance <= 0) return;
+        }
 
         if (CombatDebugSystem.isEnabled(playerUuid)) {
             double critDmgBonus = computeAffixValue(CRIT_DAMAGE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_DAMAGE);
-            LOGGER.atInfo().log("[Crit:check] player=%s chance=%.1f%% dmgBonus=%.2f",
+            LOGGER.atInfo().log("[Crit:check] player=%s chance=%.1f%% dmgBonus=%.2f forced=%s",
                     playerUuid.toString().substring(0, 8),
-                    critChance * 100, critDmgBonus);
+                    critChance * 100, critDmgBonus, forcedCrit);
         }
 
-        // Roll
-        if (ThreadLocalRandom.current().nextDouble() >= critChance) return;
+        // Roll (skipped for forced crits)
+        if (!forcedCrit && ThreadLocalRandom.current().nextDouble() >= critChance) return;
 
         // Crit! Compute damage multiplier
         double critDmgBonus = computeAffixValue(CRIT_DAMAGE_ID, lootData, affixRegistry, playerStats, SOFTCAP_K_DAMAGE);
@@ -128,6 +136,13 @@ public class Nat20CritSystem extends DamageEventSystem {
                     playerUuid.toString().substring(0, 8),
                     critChance * 100, critMultiplier, original, critted);
         }
+    }
+
+    private static boolean hasAffix(String affixId, Nat20LootData lootData) {
+        for (RolledAffix affix : lootData.getAffixes()) {
+            if (affixId.equals(affix.id())) return true;
+        }
+        return false;
     }
 
     private double computeAffixValue(String affixId, Nat20LootData lootData,

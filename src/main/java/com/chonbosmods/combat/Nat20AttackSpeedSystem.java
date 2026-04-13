@@ -21,29 +21,26 @@ import com.hypixel.hytale.component.dependency.Order;
 import com.hypixel.hytale.component.dependency.SystemDependency;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
+import com.hypixel.hytale.protocol.InteractionState;
+import com.hypixel.hytale.protocol.InteractionSyncData;
 import com.hypixel.hytale.protocol.InteractionType;
-import com.hypixel.hytale.protocol.ItemAnimation;
-import com.hypixel.hytale.protocol.ItemPlayerAnimations;
-import com.hypixel.hytale.protocol.UpdateType;
-import com.hypixel.hytale.protocol.packets.assets.UpdateItemPlayerAnimations;
-import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.entity.InteractionChain;
+import com.hypixel.hytale.server.core.entity.InteractionEntry;
 import com.hypixel.hytale.server.core.entity.InteractionManager;
 import com.hypixel.hytale.server.core.entity.UUIDComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.io.PacketHandler;
 import com.hypixel.hytale.server.core.modules.interaction.InteractionModule;
+import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.modules.interaction.system.InteractionSystems;
-import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -53,15 +50,17 @@ import java.util.concurrent.ConcurrentHashMap;
  * Attack Speed affix system: ECS ticking system that applies interaction time shifts
  * to players wielding weapons with the attack_speed affix.
  *
- * <p>Runs AFTER {@code TickInteractionManagerSystem} each game tick, matching the
- * pattern used by AttackAnimationsFramework. This ensures the time shift is applied
- * after the engine's native interaction tick and persists until the next tick.
+ * <p>Runs AFTER {@code TickInteractionManagerSystem} each game tick. Applies server-side
+ * timing controls (timeShift, timestamp, sync nudge) that make the interaction complete
+ * faster. At production values (10-22% speed boost), the tail-end animation frames get
+ * trimmed imperceptibly.
  */
 public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:attack_speed";
     private static final double SOFTCAP_K = 0.35;
+    private static final long CHAIN_SYNC_COOLDOWN_MS = 24L;
 
     private final Nat20LootSystem lootSystem;
     private final Query<EntityStore> query;
@@ -73,22 +72,8 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
     /** Track last applied shift per player to avoid redundant logging. */
     private final ConcurrentHashMap<UUID, Float> activeShifts = new ConcurrentHashMap<>();
 
-    /** Track last sent animation sync state to avoid redundant packets. */
-    private final ConcurrentHashMap<UUID, AnimSyncState> animSyncStates = new ConcurrentHashMap<>();
-
-    /** Animation name substrings that identify attack animations for speed scaling. */
-    private static final String[] ATTACK_ANIM_KEYWORDS = {
-            "swing", "stab", "slash", "strike", "attack", "combo"
-    };
-
-    private static class AnimSyncState {
-        float lastSentMultiplier;
-        String lastAnimationId;
-        AnimSyncState(float mult, String animId) {
-            this.lastSentMultiplier = mult;
-            this.lastAnimationId = animId;
-        }
-    }
+    /** Track last sync nudge timestamp per player. */
+    private final ConcurrentHashMap<UUID, Long> lastChainSyncAtMs = new ConcurrentHashMap<>();
 
     public Nat20AttackSpeedSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -116,7 +101,6 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
                      @Nonnull Store<EntityStore> store, @Nonnull CommandBuffer<EntityStore> commandBuffer) {
         if (dt <= 0.0f) return;
 
-        // Lazy init: InteractionModule isn't available during setup()
         if (imType == null) {
             try {
                 imType = InteractionModule.get().getInteractionManagerComponent();
@@ -137,19 +121,50 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
         float bonus = computeAttackSpeedBonus(store, ref);
 
         if (bonus > 0) {
-            // Apply global time shift (affects future chains) + per-chain shift (affects active swings)
+            // Global time shift: affects all future chains for this player
             for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                 im.setGlobalTimeShift(type, bonus);
             }
+
+            // Per-chain: timeShift + timestamp + meta + sync nudge
             Map<Integer, InteractionChain> chains = im.getChains();
-            if (chains != null) {
+            if (chains != null && !chains.isEmpty()) {
+                long now = System.currentTimeMillis();
                 for (InteractionChain chain : chains.values()) {
+                    if (chain == null || chain.getServerState() != InteractionState.NotFinished) continue;
+
                     chain.setTimeShift(bonus);
+
+                    InteractionEntry entry = resolveEntry(chain);
+                    if (entry == null) continue;
+
+                    try {
+                        entry.getMetaStore().putMetaObject(Interaction.TIME_SHIFT, bonus);
+                    } catch (Throwable ignored) {}
+
+                    try {
+                        long ts = entry.getTimestamp();
+                        if (ts > 0L) {
+                            entry.setTimestamp(ts, bonus * dt);
+                        }
+                    } catch (Throwable ignored) {}
+
+                    long lastSync = lastChainSyncAtMs.getOrDefault(playerUuid, 0L);
+                    if (now - lastSync >= CHAIN_SYNC_COOLDOWN_MS) {
+                        try {
+                            InteractionSyncData server = entry.getServerState();
+                            if (server != null) {
+                                List<InteractionSyncData> updates = new ArrayList<>(1);
+                                updates.add(server.clone());
+                                im.sendSyncPacket(chain, entry.getIndex(), updates);
+                                lastChainSyncAtMs.put(playerUuid, now);
+                            }
+                        } catch (Throwable ignored) {}
+                    }
                 }
             }
 
             Float previous = activeShifts.put(playerUuid, bonus);
-            syncClientAnimation(store, ref, playerUuid, bonus);
             if (previous == null || Float.compare(previous, bonus) != 0) {
                 if (CombatDebugSystem.isEnabled(playerUuid)) {
                     LOGGER.atInfo().log("[AttackSpeed] player=%s timeShift=%.3f (applied)",
@@ -158,8 +173,8 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
             }
         } else {
             Float previous = activeShifts.remove(playerUuid);
+            lastChainSyncAtMs.remove(playerUuid);
             if (previous != null) {
-                // Clear time shift on global and active chains
                 for (InteractionType type : EnumSet.allOf(InteractionType.class)) {
                     im.setGlobalTimeShift(type, 0.0f);
                 }
@@ -169,7 +184,6 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
                         chain.setTimeShift(0.0f);
                     }
                 }
-                restoreClientAnimation(store, ref, playerUuid);
                 if (CombatDebugSystem.isEnabled(playerUuid)) {
                     LOGGER.atInfo().log("[AttackSpeed] player=%s RESET",
                             playerUuid.toString().substring(0, 8));
@@ -230,134 +244,22 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
         }
     }
 
-    /**
-     * Send an UpdateItemPlayerAnimations packet with attack animation speeds scaled
-     * by the attack speed bonus. Skips sending if multiplier and item are unchanged.
-     */
-    private void syncClientAnimation(Store<EntityStore> store, Ref<EntityStore> ref,
-                                     UUID playerUuid, float bonus) {
-        try {
-            ItemStack weapon = InventoryComponent.getItemInHand(store, ref);
-            if (weapon == null || weapon.isEmpty()) return;
-
-            Item item = weapon.getItem();
-            if (item == null) return;
-
-            String animId = item.getPlayerAnimationsId();
-            if (animId == null || animId.isEmpty()) return;
-
-            float speedMultiplier = 1.0f + bonus;
-
-            // Skip if nothing changed
-            AnimSyncState existing = animSyncStates.get(playerUuid);
-            if (existing != null
-                    && Float.compare(existing.lastSentMultiplier, speedMultiplier) == 0
-                    && animId.equals(existing.lastAnimationId)) {
-                return;
-            }
-
-            // Look up the base animation asset
-            var animAsset = com.hypixel.hytale.server.core.asset.type.itemanimation.config.ItemPlayerAnimations
-                    .getAssetMap().getAsset(animId);
-            if (animAsset == null) return;
-
-            // Build a modified protocol packet from the base asset
-            ItemPlayerAnimations basePacket = animAsset.toPacket();
-            if (basePacket == null || basePacket.animations == null) return;
-
-            // Clone and modify attack animation speeds
-            Map<String, ItemAnimation> modifiedAnims = new HashMap<>(basePacket.animations.size());
-            for (var entry : basePacket.animations.entrySet()) {
-                String animName = entry.getKey();
-                ItemAnimation orig = entry.getValue();
-                if (isAttackAnimation(animName)) {
-                    ItemAnimation scaled = new ItemAnimation(orig);
-                    scaled.speed = orig.speed * speedMultiplier;
-                    modifiedAnims.put(animName, scaled);
-                } else {
-                    modifiedAnims.put(animName, orig);
-                }
-            }
-
-            ItemPlayerAnimations modified = new ItemPlayerAnimations(basePacket);
-            modified.animations = modifiedAnims;
-
-            Map<String, ItemPlayerAnimations> packetMap = new HashMap<>();
-            packetMap.put(animId, modified);
-
-            // Send to this player only
-            Player player = store.getComponent(ref, Player.getComponentType());
-            if (player == null) return;
-            PlayerRef playerRef = player.getPlayerRef();
-            if (playerRef == null) return;
-            PacketHandler handler = playerRef.getPacketHandler();
-            if (handler == null) return;
-
-            handler.writeNoCache(new UpdateItemPlayerAnimations(UpdateType.AddOrUpdate, packetMap));
-            animSyncStates.put(playerUuid, new AnimSyncState(speedMultiplier, animId));
-
-            if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s animSync: id=%s speedMult=%.2f",
-                        playerUuid.toString().substring(0, 8), animId, speedMultiplier);
-            }
-        } catch (Exception e) {
-            LOGGER.atWarning().withCause(e).log("[AttackSpeed] Failed to sync client animation for player=%s",
-                    playerUuid.toString().substring(0, 8));
+    private static InteractionEntry resolveEntry(InteractionChain chain) {
+        if (chain == null) return null;
+        int base = chain.getOperationIndex();
+        InteractionEntry entry = chain.getInteraction(base);
+        if (entry != null) return entry;
+        for (int delta = 1; delta <= 8; delta++) {
+            entry = chain.getInteraction(base - delta);
+            if (entry != null) return entry;
+            entry = chain.getInteraction(base + delta);
+            if (entry != null) return entry;
         }
+        return null;
     }
 
-    /**
-     * Restore the original (unmodified) animation data for the player's held weapon,
-     * resetting visual speed to default.
-     */
-    private void restoreClientAnimation(Store<EntityStore> store, Ref<EntityStore> ref, UUID playerUuid) {
-        AnimSyncState syncState = animSyncStates.remove(playerUuid);
-        if (syncState == null) return;
-
-        try {
-            String animId = syncState.lastAnimationId;
-
-            var animAsset = com.hypixel.hytale.server.core.asset.type.itemanimation.config.ItemPlayerAnimations
-                    .getAssetMap().getAsset(animId);
-            if (animAsset == null) return;
-
-            ItemPlayerAnimations originalPacket = animAsset.toPacket();
-            if (originalPacket == null) return;
-
-            Map<String, ItemPlayerAnimations> packetMap = new HashMap<>();
-            packetMap.put(animId, originalPacket);
-
-            Player player = store.getComponent(ref, Player.getComponentType());
-            if (player == null) return;
-            PlayerRef playerRef = player.getPlayerRef();
-            if (playerRef == null) return;
-            PacketHandler handler = playerRef.getPacketHandler();
-            if (handler == null) return;
-
-            handler.writeNoCache(new UpdateItemPlayerAnimations(UpdateType.AddOrUpdate, packetMap));
-
-            if (CombatDebugSystem.isEnabled(playerUuid)) {
-                LOGGER.atInfo().log("[AttackSpeed] player=%s animRestore: id=%s",
-                        playerUuid.toString().substring(0, 8), animId);
-            }
-        } catch (Exception e) {
-            LOGGER.atWarning().withCause(e).log("[AttackSpeed] Failed to restore client animation for player=%s",
-                    playerUuid.toString().substring(0, 8));
-        }
-    }
-
-    /** Check if an animation name represents an attack animation by keyword match. */
-    private static boolean isAttackAnimation(String animName) {
-        String lower = animName.toLowerCase(Locale.ROOT);
-        for (String keyword : ATTACK_ANIM_KEYWORDS) {
-            if (lower.contains(keyword)) return true;
-        }
-        return false;
-    }
-
-    /** Clean up tracked state on disconnect. */
     public void removePlayer(UUID uuid) {
         activeShifts.remove(uuid);
-        animSyncStates.remove(uuid);
+        lastChainSyncAtMs.remove(uuid);
     }
 }
