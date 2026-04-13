@@ -14,6 +14,7 @@ import com.chonbosmods.combat.Nat20BlockProficiencySystem;
 import com.chonbosmods.combat.Nat20CrushingBlowSystem;
 import com.chonbosmods.combat.Nat20EvasionSystem;
 import com.chonbosmods.combat.Nat20RallySystem;
+import com.chonbosmods.combat.Nat20ResilienceSystem;
 import com.chonbosmods.combat.Nat20ThornsSystem;
 import com.chonbosmods.combat.Nat20GallantReduceSystem;
 import com.chonbosmods.combat.Nat20GallantSystem;
@@ -453,8 +454,7 @@ public class Natural20 extends JavaPlugin {
         // Phase 5 Batch 7: defensive armor affixes
         getEntityStoreRegistry().registerSystem(new Nat20ThornsSystem(lootSystem));
         getEntityStoreRegistry().registerSystem(new Nat20EvasionSystem(lootSystem));
-        // Flinch Resist, Guard Break Resist, Resilience: affix JSONs registered but systems
-        // deferred pending SDK investigation during smoke testing
+        getEntityStoreRegistry().registerSystem(new Nat20ResilienceSystem(lootSystem));
 
         // Phase 5 Batch 8: utility armor + on-kill
         // Water Breathing, Light Foot: affix JSONs registered, systems deferred pending

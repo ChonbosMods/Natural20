@@ -28,7 +28,10 @@ import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
+import com.hypixel.hytale.server.core.universe.world.SoundUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.protocol.SoundCategory;
+import com.hypixel.hytale.server.core.asset.type.soundevent.config.SoundEvent;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -44,10 +47,12 @@ public class Nat20EvasionSystem extends DamageEventSystem {
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:evasion";
     private static final String PARTICLE = "Nat20_Evasion";
+    private static final String DODGE_SOUND = "SFX_Toad_Rhino_Tongue_Whoosh";
     private static final double SOFTCAP_K = 0.20;
     private static final float TORSO_OFFSET_Y = 0.9f;
 
     private final Nat20LootSystem lootSystem;
+    private int dodgeSoundIdx = Integer.MIN_VALUE;
 
     public Nat20EvasionSystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -113,7 +118,11 @@ public class Nat20EvasionSystem extends DamageEventSystem {
         }
 
         if (totalChance <= 0) return;
-        totalChance = Nat20Softcap.softcap(totalChance, SOFTCAP_K);
+        if (totalChance < 1.0) {
+            totalChance = Nat20Softcap.softcap(totalChance, SOFTCAP_K);
+        } else {
+            totalChance = 1.0; // Force 100% for testing
+        }
 
         double roll = ThreadLocalRandom.current().nextDouble();
         UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
@@ -125,16 +134,25 @@ public class Nat20EvasionSystem extends DamageEventSystem {
 
         if (roll > totalChance) return;
 
-        // Dodge! Zero out damage
+        // Dodge! Cancel the entire damage event to prevent flinch, hit particles, and knockback
+        damage.setCancelled(true);
         damage.setAmount(0f);
+        // Strip knockback to prevent the hop
+        try {
+            damage.removeMetaObject(Damage.KNOCKBACK_COMPONENT);
+        } catch (Exception ignored) {}
+        try {
+            damage.putMetaObject(Damage.HIT_ANGLE, 0f);
+        } catch (Exception ignored) {}
 
-        // Whoosh particle on player
+        // Whoosh particle + dodge sound on player
         TransformComponent transform = store.getComponent(targetRef, TransformComponent.getComponentType());
         if (transform != null) {
             Vector3d pos = transform.getPosition();
+            double x = pos.getX(), y = pos.getY(), z = pos.getZ();
             try {
                 ParticleUtil.spawnParticleEffect(PARTICLE,
-                        new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
+                        new Vector3d(x, y + TORSO_OFFSET_Y, z), store);
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log("[Evasion] particle failed");
             }

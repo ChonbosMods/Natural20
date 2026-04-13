@@ -13,6 +13,7 @@ import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
@@ -20,8 +21,8 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
-import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -30,13 +31,12 @@ import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
- * Block Proficiency: increases damage reduction when blocking.
- * Filter Group system. On incoming damage to player while blocking,
- * scans weapon for affix and reduces damage.
+ * Block Proficiency: reduces stamina drain when blocking hits.
+ * Filter Group system. On incoming blocked damage to player, scans weapon AND armor
+ * for the affix and reduces the STAMINA_DRAIN_MULTIPLIER on the damage event.
  *
- * SDK investigation needed: how to detect blocking state. Currently checks
- * if the DamageCause name contains "Block" as a heuristic. During smoke testing,
- * the actual blocking detection method should be verified and updated.
+ * Detection: Damage.BLOCKED meta key indicates a blocked hit.
+ * Effect: Damage.STAMINA_DRAIN_MULTIPLIER reduced by the affix percentage.
  */
 public class Nat20BlockProficiencySystem extends DamageEventSystem {
 
@@ -46,11 +46,6 @@ public class Nat20BlockProficiencySystem extends DamageEventSystem {
     private static final double SOFTCAP_K = 0.50;
 
     private final Nat20LootSystem lootSystem;
-
-    // Blocked damage causes often have reduced amounts; we detect blocking
-    // by checking if the damage cause indicates a blocked hit.
-    private int blockedCauseIdx = Integer.MIN_VALUE;
-    private boolean causeResolved;
 
     public Nat20BlockProficiencySystem(Nat20LootSystem lootSystem) {
         this.lootSystem = lootSystem;
@@ -70,59 +65,73 @@ public class Nat20BlockProficiencySystem extends DamageEventSystem {
     public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
                        Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer,
                        Damage damage) {
-        if (damage.isCancelled() || damage.getAmount() <= 0f) return;
+        if (damage.isCancelled()) return;
 
-        // Block proficiency only applies to the player being hit
+        // Only process blocked hits
+        Boolean blocked = damage.getIfPresentMetaObject(Damage.BLOCKED);
+        if (blocked == null || !blocked) return;
+
         Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
         Player targetPlayer = store.getComponent(targetRef, Player.getComponentType());
         if (targetPlayer == null) return;
 
-        // TODO: SDK investigation during smoke test: detect if player is actively blocking.
-        // For now, this system is wired up but the blocking detection needs runtime verification.
-        // The affix JSON and system registration are complete; blocking detection
-        // will be validated during in-game testing. If no blocking API exists,
-        // this system effectively becomes a passive damage reduction while holding a weapon.
-
-        // Check weapon for block proficiency affix
-        ItemStack weapon = InventoryComponent.getItemInHand(store, targetRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
-
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
+        double totalReduction = 0;
+
+        // Check armor (includes shields)
+        @SuppressWarnings("unchecked")
+        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
+                store, targetRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
+        if (armorContainer != null) {
+            for (short slot = 0; slot < armorContainer.getCapacity(); slot++) {
+                ItemStack item = armorContainer.getItemStack(slot);
+                if (item == null || item.isEmpty()) continue;
+                totalReduction += scanItemForAffix(item, affixRegistry, targetRef, store);
+            }
+        }
+
+        if (totalReduction <= 0) return;
+        totalReduction = Nat20Softcap.softcap(totalReduction, SOFTCAP_K);
+
+        // Reduce stamina drain multiplier
+        Float currentMultiplier = damage.getIfPresentMetaObject(Damage.STAMINA_DRAIN_MULTIPLIER);
+        float base = (currentMultiplier != null) ? currentMultiplier : 1.0f;
+        float reduced = (float) (base * (1.0 - totalReduction));
+        if (reduced < 0f) reduced = 0f;
+        damage.putMetaObject(Damage.STAMINA_DRAIN_MULTIPLIER, reduced);
+
+        UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
+        if (CombatDebugSystem.isEnabled(targetUuid)) {
+            LOGGER.atInfo().log("[BlockProf] blocked hit: staminaDrain=%.2f->%.2f (reduction=%.1f%%)",
+                    base, reduced, totalReduction * 100);
+        }
+    }
+
+    private double scanItemForAffix(ItemStack item, Nat20AffixRegistry affixRegistry,
+                                     Ref<EntityStore> playerRef, Store<EntityStore> store) {
+        Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (lootData == null) return 0;
 
         for (RolledAffix rolledAffix : lootData.getAffixes()) {
             if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
             Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
-            if (def == null) return;
+            if (def == null) return 0;
 
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            if (range == null) return;
+            if (range == null) return 0;
 
             double baseValue = range.interpolate(lootData.getLootLevel());
             double effectiveValue = baseValue;
-            PlayerStats stats = resolvePlayerStats(targetRef, store);
+            PlayerStats stats = resolvePlayerStats(playerRef, store);
             if (stats != null && def.statScaling() != null) {
                 Stat primary = def.statScaling().primary();
                 int modifier = stats.getModifier(primary);
                 effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
             }
-            effectiveValue = Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
-
-            float original = damage.getAmount();
-            float reduced = (float) (original * (1.0 - effectiveValue));
-            if (reduced < 0f) reduced = 0f;
-            damage.setAmount(reduced);
-
-            UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
-            if (CombatDebugSystem.isEnabled(targetUuid)) {
-                LOGGER.atInfo().log("[BlockProf] reduction=%.1f%% damage=%.1f->%.1f",
-                        effectiveValue * 100, original, reduced);
-            }
-            return;
+            return effectiveValue;
         }
+        return 0;
     }
 
     @Nullable

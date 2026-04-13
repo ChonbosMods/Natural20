@@ -4,7 +4,7 @@
   "DisplayName": "server.nat20.affix.resilience",
   "NamePosition": "SUFFIX",
   "Categories": ["armor"],
-  "StatScaling": { "Primary": "STR", "Factor": 0.12 },
+  "StatScaling": { "Primary": "CON", "Factor": 0.12 },
   "TargetStat": "Resilience",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
