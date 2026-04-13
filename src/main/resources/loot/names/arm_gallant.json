@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_gallant",
+  "display_name": "Gallant",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "gallant",
+  "element": null,
+  "mechanic": "chance_when_struck_attacker_damage_debuff",
+  "stat": "CHA",
+  "tiers": {
+    "common": [
+      "the Guard", "Calm Bearing", "the Sentinel", "Steady Gaze", "Noble Bearing", "the Watchman",
+      "the Badge", "Proud Carriage", "the Ward-Keeper", "Quiet Authority", "the Constable", "Simple Honor"
+    ],
+    "uncommon": [
+      "the Knight", "Iron Poise", "the Protector", "Regal Presence", "the Warden", "Shining Resolve",
+      "the Bannerman", "Gallant Mien", "the Shield-Lord", "Stately Poise", "the Castellan", "Unbowed Grace"
+    ],
+    "rare": [
+      "the Champion", "Noble Command", "the Paladin", "Royal Bearing", "the Bulwark-Knight", "Valorous Aura",
+      "the Sworn Shield", "Lordly Presence", "the Dawnguard", "Hallowed Poise", "the White Cloak", "Radiant Mien"
+    ],
+    "epic": [
+      "the High Guardian", "Kingly Presence", "the Paragon", "Majestic Aura", "the Crown-Bearer", "Regal Command",
+      "the Oathbinder", "Exalted Bearing", "the Grand Warden", "Resplendent Aura", "the Glory-Shield", "Imperious Mien"
+    ],
+    "legendary": [
+      "the Majesty", "Divine Majesty", "the Oathsworn", "the Sun-Crowned", "the Throne", "the Lionheart",
+      "the Gloried Crown", "the Radiant Throne", "the Paragon Crown", "Majesty Unbroken", "the Dawn Monarch", "the Hallowed Aegis"
+    ]
+  }
+}

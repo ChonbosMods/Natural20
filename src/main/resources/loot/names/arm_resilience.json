@@ -1,0 +1,82 @@
+{
+  "family_id": "arm_resilience",
+  "display_name": "Resilience",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "resilience",
+  "element": null,
+  "mechanic": "reduce_debuff_durations",
+  "stat": "STR",
+  "tiers": {
+    "common": [
+      "the Oak",
+      "Firm Resolve",
+      "the Badger",
+      "Tough Hide",
+      "Grit",
+      "the Stone",
+      "the Elm",
+      "Hardy Stock",
+      "the Rootwood",
+      "Thick Bark",
+      "the Oxhide",
+      "Stiff Grain"
+    ],
+    "uncommon": [
+      "the Iron Oak",
+      "the Willow",
+      "the Bear",
+      "Stout Heart",
+      "Endurance",
+      "the Boulder",
+      "the Ash-Tree",
+      "Knotted Grain",
+      "the Wolverine",
+      "Tempered Will",
+      "the Basalt",
+      "Weathered Hide"
+    ],
+    "rare": [
+      "the Granite",
+      "Unshakeable Will",
+      "the Ironwood",
+      "Dogged Vigor",
+      "Resolute Blood",
+      "the Bedrock",
+      "the Petrified Oak",
+      "Hardened Sap",
+      "the Stone-Root",
+      "Marrow Resolve",
+      "the Lodestone",
+      "Unyielding Grain"
+    ],
+    "epic": [
+      "the Mountain",
+      "Iron Constitution",
+      "the Earthheart",
+      "Titan Endurance",
+      "Enduring Grit",
+      "the Monolith",
+      "the Deepstone",
+      "Undying Vigor",
+      "the Rootfast",
+      "Unwavering Grit",
+      "the Living Basalt",
+      "Tempered Marrow"
+    ],
+    "legendary": [
+      "the Earthblood",
+      "the Ancient Oak",
+      "the Living Stone",
+      "the Heartwood",
+      "the Ironheart",
+      "the Petrified Throne",
+      "the Rootheart",
+      "the Stone Undying",
+      "the Marrow Throne",
+      "the Bedrock Throne",
+      "the Living Granite",
+      "the Old Growth"
+    ]
+  }
+}

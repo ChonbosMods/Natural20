@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_thorns",
+  "display_name": "Thorns",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "thorns",
+  "element": null,
+  "mechanic": "return_flat_damage_to_melee_attackers",
+  "stat": "CON",
+  "tiers": {
+    "common": [
+      "Nettles", "the Burr", "Keen Barbs", "the Porcupine", "Briars", "the Thistle",
+      "the Bramble", "the Caltrop", "the Thorn-Bush", "the Sea Urchin", "Stinging Nettles", "the Cocklebur"
+    ],
+    "uncommon": [
+      "the Hedgehog", "Sharp Thorns", "the Briar-Patch", "Iron Spines", "the Cactus", "Barbed Hide",
+      "the Sawgrass", "Wicked Barbs", "the Spine-Hog", "Hooked Thorns", "the Briar-Gate", "Serrated Coat"
+    ],
+    "rare": [
+      "the Iron Maiden", "Razor Thorns", "the Spine-Beast", "Jagged Rebuke", "the Thornwall", "Steel Briars",
+      "the Thorn-Drake", "Barbed Reprisal", "the Spike-Mantle", "Cruel Return", "the Razorback", "Punishing Barbs"
+    ],
+    "epic": [
+      "the Razor Crown", "Living Thorns", "the Blade-Mantle", "Thousand Needles", "the Retaliator", "Spiked Vengeance",
+      "the Thistle-Wrath", "Vengeful Briars", "the Spine-Wreath", "Lashing Thorns", "the Thorn-Herald", "Wrathful Barbs"
+    ],
+    "legendary": [
+      "the Briar King", "Thorns Undying", "the Living Razor", "Living Blade-Storm", "the Thistle Crown", "Thorns Unending",
+      "the Thorn Incarnate", "the Briar Throne", "the Razorthorn", "the Spine Monarch", "Briar Wrath", "the Thornlord"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_guardbreak",
+  "display_name": "Guard Break Resist",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "guard_break_resist",
+  "element": null,
+  "mechanic": "scale_stamina_drain_threshold",
+  "stat": "CON",
+  "tiers": {
+    "common": [
+      "the Firm Grip", "Bracing", "Holding Fast", "the Set Jaw", "Sure Guard", "the Brace",
+      "the Clinch", "Tenacious Grip", "the Clamp", "Dogged Guard", "the Latch", "Gritted Teeth"
+    ],
+    "uncommon": [
+      "the Holdfast", "Iron Guard", "the Bulwark", "Locked Shield", "the Planted", "Stout Bearing",
+      "the Tenacious", "Siege-Bracing", "the Resolute", "Iron Clutch", "the Deadbolt", "Riveted Guard"
+    ],
+    "rare": [
+      "the Unshaken", "the Rampart", "the Steadfast", "Stone Guard", "the Battlement", "Siege-Braced",
+      "the Palisade", "Granite Guard", "the Portcullis", "Siege-Steeled", "the Crenellation", "Adamant Guard"
+    ],
+    "epic": [
+      "the Unbreached", "the Unyielding Wall", "the Aegis", "the Ironwall", "Titan Guard", "the Bastion",
+      "the Siege-Helm", "the Gatehouse", "Siege-Proven", "the Unbroken Gate", "the Keep", "Citadel Guard"
+    ],
+    "legendary": [
+      "the Fundament", "the Last Stand", "the Rootstone", "the Worldwall", "the Worldbrace", "the Keystone",
+      "the Siege Undying", "the Living Bastion", "the Unbroken Keep", "the Gatestone", "the Siege Throne", "the Holdfast Helm"
+    ]
+  }
+}

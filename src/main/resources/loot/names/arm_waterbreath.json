@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_waterbreath",
+  "display_name": "Water Breathing",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "water_breathing",
+  "element": null,
+  "mechanic": "boost_max_breath",
+  "stat": "WIS",
+  "tiers": {
+    "common": [
+      "the Frog", "the Perch", "the Newt", "the Snail", "the Tadpole", "the Water-Rat",
+      "the Mudskipper", "the Bullfrog", "the Crayfish", "the Toad", "the Minnow", "the Bittern"
+    ],
+    "uncommon": [
+      "the Otter", "the Lungfish", "the Seal", "River Depths", "the Turtle", "the Pike",
+      "the Heron-Diver", "the Sturgeon", "the Catfish", "the Axolotl", "the Cormorant", "Still Waters"
+    ],
+    "rare": [
+      "the Dolphin", "the Swordfish", "the Mariner", "Deep Currents", "the Reef-Walker", "Coral Might",
+      "the Narwhal", "the Moray", "the Barracuda", "Coral Depths", "the Diving Bell", "the Anglerfish"
+    ],
+    "epic": [
+      "the Whale", "the Deep-Dweller", "the Leviathan-Kin", "Fathomless Depths", "the Tidesinger", "Tidal Mastery",
+      "the Nautilus", "Oceanic Might", "the Maelstrom-Kin", "Drowned Mastery", "the Sunken Throne", "Benthic Depths"
+    ],
+    "legendary": [
+      "the Kraken's Breath", "the Mariana", "the Trench Monarch", "the Depthless", "the Tidecrown", "the Sea-Lung",
+      "the Hadal Crown", "the Drowned God", "the Trench Lord", "the Living Reef", "the Pelagic Throne", "the Deep Incarnate"
+    ]
+  }
+}

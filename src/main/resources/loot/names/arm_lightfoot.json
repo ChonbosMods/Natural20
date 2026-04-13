@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_lightfoot",
+  "display_name": "Light Foot",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "light_foot",
+  "element": null,
+  "mechanic": "reduced_sprint_stamina_cost",
+  "stat": "DEX",
+  "tiers": {
+    "common": [
+      "the Feather", "Light Stride", "the Leaf", "Easy Pace", "Soft Tread", "the Finch",
+      "the Dandelion", "Gentle Gait", "the Moth", "Airy Step", "the Petal", "Quiet Stride"
+    ],
+    "uncommon": [
+      "the Gazelle", "Swift Stride", "the Deer", "Bounding Step", "the Swift", "the Heron",
+      "the Crane", "Tireless Stride", "the Antelope", "Effortless Pace", "the Ibis", "Gliding Step"
+    ],
+    "rare": [
+      "the Stag", "Wind Stride", "the Pegasus", "Weightless Step", "Feathered Gait", "the Elk",
+      "the Harrier-Swift", "Gossamer Stride", "the Wind-Hoof", "Endless Stride", "the Cloud-Treader", "Drifting Gait"
+    ],
+    "epic": [
+      "the Zephyr", "Featherlight", "the Sky-Runner", "Boundless Stride", "the Windborne", "Cloudstep",
+      "the Ether-Strider", "Weightless Grace", "the Storm-Runner", "Unfailing Stride", "the Horizon-Treader", "Tireless Wind"
+    ],
+    "legendary": [
+      "the Gale", "the Swallow", "the Cloudwalker", "the Weightless", "the Breeze Incarnate", "the Skydancer",
+      "the Stride Unending", "the Endless Wind", "the Feather Crown", "the Horizon Walker", "the Zephyr Throne", "the Skyborne"
+    ]
+  }
+}

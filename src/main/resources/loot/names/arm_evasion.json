@@ -1,0 +1,32 @@
+{
+  "family_id": "arm_evasion",
+  "display_name": "Evasion",
+  "position": "suffix",
+  "slot": "armor",
+  "affix_id": "evasion",
+  "element": null,
+  "mechanic": "chance_to_dodge_melee",
+  "stat": "DEX",
+  "tiers": {
+    "common": [
+      "the Housecat", "the Dart", "the Sparrow", "Light Feet", "the Rabbit", "the Squirrel",
+      "the Lizard", "the Wren", "Shy Paws", "the Mouse", "the Chipmunk", "Nimble Feet"
+    ],
+    "uncommon": [
+      "the Fox", "Nimble Dance", "the Hare", "Nimble Reflex", "the Weasel", "the Quicksilver",
+      "the Adder", "the Swiftpaw", "Darting Grace", "the Mink", "the Lynx", "Slippery Step"
+    ],
+    "rare": [
+      "the Mongoose", "Blur Step", "the Wind-Dancer", "Nimble Feint", "the Falcon", "Flickering Form",
+      "the Swift-Kin", "Cunning Grace", "the Silver Fox", "Elusive Grace", "the Will-Wisp", "Dancing Mist"
+    ],
+    "epic": [
+      "the Phantom Step", "Mist Form", "the Mirage", "Ghost Walk", "the Wind-Wraith", "Untouchable",
+      "the Fog-Walker", "Spectral Weave", "the Mist-Walker", "the Mirage-Dancer", "Ghostly Grace", "Phantom Grace"
+    ],
+    "legendary": [
+      "the Living Mist", "Wind Incarnate", "the Shimmercloak", "the Untouchable", "the Wraith-Step", "the Flickerform",
+      "the Veil Incarnate", "the Unseen Wind", "the Mist Throne", "the Blur Undying", "the Phantom Veil", "the Fade"
+    ]
+  }
+}
