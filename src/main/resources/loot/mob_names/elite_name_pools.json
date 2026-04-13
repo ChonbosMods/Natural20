@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "description": "Elite mob name pools for Natural 20. D2 base + Hytale extensions.",
+  "version": "1.1.0",
+  "description": "Elite mob name pools for Natural 20. D2 base + Hytale extensions. 70 prefixes, 85 suffixes (9 with max_rarity caps), 60 appellations.",
   "config": {
     "title_rules": {
       "common": "none",
@@ -12,7 +12,16 @@
     "faction_bias_enabled": false,
     "faction_bias_weight": 0.6,
     "dedup_window": 50,
-    "banned_combos": []
+    "banned_combos": [],
+    "rarity_weighting": {
+      "enabled": true,
+      "weights": {
+        "exact_match": 4,
+        "one_below": 3,
+        "two_below": 2,
+        "three_below": 1
+      }
+    }
   },
   "prefixes": [
     { "word": "Gloom",   "category": "darkness",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
@@ -91,7 +100,7 @@
     { "word": "spell",   "category": "magic",        "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "feast",   "category": "violence",     "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "wound",   "category": "violence",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
-    { "word": "grin",    "category": "agent",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "grin",    "category": "agent",        "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "maim",    "category": "violence",     "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "hack",    "category": "violence",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "bite",    "category": "violence",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
@@ -101,7 +110,7 @@
     { "word": "kill",    "category": "violence",     "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "call",    "category": "magic",        "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "vex",     "category": "magic",        "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
-    { "word": "jade",    "category": "misc",         "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "jade",    "category": "misc",         "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "web",     "category": "magic",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "shield",  "category": "misc",         "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "killer",  "category": "agent",        "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
@@ -117,14 +126,14 @@
     { "word": "maggot",  "category": "creature",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "spawn",   "category": "creature",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "wight",   "category": "creature",     "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
-    { "word": "grumble", "category": "agent",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
-    { "word": "growler", "category": "agent",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "grumble", "category": "agent",        "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
+    { "word": "growler", "category": "agent",        "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "snarl",   "category": "agent",        "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "wolf",    "category": "creature",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "crow",    "category": "creature",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "hawk",    "category": "creature",     "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "cloud",   "category": "environment",  "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
-    { "word": "bang",    "category": "violence",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "bang",    "category": "violence",     "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "head",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "skull",   "category": "body_parts",   "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "brow",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
@@ -142,10 +151,10 @@
     { "word": "wing",    "category": "body_parts",   "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "pox",     "category": "disease",      "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "fester",  "category": "disease",      "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
-    { "word": "blister", "category": "disease",      "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "blister", "category": "disease",      "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "pus",     "category": "disease",      "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "slime",   "category": "disease",      "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
-    { "word": "drool",   "category": "disease",      "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
+    { "word": "drool",   "category": "disease",      "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "d2",         "faction_bias": [] },
     { "word": "froth",   "category": "disease",      "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
     { "word": "sludge",  "category": "disease",      "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
     { "word": "venom",   "category": "disease",      "min_rarity": "rare",      "source": "d2",         "faction_bias": [] },
@@ -158,9 +167,9 @@
     { "word": "lust",    "category": "abstract",     "min_rarity": "epic",      "source": "d2",         "faction_bias": [] },
     { "word": "mane",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["predators"] },
     { "word": "tusk",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["trorks", "reptiles"] },
-    { "word": "hoof",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["predators"] },
+    { "word": "hoof",    "category": "body_parts",   "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "hytale_ext", "faction_bias": ["predators"] },
     { "word": "quill",   "category": "body_parts",   "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["critters", "scarak"] },
-    { "word": "pelt",    "category": "body_parts",   "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["predators"] },
+    { "word": "pelt",    "category": "body_parts",   "min_rarity": "uncommon",  "max_rarity": "rare",  "source": "hytale_ext", "faction_bias": ["predators"] },
     { "word": "snap",    "category": "violence",     "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["reptiles"] },
     { "word": "gnash",   "category": "violence",     "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["predators", "undead"] },
     { "word": "shriek",  "category": "magic",        "min_rarity": "rare",      "source": "hytale_ext", "faction_bias": ["undead", "void_spawn"] },
@@ -218,6 +227,21 @@
     { "title": "the Ancient",    "category": "legendary",  "min_rarity": "epic",      "source": "hytale_ext" },
     { "title": "the Undying",    "category": "legendary",  "min_rarity": "epic",      "source": "hytale_ext" },
     { "title": "the Ruinous",    "category": "legendary",  "min_rarity": "legendary", "source": "hytale_ext" },
-    { "title": "the Unyielding", "category": "legendary",  "min_rarity": "legendary", "source": "hytale_ext" }
+    { "title": "the Unyielding", "category": "legendary",  "min_rarity": "legendary", "source": "hytale_ext" },
+    { "title": "the Cruel",      "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Wretched",   "category": "corruption", "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Bloated",    "category": "corruption", "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Defiled",    "category": "corruption", "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Vicious",    "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Blind",      "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Ravenous",   "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Frenzied",   "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Scarred",    "category": "quality",    "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Rotting",    "category": "corruption", "min_rarity": "rare",      "source": "hytale_ext" },
+    { "title": "the Endless",    "category": "legendary",  "min_rarity": "epic",      "source": "hytale_ext" },
+    { "title": "the Devourer",   "category": "role",       "min_rarity": "epic",      "source": "hytale_ext" },
+    { "title": "the Deathless",  "category": "legendary",  "min_rarity": "epic",      "source": "hytale_ext" },
+    { "title": "the Forsaken",   "category": "occult",     "min_rarity": "epic",      "source": "hytale_ext" },
+    { "title": "the Voracious",  "category": "quality",    "min_rarity": "epic",      "source": "hytale_ext" }
   ]
 }

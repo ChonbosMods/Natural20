@@ -38,6 +38,13 @@ public class Nat20MobNameGenerator {
     private int dedupWindow = 50;
     private double rareTitleChance = 0.5;
 
+    // Rarity weighting: higher-tier words are favored at higher-tier mobs
+    private boolean rarityWeightingEnabled = false;
+    private int weightExactMatch = 4;
+    private int weightOneBelow = 3;
+    private int weightTwoBelow = 2;
+    private int weightThreeBelow = 1;
+
     private final Deque<String> recentNames = new ArrayDeque<>();
 
     // ── Loading ──────────────────────────────────────────────────────────
@@ -83,6 +90,17 @@ public class Nat20MobNameGenerator {
                 }
             }
         }
+        if (config.has("rarity_weighting")) {
+            JsonObject rw = config.getAsJsonObject("rarity_weighting");
+            rarityWeightingEnabled = rw.has("enabled") && rw.get("enabled").getAsBoolean();
+            if (rw.has("weights")) {
+                JsonObject w = rw.getAsJsonObject("weights");
+                if (w.has("exact_match")) weightExactMatch = w.get("exact_match").getAsInt();
+                if (w.has("one_below")) weightOneBelow = w.get("one_below").getAsInt();
+                if (w.has("two_below")) weightTwoBelow = w.get("two_below").getAsInt();
+                if (w.has("three_below")) weightThreeBelow = w.get("three_below").getAsInt();
+            }
+        }
     }
 
     /**
@@ -94,10 +112,14 @@ public class Nat20MobNameGenerator {
         JsonArray arr = root.getAsJsonArray(arrayKey);
         for (JsonElement el : arr) {
             JsonObject obj = el.getAsJsonObject();
+            MobNameRarity maxRarity = obj.has("max_rarity")
+                    ? MobNameRarity.fromString(obj.get("max_rarity").getAsString())
+                    : null;
             target.add(new MobNameWord(
                     obj.get("word").getAsString(),
                     obj.get("category").getAsString(),
                     MobNameRarity.fromString(obj.get("min_rarity").getAsString()),
+                    maxRarity,
                     obj.get("source").getAsString()
             ));
         }
@@ -172,7 +194,8 @@ public class Nat20MobNameGenerator {
     private List<MobNameWord> filterWords(List<MobNameWord> pool, MobNameRarity rarity) {
         List<MobNameWord> result = new ArrayList<>();
         for (MobNameWord word : pool) {
-            if (word.minRarity().rank() <= rarity.rank()) {
+            if (word.minRarity().rank() <= rarity.rank()
+                    && (word.maxRarity() == null || word.maxRarity().rank() >= rarity.rank())) {
                 result.add(word);
             }
         }
@@ -193,15 +216,61 @@ public class Nat20MobNameGenerator {
 
     private String buildName(List<MobNameWord> prefixPool, List<MobNameWord> suffixPool,
                              List<MobNameAppellation> titlePool, MobNameRarity rarity, Random random) {
-        MobNameWord prefix = prefixPool.get(random.nextInt(prefixPool.size()));
-        MobNameWord suffix = suffixPool.get(random.nextInt(suffixPool.size()));
+        MobNameWord prefix = pickWord(prefixPool, rarity, random);
+        MobNameWord suffix = pickWord(suffixPool, rarity, random);
         String baseName = prefix.word() + suffix.word().toLowerCase();
 
         if (shouldAddTitle(rarity, random) && !titlePool.isEmpty()) {
-            MobNameAppellation title = titlePool.get(random.nextInt(titlePool.size()));
+            MobNameAppellation title = pickAppellation(titlePool, rarity, random);
             return baseName + " " + title.title();
         }
         return baseName;
+    }
+
+    /** Pick a word using rarity weighting (if enabled) or uniform random. */
+    private MobNameWord pickWord(List<MobNameWord> pool, MobNameRarity mobRarity, Random random) {
+        if (!rarityWeightingEnabled) {
+            return pool.get(random.nextInt(pool.size()));
+        }
+        int totalWeight = 0;
+        for (MobNameWord w : pool) {
+            totalWeight += weightForDistance(mobRarity.rank() - w.minRarity().rank());
+        }
+        int roll = random.nextInt(totalWeight);
+        int cumulative = 0;
+        for (MobNameWord w : pool) {
+            cumulative += weightForDistance(mobRarity.rank() - w.minRarity().rank());
+            if (roll < cumulative) return w;
+        }
+        return pool.get(pool.size() - 1);
+    }
+
+    /** Pick an appellation using rarity weighting (if enabled) or uniform random. */
+    private MobNameAppellation pickAppellation(List<MobNameAppellation> pool, MobNameRarity mobRarity, Random random) {
+        if (!rarityWeightingEnabled) {
+            return pool.get(random.nextInt(pool.size()));
+        }
+        int totalWeight = 0;
+        for (MobNameAppellation a : pool) {
+            totalWeight += weightForDistance(mobRarity.rank() - a.minRarity().rank());
+        }
+        int roll = random.nextInt(totalWeight);
+        int cumulative = 0;
+        for (MobNameAppellation a : pool) {
+            cumulative += weightForDistance(mobRarity.rank() - a.minRarity().rank());
+            if (roll < cumulative) return a;
+        }
+        return pool.get(pool.size() - 1);
+    }
+
+    /** Map the distance between mob rarity and word rarity to a weight. */
+    private int weightForDistance(int distance) {
+        return switch (distance) {
+            case 0 -> weightExactMatch;
+            case 1 -> weightOneBelow;
+            case 2 -> weightTwoBelow;
+            default -> weightThreeBelow;
+        };
     }
 
     // ── Title rules ──────────────────────────────────────────────────────
