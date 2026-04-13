@@ -9,6 +9,7 @@ import com.chonbosmods.loot.effects.ThunderstruckEffectHandler;
 import com.chonbosmods.loot.effects.VampiricEffectHandler;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
+import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
 import com.chonbosmods.loot.mob.abilities.BerserkerAbility;
 import com.chonbosmods.loot.mob.abilities.FieryAbility;
 import com.chonbosmods.loot.mob.abilities.FrostbornAbility;
@@ -37,6 +38,7 @@ public class Nat20LootSystem {
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
+    private final Nat20MobNameGenerator mobNameGenerator = new Nat20MobNameGenerator();
     private final Nat20MobAffixManager mobAffixManager;
     private final Nat20MobLootListener mobLootListener;
     private final Nat20AffixEventListener affixEventListener;
@@ -47,7 +49,7 @@ public class Nat20LootSystem {
     private final Nat20ItemGarbageCollector garbageCollector;
 
     public Nat20LootSystem() {
-        this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry);
+        this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry, mobNameGenerator);
         this.mobLootListener = new Nat20MobLootListener(this);
         this.affixEventListener = new Nat20AffixEventListener(this);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
@@ -96,6 +98,7 @@ public class Nat20LootSystem {
         gemRegistry.loadAll(gemsDir);
         lootEntryRegistry.loadAll(entriesDir);
         mobAffixRegistry.loadAll(mobAffixesDir);
+        mobNameGenerator.load();
         itemRegistry.init(lootDataDir != null ? lootDataDir.getParent() : null);
 
         LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d mob affixes",
@@ -114,6 +117,7 @@ public class Nat20LootSystem {
     public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }
+    public Nat20MobNameGenerator getMobNameGenerator() { return mobNameGenerator; }
     public Nat20MobLootListener getMobLootListener() { return mobLootListener; }
     public Nat20LootPipeline getPipeline() { return pipeline; }
     public Nat20ModifierManager getModifierManager() { return modifierManager; }

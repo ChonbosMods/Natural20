@@ -2,6 +2,7 @@ package com.chonbosmods.loot.mob;
 
 import com.chonbosmods.loot.def.Nat20MobAffixDef;
 import com.chonbosmods.loot.mob.abilities.MobAbilityHandler;
+import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
 import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.assetstore.map.AssetMapWithIndexes;
@@ -11,6 +12,7 @@ import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.modules.entitystats.modifier.Modifier;
 import com.hypixel.hytale.server.core.modules.entitystats.modifier.StaticModifier;
+import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
@@ -37,11 +39,13 @@ public class Nat20MobAffixManager {
     private static final String TIER_MODIFIER_KEY = "nat20:mobaffix:tier";
 
     private final Nat20MobAffixRegistry registry;
+    private final Nat20MobNameGenerator nameGenerator;
     private final Map<String, MobAbilityHandler> abilityHandlers = new HashMap<>();
     private final Map<Ref<EntityStore>, List<Nat20MobAffixDef>> appliedAffixes = new ConcurrentHashMap<>();
 
-    public Nat20MobAffixManager(Nat20MobAffixRegistry registry) {
+    public Nat20MobAffixManager(Nat20MobAffixRegistry registry, Nat20MobNameGenerator nameGenerator) {
         this.registry = registry;
+        this.nameGenerator = nameGenerator;
     }
 
     /**
@@ -121,8 +125,18 @@ public class Nat20MobAffixManager {
         // 6. Store applied affixes for later lookup
         appliedAffixes.put(mobRef, List.copyOf(rolled));
 
-        LOGGER.atInfo().log("Applied %d affix(es) to mob %s (tier %s): %s",
-                rolled.size(), mobRef, tier,
+        // 7. Generate and apply elite name
+        String eliteName = nameGenerator.generate(tier);
+        if (eliteName != null) {
+            try {
+                store.putComponent(mobRef, Nameplate.getComponentType(), new Nameplate(eliteName));
+            } catch (Exception e) {
+                LOGGER.atWarning().withCause(e).log("Failed to set elite nameplate for mob %s", mobRef);
+            }
+        }
+
+        LOGGER.atInfo().log("Applied %d affix(es) to mob %s (tier %s, name=%s): %s",
+                rolled.size(), mobRef, tier, eliteName,
                 rolled.stream().map(Nat20MobAffixDef::displayName).toList());
     }
 
