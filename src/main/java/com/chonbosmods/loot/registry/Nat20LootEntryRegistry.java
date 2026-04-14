@@ -12,8 +12,10 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 public class Nat20LootEntryRegistry {
@@ -90,5 +92,13 @@ public class Nat20LootEntryRegistry {
 
     public int getLoadedCount() {
         return manualTags.size();
+    }
+
+    /**
+     * Return the set of all loaded base item ids (as they appear in the JSON, e.g.
+     * {@code "Weapon_Sword_Iron"}): read-only view backed by the manual-tag map.
+     */
+    public Set<String> getAllItemIds() {
+        return Collections.unmodifiableSet(manualTags.keySet());
     }
 }
