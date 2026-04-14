@@ -97,15 +97,15 @@ At `QuestGenerator.generate()`:
 2. Store `difficultyId` on the `QuestInstance`.
 3. Apply `mobCountMultiplier` when rolling KILL_MOBS counts, `gatherCountMultiplier` when rolling COLLECT_RESOURCES counts.
 4. Extend `populationSpec` on KILL_MOBS objectives with `mobIlvl`, `mobBoss`, `bossIlvlOffset`.
-5. Roll reward tier uniformly in `[rewardTierMin, rewardTierMax]`. Call `AffixRewardRoller.roll(tier, rewardIlvl)`. Store `ItemStack` on `QuestInstance.rewardItem`.
+5. Roll reward tier uniformly in `[rewardTierMin, rewardTierMax]`. Call `AffixRewardRoller.roll(tier, rewardIlvl)` — real integration with the Nat20 loot/affix system, no placeholder. Store `ItemStack` on `QuestInstance.rewardItem`.
 6. Write `variableBindings.put("reward_item", rolledItem.getDisplayName())`.
 7. Store `difficulty.xpAmount` on `QuestInstance.rewardXp`.
 
 At `TURN_IN_V2` final:
-- Dispense `quest.rewardItem` to inventory (stub: log only until loot dispensing is wired).
-- Award `quest.rewardXp` (stub: log only until XP system is wired).
+- Dispense `quest.rewardItem` to inventory via the real loot/inventory API. On failure (inventory full, system error), log `SEVERE` and leave the item undelivered — no silent drop.
+- Award `quest.rewardXp` via the real XP system. If the XP system doesn't yet exist, omit the XP dispense call entirely — do not ship a log-only stub that pretends XP was granted.
 
-**No hardcoded fallbacks.** If a difficulty id fails to resolve at generation time, the quest is not created and the attempt is logged.
+**No hardcoded fallbacks. No placeholder returns. No log-only dispense stubs.** If any dependency is missing (difficulty config, affix system entry point, XP system), the code path fails loudly at the boundary rather than continuing with fake data. Missing dependencies block the task; they do not get a stub that silently degrades behavior.
 
 ---
 
@@ -268,62 +268,69 @@ spawn path reads them yet or if that's deferred.>
 
 ---
 
-## Task D4: AffixRewardRoller helper
+## Task D4: AffixRewardRoller (real integration, no stub)
 
 **Files:**
 - Create: `src/main/java/com/chonbosmods/quest/AffixRewardRoller.java`
 
-**Step 1: Write the helper**
+**Principle:** no fallbacks, no placeholder return values. If the affix / loot system isn't ready to roll a real item at a given tier + ilvl, `roll(...)` throws `UnsupportedOperationException` and quest generation fails loudly. This forces the integration to happen before the system ships — it does not let silent placeholder data reach players.
+
+**Step 1: Investigate the existing Nat20 loot/affix API**
+
+Before writing the class, read:
+- `src/main/java/com/chonbosmods/loot/Nat20LootSystem.java`
+- `src/main/java/com/chonbosmods/loot/registry/Nat20AffixRegistry.java`
+- any `ItemStack` construction you find in there
+
+Identify the public entry point that produces an affix-rolled `ItemStack` for a given tier + ilvl (or the closest equivalent). If one exists, `AffixRewardRoller.roll(...)` is a thin adapter that calls into it. If one doesn't exist, this task stops and files a dependency: the loot system needs a `rollForQuestReward(tier, ilvl, random)` entry point before D4 can proceed.
+
+**Step 2: Write the helper**
 
 ```java
 package com.chonbosmods.quest;
 
-import com.hytale.sdk.item.ItemStack;  // or whatever the right import is
+import com.hytale.sdk.item.ItemStack;  // verify actual import from loot system files
 import java.util.Random;
 
 /**
- * Rolls a reward item at a given rarity tier and item level. For MVP this is
- * a stub that returns a placeholder {@link ItemStack} with a display name
- * that reflects the tier/ilvl, so the dialogue binding {@code reward_item}
- * renders something visible during testing. Real integration with the
- * Nat20 affix / loot system is a follow-up task.
+ * Rolls a reward item at a given rarity tier and item level by delegating to
+ * the Nat20 loot / affix system. Intentionally has no fallback path: if the
+ * underlying loot system cannot produce a valid stack, this method throws and
+ * quest generation fails loudly. No placeholder, no silent zero-value data.
  */
 public final class AffixRewardRoller {
 
     private AffixRewardRoller() {}
 
     /**
-     * Roll a reward item.
-     *
      * @param tier vanilla Hytale quality id: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary"
      * @param ilvl item level
-     * @return a placeholder ItemStack carrying the display name for dialogue binding;
-     *         the stack type itself is a stub until the affix system is wired.
+     * @return the rolled reward stack
+     * @throws IllegalArgumentException if tier or ilvl are out of range
+     * @throws IllegalStateException    if the loot system cannot produce a valid stack
      */
     public static ItemStack roll(String tier, int ilvl, Random random) {
-        // MVP stub: placeholder item. Replace with real affix roll when ready.
-        // Return an ItemStack with:
-        //   - a placeholder base item
-        //   - qualityId = tier
-        //   - a display name built from tier + ilvl, e.g. "Rare Token (iLvl 15)"
-        // so dialogue's {reward_item} binding surfaces something meaningful.
-        throw new UnsupportedOperationException("TODO: implement placeholder stub");
+        // Delegate to the real Nat20 loot/affix entry point found in Step 1.
+        // If the delegation fails or returns null, throw IllegalStateException
+        // with a message pointing at the tier/ilvl combo that failed.
     }
 }
 ```
 
-The concrete stub implementation: investigate the project's existing `ItemStack` construction pattern (check `Nat20LootSystem` or `Nat20AffixRegistry` for examples) and return a minimal stack. The exact SDK call pattern isn't in the plan because it depends on local conventions; copy whatever the loot system already does.
+If Step 1 determines the loot system doesn't yet expose a suitable entry point, **do not proceed with a throwing stub**. Instead, halt D4 and surface the blocker — the correct next move is either to implement the entry point in the loot system first, or to scope the reward system to whatever the loot system can actually do today.
 
-**Step 2: Compile + commit.**
+**Step 3: Compile + commit (only if Step 2 produced a real implementation)**
 
 ```
-feat(quest): add AffixRewardRoller stub
+feat(quest): add AffixRewardRoller backed by Nat20 loot/affix system
 
-Rolls a placeholder ItemStack at a given tier + ilvl. Real affix
-integration is deferred until the loot system is ready. The stub
-produces a visible display name so quest resolution dialogue can
-render {reward_item} during MVP testing.
+Rolls a reward ItemStack at a given tier and ilvl by delegating to the
+existing Nat20 loot/affix system. No fallback: if the delegation
+can't produce a valid stack, the roller throws and quest generation
+fails loudly.
 ```
+
+If Step 1 blocked on missing loot-system API, commit nothing for D4. Report the blocker and adjust the plan.
 
 ---
 
@@ -361,19 +368,17 @@ bindings.put("reward_item", rewardItem.getDisplayName());
 
 In `DialogueResolver.HIGHLIGHTED_QUEST_VARS`, add `"reward_item"`.
 
-**Step 4: TURN_IN_V2 stubs**
+**Step 4: TURN_IN_V2 dispense (real, not stub)**
 
-Inside the existing `TURN_IN_V2` handler, after item consumption but before the dialogue resumes (only when `!quest.hasMoreConflicts()`, i.e., final turn-in):
+Inside the existing `TURN_IN_V2` handler, at the final-turn-in branch (`!quest.hasMoreConflicts()`), dispense the reward and XP for real. No stub.
 
-```java
-// Reward dispense (stub until affix item system is wired)
-LOGGER.atInfo().log("TURN_IN_V2 reward stub: quest=%s would grant item=%s (qty=%d) and %d xp to player %s",
-    quest.getQuestId(),
-    quest.getRewardItem() != null ? quest.getRewardItem().getDisplayName() : "<null>",
-    quest.getRewardItem() != null ? quest.getRewardItem().getCount() : 0,
-    quest.getRewardXp(),
-    ctx.player().getPlayerRef().getUuid());
-```
+- **Item dispense:** call the existing Nat20 inventory / reward API to put `quest.getRewardItem()` into the player's inventory. If the player's inventory is full and the item can't be placed, the fallback behavior must be a **hard noisy failure**: log `SEVERE` with quest id, item name, player uuid, and leave the item undelivered. Do NOT silently drop the item. (If the project already has an overflow pattern — drop to feet, mail, etc. — use that; otherwise log SEVERE and fail the turn-in cleanly.)
+- **XP award:** if no XP system exists yet, this is a dependency blocker. Halt D5's XP portion and surface it just like D4's potential blocker. Do NOT add a "would grant N XP" log-only stub — that's a silent fallback. Either wire real XP or defer D5's XP work entirely.
+
+If the XP system genuinely doesn't exist yet, D5 lands as:
+- Real item dispense via loot/inventory API
+- XP storage on `QuestInstance.rewardXp` (field is ready for when XP system ships)
+- NO XP dispense call — that line is omitted until XP is real
 
 Leave the existing multiplier calc / `claimReward` call in place.
 

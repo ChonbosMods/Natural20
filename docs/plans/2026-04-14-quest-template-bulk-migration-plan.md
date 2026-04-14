@@ -152,24 +152,38 @@ docs(quest): Phase 2 batching plan for template flavor authoring
 
 **Subagent prompt (paste into dispatch):**
 
-> Condense `rewardFlavor` and polish resolution text for the N templates listed below. Each template's current `rewardFlavor` field holds the verbatim pre-deletion `rewardText` prose, seeded by Phase 1. Typical values are 8-20 words and need editing. For each template:
+> Author `rewardFlavor` and integrate the reward variables into the existing resolution text for the N templates listed below. Each template's current `rewardFlavor` field holds the verbatim pre-deletion `rewardText` prose, seeded by Phase 1. Typical values are 8-20 words and need editing.
 >
-> 1. Read the current `rewardFlavor` — this is your source material.
-> 2. Decide: is there an emotional/flavor element worth preserving, or is the whole string transactional?
->    - Transactional only (e.g. "a small pouch of silver coins") → set `rewardFlavor: null`, keep the one-beat form in resolutionText (no further edits).
+> **Core principle:** each template's `resolutionText` already has a narrative voice written by the original author. Your job is to weave the reward variables INTO that existing voice, not to replace the existing sentences with a canned form. Phase 1 left every resolution text with a literal `Take this {reward_item}.` sentence wherever the old `{quest_reward}` token used to be — that sentence is scaffolding, not the final shape. Move or rewrite it to fit the template's voice.
+>
+> **For each template:**
+>
+> 1. Read the current `rewardFlavor` (the verbatim legacy prose). Decide: is there an emotional/flavor element worth preserving, or is the whole string transactional?
+>    - Transactional only (e.g. "a small pouch of silver coins") → set `rewardFlavor: null`. No `{reward_flavor}` token appears in the text. The `{reward_item}` reference is the only reward variable.
 >    - Has flavor (e.g. "what coin I've kept hidden and a meal whenever you pass through") → condense the emotional piece into ≤ 5 words (e.g. `"a meal whenever you visit"`) and overwrite `rewardFlavor`.
-> 3. If you set a non-null `rewardFlavor`, rewrite the resolution text (and any conflict turn-in text that carries the reward moment) into two-beat form:
->    - One-beat (no flavor): `"Take this {reward_item}. ..."` (keep from Phase 1)
->    - Two-beat (with flavor): `"Take this {reward_item}. And this: {reward_flavor}. ..."`
->    - Authors own the article / punctuation around the flavor insertion. Never put `{reward_flavor}` mid-clause if it would break grammar. NPCs never mention XP, tier, or gold — the reward item's name shows itself, the flavor is pure emotional closure.
-> 4. Never invent item names. If flavor refers to a concrete object that exists in keepsake_items or evidence_items, set `rewardItem` to the matching pool id and reference it via `{reward_item}`. Otherwise leave `rewardItem: null`.
 >
-> Stay strictly within the listed template ids. Do not touch other templates in the file.
+> 2. Open the template's `resolutionText` (and any conflict turn-in text that carries the reward moment). Phase 1 inserted a literal `Take this {reward_item}.` somewhere in that text. Your job:
+>    - Delete that scaffolding sentence if the surrounding prose already does the work naturally (e.g. the NPC already says "Here, a token from my stores" — just swap in `{reward_item}` where the noun phrase would go).
+>    - Reshape it to fit the NPC's voice. "Take this {reward_item}" is fine as-is for some NPCs; others say "Here — {reward_item}. I want you to have it." or "I'd like you to keep {reward_item}." The goal is each NPC keeping the voice they had.
+>    - If `rewardFlavor` is non-null, integrate `{reward_flavor}` somewhere in the resolution text as a second beat — again, in the NPC's voice, not a boilerplate sentence. Examples of shapes you can follow:
+>      - "Take {reward_item}. {reward_flavor} — I want you to have it."
+>      - "{reward_item}. And {reward_flavor}, if it means anything."
+>      - "{reward_item} is yours. {reward_flavor}, truly."
+>    - If you can't weave `{reward_flavor}` gracefully into the existing voice, either (a) rewrite the relevant portion of the resolution text until it works, or (b) set `rewardFlavor: null` and drop the second beat entirely. There is no canned fallback template — boilerplate sentences like "Take this {reward_item}. And this: {reward_flavor}." across templates produce homogeneous dialogue and are not acceptable.
 >
-> After editing:
-> - `jq . <file>` must pass
-> - For every template in your batch, `rewardFlavor` is either `null` or has ≤ 5 words (a Phase 4 grep will verify globally)
-> - Report which templates you set a non-null `rewardFlavor` on and the ≤5-word value used, plus which you set to `null`.
+> 3. Hard rules:
+>    - NPCs never reference XP, gold, tier, rarity, or ilvl in dialogue. The reward item's name carries itself.
+>    - Never put `{reward_flavor}` mid-clause if it would break grammar. The flavor is a complete phrase, not a word you can insert anywhere.
+>    - Never invent item names. `{reward_item}` is always a noun phrase resolved from the runtime-rolled item's display name.
+>    - Never write `{reward_xp}` or `{reward_gold}` anywhere — those bindings don't exist.
+>    - No canned boilerplate. If you can't weave a variable into a template's existing voice, fix the voice or drop the variable. Do not ship a homogeneous sentence pattern across templates.
+>    - Stay strictly within the listed template ids. Do not touch other templates in the file.
+>
+> **After editing:**
+> - `jq . <file>` must pass.
+> - For every template in your batch, `rewardFlavor` is either `null` or has ≤ 5 words (a Phase 4 grep will verify globally).
+> - Every template's resolution text contains exactly one `{reward_item}` reference. If flavor is non-null, exactly one `{reward_flavor}` reference.
+> - Report: templates where you set non-null flavor (with the ≤5-word value), templates where you set flavor to null, and any templates where you couldn't find a good voice integration (flag these for a dedicated follow-up voice-pass — do NOT ship them with placeholder prose).
 
 Commit per batch:
 ```
