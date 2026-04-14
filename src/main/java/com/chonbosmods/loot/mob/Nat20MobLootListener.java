@@ -89,7 +89,7 @@ public class Nat20MobLootListener {
                 rarityFloor, lootMultiplier, dropCount, tier);
 
         // 5. Generate loot items via the pipeline
-        List<Nat20LootData> results = generateDrops(dropCount, rarityFloor);
+        List<Nat20LootData> results = generateDrops(dropCount, rarityFloor, 10);
 
         // 6. Clean up tracked affixes to prevent memory leaks
         manager.clearMob(mobRef);
@@ -104,11 +104,19 @@ public class Nat20MobLootListener {
      * instead of using placeholder values. Once we have the SDK drop table hook,
      * each drop should pick from the mob's eligible item pool.
      */
-    private List<Nat20LootData> generateDrops(int dropCount, int rarityFloor) {
+    private List<Nat20LootData> generateDrops(int dropCount, int rarityFloor, int ilvl) {
         Nat20LootPipeline pipeline = lootSystem.getPipeline();
         Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
         Random random = ThreadLocalRandom.current();
         List<Nat20LootData> results = new ArrayList<>(dropCount);
+
+        // Convert mob affix rarityFloor from QUALITY_ scale (101-105) to qualityValue scale (1-5)
+        int floorAsQuality = rarityFloor - (QUALITY_COMMON - 1);
+
+        // Compute effective rarity range from ilvl gate and mob affix floor
+        int[] gate = Nat20LootPipeline.rarityGateForIlvl(ilvl);
+        int effectiveMin = Math.max(floorAsQuality, gate[0]);
+        int effectiveMax = gate[1];
 
         // TODO: replace placeholder item/category with mob drop table lookup
         String itemId = "Hytale:IronSword";
@@ -118,8 +126,8 @@ public class Nat20MobLootListener {
         for (int i = 0; i < dropCount; i++) {
             Nat20LootData data = pipeline.generate(
                     itemId, baseName, categoryKey,
-                    rarityFloor, QUALITY_LEGENDARY,
-                    random);
+                    effectiveMin, effectiveMax,
+                    random, ilvl);
 
             if (data != null) {
                 results.add(data);
