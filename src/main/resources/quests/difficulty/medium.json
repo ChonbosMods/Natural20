@@ -1,0 +1,12 @@
+{
+  "id": "medium",
+  "xpAmount": 100,
+  "rewardTierMin": "Uncommon",
+  "rewardTierMax": "Rare",
+  "rewardIlvl": 15,
+  "mobIlvl": 15,
+  "mobBoss": true,
+  "bossIlvlOffset": 3,
+  "mobCountMultiplier": 1.0,
+  "gatherCountMultiplier": 1.0
+}

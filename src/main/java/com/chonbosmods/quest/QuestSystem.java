@@ -11,6 +11,7 @@ public class QuestSystem {
 
     private final QuestTemplateRegistry templateRegistry;
     private final QuestPoolRegistry poolRegistry;
+    private final QuestDifficultyRegistry difficultyRegistry;
     private final QuestStateManager stateManager;
     private final QuestGenerator generator;
     private final ReferenceManager referenceManager;
@@ -22,6 +23,8 @@ public class QuestSystem {
         this.templateRegistry = new QuestTemplateRegistry();
         this.poolRegistry = new QuestPoolRegistry();
         this.poolRegistry.setTemplateRegistry(templateRegistry);
+        this.difficultyRegistry = new QuestDifficultyRegistry();
+        this.difficultyRegistry.loadAll();
         this.stateManager = new QuestStateManager();
         this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry);
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
@@ -42,6 +45,7 @@ public class QuestSystem {
 
     public QuestTemplateRegistry getTemplateRegistry() { return templateRegistry; }
     public QuestPoolRegistry getPoolRegistry() { return poolRegistry; }
+    public QuestDifficultyRegistry getDifficultyRegistry() { return difficultyRegistry; }
     public QuestStateManager getStateManager() { return stateManager; }
     public QuestGenerator getGenerator() { return generator; }
     public ReferenceManager getReferenceManager() { return referenceManager; }
