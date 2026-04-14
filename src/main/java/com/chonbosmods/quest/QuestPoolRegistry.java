@@ -27,11 +27,32 @@ public class QuestPoolRegistry {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String CLASSPATH_PREFIX = "quests/pools/";
 
-    /** Entry with id + label + optional plural label for items/mobs. */
-    public record ItemEntry(String id, String label, String labelPlural, String category,
-                             int countMin, int countMax, @Nullable String fetchItemType) {
+    /** Entry with id + label + optional plural label for items/mobs.
+     *  New fields {@code noun}, {@code nounPlural}, {@code epithet} support the
+     *  fetch-item authoring model where articles and narrative clauses are removed
+     *  from pool data. For pools that don't author these (mobs, collect_resources),
+     *  {@code noun}/{@code nounPlural} default to {@code label}/{@code labelPlural}
+     *  with leading articles stripped. */
+    public record ItemEntry(String id, String label, String labelPlural,
+                             String noun, String nounPlural, @Nullable String epithet,
+                             String category, int countMin, int countMax,
+                             @Nullable String fetchItemType) {
         public ItemEntry(String id, String label, String labelPlural) {
-            this(id, label, labelPlural, null, 0, 0, null);
+            this(id, label, labelPlural, stripArticle(label), stripArticle(labelPlural), null,
+                 null, 0, 0, null);
+        }
+
+        /** Strip a leading "a ", "an ", or "the " from a label to produce a bare noun.
+         *  Best-effort legacy adapter for unmigrated pools only; not a general-purpose
+         *  text utility. Returns the trimmed remainder when an article is matched, or
+         *  the input unchanged when no article prefix is found. */
+        public static String stripArticle(String s) {
+            if (s == null) return null;
+            String lower = s.toLowerCase();
+            if (lower.startsWith("a ")) return s.substring(2).strip();
+            if (lower.startsWith("an ")) return s.substring(3).strip();
+            if (lower.startsWith("the ")) return s.substring(4).strip();
+            return s;
         }
     }
 
@@ -252,13 +273,28 @@ public class QuestPoolRegistry {
         for (JsonElement el : arr) {
             JsonObject obj = el.getAsJsonObject();
             String id = obj.get("id").getAsString();
-            String label = obj.get("label").getAsString();
+            String label = obj.has("label") ? obj.get("label").getAsString() : null;
             String labelPlural = obj.has("labelPlural") ? obj.get("labelPlural").getAsString() : label;
+
+            // New schema: noun/nounPlural/epithet. Fall back to stripped label for
+            // pools that haven't been migrated yet.
+            String noun = obj.has("noun") ? obj.get("noun").getAsString() : ItemEntry.stripArticle(label);
+            String nounPlural = obj.has("nounPlural") ? obj.get("nounPlural").getAsString()
+                               : ItemEntry.stripArticle(labelPlural);
+            String epithet = obj.has("epithet") && !obj.get("epithet").isJsonNull()
+                             ? obj.get("epithet").getAsString() : null;
+
+            // Legacy `label` defaults to the noun if unspecified (so code that still
+            // reads .label() sees at least a bare word).
+            if (label == null) label = noun;
+            if (labelPlural == null) labelPlural = nounPlural;
+
             String category = obj.has("category") ? obj.get("category").getAsString() : null;
             int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
             int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
             String fetchItemType = obj.has("fetchItemType") ? obj.get("fetchItemType").getAsString() : null;
-            target.add(new ItemEntry(id, label, labelPlural, category, countMin, countMax, fetchItemType));
+            target.add(new ItemEntry(id, label, labelPlural, noun, nounPlural, epithet,
+                                     category, countMin, countMax, fetchItemType));
         }
     }
 
