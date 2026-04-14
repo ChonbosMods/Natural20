@@ -2,6 +2,47 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
+## Status (updated 2026-04-14)
+
+Tasks 1–8 landed on branch `fix/fetch-naming-and-continue-buttons`:
+
+| Task | Commit | Notes |
+|---|---|---|
+| 1. Extend ItemEntry record | `c917609` | amended to also host `fullForm()` as instance method per code review |
+| 2. Migrate keepsake_items | `ad0a598` | amended to fit the ≤4-word epithet cap |
+| 3. Migrate evidence_items | `7a47ff4` | |
+| 4. ObjectiveInstance.targetEpithet | `bf1a123` | |
+| 5. QuestGenerator wiring | (folded into `c917609` amend) | |
+| 6. DialogueResolver overlay | `4c16420` | |
+| 7+8. Reward schema split | `ff069be` | `QuestTemplateRegistry` needed no edits — Gson reflection handled the rename |
+
+Task 9 (v2 template JSON migration) was superseded by the multi-phase bulk plan at `docs/plans/2026-04-14-quest-template-bulk-migration-plan.md` once the real scope (259 templates, 1000+ edits) became clear.
+
+Task 10 (full compile + handoff) is pending: blocks on the bulk migration finishing, since templates still render `{quest_reward}` literally and reward 0 gold until Phase 1 of the bulk plan runs.
+
+## Cleanup work completed in parallel
+
+While the reward schema work was in flight, a broader cleanup ran on this same branch to retire v1 residue discovered during review:
+
+| Commit | What |
+|---|---|
+| `1464711` | Deleted dead `rewardText` field from all 259 v2+mundane templates (Gson was silently dropping it after task 7+8) |
+| `3978970` | Deleted `src/main/resources/quests/pools/v1_archived/` (34 files, 4.5 MB) |
+| `7ba56c8` | Removed v1 `PhaseType` / `PhaseInstance` classes, `QuestRewardManager` (whole class, all methods dead), `getVariant` method on `QuestTemplateRegistry`, stale imports |
+| `36bc5be` | Removed 22 unused `random*` methods from `QuestPoolRegistry` |
+| `c78cc9b` | Retired v2 smalltalk-about-quests residue (TopicGenerator quest-binding block, TopicGraphBuilder quest-bearer else branch, `SubjectFocus` quest accessors, 23 dead pool fields, 15 load/parse helpers, 4 dead pool `random*` methods, `NarrativeEntry` record, 2 Category C bindings in `QuestGenerator`) |
+
+Branch delta so far: ~500 net lines removed, build green throughout.
+
+## Known follow-ups surfaced
+
+- `TopicPoolRegistry.randomPerspectiveDetail` is now unused (side effect of retiring the quest-binding block in `c78cc9b`).
+- `settlement_type` binding is still set by `QuestGenerator` and documented as a public palette variable, but no current v2 template references it. Kept for now; delete candidate if the palette contracts.
+- Reward dispensing is still a stub. `TURN_IN_V2` computes the multiplier but doesn't move gold/items to the player. Separate follow-up.
+- `fetch_item_label` binding in `QuestGenerator` was initially tagged dead by recon, then found to have a live reader at `POIProximitySystem.java:129`. Not deleted. If `POIProximitySystem` usage turns out to be incidental, revisit.
+
+---
+
 **Goal:** Split fetch-item pool labels into bare noun + short epithet so objective UI, waypoints, and inventory stacks read clean, and split the reward text into structured slots so flavor never masquerades as an item.
 
 **Architecture:** Two pool files (`keepsake_items.json`, `evidence_items.json`) gain a richer schema: `noun` + `nounPlural` + optional `epithet`. `ItemEntry` keeps back-compat `label` fields so unrelated pools (collect_resources, hostile_mobs) don't need to change this pass. Two new template variables resolve from one pool roll: `{quest_item}` (bare noun) and `{quest_item_full}` (noun + epithet). `QuestTemplateV2` replaces its single `rewardText` string with `rewardGold` (int), `rewardItem` (nullable String), and `rewardFlavor` (nullable String); templates expose these as `{reward_gold}`, `{reward_item}`, `{reward_flavor}` and compose dialogue beats around them.

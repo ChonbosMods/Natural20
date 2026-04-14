@@ -2,17 +2,24 @@
 
 > **For Claude:** Execute phase-by-phase. Phase 1 is script-assisted and lands one commit. Phases 2–3 dispatch multiple subagents in ordered batches, one commit per batch.
 
+**Revision history:**
+- 2026-04-14 (initial): plan written assuming `rewardText` still on disk as source material for Phase 2.
+- 2026-04-14 (revised): commit `1464711` deleted `rewardText` from all 259 templates as part of the v1 cleanup. Phase 1 now pulls source material from git history via `git show 1464711^:<file>` instead of reading the live file. Phase 2's "delete rewardText" step is removed (it's already gone). Remaining work is unchanged in shape.
+
 **Goal:** Migrate all 259 v2 quest templates to the new reward schema (`rewardGold`/`rewardItem`/`rewardFlavor`) and new template variables (`{reward_gold}`/`{reward_item}`/`{reward_flavor}`/`{quest_item_full}`) without attempting thousands of inline edits in a single subagent pass.
 
 **Why this plan exists:** Task 9 of `2026-04-14-fetch-item-naming-impl.md` was scoped under the assumption of a handful of templates. Actual scope:
-- `src/main/resources/quests/v2/index.json`: 238 templates, 238 `rewardText`, 238 `{quest_reward}` tokens, 302 `{quest_item}` tokens, 183 have FETCH_ITEM objectives.
-- `src/main/resources/quests/mundane/index.json`: 21 templates, 21 `rewardText`, 21 `{quest_reward}`, 30 `{quest_item}`, all use PEACEFUL_FETCH (not FETCH_ITEM).
+- `src/main/resources/quests/v2/index.json`: 238 templates, 238 `{quest_reward}` tokens, 302 `{quest_item}` tokens, 183 have FETCH_ITEM objectives.
+- `src/main/resources/quests/mundane/index.json`: 21 templates, 21 `{quest_reward}`, 30 `{quest_item}`, all use PEACEFUL_FETCH (not FETCH_ITEM).
+- Original `rewardText` prose lives at `git show 1464711^:<path>` and is the authoritative source for Phase 2 flavor authoring.
 
 About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes into phases where each phase has a clean acceptance test and commits independently.
 
+**Runtime state as of this revision:** templates render literal `{quest_reward}` tokens in quest-giver dialogue (no binding exists for that key post–reward-schema split), and every quest turn-in dispenses 0 gold (templates have no `rewardGold` field yet; record default is 0). Phase 1 is the minimum intervention needed to make the build user-facing correct.
+
 **Architecture:**
-- **Phase 1** is a mechanical script-assisted pass that makes the build functionally correct with placeholder authoring quality. Runtime after Phase 1: quests give gold, no crashes, no literal `{quest_reward}` tokens leak to players. Old `rewardText` stays in the JSON but Gson ignores it (already verified).
-- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's placeholder output, authors proper `rewardFlavor` values, polishes resolution text, and removes the now-dead `rewardText`. Ordered sequentially (shared file, no race).
+- **Phase 1** is a mechanical script-assisted pass that makes the build functionally correct with placeholder authoring quality. Runtime after Phase 1: quests give gold, no crashes, no literal `{quest_reward}` tokens leak to players. The script seeds `rewardFlavor` from the pre-deletion `rewardText` prose (read from git history) so Phase 2 authors have context to work with.
+- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's seeded output, polishes `rewardFlavor` into a ≤5-word form, and rewrites resolution text from the one-beat gold form into two-beat form where flavor warrants it. Ordered sequentially (shared file, no race).
 - **Phase 3** is the same pattern for the `{quest_item}` article audit, scoped to FETCH_ITEM-carrying templates only.
 - **Phase 4** is a final grep + compile sweep.
 
@@ -22,12 +29,15 @@ About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes in
 - `src/main/resources/quests/v2/index.json`
 - `src/main/resources/quests/mundane/index.json`
 - Temporary: a one-off script at `tools/quest_template_migration.py` (deleted in Phase 4)
+- Read-only reference (via `git show`): the pre-`1464711` versions of both index files
 
 ---
 
 ## Phase 1: Script-assisted baseline migration
 
-**Goal:** Every template carries the new reward fields; every `{quest_reward}` in text fields becomes a minimum-viable one-beat gold reference. Old `rewardText` stays in place as authoritative source for Phase 2.
+**Goal:** Every template carries the new reward fields (gold scaled, flavor seeded from legacy prose); every `{quest_reward}` in text fields becomes a minimum-viable one-beat gold reference. Phase 2 then polishes the seeded flavor.
+
+**Source material:** the legacy `rewardText` prose lives at `git show 1464711^:<path>` for both index files. The script reads that as a side-channel and injects each template's legacy prose into the new `rewardFlavor` slot (unconverted — preserving original length) so Phase 2 authors can see what the template used to say before condensing.
 
 ### Task 1.1: Write the migration script
 
@@ -36,21 +46,32 @@ About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes in
 
 **Behavior:**
 
-Read a JSON file on stdin or by path. For each object that looks like a template (has `rewardText` field):
+The script reads TWO JSONs per file: the current on-disk file (has no `rewardText`) and the pre-deletion file from git (has `rewardText`). It matches templates by `id`, copies `rewardText` values from the git version into the new `rewardFlavor` field, computes `rewardGold` from objective count, rewrites `{quest_reward}` tokens, and writes the result back to disk.
+
+CLI signature:
+```
+python3 tools/quest_template_migration.py --phase 1 \
+    --file src/main/resources/quests/v2/index.json \
+    --legacy-rev 1464711^
+```
+
+Per-template logic:
 
 1. Count `objectives.length`. Compute `rewardGold`:
    - length ≤ 2 → 25
    - length == 3 → 50
    - length ≥ 4 → 75
-2. Add/overwrite three fields:
+2. Look up this template's `id` in the legacy JSON. Extract `legacyRewardText` (may be null if a new template was added after `1464711`).
+3. Add/overwrite three fields on the current template:
    - `rewardGold`: integer from rule above
    - `rewardItem`: `null`
-   - `rewardFlavor`: `null`
-3. Leave `rewardText` field in place (don't delete).
-4. For every string field in the template (recursively if nested, but the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rewrite:
+   - `rewardFlavor`: `legacyRewardText` verbatim if present, else `null`. **Note:** Phase 2 will condense this to ≤5 words; the verbatim form is intentional scaffolding, not a final value. A `# TODO-P2` trailing comment in the JSON is not possible (JSON has no comments) but that's fine — Phase 2 identifies candidates by "rewardFlavor has >5 words".
+4. For every string field in the template (the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rewrite:
    - `{quest_reward}` → `{reward_gold} gold`
    - DO NOT touch `{quest_item}` in this phase.
 5. Preserve JSON formatting: 2-space indent, ASCII-escaped strings OFF (keep UTF-8), key order preserved. Use `json.dump(obj, fp, indent=2, ensure_ascii=False)` with `sort_keys=False`.
+
+The git-history read is a one-liner: `subprocess.check_output(["git", "show", f"{legacy_rev}:{path}"])`. Parse as JSON, build an id→rewardText lookup map, use it during the per-template pass.
 
 **CLI:**
 ```
@@ -90,12 +111,14 @@ Commit message:
 data(quest): Phase 1 - script-assisted baseline reward migration
 
 Adds rewardGold/rewardItem/rewardFlavor to all 259 v2+mundane templates
-(gold scaled by objective count, item/flavor nullable). Rewrites every
-{quest_reward} token in template text fields to a minimum-viable
-'{reward_gold} gold' form.
+(gold scaled by objective count, item null, flavor seeded verbatim from
+the pre-deletion rewardText prose read out of git history at 1464711^).
+Rewrites every {quest_reward} token in template text fields to a
+minimum-viable '{reward_gold} gold' form.
 
-Old rewardText field is left intact as authoritative source for Phase 2
-flavor authoring. Gson ignores unknown fields, so runtime is correct.
+rewardFlavor values are intentionally verbatim at this phase - most
+exceed the ≤5-word cap and will be condensed in Phase 2. This
+preserves original authorial context for each template.
 ```
 
 No Co-Authored-By.
@@ -104,7 +127,7 @@ No Co-Authored-By.
 
 ## Phase 2: Batched reward flavor authoring
 
-**Goal:** Replace Phase 1's `rewardFlavor: null` placeholders with real ≤5-word emotional notes where warranted, polish resolution text from the one-beat form into two-beat where flavor is added, and delete the legacy `rewardText` field once migrated.
+**Goal:** Condense Phase 1's verbatim-seeded `rewardFlavor` values (typically the full legacy `rewardText` prose, often 8-20 words) into ≤5-word emotional notes where warranted, or set them to `null` when the original was purely transactional. Polish resolution text from the one-beat form into two-beat where flavor is added.
 
 ### Task 2.0: Enumerate situation buckets
 
@@ -129,25 +152,24 @@ docs(quest): Phase 2 batching plan for template flavor authoring
 
 **Subagent prompt (paste into dispatch):**
 
-> Author `rewardFlavor` and polish resolution text for the N templates listed below. For each template:
+> Condense `rewardFlavor` and polish resolution text for the N templates listed below. Each template's current `rewardFlavor` field holds the verbatim pre-deletion `rewardText` prose, seeded by Phase 1. Typical values are 8-20 words and need editing. For each template:
 >
-> 1. Read the legacy `rewardText` field — this is your source material.
+> 1. Read the current `rewardFlavor` — this is your source material.
 > 2. Decide: is there an emotional/flavor element worth preserving, or is the whole string transactional?
->    - Transactional only → `rewardFlavor: null`, keep the one-beat form in resolutionText (no further edits).
->    - Has flavor → condense the emotional piece into ≤ 5 words and set as `rewardFlavor`.
+>    - Transactional only (e.g. "a small pouch of silver coins") → set `rewardFlavor: null`, keep the one-beat form in resolutionText (no further edits).
+>    - Has flavor (e.g. "what coin I've kept hidden and a meal whenever you pass through") → condense the emotional piece into ≤ 5 words (e.g. `"a meal whenever you visit"`) and overwrite `rewardFlavor`.
 > 3. If you set a non-null `rewardFlavor`, rewrite the resolution text (and any conflict turn-in text that carries the reward moment) into two-beat form:
->    - One-beat (no flavor): `"Take this: {reward_gold} gold. ..."` (keep)
+>    - One-beat (no flavor): `"Take this: {reward_gold} gold. ..."` (keep from Phase 1)
 >    - Two-beat (with flavor): `"Take this: {reward_gold} gold. And this. {reward_flavor}. ..."`
 >    - Authors own the article / punctuation around the flavor insertion. Never put `{reward_flavor}` mid-clause if it would break grammar.
-> 4. Delete the `rewardText` field once you've authored `rewardFlavor`.
-> 5. Never invent item names. If flavor refers to a concrete object that exists in keepsake_items or evidence_items, set `rewardItem` to the matching pool id and reference it via `{reward_item}`. Otherwise leave `rewardItem: null`.
+> 4. Never invent item names. If flavor refers to a concrete object that exists in keepsake_items or evidence_items, set `rewardItem` to the matching pool id and reference it via `{reward_item}`. Otherwise leave `rewardItem: null`.
 >
 > Stay strictly within the listed template ids. Do not touch other templates in the file.
 >
 > After editing:
 > - `jq . <file>` must pass
-> - `grep -c "rewardText" <file>` must be exactly `(original_count - N)` (where N is your batch size — confirm you deleted exactly your batch's rewardText fields)
-> - Report which templates you set a non-null `rewardFlavor` on and the ≤5-word value used.
+> - For every template in your batch, `rewardFlavor` is either `null` or has ≤ 5 words (a Phase 4 grep will verify globally)
+> - Report which templates you set a non-null `rewardFlavor` on and the ≤5-word value used, plus which you set to `null`.
 
 Commit per batch:
 ```
@@ -163,9 +185,9 @@ Batches run **sequentially**, not in parallel, because they share `v2/index.json
 ### Phase 2 acceptance criteria
 
 After all batches:
-- `grep -c '"rewardText"' src/main/resources/quests/v2/index.json src/main/resources/quests/mundane/index.json` returns 0.
-- Every template has `rewardGold` + `rewardItem` + `rewardFlavor`.
-- Every non-null `rewardFlavor` is ≤ 5 words (a Phase 4 grep will enforce).
+- Every template has `rewardGold` + `rewardItem` + `rewardFlavor` (either null or ≤5-word string).
+- Every non-null `rewardFlavor` is ≤ 5 words (Phase 4 enforces globally via the word-count audit in Task 4.1 Step 2).
+- No template has a `rewardFlavor` longer than 5 words except intentionally-deferred ones (flagged in the batch's report).
 - `./gradlew compileJava` passes.
 
 ---
@@ -283,9 +305,11 @@ values within ≤5-word cap.
 These stay on the follow-up list documented in the original fetch-item naming plan:
 1. **Reward dispensing.** Actually move `rewardGold` into the player's coin balance and `rewardItem` into inventory on turn-in. Currently TURN_IN_V2 computes the multiplier but doesn't apply it.
 2. **Audit for invented item names** (Design §3).
-3. **`fetch_item_label` dead binding.** Confirmed unused after Task 5 recon. Safe to delete in a follow-up cleanup.
-4. **`collect_resources.json` / `hostile_mobs.json` schema migration.** Not broken; no pressure.
-5. **Continue-button fix** (separate branch work).
+3. **`collect_resources.json` / `hostile_mobs.json` schema migration.** Not broken; no pressure.
+4. **Continue-button fix** (separate branch work).
+5. **`TopicPoolRegistry.randomPerspectiveDetail`** — unused since the v2 smalltalk-about-quests retirement (`c78cc9b`). Delete candidate.
+6. **`settlement_type` binding** — set by `QuestGenerator`, documented in the palette, but no v2 template references it. Keep if future templates may want it; delete if the palette contracts.
+7. **`fetch_item_label` binding** — initially tagged dead by recon, then found to have a live reader at `POIProximitySystem.java:129`. Revisit whether `POIProximitySystem`'s usage is incidental; if it is, delete both ends.
 
 ## Failure modes to watch for
 
