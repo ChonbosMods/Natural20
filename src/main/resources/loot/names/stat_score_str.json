@@ -1,0 +1,17 @@
+{
+  "family_id": "stat_score_str",
+  "display_name": "Ability Score: Strength",
+  "position": "suffix",
+  "slot": "all",
+  "affix_id": "score_str",
+  "element": null,
+  "mechanic": "add_ability_score",
+  "stat": "STR",
+  "tiers": {
+    "common":    ["the Ox", "Brawn", "the Bull"],
+    "uncommon":  ["the Bear", "the Brute", "Vigor"],
+    "rare":      ["the Giant", "the Warhorse", "Fortitude"],
+    "epic":      ["the Titan", "the Colossus", "Dominion"],
+    "legendary": ["the Juggernaut", "Earthshatter", "the Primordial"]
+  }
+}
