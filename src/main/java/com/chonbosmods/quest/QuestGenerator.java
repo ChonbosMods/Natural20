@@ -425,7 +425,14 @@ public class QuestGenerator {
             case KILL_MOBS -> requiredCount + KILL_MOB_SPAWN_BUFFER;
             default -> 3; // FETCH_ITEM guards
         };
-        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount;
+        // populationSpec format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
+        // The trailing three fields propagate difficulty so the spawn-side can apply
+        // iLvl scaling and boss promotion when the player arrives at the POI.
+        // Downstream spawn code does not yet read those fields (Task D-future).
+        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount
+            + ":" + difficulty.mobIlvl()
+            + ":" + difficulty.mobBoss()
+            + ":" + difficulty.bossIlvlOffset();
 
         if (type == ObjectiveType.KILL_MOBS) {
             bindings.put("kill_count", String.valueOf(requiredCount));

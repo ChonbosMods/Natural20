@@ -729,11 +729,29 @@ public class DialogueActionRegistry {
         World world = Natural20.getInstance().getDefaultWorld();
         if (world == null) return;
 
-        // Build population spec if not already set
+        // Build population spec if not already set. Format must match QuestGenerator's
+        // 6-field KILL_MOBS spec: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>.
+        // Difficulty comes from the quest's stored difficultyId; if the registry can't
+        // resolve it, throw rather than silently fall back to default values.
         if (objective.getPopulationSpec() == null) {
             String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
             int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
-            objective.setPoi(0, 0, 0, "KILL_MOBS:" + enemyTypeId + ":" + spawnCount);
+            String difficultyId = quest.getDifficultyId();
+            if (difficultyId == null) {
+                throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()
+                    + " has no difficultyId; cannot build populationSpec");
+            }
+            com.chonbosmods.quest.model.DifficultyConfig difficulty =
+                Natural20.getInstance().getQuestSystem().getDifficultyRegistry().get(difficultyId);
+            if (difficulty == null) {
+                throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()
+                    + " references unknown difficultyId '" + difficultyId + "'");
+            }
+            String populationSpec = "KILL_MOBS:" + enemyTypeId + ":" + spawnCount
+                + ":" + difficulty.mobIlvl()
+                + ":" + difficulty.mobBoss()
+                + ":" + difficulty.bossIlvlOffset();
+            objective.setPoi(0, 0, 0, populationSpec);
         }
 
         // Try to claim a pre-placed surface fallback POI from the settlement
@@ -802,19 +820,57 @@ public class DialogueActionRegistry {
         bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
         bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
 
-        // Parse population spec and write spawn descriptor
+        // Parse population spec and write spawn descriptor.
+        // Format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
+        // The trailing iLvl/boss/bossOffset fields are not yet applied by the spawn
+        // path; they ride along here so the future spawn-side wiring can pick them up
+        // without changing the format again. Malformed specs throw rather than fall
+        // back to defaults.
         String popSpec = objective.getPopulationSpec();
         if (popSpec != null && !popSpec.equals("NONE")) {
-            int firstColon = popSpec.indexOf(':');
-            int lastColon = popSpec.lastIndexOf(':');
-            if (firstColon > 0 && lastColon > firstColon) {
-                String mobRole = popSpec.substring(firstColon + 1, lastColon);
-                int mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                if (mobCount > 0) {
-                    Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
-                        quest, entrance.getX(), entrance.getY(), entrance.getZ(),
-                        mobRole, mobCount);
-                }
+            String[] parts = popSpec.split(":");
+            if (parts.length != 6) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec for quest " + quest.getQuestId()
+                    + ": expected 6 colon-delimited fields, got " + parts.length
+                    + " (spec='" + popSpec + "')");
+            }
+            String mobRole = parts[1];
+            int mobCount;
+            try {
+                mobCount = Integer.parseInt(parts[2]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec spawnCount for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            // Parse + validate iLvl / boss / bossOffset so a malformed spec fails
+            // at placement rather than silently dropping the difficulty data on the
+            // floor at spawn time. Values are not yet consumed (separate task).
+            try {
+                Integer.parseInt(parts[3]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec mobIlvl for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            if (!"true".equals(parts[4]) && !"false".equals(parts[4])) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec mobBoss for quest " + quest.getQuestId()
+                    + ": expected 'true' or 'false', got '" + parts[4]
+                    + "' (spec='" + popSpec + "')");
+            }
+            try {
+                Integer.parseInt(parts[5]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec bossIlvlOffset for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            if (mobCount > 0) {
+                Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
+                    quest, entrance.getX(), entrance.getY(), entrance.getZ(),
+                    mobRole, mobCount);
             }
         }
 
