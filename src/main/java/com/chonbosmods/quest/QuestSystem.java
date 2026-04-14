@@ -13,7 +13,6 @@ public class QuestSystem {
     private final QuestPoolRegistry poolRegistry;
     private final QuestStateManager stateManager;
     private final QuestGenerator generator;
-    private final QuestRewardManager rewardManager;
     private final ReferenceManager referenceManager;
     private final TopicPoolRegistry topicPoolRegistry;
     private final TopicTemplateRegistry topicTemplateRegistry;
@@ -24,7 +23,6 @@ public class QuestSystem {
         this.poolRegistry = new QuestPoolRegistry();
         this.poolRegistry.setTemplateRegistry(templateRegistry);
         this.stateManager = new QuestStateManager();
-        this.rewardManager = new QuestRewardManager();
         this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry);
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
         this.topicPoolRegistry = new TopicPoolRegistry();
@@ -46,7 +44,6 @@ public class QuestSystem {
     public QuestPoolRegistry getPoolRegistry() { return poolRegistry; }
     public QuestStateManager getStateManager() { return stateManager; }
     public QuestGenerator getGenerator() { return generator; }
-    public QuestRewardManager getRewardManager() { return rewardManager; }
     public ReferenceManager getReferenceManager() { return referenceManager; }
     public TopicGenerator getTopicGenerator() { return topicGenerator; }
     public TopicPoolRegistry getTopicPoolRegistry() { return topicPoolRegistry; }
