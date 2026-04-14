@@ -53,8 +53,10 @@ public class DialogueResolver {
         "settlement_name",
         "other_settlement",
         "target_npc_settlement",
-        // Reward flavor
-        "quest_reward"
+        // Reward
+        "reward_gold",
+        "reward_item",
+        "reward_flavor"
     );
 
     /**

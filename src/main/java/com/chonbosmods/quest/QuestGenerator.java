@@ -22,9 +22,6 @@ public class QuestGenerator {
     /** Default KILL_MOBS bounds when an ObjectiveConfig omits countMin/countMax. */
     private static final int KILL_MOB_DEFAULT_MIN = 2;
     private static final int KILL_MOB_DEFAULT_MAX = 4;
-    /** Fallback when a template omits rewardText. */
-    private static final String DEFAULT_REWARD_TEXT = "a fair reward";
-
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
     private final QuestPoolRegistry poolRegistry;
@@ -55,10 +52,19 @@ public class QuestGenerator {
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
 
-        // Per-template author-defined reward flavor (e.g. "a pouch of silver and a hot meal")
-        bindings.put("quest_reward",
-            template.rewardText() != null && !template.rewardText().isEmpty()
-                ? template.rewardText() : DEFAULT_REWARD_TEXT);
+        // Structured reward: gold is always set, item + flavor are optional strings.
+        // Templates compose turn-in beats around {reward_gold}, {reward_item},
+        // {reward_flavor}. A reward_item that resolves to a known pool entry is
+        // rendered as its bare noun (e.g. "tin locket").
+        bindings.put("reward_gold", String.valueOf(template.rewardGold()));
+        if (template.rewardItem() != null && !template.rewardItem().isEmpty()) {
+            QuestPoolRegistry.ItemEntry rewardEntry = poolRegistry.findFetchItemById(template.rewardItem());
+            bindings.put("reward_item", rewardEntry != null ? rewardEntry.noun() : template.rewardItem());
+        } else {
+            bindings.put("reward_item", "");
+        }
+        bindings.put("reward_flavor",
+            template.rewardFlavor() != null ? template.rewardFlavor() : "");
 
         // Store all template text in bindings for dialogue node construction
         bindings.put("quest_template_id", template.id());

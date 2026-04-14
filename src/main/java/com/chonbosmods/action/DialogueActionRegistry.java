@@ -273,7 +273,8 @@ public class DialogueActionRegistry {
                 }
             }
 
-            // Reward (stub: multiplier computed but not yet dispensed)
+            // Reward (stub: gold/item/flavor live in template fields, not yet dispensed).
+            // Gold dispersal and item deposit are a follow-up task.
             double multiplier = BASE_REWARD_MULTIPLIER + (quest.getConflictCount() * CONFLICT_REWARD_BONUS);
             if (quest.isSkillcheckPassed()) multiplier += SKILLCHECK_PASS_REWARD_BONUS;
             quest.claimReward(quest.getConflictCount());
