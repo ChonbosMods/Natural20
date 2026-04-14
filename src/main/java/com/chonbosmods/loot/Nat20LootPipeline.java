@@ -6,6 +6,7 @@ import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
+import com.chonbosmods.loot.registry.Nat20NamePoolRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
 
@@ -18,11 +19,14 @@ public class Nat20LootPipeline {
     private final Nat20RarityRegistry rarityRegistry;
     private final Nat20AffixRegistry affixRegistry;
     private final Nat20ItemRegistry itemRegistry;
+    private final Nat20NamePoolRegistry namePoolRegistry;
 
-    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry, Nat20ItemRegistry itemRegistry) {
+    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry,
+                              Nat20ItemRegistry itemRegistry, Nat20NamePoolRegistry namePoolRegistry) {
         this.rarityRegistry = rarityRegistry;
         this.affixRegistry = affixRegistry;
         this.itemRegistry = itemRegistry;
+        this.namePoolRegistry = namePoolRegistry;
     }
 
     /** Backward-compatible overload: defaults ilvl to 10. Will be removed when callers are updated. */
@@ -68,7 +72,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
                 prefixSource = affix.id();
-                nameBuilder.append(getAffixDisplayWord(def)).append(" ");
+                nameBuilder.append(getDisplayName(def, rarity.id(), random)).append(" ");
                 break;
             }
         }
@@ -80,7 +84,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
                 suffixSource = affix.id();
-                nameBuilder.append(" of ").append(getAffixDisplayWord(def));
+                nameBuilder.append(" of ").append(getDisplayName(def, rarity.id(), random));
                 break;
             }
         }
@@ -169,7 +173,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
                 prefixSource = affix.id();
-                nameBuilder.append(getAffixDisplayWord(def)).append(" ");
+                nameBuilder.append(getDisplayName(def, rarity.id(), random)).append(" ");
                 break;
             }
         }
@@ -180,7 +184,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
                 suffixSource = affix.id();
-                nameBuilder.append(" of ").append(getAffixDisplayWord(def));
+                nameBuilder.append(" of ").append(getDisplayName(def, rarity.id(), random));
                 break;
             }
         }
@@ -385,6 +389,21 @@ public class Nat20LootPipeline {
             result.append(Character.toLowerCase(ch));
         }
         return result.toString();
+    }
+
+    /**
+     * Get a display name for an affix, trying tiered name pools first and
+     * falling back to localization key extraction.
+     */
+    private String getDisplayName(Nat20AffixDef def, String rarityId, Random random) {
+        // Try tiered name pool first
+        String affixIdShort = def.id().startsWith("nat20:") ? def.id().substring(6) : def.id();
+        if (namePoolRegistry != null) {
+            String poolName = namePoolRegistry.getRandomName(affixIdShort, rarityId, random);
+            if (poolName != null) return poolName;
+        }
+        // Fallback: extract from localization key
+        return getAffixDisplayWord(def);
     }
 
     /**
