@@ -32,6 +32,9 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
+import com.chonbosmods.loot.Nat20LootData;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -272,12 +275,24 @@ public class DialogueActionRegistry {
                 }
             }
 
-            // Reward (stub: gold/item/flavor live in template fields, not yet dispensed).
-            // Gold dispersal and item deposit are a follow-up task.
+            // Reward bookkeeping: gold/flavor stay in template fields (no dispense yet);
+            // the rolled affix item is dispensed only on the final turn-in. Per-phase
+            // multiplier is logged for visibility but does not yet scale anything.
             double multiplier = BASE_REWARD_MULTIPLIER + (quest.getConflictCount() * CONFLICT_REWARD_BONUS);
             if (quest.isSkillcheckPassed()) multiplier += SKILLCHECK_PASS_REWARD_BONUS;
             quest.claimReward(quest.getConflictCount());
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
+
+            // Final turn-in: dispense the rolled affix reward into the player's inventory.
+            // hasMoreConflicts() is true while later conflict phases remain; on the last
+            // phase it flips false and this branch fires exactly once. Failure is logged
+            // SEVERE and the item is dropped (not silently retried) so a full inventory
+            // surfaces immediately. XP dispense is intentionally absent: no XP system
+            // exists in this project yet (rewardXp is stored on QuestInstance for when
+            // one lands).
+            if (!quest.hasMoreConflicts()) {
+                dispenseRewardItem(ctx, quest);
+            }
 
             // Park in AWAITING_CONTINUATION. Marker stays on the source NPC and the
             // return waypoint stays on the map until CONTINUE_QUEST runs.
@@ -948,6 +963,79 @@ public class DialogueActionRegistry {
 
         LOGGER.atInfo().log("PEACEFUL_FETCH: POI set at settlement (%d, %d, %d) for quest %s",
             sx, sy, sz, quest.getQuestId());
+    }
+
+    private static final Gson REWARD_DATA_GSON = new Gson();
+
+    /**
+     * Reconstruct the rolled reward {@link ItemStack} from the primitives stored on the
+     * {@link QuestInstance} and put it in the player's inventory using {@code Player.giveItem}
+     * (the same call the {@code /loot} debug command uses). The {@link Nat20LootData} JSON
+     * is rehydrated and reattached so combat systems see the affix payload.
+     *
+     * <p>Failure modes (missing reward fields, JSON parse failure, full inventory) are
+     * logged at SEVERE with quest id, item id, and player UUID so the gap is loud. The
+     * item is NOT silently dropped or retried: the player's reward is on the floor of
+     * the next session if they want to ask an admin to grant it manually.
+     */
+    private static void dispenseRewardItem(ActionContext ctx, QuestInstance quest) {
+        String itemId = quest.getRewardItemId();
+        int count = quest.getRewardItemCount();
+        String dataJson = quest.getRewardItemDataJson();
+        java.util.UUID playerUuid = ctx.player().getPlayerRef().getUuid();
+
+        if (itemId == null || itemId.isEmpty() || count <= 0 || dataJson == null || dataJson.isEmpty()) {
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense skipped for quest %s, player %s: missing reward fields "
+                    + "(itemId=%s, count=%d, hasJson=%s)",
+                quest.getQuestId(), playerUuid, itemId, count, dataJson != null && !dataJson.isEmpty());
+            return;
+        }
+
+        Nat20LootData lootData;
+        try {
+            lootData = REWARD_DATA_GSON.fromJson(dataJson, Nat20LootData.class);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                    + "could not parse stored Nat20LootData JSON",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+        if (lootData == null) {
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                    + "Nat20LootData JSON deserialized to null",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+
+        ItemStack stack = new ItemStack(itemId, count)
+            .withMetadata(Nat20LootData.METADATA_KEY, lootData);
+
+        ItemStackTransaction tx;
+        try {
+            tx = ctx.player().giveItem(stack, ctx.playerRef(), ctx.store());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: giveItem threw",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+
+        if (tx == null || !tx.succeeded()) {
+            ItemStack remainder = tx != null ? tx.getRemainder() : null;
+            int remainderQty = remainder != null ? remainder.getQuantity() : count;
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense REFUSED for quest %s, item %s, player %s: giveItem "
+                    + "returned !succeeded (remainder=%d). Inventory likely full; reward NOT delivered.",
+                quest.getQuestId(), itemId, playerUuid, remainderQty);
+            return;
+        }
+
+        LOGGER.atInfo().log(
+            "TURN_IN_V2 dispensed reward for quest %s, item %s x%d, to player %s",
+            quest.getQuestId(), itemId, count, playerUuid);
     }
 
     /**

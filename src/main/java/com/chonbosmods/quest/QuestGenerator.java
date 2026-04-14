@@ -3,11 +3,14 @@ package com.chonbosmods.quest;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.quest.model.*;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.google.common.flogger.FluentLogger;
+import com.google.gson.Gson;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -16,6 +19,10 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final Gson REWARD_DATA_GSON = new Gson();
+    /** Vanilla Hytale rarity tier order, ascending. {@link #rollTierInRange} uses this to validate
+     *  a difficulty's [rewardTierMin, rewardTierMax] interval and to roll uniformly within it. */
+    private static final List<String> TIER_ORDER = List.of("Common", "Uncommon", "Rare", "Epic", "Legendary");
     /** Extra mobs spawned at a KILL_MOBS POI beyond the required kill count, so the
      *  player always finds enough live targets even after wandering wildlife eats them. */
     private static final int KILL_MOB_SPAWN_BUFFER = 2;
@@ -51,26 +58,39 @@ public class QuestGenerator {
             return null;
         }
 
-        // Roll difficulty up front: drives mob/gather count multipliers below
-        // and (in later D-tasks) reward tier, XP, mob iLvl, boss flag.
+        // Roll difficulty up front: drives mob/gather count multipliers below,
+        // reward tier/ilvl/XP, mob iLvl, and boss flag.
         // If the registry is empty, random() throws: a misconfigured registry
         // should block quest generation, not silently degrade.
         DifficultyConfig difficulty = difficultyRegistry.random(random);
 
+        // Roll the actual reward item from the affix loot system. The display name
+        // overrides whatever {reward_item} the template hand-pinned, since the
+        // difficulty-driven roll is now the source of truth for what the player
+        // gets at turn-in. The full Nat20LootData is captured below for dispense.
+        // Exceptions propagate: a misconfigured loot system should fail loud.
+        String rolledTier = rollTierInRange(difficulty.rewardTierMin(), difficulty.rewardTierMax(), random);
+        ItemStack rewardStack = AffixRewardRoller.roll(rolledTier, difficulty.rewardIlvl(), random);
+        Nat20LootData rewardLootData = rewardStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (rewardLootData == null) {
+            throw new IllegalStateException(
+                "AffixRewardRoller produced a stack without Nat20LootData metadata "
+                    + "(itemId=" + rewardStack.getItemId() + ", tier=" + rolledTier
+                    + ", ilvl=" + difficulty.rewardIlvl() + ")");
+        }
+        String rewardItemId = rewardStack.getItemId();
+        int rewardItemCount = rewardStack.getQuantity();
+        String rewardDisplayName = rewardLootData.getGeneratedName();
+
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
 
-        // Structured reward: gold is always set, item + flavor are optional strings.
-        // Templates compose turn-in beats around {reward_gold}, {reward_item},
-        // {reward_flavor}. A reward_item that resolves to a known pool entry is
-        // rendered as its bare noun (e.g. "tin locket").
+        // Structured reward bindings. {reward_gold} and {reward_flavor} stay
+        // template-driven; {reward_item} is now the rolled affix item's display
+        // name so dialogue lines like "Take this {reward_item}" highlight the
+        // real reward.
         bindings.put("reward_gold", String.valueOf(template.rewardGold()));
-        if (template.rewardItem() != null && !template.rewardItem().isEmpty()) {
-            QuestPoolRegistry.ItemEntry rewardEntry = poolRegistry.findFetchItemById(template.rewardItem());
-            bindings.put("reward_item", rewardEntry != null ? rewardEntry.noun() : template.rewardItem());
-        } else {
-            bindings.put("reward_item", "");
-        }
+        bindings.put("reward_item", rewardDisplayName != null ? rewardDisplayName : "");
         bindings.put("reward_flavor",
             template.rewardFlavor() != null ? template.rewardFlavor() : "");
 
@@ -150,9 +170,46 @@ public class QuestGenerator {
         quest.setMaxConflicts(maxConflicts);
         quest.setDifficultyId(difficulty.id());
 
-        LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, for NPC %s",
-            questId, template.situation(), difficulty.id(), objectives.size(), npcId);
+        // Persist the rolled reward on the QuestInstance so TURN_IN_V2 can dispense it
+        // verbatim. The Nat20LootData JSON round-trips cleanly because every field on the
+        // class is a primitive (affixes/gems serialize to '=' delimited strings).
+        quest.setRewardXp(difficulty.xpAmount());
+        quest.setRewardItemId(rewardItemId);
+        quest.setRewardItemCount(rewardItemCount);
+        quest.setRewardItemDisplayName(rewardDisplayName);
+        quest.setRewardItemDataJson(REWARD_DATA_GSON.toJson(rewardLootData));
+
+        LOGGER.atInfo().log(
+            "Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, "
+                + "rewardTier=%s, rewardItem=%s (id=%s), rewardXp=%d, for NPC %s",
+            questId, template.situation(), difficulty.id(), objectives.size(),
+            rolledTier, rewardDisplayName, rewardItemId, difficulty.xpAmount(), npcId);
         return quest;
+    }
+
+    /**
+     * Roll a tier uniformly within {@code [min, max]} (inclusive), respecting
+     * {@link #TIER_ORDER}. Throws {@link IllegalArgumentException} when either
+     * bound is unrecognized or when {@code max} sorts before {@code min}: a
+     * misconfigured {@link DifficultyConfig} should fail loud at generation
+     * time, not silently collapse to a single tier.
+     */
+    private static String rollTierInRange(String min, String max, Random random) {
+        int minIdx = TIER_ORDER.indexOf(min);
+        int maxIdx = TIER_ORDER.indexOf(max);
+        if (minIdx < 0) {
+            throw new IllegalArgumentException(
+                "rewardTierMin '" + min + "' is not a recognized tier; expected one of " + TIER_ORDER);
+        }
+        if (maxIdx < 0) {
+            throw new IllegalArgumentException(
+                "rewardTierMax '" + max + "' is not a recognized tier; expected one of " + TIER_ORDER);
+        }
+        if (maxIdx < minIdx) {
+            throw new IllegalArgumentException(
+                "rewardTierMax '" + max + "' sorts before rewardTierMin '" + min + "' in " + TIER_ORDER);
+        }
+        return TIER_ORDER.get(minIdx + random.nextInt(maxIdx - minIdx + 1));
     }
 
     /**

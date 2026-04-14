@@ -21,6 +21,27 @@ public class QuestInstance {
     private Set<Integer> rewardsClaimed = new HashSet<>();
     private boolean skillcheckPassed;
 
+    /** XP awarded on final turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
+     *  Stored even when no XP system is wired so the value survives until one lands. */
+    private int rewardXp;
+    /** Unique item id of the rolled reward, produced by {@link AffixRewardRoller}.
+     *  Used at turn-in to construct the dispensed {@link com.hypixel.hytale.server.core.inventory.ItemStack}.
+     *  Primitive storage only: the full {@link com.chonbosmods.loot.Nat20LootData} payload lives in
+     *  {@link #rewardItemDataJson} so affix metadata round-trips cleanly through Gson. */
+    private String rewardItemId;
+    /** Reward stack quantity (always 1 for quest rewards today; field exists so future tunables don't
+     *  require another schema bump). */
+    private int rewardItemCount;
+    /** Cached display name of the rolled reward. The dialogue {reward_item} binding reads this directly
+     *  so no item lookup is needed at render time. */
+    private String rewardItemDisplayName;
+    /** Gson-serialized {@link com.chonbosmods.loot.Nat20LootData} for the rolled reward. Stored as a
+     *  primitive String because Nat20LootData's BSON metadata format does not round-trip cleanly through
+     *  the QuestInstance Gson serializer; the codec serializes affixes/gems to raw strings, so the entire
+     *  object is Gson-friendly when stored as a JSON string. Reconstructed and reattached to the
+     *  ItemStack at dispense time so combat systems see the affix payload. */
+    private String rewardItemDataJson;
+
     /** True once the completion banner has fired for the current phase.
      *  Reset to false on phase advance (incrementConflictCount).
      *  Prevents re-firing when revertable objectives (FETCH_ITEM, COLLECT_RESOURCES)
@@ -93,4 +114,19 @@ public class QuestInstance {
     public boolean hasClaimedReward(int conflictIndex) {
         return rewardsClaimed.contains(conflictIndex);
     }
+
+    public int getRewardXp() { return rewardXp; }
+    public void setRewardXp(int rewardXp) { this.rewardXp = rewardXp; }
+
+    public String getRewardItemId() { return rewardItemId; }
+    public void setRewardItemId(String rewardItemId) { this.rewardItemId = rewardItemId; }
+
+    public int getRewardItemCount() { return rewardItemCount; }
+    public void setRewardItemCount(int rewardItemCount) { this.rewardItemCount = rewardItemCount; }
+
+    public String getRewardItemDisplayName() { return rewardItemDisplayName; }
+    public void setRewardItemDisplayName(String rewardItemDisplayName) { this.rewardItemDisplayName = rewardItemDisplayName; }
+
+    public String getRewardItemDataJson() { return rewardItemDataJson; }
+    public void setRewardItemDataJson(String rewardItemDataJson) { this.rewardItemDataJson = rewardItemDataJson; }
 }
