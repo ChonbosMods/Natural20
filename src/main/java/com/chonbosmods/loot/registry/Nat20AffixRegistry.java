@@ -31,7 +31,10 @@ public class Nat20AffixRegistry {
             "fortified.json", "fortitude.json", "fury.json", "graceful.json",
             "hawkeyed.json", "ironforged.json", "keen.json", "mighty.json",
             "nimble.json", "piercing.json", "precision.json", "resilient.json",
-            "savage.json", "stalwart.json", "sturdy.json", "swift.json",
+            "savage.json",
+            "score_cha.json", "score_con.json", "score_dex.json",
+            "score_int.json", "score_str.json", "score_wis.json",
+            "stalwart.json", "sturdy.json", "swift.json",
             "the_artisan.json", "the_guardian.json", "the_marksman.json",
             "the_sage.json", "the_titan.json", "violent.json", "warding.json",
             "wrathful.json"
