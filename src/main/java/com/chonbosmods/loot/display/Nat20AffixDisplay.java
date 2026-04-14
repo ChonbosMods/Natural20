@@ -27,6 +27,8 @@ public final class Nat20AffixDisplay {
     public static final String VOID = "#AA44DD";
     public static final String BLEED = "#CC2222";
     public static final String ABILITY_GOLD = "#bb8a2c";
+    public static final String MANA_BLUE = "#4488FF";
+    public static final String CRIT_YELLOW = "#FFDD44";
 
     // DoT constants — all DoTs share the same tick cadence for now.
     public static final int DOT_TICK_COUNT = 10;
@@ -103,15 +105,15 @@ public final class Nat20AffixDisplay {
             Map.entry("VoidWeakness",   Entry.percentEl("Void Weakness",   VOID)),
 
             // Combat modifiers (fixed %)
-            Map.entry("Nat20CritChance",   Entry.percent("Crit Chance")),
-            Map.entry("Nat20CritDamage",   Entry.percent("Crit Damage")),
+            Map.entry("Nat20CritChance",   Entry.percentEl("Crit Chance", CRIT_YELLOW)),
+            Map.entry("Nat20CritDamage",   Entry.percentEl("Crit Damage", CRIT_YELLOW)),
             Map.entry("ArmorPenetration",  Entry.percent("Precision")),
             Map.entry("Backstab",          Entry.percent("Backstab")),
             Map.entry("Evasion",           Entry.percent("Evasion")),
             Map.entry("Gallant",           Entry.percent("Gallant")),
             Map.entry("CrushingBlow",      Entry.percent("Crushing Blow")),
             Map.entry("LifeLeech",         Entry.percent("Life Leech")),
-            Map.entry("ManaLeech",         Entry.percent("Mana Leech")),
+            Map.entry("ManaLeech",         Entry.percentEl("Mana Leech", MANA_BLUE)),
             Map.entry("BlockProficiency",  Entry.percent("Block Proficiency")),
 
             // Utility (fixed %)

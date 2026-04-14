@@ -9,8 +9,6 @@ public class Nat20TooltipBuilder {
 
     private static final String COLOR_MUTED = "#888888";
     private static final String COLOR_SOCKET_EMPTY = "#666666";
-    private static final String COLOR_MET = "#33cc33";
-    private static final String COLOR_UNMET = "#cc3333";
 
     /**
      * Build a rich tooltip Message from resolved display data. Each affix line's
@@ -41,11 +39,7 @@ public class Nat20TooltipBuilder {
             }
         }
 
-        // Requirement line
-        if (data.requirement() != null) {
-            String reqColor = data.requirement().met() ? COLOR_MET : COLOR_UNMET;
-            tooltip.insert(Message.raw("\nRequires: " + data.requirement().text()).color(reqColor));
-        }
+        // Stat requirements are post-MVP: rarity-level "Requires:" line suppressed.
 
         // Description / flavor text
         if (data.description() != null && !data.description().isEmpty()) {
@@ -69,9 +63,7 @@ public class Nat20TooltipBuilder {
                 }
             }
 
-            if (!affix.requirementMet() && affix.requirementText() != null) {
-                tooltip.insert(Message.raw("\n  Requires: " + affix.requirementText()).color(COLOR_UNMET));
-            }
+            // Per-affix "Requires:" warnings suppressed: stat requirements are post-MVP.
         }
     }
 

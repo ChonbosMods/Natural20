@@ -10,8 +10,6 @@ public class Nat20TooltipStringBuilder {
 
     private static final String COLOR_MUTED = "#888888";
     private static final String COLOR_SOCKET_EMPTY = "#666666";
-    private static final String COLOR_MET = "#33cc33";
-    private static final String COLOR_UNMET = "#cc3333";
 
     public static String buildDescription(Nat20ItemDisplayData data) {
         StringBuilder sb = new StringBuilder();
@@ -32,13 +30,7 @@ public class Nat20TooltipStringBuilder {
             }
         }
 
-        // Requirement line
-        if (data.requirement() != null) {
-            if (!sb.isEmpty()) sb.append("\n");
-            String reqColor = data.requirement().met() ? COLOR_MET : COLOR_UNMET;
-            sb.append(color(reqColor, "Requires: " + data.requirement().text()));
-        }
-
+        // Stat requirements are post-MVP: do not render rarity or per-affix "Requires:" lines.
         return sb.toString();
     }
 
@@ -47,9 +39,6 @@ public class Nat20TooltipStringBuilder {
             if (!type.equals(affix.type())) continue;
             if (!sb.isEmpty()) sb.append("\n");
             sb.append(affix.renderedText());
-            if (!affix.requirementMet() && affix.requirementText() != null) {
-                sb.append("\n  ").append(color(COLOR_UNMET, "Requires: " + affix.requirementText()));
-            }
         }
     }
 
