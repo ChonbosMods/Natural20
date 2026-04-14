@@ -115,7 +115,8 @@ public class Nat20ThornsSystem extends DamageEventSystem {
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = range.interpolate(lootData.getLootLevel());
+                // Per-hit RNG: thorns damage rolls fresh for each reflected attack.
+                double baseValue = range.interpolate(rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current()));
                 double effectiveValue = baseValue;
                 PlayerStats stats = resolvePlayerStats(defenderRef, store);
                 if (stats != null && def.statScaling() != null) {

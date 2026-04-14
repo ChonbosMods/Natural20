@@ -99,7 +99,7 @@ public class Nat20CrushingBlowSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double basePercent = range.interpolate(lootData.getLootLevel());
+            double basePercent = range.interpolate(rolledAffix.midLevel());
             double effectivePercent = basePercent;
             PlayerStats stats = resolvePlayerStats(attackerRef, store);
             if (stats != null && def.statScaling() != null) {

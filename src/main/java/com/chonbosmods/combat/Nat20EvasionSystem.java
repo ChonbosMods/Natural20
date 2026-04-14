@@ -105,7 +105,7 @@ public class Nat20EvasionSystem extends DamageEventSystem {
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = range.interpolate(lootData.getLootLevel());
+                double baseValue = range.interpolate(rolledAffix.midLevel());
                 double effectiveValue = baseValue;
                 PlayerStats stats = resolvePlayerStats(targetRef, store);
                 if (stats != null && def.statScaling() != null) {

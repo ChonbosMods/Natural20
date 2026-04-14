@@ -6,6 +6,7 @@ import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20GemDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.display.AffixLine;
+import com.chonbosmods.loot.display.Nat20AffixDisplay;
 import com.chonbosmods.loot.display.RequirementLine;
 import com.chonbosmods.loot.display.SocketLine;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
@@ -55,22 +56,19 @@ public class Nat20ItemRenderer {
             AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
             if (range == null) continue;
 
-            double baseValue = range.interpolate(lootData.getLootLevel());
-            double effectiveValue = baseValue;
-            if (playerStats != null && affixDef.statScaling() != null) {
-                int mod = playerStats.getModifier(affixDef.statScaling().primary());
-                effectiveValue = baseValue * (1.0 + mod * affixDef.statScaling().factor());
-            }
+            // Interpolate at both ends of the rolled level range to get the per-item display range.
+            double minValue = range.interpolate(rolledAffix.minLevel());
+            double maxValue = range.interpolate(rolledAffix.maxLevel());
+            double midValue = (minValue + maxValue) * 0.5;
 
-            // Format value and unit separately
+            // Legacy numeric fields (still used by ComparisonDeltas for STAT-type diffing).
             String value;
             String unit;
-            String sign = effectiveValue >= 0 ? "+" : "";
             if ("MULTIPLICATIVE".equals(affixDef.modifierType())) {
-                value = sign + String.format("%.0f", effectiveValue * 100);
+                value = String.format("+%.0f", midValue * 100);
                 unit = "%";
             } else {
-                value = sign + String.format("%.1f", effectiveValue);
+                value = String.format("+%.1f", midValue);
                 unit = "";
             }
 
@@ -95,10 +93,14 @@ public class Nat20ItemRenderer {
                 }
             }
 
+            // Render the tooltip line with colour markup per the locked mapping.
+            String renderedText = renderAffixLine(affixDef, rolledAffix, minValue, maxValue, midValue, rarity.color());
+
             affixes.add(new AffixLine(
                     affixName, value, unit, affixDef.targetStat(),
                     scalingStat, type, requirementMet, requirementText,
-                    affixDef.description(), affixDef.cooldown(), affixDef.procChance()
+                    affixDef.description(), affixDef.cooldown(), affixDef.procChance(),
+                    renderedText
             ));
         }
 
@@ -174,6 +176,102 @@ public class Nat20ItemRenderer {
             sb.append(entry.getKey().name()).append(" ").append(entry.getValue());
         }
         return sb.toString();
+    }
+
+    /**
+     * Produce the fully colour-marked display line for a rolled affix per the locked
+     * tooltip format. Returns a raw string with {@code <color is="#hex">...</color>} markup;
+     * callers inject it into the tooltip/description pipeline as-is.
+     */
+    private String renderAffixLine(Nat20AffixDef def, RolledAffix roll,
+                                    double minValue, double maxValue, double midValue,
+                                    String rarityColor) {
+        // ABILITY affixes have no targetStat — use the per-id formatter.
+        if (def.type() == AffixType.ABILITY) {
+            return color(Nat20AffixDisplay.ABILITY_GOLD, Nat20AffixDisplay.abilityLine(def.id(), midValue));
+        }
+
+        Nat20AffixDisplay.Entry entry = Nat20AffixDisplay.forTargetStat(def.targetStat());
+        if (entry == null) {
+            // Unmapped — fall back to the raw targetStat to make gaps visible.
+            return color("#888888", "+" + String.format("%.1f", midValue) + " " + def.targetStat());
+        }
+
+        return switch (entry.format()) {
+            case FLAT_DAMAGE_RANGE -> renderFlatDamageRange(entry, minValue, maxValue);
+            case DOT_TOTAL_RANGE -> renderDotTotalRange(entry, minValue, maxValue);
+            case PERCENT_BUFF -> renderPercentBuff(entry, midValue, rarityColor);
+            case SCORE -> renderScore(entry, midValue, rarityColor);
+            case ABILITY -> color(Nat20AffixDisplay.ABILITY_GOLD,
+                    Nat20AffixDisplay.abilityLine(def.id(), midValue));
+        };
+    }
+
+    private String renderFlatDamageRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
+        // e.g. "5-8 Fire Damage" or "5 Fire Damage" (collapsed)
+        String text = formatRange(minValue, maxValue, false) + " " + entry.displayName();
+        return color(entry.elementColor(), text);
+    }
+
+    private String renderDotTotalRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
+        // Total = per-tick value × tick count. Element name comes from the display name's own element.
+        double minTotal = minValue * Nat20AffixDisplay.DOT_TICK_COUNT;
+        double maxTotal = maxValue * Nat20AffixDisplay.DOT_TICK_COUNT;
+        String element = elementForDotColor(entry.elementColor());
+        String text = entry.displayName() + ": "
+                + formatRange(minTotal, maxTotal, false)
+                + " " + element
+                + " over " + Nat20AffixDisplay.DOT_DURATION_SECONDS + "s";
+        return color(entry.elementColor(), text);
+    }
+
+    private String renderPercentBuff(Nat20AffixDisplay.Entry entry, double midValue, String rarityColor) {
+        // e.g. "+20% Crit Chance" — value bold in rarity (or element) colour, name in same colour.
+        int pct = (int) Math.round(midValue * 100.0);
+        String text = "+" + pct + "% " + entry.displayName();
+        String lineColor = entry.elementColor() != null ? entry.elementColor() : rarityColor;
+        return color(lineColor, text);
+    }
+
+    private String renderScore(Nat20AffixDisplay.Entry entry, double midValue, String rarityColor) {
+        // e.g. "+3 STR" — plus + int in rarity colour, stat short-name in stat colour.
+        int val = (int) Math.round(midValue);
+        String statColor = entry.statColor() != null ? entry.statColor().color() : rarityColor;
+        return color(rarityColor, "+" + val) + " " + color(statColor, entry.displayName());
+    }
+
+    /** Format a {@code min-max} range, collapsing to a single value when they match. */
+    private String formatRange(double min, double max, boolean percent) {
+        String minStr = formatNumber(min, percent);
+        String maxStr = formatNumber(max, percent);
+        if (minStr.equals(maxStr)) return minStr + (percent ? "%" : "");
+        return minStr + "-" + maxStr + (percent ? "%" : "");
+    }
+
+    private String formatNumber(double v, boolean percent) {
+        double display = percent ? v * 100.0 : v;
+        long rounded = Math.round(display);
+        return String.valueOf((int) rounded);
+    }
+
+    /**
+     * Map a DoT entry's element colour back to its element word for the "over 20s" line.
+     * (The display name is the effect name like "Ignite" / "Deep Wounds", not the element.)
+     */
+    private String elementForDotColor(@Nullable String color) {
+        if (color == null) return "";
+        return switch (color) {
+            case Nat20AffixDisplay.FIRE -> "Fire";
+            case Nat20AffixDisplay.FROST -> "Frost";
+            case Nat20AffixDisplay.POISON -> "Poison";
+            case Nat20AffixDisplay.VOID -> "Void";
+            case Nat20AffixDisplay.BLEED -> "Bleed";
+            default -> "";
+        };
+    }
+
+    private String color(String hex, String text) {
+        return "<color is=\"" + hex + "\">" + text + "</color>";
     }
 
     private String extractDisplayWord(String localizationKey) {

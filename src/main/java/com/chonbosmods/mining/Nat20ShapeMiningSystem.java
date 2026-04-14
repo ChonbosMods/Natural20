@@ -127,7 +127,7 @@ public class Nat20ShapeMiningSystem extends EntityEventSystem<EntityStore, Break
         AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
         if (range == null) return;
 
-        int size = Math.max(1, (int) Math.round(range.interpolate(lootData.getLootLevel())));
+        int size = Math.max(1, (int) Math.round(range.interpolate(shape.midLevel())));
 
         Ref<EntityStore> playerRef = chunk.getReferenceTo(entityIndex);
         Vector3i origin = event.getTargetBlock();

@@ -160,7 +160,7 @@ public class Nat20CritSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return 0;
 
-            double baseValue = range.interpolate(lootData.getLootLevel());
+            double baseValue = range.interpolate(rolledAffix.midLevel());
             double effectiveValue = baseValue;
 
             if (playerStats != null && def.statScaling() != null) {

@@ -243,7 +243,9 @@ public class Nat20LootPipeline {
                 Nat20AffixDef chosen = weightedPick(pool, random);
                 pool.remove(chosen);
                 usedAffixIds.add(chosen.id());
-                result.add(new RolledAffix(chosen.id(), random.nextDouble() * maxLootLevel));
+                double lo = random.nextDouble() * maxLootLevel;
+                double hi = random.nextDouble() * maxLootLevel;
+                result.add(new RolledAffix(chosen.id(), Math.min(lo, hi), Math.max(lo, hi)));
                 // Exclusion is symmetric: choosing A blocks B if either side declares the relationship
                 pool.removeIf(a -> {
                     if (chosen.exclusiveWith() != null && chosen.exclusiveWith().contains(a.id())) return true;
@@ -304,49 +306,14 @@ public class Nat20LootPipeline {
     }
 
     /**
-     * Build a plain-text description for the item tooltip (Path 1: stored once at creation).
-     * Includes affix stat lines, socket slots, and stat requirements.
+     * Legacy pre-bake of the tooltip description stored on {@code Nat20LootData.description}.
+     * The canonical rendering happens in {@link com.chonbosmods.loot.registry.Nat20ItemRegistry}
+     * via {@link com.chonbosmods.loot.Nat20ItemRenderer} + {@code Nat20TooltipStringBuilder};
+     * this stub is kept only so older consumers reading {@code getDescription()} directly
+     * don't crash. Returns an empty string.
      */
     private String buildDescription(List<RolledAffix> affixes, String rarityId, int sockets, Nat20RarityDef rarity) {
-        StringBuilder desc = new StringBuilder();
-
-        // Affix lines
-        for (RolledAffix affix : affixes) {
-            Nat20AffixDef def = affixRegistry.get(affix.id());
-            if (def == null) continue;
-            AffixValueRange range = def.getValuesForRarity(rarityId);
-            if (range == null) continue;
-            double value = range.interpolate(affix.level());
-            if ("MULTIPLICATIVE".equals(def.modifierType())) {
-                desc.append(String.format("%.1f%% %s", value, def.targetStat()));
-            } else {
-                desc.append(String.format("+%.1f %s", value, def.targetStat()));
-            }
-            if (def.statScaling() != null) {
-                desc.append(" (").append(def.statScaling().primary().name()).append(")");
-            }
-            desc.append("\n");
-        }
-
-        // Socket line
-        if (sockets > 0) {
-            desc.append("Sockets:");
-            for (int i = 0; i < sockets; i++) {
-                desc.append(" [Empty]");
-            }
-            desc.append("\n");
-        }
-
-        // Requirement line
-        if (rarity.statRequirement() > 0 && !affixes.isEmpty()) {
-            Nat20AffixDef firstDef = affixRegistry.get(affixes.getFirst().id());
-            if (firstDef != null && firstDef.statScaling() != null) {
-                desc.append("Requires: ").append(firstDef.statScaling().primary().name())
-                    .append(" ").append(rarity.statRequirement()).append("\n");
-            }
-        }
-
-        return desc.toString().stripTrailing();
+        return "";
     }
 
     /**
