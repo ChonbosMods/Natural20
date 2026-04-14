@@ -44,7 +44,9 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
     private static final String AFFIX_ID = "nat20:deep_wounds";
     private static final String EFFECT_ID = "Nat20BleedEffect";
 
-    private static final float DOT_DURATION = 20.0f;
+    private static final float TICK_INTERVAL = 2.0f;
+    private static final float EFFECT_DURATION = 20.0f;
+    private static final float TICKS_PER_DURATION = EFFECT_DURATION / TICK_INTERVAL;
 
     private final Nat20LootSystem lootSystem;
     private final Nat20DotTickSystem dotTickSystem;
@@ -71,6 +73,9 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                        Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer,
                        Damage damage) {
         if (damage.isCancelled()) return;
+
+        // Skip DOT tick damage: weapon affixes should not re-trigger on periodic damage
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
 
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
@@ -120,9 +125,24 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                 return;
             }
 
+            // Compute per-tick damage from affix values
+            AffixValueRange dotRange = def.getValuesForRarity(lootData.getRarity());
+            float damagePerTick = 0.5f;
+            if (dotRange != null) {
+                double totalDot = dotRange.interpolate(lootData.getLootLevel());
+                PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
+                if (dotStats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int mod = dotStats.getModifier(primary);
+                    totalDot *= (1.0 + mod * def.statScaling().factor());
+                }
+                totalDot = Nat20Softcap.softcap(totalDot, 12.0);
+                damagePerTick = (float) (totalDot / TICKS_PER_DURATION);
+            }
+
             // Register with unified tick system so bleed syncs with other DOTs
             boolean isNew = dotTickSystem.registerDot(targetRef,
-                    Nat20DotTickSystem.DotType.BLEED, attackerRef, DOT_DURATION);
+                    Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick);
 
             // Only apply visual EntityEffect on first application to prevent particle stacking
             if (isNew) {

@@ -7,6 +7,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
+import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
@@ -28,9 +30,11 @@ public class Nat20HexConsumeSystem extends DamageEventSystem {
     private static final Query<EntityStore> QUERY = Query.any();
 
     private final Nat20HexSystem hexSystem;
+    private final Nat20DotTickSystem dotTickSystem;
 
-    public Nat20HexConsumeSystem(Nat20HexSystem hexSystem) {
+    public Nat20HexConsumeSystem(Nat20HexSystem hexSystem, Nat20DotTickSystem dotTickSystem) {
         this.hexSystem = hexSystem;
+        this.dotTickSystem = dotTickSystem;
     }
 
     @Override
@@ -58,8 +62,19 @@ public class Nat20HexConsumeSystem extends DamageEventSystem {
         float hexed = (float) (original * (1.0 + bonus));
         damage.setAmount(hexed);
 
-        // Visual cleanup: hex EntityEffect has Duration=2s. Since we stopped re-applying,
-        // it will expire naturally within 2s, cleaning up both tint and particles.
+        // Overwrite hex effect with 0.1s duration to kill tint fast.
+        // Particle spawner stops emitting when the short effect expires;
+        // existing particles fade within their ParticleLifeSpan (~0.8s).
+        EntityEffect hexEffect = hexSystem.getEffect();
+        if (hexEffect != null) {
+            EffectControllerComponent effectCtrl =
+                    store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+            if (effectCtrl != null) {
+                effectCtrl.addEffect(targetRef, hexEffect, 0.1f,
+                        com.hypixel.hytale.server.core.asset.type.entityeffect.config.OverlapBehavior.OVERWRITE,
+                        commandBuffer);
+            }
+        }
 
         // Log with attacker info if available
         Damage.Source source = damage.getSource();

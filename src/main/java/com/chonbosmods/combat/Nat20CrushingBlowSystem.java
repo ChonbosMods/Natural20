@@ -70,6 +70,9 @@ public class Nat20CrushingBlowSystem extends DamageEventSystem {
                        Damage damage) {
         if (damage.isCancelled() || damage.getAmount() <= 0f) return;
 
+        // Skip DOT tick damage: weapon affixes should not re-trigger on periodic damage
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
+
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
 

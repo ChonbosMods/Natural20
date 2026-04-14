@@ -18,7 +18,6 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
-import com.hypixel.hytale.server.core.asset.type.entityeffect.config.OverlapBehavior;
 import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
@@ -51,6 +50,7 @@ public class Nat20HexSystem extends DamageEventSystem {
     private static final double SOFTCAP_K = 1.0;
 
     private final Nat20LootSystem lootSystem;
+    private final Nat20DotTickSystem dotTickSystem;
     private EntityEffect effect;
     private boolean effectResolved;
 
@@ -59,8 +59,9 @@ public class Nat20HexSystem extends DamageEventSystem {
 
     record HexState(double bonusMultiplier, long expiryMs) {}
 
-    public Nat20HexSystem(Nat20LootSystem lootSystem) {
+    public Nat20HexSystem(Nat20LootSystem lootSystem, Nat20DotTickSystem dotTickSystem) {
         this.lootSystem = lootSystem;
+        this.dotTickSystem = dotTickSystem;
     }
 
     @Override
@@ -78,6 +79,9 @@ public class Nat20HexSystem extends DamageEventSystem {
                        Store<EntityStore> store, CommandBuffer<EntityStore> commandBuffer,
                        Damage damage) {
         if (damage.isCancelled()) return;
+
+        // Skip DOT tick damage: weapon affixes should not re-trigger on periodic damage
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
 
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
@@ -120,15 +124,15 @@ public class Nat20HexSystem extends DamageEventSystem {
             }
             effectiveValue = Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
 
-            // Always re-apply short-duration visual (2s) to keep it refreshed while hex is active.
-            // On consume, we stop re-applying and the effect expires naturally, cleaning up particles.
+            // Apply hex visual. Only on first application to prevent particle stacking.
             HexState previous = hexedTargets.put(targetRef,
                     new HexState(effectiveValue, System.currentTimeMillis() + 15000));
-            EffectControllerComponent effectCtrl =
-                    store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-            if (effectCtrl != null) {
-                effectCtrl.addEffect(targetRef, effect, 1.0f,
-                        OverlapBehavior.OVERWRITE, commandBuffer);
+            if (previous == null || System.currentTimeMillis() > previous.expiryMs) {
+                EffectControllerComponent effectCtrl =
+                        store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+                if (effectCtrl != null) {
+                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                }
             }
 
             if (CombatDebugSystem.isEnabled(attackerUuid)) {

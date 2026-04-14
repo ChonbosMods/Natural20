@@ -1,13 +1,11 @@
 {
   "ApplicationEffects": {
-    "EntityBottomTint": "#1a0033",
-    "EntityTopTint": "#9933ff",
-    "Particles": [
-      { "SystemId": "Nat20_Hex" }
-    ]
+    "EntityBottomTint": "#0a001a",
+    "EntityTopTint": "#6622aa"
   },
   "OverlapBehavior": "Overwrite",
   "Infinite": false,
   "Debuff": true,
-  "Duration": 1
+  "StatusEffectIcon": "UI/StatusEffects/Poison.png",
+  "Duration": 30
 }

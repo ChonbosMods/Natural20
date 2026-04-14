@@ -72,6 +72,9 @@ public class Nat20CritSystem extends DamageEventSystem {
                        Damage damage) {
         if (damage.isCancelled()) return;
 
+        // Skip DOT tick damage: weapon affixes should not re-trigger on periodic damage
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
+
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
 

@@ -436,9 +436,9 @@ public class Natural20 extends JavaPlugin {
         viciousMockerySystem = new Nat20ViciousMockerySystem(lootSystem);
         getEntityStoreRegistry().registerSystem(viciousMockerySystem);
         getEntityStoreRegistry().registerSystem(new Nat20ViciousMockeryAmplifySystem(viciousMockerySystem));
-        hexSystem = new Nat20HexSystem(lootSystem);
+        hexSystem = new Nat20HexSystem(lootSystem, dotTickSystem);
         getEntityStoreRegistry().registerSystem(hexSystem);
-        getEntityStoreRegistry().registerSystem(new Nat20HexConsumeSystem(hexSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20HexConsumeSystem(hexSystem, dotTickSystem));
         gallantSystem = new Nat20GallantSystem(lootSystem);
         getEntityStoreRegistry().registerSystem(gallantSystem);
         getEntityStoreRegistry().registerSystem(new Nat20GallantReduceSystem(gallantSystem));
@@ -502,9 +502,11 @@ public class Natural20 extends JavaPlugin {
         });
 
         // Register quest POI marker provider on every world
-        getEventRegistry().registerGlobal(AddWorldEvent.class, event ->
+        getEventRegistry().registerGlobal(AddWorldEvent.class, event -> {
                 event.getWorld().getWorldMapManager()
-                        .addMarkerProvider("nat20_quests", QuestMarkerProvider.INSTANCE));
+                        .addMarkerProvider("nat20_quests", QuestMarkerProvider.INSTANCE);
+                event.getWorld().getWorldConfig().setPvpEnabled(true);
+        });
     }
 
     @Override

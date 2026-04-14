@@ -11,6 +11,7 @@
   "OverlapBehavior": "Overwrite",
   "Infinite": false,
   "Debuff": true,
+  "StatusEffectIcon": "UI/StatusEffects/Poison.png",
   "Duration": 20,
   "DeathMessageKey": "server.general.deathCause.corrupt"
 }

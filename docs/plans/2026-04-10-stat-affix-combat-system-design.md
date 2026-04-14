@@ -348,7 +348,7 @@ When `PlayerScoreChangeEvent` fires, all currently equipped items must recompute
 
 **Goal**: implement all remaining combat affixes. Each affix maps to a proven pattern from Phase 2/4. The affix list has been reviewed, edited, and finalized through a brainstorming session.
 
-**Status**: ALL BATCHES PASSED (2026-04-13). All affix systems implemented, smoke-tested, and confirmed working. Fear and Flinch Resist removed. Guard Break Resist folded into Block Proficiency. See `docs/plans/2026-04-11-phase5-gear-affix-expansion.md` for full test results.
+**Status**: ALL BATCHES PASSED (2026-04-13). Phase 6 polish in progress (2026-04-14): DOT damage scaling, DOT tick guard, debuff icons, PvP testing. See `docs/plans/2026-04-11-phase5-gear-affix-expansion.md` for full test results.
 
 **Deferred to SDK investigation during smoke test**: Flinch Resist, Guard Break Resist, Resilience (no system classes: need API for flinch suppression, block stamina drain, effect duration manipulation). Water Breathing, Light Foot (need stat name discovery for breath and sprint stamina cost). Block Proficiency (system exists but blocking state detection is a TODO).
 
@@ -819,9 +819,25 @@ Each affix needs:
 
 ---
 
-## Phase 6: Polish & Softcap Tuning
+## Phase 6: Polish & Softcap Tuning — IN PROGRESS (2026-04-14)
 
 **Goal**: tune all softcap `k` values, verify affix interactions under stacking, and harden edge cases.
+
+### Phase 6 Progress (2026-04-14)
+
+**DOT damage scaling**: resolved. Per-tick damage now computed from affix rarity + loot level + stat scaling at proc time, stored in `DotEntry.damagePerTick`. Minimum floor of 0.5 per tick (engine rounds damage below 0.5 to 0). Deep Wounds bleed scaling plan from original Phase 6 is now complete.
+
+**DOT tick guard**: `Nat20DotTickSystem.isDotTickDamage(damage)` checks damage cause index against the 5 DOT causes. All 12 weapon-scanning systems skip DOT tick damage to prevent weapon affixes from re-triggering on periodic damage (e.g., switching to a VM weapon while cold DOT is active no longer applies VM on each cold tick).
+
+**DOT lifetime linked to EntityEffect**: hybrid approach. Primary: `remainingDuration` countdown (20s). Secondary: `hasEffect(EntityEffect)` check after 3s grace period. Stops on whichever expires first.
+
+**StatusEffectIcon**: added to all DOT/debuff EntityEffects. Uses vanilla `Burn.png` and `Poison.png` icons. Custom icons deferred.
+
+**PvP**: auto-enabled on world load via `WorldConfig.setPvpEnabled(true)` in `AddWorldEvent`. No manual config edits needed.
+
+**Hex visual**: tint-only (darker purple `#0a001a`/`#6622aa`), no particle. Apply once with 30s Duration. On consume: overwrite with 0.1s duration kills tint instantly. Particle approach abandoned: engine does not clean up EntityEffect-spawned particle systems on removal, overwrite, or natural expiry.
+
+**Engine particle limitation confirmed**: programmatic `removeEffect()` only removes tint, not particles. `addEffect()` with `OverlapBehavior.OVERWRITE` does not clean up old particle systems. Particle systems only die via their own `LifeSpan` field. Short-LifeSpan + periodic re-application is the only reliable pattern for removable particles.
 
 ### Softcap Tuning
 

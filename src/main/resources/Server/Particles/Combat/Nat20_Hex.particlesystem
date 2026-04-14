@@ -2,7 +2,7 @@
   "Spawners": [
     { "SpawnerId": "Nat20_Hex_Skull", "PositionOffset": { "Y": 2.2 } }
   ],
-  "LifeSpan": 1.0,
+  "LifeSpan": 3.0,
   "BoundingRadius": 50,
   "CullDistance": 100
 }
