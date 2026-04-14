@@ -395,61 +395,6 @@ public class QuestPoolRegistry {
         return hostileMobs.get(random.nextInt(hostileMobs.size()));
     }
 
-    public String randomAction(Random random) {
-        if (questActions.isEmpty()) return "investigate the situation";
-        return questActions.get(random.nextInt(questActions.size()));
-    }
-
-    public NarrativeEntry randomFocus(Random random) {
-        if (questFocuses.isEmpty()) return new NarrativeEntry("area", false, false);
-        return questFocuses.get(random.nextInt(questFocuses.size()));
-    }
-
-    public NarrativeEntry randomStakes(Random random) {
-        if (questStakes.isEmpty()) return new NarrativeEntry("everyone here", true, false);
-        return questStakes.get(random.nextInt(questStakes.size()));
-    }
-
-    public NarrativeEntry randomThreat(Random random) {
-        if (questThreats.isEmpty()) return new NarrativeEntry("growing danger", false, false);
-        return questThreats.get(random.nextInt(questThreats.size()));
-    }
-
-    public NarrativeEntry randomAnimateThreat(Random random) {
-        if (threatsAnimate.isEmpty()) return new NarrativeEntry("advancing raiders", true, false);
-        return threatsAnimate.get(random.nextInt(threatsAnimate.size()));
-    }
-
-    public NarrativeEntry randomAbstractThreat(Random random) {
-        if (threatsAbstract.isEmpty()) return new NarrativeEntry("growing danger", false, false);
-        return threatsAbstract.get(random.nextInt(threatsAbstract.size()));
-    }
-
-    public NarrativeEntry randomHumanStakes(Random random) {
-        if (stakesHuman.isEmpty()) return new NarrativeEntry("refugee families", true, false);
-        return stakesHuman.get(random.nextInt(stakesHuman.size()));
-    }
-
-    public NarrativeEntry randomAbstractStakes(Random random) {
-        if (stakesAbstract.isEmpty()) return new NarrativeEntry("winter supplies", true, false);
-        return stakesAbstract.get(random.nextInt(stakesAbstract.size()));
-    }
-
-    public @Nullable String randomOrigin(Random random) {
-        if (questOrigins.isEmpty()) return null;
-        return questOrigins.get(random.nextInt(questOrigins.size()));
-    }
-
-    public @Nullable String randomTimePressure(Random random) {
-        if (questTimePressures.isEmpty()) return null;
-        return questTimePressures.get(random.nextInt(questTimePressures.size()));
-    }
-
-    public @Nullable String randomRewardHint(Random random) {
-        if (questRewardHints.isEmpty()) return null;
-        return questRewardHints.get(random.nextInt(questRewardHints.size()));
-    }
-
     /**
      * Draw a collect resource exposition line for the given resource category.
      * Falls back to a generic line if no category-specific pool exists.
@@ -484,109 +429,10 @@ public class QuestPoolRegistry {
         return situationTones.getOrDefault(situationId, "somber");
     }
 
-    /**
-     * Pick a random closer phrase for the given tone (used at quest resolution).
-     * Returns null if no closers are available for the tone.
-     */
-    public @Nullable String randomCloser(String tone, Random random) {
-        List<String> pool = closerPhrases.get(tone);
-        if (pool == null || pool.isEmpty()) return null;
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick an accept response: tries situation-specific first, then falls back to tone.
-     */
-    public String randomAcceptResponse(String situationId, String tone, Random random) {
-        List<String> pool = acceptResponses.get(situationId);
-        if (pool == null || pool.isEmpty()) {
-            pool = acceptResponses.getOrDefault(tone, acceptResponses.get("somber"));
-        }
-        if (pool == null || pool.isEmpty()) return "I'll help.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a decline response: tries situation-specific first, then falls back to tone.
-     */
-    public String randomDeclineResponse(String situationId, String tone, Random random) {
-        List<String> pool = declineResponses.get(situationId);
-        if (pool == null || pool.isEmpty()) {
-            pool = declineResponses.getOrDefault(tone, declineResponses.get("somber"));
-        }
-        if (pool == null || pool.isEmpty()) return "I can't help right now.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
     public String randomCounterAccept(String situationId, String tone, Random random) {
         List<String> pool = counterAcceptResponses.get(tone);
         if (pool == null || pool.isEmpty()) return "Thank you.";
         return pool.get(random.nextInt(pool.size()));
-    }
-
-    public String randomCounterDecline(String situationId, String tone, Random random) {
-        List<String> pool = counterDeclineResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I understand.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    public String randomCounterStatPass(String tone, Random random) {
-        List<String> pool = counterStatPassResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "Impressive. I'm glad you're helping.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    public String randomCounterStatFail(String tone, Random random) {
-        List<String> pool = counterStatFailResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "Well, we'll manage somehow.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a quest giver line for sending the player to talk to an NPC.
-     */
-    public String randomSendToNpcDialogue(String situationId, String tone, Random random) {
-        List<String> pool = sendToNpcResponses.get(situationId);
-        if (pool == null || pool.isEmpty()) pool = sendToNpcResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "Go speak with {target_npc} {location_hint}. They may know something about {quest_focus_the}.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a target NPC info-only dialogue: situation-specific first, then tone fallback.
-     */
-    public String randomTargetNpcInfo(String situationId, String tone, Random random) {
-        List<String> pool = targetNpcInfoResponses.get(situationId);
-        if (pool == null || pool.isEmpty()) pool = targetNpcInfoResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I know about {quest_focus_the}. Here's what I can tell you. Take this back to {quest_giver_name}.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a target NPC handoff dialogue: situation-specific first, then tone fallback.
-     */
-    public String randomTargetNpcHandoff(String situationId, String tone, Random random) {
-        List<String> pool = targetNpcHandoffResponses.get(situationId);
-        if (pool == null || pool.isEmpty()) pool = targetNpcHandoffResponses.get(tone);
-        if (pool == null || pool.isEmpty()) return "I can help with {quest_focus_the}, but I need {quest_item} first. Bring some from {location_hint} and I'll share what I know.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a stat-gated player response line for the given stat.
-     */
-    public String randomStatCheckResponse(String stat, Random random) {
-        List<String> pool = statCheckResponses.get(stat);
-        if (pool == null || pool.isEmpty()) return "I'll use my abilities to handle this.";
-        return pool.get(random.nextInt(pool.size()));
-    }
-
-    /**
-     * Pick a random stat type for a stat-gated response option.
-     */
-    public String randomStatType(Random random) {
-        String[] stats = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
-        return stats[random.nextInt(stats.length)];
     }
 
     private void loadTargetNpcResponses(Path file) {
