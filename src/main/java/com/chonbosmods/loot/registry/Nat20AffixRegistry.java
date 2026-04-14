@@ -141,6 +141,8 @@ public class Nat20AffixRegistry {
             exclusiveWith = Set.copyOf(excl);
         }
 
+        int frequency = obj.has("Frequency") ? obj.get("Frequency").getAsInt() : 10;
+
         return new Nat20AffixDef(
             id,
             AffixType.valueOf(obj.get("Type").getAsString()),
@@ -155,7 +157,8 @@ public class Nat20AffixRegistry {
             description,
             cooldown,
             procChance,
-            exclusiveWith
+            exclusiveWith,
+            frequency
         );
     }
 
