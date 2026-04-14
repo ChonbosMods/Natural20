@@ -6,6 +6,7 @@
 - 2026-04-14 (initial): plan written assuming `rewardText` still on disk as source material for Phase 2.
 - 2026-04-14 (revised 1): commit `1464711` deleted `rewardText` from all 259 templates as part of the v1 cleanup. Phase 1 now pulls source material from git history via `git show 1464711^:<file>` instead of reading the live file. Phase 2's "delete rewardText" step is removed (it's already gone).
 - 2026-04-14 (revised 2): reward schema moved to a runtime difficulty-driven model (see `2026-04-14-fetch-item-naming-impl.md` Addendum + Tasks D1–D5). Templates no longer carry `rewardGold`, `rewardItem`, or `rewardXP` — only `rewardFlavor`. Phase 1 script is simplified: seed `rewardFlavor` from legacy prose and rewrite `{quest_reward}` to a one-beat `"Take this {reward_item}."` for every template. Phase 2 upgrades the subset with real flavor to the two-beat form.
+- 2026-04-14 (revised 3): Phase 1's substitution reduced from the one-beat `"Take this {reward_item}."` sentence to a pure token rename `{quest_reward}` → `{reward_item}`. Both tokens are noun phrases (old: `rewardText` prose; new: rolled item display name), so a rename preserves each author's original verb, article, and punctuation verbatim. Eliminates the canned "Take this X" boilerplate that would have been baked into every template pre-Phase-2. Mechanical migrations must preserve authored voice; phrasing is an authoring decision, not a script decision.
 
 **Goal:** Migrate all 259 v2 quest templates to seed a `rewardFlavor` field from legacy prose and rewrite every `{quest_reward}` token into a `{reward_item}` reference, so the difficulty-driven reward system (Tasks D1–D5 in the impl plan) renders correctly at runtime.
 
@@ -19,8 +20,8 @@ About 500 authoring edits once you strip out the fields that are no longer templ
 **Runtime state as of this revision:** templates render literal `{quest_reward}` tokens in quest-giver dialogue (no binding exists for that key post-reward-schema-split). After impl-plan Tasks D1–D5 land, every quest generation will pre-roll a difficulty-tier reward item and bind its display name as `{reward_item}`. Phase 1 of this plan is the minimum intervention needed for templates to actually reference it.
 
 **Architecture:**
-- **Phase 1** is a mechanical script-assisted pass that seeds `rewardFlavor` from the pre-deletion `rewardText` prose (read from git history) and rewrites every `{quest_reward}` token into one-beat `"Take this {reward_item}."`. Runtime after Phase 1: no literal `{quest_reward}` tokens leak to players, and every quest's reward item shows up in its resolution text.
-- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's seeded output, polishes `rewardFlavor` into a ≤5-word form (or sets it null for purely transactional templates), and upgrades the one-beat resolution text to a two-beat form where flavor exists. Ordered sequentially (shared file, no race).
+- **Phase 1** is a mechanical script-assisted pass that seeds `rewardFlavor` from the pre-deletion `rewardText` prose (read from git history) and renames every `{quest_reward}` token to `{reward_item}`. Runtime after Phase 1: no literal `{quest_reward}` tokens leak to players, and every template's resolution text reads in its authored voice with the reward noun now binding to the runtime-rolled item display name.
+- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's output, polishes `rewardFlavor` into a ≤5-word form (or sets it null for purely transactional templates), and weaves `{reward_flavor}` into the resolution text in the NPC's voice where flavor exists. Ordered sequentially (shared file, no race).
 - **Phase 3** is the same pattern for the `{quest_item}` article audit, scoped to FETCH_ITEM-carrying templates only.
 - **Phase 4** is a final grep + compile sweep.
 
@@ -36,7 +37,7 @@ About 500 authoring edits once you strip out the fields that are no longer templ
 
 ## Phase 1: Script-assisted baseline migration
 
-**Goal:** Every template carries a seeded `rewardFlavor` (verbatim legacy prose from git history); every `{quest_reward}` in text fields becomes the one-beat `"Take this {reward_item}."` form. Phase 2 polishes the seeded flavor and upgrades the subset with real flavor to two-beat.
+**Goal:** Every template carries a seeded `rewardFlavor` (verbatim legacy prose from git history); every `{quest_reward}` in text fields is renamed to `{reward_item}` so the template reads in its authored voice against the new binding. Phase 2 polishes the seeded flavor and weaves `{reward_flavor}` in where warranted.
 
 **Source material:** the legacy `rewardText` prose lives at `git show 1464711^:<path>` for both index files. The script reads that as a side-channel and injects each template's legacy prose into the new `rewardFlavor` slot (unconverted — preserving original length) so Phase 2 authors can see what the template used to say before condensing.
 
@@ -63,8 +64,8 @@ Per-template logic:
 1. Look up this template's `id` in the legacy JSON. Extract `legacyRewardText` (may be null if a new template was added after `1464711`).
 2. Add the `rewardFlavor` field on the current template:
    - `rewardFlavor`: `legacyRewardText` verbatim if present, else `null`. **Note:** Phase 2 will condense this to ≤5 words; the verbatim form is intentional scaffolding, not a final value. A `# TODO-P2` trailing comment in the JSON is not possible (JSON has no comments) but that's fine — Phase 2 identifies candidates by "rewardFlavor has >5 words".
-3. For every string field in the template (the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rewrite:
-   - `{quest_reward}` → `Take this {reward_item}.`  — literal replacement of the token with a complete one-beat sentence. In cases where the surrounding text already provides a verb like "Take" and was relying on `{quest_reward}` being a noun phrase, a naive token swap will produce awkward prose ("Take Take this {reward_item}."). Phase 2 fixes these during the authoring review.
+3. For every string field in the template (the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rename:
+   - `{quest_reward}` → `{reward_item}`  — pure token rename. Both tokens are noun phrases (old: `rewardText` prose; new: rolled item display name), so each author's surrounding verb, article, and punctuation survive verbatim. Mechanical migrations must preserve authored voice; any phrasing beyond the token itself is an authoring decision that belongs to Phase 2, not the script.
    - DO NOT touch `{quest_item}` in this phase.
 4. Preserve JSON formatting: 2-space indent, ASCII-escaped strings OFF (keep UTF-8), key order preserved. Use `json.dump(obj, fp, indent=2, ensure_ascii=False)` with `sort_keys=False`.
 
@@ -95,7 +96,7 @@ Sequencing: Java cleanup first (ensures record matches the intended final schema
 python3 tools/quest_template_migration.py --phase 1 --file src/main/resources/quests/v2/index.json
 ```
 
-Processes in-place. Prints a summary: `N templates migrated, M {quest_reward} tokens rewritten`.
+Processes in-place. Prints a summary: `N templates migrated, M {quest_reward} tokens renamed`.
 
 **Step 1: Write the script.** Keep it under 100 lines.
 
@@ -171,7 +172,7 @@ docs(quest): Phase 2 batching plan for template flavor authoring
 
 > Author `rewardFlavor` and integrate the reward variables into the existing resolution text for the N templates listed below. Each template's current `rewardFlavor` field holds the verbatim pre-deletion `rewardText` prose, seeded by Phase 1. Typical values are 8-20 words and need editing.
 >
-> **Core principle:** each template's `resolutionText` already has a narrative voice written by the original author. Your job is to weave the reward variables INTO that existing voice, not to replace the existing sentences with a canned form. Phase 1 left every resolution text with a literal `Take this {reward_item}.` sentence wherever the old `{quest_reward}` token used to be — that sentence is scaffolding, not the final shape. Move or rewrite it to fit the template's voice.
+> **Core principle:** each template's `resolutionText` already has a narrative voice written by the original author. Phase 1 renamed `{quest_reward}` → `{reward_item}` in place, so the authored sentence structure is intact: where an author wrote "Take {quest_reward}." you now see "Take {reward_item}." — preserved verb, article, punctuation, everything. Your job is to weave `{reward_flavor}` into that voice where warranted; do not rewrite `{reward_item}`'s surrounding prose unless the template's voice actually needs polish.
 >
 > **For each template:**
 >
@@ -179,10 +180,9 @@ docs(quest): Phase 2 batching plan for template flavor authoring
 >    - Transactional only (e.g. "a small pouch of silver coins") → set `rewardFlavor: null`. No `{reward_flavor}` token appears in the text. The `{reward_item}` reference is the only reward variable.
 >    - Has flavor (e.g. "what coin I've kept hidden and a meal whenever you pass through") → condense the emotional piece into ≤ 5 words (e.g. `"a meal whenever you visit"`) and overwrite `rewardFlavor`.
 >
-> 2. Open the template's `resolutionText` (and any conflict turn-in text that carries the reward moment). Phase 1 inserted a literal `Take this {reward_item}.` somewhere in that text. Your job:
->    - Delete that scaffolding sentence if the surrounding prose already does the work naturally (e.g. the NPC already says "Here, a token from my stores" — just swap in `{reward_item}` where the noun phrase would go).
->    - Reshape it to fit the NPC's voice. "Take this {reward_item}" is fine as-is for some NPCs; others say "Here — {reward_item}. I want you to have it." or "I'd like you to keep {reward_item}." The goal is each NPC keeping the voice they had.
->    - If `rewardFlavor` is non-null, integrate `{reward_flavor}` somewhere in the resolution text as a second beat — again, in the NPC's voice, not a boilerplate sentence. Examples of shapes you can follow:
+> 2. Open the template's `resolutionText` (and any conflict turn-in text that carries the reward moment). The existing `{reward_item}` reference is already in the author's voice because Phase 1 was a pure rename. Your job:
+>    - Leave `{reward_item}`'s surrounding prose alone unless the voice actively needs work. If an NPC says "Take {reward_item}. It's not much." you do not need to reshape it.
+>    - If `rewardFlavor` is non-null, weave `{reward_flavor}` somewhere in the resolution text as a second beat — in the NPC's voice, not a boilerplate sentence. Examples of shapes you can follow:
 >      - "Take {reward_item}. {reward_flavor} — I want you to have it."
 >      - "{reward_item}. And {reward_flavor}, if it means anything."
 >      - "{reward_item} is yours. {reward_flavor}, truly."
@@ -349,5 +349,5 @@ These stay on the follow-up list documented in the original fetch-item naming pl
 - **Merge conflicts on shared file.** Sequential dispatch avoids this. If a batch is dispatched while another is mid-run, commits will race. Strictly serialize.
 - **`rewardFlavor` > 5 words.** Phase 4 catches these; fix via targeted subagent.
 - **Fetch text over-edited.** A batch subagent might touch COLLECT_RESOURCES sentences out of zeal. Each Phase 3 batch's diff should be spot-checked for unrelated edits.
-- **Awkward token swaps from Phase 1.** The literal `{quest_reward}` → `Take this {reward_item}.` substitution is mechanical and will produce sentences like "Here, take Take this {reward_item}." where the old token followed a verb. Phase 2 reviewers must fix these in the templates they touch. Phase 4's spot-check (Task 4.1 Step 2 extended) should read a handful of random resolution texts aloud to catch residual awkwardness.
+- **Awkward token swaps from Phase 1.** Resolved by the revised-3 approach: pure token rename preserves authored verb/article/punctuation. Phase 2 only needs to polish voice where the author's original prose was itself awkward, not where the migration introduced awkwardness.
 - **`{reward_flavor}` referenced when `rewardFlavor: null`.** Renders as empty string. Safe if the sentence still parses. Phase 2 subagents must only inject `{reward_flavor}` into resolution text when they've set a non-null flavor on the same template.
