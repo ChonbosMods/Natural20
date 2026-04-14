@@ -188,7 +188,8 @@ public class QuestGenerator {
         // These globals exist so smalltalk-side quest commentary still has *something*
         // to read. The per-objective overlay in resolveQuestText wins for actual quest text.
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomCollectResource(random);
-        bindings.put("quest_item", gatherItem.label());
+        bindings.put("quest_item", gatherItem.noun());
+        bindings.put("quest_item_full", gatherItem.fullForm());
         bindings.put("gather_item_id", gatherItem.id());
         if (gatherItem.category() != null) {
             bindings.put("gather_category", gatherItem.category());
@@ -273,18 +274,17 @@ public class QuestGenerator {
                     count = config.rollCount(random);
                 }
 
-                // Update global bindings as a back-compat fallback for smalltalk pool entries
-                // that reference {quest_item} / {gather_count}. Per-objective resolveQuestText
-                // will overlay these correctly for the actual quest dialogue.
-                bindings.put("quest_item", collectItem.label());
+                bindings.put("quest_item", collectItem.noun());
+                bindings.put("quest_item_full", collectItem.fullForm());
                 bindings.put("gather_item_id", collectItem.id());
                 bindings.put("gather_count", String.valueOf(count));
 
                 ObjectiveInstance collectObj = new ObjectiveInstance(
-                    type, collectItem.id(), collectItem.label(),
+                    type, collectItem.id(), collectItem.noun(),
                     count, null, null
                 );
-                collectObj.setTargetLabelPlural(collectItem.labelPlural());
+                collectObj.setTargetLabelPlural(collectItem.nounPlural());
+                collectObj.setTargetEpithet(collectItem.epithet());
                 yield collectObj;
             }
             case KILL_MOBS -> {
@@ -302,57 +302,53 @@ public class QuestGenerator {
                 yield killObj;
             }
             case FETCH_ITEM -> {
-                // Determine which fetch item type to use.
-                // Priority: template-pinned fetchItem > pool entry's fetchItemType > legacy fallback
-                String fetchItemType;
-                if (config.fetchItem() != null) {
-                    // Template author pinned a specific trinket (e.g., "quest_vial")
-                    fetchItemType = QuestPoolRegistry.capitalize(config.fetchItem());
-                    // Still draw a random item for the narrative label
-                    QuestPoolRegistry.ItemEntry narrativeItem = random.nextBoolean()
-                        ? poolRegistry.randomKeepsakeItem(random)
-                        : poolRegistry.randomEvidenceItem(random);
-                    bindings.put("quest_item", narrativeItem.label());
-                    bindings.put("gather_item_id", narrativeItem.id());
-                } else {
-                    // Draw a random keepsake or evidence item with its per-entry mapping
-                    QuestPoolRegistry.ItemEntry fetchEntry = random.nextBoolean()
-                        ? poolRegistry.randomKeepsakeItem(random)
-                        : poolRegistry.randomEvidenceItem(random);
-                    bindings.put("quest_item", fetchEntry.label());
-                    bindings.put("gather_item_id", fetchEntry.id());
-                    fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
-                }
+                // Draw a keepsake or evidence item. Template may pin a specific item type
+                // (e.g. "quest_vial"); otherwise the drawn pool entry's fetchItemType wins.
+                QuestPoolRegistry.ItemEntry fetchEntry = random.nextBoolean()
+                    ? poolRegistry.randomKeepsakeItem(random)
+                    : poolRegistry.randomEvidenceItem(random);
 
+                String fetchItemType = config.fetchItem() != null
+                    ? QuestPoolRegistry.capitalize(config.fetchItem())
+                    : QuestPoolRegistry.getBaseItemType(fetchEntry);
+
+                bindings.put("quest_item", fetchEntry.noun());
+                bindings.put("quest_item_full", fetchEntry.fullForm());
+                bindings.put("gather_item_id", fetchEntry.id());
                 bindings.put("fetch_item_type", fetchItemType);
-                bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
+                bindings.put("fetch_item_label", fetchEntry.noun());
 
                 ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
-                if (fetchObj != null) yield fetchObj;
+                if (fetchObj != null) {
+                    fetchObj.setTargetEpithet(fetchEntry.epithet());
+                    yield fetchObj;
+                }
 
-                // No cave void available: create objective without POI,
-                // let resolveAndPlacePoi handle it at runtime
-                yield new ObjectiveInstance(
-                    type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                ObjectiveInstance fallback = new ObjectiveInstance(
+                    type, fetchEntry.id(), fetchEntry.noun(),
                     1, null, null
                 );
+                fallback.setTargetEpithet(fetchEntry.epithet());
+                yield fallback;
             }
             case PEACEFUL_FETCH -> {
-                // Draw a random keepsake item for the narrative
                 QuestPoolRegistry.ItemEntry fetchEntry = poolRegistry.randomKeepsakeItem(random);
-                bindings.put("quest_item", fetchEntry.label());
+                bindings.put("quest_item", fetchEntry.noun());
+                bindings.put("quest_item_full", fetchEntry.fullForm());
                 bindings.put("gather_item_id", fetchEntry.id());
                 String fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
                 bindings.put("fetch_item_type", fetchItemType);
-                bindings.put("fetch_item_label", fetchEntry.label());
+                bindings.put("fetch_item_label", fetchEntry.noun());
                 bindings.put("fetch_variant", "peaceful");
 
                 String targetSettlementKey = bindings.get("target_npc_settlement_key");
 
-                yield new ObjectiveInstance(
-                    type, fetchEntry.id(), fetchEntry.label(),
+                ObjectiveInstance peacefulObj = new ObjectiveInstance(
+                    type, fetchEntry.id(), fetchEntry.noun(),
                     1, null, targetSettlementKey
                 );
+                peacefulObj.setTargetEpithet(fetchEntry.epithet());
+                yield peacefulObj;
             }
             case TALK_TO_NPC -> {
                 String targetNpc = bindings.get("target_npc");
@@ -447,4 +443,5 @@ public class QuestGenerator {
         if (max < min) max = min;
         return min + random.nextInt(max - min + 1);
     }
+
 }

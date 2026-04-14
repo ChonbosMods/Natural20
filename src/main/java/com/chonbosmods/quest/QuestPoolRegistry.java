@@ -54,6 +54,13 @@ public class QuestPoolRegistry {
             if (lower.startsWith("the ")) return s.substring(4).strip();
             return s;
         }
+
+        /** Compose the full form of this item: {@code noun} followed by {@code epithet}
+         *  when an epithet is authored, otherwise just the noun. This is the value
+         *  used for the {@code {quest_item_full}} template variable. */
+        public String fullForm() {
+            return (epithet != null && !epithet.isEmpty()) ? noun + " " + epithet : noun;
+        }
     }
 
     /** Entry with value + plural flag for narrative pools. */
