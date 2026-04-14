@@ -1,0 +1,19 @@
+{
+  "Id": "nat20:precision",
+  "Frequency": 10,
+  "Type": "EFFECT",
+  "DisplayName": "server.nat20.affix.precision",
+  "NamePosition": "SUFFIX",
+  "Categories": ["melee_weapon"],
+  "StatScaling": { "Primary": "DEX", "Factor": 0.12 },
+  "TargetStat": "ArmorPenetration",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.05, "Max": 0.10 },
+    "Uncommon":  { "Min": 0.08, "Max": 0.15 },
+    "Rare":      { "Min": 0.12, "Max": 0.20 },
+    "Epic":      { "Min": 0.15, "Max": 0.27 },
+    "Legendary": { "Min": 0.20, "Max": 0.35 }
+  },
+  "Description": "Ignores a percentage of the target's armor."
+}

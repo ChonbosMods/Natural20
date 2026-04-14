@@ -10,6 +10,7 @@ import com.chonbosmods.combat.Nat20DotTickSystem;
 import com.chonbosmods.combat.Nat20ElementalDamageSystem;
 import com.chonbosmods.combat.Nat20ElementalDotSystem;
 import com.chonbosmods.combat.Nat20BackstabSystem;
+import com.chonbosmods.combat.Nat20PrecisionSystem;
 import com.chonbosmods.combat.Nat20BlockProficiencySystem;
 import com.chonbosmods.combat.Nat20CrushingBlowSystem;
 import com.chonbosmods.combat.Nat20EvasionSystem;
@@ -452,6 +453,7 @@ public class Natural20 extends JavaPlugin {
         // Phase 5 Batch 6: remaining weapon effects
         getEntityStoreRegistry().registerSystem(new Nat20CrushingBlowSystem(lootSystem));
         getEntityStoreRegistry().registerSystem(new Nat20BackstabSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20PrecisionSystem(lootSystem));
         getEntityStoreRegistry().registerSystem(new Nat20BlockProficiencySystem(lootSystem));
 
         // Phase 5 Batch 7: defensive armor affixes
