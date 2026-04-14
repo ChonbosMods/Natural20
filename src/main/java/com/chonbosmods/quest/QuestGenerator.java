@@ -85,11 +85,9 @@ public class QuestGenerator {
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
 
-        // Structured reward bindings. {reward_gold} and {reward_flavor} stay
-        // template-driven; {reward_item} is now the rolled affix item's display
-        // name so dialogue lines like "Take this {reward_item}" highlight the
-        // real reward.
-        bindings.put("reward_gold", String.valueOf(template.rewardGold()));
+        // Structured reward bindings. {reward_item} is the rolled affix item's
+        // display name so dialogue lines like "Take this {reward_item}" highlight
+        // the real reward; {reward_flavor} stays template-driven.
         bindings.put("reward_item", rewardDisplayName != null ? rewardDisplayName : "");
         bindings.put("reward_flavor",
             template.rewardFlavor() != null ? template.rewardFlavor() : "");
