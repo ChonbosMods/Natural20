@@ -49,6 +49,12 @@ public class Nat20ItemRegistry {
     @Nullable
     private Field itemTranslationPropertiesField;
     @Nullable
+    private Field itemCategoriesField;
+    @Nullable
+    private Field itemVariantField;
+    @Nullable
+    private Field itemRecipeToGenerateField;
+    @Nullable
     private java.lang.reflect.Method processConfigMethod;
 
     public Nat20ItemRegistry(Nat20ItemRenderer itemRenderer) {
@@ -228,6 +234,12 @@ public class Nat20ItemRegistry {
             itemQualityIdField.setAccessible(true);
             itemTranslationPropertiesField = Item.class.getDeclaredField("translationProperties");
             itemTranslationPropertiesField.setAccessible(true);
+            itemCategoriesField = Item.class.getDeclaredField("categories");
+            itemCategoriesField.setAccessible(true);
+            itemVariantField = Item.class.getDeclaredField("variant");
+            itemVariantField.setAccessible(true);
+            itemRecipeToGenerateField = Item.class.getDeclaredField("recipeToGenerate");
+            itemRecipeToGenerateField.setAccessible(true);
             processConfigMethod = Item.class.getDeclaredMethod("processConfig");
             processConfigMethod.setAccessible(true);
             LOGGER.atInfo().log("Item field reflection initialized successfully");
@@ -236,6 +248,9 @@ public class Nat20ItemRegistry {
             itemIdField = null;
             itemQualityIdField = null;
             itemTranslationPropertiesField = null;
+            itemCategoriesField = null;
+            itemVariantField = null;
+            itemRecipeToGenerateField = null;
         }
     }
 
@@ -245,6 +260,25 @@ public class Nat20ItemRegistry {
             itemIdField.set(item, id);
             itemQualityIdField.set(item, qualityId);
             itemTranslationPropertiesField.set(item, new ItemTranslationProperties(displayName, description));
+            // Blank out categories: second-line defense against our variants surfacing in
+            // creative library tabs. (The copy constructor inherits base-item categories.)
+            if (itemCategoriesField != null) {
+                itemCategoriesField.set(item, new String[0]);
+            }
+            // Mark as a variant so the creative library menu hides it by default.
+            // Doc on the field: "If this item is marked as a variant, then we filter it out of
+            // the item library menu by default, unless the player chooses to display variants."
+            if (itemVariantField != null) {
+                itemVariantField.setBoolean(item, true);
+            }
+            // Clear the inherited recipeToGenerate so CraftingPlugin.onItemAssetLoad doesn't
+            // auto-register a workbench recipe that outputs our variant. The base Item's recipe
+            // points at the base item; cloning inherits the reference, and when loadAssets
+            // fires the LoadedAssetsEvent, CraftingPlugin's listener builds a new recipe whose
+            // output is OUR uniqueId (see Item.java:1123-1127 factory). Null here skips that.
+            if (itemRecipeToGenerateField != null) {
+                itemRecipeToGenerateField.set(item, null);
+            }
             // processConfig resolves qualityId → qualityIndex for client rendering
             if (processConfigMethod != null) {
                 processConfigMethod.invoke(item);

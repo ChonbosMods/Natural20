@@ -11,7 +11,9 @@ dependencies {
 }
 
 // Add --accept-early-plugins to the dev server launch args
-// Required for the player-model-fix early plugin (bytecode patch for scale=-1.0f crash)
+// Required for the nat20-patches early plugin (bundles all Nat20 bytecode patches:
+// player model scale, durability/fortified/indestructible/repair-penalty, block face stash,
+// workbench exclusion)
 tasks.matching { it.name == "runServer" }.configureEach {
     if (this is JavaExec) {
         args("--accept-early-plugins")

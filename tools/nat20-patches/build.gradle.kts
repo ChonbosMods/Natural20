@@ -18,7 +18,7 @@ dependencies {
 }
 
 tasks.jar {
-    archiveBaseName.set("player-model-fix")
+    archiveBaseName.set("nat20-patches")
     archiveVersion.set("1.0.0")
 
     // Bundle ASM into the JAR (fat jar) since early plugins use an isolated classloader
