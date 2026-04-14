@@ -5,6 +5,7 @@ public class ObjectiveInstance {
     private String targetId;
     private String targetLabel;
     private String targetLabelPlural;
+    private String targetEpithet;
     private int requiredCount;
     private int currentCount;
     private boolean complete;
@@ -39,6 +40,8 @@ public class ObjectiveInstance {
     public void setTargetLabel(String targetLabel) { this.targetLabel = targetLabel; }
     public String getTargetLabelPlural() { return targetLabelPlural; }
     public void setTargetLabelPlural(String targetLabelPlural) { this.targetLabelPlural = targetLabelPlural; }
+    public String getTargetEpithet() { return targetEpithet; }
+    public void setTargetEpithet(String targetEpithet) { this.targetEpithet = targetEpithet; }
     public String getLocationId() { return locationId; }
     public void setLocationId(String locationId) { this.locationId = locationId; }
     public String getEffectiveLabel() { return requiredCount != 1 && targetLabelPlural != null ? targetLabelPlural : targetLabel; }
