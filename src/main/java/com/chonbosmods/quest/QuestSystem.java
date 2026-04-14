@@ -26,7 +26,7 @@ public class QuestSystem {
         this.difficultyRegistry = new QuestDifficultyRegistry();
         this.difficultyRegistry.loadAll();
         this.stateManager = new QuestStateManager();
-        this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry);
+        this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry, difficultyRegistry);
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
         this.topicPoolRegistry = new TopicPoolRegistry();
         this.topicTemplateRegistry = new TopicTemplateRegistry();

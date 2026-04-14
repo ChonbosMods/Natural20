@@ -12,6 +12,7 @@ public class QuestInstance {
     private String situationId;
     private String sourceNpcId;
     private String sourceSettlementId;
+    private String difficultyId;
     private QuestState state = QuestState.AVAILABLE;
     private int conflictCount;
     private int maxConflicts;
@@ -45,6 +46,8 @@ public class QuestInstance {
     public String getSituationId() { return situationId; }
     public String getSourceNpcId() { return sourceNpcId; }
     public String getSourceSettlementId() { return sourceSettlementId; }
+    public String getDifficultyId() { return difficultyId; }
+    public void setDifficultyId(String difficultyId) { this.difficultyId = difficultyId; }
     public QuestState getState() { return state; }
     public void setState(QuestState state) { this.state = state; }
 

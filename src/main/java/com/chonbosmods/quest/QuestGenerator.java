@@ -25,13 +25,15 @@ public class QuestGenerator {
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
     private final QuestPoolRegistry poolRegistry;
+    private final QuestDifficultyRegistry difficultyRegistry;
     private final AtomicLong questCounter = new AtomicLong(System.currentTimeMillis());
 
     public QuestGenerator(QuestTemplateRegistry templateRegistry, SettlementRegistry settlementRegistry,
-                           QuestPoolRegistry poolRegistry) {
+                           QuestPoolRegistry poolRegistry, QuestDifficultyRegistry difficultyRegistry) {
         this.templateRegistry = templateRegistry;
         this.settlementRegistry = settlementRegistry;
         this.poolRegistry = poolRegistry;
+        this.difficultyRegistry = difficultyRegistry;
     }
 
     public @Nullable QuestInstance generate(String npcRole, String npcId,
@@ -48,6 +50,12 @@ public class QuestGenerator {
             LOGGER.atWarning().log("No v2 quest templates available for role: %s", npcRole);
             return null;
         }
+
+        // Roll difficulty up front: drives mob/gather count multipliers below
+        // and (in later D-tasks) reward tier, XP, mob iLvl, boss flag.
+        // If the registry is empty, random() throws: a misconfigured registry
+        // should block quest generation, not silently degrade.
+        DifficultyConfig difficulty = difficultyRegistry.random(random);
 
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
@@ -121,7 +129,7 @@ public class QuestGenerator {
         for (int i = 0; i < totalObjectives; i++) {
             ObjectiveConfig config = objConfigs.get(i);
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
-            ObjectiveInstance obj = createObjective(type, config, bindings, random);
+            ObjectiveInstance obj = createObjective(type, config, bindings, random, difficulty);
             if (obj != null) objectives.add(obj);
         }
 
@@ -140,9 +148,10 @@ public class QuestGenerator {
             questId, template.situation(), npcId, npcSettlementCellKey, objectives, bindings
         );
         quest.setMaxConflicts(maxConflicts);
+        quest.setDifficultyId(difficulty.id());
 
-        LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, objectives=%d, for NPC %s",
-            questId, template.situation(), objectives.size(), npcId);
+        LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, for NPC %s",
+            questId, template.situation(), difficulty.id(), objectives.size(), npcId);
         return quest;
     }
 
@@ -259,7 +268,8 @@ public class QuestGenerator {
     }
 
     private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
-                                                         Map<String, String> bindings, Random random) {
+                                                         Map<String, String> bindings, Random random,
+                                                         DifficultyConfig difficulty) {
         String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
@@ -278,6 +288,9 @@ public class QuestGenerator {
                     count = config.rollCount(random);
                 }
 
+                // Difficulty multiplier: clamp to 1 so easy + small base count never zeros out.
+                count = Math.max(1, (int) Math.round(count * difficulty.gatherCountMultiplier()));
+
                 bindings.put("quest_item", collectItem.noun());
                 bindings.put("quest_item_full", collectItem.fullForm());
                 bindings.put("gather_count", String.valueOf(count));
@@ -292,11 +305,14 @@ public class QuestGenerator {
             }
             case KILL_MOBS -> {
                 // Try to pre-claim a cave void; if unavailable, create objective without POI
-                // and let resolveAndPlacePoi handle it at runtime (void discovery or surface fallback)
-                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random);
+                // and let resolveAndPlacePoi handle it at runtime (void discovery or surface fallback).
+                // The difficulty mob multiplier is applied inside rollKillCount() so both the
+                // POI path and the deferred fallback path scale identically, and the
+                // populationSpec spawn-buffer invariant in createPOIObjective is preserved.
+                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random, difficulty);
                 if (killObj == null) {
                     LOGGER.atInfo().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
-                    int killCount = rollKillCount(config, random);
+                    int killCount = rollKillCount(config, random, difficulty.mobCountMultiplier());
                     bindings.put("kill_count", String.valueOf(killCount));
                     killObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
                         killCount, null, null);
@@ -320,7 +336,7 @@ public class QuestGenerator {
                 bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", fetchEntry.noun());
 
-                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
+                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random, difficulty);
                 if (fetchObj != null) {
                     fetchObj.setTargetEpithet(fetchEntry.epithet());
                     yield fetchObj;
@@ -370,7 +386,8 @@ public class QuestGenerator {
     }
 
     private ObjectiveInstance createPOIObjective(ObjectiveType type, Map<String, String> bindings,
-                                                  ObjectiveConfig config, Random random) {
+                                                  ObjectiveConfig config, Random random,
+                                                  DifficultyConfig difficulty) {
         // Find and claim a unique void for this objective
         double npcX = 0, npcZ = 0;
         try {
@@ -398,7 +415,7 @@ public class QuestGenerator {
         // Required count: KILL_MOBS reads countMin/countMax from the template (with a
         // default if omitted); FETCH_ITEM is always 1 because the chest contains the item.
         int requiredCount = switch (type) {
-            case KILL_MOBS -> rollKillCount(config, random);
+            case KILL_MOBS -> rollKillCount(config, random, difficulty.mobCountMultiplier());
             default -> 1; // FETCH_ITEM
         };
 
@@ -437,12 +454,17 @@ public class QuestGenerator {
     }
 
     /** Roll the required kill count for a KILL_MOBS objective, respecting countMin/countMax
-     *  from the template config and falling back to default bounds when omitted. */
-    private int rollKillCount(ObjectiveConfig config, Random random) {
+     *  from the template config and falling back to default bounds when omitted.
+     *  The difficulty multiplier is applied here (clamped to a minimum of 1) so every
+     *  KILL_MOBS code path scales identically and the spawn-buffer invariant in
+     *  createPOIObjective ({@code spawnCount = requiredCount + KILL_MOB_SPAWN_BUFFER})
+     *  remains correct without a second multiplication. */
+    private int rollKillCount(ObjectiveConfig config, Random random, double difficultyMultiplier) {
         int min = (config != null && config.countMin() != null) ? config.countMin() : KILL_MOB_DEFAULT_MIN;
         int max = (config != null && config.countMax() != null) ? config.countMax() : KILL_MOB_DEFAULT_MAX;
         if (max < min) max = min;
-        return min + random.nextInt(max - min + 1);
+        int rolled = min + random.nextInt(max - min + 1);
+        return Math.max(1, (int) Math.round(rolled * difficultyMultiplier));
     }
 
 }
