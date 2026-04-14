@@ -144,7 +144,7 @@ public class Nat20EquipmentListener {
                 // Remove old modifiers using cached loot data
                 EquippedEntry oldEntry = playerCache.remove(slotName);
                 if (oldEntry != null) {
-                    modifierManager.removeModifiers(statMap, slotName, oldEntry.lootData());
+                    modifierManager.removeModifiers(statMap, slotName, oldEntry.lootData(), playerData, playerId);
                 }
 
                 // Apply new modifiers if the new item has loot data
@@ -157,7 +157,7 @@ public class Nat20EquipmentListener {
                 String categoryKey = resolveCategoryKey(entryRegistry, newStack);
                 if (categoryKey == null) continue;
 
-                modifierManager.applyModifiers(statMap, newStack, slotName, categoryKey, playerStats);
+                modifierManager.applyModifiers(statMap, newStack, slotName, categoryKey, playerStats, playerData, playerId);
                 Nat20ItemDisplayData displayData = lootSystem.getItemRenderer().resolve(newStack, playerStats);
                 playerCache.put(slotName, new EquippedEntry(newLootData, displayData));
             }

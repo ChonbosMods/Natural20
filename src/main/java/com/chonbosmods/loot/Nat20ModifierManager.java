@@ -1,5 +1,7 @@
 package com.chonbosmods.loot;
 
+import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
+import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.AffixType;
 import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.GemBonus;
@@ -21,12 +23,18 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Nat20ModifierManager {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_KEY_PREFIX = "nat20:affix:";
     private static final String GEM_KEY_PREFIX = "nat20:gem:";
+
+    /** Tracks applied score bonuses: playerId -> slotName -> (stat index, bonus value) */
+    private final Map<UUID, Map<String, Map<Integer, Integer>>> appliedScoreBonuses = new ConcurrentHashMap<>();
 
     private final Nat20RarityRegistry rarityRegistry;
     private final Nat20AffixRegistry affixRegistry;
@@ -51,7 +59,9 @@ public class Nat20ModifierManager {
      */
     public void applyModifiers(EntityStatMap statMap, ItemStack stack,
                                 String slotName, String categoryKey,
-                                @Nullable PlayerStats playerStats) {
+                                @Nullable PlayerStats playerStats,
+                                @Nullable Nat20PlayerData playerData,
+                                @Nullable UUID playerId) {
         Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
         if (lootData == null) return;
 
@@ -61,7 +71,7 @@ public class Nat20ModifierManager {
             return;
         }
 
-        applyAffixModifiers(statMap, lootData, slotName, playerStats);
+        applyAffixModifiers(statMap, lootData, slotName, playerStats, playerData, playerId);
         applyGemModifiers(statMap, lootData, categoryKey, playerStats);
     }
 
@@ -72,8 +82,25 @@ public class Nat20ModifierManager {
      * @param slotName equipment slot identifier (must match the slotName used during apply)
      * @param lootData the loot data from the item being unequipped, or null (no-op)
      */
-    public void removeModifiers(EntityStatMap statMap, String slotName, @Nullable Nat20LootData lootData) {
+    public void removeModifiers(EntityStatMap statMap, String slotName,
+                                @Nullable Nat20LootData lootData,
+                                @Nullable Nat20PlayerData playerData,
+                                @Nullable UUID playerId) {
         if (lootData == null) return;
+
+        // Reverse any score bonuses applied to ability scores
+        if (playerId != null && playerData != null) {
+            Map<String, Map<Integer, Integer>> playerBonuses = appliedScoreBonuses.get(playerId);
+            if (playerBonuses != null) {
+                Map<Integer, Integer> slotBonuses = playerBonuses.remove(slotName);
+                if (slotBonuses != null) {
+                    for (var entry : slotBonuses.entrySet()) {
+                        playerData.getStats()[entry.getKey()] -= entry.getValue();
+                    }
+                    Nat20ScoreDirtyFlag.markDirty(playerId);
+                }
+            }
+        }
 
         for (var affix : lootData.getAffixes()) {
             Nat20AffixDef affixDef = affixRegistry.get(affix.id());
@@ -102,13 +129,38 @@ public class Nat20ModifierManager {
     }
 
     private void applyAffixModifiers(EntityStatMap statMap, Nat20LootData lootData,
-                                      String slotName, @Nullable PlayerStats playerStats) {
+                                      String slotName, @Nullable PlayerStats playerStats,
+                                      @Nullable Nat20PlayerData playerData,
+                                      @Nullable UUID playerId) {
         for (var rolledAffix : lootData.getAffixes()) {
             Nat20AffixDef affixDef = affixRegistry.get(rolledAffix.id());
             if (affixDef == null || affixDef.targetStat() == null) continue;
 
             // EFFECT/ABILITY affixes are handled by their own systems, not StaticModifiers
             if (affixDef.type() == AffixType.EFFECT || affixDef.type() == AffixType.ABILITY) continue;
+
+            // Score affixes modify ability scores directly, not EntityStatMap
+            if (affixDef.targetStat() != null && affixDef.targetStat().startsWith("Score_")) {
+                if (playerData == null || playerId == null) continue;
+                AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
+                if (range == null) continue;
+                double baseValue = range.interpolate(lootData.getLootLevel());
+                int bonus = (int) baseValue;
+                if (bonus <= 0) continue;
+
+                String statName = affixDef.targetStat().substring(6); // Strip "Score_"
+                Stat stat = Stat.valueOf(statName);
+                playerData.getStats()[stat.index()] += bonus;
+
+                // Track for removal on unequip
+                appliedScoreBonuses
+                    .computeIfAbsent(playerId, k -> new ConcurrentHashMap<>())
+                    .computeIfAbsent(slotName, k -> new ConcurrentHashMap<>())
+                    .put(stat.index(), bonus);
+
+                Nat20ScoreDirtyFlag.markDirty(playerId);
+                continue;
+            }
 
             // Check stat requirements: skip modifier if player doesn't meet minimums
             if (affixDef.statRequirement() != null && playerStats != null) {
@@ -193,6 +245,10 @@ public class Nat20ModifierManager {
         } catch (Exception e) {
             return AssetMapWithIndexes.NOT_FOUND;
         }
+    }
+
+    public void clearPlayer(UUID playerId) {
+        appliedScoreBonuses.remove(playerId);
     }
 
     private StaticModifier createModifier(String modifierType, float amount) {
