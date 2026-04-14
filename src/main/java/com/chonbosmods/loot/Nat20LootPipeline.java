@@ -236,8 +236,8 @@ public class Nat20LootPipeline {
                 && !Collections.disjoint(a.exclusiveWith(), usedAffixIds));
 
             for (int i = 0; i < rule.count() && !pool.isEmpty(); i++) {
-                int idx = random.nextInt(pool.size());
-                Nat20AffixDef chosen = pool.remove(idx);
+                Nat20AffixDef chosen = weightedPick(pool, random);
+                pool.remove(chosen);
                 usedAffixIds.add(chosen.id());
                 result.add(new RolledAffix(chosen.id(), random.nextDouble() * maxLootLevel));
                 // Exclusion is symmetric: choosing A blocks B if either side declares the relationship
@@ -254,6 +254,24 @@ public class Nat20LootPipeline {
         }
 
         return result;
+    }
+
+    /**
+     * Weighted random selection from an affix pool using each affix's frequency.
+     * Higher frequency = more likely to be picked.
+     */
+    private Nat20AffixDef weightedPick(List<Nat20AffixDef> pool, Random random) {
+        int totalWeight = 0;
+        for (var def : pool) {
+            totalWeight += def.frequency();
+        }
+        int roll = random.nextInt(totalWeight);
+        int accumulated = 0;
+        for (var def : pool) {
+            accumulated += def.frequency();
+            if (accumulated > roll) return def;
+        }
+        return pool.getLast(); // Shouldn't reach here, but safety fallback
     }
 
     /**
