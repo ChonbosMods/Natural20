@@ -16,7 +16,6 @@
       "declineText": "That's fine. The craving will pass. Probably.",
       "expositionTurnInText": "Perfect: tonight I'm cooking.",
       "resolutionText": "You're a lifesaver. Here: {quest_reward}.",
-      "rewardText": "a home-cooked meal and my thanks",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -33,7 +32,6 @@
       "declineText": "No trouble. I've gone without before.",
       "expositionTurnInText": "Oh, wonderful. I've been thinking about this all day.",
       "resolutionText": "Thank you so much. Take this: {quest_reward}.",
-      "rewardText": "a jar of preserves from my cupboard",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -50,7 +48,6 @@
       "declineText": "All right. I'll figure something out. I always do.",
       "expositionTurnInText": "Now I won't show up empty-handed. {settlement_npc} would never let me hear the end of it.",
       "resolutionText": "You've saved my reputation. Here: {quest_reward}.",
-      "rewardText": "a pouch of dried herbs I've been saving",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -67,7 +64,6 @@
       "declineText": "Fair enough. I'll work around it.",
       "expositionTurnInText": "Good: that should keep me going for a while.",
       "resolutionText": "Appreciate it. {quest_reward}.",
-      "rewardText": "a sturdy leather pouch, well-made",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -84,7 +80,6 @@
       "declineText": "Understood. I'll make do with what I have.",
       "expositionTurnInText": "That'll do nicely. Back to it, then.",
       "resolutionText": "Thanks. Here: {quest_reward}.",
-      "rewardText": "a set of polished bone buttons",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -101,7 +96,6 @@
       "declineText": "No harm in asking. I'll sort it out myself.",
       "expositionTurnInText": "Perfect. I'll get these sorted right away.",
       "resolutionText": "You've saved me a trip. {quest_reward}.",
-      "rewardText": "a small jar of beeswax salve",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -118,7 +112,6 @@
       "declineText": "That's all right. I'll manage the walk somehow.",
       "expositionTurnInText": "Ah, just what I needed. You're quicker than I'd have been.",
       "resolutionText": "Much obliged. Take this: {quest_reward}.",
-      "rewardText": "a warm knitted scarf",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -135,7 +128,6 @@
       "declineText": "Worth a try. I'll figure something out before the afternoon's up.",
       "expositionTurnInText": "You're a natural. I'll have these put to use right away.",
       "resolutionText": "Here: {quest_reward}. You've earned it.",
-      "rewardText": "a carved wooden trinket box",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -152,7 +144,6 @@
       "declineText": "Can't blame you. It's been on my list too long as it is.",
       "expositionTurnInText": "Finally. I've been putting this off for too long.",
       "resolutionText": "You're a good sort. {quest_reward}.",
-      "rewardText": "a bundle of dried wildflowers",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -169,7 +160,6 @@
       "declineText": "Fair enough. It was a strange ask.",
       "expositionTurnInText": "Oh, fascinating. I see why people make a fuss over these.",
       "resolutionText": "Thanks for indulging me. Here: {quest_reward}.",
-      "rewardText": "an old coin with an unusual stamp",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -186,7 +176,6 @@
       "declineText": "The idea will keep. I'll get to it eventually.",
       "expositionTurnInText": "Excellent. Let's see if this idea holds up.",
       "resolutionText": "That was worth it. {quest_reward} for your trouble.",
-      "rewardText": "a smooth river stone, painted with care",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -203,7 +192,6 @@
       "declineText": "That's fine. I'll ask {settlement_npc} to bring some next time.",
       "expositionTurnInText": "Let's see what all the talk is about.",
       "resolutionText": "I learned something today. {quest_reward}: take it.",
-      "rewardText": "a small hand-drawn map of the area",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -220,7 +208,6 @@
       "declineText": "I understand. I'll get over there myself when I find the time.",
       "expositionTurnInText": "You actually found it. I can't believe I let that wander off.",
       "resolutionText": "Thank you: really. {quest_reward}.",
-      "rewardText": "a tin of hard candies I keep for special occasions",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh, you're here about that {quest_item}? Yeah, I've got it right here. Figured someone would come looking eventually.",
@@ -239,7 +226,6 @@
       "declineText": "That's all right. It's my own fault for losing track of it.",
       "expositionTurnInText": "That's a relief. I was starting to think it was gone for good.",
       "resolutionText": "You've got my gratitude. Here: {quest_reward}.",
-      "rewardText": "a spool of fine thread, hard to come by",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "The {quest_item}? It's been sitting on my shelf. I was wondering whose it was. Here you go.",
@@ -258,7 +244,6 @@
       "declineText": "I know, I know. I should just go get it. One of these days.",
       "expositionTurnInText": "There it is. I missed this more than I expected.",
       "resolutionText": "You did me a real kindness. {quest_reward}.",
-      "rewardText": "a jar of last season's honey",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Right, the {quest_item}. I kept it safe: figured they'd want it back eventually. Here.",
@@ -277,7 +262,6 @@
       "declineText": "No trouble. It's not going anywhere.",
       "expositionTurnInText": "That's exactly what I was expecting. Looks good.",
       "resolutionText": "Appreciate the legwork. {quest_reward}.",
-      "rewardText": "a pair of warm wool socks",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "You're picking up for someone in {settlement_name}? Right: the {quest_item}. It's all ready. Here you are.",
@@ -296,7 +280,6 @@
       "declineText": "All right. I'll send word again and hope for the best.",
       "expositionTurnInText": "Finally. I'd started to wonder if they forgot about me.",
       "resolutionText": "Thanks for handling that. {quest_reward}.",
-      "rewardText": "a small block of scented soap",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh: was I supposed to send that over? My mistake. Here's the {quest_item}. All yours.",
@@ -315,7 +298,6 @@
       "declineText": "No trouble. It'll still be there when I finally make the trip.",
       "expositionTurnInText": "Just what I needed. Thank you for making the trip.",
       "resolutionText": "You saved me half a day's walk. Here: {quest_reward}.",
-      "rewardText": "a packet of roasted seeds for the road",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Ah, you're here for the {quest_item}. I've had it set aside. Here, take it.",
@@ -334,7 +316,6 @@
       "declineText": "Understandable. It's my problem, really.",
       "expositionTurnInText": "There it is. Feels good to have it back.",
       "resolutionText": "I owe you one. {quest_reward}.",
-      "rewardText": "a small clay figurine I made myself",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "The {quest_item}? Oh, right. I've been meaning to return that. Sorry it took so long: here you go.",
@@ -353,7 +334,6 @@
       "declineText": "Fair point. I should just ask them myself.",
       "expositionTurnInText": "Finally. I was starting to forget what it looked like.",
       "resolutionText": "Thank you: I didn't want to make it awkward. {quest_reward}.",
-      "rewardText": "a bundle of cinnamon sticks",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Has it really been that long? I completely lost track. Here's the {quest_item}: good as new. Mostly.",
@@ -372,7 +352,6 @@
       "declineText": "I suppose a letter would do. If I can find a way to phrase it that doesn't sound passive-aggressive.",
       "expositionTurnInText": "At last. I was running out of ways to politely not mention it.",
       "resolutionText": "You're a diplomat. Here: {quest_reward}.",
-      "rewardText": "a pressed flower bookmark",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh no: the {quest_item}. I kept telling myself I'd bring it back. I'm terrible. Here, please take it.",

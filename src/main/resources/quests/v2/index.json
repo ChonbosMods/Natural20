@@ -31,7 +31,6 @@
         "passText": "The truth is I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
         "failText": "It's been a hard stretch. I'd rather not get into the details."
       },
-      "rewardText": "what coin I've kept hidden and a meal whenever you pass through",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -69,7 +68,6 @@
         "passText": "All right. The truth is the order isn't just an order. It's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
         "failText": "It's just an order. A late one is bad enough. Let's leave it there."
       },
-      "rewardText": "the last of my savings and a standing welcome at my table",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -109,7 +107,6 @@
       "conflict2Text": "There's one last thing, and I promise it's the last. They wrecked our food stores when they were prowling around. I need {gather_count} {quest_item} put aside or we won't see spring. It's not glory work, I know.",
       "conflict2TurnInText": "That'll get us through. I keep wanting to cry and I keep not letting myself, because I'm afraid if I start I won't stop.",
       "resolutionText": "You saved this place. I'm not exaggerating and I'm not being dramatic, I'm just saying the thing as it is. Take {quest_reward}. It's most of what I have left, and it's the easiest debt I've ever paid. We'll remember you here.",
-      "rewardText": "the silver I'd saved for a worse winter and my lasting gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -138,7 +135,6 @@
         "passText": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. I'm not asking you to save my sister from the illness, I'm asking you to save me from losing her the same way I lost everyone else.",
         "failText": "She just needs help. That's all there is to it. I can't think past that right now."
       },
-      "rewardText": "what little I've saved for the children's clothes and a debt I'll never forget",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Her sister sent you? I'm glad someone finally came. She's been holding on, but the fever keeps circling back, and I've been doing everything I know. She asks about home every morning when she wakes.",
@@ -171,7 +167,6 @@
         "passText": "You know how those things hunt. Then you know that he's likely holed up somewhere they can't reach, and that gives me more hope than I've had since he didn't come home. I needed someone to tell me that wasn't a foolish thing to believe.",
         "failText": "I don't know much about how they move. I just know my boy is out there with them."
       },
-      "rewardText": "the savings I'd kept for his apprenticeship and a mother's gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -201,7 +196,6 @@
       "conflict2Text": "Now I need you to find {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they've helped my family before. They'll know what comes next, and they'll come with you if you tell them it's for me. I need someone who knows what they're doing at the bedside.",
       "conflict2TurnInText": "{target_npc} is here. I can hand this off, finally, to someone who actually knows what to do. I think we're going to make it.",
       "resolutionText": "{settlement_npc} sat up this morning and asked for soup. Soup. I don't think you understand what that means to me after the week I've had. Take {quest_reward}. I'd give you the roof over my head if you asked. They're going to live.",
-      "rewardText": "the coin I'd been saving for the planting season and a friend for life",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "They need me? I should have checked on them sooner. I heard things were rough but I didn't realize how bad it had gotten. I'll pack what I need and come with you.",
@@ -243,7 +237,6 @@
         "passText": "You're right that this isn't the first time. My grandmother used to tell of a season the storms came twice and a settlement two valleys over didn't recover. I'm afraid we're following the same pattern, and I haven't told anyone here that fear because they don't need it on top of everything else.",
         "failText": "It's just bad weather. Worse than usual. We'll get through it like we always do."
       },
-      "rewardText": "what the village pooled together and the gratitude of every household",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -276,7 +269,6 @@
         "passText": "You're seeing it more clearly than I let on. The damage is worse than what I described. I've been talking it down so the younger ones don't panic. Half of what we have left is half-spoiled and I've been picking through it in the mornings before anyone wakes up.",
         "failText": "It's bad. I won't pretend otherwise. But we're handling it the way you'd expect."
       },
-      "rewardText": "what the settlement could spare and a place at our fire whenever you need one",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -318,7 +310,6 @@
       "conflict3Text": "One more thing, and then I swear I'll stop asking. {enemy_type_plural} have been working at what's left of our supplies, looking for scraps. {kill_count} of them cleared off and we can finally start rebuilding without losing more.",
       "conflict3TurnInText": "The yard is quiet. I walked through it just now and didn't hear a single thing moving where it shouldn't be. That's a strange peace, but it's peace.",
       "resolutionText": "We're going to be all right. Smaller, lighter, with more empty seats at the table than I'd like, but all right. {quest_reward}. It's what the settlement could put together, and every piece of it was given on purpose. You came when you didn't have to. We won't forget that here.",
-      "rewardText": "the coin the households pooled and a standing welcome in {settlement_name}",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "A fire, and they're calling in the arrangement? Then things are worse than anyone told me. We made that pact because we both knew a day like this might come. I'll gather what we have and send it.",
@@ -351,7 +342,6 @@
         "passText": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. I'm not asking you for an herb. I'm asking you to make sure I don't lose another one.",
         "failText": "She's just sick. Children get sick. That's all there is to say about it right now."
       },
-      "rewardText": "the silver I'd saved for her birthday and a mother's promise",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -387,7 +377,6 @@
         "passText": "All right. The truth is I haven't slept more than two hours at a stretch since spring. I'm not managing as well as I look like I am, and some mornings I don't know if I have it in me to keep going. I'd never tell him that, but I'm telling you, because I need someone to know.",
         "failText": "I'm managing. I always manage. That's what you do for family."
       },
-      "rewardText": "what little I've put aside and a place at our table whenever you pass through",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "He's still going? I've thought about him more than I'll admit. The roads kept me away, but that's a poor excuse and I know it. Tell his daughter I'll come, and I'll bring something warm for the both of them.",
@@ -412,7 +401,6 @@
       "conflict1Text": "I need a {quest_item} as well, something to keep them going while their body does the rest of the work. They've barely eaten and they're getting weaker even as the wound improves. Bring me one and I'll do the rest.",
       "conflict1TurnInText": "They're sitting up. Sitting up, and asking about the garden, which I think means the worst is behind us. I haven't felt this much hope in days and I'm a little afraid of it.",
       "resolutionText": "They walked across the room this morning. Just from the bed to the window, but they did it on their own legs. {quest_reward}. Take it, please. We don't have a lot, but what we have feels different now that we both get to keep it.",
-      "rewardText": "the coin we'd been saving for a better roof and our shared gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -443,7 +431,6 @@
         "passText": "You'd know better than me, then. They always come from the same direction, always at the same hour. They're not random. Something's drawing them, and that's what I want broken.",
         "failText": "Just trust me when I say it's a pattern. I've been watching long enough to know."
       },
-      "rewardText": "the silver I've been setting aside for exactly this and a clean handshake",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -474,7 +461,6 @@
         "passText": "Since you're asking the right questions, the timing isn't random. They came right after the last caravan from {other_settlement} stopped running. I think the two are connected, and {target_npc} can fill in the rest.",
         "failText": "It's complicated. Easier if you just hear it from {target_npc} directly."
       },
-      "rewardText": "good coin and a meal at my table whenever you pass through",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You've come from {settlement_name}? Then they've finally noticed what I've been tracking for weeks. The short version is that we're both right to be worried, and the long version would take all night. I've written it all down.",
@@ -514,7 +500,6 @@
         "passText": "You've got a good eye. I didn't say it before, but I've been finding tracks I don't recognize. Bigger ones, mixed in with the rest. Whatever's leading them isn't the same as what's been hitting us.",
         "failText": "It's just the same trouble, week after week. Nothing more to it than that."
       },
-      "rewardText": "a proper purse and what's left of my stash of good ale",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Someone from {settlement_name}, finally. We've been hit harder than you have, I'd wager. I stopped counting after the second week because the numbers were scaring people more than the actual threat. But I have it all written down.",
@@ -549,7 +534,6 @@
         "passText": "You recognize the kind of work this is, don't you. Old grudges run in this region. Mine isn't the first and it won't be the last, but it's mine, and I've kept the count cleaner than most ever do.",
         "failText": "It's an old story. You don't need the details to do the work."
       },
-      "rewardText": "the silver I've been setting aside since the year it happened",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -580,7 +564,6 @@
         "passText": "You see right through me, don't you. The truth is I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
         "failText": "I've said what I'm going to say. The rest is mine."
       },
-      "rewardText": "the last of what my father saved and a debt I'll honor in person",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -618,7 +601,6 @@
         "passText": "All right. Since you're asking, and since you're not going to use it against me, I've already tried to do this myself, twice. Both times I lost my nerve at the last moment. That's the real reason I need you. I can't be the one to do it.",
         "failText": "I've told you what I want done. The why is mine to keep."
       },
-      "rewardText": "what coin I have left and the only thing of value I haven't already buried",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -649,7 +631,6 @@
         "passText": "All right, here's the truth. This isn't really about the project. It's about proving to myself that I can still chase a thing and catch it. I haven't felt that way in a long time, and I'm not letting it slip past me.",
         "failText": "It's a project. A good one. That's enough reason on its own."
       },
-      "rewardText": "a proper share of what we make together and my honest gratitude",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -685,7 +666,6 @@
         "passText": "You noticed the drawings, didn't you. Yes. I've been planning this for the better part of a year. I just needed the courage to ask out loud, and that took longer than the planning did.",
         "failText": "It's a fresh idea. I've been tossing it around for a while, that's all."
       },
-      "rewardText": "a fair cut of what comes from this and an open door whenever you visit",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Someone's actually attempting it? I tried something similar years ago and I'll tell you straight, the plan matters less than the person behind it. If they're stubborn enough to send you across the region for my opinion, they might actually pull it off.",
@@ -730,7 +710,6 @@
         "passText": "All right, since you've been straight with me, I'll be straight with you. I'm scared of this. Every step. I've been pretending I'm not because I knew if I admitted it I'd never start. So thank you for not letting me see how foolish I look.",
         "failText": "I've got my plan. I just need the help to make it real."
       },
-      "rewardText": "a generous share of what the project earns and a name on whatever it becomes",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They want to learn from me? That's flattering, and a little terrifying, because what I know came from getting it wrong a dozen times first. But I'll share what I can. Better they learn from my mistakes than make new ones.",
@@ -763,7 +742,6 @@
         "passText": "All right, I'll tell you. My mother used to say I had a head full of clouds and no hands to match. I've been trying to prove her wrong since the day she said it. This is going to be the thing that finally does it.",
         "failText": "It's a dream of mine, that's all. Some dreams are worth chasing even when you can't explain them."
       },
-      "rewardText": "the first piece I make and a generous share of coin from my own savings",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -794,7 +772,6 @@
         "passText": "You've heard of {target_npc}'s reputation, then? Good. Then you understand why I'm willing to send a stranger across the region just for a conversation. There's no one else within reach who's at that level. Not in {settlement_name}, not in {other_settlement}, not anywhere I know of.",
         "failText": "They're someone worth listening to. That's the short of it."
       },
-      "rewardText": "a fair purse and an open invitation to come watch me work whenever you're nearby",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They want to learn from me? I've had people ask before, and most of them quit after the first real lesson. If they're serious, truly serious, then I'll teach them everything I know. I don't waste time on people who aren't ready to work.",
@@ -834,7 +811,6 @@
         "passText": "You noticed I've been at this already, didn't you. Yes. I've been quietly putting pieces in place for weeks. I didn't want to ask for help until I knew the bones of the idea would actually hold up. Now I know they do.",
         "failText": "It's just an idea I've been turning over for a while. Nothing fancier than that."
       },
-      "rewardText": "a generous purse from what I've been saving for this and a story I'll tell about you for years",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -865,7 +841,6 @@
         "passText": "Truth is, I've been making do with scraps for nearly a month and pretending I wasn't. Pride's a stubborn thing in folks my age. You're the first person I've actually told.",
         "failText": "Oh, it's nothing dire. Just a bit of an inconvenience, you know how it is."
       },
-      "rewardText": "what coin I've put aside and a meal whenever you're back this way",
       "valence": "neutral",
       "roleAffinity": [
         "ArtisanCook",
@@ -904,7 +879,6 @@
         "passText": "Why didn't I learn it myself? Because the person who used to teach it stopped coming around years ago, and I never got the nerve to ask anyone else. {target_npc} is the last one I know who still does it the old way.",
         "failText": "It's a long story. Just trust me that I need the help."
       },
-      "rewardText": "a fair share of what the order pays me, and a proper handshake",
       "valence": "neutral",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -934,7 +908,6 @@
       "conflict1Text": "I need {quest_item} to keep things running properly here. It's not glamorous work, but it's what I'd be doing myself if the path weren't a problem. Bring me what you can.",
       "conflict1TurnInText": "Just what I needed. You've saved me a couple of long days of grumbling. Sit down a minute and I'll fetch your due.",
       "resolutionText": "Now I can actually get back to the work I'm supposed to be doing. Take {quest_reward} with my thanks. It's good to feel caught up for once.",
-      "rewardText": "a few coins from the till and a warm cup whenever you're passing through",
       "valence": "neutral",
       "roleAffinity": [
         "TavernKeeper",
@@ -970,7 +943,6 @@
         "passText": "It's not really about the supplies, is it? I built that store with my own two hands over the last three years. Watching it disappear in one night made me feel like I'd never had it at all.",
         "failText": "It's a practical loss. Practical losses need practical solutions."
       },
-      "rewardText": "what little I have left in coin and a debt I'll remember",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -1009,7 +981,6 @@
         "passText": "You recognize the make? Then you know it's older than this settlement. My grandmother carried it when there was nothing here but the road and a promise. Losing it felt like losing her again.",
         "failText": "It's old. That's all anyone needs to know."
       },
-      "rewardText": "the small purse I keep for emergencies and my honest thanks",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -1041,7 +1012,6 @@
       "conflict1Text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. Not for revenge. For the simple fact that I shouldn't have to live with the worry.",
       "conflict1TurnInText": "There. Now I can sleep without expecting to wake up to another mess. I won't forget this.",
       "resolutionText": "I'm whole again. Took longer than I'd have liked, but here we are. Take {quest_reward}. You helped me get back what I'd already mourned, and that's worth more than what I'm offering.",
-      "rewardText": "the silver I'd been saving for a better year and my deepest thanks",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -1082,7 +1052,6 @@
         "passText": "I haven't slept properly in months. Not because I'm afraid. Because I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
         "failText": "I'm doing what needs doing. There's not much more to say about it."
       },
-      "rewardText": "what coin I haven't already given to the cause and a place at my table",
       "valence": "neutral",
       "roleAffinity": [
         "Villager",
@@ -1130,7 +1099,6 @@
         "passText": "You see the way I'm favoring my left side? An old injury I never had time to let heal properly. I'll get to it eventually. Maybe when this is finally done.",
         "failText": "I'm fine. Just tired in the way anyone my age would be."
       },
-      "rewardText": "the coin I set aside for myself and never spent, and my word as long as I have one",
       "valence": "neutral",
       "roleAffinity": [
         "Guard",
@@ -1160,7 +1128,6 @@
       "conflict1Text": "The {enemy_type_plural} have been making the road in unsafe for travelers and locals alike. I need {kill_count} of them put down, not for me, for everyone who counts on this place being a refuge.",
       "conflict1TurnInText": "That's the kind of thing that lets people sleep without their boots on. You've done more than you know.",
       "resolutionText": "I can keep doing what I set out to do, and that's because of you. Take {quest_reward}. It's what I'd have spent on the work anyway, and I'd rather it go to the person who made the work possible.",
-      "rewardText": "the modest purse I keep for hard days and a bed here whenever you need one",
       "valence": "neutral",
       "roleAffinity": [
         "TavernKeeper",
@@ -1199,7 +1166,6 @@
         "passText": "There's one detail I left out because it sounded silly. The losses only happen on nights when the wind comes from a particular direction, and I think whatever it is can smell the grain from a long way off. That's the part that tipped me off this isn't just bad counting.",
         "failText": "It's probably nothing dramatic. I just hate not knowing."
       },
-      "rewardText": "what coin I can spare and a sack of the grain you helped me save",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Stores going missing with nothing broken? I had the exact same problem two seasons ago. It drove me half mad until I figured out the trick. You set out bait that looks like a mistake, not a trap, and you watch.",
@@ -1232,7 +1198,6 @@
         "passText": "I'll tell you what nobody else around here would believe. The animals avoid that patch too, even the bold ones. Whatever's wrong with the ground, they figured it out before I did, and that's the part that's been keeping me up.",
         "failText": "I just want to understand it. That's all."
       },
-      "rewardText": "a share of whatever I manage to grow once the patch is fixed",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Dead ground near {settlement_name}? I've been wondering about that. Something underneath has been drawing the life out of the soil, and the pattern lines up with the old drainage channels from before anyone was living there.",
@@ -1259,7 +1224,6 @@
       "conflict1Text": "{enemy_type_plural} leave that mark when they're scouting a place. They've been studying us, and they'll be back in numbers if we don't make ourselves unpleasant company. I'd feel a lot better if {kill_count} of them never made the report. Can you handle that?",
       "conflict1TurnInText": "That should be enough to make them think twice. The marks won't matter once the scouts stop coming home, and I can finally stop staring at my own fence post like it owes me an explanation.",
       "resolutionText": "I'm putting this one to bed. The mystery had teeth, but you took them out before they bit anyone. Take {quest_reward} with my thanks. I'd rather know what was coming and stop it than wake up to find out the hard way.",
-      "rewardText": "the small store of coin I keep for trouble, since this counted",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -1295,7 +1259,6 @@
         "passText": "The truth is I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
         "failText": "He's stubborn and I'm stubborn. That's all there is to say about it."
       },
-      "rewardText": "a meal at my table and the return of a brother I'd half given up on",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I know exactly what he's been telling people. He says the tool was broken on purpose. I don't think he even believes it himself anymore, but the story has taken on a life of its own and he's too proud to walk it back.",
@@ -1335,7 +1298,6 @@
         "passText": "It's not the first time I've let pride do this to me. There was an old friend, years ago, and I let her walk away the same way I've been letting him walk away. I never made it right with her and she's gone now, and I can't make that mistake twice in one lifetime.",
         "failText": "It's complicated. I'd rather not get into it."
       },
-      "rewardText": "what little coin I have and a story I'll tell properly someday",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You're asking if there's a way back? I've been wondering when one of them would break first. They're both miserable, and neither will admit it. He's been struggling, if that matters, and he's too proud to say it where anyone might hear.",
@@ -1361,7 +1323,6 @@
       "conflict1Text": "Now I have to go talk to {target_npc} in {target_npc_settlement}. They knew our grandmother better than either of us did, and they'll remember who she actually meant to leave it to. I want to walk into the next argument with the truth instead of just my version of it.",
       "conflict1TurnInText": "{target_npc} told me what I needed to hear and what I didn't want to hear, in equal measure. It turns out neither of us was right about grandmother's wishes, which is humbling and also a relief. We can't both lose if neither of us was supposed to win.",
       "resolutionText": "We sat down together. We didn't hug, we didn't cry, but we agreed to share the heirloom and the responsibility for it, and that's the closest thing to peace we've had in a year. Take {quest_reward}. You stopped two grown people from making fools of themselves over a keepsake.",
-      "rewardText": "a small token from the heirloom set, since I have one to spare now",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Their grandmother's heirloom? I remember the conversation like it was yesterday. She told me once, near the end, that she never wanted either of them to have it alone. She wanted them to share it, because she knew they'd drift apart without a reason to keep meeting.",
@@ -1397,7 +1358,6 @@
         "passText": "I'll tell you the truth I haven't said out loud. I'm scared they're tired of me. We've been through everything together and lately I feel like I'm losing them, and watching them sneak around is easier than admitting I think they don't want me anymore.",
         "failText": "I just need to know what they're doing. That's all."
       },
-      "rewardText": "what coin I can spare and a promise that I'll never ask you to do this again",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "{settlement_npc} slipping out before dawn? That doesn't surprise me at all. They used to do the same thing when we were young, always working on something they didn't want anyone seeing before it was finished. Whatever they're up to, I'd bet good coin it's well meant.",
@@ -1430,7 +1390,6 @@
         "passText": "You're looking at me like you can tell I'm shaking. I am. This isn't me being suspicious, this is me being terrified, and I would rather you knew that than think I'm a bitter person.",
         "failText": "I'm fine. I just need to know."
       },
-      "rewardText": "a small bundle of what I can spare and your discretion, more than anything",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Gifts on the workbench? Oh, I know exactly who that is. I've been watching one of the little ones leave things there for weeks, ever since your partner helped them find a lost toy. Quite sweet, really.",
@@ -1455,7 +1414,6 @@
       "conflict1Text": "I want to be sure before I let myself off the hook. Could you bring me a {quest_item}, the kind {settlement_npc} has been making lately? If I see it for myself, I'll know whether they're using my methods or something they figured out on their own. Either way I want to stop guessing.",
       "conflict1TurnInText": "This isn't my work at all. They've moved past what I taught them and built something new on top of it, and here I was being jealous of someone who was honoring me by doing better than me. I don't know whether to laugh or to hide.",
       "resolutionText": "I went and told {settlement_npc} I was proud of them, which is the conversation I should have had three weeks ago instead of stewing. They cried, which means I had hurt them more than I knew, and I hate that. Take {quest_reward}. You saved a friendship I was too small to save myself.",
-      "rewardText": "the best piece of my own work, since I'd like someone to remember how it looks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Of course I remember the teaching, but here's what I've also seen. {settlement_npc} has been singing your friend's praises to anyone who'll listen. They haven't been quiet about it at all. Maybe the praise just hasn't reached the right ears yet.",
@@ -1491,7 +1449,6 @@
         "passText": "There's a piece I haven't told anyone yet. The person who first pointed at my friend had reasons of their own to want them gone, and I think the accusation was the lever, not the cause. I haven't said it out loud because I don't have proof, but I will by the time this is over.",
         "failText": "It's a complicated story and I don't have it all straight in my head yet."
       },
-      "rewardText": "what coin I have set aside and a friendship that owes you one too",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was there that day, and your friend was with me most of the afternoon. We were going over stock and comparing notes. There's no way they could have been where people are saying they were.",
@@ -1524,7 +1481,6 @@
         "passText": "I'll tell you what I haven't told anyone. I almost left {settlement_name} last week. I had my pack at the door and I was going to walk out and let them think whatever they wanted. The only reason I'm still here is that I decided I'd rather be cleared than be free.",
         "failText": "It's been a hard few weeks. I'd rather not get into it."
       },
-      "rewardText": "a share of my own stores and the kind of thanks I don't usually give freely",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I still have what they gave me, right here. They handed it to me freely, weeks before any of this started. Whoever's been spreading the other story either doesn't know the truth or doesn't want to.",
@@ -1559,7 +1515,6 @@
       "conflict3Text": "Last thing. I need {target_npc} to come back to {settlement_name} with me and say what they saw, in person, in front of everyone who's been spreading the wrong story. Could you ask them once more? With everything we've gathered, they'll know it's worth the trip.",
       "conflict3TurnInText": "{target_npc} is on their way. Between their testimony and what we've gathered, this is going to be the cleanest exoneration anyone in {settlement_name} has ever seen. My friend deserves nothing less.",
       "resolutionText": "It's over. My friend has their good name back, and the people who were so eager to take it have learned to be slower with their accusations next time. That's the part I'm proudest of. Take {quest_reward}. You didn't just help me, you helped this place be a little fairer than it was yesterday.",
-      "rewardText": "what I can give from my own stores and the lasting thanks of the person you cleared",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was first on the scene, and what I saw doesn't match what people have been saying. The marks were too deep, too even, and in places nobody could have reached without help. Something else did this.",
@@ -1592,7 +1547,6 @@
         "passText": "You're right, those two things don't fit together. I said it slipped out, but you can hear that the words were too precise for an accident. I chose them because I knew exactly where she was vulnerable, and calling it a slip is the story I've been telling myself so I can sleep.",
         "failText": "It's complicated. Family things usually are."
       },
-      "rewardText": "what coin I've been setting aside, and a quiet thank-you I won't forget",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "They sent you? I'd started to wonder if they'd ever try to fix things. She's been hurting, and she won't say it out loud, but I can see it every time someone brings their name up. The fact that they're making the effort matters more than they realize.",
@@ -1622,7 +1576,6 @@
       "conflict2Text": "Last thing. Would you take it back to {target_npc} for me? I want them to give it to him, in their own words. I'm not ready to stand in front of him, but I can stand behind a gesture.",
       "conflict2TurnInText": "You did it. You actually did it. I think I can breathe a little easier tonight.",
       "resolutionText": "{target_npc} sent word back. He didn't say much, but he kept the gift, and that's all I asked for. Take {quest_reward}. You carried something for me that I couldn't carry alone.",
-      "rewardText": "the best of what I have left from that hard winter, and my honest thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The man who passed through last winter? He made it, barely. He didn't say much about what happened on the road, but I could tell someone had turned him away. He carries things quietly, that one.",
@@ -1655,7 +1608,6 @@
         "passText": "You're looking at the marks on my hand, aren't you? Yes, that was the same night. I haven't forgiven myself for that part either, but at least it heals.",
         "failText": "It's an old story. Not worth dragging through the mud again."
       },
-      "rewardText": "a small purse and the quiet thanks of a man trying to be better",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -1684,7 +1636,6 @@
         "passText": "The honest part is, I was trying to protect her from her family, because I'd seen them be cruel to her before. I wasn't being a busybody. I was being scared for her, and I overstepped because of it.",
         "failText": "I'd rather not pick at it any more than I already have. It hurts enough."
       },
-      "rewardText": "a gift I'd been saving for a better day, and my honest gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "So they finally want to know what happened. She told me everything. Your friend meant well, I can see that, but what she heard was someone going over her head, speaking for her when she'd never asked anyone to. That's the wound.",
@@ -1715,7 +1666,6 @@
         "passText": "I'll tell you what I haven't told anyone. I'm afraid he'll never trust my word again. He used to come to me first when something was hard, and he hasn't since. That's the part that's breaking me.",
         "failText": "It's between brothers. I shouldn't have laid it all out like this."
       },
-      "rewardText": "a portion of what I've put aside this season, and a brother's thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was sitting right there when it happened. Your friend was trying to lay out options, but what landed was the feeling that he couldn't handle his own choices. It hit hard, and he's been carrying it since.",
@@ -1745,7 +1695,6 @@
       "conflict2Text": "One more favor. Would you take word back to {target_npc} that I'm grateful, and that I'm trying? They've been a better friend to my daughter than I knew, and they should hear it from someone besides me.",
       "conflict2TurnInText": "{target_npc} took the message well? Good. I want her friend to know I'm not the kind of mother who'd resent her for being honest with you.",
       "resolutionText": "She opened the gift in front of me. She didn't say much, but she sat down next to me, and she stayed. That's the most I've had from her in weeks. Take {quest_reward}. You walked through something with me that I couldn't have walked alone.",
-      "rewardText": "a parcel of good food from my pantry and a mother's quiet thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Her mother sent you? She's been afraid of that. The comment about her work hit harder than her mother probably knows. What landed was the feeling that she still isn't enough, no matter how hard she tries.",
@@ -1778,7 +1727,6 @@
         "passText": "I've been carrying a folded note in my pocket for three months. It's the words I would say if I could ever get them out. I haven't shown it to anyone, but I can tell you it exists.",
         "failText": "Let's just say it's been on my mind for a while. That's all there is to it."
       },
-      "rewardText": "a basket of the good things from my kitchen, and the biggest grin you've seen all week",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They've been thinking about me? I was starting to wonder if I'd been forgotten after the move. I didn't want to leave, you know. The hardest part was walking away without knowing if it mattered to anyone there.",
@@ -1814,7 +1762,6 @@
         "passText": "You're right to ask. Yes, my own parents had to win over an unwilling family. I grew up hearing the story, and I think part of why this one matters so much is because I know it can be done.",
         "failText": "It's an old family thing. I don't want to bore you with it."
       },
-      "rewardText": "a fine bottle I've been saving for the right occasion, and a hopeful heart",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "You want to know how to win her over? I've known that woman since we were children, and she values intention over everything. She once turned away a suitor who brought plenty but no sincerity. Whatever your friend brings, it needs to feel considered.",
@@ -1841,7 +1788,6 @@
       "conflict1Text": "Now the foolish half. Find me a {quest_item} that has no practical purpose at all. Pretty, strange, the kind of thing that just makes someone smile. The whole point of the tradition is that you give one thing they need and one thing they'd never ask for.",
       "conflict1TurnInText": "Oh, that's wonderful. That is perfectly, perfectly foolish. They'll laugh, and that's exactly what my grandmother said the foolish gift was supposed to do.",
       "resolutionText": "I haven't asked them yet. I will tomorrow morning, with both gifts in hand. But I already feel different than I did a week ago. Whatever they say, I tried, and that's a thing I never thought I'd be able to say. Take {quest_reward}. You gave me back a tradition I almost talked myself out of honoring.",
-      "rewardText": "a share of the good things I've been saving for my own celebration, whenever it comes",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -1870,7 +1816,6 @@
         "passText": "The thing I haven't said out loud is that I think I missed the early signs. He was quieter for months before this, and I told myself it was just the season. I should have asked him sooner.",
         "failText": "I just need someone to help me try something. That's all."
       },
-      "rewardText": "a portion of our small savings and a wife's deepest thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "He's asking for me? I haven't heard from him in so long I'd started to fear the worst. If he's reaching out, even through someone else, it means he remembers who he was before all this. That's everything.",
@@ -1901,7 +1846,6 @@
         "passText": "You're noticing that I haven't been sleeping much either, aren't you? It's hard to watch someone you love disappear in slow motion. I've been carrying her grief on top of my own.",
         "failText": "It's been a long week. I'd rather just focus on her right now."
       },
-      "rewardText": "the best of what little I have, and a thank-you I'll mean for a long time",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's giving things away again? She did the same thing after our mother passed. It's how the grief finds its way out when she won't let it through any other door. She lost her partner this winter, and this is what happens when she won't let herself grieve properly.",
@@ -1937,7 +1881,6 @@
         "passText": "The truth is, I've been thinking I caused this. I pushed him to come to family gatherings he wasn't ready for, and after the last one he just went quiet. I'm afraid I'm the reason he stopped trying.",
         "failText": "He's family. That's the long and short of it."
       },
-      "rewardText": "a share of what my uncle and I can spare, and a niece's heartfelt thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "He won't come outside? I've been worried about him for months, but he stopped answering when I sent word. I thought he'd asked everyone to leave him be. If he's the one reaching out, that changes things.",
@@ -1975,7 +1918,6 @@
         "passText": "I keep telling myself I'm ready. I'm not. I don't know who I am after this, and I'm afraid to find out. But sitting here pretending isn't the same as being there.",
         "failText": "It's a hard road. That's all there is to say."
       },
-      "rewardText": "what coin I've set aside and a quiet thanks I won't take back",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I know why you're here, and I appreciate you telling me in person. I always thought there'd be more time to fix things between us. We let something get in the way and I kept telling myself I'd handle it later.",
@@ -2008,7 +1950,6 @@
         "passText": "Can I tell you something I haven't said out loud? I'm not sure I'm strong enough to do this without flinching at the last moment. I keep thinking I'll find a reason to keep her here, and I know that reason would kill her eventually.",
         "failText": "It's a parent's burden. You'd understand it if it were yours."
       },
-      "rewardText": "a small purse and a piece of bread for the road",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The time has come, then. I made that promise years ago and hoped it would never be needed, but I meant every word. I'll have a room ready and a meal waiting when she arrives. She won't feel like a burden here.",
@@ -2040,7 +1981,6 @@
       "conflict2Text": "Her brother {target_npc} lives in {target_npc_settlement}. They haven't spoken in years, my fault as much as anyone's. He should hear it from a person, not a letter that arrives too late. Find {target_npc_role} and tell them plainly.",
       "conflict2TurnInText": "He's coming. I didn't think he would. Whatever you said to him, it found the right place to land. She'll see him before the end.",
       "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {quest_reward} is yours, with my thanks. You gave us an ending I can live with.",
-      "rewardText": "a wood-carved keepsake from my workbench and a few coins beside",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's that far gone? I didn't know. I should have known, and the fact that I didn't is something I'll carry for a long time. We stopped talking over something I can't even name anymore.",
@@ -2071,7 +2011,6 @@
         "passText": "What I miss most isn't the big things. It's how he hummed when he didn't know I was listening. I keep catching myself listening for it in {settlement_name} and feeling foolish.",
         "failText": "It's been a long winter. I'd rather not say more than that."
       },
-      "rewardText": "a small ring of his that I have no use for now and won't see wasted",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I knew something was wrong. I hadn't heard from him in too long, and he was never the quiet type. Hearing it spoken is different from fearing it, though. Give me a moment.",
@@ -2109,7 +2048,6 @@
         "passText": "His grandfather was killed by {enemy_type_plural} too, before any of us were old enough to remember properly. I used to tell my son that story to make him careful. Now I wonder if I made him afraid of the wrong things.",
         "failText": "It's an old grief in this family. That's all I'll say tonight."
       },
-      "rewardText": "a few of his things that should belong to someone who'll use them",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "So that's the truth of it. I heard a version from someone passing through, but I couldn't make myself believe it. We walked every trail around here together. I keep catching myself saving things to tell him.",
@@ -2136,7 +2074,6 @@
       "conflict1Text": "The {enemy_type_plural} have been close to {settlement_name} more often lately, and I can't sit with her memory in peace when I'm flinching at every sound outside. Take {kill_count} of them down. I want one quiet evening, that's all.",
       "conflict1TurnInText": "It's the first quiet night I've had in weeks. I lit a candle for her and just sat with it. Nothing grand, but it was what I needed.",
       "resolutionText": "I'll mark the day properly tomorrow. I haven't been able to do that in two years, and now I think I can. Take {quest_reward}. She would have wanted me to give something back to whoever helped.",
-      "rewardText": "the silver clasp she left me, which is no use sitting in a drawer",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2176,7 +2113,6 @@
         "passText": "You've seen this kind of pattern before? That's almost a relief. I'd started thinking I was the only one who noticed they move differently when the wind shifts. Maybe we're not as blind as I thought.",
         "failText": "It's all guesswork at this point. I'd rather just deal with what's in front of us."
       },
-      "rewardText": "what we can spare from the storehouse and a warm meal besides",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2209,7 +2145,6 @@
         "passText": "You see it too, then. The way the air's been wrong in the early morning, like it isn't holding the heat it should. I'd thought I was imagining it. Knowing I'm not is almost worse.",
         "failText": "It's a strange season. Strange seasons happen. I'm trying not to dwell."
       },
-      "rewardText": "a sack of what we have and the last good loaf out of my kitchen",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2254,7 +2189,6 @@
         "passText": "Honest answer? Fighting something I can't name has worn me down more than the work itself. I keep waiting to wake up and have it all make sense, and it never does, and I don't know how much longer I can keep getting up.",
         "failText": "It's been a long stretch. I'd rather not turn it over right now."
       },
-      "rewardText": "a fair share of what little we've managed to keep and my honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2287,7 +2221,6 @@
         "passText": "You noticed the chair, didn't you. I forgot I'd left it against the door. I've been barricading myself in every night for two weeks now, and this morning I realized I'd started doing it during the day too. That's when I knew I couldn't handle this alone anymore.",
         "failText": "Everything's in order here. Just a rough stretch with the wildlife."
       },
-      "rewardText": "a fair day's wage and a standing offer of supper",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2325,7 +2258,6 @@
       },
       "targetNpcOpener": "So you're here on behalf of the {self_role} in {settlement_name}. I'd been expecting word sooner, to be honest. The arrangement still holds. I'll send what I can by week's end.",
       "targetNpcCloser": "Tell them it's coming. No need to worry about it further.",
-      "rewardText": "what I can spare from the stores and my thanks",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -2360,7 +2292,6 @@
       },
       "targetNpcOpener": "Someone sent you from {settlement_name}? That's kind of them. Things have been difficult here, but I'm managing. It helps to know people remember.",
       "targetNpcCloser": "Tell them I'm holding on. That's the honest answer.",
-      "rewardText": "a few coins I had set aside and my genuine thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2398,7 +2329,6 @@
       },
       "targetNpcOpener": "The road from {settlement_name} is clear? About time. I've had a full cart sitting here for days with nowhere to send it. I'll have it loaded and moving by morning.",
       "targetNpcCloser": "Good work getting it sorted. Tell them we'll be on schedule from here.",
-      "rewardText": "what the households put together for the trouble and a meal whenever you pass through",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2438,7 +2368,6 @@
       },
       "targetNpcOpener": "You're here about the trouble at {settlement_name}? I'm glad they took it seriously. I noticed the signs a while back and figured I should say something before it got out of hand.",
       "targetNpcCloser": "Glad it's resolved. Tell them the offer to help stands if anything else comes up.",
-      "rewardText": "a fair sum and my word that I won't forget the help",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -2472,7 +2401,6 @@
         "passText": "It bothers me more than it should, losing things. My father ran this operation before me and he never lost a single day to disorganization. I measure myself against that, probably more than is healthy.",
         "failText": "Things go missing. It's just the way of it sometimes."
       },
-      "rewardText": "what I can spare from the till and a solid handshake",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -2515,7 +2443,6 @@
       },
       "targetNpcOpener": "The {self_role} from {settlement_name} wants my assessment? I've heard bits about this project. The approach is sound from what I can tell. I'd say go ahead with it.",
       "targetNpcCloser": "Tell them they have my approval. It's a good use of their time and resources.",
-      "rewardText": "a fair share of the proceeds and an open door at my workshop",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -2546,7 +2473,6 @@
         "passText": "I've been carrying this plan around for two years and never once shown it to anyone. I was afraid that if someone I respected looked at it and shrugged, the dream would be over. Telling you about it is the first time I've let it be real outside my own head.",
         "failText": "It's a project I believe in. That's reason enough."
       },
-      "rewardText": "a proper payment and the satisfaction of seeing it built",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -2582,7 +2508,6 @@
       },
       "targetNpcOpener": "You're from {settlement_name}? I know the issue you're talking about. I've seen it play out in other settlements. There are steps you can take to discourage them from returning.",
       "targetNpcCloser": "Pass that along. If they follow through, they shouldn't see the same trouble again.",
-      "rewardText": "a solid purse and the knowledge that it's done right",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2613,7 +2538,6 @@
         "passText": "I'll tell you why I care about this so much. {settlement_npc} got hurt last month because of the same trouble and wouldn't tell anyone. I found out by accident. I decided then that I was going to fix this whether anyone asked me to or not.",
         "failText": "I've been watching the situation closely. That's all."
       },
-      "rewardText": "fair coin for honest work",
       "valence": "negative",
       "roleAffinity": [
         "Guard",
@@ -2649,7 +2573,6 @@
         "passText": "I won't pretend it doesn't weigh on me. I'm the one people look to when things go wrong, and some mornings I wake up not sure I have the answers they need. But I show up anyway, because that's the job.",
         "failText": "It's a setback. We've had them before and we'll have them again."
       },
-      "rewardText": "what the households could gather and the thanks of everyone here",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -2690,7 +2613,6 @@
       },
       "targetNpcOpener": "Flooding in {settlement_name}? That section of the valley is prone to it. I can sketch out a few things that would help with the rebuild and reduce the risk next time around.",
       "targetNpcCloser": "Take these notes back. They should save considerable effort if followed properly.",
-      "rewardText": "the settlement's pooled funds and a warm welcome whenever you return",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2721,7 +2643,6 @@
         "passText": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
         "failText": "It's just one of those chores that stacks up. You know how it goes."
       },
-      "rewardText": "a fair day's wage for a fair day's work",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -2757,7 +2678,6 @@
         "passText": "The real reason I can't go myself is that the last time I tried this route alone, I turned around halfway. Not proud of it, but those {enemy_type_plural} had me outnumbered and I'm not too stubborn to admit when the odds aren't in my favor.",
         "failText": "I've just got too much on my plate at the moment. Simple as that."
       },
-      "rewardText": "what the job pays, minus expenses, plus a good word to anyone who asks",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Ah, you're here on behalf of the {self_role} in {settlement_name}. I figured they'd send someone eventually. I've got what they need set aside. It's been sitting in the back for about a week now.",
@@ -2792,7 +2712,6 @@
         "passText": "I'll admit I was starting to wonder if the land itself was just done with me. Three years of good harvests and then this. It's a relief to know it's something with a cause and not just bad luck deciding to stay.",
         "failText": "It's a puzzle. I like puzzles better when they have answers."
       },
-      "rewardText": "a share of the next harvest and a few coins besides",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -2828,7 +2747,6 @@
         "passText": "I didn't tell anyone because I thought they'd think I was getting confused. My father had that problem in his later years, and I've been watching for it in myself ever since. Knowing it's just an animal is the best news I've had in a month.",
         "failText": "It's a small mystery. I'd just like it solved."
       },
-      "rewardText": "what I can spare from the till and a standing offer of repair work",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Missing tools? I've heard a few people mention similar things lately. There's been something getting into buildings through gaps in the roofline, small and clever and not shy about moving things around. I'd check the upper beams first.",
@@ -2861,7 +2779,6 @@
         "passText": "I know what people think when they hear a grudge that's lasted six months over an animal. But that horse and I worked together for eight years. I raised it from a foal. Losing it was like losing a partner I couldn't replace.",
         "failText": "It's a debt that needs paying. The details are mine."
       },
-      "rewardText": "the coin I set aside the day it happened and a firm handshake",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2899,7 +2816,6 @@
         "passText": "I stopped telling people about the individual problems because each one sounds small on its own. It's the accumulation that wears on you. When nothing works right for long enough, you start to wonder if you've forgotten how to do things properly.",
         "failText": "It's just been a rough stretch. They happen."
       },
-      "rewardText": "what I can pull together from the savings jar and a warm meal",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2935,7 +2851,6 @@
         "passText": "You can see it, can't you. This was never about the boundary. We used to play in these fields as children, and the thought that we've become two people who argue over where one yard ends and the other begins makes me sick. Drawing a line between us just made the distance feel permanent.",
         "failText": "It's a property matter. We'll sort it out eventually."
       },
-      "rewardText": "a fair sum and the satisfaction of two fewer people yelling across a fence",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The boundary dispute between those two? I remember the survey. The original markers rotted out years ago, but I kept the measurements. The line falls about four paces east of where either of them has been claiming.",
@@ -2973,7 +2888,6 @@
         "passText": "The truth is, I honestly don't remember whether I damaged it or not. It's possible I did and didn't notice. But by the time he accused me, I was too proud to admit that, and then pride took over for both of us.",
         "failText": "It's a family thing. Not very interesting from the outside."
       },
-      "rewardText": "a few coins and the relief of one fewer grudge in the family",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Finally sorting things out, are they? Good. I've been listening to both sides of this for months and it's been clear from the start that neither of them cares about the object itself. They just needed someone to go first.",
@@ -3004,7 +2918,6 @@
         "passText": "I've been careful not to say anything because I didn't want to embarrass her. She's a proud woman who's always managed everything herself. Watching someone like that start to slip is harder than I expected, because you keep thinking they'll just snap out of it on their own.",
         "failText": "She's having a difficult time. I just want to help if I can."
       },
-      "rewardText": "a small purse and the thanks of someone who sleeps better knowing a neighbor is looked after",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "My mother has been collecting stones? She hasn't mentioned any of this in her letters, but I suppose she wouldn't. She's never been the type to ask for help, even when she should.",
@@ -3035,7 +2948,6 @@
         "passText": "You noticed, didn't you. I've been acting like everything is fine when I visit him, keeping it light, keeping it casual, and it's exhausting. I haven't told him I'm worried because he'd force himself out the door just to prove he's all right and then feel worse when he couldn't manage it. I thought I was hiding the strain better than that.",
         "failText": "He's a good man going through a rough patch. That's all I'll say."
       },
-      "rewardText": "what I can spare and the genuine thanks of a worried friend",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Someone who won't leave the house after a bad experience on the road? That's not uncommon. The mind gets stuck on the danger and decides the safest thing is to stay put, not out of stubbornness, but because the body is trying to protect itself from something that already happened.",
@@ -3068,7 +2980,6 @@
         "passText": "I suppose the honest part is that I've thought about stopping more than once. Not because I don't believe in it. Because it gets quiet doing something nobody thanks you for. But then the winter comes and the stores are there, and that's answer enough.",
         "failText": "It's steady work. That's about the size of it."
       },
-      "rewardText": "a fair day's wage and a sack of good flour",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Someone came all the way out here to tell me the grain stores are still going? Well. I always figured that one would outlast the rest of us. Stubborn runs deep in that family.",
@@ -3101,7 +3012,6 @@
         "passText": "People ask me why I bother when nobody pays me for it. The answer is that someone walked this road for me when I was young and couldn't walk it myself. I'm just returning what was given.",
         "failText": "Somebody has to do it. Might as well be me."
       },
-      "rewardText": "what I've put aside from my own stores",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -3132,7 +3042,6 @@
         "passText": "She raised me on her own after my father left. I don't talk about it much, but every time she needs something and I can't get there fast enough, I feel like I'm failing at the one thing that matters.",
         "failText": "She's family. You do what you can."
       },
-      "rewardText": "a small purse and a good meal for the road",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You're here about the medicine run? Good. She's been asking after the trip every morning. I've been telling her it's in hand, so I'm glad that's finally true.",
@@ -3170,7 +3079,6 @@
         "passText": "You can see what I've been doing, can't you. Keeping it quiet, keeping it invisible, making sure he never notices how much I'm carrying so he doesn't feel like a burden. The hardest part isn't the work, it's smiling through it so he still feels like himself. I didn't think anyone could tell.",
         "failText": "He's mending. That's the important part."
       },
-      "rewardText": "what we can spare between us and honest thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Is he all right? I heard about the fall from a trader passing through, but nobody could tell me how bad it was. I've been meaning to send word but I didn't know what to say.",
@@ -3203,7 +3111,6 @@
         "passText": "You caught that, didn't you. I said I've made my peace with it, but the truth is I ran the numbers every season for two years and waited for them to come out differently. They never did. The harvest yields, the supply counts, the winters getting longer. It's arithmetic, and the arithmetic says he has to go. I kept hoping one column would change, and none of them changed.",
         "failText": "It's the right call. That's enough for me."
       },
-      "rewardText": "a fair sum I set aside for this day",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've been expecting this message for a while now. Honestly, I'm surprised it took this long. The room's been ready since autumn.",
@@ -3241,7 +3148,6 @@
         "passText": "You're right, that doesn't quite hold together. I said we talked it through, but what actually happened is I laid out the supply figures and the road conditions and the winter projections until she couldn't argue back. I didn't persuade her, I cornered her with facts. She agreed because I left no room to disagree, and calling that a conversation is the lie I tell myself so I can sleep.",
         "failText": "We talked it through. The decision was made together."
       },
-      "rewardText": "what I can spare and a handshake worth something",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's finally coming? I won't pretend I'm surprised. The letters she's been sending got shorter every month, and I could read between the lines well enough.",
@@ -3272,7 +3178,6 @@
         "passText": "I thought I'd feel more settled by now, but grief doesn't follow a schedule. Some mornings I forget for a minute, and then I remember, and it's just as fresh. I'm getting through the days, and that counts for something.",
         "failText": "It's been a few months. I'm managing."
       },
-      "rewardText": "a few of his coins that should go to someone who earned them",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I had a feeling someone would come with this news sooner or later. He was the kind of man who'd have worked right up until the end, so I imagine that's close to what happened.",
@@ -3310,7 +3215,6 @@
         "passText": "I keep her tools in order every morning before I start my own work. I know it's not necessary. I think it's the closest thing I have to a conversation with her anymore, and I'm not ready to give that up.",
         "failText": "We were close. That's about all there is to say."
       },
-      "rewardText": "a share of what she left me and my honest thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was wondering why the letters stopped. I'd hoped it was just a busy season, but I suppose I knew better than that. She wasn't the type to forget.",
@@ -3343,7 +3247,6 @@
         "passText": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. Not because I need anyone to remember my name, but because I'd like to know the work continues after I'm done with it.",
         "failText": "It's a good project. That's reason enough."
       },
-      "rewardText": "a fair wage and first pick of anything I craft this season",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -3381,7 +3284,6 @@
         "passText": "My father ran a route like this before the roads got bad. He always said the trick was starting small and being reliable. I've been reliable my whole life. I just needed the small start.",
         "failText": "It's a sound plan. The details will sort themselves."
       },
-      "rewardText": "a percentage of the first shipment's earnings and my thanks",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "A trade route with regular schedules? I've been hoping someone on that end would finally put it together. The demand is here, I just needed someone steady enough to supply it.",
@@ -3414,7 +3316,6 @@
         "passText": "I'll be honest with you. I've been told before that I read too much into things, and every time I promise myself I'll stop, I find a new pattern to worry about. This time I was so sure I was right that I didn't stop to ask whether I wanted to be.",
         "failText": "I'd rather just get the facts and move on."
       },
-      "rewardText": "a fair trade's worth and my word that I'll think twice next time",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3445,7 +3346,6 @@
         "passText": "The part I haven't admitted is that I expected the worst because I've been feeling like an outsider here for months. When you already feel unwanted, it's easy to hear confirmation in every conversation you're not part of.",
         "failText": "It's nothing worth going into. I just want clarity."
       },
-      "rewardText": "what I can put together on short notice and my honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3476,7 +3376,6 @@
         "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
         "failText": "I appreciate the concern, but I'm handling it. Some things you just work through on your own."
       },
-      "rewardText": "a sample of my best work and a fair bit of coin",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3507,7 +3406,6 @@
         "passText": "You can see it on me, can't you. I keep saying I'm angry on their behalf, but the truth is I'm terrified. My apprentice offered to confess to it just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person who did nothing wrong.",
         "failText": "I'm fine. It's them I'm worried about, not me."
       },
-      "rewardText": "a fair day's wages and the gratitude of a mentor and their apprentice",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3538,7 +3436,6 @@
         "passText": "The truth is I wasn't just busy. I was tired of being the person everyone comes to, and I chose the wrong moment to draw that line. It's one thing to set boundaries and another thing entirely to abandon someone.",
         "failText": "I'd rather not get into the reasons. The result is what matters."
       },
-      "rewardText": "a portion of my stores and my honest gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3569,7 +3466,6 @@
         "passText": "The real weight of it isn't the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
         "failText": "It's just time I dealt with it. Nothing more to say about it."
       },
-      "rewardText": "what I can spare and the relief of a lighter conscience",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3600,7 +3496,6 @@
         "passText": "You've put your finger on the thing that doesn't add up. I said I was trying to help, but my cousin never asked me to speak and the council never invited outside voices, so I pushed my way in. When you line those facts up it stops looking like concern and starts looking like what it was. I wanted to feel useful more than I wanted to help.",
         "failText": "I was only trying to help. That's really all there is to say about it."
       },
-      "rewardText": "a fair share from my cousin's stores and my own, combined",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3631,7 +3526,6 @@
         "passText": "I've been cautious because I lost someone before, a long time ago, and I told myself I wouldn't put that much weight on another person's feelings again. But here I am, reading letters by candlelight and caring about every word. Caution only works if you're not already invested, and I passed that point months ago.",
         "failText": "It's just something I've been thinking about. We'll see how it goes."
       },
-      "rewardText": "the good preserves I've been saving and a hopeful heart's thanks",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -3664,7 +3558,6 @@
         "passText": "You're right, the numbers I gave {settlement_npc} don't hold together. I've been skimming from my own rations to keep the public count looking right, reporting what we should have instead of what we do. I haven't eaten a full meal in four days, and nobody questioned it until you.",
         "failText": "The stores are where they are. I've given you the count."
       },
-      "rewardText": "a pouch of coin I kept hidden for exactly this kind of trouble",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3695,7 +3588,6 @@
         "passText": "Oh, you've dealt with {settlement_npc} before? Then you know how they get about the rotation. The debt is really from medicine I bought for my daughter last winter, and {target_npc} would forgive the whole thing if they knew, but then I'd owe them pity instead of coin. Pity is a debt you never pay off.",
         "failText": "That's a lot of questions about my finances for someone I just met. Let's keep this about the {quest_item}."
       },
-      "rewardText": "a handful of silver and my word that I'll pay it forward",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3735,7 +3627,6 @@
         "passText": "You know what you're looking at, then. They're not just raiding, they're denning nearby, and the torn fence isn't random damage. They're testing the weak points and coming back to the same ones every night. I've been sleeping in the pen with a club because I can't afford to lose these animals, and I didn't know how to explain that to anyone who hadn't seen the pattern.",
         "failText": "They keep getting through the fence. I don't know much about why they pick the spots they pick."
       },
-      "rewardText": "the coin I've been hiding under the floorboard and a debt I intend to repay",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3768,7 +3659,6 @@
         "passText": "All right, stop looking at me like that. The real problem is that I spent the emergency fund on a gift for my partner's birthday two months ago and thought I'd earn it back before anyone noticed. Everything that's gone wrong since has been piling on top of that one stupid decision.",
         "failText": "Supplies run out, it happens. I'd rather fix it than talk about it."
       },
-      "rewardText": "every coin I can scrape together and a promise I mean to keep",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3799,7 +3689,6 @@
         "passText": "You caught that, did you, the way I frame everything like a story. It's a habit from years of busking, making my problems sound charming because that's the only way anyone ever listens. The truth underneath all the polish is that I haven't eaten properly in a week and I'm scared.",
         "failText": "Everyone has hard stretches. Mine happens to be now."
       },
-      "rewardText": "the last of my performance earnings and a song in your name if you ever want it",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3837,7 +3726,6 @@
         "passText": "You know the old calendar. Then you understand what I mean when I say we're two seasons overdue. My grandmother never missed an observance in her life, and the year after she died is when the trouble started. I don't think that's a coincidence, and I've been too ashamed of my own neglect to say so until now.",
         "failText": "It's an old tradition. I won't bore you with the details."
       },
-      "rewardText": "the coin my grandmother left me and a blessing spoken in the old way",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3870,7 +3758,6 @@
         "passText": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer.",
         "failText": "The trail looks the same as always. They're just running late."
       },
-      "rewardText": "the coin my aunt pressed into my hands and my own besides",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3908,7 +3795,6 @@
         "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
         "failText": "I heard it helps. That's enough reason to try."
       },
-      "rewardText": "the silver I had saved and a meal at our table for as long as you want one",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3939,7 +3825,6 @@
         "passText": "Fine, I'll tell you what I haven't told anyone else. I checked the backup cistern yesterday and it was bone dry too. I'd been telling people we had three days of reserve when we had one, because I thought the truth would start a fight over what was left.",
         "failText": "We're short on water. That's all you need to know to understand why I'm asking."
       },
-      "rewardText": "the coin we collected and a jug of the first clean water from the well",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3970,7 +3855,6 @@
         "passText": "Since you're pressing. Last week a child tried to cross before I could stop them, and the boards cracked under their feet. I caught them by the collar and pulled them back. I didn't report it because I was afraid they'd close the bridge entirely and we'd starve waiting for a fix.",
         "failText": "The bridge is in bad shape. That's reason enough to act."
       },
-      "rewardText": "the toll money we'd been collecting and a standing offer of shelter",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4001,7 +3885,6 @@
         "passText": "You can sense it too, can't you. There's something unnatural about the way the air moves down there. It doesn't just smell wrong, it feels wrong, like the ground is exhaling something that shouldn't exist this close to the surface. I've been telling people it's just gas from the rocks, but I don't believe that anymore.",
         "failText": "Something's making people sick down there. That's all I know for certain."
       },
-      "rewardText": "the coin we saved by not abandoning the lower fields and our deepest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4034,7 +3917,6 @@
         "passText": "You have a good ear, then you understand what I mean when I say the sound was breaking us. There's a particular pitch they hit that gets into your bones, and after a week of it you can't tell if the ringing is outside or inside your own head. That's when I knew I had to ask for help.",
         "failText": "It's just noise, terrible noise. That's what I keep telling myself."
       },
-      "rewardText": "the coin we pooled together and the first quiet evening we've had in weeks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4065,7 +3947,6 @@
         "passText": "You spotted it too, the weight was wrong for the size. I should have checked before I paid, but I was in a rush and the merchant saw someone careless and took advantage. Half the weight, wrong material underneath the finish, and I handed over full price without a second look. That's the part that burns.",
         "failText": "I was cheated. The details aren't complicated enough to be worth explaining."
       },
-      "rewardText": "a share of the refund and my word as a fair dealer",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4101,7 +3982,6 @@
         "passText": "Right, so you've seen how tight storage gets around here, that's actually the whole problem. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I've been trying to replace everything before any of them check. If they find out I lost what they gave me, I lose more than goods.",
         "failText": "I appreciate the help, but I don't need anyone digging into the details. Just handle the {enemy_type_plural}."
       },
-      "rewardText": "the payment I set aside from the last trade run and my honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4139,7 +4019,6 @@
         "passText": "All right, I'll say the part I've been leaving out. I know exactly who's been tilting the scales, and It some accident of calibration. {settlement_npc} told me months ago who was doing it, and I was too afraid of losing the trade relationship to confront them. Being robbed politely felt safer than being cut off entirely.",
         "failText": "The scales are wrong and I want them fixed. That's the whole of it."
       },
-      "rewardText": "the difference I've been losing on trades and a fair handshake",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4175,7 +4054,6 @@
         "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
         "failText": "It's a garden that fed my family. That should be reason enough."
       },
-      "rewardText": "the first harvest from the new beds and the coin I saved by not giving up",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4214,7 +4092,6 @@
         "passText": "You have an artist's eye, then you understand what it means to lose a body of work. Those records weren't just recipes, they were the conversation I had with my craft over twenty years, every mistake and discovery in my own handwriting. Rebuilding them isn't just practical, it's an act of remembering who I am.",
         "failText": "I need my records back to do my job. That's the practical reality."
       },
-      "rewardText": "the first piece made from the restored formulas and a craftsman's gratitude",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanAlchemist",
@@ -4256,7 +4133,6 @@
         "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
         "failText": "They moved in because it was empty. That's what animals do."
       },
-      "rewardText": "the first profits from the reopened mine and a standing account in my name",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4296,7 +4172,6 @@
         "passText": "You saw the gap in the plan, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing but confidence and a map full of guesses.",
         "failText": "It's a new route. All new routes involve some uncertainty."
       },
-      "rewardText": "the first profits from the new trade route and a full partnership if you want it",
       "valence": "positive",
       "roleAffinity": [
         "Traveler"
@@ -4329,7 +4204,6 @@
         "passText": "You're wondering why I didn't mention this to the council first. Because {settlement_npc} told me the council would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with my own materials, and I'll present them with a working kiln instead of a proposal they can reject.",
         "failText": "It's a project I've been meaning to start. The timing finally felt right."
       },
-      "rewardText": "the first fired piece from the new kiln and a share of what it earns",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4370,7 +4244,6 @@
         "passText": "You can see right through me, can't you. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face I was going to get myself killed. The truth underneath all the bravado is that I'd rather die finding something than live wondering what was out there. I haven't said that part out loud before.",
         "failText": "I know what I'm getting into. I've weighed the risks and I'm comfortable with them."
       },
-      "rewardText": "a cut of whatever the new territory yields and my name on the map beside yours",
       "valence": "positive",
       "roleAffinity": [
         "Traveler"
@@ -4410,7 +4283,6 @@
         "passText": "You saw the drawings on the wall, didn't you. Those aren't just plans. They're dreams I've been sketching since I was twelve years old, sitting in the back of someone else's forge and wondering if I'd ever have my own. I didn't tell you that because I wanted you to see the ambition, not the longing.",
         "failText": "It's a forge. Every smith needs one eventually."
       },
-      "rewardText": "the first blade from my forge and a standing offer to craft whatever you need",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith"
@@ -4445,7 +4317,6 @@
         "passText": "You can sense it too, can't you, the soil in that lower field isn't just well-drained. There's some quality in the mineral content that shouldn't occur naturally this far from the coast, and whatever it is, it's the reason I think this will work when everyone else says it won't. I haven't published my findings because I don't want anyone else claiming the plot.",
         "failText": "The soil is right for what I'm trying to do. I've done my homework."
       },
-      "rewardText": "the first harvest of something nobody believed could grow here",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -4483,7 +4354,6 @@
         "passText": "All right, fine. The real reason nobody's built this bridge before is that the landowner on the other side has been blocking proposals for years to protect his ferry toll. I know because he told me to my face that he'd undercut anyone who tried. I've been too afraid of his influence to push back, but if you're backing me, I'm not afraid anymore.",
         "failText": "It's infrastructure. The region needs it and we're the ones in a position to build it."
       },
-      "rewardText": "a share of the first season's toll revenue and a plaque with your name at the crossing",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -4514,7 +4384,6 @@
         "passText": "Ha, you've scouted near there too? Funny, because I've actually been out there twice already and both times I turned back before I got close enough to matter. I've been calling it patience, telling people I was waiting for the right moment, but the truth is I was afraid. Hiring you is the only way this gets done.",
         "failText": "I've watched them long enough to know the pattern. That's all there is to tell."
       },
-      "rewardText": "the coin I'd set aside for mercenaries and a drink at my table",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4547,7 +4416,6 @@
         "passText": "Sure, everyone's worried about the livestock, it's a community problem. Well, two of those three farms are mine, so maybe I'm a little more worried than most. I've been framing this as a public service because if people knew how much of the loss was mine, they'd call it self-interest and start dragging their feet.",
         "failText": "You seem awfully curious about which farms are affected. The animals are dying, and that should be enough."
       },
-      "rewardText": "good coin from the three farms that can keep their stock now",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4585,7 +4453,6 @@
         "passText": "You want me to stop dancing around it? Fine. I know exactly who left that lure behind, a trader from {other_settlement} who planted it two years ago to drive the {enemy_type_plural} toward us and away from their own routes. I've been too cautious to accuse them without proof, and the proof is sitting out there in the dirt.",
         "failText": "Something's drawing them. Find it and the rest sorts itself out."
       },
-      "rewardText": "a serious purse from the settlement fund and the satisfaction of a clean ending",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4623,7 +4490,6 @@
         "passText": "You want the truth about the warnings? Two of the three were bluffs. I didn't have the resources for real deterrence, so I made noise and hoped. I've been performing strength I didn't have, and now that someone with actual strength is here, I can stop pretending.",
         "failText": "I've tried everything short of direct action. Now it's time for direct action."
       },
-      "rewardText": "the toll revenue we lost during the blockade and a grateful handshake",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4656,7 +4522,6 @@
         "passText": "You can see what I've been carrying, can't you. I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. Every time I tell the story I make it sound clean and righteous, but underneath all of that is a man trying to make up for not showing up when it mattered.",
         "failText": "A friend was wronged and I said I'd see it answered. That's all there is to it."
       },
-      "rewardText": "the bounty my friend insisted on paying and a bond between us that fire couldn't break",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4694,7 +4559,6 @@
         "passText": "You saw the marks on the lower trunks, didn't you. The damage pattern isn't natural, it's too even, too deliberate, and it starts right at the boundary line where the property meets the road. Whoever did this walked the edge and worked inward. That's not blight, that's someone with a grudge and a steady hand.",
         "failText": "The trees are dying. Could be any number of causes this time of year."
       },
-      "rewardText": "the restitution payment from the council and the first clean apples from the recovering trees",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4727,7 +4591,6 @@
         "passText": "You're from around here, so you probably heard the rumors already. The fire wasn't random, someone left a lantern burning near the grain, and I know who. They're young and terrified, and if it gets out their life here is over. So I've been saying it was bad luck and carrying the rest alone.",
         "failText": "Fires happen and nobody did anything wrong. Can we focus on the supplies?"
       },
-      "rewardText": "what the households could pull together and a standing place at our table",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4765,7 +4628,6 @@
         "passText": "You're asking the question nobody else thought to ask. If the wall came down suddenly, why was I already clearing the room behind it the week before? Because I watched the cracks widening for months and kept telling myself one more season. The collapse wasn't a surprise to me, and that's the part I haven't been able to say out loud.",
         "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
       },
-      "rewardText": "the emergency fund I kept in a jar that survived the collapse",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4803,7 +4665,6 @@
         "passText": "All right. Since you're making it clear I should stop dancing around it. I'd been warned the bank was weak months ago and I told the council it would hold because I didn't want to spend the coin to reinforce it. That decision is why three families are sleeping in the hall tonight instead of their own homes.",
         "failText": "The river does what it wants. Nobody could have predicted the timing."
       },
-      "rewardText": "what the settlement pulled from the mud, cleaned up and honestly offered",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The flooding downstream? It was bad here too, but the water's been dropping steadily since yesterday. The feeder stream that caused the surge is back within its banks. I'd say the danger of a second wave is past.",
@@ -4836,7 +4697,6 @@
         "passText": "Fine, you want the part I've been keeping to myself? The cellar was overloaded because I'd been hoarding, so afraid of running short that I packed it beyond what the ground could support. The weight is what made the slope give way. The disaster I'm recovering from is one I built with my own caution.",
         "failText": "Landslides happen. The hill was always unstable."
       },
-      "rewardText": "the coins I buried separately, which is the one thing that survived",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4869,7 +4729,6 @@
         "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
         "failText": "It's been a long couple of days. I'm managing the way anyone would."
       },
-      "rewardText": "the jar of coin I buried behind the house years ago for exactly this kind of night",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4907,7 +4766,6 @@
         "passText": "You noticed something about the tremor too, then. It wasn't natural. The vibration had a rhythm to it, a pulse, like something underneath was breathing. I've been afraid to say that out loud because I don't know what it means, and I'd rather patch the well than think about what might be under the ground.",
         "failText": "The earth shakes sometimes. It shook, and now we're dealing with it."
       },
-      "rewardText": "the coin we keep for emergencies, because this was certainly one",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4938,7 +4796,6 @@
         "passText": "You saw right through the story, didn't you. I didn't use it all in a bad batch. I gave most of it to a family that was struggling, and I didn't charge them a thing. I told everyone I was careless because I'd rather be thought foolish than have people know I can't turn away someone in need.",
         "failText": "I just ran through it faster than expected. These things happen."
       },
-      "rewardText": "a fair payment and a discount on my work whenever you need it",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -4967,7 +4824,6 @@
         "passText": "You're right, the arrangement was regular and reliable, so there's no reason for them to just stop unless something changed on their end. The truth I've been avoiding is that I was afraid to ask because the answer might be that my operation is too small to bother with anymore. It was easier to sit with the silence than to hear that confirmed.",
         "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
       },
-      "rewardText": "a fair sum and the promise of first pick whenever something good comes through",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} in {settlement_name} is wondering about the delay? It's entirely on my end. I had a supplier problem that backed everything up, and I should have sent word sooner. The order is ready now, I just hadn't had a chance to arrange transport.",
@@ -5005,7 +4861,6 @@
         "passText": "All right, you've made it clear I should be honest about why this has been dragging on. The truth is I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
         "failText": "The road was blocked. That's the whole of it."
       },
-      "rewardText": "proper payment and a good word passed along the trade route",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} from {settlement_name}? I was starting to wonder if they'd forgotten about our arrangement. Everything's been set aside and waiting. No hard feelings about the delay.",
@@ -5038,7 +4893,6 @@
         "passText": "Fine, I'll tell you. I've been stalling because the project means a lot to me and I'm afraid that once I start, I'll find out I'm not good enough to finish it. The missing piece wasn't really the problem, my confidence was. You showing up and making things happen shamed me into admitting I was hiding behind excuses.",
         "failText": "I'm just careful about getting everything lined up before I commit. That's all."
       },
-      "rewardText": "a generous payment and first look at whatever I end up making",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5069,7 +4923,6 @@
         "passText": "The way you put that, I couldn't help but laugh. You're right. I've been treating a simple favor like it was some impossible burden, and the longer I waited, the bigger it grew in my head. Hearing someone describe my situation with that kind of lightness made me realize how absurd I've been about the whole thing.",
         "failText": "I just got behind. It happens to everyone eventually."
       },
-      "rewardText": "honest coin and a friendship worth more than the amount",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} in {settlement_name} sent you? I was beginning to think they'd forgotten. I'm not upset, just surprised it took this long. The favor itself was never a big ask.",
@@ -5107,7 +4960,6 @@
         "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning, not just practical advice. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
         "failText": "I just got behind on a few things. It a crisis, just a backlog."
       },
-      "rewardText": "a fair payment and the relief of a clear conscience",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "A message from {settlement_name}? I sent that weeks ago and heard nothing back. I assumed it got lost on the road, honestly. Good to know it arrived, even late.",
@@ -5140,7 +4992,6 @@
         "passText": "Oh, you've seen marks like these before? Then maybe you'll understand why I'm not sleeping. I saw the same kind near my old home before I came to {settlement_name}, and a season of attacks followed that drove my family out. I've been downplaying the urgency because I don't want to start a panic, but I know what these marks mean.",
         "failText": "Interesting theory, but I think they're just old scratches. Nothing to get worked up about."
       },
-      "rewardText": "what I can pull together and a story I'll tell properly if you ask",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5171,7 +5022,6 @@
         "passText": "You felt it too, standing there just now? I watched your feet shift. That's the part nobody believes because they never stay still long enough. I feel it every night through the floor of my house. I moved my bed to the far wall weeks ago and I haven't told a soul, because once you say you feel the ground humming in your sleep, people stop taking you seriously about anything.",
         "failText": "It's just a curiosity. I'd like it explained, that's all."
       },
-      "rewardText": "a modest sum and the gratitude of someone who can finally sleep without wondering",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Interesting samples. The mineral composition tells me there's a deposit underneath that's been subjected to seasonal pressure changes. The humming your friend described is the deposit settling, like a bone joint popping. Harmless, but unsettling if you don't know what it is.",
@@ -5211,7 +5061,6 @@
         "passText": "All right, since you're pressing. I was afraid to investigate too hard because I thought it might be a person, one of the families here that's been struggling. I was prepared to let it continue if someone was taking what they needed and too ashamed to ask. Learning it's creatures is actually a relief, because now I can stop feeling guilty about wanting to fix it.",
         "failText": "I don't have a theory. That's why I need help."
       },
-      "rewardText": "a share of the stores and a few coins from my personal savings",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Losing small amounts from the stores? I had the same problem last year. Turned out to be a type of {enemy_type} that moves in family groups, comes in through gaps you wouldn't think big enough, and carries away just enough to avoid being noticed. Very methodical creatures.",
@@ -5251,7 +5100,6 @@
         "passText": "You think the behavior isn't random? The patterns they arrange things in are too consistent to be play, almost like territory marking expressed through objects instead of scent. I've never heard of creatures doing that. The fact that you recognized it as unusual rather than just mischievous tells me there's something deeper here than pest control.",
         "failText": "It's strange behavior. I just want it to stop."
       },
-      "rewardText": "a fair payment and the satisfaction of my fence posts finally staying put",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5284,7 +5132,6 @@
         "passText": "All right, I'll tell you the part I've been leaving out. I've known what the sound is for a week, but the last time I raised an alarm about something underground I was wrong and people still remind me of it. I needed someone else to confirm it so they'd actually listen this time. You've given me that.",
         "failText": "I genuinely don't know what it is. That's why I need help."
       },
-      "rewardText": "the coin I'd set aside for the survey and a quiet night's thanks",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5313,7 +5160,6 @@
         "passText": "The way you described the problem back to me, with real interest, like the craft itself mattered to you. Nobody here talks about dye work like that, they see the finished cloth and shrug. You looked at the process and treated it like it was worth understanding, and that made me feel like an artisan again instead of someone failing at a chore.",
         "failText": "It's a craft problem. I just want to fix it."
       },
-      "rewardText": "a piece of my best work and honest coin besides",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Fading dyes? I had the same problem two seasons back. The water source shifted upstream, picking up minerals that react with the binding agent. The dye sets fine but the color leaches out within days.",
@@ -5346,7 +5192,6 @@
         "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult grieving a dog gets a certain look in this settlement. She was more than that. She was the only friend who never needed me to explain myself.",
         "failText": "She was a good dog. There's nothing else to say about it."
       },
-      "rewardText": "the coin I saved for her and a firm, honest handshake",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5377,7 +5222,6 @@
         "passText": "You're asking how they got in, and you already know the answer, don't you. The fence line on the north side had been failing for two seasons and I kept patching over the weak spots instead of rebuilding. They didn't break through anything. They walked through a gap I'd been pretending wasn't there. The rage I feel isn't just at them. It's at the version of me that decided it could wait.",
         "failText": "They destroyed what I built. The rest is between me and the trees."
       },
-      "rewardText": "the savings I'd meant for the replanting I'll never do",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5410,7 +5254,6 @@
         "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
         "failText": "She was my sister. That's all the reason I need, and all the reason I'll give."
       },
-      "rewardText": "the coin I kept beside her stone and a debt I'll carry with dignity",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5446,7 +5289,6 @@
         "passText": "Fine. The part I haven't said is that I was warned this could happen. Someone told me the creatures were moving into the watershed and I dismissed it because I didn't want to spend the season building barriers instead of fishing. My livelihood was destroyed by my own stubbornness, and the anger I feel at those creatures is really anger I can't bear to aim at myself.",
         "failText": "They fouled the water. That's the fact, and that's what I'm settling."
       },
-      "rewardText": "the last of my savings and the first catch when the fish return",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5477,7 +5319,6 @@
         "passText": "The way you said that, so easily, like grief is something you can just name and set down. I've been trying to do that for a year and couldn't manage the first part. Nobody here talks about loss that directly, they circle it and whisper around it. You just walked up to it and called it what it is, and something in me unclenched.",
         "failText": "It's old anger. I don't need it explained to me, just answered."
       },
-      "rewardText": "the coin I've been keeping in the empty space since it happened",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5508,7 +5349,6 @@
         "passText": "You understand what a garden like that means, then. My mother planted it following the old seasonal rites, the way her mother taught her, putting the first seeds in on the morning her tradition marked as the beginning of growth. It was her way of keeping faith with something larger. Watching it get destroyed felt like watching her prayers get answered with silence.",
         "failText": "It's a garden. It was my mother's. That's reason enough."
       },
-      "rewardText": "the savings she left me, spent on exactly the kind of thing she'd approve of",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5541,7 +5381,6 @@
         "passText": "It's funny you put it that way, because that's exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but there it is.",
         "failText": "That's a strange way to ask about someone's luck. I'll manage, just bring me the {quest_item}."
       },
-      "rewardText": "what I'd set aside for a worse day, since today turned out to be a better one",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5579,7 +5418,6 @@
         "passText": "You see the pattern I was hoping nobody would piece together. Each repair failed because I rushed it to get to the next one. The roof leaked because I skipped the sealant, the chain snapped because I reused a worn link, and each shortcut made the next failure come sooner. I built this cycle with my own impatience, and admitting that is harder than any of the repairs.",
         "failText": "Things break. I fix them. That's the whole story."
       },
-      "rewardText": "the coin I keep in the toolbox for exactly this kind of reckoning",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5612,7 +5450,6 @@
         "passText": "Since you're making me say it plainly. I ignored the early signs because I was too proud to admit the season was turning before I was ready. The old farmers warned me and I waved them off, and now everyone here is paying for my stubbornness. The weather didn't betray us, I did, by not listening when I should have.",
         "failText": "Nobody predicted this. It just happened."
       },
-      "rewardText": "what we managed to save from the early harvest and honest gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5650,7 +5487,6 @@
         "passText": "The confidence in your voice when you said the field could recover. I needed to hear someone say it like they believed it. My neighbors have been giving me the look people give when they think you should cut your losses, and I was starting to agree with them. But the way you talked about it, like the ground and I still had a future together, that's what kept me from walking away.",
         "failText": "It's a field problem. I just want it solved."
       },
-      "rewardText": "the savings I'd kept for seed and a promise of first harvest when it comes back",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5683,7 +5519,6 @@
         "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
         "failText": "Things wear out. It's just happening all at once, which is my particular luck."
       },
-      "rewardText": "what I've managed to keep in one piece, offered with real gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5721,7 +5556,6 @@
         "passText": "You noticed something about the failure pattern, didn't you. The collapse keeps happening in the same spot because there's something in the ground there that rejects normal construction. I've dug it up twice and both times there was a residue I couldn't identify, almost crystalline, and warm to the touch. I don't know what it is, but It natural, and pretending it's just bad soil hasn't been working.",
         "failText": "The ground is difficult. That's all I know and all I need to know right now."
       },
-      "rewardText": "the coin I kept setting aside for the next repair, which I finally don't need",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5750,7 +5584,6 @@
         "passText": "Oh, people have told you about the argument already? Then you probably heard a nicer version. The property line wasn't really what started it, I said something about their mother at a gathering, something I knew would cut, and I said it on purpose. The land dispute was just the excuse we both grabbed so we wouldn't have to talk about the real wound.",
         "failText": "You're asking a lot of questions about something that's between family. It was about the property line, and that's the version."
       },
-      "rewardText": "what I can spare and my word that it meant something",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Someone is finally asking about that business? Good. I've been sitting on my account of it for two years and it's been wearing a hole in my patience. Those two are both wrong and both too proud to say it first.",
@@ -5785,7 +5618,6 @@
         "passText": "You're right, those two things don't add up. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children, and that's why there's a gap in the fence and no conversation about fixing it.",
         "failText": "He left. That's all there is to it."
       },
-      "rewardText": "the coin I kept hidden from the split and a fair handshake",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5814,7 +5646,6 @@
         "passText": "Fine, I'll say it plainly. She's not wrong about the claim. Our grandmother told her she could have it, and I know that because I was standing in the doorway when she said it. I took it anyway after the funeral because I was grieving and I wanted something to hold.",
         "failText": "The claim is complicated. I'd rather not go into the details."
       },
-      "rewardText": "a few coins and something I baked this morning",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've been waiting for one of them to crack first. Honestly, I thought it would be her. Tell the other one I'll pass the message along, but they'd better mean it this time.",
@@ -5849,7 +5680,6 @@
         "passText": "Look, the real problem is that we're the last two members of this family in {settlement_name}, and neither of us knows how to say that out loud. The storehouse is just the thing we fight about so we don't have to talk about how alone we both are. He knows it and I know it.",
         "failText": "It's a disagreement about responsibility. That's all it is."
       },
-      "rewardText": "a fair share from the stores and an honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5885,7 +5715,6 @@
         "passText": "You have a way of putting people at ease, you know that? All right. The truth is I was hard on him when he was younger. I raised him the way my father raised me, which I've come to understand was not gently.",
         "failText": "He's young. Young people hold grudges differently."
       },
-      "rewardText": "what I've set aside and a debt I'll remember",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You're asking about those two? I've known them both since before the boy could walk. The uncle means well, but he's got a heavy hand with advice, and the nephew has his mother's temper. They're more alike than either of them will ever admit.",
@@ -5925,7 +5754,6 @@
         "passText": "You noticed the charm on the gate, didn't you. She hung it there the week he left. It's a warding sign, old tradition. Means she considers my home a source of harm to her family.",
         "failText": "We have our disagreements. That's the polite way to describe it."
       },
-      "rewardText": "a share of the harvest and honest gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I wondered when someone would come asking about those two. Her husband told me the whole story before he left, and the truth is messier than either side admits. She's hurt, and the one you're asking for is guilty, but not as guilty as she needs to believe.",
@@ -5956,7 +5784,6 @@
         "passText": "You're asking the right question. Why would it come on like this, all at once, if there's no history of it. It runs in their family. Their mother went the same way when I was young enough to watch, and I've been dreading this for years, telling myself the signs meant something else every time one appeared.",
         "failText": "It came on suddenly. That's all I know for certain."
       },
-      "rewardText": "everything I can spare and a gratitude that won't fade",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Someone from {settlement_name} is asking about confusion and memory loss? I've seen it before, in the old days. It's an illness, and there are things that help if you catch it early enough.",
@@ -5988,7 +5815,6 @@
         "passText": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. The truth is I saw them try to walk into the fire three nights ago, and I barely caught them. I haven't slept since.",
         "failText": "They've been unwell. I'm handling it the best I can."
       },
-      "rewardText": "what little I've kept back and a promise I'll repay you properly when things settle",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I remember them well. Sharpest mind in {settlement_name} when I knew them. If they're struggling the way you describe, then something has gone deeply wrong, and I'd like to help if I can.",
@@ -6020,7 +5846,6 @@
         "passText": "All right, since you're not going to let me dodge this. I tried to stop them last week by grabbing their hands. They looked at me like I was the stranger, not them. Like I was the one who didn't belong in this house.",
         "failText": "It's been difficult. I'd rather focus on solutions than details."
       },
-      "rewardText": "what coin we have between us and something warm for the road",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Show me the pattern they've been drawing. Yes, I've seen this before, in old texts. It random and It meaningless. The mind is reaching for something it can't quite name, and the hand follows.",
@@ -6052,7 +5877,6 @@
         "passText": "Fine. You're direct, so I'll be direct. Last week she didn't recognize me for an entire day. Twenty hours of being a stranger in my own mother's house.",
         "failText": "The episodes come and go. I'm coping."
       },
-      "rewardText": "what she'd want me to give someone who helped and a little extra from me",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've treated conditions like this before. The pattern you're describing is consistent with something treatable, though not quickly. There are things the family can do daily that make a real difference over time.",
@@ -6083,7 +5907,6 @@
         "passText": "You have a calm about you that makes hard things easier to say. He talks to his dead sister during the walks. I recognized her name the second night. She died when they were children, and he's never once mentioned her while awake.",
         "failText": "He walks and he talks. I just want it to stop."
       },
-      "rewardText": "what we've saved between us and a meal whenever you visit",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Night walking with coherent speech? That's uncommon, but I've read about it. The mind is processing something it can't handle during waking hours, so it borrows the body while it's unguarded. There are remedies, but the real work is understanding what's driving it.",
@@ -6114,7 +5937,6 @@
         "passText": "You understand this kind of thing, don't you. The old traditions talk about the soul being shaken loose by what it witnesses. I grew up hearing those stories, and I dismissed them until I watched my own son come home with something missing from behind his eyes. Now I understand what the elders were describing.",
         "failText": "Something scared him badly. That's all I've been able to piece together."
       },
-      "rewardText": "what a worried parent can scrape together and lasting thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The road from {other_settlement}? Yes, I was on it about the same time. I saw something out there that I'm still working through myself. If your boy saw the same thing, I'm not surprised he's struggling.",
@@ -6147,7 +5969,6 @@
         "passText": "You caught the part that doesn't add up. Nobody maintains ditches for free without a reason. My daughter died in a flood three years ago, upstream, because the channels there weren't maintained. That's the piece I leave out when I tell the story, because saying it out loud means admitting I couldn't save her by digging faster.",
         "failText": "Somebody has to tend them. I've got the time and the back for it."
       },
-      "rewardText": "a day's honest wage and a drink from the cleanest water in the region",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Someone is still maintaining those channels? I designed them to last ten years, not twenty. Whoever's been adapting them has a good sense of how water moves. The adjustments are better than what I'd have suggested myself.",
@@ -6180,7 +6001,6 @@
         "passText": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
         "failText": "I believe in the work. That's enough to keep me walking."
       },
-      "rewardText": "what I've set aside from my own stores and a firm handshake",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -6211,7 +6031,6 @@
         "passText": "You're pushing on this because you can see I'm thinner than I should be. All right. I've been giving away more than I can afford because the alternative is watching children go to bed hungry and doing nothing. I know the math doesn't work.",
         "failText": "The stores run a little lean sometimes. It's nothing unusual."
       },
-      "rewardText": "a fair wage and my quiet thanks",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -6249,7 +6068,6 @@
         "passText": "You're wondering why someone would rebuild a bridge nobody asked for. My brother drowned in the river below it, trying to ford the crossing after the old bridge collapsed. If it had been standing, he'd have walked across and come home for dinner. That's the piece I leave out when I tell the story.",
         "failText": "It needs fixing. That's reason enough for me."
       },
-      "rewardText": "what I've saved from honest work and a clear conscience",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Someone rebuilt my bridge? After all these years? I thought the river would swallow what was left of it before anyone bothered. That's a stubborn person doing stubborn work, and I mean that as the highest compliment I know.",
@@ -6284,7 +6102,6 @@
         "passText": "I like how you carry yourself. Open, genuine. It makes me want to be honest in return. I don't have children.",
         "failText": "It's good land going to waste. Someone should use it."
       },
-      "rewardText": "a basket from last year's surviving trees and a fair handful of coin",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -6320,7 +6137,6 @@
         "passText": "You noticed the glyphs on the marker posts, didn't you. They're not decoration. An old friend taught me a simple warding pattern that discourages predators from crossing the path. I don't fully understand why it works, but it does, and I carve it into every post I place.",
         "failText": "It's just a path. I mark it and I keep it clear."
       },
-      "rewardText": "a traveler's wage and the satisfaction of a road well kept",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "You're from the person who marks the western routes? I've been hoping they'd reach out. My paths end at the ridge and theirs start somewhere past it. If we line them up, there's a continuous safe route from here to {settlement_name}.",
@@ -6353,7 +6169,6 @@
         "passText": "You led me right into that, didn't you. All right. I resent him sometimes. There, I said it.",
         "failText": "He needs me. That's the beginning and end of it."
       },
-      "rewardText": "a small purse I've been adding to when I can and my honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6389,7 +6204,6 @@
         "passText": "You noticed the story doesn't hold together. Away on business with no word and no return date, that's not a trip. He left, packed a bag and walked out without saying when or whether he'd come back. I've been telling people the version that sounds less awful.",
         "failText": "He's traveling for work. She's managing fine."
       },
-      "rewardText": "what I've been saving and a promise from both of us",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've been expecting this call for a few weeks now. Her sister sent word a month back that things were getting close. I've got my bag ready. Just tell me when to leave and I'll be on the road by morning.",
@@ -6422,7 +6236,6 @@
         "passText": "You can tell the numbers don't work, can't you. If I'm getting by, why am I this desperate for help from a stranger. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings, and 'getting by' is the story I tell so people don't look at me with pity.",
         "failText": "We're getting by. That's the important thing."
       },
-      "rewardText": "the last coins I have and a parent's deepest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6451,7 +6264,6 @@
         "passText": "All right, you're right to press me on this. I'm not just worried about his career. I'm worried he'll leave again, this time not for work but because he doesn't think he belongs anywhere. Our parents are gone.",
         "failText": "He's had a setback. People recover from setbacks."
       },
-      "rewardText": "what I can pull together and a brother's gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "His brother sent someone? I'm not surprised he didn't come himself. The boy has talent, real talent, but he made a mistake that cost the shop a commission. I had to let him go.",
@@ -6489,7 +6301,6 @@
         "passText": "You have a warmth about you that makes difficult things feel possible. I need that right now. The thing I haven't been able to tell anyone is that I'm angry. Not at her.",
         "failText": "She's recovering. I'm doing what I can for her."
       },
-      "rewardText": "everything I can give and a family's lasting gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's not coming outside at all? That's not the woman I know. She used to walk further than anyone in {settlement_name} just for the pleasure of it. Whatever happened must have been terrible.",
@@ -6520,7 +6331,6 @@
         "passText": "You understand, don't you. In our family, there's a belief that injury to the head is injury to the spirit as well as the body. My grandmother taught me that healing requires attention to both, and I've been terrified that I'm only treating the part I can see. Your understanding tells me I'm not imagining the deeper concern.",
         "failText": "They took a hit and they need to heal. That's where things stand."
       },
-      "rewardText": "a parent's savings and a gratitude too large for words",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "A head injury with dizziness and fatigue? I've seen this pattern before. The recovery is slow, but it's real, and the most important thing is patience. From what you're describing, the family is doing exactly what they should be.",
@@ -6555,7 +6365,6 @@
         "passText": "Honestly, the deciding part is already done, I made the call two days ago. The reason I haven't moved on it is that I keep hoping something will change so I don't have to live with being the one who chose. But nothing is going to change, is it.",
         "failText": "You're pushing pretty hard on this. It's a hard choice and I'll make it when the path is clear."
       },
-      "rewardText": "the coin I'd set aside for the shipment and a family's quiet thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6586,7 +6395,6 @@
         "passText": "I mean, you know how these trade negotiations go, somebody has to bend. The thing is, she didn't give it away willingly. I told her it was the only option and framed the whole deal so she'd feel like she was choosing, but really I'd already decided for her. That's the part I can't sit with.",
         "failText": "You seem very interested in the details of how it happened. It was a family decision, and that's enough."
       },
-      "rewardText": "what I kept hidden from the traders and a father's honest gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6617,7 +6425,6 @@
         "passText": "Fine. You want the truth that keeps me up at night? I had a choice between my son and my daughter, and I picked him because he's older and I thought he'd survive it better. I don't know if I was right, and I never will.",
         "failText": "Times were hard, and we did what we had to."
       },
-      "rewardText": "the little I've saved since he left and a parent's lasting debt",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6655,7 +6462,6 @@
         "passText": "You want me to stop circling it, fine. My wife told me if I send him away she won't forgive me, and I'm going to do it anyway because forgiveness won't mean much if he's dead. That's the choice I've made, and I'm making it with my eyes open.",
         "failText": "It's a family matter. We'll sort it out between ourselves."
       },
-      "rewardText": "the savings I'd kept for his schooling and a father's word that it mattered",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6686,7 +6492,6 @@
         "passText": "You can see it, can't you. I keep saying the hardest part is letting her go, but that's not it. The hardest part is that she's choosing to leave, and she's right to, and I have to stand here and respect a decision that guts me. I'm not losing her. She's walking away with her eyes open, and I'm the one who can't look.",
         "failText": "She's old, and she's tired. That's as much as I want to say about it."
       },
-      "rewardText": "a keepsake she set aside for whoever helped and my family's gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6717,7 +6522,6 @@
         "passText": "You understand, then. The homestead isn't just a house, my family consecrated that ground when they first built here. Leaving means breaking a promise my grandmother made to this land. I've spent every night since the decision asking whether the ancestors will forgive me, and I still don't have an answer.",
         "failText": "It's just a house. A hard one to leave, but just a house."
       },
-      "rewardText": "my grandfather's coin purse and the thanks of a family starting over",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6748,7 +6552,6 @@
         "passText": "It is nice having the list, you're right, gives you something to do in the morning. That's the part I don't say out loud. I've spent so many years thinking in pairs that I've forgotten how to want things on my own, and the errands keep me moving. I'm afraid of what happens when I run out of them.",
         "failText": "That's a kind thought, but I'd rather not go deeper into it. The errand is what matters."
       },
-      "rewardText": "the payment he'd set aside for the job and my lasting thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6779,7 +6582,6 @@
         "passText": "You noticed that the timing doesn't add up. You're right. The {enemy_type_plural} moved in three weeks ago, but I stopped visiting two months before that. I kept finding reasons, the weather, the path, my knees, and none of them were the real one. The real one is that I'm afraid I'll stand at her grave and realize I'm starting to forget her voice, and I don't want to be there when that happens.",
         "failText": "I just miss her. The rest is my own business."
       },
-      "rewardText": "what she left me that I can bear to part with and a sibling's honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6812,7 +6614,6 @@
         "passText": "You want the part nobody asks about, fine. I'm angry, not at anyone in particular, just angry at the way it happened, angry at the season for turning, angry at the plate for being empty. Grief is supposed to be sad, and it is, but underneath that it's the angriest I've ever been in my life and I have nowhere to put it.",
         "failText": "I'm getting by. Some days are longer than others."
       },
-      "rewardText": "the coins he'd saved in a jar by his bed and a parent's solemn thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6850,7 +6651,6 @@
         "passText": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
         "failText": "She left things in order, and I'm following it."
       },
-      "rewardText": "what she'd set aside for exactly this purpose and a widower's quiet thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6881,7 +6681,6 @@
         "passText": "You understand the weight of the small things, don't you. Everyone told me the big moments would be the hardest, the holidays, the anniversaries, but they were wrong. Every morning I come downstairs expecting to hear her humming, and every morning the kitchen is just a kitchen. That's the part that's killing me slowly.",
         "failText": "I miss her, and the house is quiet."
       },
-      "rewardText": "her favorite coin purse and the thanks of a granddaughter who isn't done remembering",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6912,7 +6711,6 @@
         "passText": "You noticed the mark on the stone he wanted placed. My brother believed the crossroads held a kind of memory, that places where paths split could hold the echo of the people who stood there and chose. I don't know if he was right, but I know he believed it completely, and I'm not going to let that belief go unhonored.",
         "failText": "It was important to him. That's reason enough for me."
       },
-      "rewardText": "what my brother set aside for this exact purpose and a family's word kept",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6945,7 +6743,6 @@
         "passText": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do.",
         "failText": "That's a funny question, I know what I'm doing. Let's leave it there."
       },
-      "rewardText": "a proper share of the profits and my word that your name goes on the record",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -6983,7 +6780,6 @@
         "passText": "You caught the part I'm not saying out loud. My father ran this same shop for thirty years and never once tried to make it bigger, and people told me I'd end up the same way, steady but small. Every board I lay is an answer to that prediction, and some mornings I'm not sure if I'm building something real or just building spite into a storefront.",
         "failText": "It's a good opportunity. I don't need a deeper reason than that."
       },
-      "rewardText": "a founding partner's share and my guarantee that your name stays on the door",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7021,7 +6817,6 @@
         "passText": "You want the real talk, fine. I've been told no so many times in my life that I stopped counting and started collecting, because every refusal is fuel. The people who laughed at this idea are going to watch it succeed, and I want them to feel exactly what I felt every time they dismissed me.",
         "failText": "I see an opportunity and I'm taking it. Simple as that."
       },
-      "rewardText": "a generous bonus from the first profits and my personal endorsement",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7052,7 +6847,6 @@
         "passText": "You see the edge in me, and you're not wrong. There's a {self_role} in {other_settlement} who's been called the finest in the region for years, and their work is competent while mine is inspired. I've been watching them collect praise for mediocrity until it ate at me so badly I couldn't sit still anymore, and this piece is my answer.",
         "failText": "I take my craft seriously. That's all anyone needs to know."
       },
-      "rewardText": "a handsome payment and a piece of my best work, signed",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7089,7 +6883,6 @@
         "passText": "You see right through the big talk, don't you. I'm not building this because I love {settlement_name}. I'm terrified of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
         "failText": "I want to build something. That's reason enough."
       },
-      "rewardText": "a founder's share and a place of honor in the record books",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7127,7 +6920,6 @@
         "passText": "You understand tradition, then, so you'll understand this. The council has always chosen its leaders from the same three families, and my family isn't one of them. That's not written anywhere but it's understood, and breaking that understanding scares them more than anything I might actually do. I'm breaking a rule nobody will admit exists.",
         "failText": "It's politics. Straightforward enough if you know the game."
       },
-      "rewardText": "a generous purse and my promise that I remember the people who helped me climb",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7158,7 +6950,6 @@
         "passText": "You see the problem with what I just told you, don't you. I said I found discrepancies, but I went looking for them. I started with the conclusion and worked backward through the ledger until the numbers confirmed what I'd already decided. Every ambiguous entry fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
         "failText": "I just want the facts. That's all."
       },
-      "rewardText": "a fair sum and my word that I'll try to see straight from now on",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7189,7 +6980,6 @@
         "passText": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
         "failText": "I just need someone to confirm what I'm hoping is true."
       },
-      "rewardText": "what I can put together quickly and my honest thanks for the discretion",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7220,7 +7010,6 @@
         "passText": "You're right that I should just ask them directly, and the fact that I won't tells you something about me I'd rather you didn't know. I'm afraid of the conversation, not because of what they might say but because of what my asking would reveal about me. I don't trust the person I love most in the world, and the distrust comes from nowhere they caused, and I'd rather investigate in secret than face it in the open.",
         "failText": "I just need to understand what's going on. That's all."
       },
-      "rewardText": "a fair payment and my promise to think before I doubt next time",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7251,7 +7040,6 @@
         "passText": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
         "failText": "I'm probably overreacting. I just want to be sure."
       },
-      "rewardText": "a fair sum and the deepest thanks of someone who nearly ruined their own happiness",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7282,7 +7070,6 @@
         "passText": "You have a way of making people drop their guard, so all right. I was good once, really good, and somewhere in the last few years I stopped trying to be excellent and started just being adequate. I let my customers go by being too comfortable to fight for them, and that's what the jealousy is really about.",
         "failText": "It's a business matter. I'll sort it out."
       },
-      "rewardText": "a sample of my best recent work and fair coin for your time",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7317,7 +7104,6 @@
         "passText": "You noticed the pressed flower in the envelope. I noticed it too and thought it was a token of something romantic, but you're right that it's silverveil, and it only grows near old family plots. She sends them pressed into every letter because it connects the words to the family ground. I was so busy looking for a betrayal that I missed a blessing sitting right in front of me.",
         "failText": "I just need to know who wrote it. That's all."
       },
-      "rewardText": "what coin I can spare and the thanks of someone learning to trust better",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7348,7 +7134,6 @@
         "passText": "Well, since you've heard what happened at the council, I might as well be straight with you. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted my word and I spent that trust on a grudge.",
         "failText": "That's an odd angle to come at this from. I made a mistake, and that's the whole story."
       },
-      "rewardText": "what I owe and then some, because the debt is bigger than coin",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7379,7 +7164,6 @@
         "passText": "You trade with the storehouse too? Then you know how things work over there, the security, who comes and goes. The reason I stayed quiet is that the storehouse manager is a friend of mine and I didn't want to suggest his security failed. I let a child take the fall to protect a grown man's reputation.",
         "failText": "You're asking questions that sound friendly but feel pointed. I said I should have spoken up, and that's all I've got."
       },
-      "rewardText": "a family's gratitude and everything I can put together",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7410,7 +7194,6 @@
         "passText": "Fine, you want the truth? I was one of the loudest voices calling for the traveler to be thrown out. I saw a stranger near the well and chose the easiest explanation because it felt good to have someone to blame. I cared about feeling certain more than being right.",
         "failText": "Mistakes were made. I'm trying to fix them now."
       },
-      "rewardText": "a portion of what I have and the hope that it counts for something",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7441,7 +7224,6 @@
         "passText": "Let me be blunt with you since you're being blunt with me. I went public because I wanted to look sharp in front of the council. Catching someone skimming surplus would have made me look like the responsible one, the watchful neighbor. I put my own ambition ahead of someone's reputation and I'll regret it for a long time.",
         "failText": "I jumped to conclusions. That's all there is to say."
       },
-      "rewardText": "everything I can spare, which isn't enough, but it's honest",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7473,7 +7255,6 @@
         "passText": "You caught the part I was hoping nobody would question. I said people started talking, like it happened on its own, but it didn't. I was the first voice, the one who saw the patient getting worse and said it out loud, and the rest of the settlement followed my lead because I sounded certain.",
         "failText": "I made assumptions I shouldn't have. The details don't change what needs to happen now."
       },
-      "rewardText": "a careful measure of what I have and the healer's future goodwill, I hope",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7504,7 +7285,6 @@
         "passText": "You noticed something odd about the timing, didn't you. The middleman used a preservation charm on the grain so it would look freshly harvested when it arrived, hiding the fact that it had traveled from much farther away. That's how he made the story believable. Without the charm, everyone would have known the grain came from outside.",
         "failText": "There's more to it than I've said, but the facts are enough for now."
       },
-      "rewardText": "a share of what the settlement owes and my word that the truth will stand",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7535,7 +7315,6 @@
         "passText": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win.",
         "failText": "I said something I regret. That's where I'd like to leave it."
       },
-      "rewardText": "what I can offer and the promise that I'll do better",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7566,7 +7345,6 @@
         "passText": "You see right through the version I'm telling, don't you. I didn't just stay quiet out of fear. One of those traders offered me a cut of the goods afterward if I kept my mouth shut, and I didn't take it, but I didn't refuse it outright either. I let them think I might, and that bought my silence almost as effectively as if I had.",
         "failText": "I was a coward. That's the shape of it."
       },
-      "rewardText": "my honest share and the weight of a burden finally set down",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7597,7 +7375,6 @@
         "passText": "Alright, you've made your point. The reason I hid the damage isn't just embarrassment. I was afraid {settlement_npc} would stop trusting me, and that trust is the foundation of our whole working arrangement. I chose the lie because I thought the truth would cost me the relationship, but instead the lie is costing it slowly.",
         "failText": "I made a mistake and I'm correcting it. That's the whole story."
       },
-      "rewardText": "a fair payment and the honest relief of someone who stopped lying",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7628,7 +7405,6 @@
         "passText": "You're not going to let me wrap this in soft language, are you. I didn't just start the rumor out of jealousy, I kept feeding it. Every time it started to die down, I'd mention something new, something invented, to keep it alive. I was deliberate, and that's the part that keeps me up at night.",
         "failText": "I did something wrong and I'm trying to fix it. That's where I'll leave it."
       },
-      "rewardText": "my savings and the first honest night's sleep I've had in months",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7659,7 +7435,6 @@
         "passText": "You have a way of making people feel like they're in good company, and that's dangerous for me right now because I want to be honest. I didn't stumble on that letter. I went looking through {settlement_npc}'s things because I was curious, and the gossip afterward wasn't carelessness, it was the second violation after the first.",
         "failText": "I read something I shouldn't have and shared it. That's the extent of what I want to say."
       },
-      "rewardText": "what I have and the beginning of accountability",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7690,7 +7465,6 @@
         "passText": "You understand something about obligations, I can tell. In the old traditions, a promise to teach is considered sacred, the passing of knowledge from one hand to the next. I grew up hearing those stories and believed them, and then when it was my turn to honor that chain I let it fall. The weight of that isn't just personal, it's something larger that I failed.",
         "failText": "I made a promise and didn't keep it. I'd like to fix that now."
       },
-      "rewardText": "a mentor's wages and the hope that one broken promise doesn't define me",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7721,7 +7495,6 @@
         "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
         "failText": "I overstepped and I'm correcting it. That's the whole of it."
       },
-      "rewardText": "a fair trade and the beginning of a more honest partnership",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7752,7 +7525,6 @@
         "passText": "You've found the thread I was trying to keep hidden. It was never really about danger, I was afraid she'd succeed somewhere else and stop needing me. A parent isn't supposed to feel that way, but there it is. I dressed up my own fear as concern for her safety, and she's the one who paid for it.",
         "failText": "I made a decision that wasn't mine to make. I'm correcting it now."
       },
-      "rewardText": "a parent's honest share and the gratitude of a lighter heart",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7783,7 +7555,6 @@
         "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
         "failText": "I mixed up two people and spoke too soon. That's really all there is to it."
       },
-      "rewardText": "what I can gather and the hope that honesty still counts for something",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7814,7 +7585,6 @@
         "passText": "Alright, you want to know why I was careless, and the honest answer is that I didn't take his trip seriously. He's my younger brother, and I treated his plans like they were less important than mine. I scribbled the route from memory instead of checking it because I was in the middle of something I thought mattered more, and it didn't.",
         "failText": "I gave bad directions and someone I love paid for it. That's all."
       },
-      "rewardText": "travel supplies of my own and a brother's reluctant thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7845,7 +7615,6 @@
         "passText": "You have an ease about you that makes me want to drop the pretense, so I will. I didn't just misread the situation, I wanted to be the person who brought two people together because I liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement.",
         "failText": "I read the signals wrong and someone I care about got hurt. That's the simple version."
       },
-      "rewardText": "a practical gift and the understanding that good intentions have limits",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7876,7 +7645,6 @@
         "passText": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
         "failText": "I shared something I shouldn't have. The details beyond that are family business."
       },
-      "rewardText": "an heirloom from the family stores and the gratitude of two people starting to mend",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7907,7 +7675,6 @@
         "passText": "You can see I'm not telling you the whole shape of this, can't you. The feud isn't the only obstacle, my own family warned me directly to stay away from that side and I told them I had. I've been lying to the people I live with to protect something they'd tear apart if they knew. Every time I come home from a meeting I carry the weight of the deception alongside the joy of the visit.",
         "failText": "It's a family matter with complications. I'd rather focus on what comes next."
       },
-      "rewardText": "a token from my family's stores and a heart that's lighter for having tried",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7938,7 +7705,6 @@
         "passText": "You've guessed that I'm holding something back, haven't you. I had the money once and I spent it helping a friend in trouble, and I'd do it again, but I haven't told the family that. I let them think I'm simply poor rather than admit I chose someone else's crisis over this offering. I'm afraid they'd see it as proof that I don't prioritize their traditions.",
         "failText": "The money is short. That's the obstacle and I'm working to clear it."
       },
-      "rewardText": "a share of my savings and the joy of someone whose life just changed",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7969,7 +7735,6 @@
         "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
         "failText": "It's a tradition that goes back a long way. I don't think the history changes what I'm dealing with now."
       },
-      "rewardText": "a craftworker's best piece and the courage that came from your help",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -8000,7 +7765,6 @@
         "passText": "Fine, you've made the cost of silence plain enough. The last time I told someone how I felt, they didn't feel the same and the friendship ended entirely. I'm terrified of losing this person from my life by asking for more than friendship offers. But you're right that doing nothing is its own kind of loss.",
         "failText": "The distance makes it hard. That's the whole of it."
       },
-      "rewardText": "what I can offer and the relief of someone who finally took the step",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -8031,7 +7795,6 @@
         "passText": "You know how to put people at ease, and I need that right now because I'm about to admit something I haven't told anyone. The real obstacle is that I'm afraid I'm not enough to justify the effort. Why would someone rearrange their life for me? I've been hiding that question behind logistics because logistics are easier to talk about than worth.",
         "failText": "It's a question of distance and roots. That's the puzzle I'm trying to solve."
       },
-      "rewardText": "something from both hearths and the warmth of a decision finally made",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -8062,7 +7825,6 @@
         "passText": "You understand something about devotion, I think. In the old ways, a declaration of the heart was treated like a vow, spoken once and witnessed, and I grew up with that weight on every word. Once I say it, it becomes binding, permanent, real in a way that can't be taken back. That's why every draft feels like too much, because to me it is.",
         "failText": "I just want to get the words right. That's all I'm after."
       },
-      "rewardText": "the finest thing I own and a heart finally unburdened",
       "valence": "positive",
       "roleAffinity": []
     }
