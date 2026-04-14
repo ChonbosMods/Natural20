@@ -199,7 +199,7 @@ public class Nat20AffixEventListener {
             EffectHandler handler = handlerRegistry.get(rolledAffix.id());
             if (handler == null) continue;
 
-            double effectiveValue = computeEffectiveValue(def, lootData, playerStats);
+            double effectiveValue = computeEffectiveValue(def, rolledAffix, lootData, playerStats);
             try {
                 callback.invoke(handler, def, effectiveValue);
             } catch (Exception e) {
@@ -213,12 +213,12 @@ public class Nat20AffixEventListener {
      * Compute the effective value for an affix: interpolate from the value range at the item's
      * rarity using loot level, then apply stat scaling if the player has stats.
      */
-    private double computeEffectiveValue(Nat20AffixDef def, Nat20LootData lootData,
-                                          @Nullable PlayerStats playerStats) {
+    private double computeEffectiveValue(Nat20AffixDef def, com.chonbosmods.loot.RolledAffix rolledAffix,
+                                          Nat20LootData lootData, @Nullable PlayerStats playerStats) {
         AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
         if (range == null) return 0.0;
 
-        double baseValue = range.interpolate(lootData.getLootLevel());
+        double baseValue = range.interpolate(rolledAffix.midLevel());
         double effectiveValue = baseValue;
 
         if (playerStats != null && def.statScaling() != null) {

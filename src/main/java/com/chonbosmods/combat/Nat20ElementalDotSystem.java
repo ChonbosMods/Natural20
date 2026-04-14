@@ -164,19 +164,22 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                 continue;
             }
 
-            // Compute per-tick damage from affix values
+            // Per-hit RNG: each proc rolls fresh within the item's range. Value interpolated
+            // here is the per-tick damage (display multiplies by TICKS_PER_DURATION for totals).
             com.chonbosmods.loot.def.AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             float damagePerTick = 0.5f; // fallback
             if (range != null) {
-                double totalDot = range.interpolate(lootData.getLootLevel());
-                // Apply stat scaling to DOT total
+                double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
+                double perTick = range.interpolate(rolledLevel);
+                // Stat scaling (WIS) amplifies per-tick damage.
                 PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
                 if (dotStats != null && def.statScaling() != null) {
                     int mod = dotStats.getModifier(def.statScaling().primary());
-                    totalDot *= (1.0 + mod * def.statScaling().factor());
+                    perTick *= (1.0 + mod * def.statScaling().factor());
                 }
-                totalDot = Nat20Softcap.softcap(totalDot, 12.0);
-                damagePerTick = (float) (totalDot / TICKS_PER_DURATION);
+                // Softcap applied on the total payload, then divided back out per tick.
+                double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
+                damagePerTick = (float) (total / TICKS_PER_DURATION);
             }
 
             // Register with unified tick system so all DOTs on this entity tick in sync

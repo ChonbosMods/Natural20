@@ -199,7 +199,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
                 AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = range.interpolate(lootData.getLootLevel());
+                double baseValue = range.interpolate(rolledAffix.midLevel());
                 double effectiveValue = baseValue;
 
                 if (affixDef.statScaling() != null) {

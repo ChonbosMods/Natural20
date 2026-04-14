@@ -1,7 +1,6 @@
 package com.chonbosmods.loot.display;
 
 import com.chonbosmods.loot.Nat20ItemDisplayData;
-import com.chonbosmods.stats.Stat;
 import com.hypixel.hytale.server.core.Message;
 
 import javax.annotation.Nullable;
@@ -9,13 +8,14 @@ import javax.annotation.Nullable;
 public class Nat20TooltipBuilder {
 
     private static final String COLOR_MUTED = "#888888";
-    private static final String COLOR_EFFECT = "#cc99ff";
     private static final String COLOR_SOCKET_EMPTY = "#666666";
     private static final String COLOR_MET = "#33cc33";
     private static final String COLOR_UNMET = "#cc3333";
 
     /**
-     * Build a rich tooltip Message from resolved display data.
+     * Build a rich tooltip Message from resolved display data. Each affix line's
+     * {@code renderedText} contains the canonical Hytale colour-markup form, so this builder
+     * emits the raw markup inside {@link Message#raw} — the client-side parser handles it.
      *
      * @param data    the resolved item display data
      * @param deltas  nullable comparison deltas (null = no comparison)
@@ -27,17 +27,10 @@ public class Nat20TooltipBuilder {
         // Rarity label
         tooltip.insert(Message.raw("\n" + data.rarity()).color(data.rarityColor()));
 
-        // STAT affix lines
-        for (AffixLine affix : data.affixes()) {
-            if (!"STAT".equals(affix.type())) continue;
-            tooltip.insert(buildStatLine(affix, deltas));
-        }
-
-        // EFFECT affix lines
-        for (AffixLine affix : data.affixes()) {
-            if (!"EFFECT".equals(affix.type())) continue;
-            tooltip.insert(buildEffectLine(affix));
-        }
+        // Affix lines: STAT → EFFECT → ABILITY order.
+        appendAffixes(tooltip, data, "STAT", deltas);
+        appendAffixes(tooltip, data, "EFFECT", deltas);
+        appendAffixes(tooltip, data, "ABILITY", deltas);
 
         // Socket lines
         if (!data.sockets().isEmpty()) {
@@ -62,61 +55,24 @@ public class Nat20TooltipBuilder {
         return tooltip;
     }
 
-    private static Message buildStatLine(AffixLine affix, @Nullable ComparisonDeltas deltas) {
-        String line = "\n" + affix.value() + affix.unit() + " " + affix.statName();
-        Message msg = Message.raw(line);
+    private static void appendAffixes(Message tooltip, Nat20ItemDisplayData data, String type,
+                                       @Nullable ComparisonDeltas deltas) {
+        for (AffixLine affix : data.affixes()) {
+            if (!type.equals(affix.type())) continue;
+            tooltip.insert(Message.raw("\n" + affix.renderedText()));
 
-        // Color the stat value by scaling stat if present
-        if (affix.scalingStat() != null) {
-            msg.color(Stat.colorFor(affix.scalingStat()));
-            msg.insert(Message.raw(" " + affix.scalingStat()).color(COLOR_MUTED));
-        }
+            // Comparison delta (STAT only)
+            if (deltas != null && "STAT".equals(type)) {
+                ComparisonDeltas.Delta delta = deltas.getForStat(affix.statName());
+                if (delta != null) {
+                    tooltip.insert(Message.raw(" " + delta.symbol()).color(delta.color()));
+                }
+            }
 
-        // Comparison delta
-        if (deltas != null) {
-            ComparisonDeltas.Delta delta = deltas.getForStat(affix.statName());
-            if (delta != null) {
-                msg.insert(Message.raw(" " + delta.symbol()).color(delta.color()));
+            if (!affix.requirementMet() && affix.requirementText() != null) {
+                tooltip.insert(Message.raw("\n  Requires: " + affix.requirementText()).color(COLOR_UNMET));
             }
         }
-
-        // Unmet requirement warning
-        if (!affix.requirementMet() && affix.requirementText() != null) {
-            msg.insert(Message.raw("\n  Requires: " + affix.requirementText()).color(COLOR_UNMET));
-        }
-
-        return msg;
-    }
-
-    private static Message buildEffectLine(AffixLine affix) {
-        // Use description if available, otherwise fall back to value + stat
-        String text;
-        if (affix.description() != null && !affix.description().isEmpty()) {
-            text = "\n" + affix.description();
-        } else {
-            text = "\n" + affix.value() + affix.unit() + " " + affix.statName();
-        }
-        Message msg = Message.raw(text).color(COLOR_EFFECT);
-
-        // Append proc chance and cooldown as secondary info
-        StringBuilder details = new StringBuilder();
-        if (affix.procChance() != null) {
-            details.append(affix.procChance()).append(" chance");
-        }
-        if (affix.cooldown() != null) {
-            if (!details.isEmpty()) details.append(", ");
-            details.append(affix.cooldown()).append(" cd");
-        }
-        if (!details.isEmpty()) {
-            msg.insert(Message.raw(" (" + details + ")").color(COLOR_MUTED));
-        }
-
-        // Unmet requirement warning
-        if (!affix.requirementMet() && affix.requirementText() != null) {
-            msg.insert(Message.raw("\n  Requires: " + affix.requirementText()).color(COLOR_UNMET));
-        }
-
-        return msg;
     }
 
     private static Message buildSocketLine(SocketLine socket) {

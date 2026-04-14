@@ -219,7 +219,7 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return 0f;
 
-            double baseValue = range.interpolate(lootData.getLootLevel());
+            double baseValue = range.interpolate(rolledAffix.midLevel());
             double effectiveValue = baseValue;
 
             if (playerStats != null && def.statScaling() != null) {

@@ -121,7 +121,7 @@ public class Nat20BlockProficiencySystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return 0;
 
-            double baseValue = range.interpolate(lootData.getLootLevel());
+            double baseValue = range.interpolate(rolledAffix.midLevel());
             double effectiveValue = baseValue;
             PlayerStats stats = resolvePlayerStats(playerRef, store);
             if (stats != null && def.statScaling() != null) {

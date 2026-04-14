@@ -87,7 +87,10 @@ public class LootInspectCommand extends AbstractPlayerCommand {
         } else {
             context.sendMessage(Message.raw("Affixes:"));
             for (RolledAffix affix : lootData.getAffixes()) {
-                context.sendMessage(Message.raw("  " + affix.id() + " (level=" + String.format("%.4f", affix.level()) + ")"));
+                String levelStr = affix.isFixed()
+                        ? String.format("%.4f", affix.minLevel())
+                        : String.format("%.4f-%.4f", affix.minLevel(), affix.maxLevel());
+                context.sendMessage(Message.raw("  " + affix.id() + " (level=" + levelStr + ")"));
             }
         }
 

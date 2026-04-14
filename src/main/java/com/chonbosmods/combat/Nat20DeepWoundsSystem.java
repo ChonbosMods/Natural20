@@ -125,19 +125,21 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                 return;
             }
 
-            // Compute per-tick damage from affix values
+            // Per-hit RNG: each proc rolls fresh within the item's range. Value interpolated
+            // here is the per-tick damage (display multiplies by TICKS_PER_DURATION for totals).
             AffixValueRange dotRange = def.getValuesForRarity(lootData.getRarity());
             float damagePerTick = 0.5f;
             if (dotRange != null) {
-                double totalDot = dotRange.interpolate(lootData.getLootLevel());
+                double rolledLevel = rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current());
+                double perTick = dotRange.interpolate(rolledLevel);
                 PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
                 if (dotStats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
                     int mod = dotStats.getModifier(primary);
-                    totalDot *= (1.0 + mod * def.statScaling().factor());
+                    perTick *= (1.0 + mod * def.statScaling().factor());
                 }
-                totalDot = Nat20Softcap.softcap(totalDot, 12.0);
-                damagePerTick = (float) (totalDot / TICKS_PER_DURATION);
+                double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
+                damagePerTick = (float) (total / TICKS_PER_DURATION);
             }
 
             // Register with unified tick system so bleed syncs with other DOTs
@@ -154,7 +156,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
 
             if (CombatDebugSystem.isEnabled(attackerUuid)) {
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-                double baseValue = range != null ? range.interpolate(lootData.getLootLevel()) : 0;
+                double baseValue = range != null ? range.interpolate(rolledAffix.midLevel()) : 0;
                 double effectiveValue = baseValue;
                 PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
                 if (playerStats != null && def.statScaling() != null) {

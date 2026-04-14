@@ -28,6 +28,7 @@ import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Flat elemental damage affixes: fire, frost, poison, void.
@@ -146,7 +147,8 @@ public class Nat20ElementalDamageSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) continue;
 
-            float flatDamage = (float) range.interpolate(lootData.getLootLevel());
+            // Per-hit RNG: each swing rolls a fresh value uniformly within the item's range.
+            float flatDamage = (float) range.interpolate(rolledAffix.rollLevel(ThreadLocalRandom.current()));
             if (flatDamage <= 0f) continue;
 
             // Fire secondary damage event with elemental cause

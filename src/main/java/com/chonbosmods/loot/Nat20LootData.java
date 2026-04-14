@@ -103,14 +103,18 @@ public class Nat20LootData {
     public void setUniqueItemId(String uniqueItemId) { this.uniqueItemId = uniqueItemId; }
 
     // --- Codec adapters ---
-    // Affixes serialized as "id=level,id=level" (= separator avoids clash with namespace colons in IDs)
+    // Affixes serialized as "id=min-max" (or "id=level" when collapsed). "-" is unambiguous
+    // because lootLevel is always in [0, 1]. Namespace colons in IDs are fine since "=" separates.
 
     String getAffixDataRaw() {
         if (affixes.isEmpty()) return "";
         StringBuilder sb = new StringBuilder();
         for (var affix : affixes) {
             if (!sb.isEmpty()) sb.append(",");
-            sb.append(affix.id()).append("=").append(affix.level());
+            sb.append(affix.id()).append("=").append(affix.minLevel());
+            if (!affix.isFixed()) {
+                sb.append("-").append(affix.maxLevel());
+            }
         }
         return sb.toString();
     }
@@ -120,14 +124,22 @@ public class Nat20LootData {
         if (raw == null || raw.isEmpty()) return;
         for (String pair : raw.split(",")) {
             int eq = pair.lastIndexOf('=');
-            if (eq > 0 && eq < pair.length() - 1) {
-                try {
-                    String id = pair.substring(0, eq).trim();
-                    double level = Double.parseDouble(pair.substring(eq + 1).trim());
-                    affixes.add(new RolledAffix(id, level));
-                } catch (NumberFormatException e) {
-                    // Skip malformed entries
+            if (eq <= 0 || eq >= pair.length() - 1) continue;
+            try {
+                String id = pair.substring(0, eq).trim();
+                String value = pair.substring(eq + 1).trim();
+                int dash = value.indexOf('-');
+                double minLevel;
+                double maxLevel;
+                if (dash > 0) {
+                    minLevel = Double.parseDouble(value.substring(0, dash));
+                    maxLevel = Double.parseDouble(value.substring(dash + 1));
+                } else {
+                    minLevel = maxLevel = Double.parseDouble(value);
                 }
+                affixes.add(new RolledAffix(id, minLevel, maxLevel));
+            } catch (NumberFormatException e) {
+                // Skip malformed entries
             }
         }
     }

@@ -158,7 +158,7 @@ public class Nat20LightFootSystem extends EntityTickingSystem<EntityStore> {
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = range.interpolate(lootData.getLootLevel());
+                double baseValue = range.interpolate(rolledAffix.midLevel());
                 double effectiveValue = baseValue;
                 PlayerStats stats = resolvePlayerStats(playerRef, store);
                 if (stats != null && def.statScaling() != null) {
