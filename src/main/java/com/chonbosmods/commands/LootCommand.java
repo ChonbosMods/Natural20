@@ -29,6 +29,8 @@ public class LootCommand extends AbstractPlayerCommand {
         withRequiredArg("item", "Hytale item (e.g., IronSword)", ArgTypes.ITEM_ASSET);
     private final OptionalArg<String> rarityArg =
         withOptionalArg("rarity", "Rarity tier (Common, Uncommon, Rare, Epic, Legendary)", ArgTypes.STRING);
+    private final OptionalArg<Integer> levelArg =
+        withOptionalArg("level", "Item level 1-20 (default 10)", ArgTypes.INTEGER);
 
     public LootCommand() {
         super("loot", "Generate a loot item and add to inventory");
@@ -67,6 +69,8 @@ public class LootCommand extends AbstractPlayerCommand {
             baseName = itemId;
         }
 
+        int ilvl = context.provided(levelArg) ? Math.clamp(levelArg.get(context), 1, 20) : 10;
+
         Nat20LootData lootData;
         if (context.provided(rarityArg)) {
             String rarityName = rarityArg.get(context);
@@ -77,9 +81,9 @@ public class LootCommand extends AbstractPlayerCommand {
                 return;
             }
             int tier = rarity.qualityValue();
-            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, tier, tier, random);
+            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, tier, tier, random, ilvl);
         } else {
-            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random);
+            lootData = lootSystem.getPipeline().generate(itemId, baseName, categoryKey, random, ilvl);
         }
         if (lootData == null) {
             context.sendMessage(Message.raw("Failed to generate loot for: " + itemId));
@@ -100,7 +104,8 @@ public class LootCommand extends AbstractPlayerCommand {
         player.giveItem(stack, ref, store);
 
         context.sendMessage(Message.raw("Generated: " + lootData.getGeneratedName() +
-            " [" + lootData.getRarity() + "] (" + lootData.getAffixes().size() + " affixes, " +
+            " [" + lootData.getRarity() + "] (ilvl=" + lootData.getItemLevel() +
+            ", " + lootData.getAffixes().size() + " affixes, " +
             lootData.getSockets() + " sockets, lootLevel=" +
             String.format("%.2f", lootData.getLootLevel()) + ")"));
     }
