@@ -71,7 +71,24 @@ Per-template logic:
 The git-history read is a one-liner: `subprocess.check_output(["git", "show", f"{legacy_rev}:{path}"])`. Parse as JSON, build an id→rewardText lookup map, use it during the per-template pass.
 
 **Fields explicitly NOT touched in Phase 1:**
-- `rewardGold` / `rewardXP` / `rewardItem` / `difficulty` — these are not template fields in the final schema. Difficulty is runtime-assigned; XP and item come from the difficulty config. Templates only author `rewardFlavor`.
+- `rewardXP` / `difficulty` — these are not template fields in the final schema. Difficulty is runtime-assigned; XP comes from the difficulty config. Templates only author `rewardFlavor`.
+
+**Dead fields removed from templates in Phase 1 (bundled cleanup):**
+
+The D-series left `QuestTemplateV2` with `rewardGold` (int) and `rewardItem` (nullable String) components that nothing reads anymore — the D5 runtime flow rolls the reward via `AffixRewardRoller` and overwrites any template-pinned `reward_item` binding. These record components are stale carry-over from Task 7+8.
+
+Phase 1's script ALSO:
+
+5. Removes any `"rewardGold"` or `"rewardItem"` keys present on any template (most templates don't have them, since Task 7+8 never ran a bulk pass to add them — but a handful may).
+
+Then a Java-side companion commit (landed before or with the script pass):
+
+- Drops `int rewardGold` and `@Nullable String rewardItem` from the `QuestTemplateV2` record declaration in `src/main/java/com/chonbosmods/quest/model/QuestTemplateV2.java`.
+- Removes the corresponding `bindings.put("reward_gold", ...)` and any residual `template.rewardItem()` reader in `src/main/java/com/chonbosmods/quest/QuestGenerator.java`.
+- Removes `"reward_gold"` from `HIGHLIGHTED_QUEST_VARS` in `src/main/java/com/chonbosmods/quest/DialogueResolver.java` if still present.
+- Compile-verify; Gson will silently ignore any leftover `"rewardGold"` / `"rewardItem"` JSON keys but the script pass above removes those anyway.
+
+Sequencing: Java cleanup first (ensures record matches the intended final schema), then script pass (removes any stale JSON keys + does the rest of Phase 1's work). Both commits live in Phase 1 even though they're technically two separate changes — keep them sequential in the branch.
 
 **CLI:**
 ```

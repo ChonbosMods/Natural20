@@ -72,6 +72,17 @@ Earlier recon tagged these as dead. Verification found they have consumers. Thos
 - **Investigation needed:** Ask authoring lead whether `settlement_type` is intended for future use. If not, drop from palette docs AND from `QuestGenerator`.
 - **Estimated effort:** 15 minutes once the authoring question is answered.
 
+### Bucket B′: Pre-existing silent fallbacks (violates no-fallback rule)
+
+Discovered during the D-series work. These predate the fetch-naming branch and the no-fallback rule applies to them just as it does to new code. Not urgent (no behavior change needed right now), but should be addressed in a dedicated cleanup pass.
+
+#### B′1. `POIPopulationListener.SpawnDescriptor.parse()` silent fallback
+
+- **Location:** `src/main/java/com/chonbosmods/...` (grep `SpawnDescriptor` — exact file flagged by D3 subagent)
+- **Problem:** Parses a string format `mobRole:count:x,y,z`. On any parse failure (malformed input, wrong field count, non-numeric coords), catches the exception and returns `null`. Callers treat `null` as "no spawn" silently, masking data corruption.
+- **Fix:** Remove the catch. Let parse exceptions propagate. Add context to the error message so the bad input is identifiable.
+- **Estimated effort:** 20 minutes once a caller audit confirms no code path relies on the silent-null for control flow.
+
 ### Bucket C: Single-field suspects
 
 #### C1. `TopicGraphBuilder.TopicDefinition.questTopic` field
