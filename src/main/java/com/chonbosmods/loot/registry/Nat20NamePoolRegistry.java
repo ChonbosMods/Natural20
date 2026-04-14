@@ -25,8 +25,8 @@ public class Nat20NamePoolRegistry {
 
     public void loadAll() {
         String[] files = {
-            "arm_evasion.json", "arm_fire_res.json", "arm_flinch.json",
-            "arm_frost_res.json", "arm_gallant.json", "arm_guardbreak.json",
+            "arm_evasion.json", "arm_fire_res.json",
+            "arm_frost_res.json", "arm_gallant.json",
             "arm_lightfoot.json", "arm_phys_res.json", "arm_poison_res.json",
             "arm_resilience.json", "arm_thorns.json", "arm_void_res.json",
             "arm_waterbreath.json",
