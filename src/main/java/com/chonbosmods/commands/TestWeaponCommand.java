@@ -24,7 +24,7 @@ import java.util.List;
 public class TestWeaponCommand extends AbstractPlayerCommand {
 
     private final RequiredArg<String> affixArg =
-        withRequiredArg("affix", "Affix ID: mighty, swift, vampiric, etc.", ArgTypes.STRING);
+        withRequiredArg("affix", "Affix ID: deep_wounds, life_leech, crit_chance, etc.", ArgTypes.STRING);
 
     public TestWeaponCommand() {
         super("testweapon", "Give an Iron Sword with a specific affix: /nat20 testweapon mighty");

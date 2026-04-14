@@ -3,15 +3,15 @@
   "Color": "#8b339e",
   "DisplayName": "server.nat20.rarity.epic",
   "BaseWeight": 50,
-  "MaxAffixes": 4,
-  "MaxSockets": 2,
+  "MaxAffixes": 5,
+  "MaxSockets": 0,
   "StatRequirement": 16,
   "TooltipTexture": "nat20_tooltip_epic",
   "TooltipArrowTexture": "nat20_arrow_epic",
   "SlotTexture": "nat20_slot_epic",
   "LootRules": [
-    { "Type": "STAT", "Count": 2, "Probability": 1.0 },
-    { "Type": "EFFECT", "Count": 1, "Probability": 1.0 },
-    { "Type": "ABILITY", "Count": 1, "Probability": 0.3 }
+    { "Type": "ANY", "Count": 3, "Probability": 1.0 },
+    { "Type": "ANY", "Count": 1, "Probability": 0.5 },
+    { "Type": "ANY", "Count": 1, "Probability": 0.08 }
   ]
 }

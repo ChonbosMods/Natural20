@@ -4,7 +4,7 @@
   "Type": "ABILITY",
   "DisplayName": "server.nat20.affix.fortified",
   "NamePosition": "PREFIX",
-  "Categories": ["tool"],
+  "Categories": ["tool", "melee_weapon", "ranged_weapon", "armor"],
   "StatRequirement": { "CON": 12 },
   "StatScaling": null,
   "TargetStat": null,

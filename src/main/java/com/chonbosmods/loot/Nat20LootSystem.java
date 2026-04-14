@@ -5,7 +5,6 @@ import com.chonbosmods.loot.effects.FortifiedHandler;
 import com.chonbosmods.loot.effects.HasteHandler;
 import com.chonbosmods.loot.effects.IndestructibleHandler;
 import com.chonbosmods.loot.effects.Nat20AffixEventListener;
-import com.chonbosmods.loot.effects.VampiricEffectHandler;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
@@ -72,7 +71,6 @@ public class Nat20LootSystem {
     }
 
     private void registerEffectHandlers() {
-        effectHandlerRegistry.register("nat20:vampiric", new VampiricEffectHandler());
         effectHandlerRegistry.register("nat20:haste", new HasteHandler());
         effectHandlerRegistry.register("nat20:fortified", new FortifiedHandler());
         effectHandlerRegistry.register("nat20:indestructible", new IndestructibleHandler());

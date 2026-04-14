@@ -10,6 +10,6 @@
   "TooltipArrowTexture": "nat20_arrow_common",
   "SlotTexture": "nat20_slot_common",
   "LootRules": [
-    { "Type": "STAT", "Count": 1, "Probability": 0.5 }
+    { "Type": "ANY", "Count": 1, "Probability": 0.5 }
   ]
 }

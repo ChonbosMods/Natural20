@@ -4,7 +4,7 @@
   "Type": "ABILITY",
   "DisplayName": "server.nat20.affix.indestructible",
   "NamePosition": "PREFIX",
-  "Categories": ["tool"],
+  "Categories": ["tool", "melee_weapon", "ranged_weapon", "armor"],
   "StatRequirement": null,
   "StatScaling": null,
   "TargetStat": null,
@@ -13,7 +13,7 @@
     "Epic":      { "Min": 1.0, "Max": 1.0 },
     "Legendary": { "Min": 1.0, "Max": 1.0 }
   },
-  "Description": "Tool never loses durability.",
+  "Description": "Item never loses durability.",
   "Cooldown": null,
   "ProcChance": null,
   "ExclusiveWith": ["nat20:fortified"]

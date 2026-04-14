@@ -30,7 +30,7 @@ public class Nat20AffixRegistry {
             "score_cha.json", "score_con.json", "score_dex.json",
             "score_int.json", "score_str.json", "score_wis.json"
         },
-        "effect", new String[]{"absorption.json", "attack_speed.json", "crit_chance.json", "crit_damage.json", "deep_wounds.json", "focused_mind.json", "vampiric.json", "fire.json", "frost.json", "poison.json", "void.json", "ignite.json", "cold.json", "infect.json", "corrupt.json", "life_leech.json", "mana_leech.json", "vicious_mockery.json", "hex.json", "gallant.json", "fire_weakness.json", "frost_weakness.json", "void_weakness.json", "poison_weakness.json", "fire_resistance.json", "frost_resistance.json", "void_resistance.json", "poison_resistance.json", "physical_resistance.json", "crushing_blow.json", "backstab.json", "block_proficiency.json", "thorns.json", "evasion.json", "resilience.json", "water_breathing.json", "light_foot.json", "rally.json", "precision.json"},
+        "effect", new String[]{"absorption.json", "attack_speed.json", "crit_chance.json", "crit_damage.json", "deep_wounds.json", "focused_mind.json", "fire.json", "frost.json", "poison.json", "void.json", "ignite.json", "cold.json", "infect.json", "corrupt.json", "life_leech.json", "mana_leech.json", "vicious_mockery.json", "hex.json", "gallant.json", "fire_weakness.json", "frost_weakness.json", "void_weakness.json", "poison_weakness.json", "fire_resistance.json", "frost_resistance.json", "void_resistance.json", "poison_resistance.json", "physical_resistance.json", "crushing_blow.json", "backstab.json", "block_proficiency.json", "thorns.json", "evasion.json", "resilience.json", "water_breathing.json", "light_foot.json", "rally.json", "precision.json"},
         "ability", new String[]{"quake.json", "delve.json", "rend.json", "fissure.json", "resonance.json", "telekinesis.json", "haste.json", "fortified.json", "indestructible.json"}
     );
 
@@ -163,7 +163,8 @@ public class Nat20AffixRegistry {
     public List<Nat20AffixDef> getPool(AffixType type, String category, String rarityId) {
         List<Nat20AffixDef> pool = new ArrayList<>();
         for (var def : affixesById.values()) {
-            if (def.type() != type) continue;
+            // ANY is a wildcard used only in LootRules; it matches every concrete AffixType.
+            if (type != AffixType.ANY && def.type() != type) continue;
             if (!def.categories().contains(category)) continue;
             if (def.valuesPerRarity().containsKey(rarityId)) {
                 pool.add(def);

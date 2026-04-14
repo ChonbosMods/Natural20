@@ -292,6 +292,9 @@ public class Nat20LootPipeline {
     }
 
     private int rollSockets(Nat20RarityDef rarity, Random random) {
+        // TODO(post-MVP): sockets are disabled — all rarity JSONs set MaxSockets=0 for now.
+        // When the socket/gem system is designed, raise MaxSockets in the rarity configs and
+        // this method resumes rolling automatically.
         if (rarity.maxSockets() <= 0) return 0;
         int sockets = 0;
         for (int i = 0; i < rarity.maxSockets(); i++) {
