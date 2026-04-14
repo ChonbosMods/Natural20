@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:fissure",
+  "Frequency": 1,
+  "Type": "ABILITY",
+  "DisplayName": "server.nat20.affix.fissure",
+  "NamePosition": "PREFIX",
+  "Categories": ["tool"],
+  "StatRequirement": { "STR": 12 },
+  "StatScaling": null,
+  "TargetStat": null,
+  "ModifierType": null,
+  "ValuesPerRarity": {
+    "Rare":      { "Min": 3.0, "Max": 3.0 },
+    "Epic":      { "Min": 3.0, "Max": 3.0 },
+    "Legendary": { "Min": 3.0, "Max": 5.0 }
+  },
+  "Description": "Breaks a horizontal strip: the block hit plus those on either side. Requires STR 12+.",
+  "Cooldown": null,
+  "ProcChance": null,
+  "ExclusiveWith": ["nat20:quake", "nat20:delve", "nat20:rend", "nat20:resonance"]
+}

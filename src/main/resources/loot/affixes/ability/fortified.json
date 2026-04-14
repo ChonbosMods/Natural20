@@ -1,0 +1,22 @@
+{
+  "Id": "nat20:fortified",
+  "Frequency": 5,
+  "Type": "ABILITY",
+  "DisplayName": "server.nat20.affix.fortified",
+  "NamePosition": "PREFIX",
+  "Categories": ["tool"],
+  "StatRequirement": { "CON": 12 },
+  "StatScaling": null,
+  "TargetStat": null,
+  "ModifierType": null,
+  "ValuesPerRarity": {
+    "Uncommon":  { "Min": 0.15, "Max": 0.20 },
+    "Rare":      { "Min": 0.20, "Max": 0.30 },
+    "Epic":      { "Min": 0.30, "Max": 0.45 },
+    "Legendary": { "Min": 0.45, "Max": 0.60 }
+  },
+  "Description": "Percent chance to avoid losing durability on use. Requires CON 12+.",
+  "Cooldown": null,
+  "ProcChance": null,
+  "ExclusiveWith": ["nat20:indestructible"]
+}

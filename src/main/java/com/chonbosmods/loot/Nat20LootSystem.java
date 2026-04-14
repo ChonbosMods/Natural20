@@ -1,11 +1,10 @@
 package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.effects.EffectHandlerRegistry;
+import com.chonbosmods.loot.effects.FortifiedHandler;
+import com.chonbosmods.loot.effects.HasteHandler;
+import com.chonbosmods.loot.effects.IndestructibleHandler;
 import com.chonbosmods.loot.effects.Nat20AffixEventListener;
-import com.chonbosmods.loot.effects.RadialMiningHandler;
-import com.chonbosmods.loot.effects.RevitalizingEffectHandler;
-import com.chonbosmods.loot.effects.TelepathicHandler;
-import com.chonbosmods.loot.effects.ThunderstruckEffectHandler;
 import com.chonbosmods.loot.effects.VampiricEffectHandler;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
@@ -74,10 +73,9 @@ public class Nat20LootSystem {
 
     private void registerEffectHandlers() {
         effectHandlerRegistry.register("nat20:vampiric", new VampiricEffectHandler());
-        effectHandlerRegistry.register("nat20:thunderstruck", new ThunderstruckEffectHandler());
-        effectHandlerRegistry.register("nat20:revitalizing", new RevitalizingEffectHandler());
-        effectHandlerRegistry.register("nat20:radial", new RadialMiningHandler());
-        effectHandlerRegistry.register("nat20:telepathic", new TelepathicHandler());
+        effectHandlerRegistry.register("nat20:haste", new HasteHandler());
+        effectHandlerRegistry.register("nat20:fortified", new FortifiedHandler());
+        effectHandlerRegistry.register("nat20:indestructible", new IndestructibleHandler());
     }
 
     /**

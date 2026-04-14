@@ -27,20 +27,11 @@ public class Nat20AffixRegistry {
     private static final String CLASSPATH_DIR = "loot/affixes/";
     private static final Map<String, String[]> BUILTIN_FILES = Map.of(
         "stat", new String[]{
-            "ancient.json", "arcane.json", "blessed.json", "charming.json",
-            "fortified.json", "fortitude.json", "fury.json", "graceful.json",
-            "hawkeyed.json", "ironforged.json", "keen.json", "mighty.json",
-            "nimble.json", "resilient.json",
-            "savage.json",
             "score_cha.json", "score_con.json", "score_dex.json",
-            "score_int.json", "score_str.json", "score_wis.json",
-            "stalwart.json", "sturdy.json", "swift.json",
-            "the_artisan.json", "the_guardian.json", "the_marksman.json",
-            "the_sage.json", "the_titan.json", "violent.json", "warding.json",
-            "wrathful.json"
+            "score_int.json", "score_str.json", "score_wis.json"
         },
-        "effect", new String[]{"absorption.json", "attack_speed.json", "crit_chance.json", "crit_damage.json", "deep_wounds.json", "focused_mind.json", "revitalizing.json", "thunderstruck.json", "vampiric.json", "fire.json", "frost.json", "poison.json", "void.json", "ignite.json", "cold.json", "infect.json", "corrupt.json", "life_leech.json", "mana_leech.json", "vicious_mockery.json", "hex.json", "gallant.json", "fire_weakness.json", "frost_weakness.json", "void_weakness.json", "poison_weakness.json", "fire_resistance.json", "frost_resistance.json", "void_resistance.json", "poison_resistance.json", "physical_resistance.json", "crushing_blow.json", "backstab.json", "block_proficiency.json", "thorns.json", "evasion.json", "resilience.json", "water_breathing.json", "light_foot.json", "rally.json", "precision.json"},
-        "ability", new String[]{"radial.json", "telepathic.json"}
+        "effect", new String[]{"absorption.json", "attack_speed.json", "crit_chance.json", "crit_damage.json", "deep_wounds.json", "focused_mind.json", "vampiric.json", "fire.json", "frost.json", "poison.json", "void.json", "ignite.json", "cold.json", "infect.json", "corrupt.json", "life_leech.json", "mana_leech.json", "vicious_mockery.json", "hex.json", "gallant.json", "fire_weakness.json", "frost_weakness.json", "void_weakness.json", "poison_weakness.json", "fire_resistance.json", "frost_resistance.json", "void_resistance.json", "poison_resistance.json", "physical_resistance.json", "crushing_blow.json", "backstab.json", "block_proficiency.json", "thorns.json", "evasion.json", "resilience.json", "water_breathing.json", "light_foot.json", "rally.json", "precision.json"},
+        "ability", new String[]{"quake.json", "delve.json", "rend.json", "fissure.json", "resonance.json", "telekinesis.json", "haste.json", "fortified.json", "indestructible.json"}
     );
 
     private final Map<String, Nat20AffixDef> affixesById = new HashMap<>();

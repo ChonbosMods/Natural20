@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:delve",
+  "Frequency": 1,
+  "Type": "ABILITY",
+  "DisplayName": "server.nat20.affix.delve",
+  "NamePosition": "PREFIX",
+  "Categories": ["tool"],
+  "StatRequirement": { "DEX": 14 },
+  "StatScaling": null,
+  "TargetStat": null,
+  "ModifierType": null,
+  "ValuesPerRarity": {
+    "Rare":      { "Min": 5.0, "Max": 5.0 },
+    "Epic":      { "Min": 5.0, "Max": 5.0 },
+    "Legendary": { "Min": 5.0, "Max": 7.0 }
+  },
+  "Description": "Drills a 1x5 line straight forward: the block hit plus four behind it. Requires DEX 14+.",
+  "Cooldown": null,
+  "ProcChance": null,
+  "ExclusiveWith": ["nat20:quake", "nat20:rend", "nat20:fissure", "nat20:resonance"]
+}

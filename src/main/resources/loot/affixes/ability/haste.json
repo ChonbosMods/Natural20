@@ -1,0 +1,22 @@
+{
+  "Id": "nat20:haste",
+  "Frequency": 10,
+  "Type": "ABILITY",
+  "DisplayName": "server.nat20.affix.haste",
+  "NamePosition": "PREFIX",
+  "Categories": ["tool"],
+  "StatRequirement": { "DEX": 12 },
+  "StatScaling": { "Primary": "DEX", "Factor": 0.08 },
+  "TargetStat": null,
+  "ModifierType": null,
+  "ValuesPerRarity": {
+    "Common":    { "Min": 0.10, "Max": 0.15 },
+    "Uncommon":  { "Min": 0.15, "Max": 0.20 },
+    "Rare":      { "Min": 0.20, "Max": 0.30 },
+    "Epic":      { "Min": 0.30, "Max": 0.40 },
+    "Legendary": { "Min": 0.40, "Max": 0.55 }
+  },
+  "Description": "Increases mining speed by a percentage. Requires DEX 12+.",
+  "Cooldown": null,
+  "ProcChance": null
+}

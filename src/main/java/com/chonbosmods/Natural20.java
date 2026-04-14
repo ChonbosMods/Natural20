@@ -11,6 +11,9 @@ import com.chonbosmods.combat.Nat20ElementalDamageSystem;
 import com.chonbosmods.combat.Nat20ElementalDotSystem;
 import com.chonbosmods.combat.Nat20BackstabSystem;
 import com.chonbosmods.combat.Nat20PrecisionSystem;
+import com.chonbosmods.mining.Nat20HasteSystem;
+import com.chonbosmods.mining.Nat20ShapeMiningSystem;
+import com.chonbosmods.mining.Nat20TelekinesisSystem;
 import com.chonbosmods.combat.Nat20BlockProficiencySystem;
 import com.chonbosmods.combat.Nat20CrushingBlowSystem;
 import com.chonbosmods.combat.Nat20EvasionSystem;
@@ -467,6 +470,11 @@ public class Natural20 extends JavaPlugin {
         Nat20RallySystem rallySystem = new Nat20RallySystem(lootSystem);
         getEntityStoreRegistry().registerSystem(rallySystem);
         getEntityStoreRegistry().registerSystem(new Nat20RallyAmplifySystem(rallySystem));
+
+        // Tool affixes
+        getEntityStoreRegistry().registerSystem(new Nat20HasteSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20ShapeMiningSystem(lootSystem));
+        getEntityStoreRegistry().registerSystem(new Nat20TelekinesisSystem(lootSystem));
 
         // Clean up on player disconnect
         getEventRegistry().register(PlayerDisconnectEvent.class, event -> {
