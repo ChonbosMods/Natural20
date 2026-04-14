@@ -1,0 +1,20 @@
+{
+  "Id": "nat20:score_cha",
+  "Frequency": 3,
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.score_cha",
+  "NamePosition": "SUFFIX",
+  "Categories": ["melee_weapon", "ranged_weapon", "armor", "tool"],
+  "StatRequirement": null,
+  "StatScaling": null,
+  "TargetStat": "Score_CHA",
+  "ModifierType": "ADDITIVE",
+  "ValuesPerRarity": {
+    "Common":    { "Min": 1.0, "Max": 1.0 },
+    "Uncommon":  { "Min": 1.0, "Max": 2.0 },
+    "Rare":      { "Min": 2.0, "Max": 2.0 },
+    "Epic":      { "Min": 2.0, "Max": 3.0 },
+    "Legendary": { "Min": 3.0, "Max": 4.0 }
+  },
+  "Description": "Increases Charisma score."
+}

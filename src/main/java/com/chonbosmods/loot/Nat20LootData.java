@@ -18,6 +18,7 @@ public class Nat20LootData {
             .addField(new KeyedCodec<>("LootLevel", Codec.DOUBLE), Nat20LootData::setLootLevel, Nat20LootData::getLootLevel)
             .addField(new KeyedCodec<>("AffixData", Codec.STRING), Nat20LootData::setAffixDataRaw, Nat20LootData::getAffixDataRaw)
             .addField(new KeyedCodec<>("Sockets", Codec.INTEGER), Nat20LootData::setSockets, Nat20LootData::getSockets)
+            .addField(new KeyedCodec<>("ItemLevel", Codec.INTEGER), Nat20LootData::setItemLevel, Nat20LootData::getItemLevel)
             .addField(new KeyedCodec<>("GemData", Codec.STRING), Nat20LootData::setGemDataRaw, Nat20LootData::getGemDataRaw)
             .addField(new KeyedCodec<>("GeneratedName", Codec.STRING), Nat20LootData::setGeneratedName, Nat20LootData::getGeneratedName)
             .addField(new KeyedCodec<>("NamePrefixSource", Codec.STRING), Nat20LootData::setNamePrefixSource, Nat20LootData::getNamePrefixSource)
@@ -34,6 +35,7 @@ public class Nat20LootData {
     private double lootLevel = 0.5;
     private List<RolledAffix> affixes = new ArrayList<>();
     private int sockets = 0;
+    private int itemLevel = 10;
     private List<SocketedGem> gems = new ArrayList<>();
     private String generatedName = "";
     private String namePrefixSource;
@@ -63,6 +65,10 @@ public class Nat20LootData {
     // --- Sockets ---
     public int getSockets() { return sockets; }
     public void setSockets(int sockets) { this.sockets = sockets; }
+
+    // --- ItemLevel ---
+    public int getItemLevel() { return itemLevel; }
+    public void setItemLevel(int itemLevel) { this.itemLevel = itemLevel; }
 
     // --- Gems ---
     public List<SocketedGem> getGems() { return gems; }

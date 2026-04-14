@@ -6,6 +6,7 @@ import com.chonbosmods.loot.def.Nat20AffixDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
+import com.chonbosmods.loot.registry.Nat20NamePoolRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
 
@@ -18,11 +19,19 @@ public class Nat20LootPipeline {
     private final Nat20RarityRegistry rarityRegistry;
     private final Nat20AffixRegistry affixRegistry;
     private final Nat20ItemRegistry itemRegistry;
+    private final Nat20NamePoolRegistry namePoolRegistry;
 
-    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry, Nat20ItemRegistry itemRegistry) {
+    public Nat20LootPipeline(Nat20RarityRegistry rarityRegistry, Nat20AffixRegistry affixRegistry,
+                              Nat20ItemRegistry itemRegistry, Nat20NamePoolRegistry namePoolRegistry) {
         this.rarityRegistry = rarityRegistry;
         this.affixRegistry = affixRegistry;
         this.itemRegistry = itemRegistry;
+        this.namePoolRegistry = namePoolRegistry;
+    }
+
+    /** Backward-compatible overload: defaults ilvl to 10. Will be removed when callers are updated. */
+    public Nat20LootData generate(String itemId, String baseName, String categoryKey, Random random) {
+        return generate(itemId, baseName, categoryKey, random, 10);
     }
 
     /**
@@ -32,9 +41,10 @@ public class Nat20LootPipeline {
      * @param baseName the base item display name (e.g., "Iron Sword")
      * @param categoryKey the equipment category key (e.g., "melee_weapon")
      * @param random the random source
+     * @param ilvl item level: caps how strong affix rolls can be (maxLootLevel = min(1.0, ilvl/20.0))
      * @return populated Nat20LootData, or null if no rarities are loaded
      */
-    public Nat20LootData generate(String itemId, String baseName, String categoryKey, Random random) {
+    public Nat20LootData generate(String itemId, String baseName, String categoryKey, Random random, int ilvl) {
         // Step 1: Select rarity
         Nat20RarityDef rarity = rarityRegistry.selectRandom(random);
         if (rarity == null) {
@@ -42,11 +52,12 @@ public class Nat20LootPipeline {
             return null;
         }
 
-        // Step 2: Roll loot level
-        double lootLevel = random.nextDouble();
+        // Step 2: Roll loot level (capped by ilvl)
+        double maxLootLevel = Math.min(1.0, ilvl / 20.0);
+        double lootLevel = random.nextDouble() * maxLootLevel;
 
         // Step 3: Roll affixes based on rarity loot rules
-        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random);
+        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random, maxLootLevel);
 
         // Step 4: Allocate sockets
         int sockets = rollSockets(rarity, random);
@@ -61,7 +72,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
                 prefixSource = affix.id();
-                nameBuilder.append(getAffixDisplayWord(def)).append(" ");
+                nameBuilder.append(getDisplayName(def, rarity.id(), random)).append(" ");
                 break;
             }
         }
@@ -73,7 +84,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
                 suffixSource = affix.id();
-                nameBuilder.append(" of ").append(getAffixDisplayWord(def));
+                nameBuilder.append(" of ").append(getDisplayName(def, rarity.id(), random));
                 break;
             }
         }
@@ -91,6 +102,7 @@ public class Nat20LootPipeline {
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
         data.setLootLevel(lootLevel);
+        data.setItemLevel(ilvl);
         data.setAffixes(rolledAffixes);
         data.setSockets(sockets);
         data.setGems(new ArrayList<>());
@@ -108,10 +120,16 @@ public class Nat20LootPipeline {
             data.setUniqueItemId(uniqueId);
         }
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f)",
-            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel);
+        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d)",
+            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl);
 
         return data;
+    }
+
+    /** Backward-compatible overload: defaults ilvl to 10. Will be removed when callers are updated. */
+    public Nat20LootData generate(String itemId, String baseName, String categoryKey,
+                                   int minRarityTier, int maxRarityTier, Random random) {
+        return generate(itemId, baseName, categoryKey, minRarityTier, maxRarityTier, random, 10);
     }
 
     /**
@@ -124,10 +142,11 @@ public class Nat20LootPipeline {
      * @param minRarityTier minimum qualityValue for eligible rarities (inclusive)
      * @param maxRarityTier maximum qualityValue for eligible rarities (inclusive)
      * @param random the random source
+     * @param ilvl item level: caps how strong affix rolls can be (maxLootLevel = min(1.0, ilvl/20.0))
      * @return populated Nat20LootData, or null if no rarities are loaded
      */
     public Nat20LootData generate(String itemId, String baseName, String categoryKey,
-                                   int minRarityTier, int maxRarityTier, Random random) {
+                                   int minRarityTier, int maxRarityTier, Random random, int ilvl) {
         // Step 1: Select rarity within tier range
         Nat20RarityDef rarity = rarityRegistry.selectRandom(random, minRarityTier, maxRarityTier);
         if (rarity == null) {
@@ -135,11 +154,12 @@ public class Nat20LootPipeline {
             return null;
         }
 
-        // Step 2: Roll loot level
-        double lootLevel = random.nextDouble();
+        // Step 2: Roll loot level (capped by ilvl)
+        double maxLootLevel = Math.min(1.0, ilvl / 20.0);
+        double lootLevel = random.nextDouble() * maxLootLevel;
 
         // Step 3: Roll affixes based on rarity loot rules
-        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random);
+        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random, maxLootLevel);
 
         // Step 4: Allocate sockets
         int sockets = rollSockets(rarity, random);
@@ -153,7 +173,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
                 prefixSource = affix.id();
-                nameBuilder.append(getAffixDisplayWord(def)).append(" ");
+                nameBuilder.append(getDisplayName(def, rarity.id(), random)).append(" ");
                 break;
             }
         }
@@ -164,7 +184,7 @@ public class Nat20LootPipeline {
             Nat20AffixDef def = affixRegistry.get(affix.id());
             if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
                 suffixSource = affix.id();
-                nameBuilder.append(" of ").append(getAffixDisplayWord(def));
+                nameBuilder.append(" of ").append(getDisplayName(def, rarity.id(), random));
                 break;
             }
         }
@@ -182,6 +202,7 @@ public class Nat20LootPipeline {
         data.setVersion(Nat20LootData.CURRENT_VERSION);
         data.setRarity(rarity.id());
         data.setLootLevel(lootLevel);
+        data.setItemLevel(ilvl);
         data.setAffixes(rolledAffixes);
         data.setSockets(sockets);
         data.setGems(new ArrayList<>());
@@ -199,13 +220,13 @@ public class Nat20LootPipeline {
             data.setUniqueItemId(uniqueId);
         }
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, tierRange=[%d,%d])",
-            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, minRarityTier, maxRarityTier);
+        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d, tierRange=[%d,%d])",
+            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl, minRarityTier, maxRarityTier);
 
         return data;
     }
 
-    private List<RolledAffix> rollAffixes(Nat20RarityDef rarity, String categoryKey, Random random) {
+    private List<RolledAffix> rollAffixes(Nat20RarityDef rarity, String categoryKey, Random random, double maxLootLevel) {
         List<RolledAffix> result = new ArrayList<>();
         Set<String> usedAffixIds = new HashSet<>();
 
@@ -219,10 +240,10 @@ public class Nat20LootPipeline {
                 && !Collections.disjoint(a.exclusiveWith(), usedAffixIds));
 
             for (int i = 0; i < rule.count() && !pool.isEmpty(); i++) {
-                int idx = random.nextInt(pool.size());
-                Nat20AffixDef chosen = pool.remove(idx);
+                Nat20AffixDef chosen = weightedPick(pool, random);
+                pool.remove(chosen);
                 usedAffixIds.add(chosen.id());
-                result.add(new RolledAffix(chosen.id(), random.nextDouble()));
+                result.add(new RolledAffix(chosen.id(), random.nextDouble() * maxLootLevel));
                 // Exclusion is symmetric: choosing A blocks B if either side declares the relationship
                 pool.removeIf(a -> {
                     if (chosen.exclusiveWith() != null && chosen.exclusiveWith().contains(a.id())) return true;
@@ -237,6 +258,37 @@ public class Nat20LootPipeline {
         }
 
         return result;
+    }
+
+    /**
+     * Weighted random selection from an affix pool using each affix's frequency.
+     * Higher frequency = more likely to be picked.
+     */
+    private Nat20AffixDef weightedPick(List<Nat20AffixDef> pool, Random random) {
+        int totalWeight = 0;
+        for (var def : pool) {
+            totalWeight += def.frequency();
+        }
+        int roll = random.nextInt(totalWeight);
+        int accumulated = 0;
+        for (var def : pool) {
+            accumulated += def.frequency();
+            if (accumulated > roll) return def;
+        }
+        return pool.getLast(); // Shouldn't reach here, but safety fallback
+    }
+
+    /**
+     * Derive min/max rarity quality values from item level.
+     * ilvl 1-5:  Common-Rare,    ilvl 6-10: Common-Epic,
+     * ilvl 11-15: Uncommon-Legendary, ilvl 16-20: Rare-Legendary.
+     * @return int[2] = {minQualityValue, maxQualityValue}
+     */
+    public static int[] rarityGateForIlvl(int ilvl) {
+        if (ilvl <= 5) return new int[]{1, 3};       // Common-Rare
+        if (ilvl <= 10) return new int[]{1, 4};      // Common-Epic
+        if (ilvl <= 15) return new int[]{2, 5};      // Uncommon-Legendary
+        return new int[]{3, 5};                       // Rare-Legendary
     }
 
     private int rollSockets(Nat20RarityDef rarity, Random random) {
@@ -337,6 +389,21 @@ public class Nat20LootPipeline {
             result.append(Character.toLowerCase(ch));
         }
         return result.toString();
+    }
+
+    /**
+     * Get a display name for an affix, trying tiered name pools first and
+     * falling back to localization key extraction.
+     */
+    private String getDisplayName(Nat20AffixDef def, String rarityId, Random random) {
+        // Try tiered name pool first
+        String affixIdShort = def.id().startsWith("nat20:") ? def.id().substring(6) : def.id();
+        if (namePoolRegistry != null) {
+            String poolName = namePoolRegistry.getRandomName(affixIdShort, rarityId, random);
+            if (poolName != null) return poolName;
+        }
+        // Fallback: extract from localization key
+        return getAffixDisplayWord(def);
     }
 
     /**

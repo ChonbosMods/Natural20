@@ -22,7 +22,8 @@ public record Nat20AffixDef(
     @Nullable String description,
     @Nullable String cooldown,
     @Nullable String procChance,
-    @Nullable Set<String> exclusiveWith
+    @Nullable Set<String> exclusiveWith,
+    int frequency
 ) {
     public AffixValueRange getValuesForRarity(String rarityId) {
         return valuesPerRarity.get(rarityId);

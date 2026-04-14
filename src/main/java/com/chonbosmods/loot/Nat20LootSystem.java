@@ -20,6 +20,7 @@ import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
+import com.chonbosmods.loot.registry.Nat20NamePoolRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ComponentRegistryProxy;
@@ -37,6 +38,7 @@ public class Nat20LootSystem {
     private final Nat20GemRegistry gemRegistry = new Nat20GemRegistry();
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
     private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
+    private final Nat20NamePoolRegistry namePoolRegistry = new Nat20NamePoolRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
     private final Nat20MobNameGenerator mobNameGenerator = new Nat20MobNameGenerator();
     private final Nat20MobAffixManager mobAffixManager;
@@ -56,7 +58,7 @@ public class Nat20LootSystem {
         this.itemRenderer = new Nat20ItemRenderer(rarityRegistry, affixRegistry, gemRegistry);
         this.itemRegistry = new Nat20ItemRegistry(itemRenderer);
         this.garbageCollector = new Nat20ItemGarbageCollector(itemRegistry);
-        this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry, itemRegistry);
+        this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry, itemRegistry, namePoolRegistry);
         registerEffectHandlers();
         registerMobAbilityHandlers();
     }
@@ -98,15 +100,17 @@ public class Nat20LootSystem {
         gemRegistry.loadAll(gemsDir);
         lootEntryRegistry.loadAll(entriesDir);
         mobAffixRegistry.loadAll(mobAffixesDir);
+        namePoolRegistry.loadAll();
         mobNameGenerator.load();
         itemRegistry.init(lootDataDir != null ? lootDataDir.getParent() : null);
 
-        LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d mob affixes",
+        LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d mob affixes, %d name pools",
             rarityRegistry.getLoadedCount(),
             affixRegistry.getLoadedCount(),
             gemRegistry.getLoadedCount(),
             lootEntryRegistry.getLoadedCount(),
-            mobAffixRegistry.getLoadedCount()
+            mobAffixRegistry.getLoadedCount(),
+            namePoolRegistry.getLoadedCount()
         );
     }
 
@@ -115,6 +119,7 @@ public class Nat20LootSystem {
     public Nat20GemRegistry getGemRegistry() { return gemRegistry; }
     public Nat20LootEntryRegistry getLootEntryRegistry() { return lootEntryRegistry; }
     public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
+    public Nat20NamePoolRegistry getNamePoolRegistry() { return namePoolRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }
     public Nat20MobNameGenerator getMobNameGenerator() { return mobNameGenerator; }
