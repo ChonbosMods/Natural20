@@ -67,7 +67,6 @@ public class QuestGenerator {
             template.rewardFlavor() != null ? template.rewardFlavor() : "");
 
         // Store all template text in bindings for dialogue node construction
-        bindings.put("quest_template_id", template.id());
         bindings.put("quest_topic_header", template.topicHeader());
         bindings.put("quest_exposition_text", template.expositionText());
         bindings.put("quest_accept_text", template.acceptText());
@@ -196,7 +195,6 @@ public class QuestGenerator {
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomCollectResource(random);
         bindings.put("quest_item", gatherItem.noun());
         bindings.put("quest_item_full", gatherItem.fullForm());
-        bindings.put("gather_item_id", gatherItem.id());
         if (gatherItem.category() != null) {
             bindings.put("gather_category", gatherItem.category());
         }
@@ -282,7 +280,6 @@ public class QuestGenerator {
 
                 bindings.put("quest_item", collectItem.noun());
                 bindings.put("quest_item_full", collectItem.fullForm());
-                bindings.put("gather_item_id", collectItem.id());
                 bindings.put("gather_count", String.valueOf(count));
 
                 ObjectiveInstance collectObj = new ObjectiveInstance(
@@ -320,7 +317,6 @@ public class QuestGenerator {
 
                 bindings.put("quest_item", fetchEntry.noun());
                 bindings.put("quest_item_full", fetchEntry.fullForm());
-                bindings.put("gather_item_id", fetchEntry.id());
                 bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", fetchEntry.noun());
 
@@ -341,7 +337,6 @@ public class QuestGenerator {
                 QuestPoolRegistry.ItemEntry fetchEntry = poolRegistry.randomKeepsakeItem(random);
                 bindings.put("quest_item", fetchEntry.noun());
                 bindings.put("quest_item_full", fetchEntry.fullForm());
-                bindings.put("gather_item_id", fetchEntry.id());
                 String fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
                 bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", fetchEntry.noun());

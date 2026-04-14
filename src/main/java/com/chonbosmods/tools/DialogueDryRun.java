@@ -240,7 +240,7 @@ public class DialogueDryRun {
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), label,
-            bindings, true, false, skill, template, entry
+            bindings, true, skill, template, entry
         );
     }
 

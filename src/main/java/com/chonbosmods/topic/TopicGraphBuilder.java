@@ -21,7 +21,6 @@ public class TopicGraphBuilder {
         String labelPattern,
         Map<String, String> bindings,
         boolean startVisible,
-        boolean hasQuest,
         @Nullable Skill skill,
         @Nullable TopicTemplate template,
         @Nullable PoolEntry entry
@@ -106,244 +105,144 @@ public class TopicGraphBuilder {
 
         List<ResponseOption> entryResponses = new ArrayList<>();
 
-        if (!assignment.hasQuest()) {
-            // --- Simplified mundane flow: variable-length CONTINUE chain ---
+        // --- Simplified mundane flow: variable-length CONTINUE chain ---
 
-            // 1. Collect ALL detail and reaction lines
-            List<String> allBeats = new ArrayList<>();
-            for (String detail : entry.details()) {
-                allBeats.add(DialogueResolver.resolve(detail, bindings));
-            }
-            for (String reaction : entry.reactions()) {
-                allBeats.add(DialogueResolver.resolve(reaction, bindings));
-            }
+        // 1. Collect ALL detail and reaction lines
+        List<String> allBeats = new ArrayList<>();
+        for (String detail : entry.details()) {
+            allBeats.add(DialogueResolver.resolve(detail, bindings));
+        }
+        for (String reaction : entry.reactions()) {
+            allBeats.add(DialogueResolver.resolve(reaction, bindings));
+        }
 
-            // 2. Shuffle with deterministic seed
-            long shuffleSeed = Objects.hash(npcId, entry.id(), "shuffle");
-            Collections.shuffle(allBeats, new Random(shuffleSeed));
+        // 2. Shuffle with deterministic seed
+        long shuffleSeed = Objects.hash(npcId, entry.id(), "shuffle");
+        Collections.shuffle(allBeats, new Random(shuffleSeed));
 
-            // 3. Select how many beats to show (deterministic per NPC/entry)
-            Random beatCountRng = new Random(Objects.hash(npcId, entry.id(), "beatcount"));
-            double beatRoll = beatCountRng.nextDouble();
-            int beatsToShow;
-            if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE) {
-                beatsToShow = 1;
-            } else if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE
-                    + MundaneDispositionConstants.BEAT_COUNT_2_CHANCE) {
-                beatsToShow = 2;
+        // 3. Select how many beats to show (deterministic per NPC/entry)
+        Random beatCountRng = new Random(Objects.hash(npcId, entry.id(), "beatcount"));
+        double beatRoll = beatCountRng.nextDouble();
+        int beatsToShow;
+        if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE) {
+            beatsToShow = 1;
+        } else if (beatRoll < MundaneDispositionConstants.BEAT_COUNT_1_CHANCE
+                + MundaneDispositionConstants.BEAT_COUNT_2_CHANCE) {
+            beatsToShow = 2;
+        } else {
+            beatsToShow = 3;
+        }
+        beatsToShow = Math.min(beatsToShow, allBeats.size());
+
+        List<String> remainingBeats = new ArrayList<>(allBeats.subList(0, beatsToShow));
+
+        // 4. Determine stat check placement (uniform random among displayed beats)
+        boolean statCheckApproved = entry.statCheck() != null
+                && assignment.skill() != null
+                && random.nextDouble() < MundaneDispositionConstants.STAT_CHECK_INCLUSION_CHANCE;
+
+        int statCheckBeat = -1; // -1 means no stat check
+        if (statCheckApproved) {
+            int totalDisplayedBeats = 1 + remainingBeats.size(); // intro + selected beats
+            statCheckBeat = new Random(Objects.hash(npcId, entry.id(), "statcheck"))
+                    .nextInt(totalDisplayedBeats);
+        }
+
+        // 5. Build stat check side-branch nodes (if approved)
+        String checkNodeId = null;
+        if (statCheckApproved) {
+            Skill skill = assignment.skill();
+            Stat stat = skill.getStat();
+            int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
+
+            checkNodeId = subjectId + "_skill_check";
+            String passNodeId = subjectId + "_skill_pass";
+            String failNodeId = subjectId + "_skill_fail";
+
+            String passText = DialogueResolver.resolve(entry.statCheck().pass(), bindings);
+            String failText = DialogueResolver.resolve(entry.statCheck().fail(), bindings);
+
+            // Pass/fail nodes: empty mutable response lists.
+            // ConversationSession will inject CONTINUE responses at runtime
+            // pointing to the next beat in the chain.
+            nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
+                passText, null, new ArrayList<>(),
+                List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                    String.valueOf(MundaneDispositionConstants.STAT_CHECK_PASS))),
+                false, false, entryValence
+            ));
+            nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
+                failText, null, new ArrayList<>(),
+                List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
+                    String.valueOf(MundaneDispositionConstants.STAT_CHECK_FAIL))),
+                false, false, entryValence
+            ));
+            nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
+                skill, null, baseDC, true, passNodeId, failNodeId, List.of()
+            ));
+        }
+
+        // 6. Build the linear chain: intro -> shuffled[0] -> shuffled[1] -> ...
+        List<String> chainNodeIds = new ArrayList<>();
+        chainNodeIds.add(entryNodeId);
+
+        for (int i = 0; i < remainingBeats.size(); i++) {
+            String beatNodeId = subjectId + "_beat_" + i;
+            chainNodeIds.add(beatNodeId);
+            nodes.put(beatNodeId, new DialogueNode.DialogueTextNode(
+                remainingBeats.get(i), null, new ArrayList<>(),
+                List.of(), false, false, entryValence
+            ));
+        }
+
+        // 7. Wire CONTINUE responses and stat check responses
+        for (int i = 0; i < chainNodeIds.size(); i++) {
+            boolean isLastBeat = (i == chainNodeIds.size() - 1);
+            List<ResponseOption> responses;
+
+            if (i == 0) {
+                // Entry node: entryResponses (created earlier, currently empty)
+                responses = entryResponses;
             } else {
-                beatsToShow = 3;
-            }
-            beatsToShow = Math.min(beatsToShow, allBeats.size());
-
-            List<String> remainingBeats = new ArrayList<>(allBeats.subList(0, beatsToShow));
-
-            // 4. Determine stat check placement (uniform random among displayed beats)
-            boolean statCheckApproved = entry.statCheck() != null
-                    && assignment.skill() != null
-                    && random.nextDouble() < MundaneDispositionConstants.STAT_CHECK_INCLUSION_CHANCE;
-
-            int statCheckBeat = -1; // -1 means no stat check
-            if (statCheckApproved) {
-                int totalDisplayedBeats = 1 + remainingBeats.size(); // intro + selected beats
-                statCheckBeat = new Random(Objects.hash(npcId, entry.id(), "statcheck"))
-                        .nextInt(totalDisplayedBeats);
+                // Beat node: get the mutable response list
+                DialogueNode.DialogueTextNode beatNode =
+                    (DialogueNode.DialogueTextNode) nodes.get(chainNodeIds.get(i));
+                responses = (List<ResponseOption>) beatNode.responses();
             }
 
-            // 5. Build stat check side-branch nodes (if approved)
-            String checkNodeId = null;
-            if (statCheckApproved) {
+            // CONTINUE to next beat (not on last beat)
+            if (!isLastBeat) {
+                String nextNodeId = chainNodeIds.get(i + 1);
+                responses.add(new ResponseOption(
+                    subjectId + "_continue_" + i, "CONTINUE", null, nextNodeId,
+                    ResponseMode.DECISIVE, null, null, null, null,
+                    ResponseType.CONTINUE
+                ));
+            }
+
+            // Stat check response (on exactly one beat)
+            if (statCheckApproved && i == statCheckBeat) {
                 Skill skill = assignment.skill();
                 Stat stat = skill.getStat();
-                int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
-
-                checkNodeId = subjectId + "_skill_check";
-                String passNodeId = subjectId + "_skill_pass";
-                String failNodeId = subjectId + "_skill_fail";
-
-                String passText = DialogueResolver.resolve(entry.statCheck().pass(), bindings);
-                String failText = DialogueResolver.resolve(entry.statCheck().fail(), bindings);
-
-                // Pass/fail nodes: empty mutable response lists.
-                // ConversationSession will inject CONTINUE responses at runtime
-                // pointing to the next beat in the chain.
-                nodes.put(passNodeId, new DialogueNode.DialogueTextNode(
-                    passText, null, new ArrayList<>(),
-                    List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
-                        String.valueOf(MundaneDispositionConstants.STAT_CHECK_PASS))),
-                    false, false, entryValence
-                ));
-                nodes.put(failNodeId, new DialogueNode.DialogueTextNode(
-                    failText, null, new ArrayList<>(),
-                    List.of(Map.of("type", "MODIFY_DISPOSITION", "amount",
-                        String.valueOf(MundaneDispositionConstants.STAT_CHECK_FAIL))),
-                    false, false, entryValence
-                ));
-                nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
-                    skill, null, baseDC, true, passNodeId, failNodeId, List.of()
-                ));
-            }
-
-            // 6. Build the linear chain: intro -> shuffled[0] -> shuffled[1] -> ...
-            List<String> chainNodeIds = new ArrayList<>();
-            chainNodeIds.add(entryNodeId);
-
-            for (int i = 0; i < remainingBeats.size(); i++) {
-                String beatNodeId = subjectId + "_beat_" + i;
-                chainNodeIds.add(beatNodeId);
-                nodes.put(beatNodeId, new DialogueNode.DialogueTextNode(
-                    remainingBeats.get(i), null, new ArrayList<>(),
-                    List.of(), false, false, entryValence
-                ));
-            }
-
-            // 7. Wire CONTINUE responses and stat check responses
-            for (int i = 0; i < chainNodeIds.size(); i++) {
-                boolean isLastBeat = (i == chainNodeIds.size() - 1);
-                List<ResponseOption> responses;
-
-                if (i == 0) {
-                    // Entry node: entryResponses (created earlier, currently empty)
-                    responses = entryResponses;
-                } else {
-                    // Beat node: get the mutable response list
-                    DialogueNode.DialogueTextNode beatNode =
-                        (DialogueNode.DialogueTextNode) nodes.get(chainNodeIds.get(i));
-                    responses = (List<ResponseOption>) beatNode.responses();
-                }
-
-                // CONTINUE to next beat (not on last beat)
-                if (!isLastBeat) {
-                    String nextNodeId = chainNodeIds.get(i + 1);
-                    responses.add(new ResponseOption(
-                        subjectId + "_continue_" + i, "CONTINUE", null, nextNodeId,
-                        ResponseMode.DECISIVE, null, null, null, null,
-                        ResponseType.CONTINUE
-                    ));
-                }
-
-                // Stat check response (on exactly one beat)
-                if (statCheckApproved && i == statCheckBeat) {
-                    Skill skill = assignment.skill();
-                    Stat stat = skill.getStat();
-                    responses.add(new ResponseOption(
-                        subjectId + "_resp_skill_check",
-                        skill.displayName(),
-                        null,
-                        checkNodeId,
-                        ResponseMode.DECISIVE,
-                        null,
-                        checkNodeId,
-                        stat.name(),
-                        null
-                    ));
-                }
-            }
-        } else {
-            // Quest-bearer: intro beat (full pitch + objective), optional detail beat (30%)
-            String questExpo = DialogueResolver.resolve(
-                bindings.getOrDefault("quest_exposition", "I need your help."), bindings);
-            String questSummary = bindings.getOrDefault("quest_objective_summary", "");
-            if (!questSummary.isEmpty()) {
-                questExpo = questExpo + " You'll need to " + questSummary + ".";
-            }
-
-            // Optional detail beat: merge plotStep + outro, include 30% of the time
-            String plotStep = bindings.get("quest_plot_step");
-            String outro = bindings.get("quest_outro");
-            String detailText = null;
-            if (plotStep != null && !plotStep.isBlank()) {
-                detailText = DialogueResolver.resolve(plotStep, bindings);
-                if (outro != null && !outro.isBlank()) {
-                    detailText = detailText + " " + DialogueResolver.resolve(outro, bindings);
-                }
-            } else if (outro != null && !outro.isBlank()) {
-                detailText = DialogueResolver.resolve(outro, bindings);
-            }
-            boolean includeDetail = detailText != null && random.nextDouble() < 0.30;
-
-            List<String> beatTexts = new ArrayList<>();
-            beatTexts.add(questExpo);
-            if (includeDetail) beatTexts.add(detailText);
-
-            // Tone-keyed response text
-            String acceptText = "[Accept] " + bindings.getOrDefault("response_accept", "I will handle it.");
-            String declineText = "[Decline] " + bindings.getOrDefault("response_decline", "Maybe not right now.");
-
-            // Shared action/confirm/decline nodes
-            String actionNodeId = subjectId + "_action_decisive";
-            String confirmNodeId = subjectId + "_confirm_decisive";
-            String declineNodeId = subjectId + "_decline";
-
-            String confirmText = bindings.getOrDefault("counter_accept", "Good. Be careful out there.");
-            String declineNpcText = bindings.getOrDefault("counter_decline", "I understand. Perhaps another time.");
-
-            nodes.put(actionNodeId, new DialogueNode.ActionNode(
-                List.of(
-                    Map.of("type", "GIVE_QUEST"),
-                    Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")
-                ), confirmNodeId, List.of(), false
-            ));
-            nodes.put(confirmNodeId, new DialogueNode.DialogueTextNode(
-                confirmText, null, List.of(), List.of(), true, false, ValenceType.POSITIVE
-            ));
-            nodes.put(declineNodeId, new DialogueNode.DialogueTextNode(
-                declineNpcText, null, List.of(),
-                List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL")),
-                true, false, ValenceType.NEUTRAL
-            ));
-
-            // Build beat node IDs
-            List<String> beatNodeIds = new ArrayList<>();
-            for (int i = 0; i < beatTexts.size(); i++) {
-                beatNodeIds.add(i == 0 ? entryNodeId : subjectId + "_beat_" + i);
-            }
-
-            // Create beat nodes: Accept/Decline/"Tell me more." at every beat
-            for (int i = 0; i < beatTexts.size(); i++) {
-                boolean isLast = (i == beatTexts.size() - 1);
-                List<ResponseOption> responses = new ArrayList<>();
-
-                // "Tell me more." (CONTINUE): not on last beat
-                if (!isLast) {
-                    responses.add(new ResponseOption(
-                        subjectId + "_continue_" + i, "Tell me more.", null, beatNodeIds.get(i + 1),
-                        ResponseMode.DECISIVE, null, null, null, null, ResponseType.CONTINUE
-                    ));
-                }
-
-                // Accept
                 responses.add(new ResponseOption(
-                    subjectId + "_accept_" + i, acceptText, null, actionNodeId,
-                    ResponseMode.DECISIVE, null, null, null, null
+                    subjectId + "_resp_skill_check",
+                    skill.displayName(),
+                    null,
+                    checkNodeId,
+                    ResponseMode.DECISIVE,
+                    null,
+                    checkNodeId,
+                    stat.name(),
+                    null
                 ));
-
-                // Decline
-                responses.add(new ResponseOption(
-                    subjectId + "_decline_" + i, declineText, null, declineNodeId,
-                    ResponseMode.DECISIVE, null, null, null, null
-                ));
-
-                if (i == 0) {
-                    entryResponses.addAll(responses);
-                } else {
-                    nodes.put(beatNodeIds.get(i), new DialogueNode.DialogueTextNode(
-                        beatTexts.get(i), null, responses, List.of(), false, false, ValenceType.NEGATIVE
-                    ));
-                }
             }
-
-            // Set introText to first beat (entry node text)
-            introText = beatTexts.getFirst();
         }
 
         // Entry node: UNLOCK_TOPIC on enter so the topic is globally available
-        ValenceType finalEntryValence = assignment.hasQuest() ? ValenceType.NEGATIVE : entryValence;
-        List<Map<String, String>> entryOnEnter = assignment.hasQuest()
-            ? List.of()
-            : List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
+        List<Map<String, String>> entryOnEnter =
+            List.of(Map.of("type", "UNLOCK_TOPIC", "topicId", subjectId, "scope", "GLOBAL"));
         nodes.put(entryNodeId, new DialogueNode.DialogueTextNode(
-            introText, null, entryResponses, entryOnEnter, false, false, finalEntryValence
+            introText, null, entryResponses, entryOnEnter, false, false, entryValence
         ));
 
         // Topic definition
@@ -355,7 +254,7 @@ public class TopicGraphBuilder {
         topics.add(new TopicDefinition(
             subjectId, resolvedLabel, entryNodeId,
             TopicScope.GLOBAL, null, assignment.startVisible(),
-            null, sortOrder, recapText, assignment.hasQuest()
+            null, sortOrder, recapText, false
         ));
     }
 
