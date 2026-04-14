@@ -40,6 +40,7 @@ public class DialogueResolver {
     private static final Set<String> HIGHLIGHTED_QUEST_VARS = Set.of(
         // Items / counts (per-objective)
         "quest_item",
+        "quest_item_full",
         "gather_count",
         "kill_count",
         // Combat target
@@ -106,6 +107,7 @@ public class DialogueResolver {
                 bindings.put("gather_count", String.valueOf(objective.getRequiredCount()));
                 if (objective.getEffectiveLabel() != null) {
                     bindings.put("quest_item", objective.getEffectiveLabel());
+                    bindings.put("quest_item_full", composeFull(objective));
                 }
             }
             case KILL_MOBS -> {
@@ -120,6 +122,7 @@ public class DialogueResolver {
             case FETCH_ITEM, PEACEFUL_FETCH -> {
                 if (objective.getEffectiveLabel() != null) {
                     bindings.put("quest_item", objective.getEffectiveLabel());
+                    bindings.put("quest_item_full", composeFull(objective));
                 }
             }
             case TALK_TO_NPC -> {
@@ -128,6 +131,16 @@ public class DialogueResolver {
                 }
             }
         }
+    }
+
+    /** Build the {@code {quest_item_full}} string from an objective: the bare
+     *  noun (effective label) followed by the objective's epithet when one is
+     *  authored, else just the noun. Mirrors {@link QuestPoolRegistry.ItemEntry#fullForm()}
+     *  but operates on the post-persistence ObjectiveInstance. */
+    private static String composeFull(ObjectiveInstance obj) {
+        String noun = obj.getEffectiveLabel();
+        String epithet = obj.getTargetEpithet();
+        return (epithet != null && !epithet.isEmpty()) ? noun + " " + epithet : noun;
     }
 
     private static String substituteAndClean(String template, Map<String, String> bindings, boolean wrapEntities) {
