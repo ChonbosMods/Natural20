@@ -4,22 +4,23 @@
 
 **Revision history:**
 - 2026-04-14 (initial): plan written assuming `rewardText` still on disk as source material for Phase 2.
-- 2026-04-14 (revised): commit `1464711` deleted `rewardText` from all 259 templates as part of the v1 cleanup. Phase 1 now pulls source material from git history via `git show 1464711^:<file>` instead of reading the live file. Phase 2's "delete rewardText" step is removed (it's already gone). Remaining work is unchanged in shape.
+- 2026-04-14 (revised 1): commit `1464711` deleted `rewardText` from all 259 templates as part of the v1 cleanup. Phase 1 now pulls source material from git history via `git show 1464711^:<file>` instead of reading the live file. Phase 2's "delete rewardText" step is removed (it's already gone).
+- 2026-04-14 (revised 2): reward schema moved to a runtime difficulty-driven model (see `2026-04-14-fetch-item-naming-impl.md` Addendum + Tasks D1–D5). Templates no longer carry `rewardGold`, `rewardItem`, or `rewardXP` — only `rewardFlavor`. Phase 1 script is simplified: seed `rewardFlavor` from legacy prose and rewrite `{quest_reward}` to a one-beat `"Take this {reward_item}."` for every template. Phase 2 upgrades the subset with real flavor to the two-beat form.
 
-**Goal:** Migrate all 259 v2 quest templates to the new reward schema (`rewardGold`/`rewardItem`/`rewardFlavor`) and new template variables (`{reward_gold}`/`{reward_item}`/`{reward_flavor}`/`{quest_item_full}`) without attempting thousands of inline edits in a single subagent pass.
+**Goal:** Migrate all 259 v2 quest templates to seed a `rewardFlavor` field from legacy prose and rewrite every `{quest_reward}` token into a `{reward_item}` reference, so the difficulty-driven reward system (Tasks D1–D5 in the impl plan) renders correctly at runtime.
 
 **Why this plan exists:** Task 9 of `2026-04-14-fetch-item-naming-impl.md` was scoped under the assumption of a handful of templates. Actual scope:
 - `src/main/resources/quests/v2/index.json`: 238 templates, 238 `{quest_reward}` tokens, 302 `{quest_item}` tokens, 183 have FETCH_ITEM objectives.
 - `src/main/resources/quests/mundane/index.json`: 21 templates, 21 `{quest_reward}`, 30 `{quest_item}`, all use PEACEFUL_FETCH (not FETCH_ITEM).
 - Original `rewardText` prose lives at `git show 1464711^:<path>` and is the authoritative source for Phase 2 flavor authoring.
 
-About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes into phases where each phase has a clean acceptance test and commits independently.
+About 500 authoring edits once you strip out the fields that are no longer template-owned. Not safe to do in one pass. This plan decomposes into phases where each phase has a clean acceptance test and commits independently.
 
-**Runtime state as of this revision:** templates render literal `{quest_reward}` tokens in quest-giver dialogue (no binding exists for that key post–reward-schema split), and every quest turn-in dispenses 0 gold (templates have no `rewardGold` field yet; record default is 0). Phase 1 is the minimum intervention needed to make the build user-facing correct.
+**Runtime state as of this revision:** templates render literal `{quest_reward}` tokens in quest-giver dialogue (no binding exists for that key post-reward-schema-split). After impl-plan Tasks D1–D5 land, every quest generation will pre-roll a difficulty-tier reward item and bind its display name as `{reward_item}`. Phase 1 of this plan is the minimum intervention needed for templates to actually reference it.
 
 **Architecture:**
-- **Phase 1** is a mechanical script-assisted pass that makes the build functionally correct with placeholder authoring quality. Runtime after Phase 1: quests give gold, no crashes, no literal `{quest_reward}` tokens leak to players. The script seeds `rewardFlavor` from the pre-deletion `rewardText` prose (read from git history) so Phase 2 authors have context to work with.
-- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's seeded output, polishes `rewardFlavor` into a ≤5-word form, and rewrites resolution text from the one-beat gold form into two-beat form where flavor warrants it. Ordered sequentially (shared file, no race).
+- **Phase 1** is a mechanical script-assisted pass that seeds `rewardFlavor` from the pre-deletion `rewardText` prose (read from git history) and rewrites every `{quest_reward}` token into one-beat `"Take this {reward_item}."`. Runtime after Phase 1: no literal `{quest_reward}` tokens leak to players, and every quest's reward item shows up in its resolution text.
+- **Phase 2** is a sequence of small authoring batches (~25 templates each) handled by dedicated subagents. Each batch reviews Phase 1's seeded output, polishes `rewardFlavor` into a ≤5-word form (or sets it null for purely transactional templates), and upgrades the one-beat resolution text to a two-beat form where flavor exists. Ordered sequentially (shared file, no race).
 - **Phase 3** is the same pattern for the `{quest_item}` article audit, scoped to FETCH_ITEM-carrying templates only.
 - **Phase 4** is a final grep + compile sweep.
 
@@ -35,9 +36,11 @@ About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes in
 
 ## Phase 1: Script-assisted baseline migration
 
-**Goal:** Every template carries the new reward fields (gold scaled, flavor seeded from legacy prose); every `{quest_reward}` in text fields becomes a minimum-viable one-beat gold reference. Phase 2 then polishes the seeded flavor.
+**Goal:** Every template carries a seeded `rewardFlavor` (verbatim legacy prose from git history); every `{quest_reward}` in text fields becomes the one-beat `"Take this {reward_item}."` form. Phase 2 polishes the seeded flavor and upgrades the subset with real flavor to two-beat.
 
 **Source material:** the legacy `rewardText` prose lives at `git show 1464711^:<path>` for both index files. The script reads that as a side-channel and injects each template's legacy prose into the new `rewardFlavor` slot (unconverted — preserving original length) so Phase 2 authors can see what the template used to say before condensing.
+
+**Prerequisites:** impl-plan Tasks D1–D5 must already be on `fix/fetch-naming-and-continue-buttons` before this Phase runs. Without them, the `{reward_item}` token references the script writes have no binding at runtime.
 
 ### Task 1.1: Write the migration script
 
@@ -46,7 +49,7 @@ About 1000+ authoring edits. Not safe to do in one pass. This plan decomposes in
 
 **Behavior:**
 
-The script reads TWO JSONs per file: the current on-disk file (has no `rewardText`) and the pre-deletion file from git (has `rewardText`). It matches templates by `id`, copies `rewardText` values from the git version into the new `rewardFlavor` field, computes `rewardGold` from objective count, rewrites `{quest_reward}` tokens, and writes the result back to disk.
+The script reads TWO JSONs per file: the current on-disk file (has no `rewardText`) and the pre-deletion file from git (has `rewardText`). It matches templates by `id`, copies `rewardText` values from the git version into the new `rewardFlavor` field, rewrites `{quest_reward}` tokens, and writes the result back to disk.
 
 CLI signature:
 ```
@@ -57,21 +60,18 @@ python3 tools/quest_template_migration.py --phase 1 \
 
 Per-template logic:
 
-1. Count `objectives.length`. Compute `rewardGold`:
-   - length ≤ 2 → 25
-   - length == 3 → 50
-   - length ≥ 4 → 75
-2. Look up this template's `id` in the legacy JSON. Extract `legacyRewardText` (may be null if a new template was added after `1464711`).
-3. Add/overwrite three fields on the current template:
-   - `rewardGold`: integer from rule above
-   - `rewardItem`: `null`
+1. Look up this template's `id` in the legacy JSON. Extract `legacyRewardText` (may be null if a new template was added after `1464711`).
+2. Add the `rewardFlavor` field on the current template:
    - `rewardFlavor`: `legacyRewardText` verbatim if present, else `null`. **Note:** Phase 2 will condense this to ≤5 words; the verbatim form is intentional scaffolding, not a final value. A `# TODO-P2` trailing comment in the JSON is not possible (JSON has no comments) but that's fine — Phase 2 identifies candidates by "rewardFlavor has >5 words".
-4. For every string field in the template (the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rewrite:
-   - `{quest_reward}` → `{reward_gold} gold`
+3. For every string field in the template (the schema is flat: iterate known text fields `expositionText`, `acceptText`, `declineText`, `expositionTurnInText`, `conflict1Text`, `conflict1TurnInText`, `conflict2Text`, `conflict2TurnInText`, `conflict3Text`, `conflict3TurnInText`, `conflict4Text`, `conflict4TurnInText`, `resolutionText`, `targetNpcOpener`, `targetNpcCloser`, `targetNpcOpener2`, `targetNpcCloser2`, `skillCheck.passText`, `skillCheck.failText`), rewrite:
+   - `{quest_reward}` → `Take this {reward_item}.`  — literal replacement of the token with a complete one-beat sentence. In cases where the surrounding text already provides a verb like "Take" and was relying on `{quest_reward}` being a noun phrase, a naive token swap will produce awkward prose ("Take Take this {reward_item}."). Phase 2 fixes these during the authoring review.
    - DO NOT touch `{quest_item}` in this phase.
-5. Preserve JSON formatting: 2-space indent, ASCII-escaped strings OFF (keep UTF-8), key order preserved. Use `json.dump(obj, fp, indent=2, ensure_ascii=False)` with `sort_keys=False`.
+4. Preserve JSON formatting: 2-space indent, ASCII-escaped strings OFF (keep UTF-8), key order preserved. Use `json.dump(obj, fp, indent=2, ensure_ascii=False)` with `sort_keys=False`.
 
 The git-history read is a one-liner: `subprocess.check_output(["git", "show", f"{legacy_rev}:{path}"])`. Parse as JSON, build an id→rewardText lookup map, use it during the per-template pass.
+
+**Fields explicitly NOT touched in Phase 1:**
+- `rewardGold` / `rewardXP` / `rewardItem` / `difficulty` — these are not template fields in the final schema. Difficulty is runtime-assigned; XP and item come from the difficulty config. Templates only author `rewardFlavor`.
 
 **CLI:**
 ```
@@ -94,8 +94,8 @@ python3 tools/quest_template_migration.py --phase 1 --file src/main/resources/qu
 ```bash
 jq . src/main/resources/quests/v2/index.json > /dev/null && jq . src/main/resources/quests/mundane/index.json > /dev/null
 grep -c '{quest_reward}' src/main/resources/quests/v2/index.json src/main/resources/quests/mundane/index.json  # both should be 0
-grep -c '"rewardGold":' src/main/resources/quests/v2/index.json  # should be 238
-grep -c '"rewardGold":' src/main/resources/quests/mundane/index.json  # should be 21
+grep -c '"rewardFlavor":' src/main/resources/quests/v2/index.json  # should be 238
+grep -c '"rewardFlavor":' src/main/resources/quests/mundane/index.json  # should be 21
 ```
 
 **Step 5: Compile.**
@@ -108,17 +108,17 @@ Expected: BUILD SUCCESSFUL.
 
 Commit message:
 ```
-data(quest): Phase 1 - script-assisted baseline reward migration
+data(quest): Phase 1 - script-assisted baseline template migration
 
-Adds rewardGold/rewardItem/rewardFlavor to all 259 v2+mundane templates
-(gold scaled by objective count, item null, flavor seeded verbatim from
-the pre-deletion rewardText prose read out of git history at 1464711^).
-Rewrites every {quest_reward} token in template text fields to a
-minimum-viable '{reward_gold} gold' form.
+Seeds rewardFlavor on all 259 v2+mundane templates verbatim from the
+pre-deletion rewardText prose read out of git history at 1464711^.
+Rewrites every {quest_reward} token in template text fields to the
+one-beat 'Take this {reward_item}.' form so runtime reward binding
+(from impl-plan tasks D1-D5) renders the rolled affix item's name.
 
 rewardFlavor values are intentionally verbatim at this phase - most
-exceed the ≤5-word cap and will be condensed in Phase 2. This
-preserves original authorial context for each template.
+exceed the 5-word cap and will be condensed in Phase 2 along with
+upgrading the one-beat text to two-beat where flavor warrants it.
 ```
 
 No Co-Authored-By.
@@ -159,9 +159,9 @@ docs(quest): Phase 2 batching plan for template flavor authoring
 >    - Transactional only (e.g. "a small pouch of silver coins") → set `rewardFlavor: null`, keep the one-beat form in resolutionText (no further edits).
 >    - Has flavor (e.g. "what coin I've kept hidden and a meal whenever you pass through") → condense the emotional piece into ≤ 5 words (e.g. `"a meal whenever you visit"`) and overwrite `rewardFlavor`.
 > 3. If you set a non-null `rewardFlavor`, rewrite the resolution text (and any conflict turn-in text that carries the reward moment) into two-beat form:
->    - One-beat (no flavor): `"Take this: {reward_gold} gold. ..."` (keep from Phase 1)
->    - Two-beat (with flavor): `"Take this: {reward_gold} gold. And this. {reward_flavor}. ..."`
->    - Authors own the article / punctuation around the flavor insertion. Never put `{reward_flavor}` mid-clause if it would break grammar.
+>    - One-beat (no flavor): `"Take this {reward_item}. ..."` (keep from Phase 1)
+>    - Two-beat (with flavor): `"Take this {reward_item}. And this: {reward_flavor}. ..."`
+>    - Authors own the article / punctuation around the flavor insertion. Never put `{reward_flavor}` mid-clause if it would break grammar. NPCs never mention XP, tier, or gold — the reward item's name shows itself, the flavor is pure emotional closure.
 > 4. Never invent item names. If flavor refers to a concrete object that exists in keepsake_items or evidence_items, set `rewardItem` to the matching pool id and reference it via `{reward_item}`. Otherwise leave `rewardItem: null`.
 >
 > Stay strictly within the listed template ids. Do not touch other templates in the file.
@@ -185,9 +185,10 @@ Batches run **sequentially**, not in parallel, because they share `v2/index.json
 ### Phase 2 acceptance criteria
 
 After all batches:
-- Every template has `rewardGold` + `rewardItem` + `rewardFlavor` (either null or ≤5-word string).
+- Every template has `rewardFlavor` (either null or ≤5-word string).
 - Every non-null `rewardFlavor` is ≤ 5 words (Phase 4 enforces globally via the word-count audit in Task 4.1 Step 2).
 - No template has a `rewardFlavor` longer than 5 words except intentionally-deferred ones (flagged in the batch's report).
+- Every template with a non-null `rewardFlavor` has its resolution text upgraded from one-beat to two-beat form, with `{reward_flavor}` referenced exactly once in a grammatically clean position.
 - `./gradlew compileJava` passes.
 
 ---
@@ -313,8 +314,9 @@ These stay on the follow-up list documented in the original fetch-item naming pl
 
 ## Failure modes to watch for
 
-- **Gson silently ignores typos.** If a subagent writes `"rewardGoId"` instead of `"rewardGold"` (capital-I vs lowercase-l), Gson skips it and the template gets 0 gold. Mitigate: each Phase 2/3 batch subagent must verify its edits by re-parsing and checking presence of the field it set.
+- **Gson silently ignores typos.** If a subagent writes `"rewardFIavor"` (capital-I vs lowercase-l) the field is dropped and the template gets a null flavor. Mitigate: each Phase 2/3 batch subagent must verify its edits by re-parsing and checking presence of the field it set.
 - **Merge conflicts on shared file.** Sequential dispatch avoids this. If a batch is dispatched while another is mid-run, commits will race. Strictly serialize.
 - **`rewardFlavor` > 5 words.** Phase 4 catches these; fix via targeted subagent.
 - **Fetch text over-edited.** A batch subagent might touch COLLECT_RESOURCES sentences out of zeal. Each Phase 3 batch's diff should be spot-checked for unrelated edits.
-- **`{reward_item}` referenced when `rewardItem: null`.** Renders as empty string. Safe, but readers will see weird "Take this: 25 gold, and the ." Fix: only write `{reward_item}` into text fields when `rewardItem` is non-null on that template.
+- **Awkward token swaps from Phase 1.** The literal `{quest_reward}` → `Take this {reward_item}.` substitution is mechanical and will produce sentences like "Here, take Take this {reward_item}." where the old token followed a verb. Phase 2 reviewers must fix these in the templates they touch. Phase 4's spot-check (Task 4.1 Step 2 extended) should read a handful of random resolution texts aloud to catch residual awkwardness.
+- **`{reward_flavor}` referenced when `rewardFlavor: null`.** Renders as empty string. Safe if the sentence still parses. Phase 2 subagents must only inject `{reward_flavor}` into resolution text when they've set a non-null flavor on the same template.

@@ -38,10 +38,357 @@ Branch delta so far: ~500 net lines removed, build green throughout.
 
 - `TopicPoolRegistry.randomPerspectiveDetail` is now unused (side effect of retiring the quest-binding block in `c78cc9b`).
 - `settlement_type` binding is still set by `QuestGenerator` and documented as a public palette variable, but no current v2 template references it. Kept for now; delete candidate if the palette contracts.
-- Reward dispensing is still a stub. `TURN_IN_V2` computes the multiplier but doesn't move gold/items to the player. Separate follow-up.
+- Reward dispensing is still a stub. `TURN_IN_V2` computes the multiplier but doesn't move XP/items to the player. Separate follow-up.
 - `fetch_item_label` binding in `QuestGenerator` was initially tagged dead by recon, then found to have a live reader at `POIProximitySystem.java:129`. Not deleted. If `POIProximitySystem` usage turns out to be incidental, revisit.
+- Full dead-code backlog logged at `docs/tech-debt/2026-04-14-quest-system-bloat-audit.md`.
 
 ---
+
+## Addendum: Difficulty-driven reward system (Tasks D1–D5)
+
+After Tasks 1–8 landed, scope expanded: the reward is now an **affix item of runtime-rolled rarity + XP**, controlled by a new `QuestDifficulty` config. Templates no longer author `rewardGold` / `rewardItem` / `rewardXP` — only `rewardFlavor` (silent emotional beat, ≤5 words, never mentions the reward).
+
+### Schema (final)
+
+`QuestTemplateV2` reward-related fields:
+```java
+@Nullable String rewardFlavor,     // ≤5 words, unchanged
+// No difficulty, no reward values. Difficulty is runtime-assigned.
+```
+
+`QuestInstance` gains new fields:
+- `difficultyId` (String) — which difficulty was rolled for this quest
+- `rewardItem` (ItemStack) — pre-rolled affix item, dispensed at turn-in
+- `rewardXp` (int) — XP to award at turn-in
+- Plus the rolled item's display name written into `variableBindings` as `reward_item`
+
+### DifficultyConfig shape
+
+```json
+// src/main/resources/quests/difficulty/<id>.json
+{
+  "id": "medium",
+  "xpAmount": 100,
+  "rewardTierMin": "Uncommon",
+  "rewardTierMax": "Rare",
+  "rewardIlvl": 15,
+  "mobIlvl": 15,
+  "mobBoss": true,
+  "bossIlvlOffset": 3,
+  "mobCountMultiplier": 1.0,
+  "gatherCountMultiplier": 1.0
+}
+```
+
+Three levels for MVP:
+
+| id | xp | tier range | reward iLvl | mob iLvl | boss | boss offset | mob × | gather × |
+|---|---|---|---|---|---|---|---|---|
+| easy | 50 | Common → Uncommon | 5 | 5 | true | 3 | 0.8 | 0.8 |
+| medium | 100 | Uncommon → Rare | 15 | 15 | true | 3 | 1.0 | 1.0 |
+| hard | 200 | Rare → Epic | 25 | 25 | true | 3 | 1.3 | 1.3 |
+
+Tier range is inclusive on both ends. Boss is forced-on at every level for MVP so the spawn path is exercised during testing.
+
+### Runtime flow
+
+At `QuestGenerator.generate()`:
+1. Pick a difficulty uniformly at random from the registry (MVP policy — pluggable).
+2. Store `difficultyId` on the `QuestInstance`.
+3. Apply `mobCountMultiplier` when rolling KILL_MOBS counts, `gatherCountMultiplier` when rolling COLLECT_RESOURCES counts.
+4. Extend `populationSpec` on KILL_MOBS objectives with `mobIlvl`, `mobBoss`, `bossIlvlOffset`.
+5. Roll reward tier uniformly in `[rewardTierMin, rewardTierMax]`. Call `AffixRewardRoller.roll(tier, rewardIlvl)`. Store `ItemStack` on `QuestInstance.rewardItem`.
+6. Write `variableBindings.put("reward_item", rolledItem.getDisplayName())`.
+7. Store `difficulty.xpAmount` on `QuestInstance.rewardXp`.
+
+At `TURN_IN_V2` final:
+- Dispense `quest.rewardItem` to inventory (stub: log only until loot dispensing is wired).
+- Award `quest.rewardXp` (stub: log only until XP system is wired).
+
+**No hardcoded fallbacks.** If a difficulty id fails to resolve at generation time, the quest is not created and the attempt is logged.
+
+---
+
+## Task D1: DifficultyConfig data model and registry
+
+**Files:**
+- Create: `src/main/java/com/chonbosmods/quest/model/DifficultyConfig.java`
+- Create: `src/main/java/com/chonbosmods/quest/QuestDifficultyRegistry.java`
+- Create: `src/main/resources/quests/difficulty/easy.json`
+- Create: `src/main/resources/quests/difficulty/medium.json`
+- Create: `src/main/resources/quests/difficulty/hard.json`
+- Modify: `src/main/java/com/chonbosmods/quest/QuestSystem.java` (register new registry)
+
+**Step 1: `DifficultyConfig` record**
+
+```java
+package com.chonbosmods.quest.model;
+
+/**
+ * Runtime-assigned quest difficulty tier. Drives reward tier range, XP amount,
+ * mob iLvl / boss behavior, and objective count multipliers. Loaded from
+ * {@code src/main/resources/quests/difficulty/*.json} by {@link
+ * com.chonbosmods.quest.QuestDifficultyRegistry}.
+ *
+ * <p>Templates never reference a difficulty directly. {@link
+ * com.chonbosmods.quest.QuestGenerator} picks one (randomly for MVP) at
+ * generation time and applies its values throughout.
+ */
+public record DifficultyConfig(
+    String id,
+    int xpAmount,
+    String rewardTierMin,
+    String rewardTierMax,
+    int rewardIlvl,
+    int mobIlvl,
+    boolean mobBoss,
+    int bossIlvlOffset,
+    double mobCountMultiplier,
+    double gatherCountMultiplier
+) {}
+```
+
+Tier fields are `String` (Hytale vanilla quality id: `"Common"`, `"Uncommon"`, etc.) rather than an enum, matching the `item-quality-rendering` memory's guidance to use vanilla IDs verbatim.
+
+**Step 2: `QuestDifficultyRegistry`**
+
+Loads all `.json` files under `quests/difficulty/` from the classpath, parses each with Gson into `DifficultyConfig`, stores by id. Fails loud on any file that doesn't parse or has a missing id. Provides:
+
+- `DifficultyConfig get(String id)` — returns null if missing
+- `DifficultyConfig random(Random random)` — uniformly picks one; throws `IllegalStateException` if registry is empty (no silent fallback)
+- `Collection<String> ids()` — for logging
+
+Follow the same pattern as `QuestPoolRegistry.loadItemPoolFromClasspath` for classpath enumeration. If classpath enumeration of a directory is awkward, hardcode the list of expected ids (`"easy", "medium", "hard"`) and load each by name — acceptable for MVP since we don't expect user-contributed difficulty configs yet.
+
+**Step 3: JSON definitions**
+
+Write the three JSON files exactly matching the MVP values table above. All three get `"mobBoss": true`.
+
+**Step 4: Register in `QuestSystem`**
+
+Add a `QuestDifficultyRegistry` field, instantiate + load it in the constructor, pass it to `QuestGenerator`. Expose a getter if anything outside the system needs it.
+
+**Step 5: Compile + commit.**
+
+```
+feat(quest): add QuestDifficulty config system
+
+Introduces three difficulty levels (easy / medium / hard) loaded from
+quests/difficulty/*.json. Each carries xp amount, reward tier range,
+reward iLvl, mob iLvl, mob-boss flag, boss iLvl offset, and objective
+count multipliers.
+
+Registry is wired into QuestSystem. Next task integrates it into
+QuestGenerator.
+```
+
+---
+
+## Task D2: Integrate difficulty into QuestGenerator
+
+**Files:**
+- Modify: `src/main/java/com/chonbosmods/quest/QuestGenerator.java`
+- Modify: `src/main/java/com/chonbosmods/quest/QuestInstance.java` (new `difficultyId` field)
+
+**Step 1: Add `difficultyId` field on `QuestInstance`**
+
+Plain String field with getter/setter, matching the existing `situationId` / `sourceNpcId` field patterns. Serializable.
+
+**Step 2: Pick difficulty at start of `QuestGenerator.generate()`**
+
+Immediately after the template is selected, before objective creation:
+
+```java
+DifficultyConfig difficulty = difficultyRegistry.random(random);
+bindings.put("difficulty_id", difficulty.id());  // for logging, not template use
+```
+
+Pass `difficulty` into `createObjective` so the objective builder can apply multipliers.
+
+**Step 3: Apply multipliers in objective count rolling**
+
+In `createObjective`:
+- `COLLECT_RESOURCES`: after rolling `count` from the pool or config, apply `(int) Math.round(count * difficulty.gatherCountMultiplier())`. Clamp to a minimum of 1.
+- `KILL_MOBS`: same treatment. `rollKillCount` already exists; multiplier wraps its return.
+
+**Step 4: Store `difficultyId` on the created `QuestInstance`**
+
+```java
+quest.setDifficultyId(difficulty.id());
+```
+
+**Step 5: Compile + commit.**
+
+```
+feat(quest): wire QuestDifficulty into generation
+
+Every generated quest now rolls a difficulty at creation and stores
+the id on QuestInstance. Mob count / gather count multipliers apply
+during objective creation. Downstream (mob iLvl, reward, XP) in next
+tasks.
+```
+
+---
+
+## Task D3: Extend populationSpec with mob iLvl and boss flag
+
+**Files:**
+- Modify: `src/main/java/com/chonbosmods/quest/QuestGenerator.java` (spec format)
+- Modify: `src/main/java/com/chonbosmods/quest/ObjectiveInstance.java` if the spec gets parsed into structured fields
+- Modify: whatever consumes `populationSpec` downstream (likely the cave-void population step — grep to find)
+
+**Step 1: Decide on spec format**
+
+Current: `"KILL_MOBS:<enemyId>:<count>"` (a flat colon-delimited string).
+
+Extended: `"KILL_MOBS:<enemyId>:<count>:<ilvl>:<boss>:<bossIlvlOffset>"` where `<boss>` is `"true"` / `"false"`.
+
+Keep it a string for storage simplicity (same record as before); parse on the consumer side.
+
+**Step 2: Write the extended spec in `createPOIObjective`**
+
+Pull `difficulty.mobIlvl()`, `difficulty.mobBoss()`, `difficulty.bossIlvlOffset()` from the difficulty argument and interpolate them into the spec.
+
+**Step 3: Update downstream consumer**
+
+Grep `populationSpec` usages. If the consumer parses by `split(":")` and indexes by position, extend the parser to read the new 3 fields. If the consumer currently only reads the first three tokens and ignores the rest, the extension is additive and requires no change — but the spawn behavior doesn't use iLvl / boss yet either. In that case:
+
+- File a note in the commit message that the spec carries the data but spawn doesn't yet read it.
+- Downstream wiring becomes a separate task / follow-up.
+
+**Step 4: Compile + commit.**
+
+```
+feat(quest): extend KILL_MOBS populationSpec with iLvl and boss fields
+
+populationSpec now encodes the difficulty's mob iLvl, mob-boss flag,
+and boss iLvl offset. <Include note here about whether the downstream
+spawn path reads them yet or if that's deferred.>
+```
+
+---
+
+## Task D4: AffixRewardRoller helper
+
+**Files:**
+- Create: `src/main/java/com/chonbosmods/quest/AffixRewardRoller.java`
+
+**Step 1: Write the helper**
+
+```java
+package com.chonbosmods.quest;
+
+import com.hytale.sdk.item.ItemStack;  // or whatever the right import is
+import java.util.Random;
+
+/**
+ * Rolls a reward item at a given rarity tier and item level. For MVP this is
+ * a stub that returns a placeholder {@link ItemStack} with a display name
+ * that reflects the tier/ilvl, so the dialogue binding {@code reward_item}
+ * renders something visible during testing. Real integration with the
+ * Nat20 affix / loot system is a follow-up task.
+ */
+public final class AffixRewardRoller {
+
+    private AffixRewardRoller() {}
+
+    /**
+     * Roll a reward item.
+     *
+     * @param tier vanilla Hytale quality id: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary"
+     * @param ilvl item level
+     * @return a placeholder ItemStack carrying the display name for dialogue binding;
+     *         the stack type itself is a stub until the affix system is wired.
+     */
+    public static ItemStack roll(String tier, int ilvl, Random random) {
+        // MVP stub: placeholder item. Replace with real affix roll when ready.
+        // Return an ItemStack with:
+        //   - a placeholder base item
+        //   - qualityId = tier
+        //   - a display name built from tier + ilvl, e.g. "Rare Token (iLvl 15)"
+        // so dialogue's {reward_item} binding surfaces something meaningful.
+        throw new UnsupportedOperationException("TODO: implement placeholder stub");
+    }
+}
+```
+
+The concrete stub implementation: investigate the project's existing `ItemStack` construction pattern (check `Nat20LootSystem` or `Nat20AffixRegistry` for examples) and return a minimal stack. The exact SDK call pattern isn't in the plan because it depends on local conventions; copy whatever the loot system already does.
+
+**Step 2: Compile + commit.**
+
+```
+feat(quest): add AffixRewardRoller stub
+
+Rolls a placeholder ItemStack at a given tier + ilvl. Real affix
+integration is deferred until the loot system is ready. The stub
+produces a visible display name so quest resolution dialogue can
+render {reward_item} during MVP testing.
+```
+
+---
+
+## Task D5: Wire reward + XP storage and TURN_IN_V2 stubs
+
+**Files:**
+- Modify: `src/main/java/com/chonbosmods/quest/QuestInstance.java` (new `rewardItem`, `rewardXp` fields)
+- Modify: `src/main/java/com/chonbosmods/quest/QuestGenerator.java` (roll reward, write binding)
+- Modify: `src/main/java/com/chonbosmods/quest/DialogueResolver.java` (highlight `reward_item`)
+- Modify: `src/main/java/com/chonbosmods/action/DialogueActionRegistry.java` (TURN_IN_V2 dispense stubs)
+
+**Step 1: Add fields to `QuestInstance`**
+
+- `ItemStack rewardItem` — the rolled reward
+- `int rewardXp` — XP amount from difficulty
+
+Plus getters/setters, matching the existing field pattern. Serialization: if `QuestInstance` uses Gson for persistence, the `ItemStack` field needs a serializer — otherwise fall back to storing the item's qualityId + display name + (later) affix roll seed so it can be reconstructed at dispense time. For MVP stub, storing display name is enough to render dialogue; the actual item dispense is stubbed.
+
+**Step 2: Roll reward in `QuestGenerator.generate()`**
+
+After the difficulty roll (Task D2) and before template text bindings:
+
+```java
+String rewardTier = rollTierInRange(difficulty.rewardTierMin(),
+                                     difficulty.rewardTierMax(), random);
+ItemStack rewardItem = AffixRewardRoller.roll(rewardTier, difficulty.rewardIlvl(), random);
+quest.setRewardItem(rewardItem);
+quest.setRewardXp(difficulty.xpAmount());
+bindings.put("reward_item", rewardItem.getDisplayName());
+```
+
+`rollTierInRange` is a small helper that picks uniformly between the two tier names inclusive. Implement inline or as a private static.
+
+**Step 3: Highlight `reward_item`**
+
+In `DialogueResolver.HIGHLIGHTED_QUEST_VARS`, add `"reward_item"`.
+
+**Step 4: TURN_IN_V2 stubs**
+
+Inside the existing `TURN_IN_V2` handler, after item consumption but before the dialogue resumes (only when `!quest.hasMoreConflicts()`, i.e., final turn-in):
+
+```java
+// Reward dispense (stub until affix item system is wired)
+LOGGER.atInfo().log("TURN_IN_V2 reward stub: quest=%s would grant item=%s (qty=%d) and %d xp to player %s",
+    quest.getQuestId(),
+    quest.getRewardItem() != null ? quest.getRewardItem().getDisplayName() : "<null>",
+    quest.getRewardItem() != null ? quest.getRewardItem().getCount() : 0,
+    quest.getRewardXp(),
+    ctx.player().getPlayerRef().getUuid());
+```
+
+Leave the existing multiplier calc / `claimReward` call in place.
+
+**Step 5: Compile + commit.**
+
+```
+feat(quest): wire reward item binding + XP storage and TURN_IN_V2 stubs
+
+Every generated quest rolls a reward at difficulty-derived tier and
+ilvl; display name goes into {reward_item} binding for dialogue.
+QuestInstance carries the rolled ItemStack and XP amount.
+
+TURN_IN_V2 logs would-dispense lines for both item and XP. Real
+dispense lands when the affix and XP systems are ready.
+```
 
 **Goal:** Split fetch-item pool labels into bare noun + short epithet so objective UI, waypoints, and inventory stacks read clean, and split the reward text into structured slots so flavor never masquerades as an item.
 
