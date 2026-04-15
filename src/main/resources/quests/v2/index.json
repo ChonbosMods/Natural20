@@ -344,14 +344,14 @@
       "expositionTurnInText": "She let me give it to her without a fuss. I think she could taste that it would help. Her color is already better and I've started to feel like I might survive this.",
       "conflict1Text": "There's one more thing, and I'm almost ashamed to ask. {enemy_type_plural} have been working their way closer and the noise terrifies her. Every time they cry out in the dark she clings to me and I can't pry her off. {kill_count} of them gone and she might sleep through a whole night.",
       "conflict1TurnInText": "She slept. The whole night. I sat in the chair and watched her chest rise and fall and I cried like an idiot. I don't even know what to say to you.",
-      "resolutionText": "She's eating again. She asked about the chickens this morning, which is the most ordinary question in the world, and I almost broke down at the breakfast table because of it. {reward_item}. It's hers, really, and she'd want you to have it. Thank you for giving her back to me.",
+      "resolutionText": "She's eating again. She asked about the chickens this morning, which is the most ordinary question in the world, and I almost broke down at the breakfast table because of it. {reward_item}: {reward_flavor}. She'd want you to have it. Thank you for giving her back to me.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. I'm not asking you for an herb. I'm asking you to make sure I don't lose another one.",
         "failText": "She's just sick. Children get sick. That's all there is to say about it right now."
       },
-      "rewardFlavor": "the silver I'd saved for her birthday and a mother's promise",
+      "rewardFlavor": "silver saved for her birthday",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -380,14 +380,14 @@
       "conflict1TurnInText": "He hasn't called for me once in the last six hours. I almost went in to check he was breathing, just because the quiet felt wrong. He's just sleeping. He's just finally sleeping.",
       "conflict2Text": "There's one last thing. Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they used to look in on him before the roads got bad. I want them to know he's still here, and I want him to see a friendly face that isn't mine for once.",
       "conflict2TurnInText": "{target_npc} will come? Truly? I haven't been able to give him a piece of news that good in months. I'll tell him at supper.",
-      "resolutionText": "He laughed today. Out loud. I didn't realize how long it had been since I'd heard that sound until it happened and I couldn't move. {reward_item}. Take it, please. It's small, but it's offered by a daughter who has her father back, and that's the largest thing I have to give.",
+      "resolutionText": "He laughed today. Out loud. I didn't realize how long it had been since I'd heard that sound until it happened and I couldn't move. Take {reward_item}, and {reward_flavor} whenever you pass through. It's small, but it's offered by a daughter who has her father back, and that's the largest thing I have to give.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 14,
         "passText": "All right. The truth is I haven't slept more than two hours at a stretch since spring. I'm not managing as well as I look like I am, and some mornings I don't know if I have it in me to keep going. I'd never tell him that, but I'm telling you, because I need someone to know.",
         "failText": "I'm managing. I always manage. That's what you do for family."
       },
-      "rewardFlavor": "what little I've put aside and a place at our table whenever you pass through",
+      "rewardFlavor": "a seat at our table",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "He's still going? I've thought about him more than I'll admit. The roads kept me away, but that's a poor excuse and I know it. Tell his daughter I'll come, and I'll bring something warm for the both of them.",
@@ -411,8 +411,8 @@
       "expositionTurnInText": "They held still while I worked on it and didn't cry out once. I think it's already easier for them. But there's something else I should have asked for at the same time, and I didn't because I didn't want to push my luck.",
       "conflict1Text": "I need a {quest_item} as well, something to keep them going while their body does the rest of the work. They've barely eaten and they're getting weaker even as the wound improves. Bring me one and I'll do the rest.",
       "conflict1TurnInText": "They're sitting up. Sitting up, and asking about the garden, which I think means the worst is behind us. I haven't felt this much hope in days and I'm a little afraid of it.",
-      "resolutionText": "They walked across the room this morning. Just from the bed to the window, but they did it on their own legs. {reward_item}. Take it, please. We don't have a lot, but what we have feels different now that we both get to keep it.",
-      "rewardFlavor": "the coin we'd been saving for a better roof and our shared gratitude",
+      "resolutionText": "They walked across the room this morning. Just from the bed to the window, but they did it on their own legs. {reward_flavor}, please take it. {reward_item} is yours. We don't have a lot, but what we have feels different now that we both get to keep it.",
+      "rewardFlavor": "coin saved for a roof",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3132,7 +3132,7 @@
         "passText": "She raised me on her own after my father left. I don't talk about it much, but every time she needs something and I can't get there fast enough, I feel like I'm failing at the one thing that matters.",
         "failText": "She's family. You do what you can."
       },
-      "rewardFlavor": "a small purse and a good meal for the road",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You're here about the medicine run? Good. She's been asking after the trip every morning. I've been telling her it's in hand, so I'm glad that's finally true.",
@@ -3170,7 +3170,7 @@
         "passText": "You can see what I've been doing, can't you. Keeping it quiet, keeping it invisible, making sure he never notices how much I'm carrying so he doesn't feel like a burden. The hardest part isn't the work, it's smiling through it so he still feels like himself. I didn't think anyone could tell.",
         "failText": "He's mending. That's the important part."
       },
-      "rewardFlavor": "what we can spare between us and honest thanks",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Is he all right? I heard about the fall from a trader passing through, but nobody could tell me how bad it was. I've been meaning to send word but I didn't know what to say.",
@@ -6346,14 +6346,14 @@
       "expositionTurnInText": "That's going to help. The morning routine just got a little shorter, which means I might actually eat breakfast myself for once. But there's another problem I've been ignoring.",
       "conflict1Text": "{enemy_type_plural} have been getting closer to the house. He can't run and I can't carry him. {kill_count} of them cleared and I'll stop picturing the worst every time I hear something at the window.",
       "conflict1TurnInText": "Quiet now. He fell asleep in his chair this afternoon without me having to check the doors first. I didn't realize how much tension I'd been holding until it left.",
-      "resolutionText": "He patted my hand this morning and said I looked rested. First time in months that's been true. Take {reward_item}. You gave me back the part of the day that was disappearing, the part where I get to be a person instead of just a caretaker.",
+      "resolutionText": "He patted my hand this morning and said I looked rested. First time in months that's been true. Take {reward_item}. And {reward_flavor}, for all the nights you spared me. You gave me back the part of the day that was disappearing, the part where I get to be a person instead of just a caretaker.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "You led me right into that, didn't you. All right. I resent him sometimes. There, I said it.",
         "failText": "He needs me. That's the beginning and end of it."
       },
-      "rewardFlavor": "a small purse I've been adding to when I can and my honest thanks",
+      "rewardFlavor": "a purse kept aside quietly",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6382,14 +6382,14 @@
       "conflict1TurnInText": "She tried to refuse it and then started crying. The good kind, I think. The kind that means someone finally noticed.",
       "conflict2Text": "Her old midwife {target_npc} lives in {target_npc_settlement}. I want {target_npc_role} to know the time is getting close. She trusts {target_npc} more than anyone, and having them near would settle her in a way I can't.",
       "conflict2TurnInText": "{target_npc} is coming? She'll be so relieved. I've been trying to fill a role I'm not equipped for, and now I don't have to.",
-      "resolutionText": "She's calm for the first time since her husband left, truly calm. {target_npc} is nearby, the house is quiet, and she told me I could stop hovering. Take {reward_item}. You helped me take care of the person I'd do anything for.",
+      "resolutionText": "She's calm for the first time since her husband left, truly calm. {target_npc} is nearby, the house is quiet, and she told me I could stop hovering. Take {reward_item}, and {reward_flavor} if it helps. You helped me take care of the person I'd do anything for.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You noticed the story doesn't hold together. Away on business with no word and no return date, that's not a trip. He left, packed a bag and walked out without saying when or whether he'd come back. I've been telling people the version that sounds less awful.",
         "failText": "He's traveling for work. She's managing fine."
       },
-      "rewardFlavor": "what I've been saving and a promise from both of us",
+      "rewardFlavor": "what I've put aside quietly",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've been expecting this call for a few weeks now. Her sister sent word a month back that things were getting close. I've got my bag ready. Just tell me when to leave and I'll be on the road by morning.",
@@ -6415,14 +6415,14 @@
       "expositionTurnInText": "She took it without complaint. She's always been braver than me. Her legs moved a little this evening, just a twitch, but I nearly shouted. There's one more thing keeping me from focusing entirely on her.",
       "conflict1Text": "The {enemy_type_plural} outside have been getting close enough that I can hear them at night. She can't move on her own if something gets in. {kill_count} of them gone and I'll stop sleeping with one eye open.",
       "conflict1TurnInText": "I checked every window and every door twice and heard nothing. That silence is the most beautiful thing I've experienced in months.",
-      "resolutionText": "She stood up this morning, just for a moment, holding the chair, but she stood. I turned away so she wouldn't see my face. Take {reward_item}. You gave her a chance and me a reason to believe in more good days.",
+      "resolutionText": "She stood up this morning, just for a moment, holding the chair, but she stood. I turned away so she wouldn't see my face. Take {reward_item}. {reward_flavor}, and every one of them is yours. You gave her a chance and me a reason to believe in more good days.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You can tell the numbers don't work, can't you. If I'm getting by, why am I this desperate for help from a stranger. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings, and 'getting by' is the story I tell so people don't look at me with pity.",
         "failText": "We're getting by. That's the important thing."
       },
-      "rewardFlavor": "the last coins I have and a parent's deepest thanks",
+      "rewardFlavor": "the last coins I have",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6444,14 +6444,14 @@
       "expositionTurnInText": "So that's what happened. I can see why he's ashamed, but It as bad as what I'd been imagining. Now I need to give him something to work toward.",
       "conflict1Text": "There's a {quest_item} he's always talked about wanting. If I can put one in his hands, it might remind him that he's capable of the work, even if the last place didn't see it. Sometimes you need proof you can hold something before you believe you can build with it.",
       "conflict1TurnInText": "He picked it up and turned it over in his hands for a long time. Then he looked at me and said thank you, which is the first full sentence he's spoken in two weeks.",
-      "resolutionText": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. Take {reward_item}. You helped me reach a person I couldn't reach alone, and that's a debt I'll carry gladly.",
+      "resolutionText": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. {reward_item} is yours, along with {reward_flavor}. You helped me reach a person I couldn't reach alone, and that's a debt I'll carry gladly.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "All right, you're right to press me on this. I'm not just worried about his career. I'm worried he'll leave again, this time not for work but because he doesn't think he belongs anywhere. Our parents are gone.",
         "failText": "He's had a setback. People recover from setbacks."
       },
-      "rewardFlavor": "what I can pull together and a brother's gratitude",
+      "rewardFlavor": "a brother's lasting gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "His brother sent someone? I'm not surprised he didn't come himself. The boy has talent, real talent, but he made a mistake that cost the shop a commission. I had to let him go.",
@@ -6482,14 +6482,14 @@
       "conflict1TurnInText": "{target_npc} sent a message back with you? She read it twice and put it under her pillow. That's the most she's engaged with anything from outside in weeks.",
       "conflict2Text": "There's a {quest_item} she used to keep with her on every trip. I think putting it back in her hands might help her remember who she was before fear took over. She won't ask for it herself.",
       "conflict2TurnInText": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. Not with fear this time. More like someone considering a possibility.",
-      "resolutionText": "She walked to the gate this morning and stood there for five minutes before coming back inside. She smiled when she closed the door, and that was the first real smile in six weeks. Take {reward_item}. The road back is long, but she's on it now.",
+      "resolutionText": "She walked to the gate this morning and stood there for five minutes before coming back inside. She smiled when she closed the door, and that was the first real smile in six weeks. {reward_flavor} comes with {reward_item}. The road back is long, but she's on it now.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "You have a warmth about you that makes difficult things feel possible. I need that right now. The thing I haven't been able to tell anyone is that I'm angry. Not at her.",
         "failText": "She's recovering. I'm doing what I can for her."
       },
-      "rewardFlavor": "everything I can give and a family's lasting gratitude",
+      "rewardFlavor": "a family's lasting gratitude",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's not coming outside at all? That's not the woman I know. She used to walk further than anyone in {settlement_name} just for the pleasure of it. Whatever happened must have been terrible.",
@@ -6513,14 +6513,14 @@
       "expositionTurnInText": "They let me give it to them without arguing, which tells me more about how bad they're feeling than any complaint would. The color in their face is already better. But there's someone I need to involve.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who treated a similar injury years ago. I want them to hear what happened and tell me whether I'm doing enough. The doubt is eating at me.",
       "conflict1TurnInText": "{target_npc} said the approach is right? I almost didn't believe you at first. I've been so convinced I was missing something that hearing I'm not feels strange.",
-      "resolutionText": "They ate a full meal today and complained about being bored. Complaining about boredom is the most hopeful thing I've heard in weeks. Take {reward_item}. You helped me believe I was doing the right things, and sometimes that's the help a parent needs most.",
+      "resolutionText": "They ate a full meal today and complained about being bored. Complaining about boredom is the most hopeful thing I've heard in weeks. {reward_flavor}: take {reward_item}, with every coin I can pull together. You helped me believe I was doing the right things, and sometimes that's the help a parent needs most.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
         "passText": "You understand, don't you. In our family, there's a belief that injury to the head is injury to the spirit as well as the body. My grandmother taught me that healing requires attention to both, and I've been terrified that I'm only treating the part I can see. Your understanding tells me I'm not imagining the deeper concern.",
         "failText": "They took a hit and they need to heal. That's where things stand."
       },
-      "rewardFlavor": "a parent's savings and a gratitude too large for words",
+      "rewardFlavor": "a parent's wordless thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "A head injury with dizziness and fatigue? I've seen this pattern before. The recovery is slow, but it's real, and the most important thing is patience. From what you're describing, the family is doing exactly what they should be.",
