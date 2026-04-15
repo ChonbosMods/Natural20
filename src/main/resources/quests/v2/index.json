@@ -858,14 +858,14 @@
       "expositionTurnInText": "There it is. Exactly what I needed. You've got a good eye for the right thing. There's one more piece to this, though, if you've still got the patience.",
       "conflict1Text": "The reason I couldn't fetch it myself is the {enemy_type_plural} that have settled in around here. I don't dare cross the area until someone thins them out. Could you handle {kill_count} of them for me?",
       "conflict1TurnInText": "Good. That should make the walk safer for the rest of us, too. I owe you for both pieces of this, not just the one.",
-      "resolutionText": "That's me set for the season, thanks to you. Take {reward_item}. It's the least I can offer for the time you've spent on this. You've made my work possible again.",
+      "resolutionText": "That's me set for the season, thanks to you. Take {reward_item} — and {reward_flavor}, whenever you like. You've made my work possible again.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "Truth is, I've been making do with scraps for nearly a month and pretending I wasn't. Pride's a stubborn thing in folks my age. You're the first person I've actually told.",
         "failText": "Oh, it's nothing dire. Just a bit of an inconvenience, you know how it is."
       },
-      "rewardFlavor": "what coin I've put aside and a meal whenever you're back this way",
+      "rewardFlavor": "a meal when you're passing",
       "valence": "neutral",
       "roleAffinity": [
         "ArtisanCook",
@@ -904,7 +904,7 @@
         "passText": "Why didn't I learn it myself? Because the person who used to teach it stopped coming around years ago, and I never got the nerve to ask anyone else. {target_npc} is the last one I know who still does it the old way.",
         "failText": "It's a long story. Just trust me that I need the help."
       },
-      "rewardFlavor": "a fair share of what the order pays me, and a proper handshake",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -933,8 +933,8 @@
       "expositionTurnInText": "That's a relief. The whole place feels lighter knowing they're handled. Now for the actual reason I needed them gone in the first place.",
       "conflict1Text": "I need {quest_item} to keep things running properly here. It's not glamorous work, but it's what I'd be doing myself if the path weren't a problem. Bring me what you can.",
       "conflict1TurnInText": "Just what I needed. You've saved me a couple of long days of grumbling. Sit down a minute and I'll fetch your due.",
-      "resolutionText": "Now I can actually get back to the work I'm supposed to be doing. Take {reward_item} with my thanks. It's good to feel caught up for once.",
-      "rewardFlavor": "a few coins from the till and a warm cup whenever you're passing through",
+      "resolutionText": "Now I can actually get back to the work I'm supposed to be doing. Take {reward_item} with my thanks. And {reward_flavor}, any time you stop in. It's good to feel caught up for once.",
+      "rewardFlavor": "a warm cup next visit",
       "valence": "neutral",
       "roleAffinity": [
         "TavernKeeper",
@@ -2721,7 +2721,7 @@
         "passText": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
         "failText": "It's just one of those chores that stacks up. You know how it goes."
       },
-      "rewardFlavor": "a fair day's wage for a fair day's work",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -2757,7 +2757,7 @@
         "passText": "The real reason I can't go myself is that the last time I tried this route alone, I turned around halfway. Not proud of it, but those {enemy_type_plural} had me outnumbered and I'm not too stubborn to admit when the odds aren't in my favor.",
         "failText": "I've just got too much on my plate at the moment. Simple as that."
       },
-      "rewardFlavor": "what the job pays, minus expenses, plus a good word to anyone who asks",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Ah, you're here on behalf of the {self_role} in {settlement_name}. I figured they'd send someone eventually. I've got what they need set aside. It's been sitting in the back for about a week now.",
@@ -4938,7 +4938,7 @@
         "passText": "You saw right through the story, didn't you. I didn't use it all in a bad batch. I gave most of it to a family that was struggling, and I didn't charge them a thing. I told everyone I was careless because I'd rather be thought foolish than have people know I can't turn away someone in need.",
         "failText": "I just ran through it faster than expected. These things happen."
       },
-      "rewardFlavor": "a fair payment and a discount on my work whenever you need it",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -4960,14 +4960,14 @@
       "expositionTurnInText": "So {target_npc} says the delay was on their end, nothing personal. That's a relief. I was starting to wonder if I'd done something to sour the arrangement. Now I just need to fill the gap that built up while I was waiting.",
       "conflict1Text": "I need a {quest_item} to cover what should have arrived two weeks ago. The customers don't care about supply chain problems, they just care that the shelf is empty when they come to me. Bring it back and I'll have everything sorted.",
       "conflict1TurnInText": "There it is. Back to normal, or close enough. The regulars won't notice the gap.",
-      "resolutionText": "Shelves are full, the arrangement is back on, and I can stop worrying about the next delivery. Take {reward_item}. You kept a good thing from falling apart over a misunderstanding.",
+      "resolutionText": "Shelves are full, the arrangement is back on, and I can stop worrying about the next delivery. Keep {reward_item}, and {reward_flavor} from here on. You kept a good thing from falling apart over a misunderstanding.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 11,
         "passText": "You're right, the arrangement was regular and reliable, so there's no reason for them to just stop unless something changed on their end. The truth I've been avoiding is that I was afraid to ask because the answer might be that my operation is too small to bother with anymore. It was easier to sit with the silence than to hear that confirmed.",
         "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
       },
-      "rewardFlavor": "a fair sum and the promise of first pick whenever something good comes through",
+      "rewardFlavor": "first pick on anything good",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} in {settlement_name} is wondering about the delay? It's entirely on my end. I had a supplier problem that backed everything up, and I should have sent word sooner. The order is ready now, I just hadn't had a chance to arrange transport.",
@@ -5005,7 +5005,7 @@
         "passText": "All right, you've made it clear I should be honest about why this has been dragging on. The truth is I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
         "failText": "The road was blocked. That's the whole of it."
       },
-      "rewardFlavor": "proper payment and a good word passed along the trade route",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} from {settlement_name}? I was starting to wonder if they'd forgotten about our arrangement. Everything's been set aside and waiting. No hard feelings about the delay.",
@@ -5031,14 +5031,14 @@
       "expositionTurnInText": "That's the one. I can almost hear the project clicking into place in my head. There's just one more thing between me and getting started.",
       "conflict1Text": "I need the area around {settlement_name} quieter before I can focus properly. The {enemy_type_plural} have been distracting everyone, and noise carries when you're trying to do careful work. {kill_count} of them handled would give me the peace I need.",
       "conflict1TurnInText": "That's the quiet I was hoping for. I can actually think straight now.",
-      "resolutionText": "Everything is in place. The piece, the plan, the quiet. Take {reward_item}. You gave me the push I needed to stop planning and start doing.",
+      "resolutionText": "Everything is in place. The piece, the plan, the quiet. Carry {reward_item}. Plus {reward_flavor}, if you want to see what comes of it. You gave me the push I needed to stop planning and start doing.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "Fine, I'll tell you. I've been stalling because the project means a lot to me and I'm afraid that once I start, I'll find out I'm not good enough to finish it. The missing piece wasn't really the problem, my confidence was. You showing up and making things happen shamed me into admitting I was hiding behind excuses.",
         "failText": "I'm just careful about getting everything lined up before I commit. That's all."
       },
-      "rewardFlavor": "a generous payment and first look at whatever I end up making",
+      "rewardFlavor": "first look when it's done",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5062,14 +5062,14 @@
       "expositionTurnInText": "{target_npc} is still willing to wait? That's more patience than I deserve. Now let me take care of the reason I've been delayed in the first place.",
       "conflict1Text": "The {enemy_type_plural} around here have been chewing through my schedule. Every time I set out to finish something, they're in the way. {kill_count} of them cleared and I can finally follow through on every promise I've been making.",
       "conflict1TurnInText": "That opens everything up. I can move freely again, and the first thing I'm doing is making good on that favor.",
-      "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Take {reward_item}. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
+      "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Hold onto {reward_item}: {reward_flavor}, too. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
         "passText": "The way you put that, I couldn't help but laugh. You're right. I've been treating a simple favor like it was some impossible burden, and the longer I waited, the bigger it grew in my head. Hearing someone describe my situation with that kind of lightness made me realize how absurd I've been about the whole thing.",
         "failText": "I just got behind. It happens to everyone eventually."
       },
-      "rewardFlavor": "honest coin and a friendship worth more than the amount",
+      "rewardFlavor": "a standing welcome here",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "The {self_role} in {settlement_name} sent you? I was beginning to think they'd forgotten. I'm not upset, just surprised it took this long. The favor itself was never a big ask.",
@@ -5100,14 +5100,14 @@
       "conflict1TurnInText": "Done. I can actually make eye contact with the neighbors again. One more thing, and then I'm caught up on everything.",
       "conflict2Text": "{target_npc} in {target_npc_settlement} asked me to pass along a message weeks ago, and I forgot until just now. Would you go see them and let them know the message was received, even if the delivery was shamefully late? They're a {target_npc_role} and they won't hold it against you.",
       "conflict2TurnInText": "{target_npc} took it well? Good. That's the last thread hanging, and it's finally tied off.",
-      "resolutionText": "Every promise kept, every favor returned, every loose end dealt with. Take {reward_item}. You did in three days what I spent two weeks avoiding, and the relief alone is worth twice what I'm paying you.",
+      "resolutionText": "Every promise kept, every favor returned, every loose end dealt with. {reward_flavor} is yours, and have {reward_item} too. You did in three days what I spent two weeks avoiding, and the relief alone is worth twice what I'm paying you.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
         "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning, not just practical advice. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
         "failText": "I just got behind on a few things. It a crisis, just a backlog."
       },
-      "rewardFlavor": "a fair payment and the relief of a clear conscience",
+      "rewardFlavor": "thanks from a cleared conscience",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "A message from {settlement_name}? I sent that weeks ago and heard nothing back. I assumed it got lost on the road, honestly. Good to know it arrived, even late.",
