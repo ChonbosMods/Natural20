@@ -1,10 +1,12 @@
 package com.chonbosmods.loot.mob;
 
+import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootPipeline;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.def.Nat20MobAffixDef;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
+import com.chonbosmods.progression.Nat20MobLevel;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -85,11 +87,16 @@ public class Nat20MobLootListener {
             dropCount = Math.max(dropCount, 1);
         }
 
-        LOGGER.atInfo().log("Loot params: rarityFloor=%d, lootMultiplier=%.2f, dropCount=%d, tier=%s",
-                rarityFloor, lootMultiplier, dropCount, tier);
+        // Read ilvl from the dying mob's Nat20MobLevel (areaLevel = ilvl).
+        // Falls back to 10 for pre-system saves where the component never got attached.
+        Nat20MobLevel level = store.getComponent(mobRef, Natural20.getMobLevelType());
+        int ilvl = (level != null) ? level.getAreaLevel() : 10;
+
+        LOGGER.atInfo().log("Loot params: rarityFloor=%d, lootMultiplier=%.2f, dropCount=%d, tier=%s, ilvl=%d",
+                rarityFloor, lootMultiplier, dropCount, tier, ilvl);
 
         // 5. Generate loot items via the pipeline
-        List<Nat20LootData> results = generateDrops(dropCount, rarityFloor, 10);
+        List<Nat20LootData> results = generateDrops(dropCount, rarityFloor, ilvl);
 
         // 6. Clean up tracked affixes to prevent memory leaks
         manager.clearMob(mobRef);
