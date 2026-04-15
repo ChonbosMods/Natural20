@@ -131,14 +131,14 @@
       "expositionTurnInText": "You spoke to {target_npc}? And she's holding on? I can breathe a little. But if she's still that weak, there's something I need you to bring her.",
       "conflict1Text": "She used to swear by a particular {quest_item} when our mother was sick. It always brought her around. I don't have any here. Bring it back to me and I'll get it to her tonight, I swear I will.",
       "conflict1TurnInText": "Oh, thank everything. I'll have this in her hands by sundown if I have to walk through snow to do it.",
-      "resolutionText": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It isn't enough, but it's what I have, and it's offered with my whole heart. You gave me back my sister.",
+      "resolutionText": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It isn't enough, but it's what I have, and {reward_flavor}. You gave me back my sister.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. I'm not asking you to save my sister from the illness, I'm asking you to save me from losing her the same way I lost everyone else.",
         "failText": "She just needs help. That's all there is to it. I can't think past that right now."
       },
-      "rewardFlavor": "what little I've saved for the children's clothes and a debt I'll never forget",
+      "rewardFlavor": "a debt I'll never forget",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Her sister sent you? I'm glad someone finally came. She's been holding on, but the fever keeps circling back, and I've been doing everything I know. She asks about home every morning when she wakes.",
@@ -164,14 +164,14 @@
       "expositionTurnInText": "That's a weight off. I can almost picture the path being walkable again. But you'll need something to carry him with if he's hurt. He won't make it back on his own legs.",
       "conflict1Text": "Find me a {quest_item} before you go looking. He'll need it more than he'll need words from me, and I want you ready when you find him. Hurry, please. He's been out there too long already.",
       "conflict1TurnInText": "Good. That's good. I keep telling myself he's the kind of boy who finds shelter, who keeps his head. Please, go now.",
-      "resolutionText": "He's home. He's home and he's eating like he hasn't eaten in a week, which I suppose he hasn't. I don't have the words for what you've done. Take {reward_item}. It's everything I had set aside for him, and giving it to you feels exactly right.",
+      "resolutionText": "He's home. He's home and he's eating like he hasn't eaten in a week, which I suppose he hasn't. I don't have the words for what you've done. Take {reward_item}. It's everything I had set aside for him, and {reward_flavor} besides.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 12,
         "passText": "You know how those things hunt. Then you know that he's likely holed up somewhere they can't reach, and that gives me more hope than I've had since he didn't come home. I needed someone to tell me that wasn't a foolish thing to believe.",
         "failText": "I don't know much about how they move. I just know my boy is out there with them."
       },
-      "rewardFlavor": "the savings I'd kept for his apprenticeship and a mother's gratitude",
+      "rewardFlavor": "a mother's gratitude, whole",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -200,8 +200,8 @@
       "conflict1TurnInText": "I heard the road get quiet. That's a sound I haven't heard in days. I'm not unclenching yet, but I'm closer to it.",
       "conflict2Text": "Now I need you to find {target_npc} in {target_npc_settlement}. They're a {target_npc_role}, and they've helped my family before. They'll know what comes next, and they'll come with you if you tell them it's for me. I need someone who knows what they're doing at the bedside.",
       "conflict2TurnInText": "{target_npc} is here. I can hand this off, finally, to someone who actually knows what to do. I think we're going to make it.",
-      "resolutionText": "{settlement_npc} sat up this morning and asked for soup. Soup. I don't think you understand what that means to me after the week I've had. Take {reward_item}. I'd give you the roof over my head if you asked. They're going to live.",
-      "rewardFlavor": "the coin I'd been saving for the planting season and a friend for life",
+      "resolutionText": "{settlement_npc} sat up this morning and asked for soup. Soup. I don't think you understand what that means to me after the week I've had. Take {reward_item}. I'd give you the roof over my head if you asked. You've got {reward_flavor} here. They're going to live.",
+      "rewardFlavor": "a friend for life",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "They need me? I should have checked on them sooner. I heard things were rough but I didn't realize how bad it had gotten. I'll pack what I need and come with you.",
@@ -2351,14 +2351,14 @@
       "expositionTurnInText": "So they're still struggling. I was afraid of that. There's something that might help, if I can get it to them in time.",
       "conflict1Text": "Bring me a {quest_item}. I know it would make a difference for their situation. Once I have it, I'll figure out the rest.",
       "conflict1TurnInText": "That's the one. I'll have this sent over by tomorrow. It won't cover everything they need, but it's a start.",
-      "resolutionText": "Word came back that they're doing better. That's all I needed to hear. Take {reward_item}. You saved me a trip I couldn't afford to make, and you did it properly.",
+      "resolutionText": "Word came back that they're doing better. That's all I needed to hear. Take {reward_item}: {reward_flavor}. You saved me a trip I couldn't afford to make, and you did it properly.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "The truth is I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
         "failText": "They're a friend. I'd like to see them through this stretch."
       },
-      "rewardFlavor": "a few coins I had set aside and my genuine thanks",
+      "rewardFlavor": "my genuine thanks besides",
       "targetNpcOpener": "Someone sent you from {settlement_name}? That's kind of them. Things have been difficult here, but I'm managing. It helps to know people remember.",
       "targetNpcCloser": "Tell them I'm holding on. That's the honest answer.",
       "valence": "negative",
@@ -2389,14 +2389,14 @@
       "conflict1TurnInText": "That's the one. Good condition, too. We can put this to use right away.",
       "conflict2Text": "One last thing. {target_npc} in {target_npc_settlement} needs to know the road is open again. They're a {target_npc_role}, and they've been holding off on sending supplies until it was safe. Let them know it's clear.",
       "conflict2TurnInText": "{target_npc} is sending a cart? That settles everything. We're back to normal.",
-      "resolutionText": "The road is open, the supplies are moving, and {settlement_name} can breathe again. Take {reward_item}. You kept a bad week from becoming a bad month.",
+      "resolutionText": "The road is open, the supplies are moving, and {settlement_name} can breathe again. Take {reward_item}. And {reward_flavor}, any time you want it. You kept a bad week from becoming a bad month.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
         "passText": "Between you and me, I was starting to worry about the children. We had enough food for maybe three more days at the rate things were going. I didn't see any reason to announce that to everyone.",
         "failText": "It's an inconvenience we need dealt with. That's the sum of it."
       },
-      "rewardFlavor": "what the households put together for the trouble and a meal whenever you pass through",
+      "rewardFlavor": "a meal whenever you visit",
       "targetNpcOpener": "The road from {settlement_name} is clear? About time. I've had a full cart sitting here for days with nowhere to send it. I'll have it loaded and moving by morning.",
       "targetNpcCloser": "Good work getting it sorted. Tell them we'll be on schedule from here.",
       "valence": "negative",
@@ -3863,14 +3863,14 @@
       "conflict1TurnInText": "{target_npc} knew exactly where to look. My cousin is alive, holed up in an old blind two miles out. They're sending someone to bring them home right now.",
       "targetNpcOpener": "Cut off on the trapline? I know three places someone would shelter if they couldn't make it back. The old blind at the fork is the most likely, it's got a roof and it's off the main track. I'll get my people moving.",
       "targetNpcCloser": "We'll have them home before dark. Tell the family to keep a light burning.",
-      "resolutionText": "My cousin walked through the door an hour ago, dirty and shaken but whole. I've never been so relieved in my life. Take {reward_item}. You cleared the way and found the right person to finish it, and I owe you everything.",
+      "resolutionText": "My cousin walked through the door an hour ago, dirty and shaken but whole. I've never been so relieved in my life. Take {reward_item}. You cleared the way and found the right person to finish it, and {reward_flavor}.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 12,
         "passText": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer.",
         "failText": "The trail looks the same as always. They're just running late."
       },
-      "rewardFlavor": "the coin my aunt pressed into my hands and my own besides",
+      "rewardFlavor": "I owe you everything",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3901,14 +3901,14 @@
       "conflict2TurnInText": "{target_npc} says the worst has passed. They said it plainly, without hedging, and I trust them. I can breathe again.",
       "targetNpcOpener": "I've seen this ailment before. The recovery is slow but it's real once it starts. If they're eating and sleeping on their own, the danger has passed. The body just needs time to remember what normal feels like.",
       "targetNpcCloser": "Keep them warm and fed, and in two weeks you won't remember how scared you were. They'll be fine.",
-      "resolutionText": "{settlement_npc} sat up at the table this morning and complained about the soup being too salty. I nearly knocked the bowl over hugging them. Take {reward_item}. You gave them back to us.",
+      "resolutionText": "{settlement_npc} sat up at the table this morning and complained about the soup being too salty. I nearly knocked the bowl over hugging them. Take {reward_item}, and {reward_flavor} whenever you pass through. You gave them back to us.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
         "failText": "I heard it helps. That's enough reason to try."
       },
-      "rewardFlavor": "the silver I had saved and a meal at our table for as long as you want one",
+      "rewardFlavor": "a seat at our table",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3932,14 +3932,14 @@
       "conflict1TurnInText": "It's flowing again. I can hear it from here. That's the most beautiful sound I've heard in three days.",
       "targetNpcOpener": "A dry well? That happens when sediment shifts underground and blocks the channel. I've cleared two of them myself, you need a specific tool and about an hour of careful work. The fix isn't complicated, but it won't resolve on its own.",
       "targetNpcCloser": "Get the tool and I'll walk you through the rest. The longer the channel sits blocked, the harder it is to clear.",
-      "resolutionText": "The children drank their fill this morning without me measuring the cups. I didn't realize how tense I'd been until I stopped. Take {reward_item}. You kept this from becoming the kind of story people tell about settlements that didn't make it.",
+      "resolutionText": "The children drank their fill this morning without me measuring the cups. I didn't realize how tense I'd been until I stopped. Take {reward_item}, and a jug of {reward_flavor} to see you off. You kept this from becoming the kind of story people tell about settlements that didn't make it.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Fine, I'll tell you what I haven't told anyone else. I checked the backup cistern yesterday and it was bone dry too. I'd been telling people we had three days of reserve when we had one, because I thought the truth would start a fight over what was left.",
         "failText": "We're short on water. That's all you need to know to understand why I'm asking."
       },
-      "rewardFlavor": "the coin we collected and a jug of the first clean water from the well",
+      "rewardFlavor": "clean water from our well",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3963,14 +3963,14 @@
       "expositionTurnInText": "The bridge is clear underneath. I can hear the boards creaking from here, but at least nothing's chewing on the supports anymore. Now we need to shore it up before someone tries to cross and falls through.",
       "conflict1Text": "I need a {quest_item} to make the repairs. The kind of repair that lasts, not the kind I've been doing with rope and optimism. Bring me that and the road opens up again.",
       "conflict1TurnInText": "Solid. It feels solid under my feet again. I walked across it twice just to be sure, and the second time I didn't hold my breath.",
-      "resolutionText": "The first supply cart from {other_settlement} came through this morning, and the driver didn't even know the bridge had been out. Take {reward_item}. You reopened a lifeline and I won't forget it.",
+      "resolutionText": "The first supply cart from {other_settlement} came through this morning, and the driver didn't even know the bridge had been out. Take {reward_item}. And {reward_flavor}: that stands. You reopened a lifeline and I won't forget it.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "Since you're pressing. Last week a child tried to cross before I could stop them, and the boards cracked under their feet. I caught them by the collar and pulled them back. I didn't report it because I was afraid they'd close the bridge entirely and we'd starve waiting for a fix.",
         "failText": "The bridge is in bad shape. That's reason enough to act."
       },
-      "rewardFlavor": "the toll money we'd been collecting and a standing offer of shelter",
+      "rewardFlavor": "shelter whenever you need it",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3994,14 +3994,14 @@
       "expositionTurnInText": "You found one. Let me see. I think the bad air is coming from a fissure the {enemy_type_plural} opened up when they were digging. If that's the case, we need them gone before we can seal it.",
       "conflict1Text": "Clear out {kill_count} of those {enemy_type_plural} so we can get to the fissure and close it up. They've been burrowing deeper and making the whole thing worse. Once they're gone, we plug the hole and the air clears.",
       "conflict1TurnInText": "I can smell the difference already. The wind off the lower field doesn't make my eyes water anymore. We can plant there again.",
-      "resolutionText": "The fields are safe, the air is clean, and {settlement_npc} is back on their feet and grumbling about the weeds, which means everything is normal again. Take {reward_item}. You figured out something that had us terrified for weeks.",
+      "resolutionText": "The fields are safe, the air is clean, and {settlement_npc} is back on their feet and grumbling about the weeds, which means everything is normal again. Take {reward_item}. And {reward_flavor}: I mean that. You figured out something that had us terrified for weeks.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 14,
         "passText": "You can sense it too, can't you. There's something unnatural about the way the air moves down there. It doesn't just smell wrong, it feels wrong, like the ground is exhaling something that shouldn't exist this close to the surface. I've been telling people it's just gas from the rocks, but I don't believe that anymore.",
         "failText": "Something's making people sick down there. That's all I know for certain."
       },
-      "rewardFlavor": "the coin we saved by not abandoning the lower fields and our deepest thanks",
+      "rewardFlavor": "our deepest, steady thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4027,14 +4027,14 @@
       "conflict1TurnInText": "{target_npc} told you the trick? Good. I'll start on it tomorrow morning while the memory of those noises is still fresh enough to motivate me.",
       "targetNpcOpener": "The nightly chorus? We had the same problem. They're territorial and they vocalize to claim ground, so the trick is denying them the perch points they use. Cut back the treeline within bowshot of your walls and remove any elevated debris they can stand on.",
       "targetNpcCloser": "It takes about a week of clearing to see results, but once it's done, it's done. The silence is worth every swing of the axe.",
-      "resolutionText": "Three quiet nights in a row. The children are sleeping through, the livestock have calmed down, and I caught {settlement_npc} humming this morning, which hasn't happened in a month. Take {reward_item}. You gave us back the night.",
+      "resolutionText": "Three quiet nights in a row. The children are sleeping through, the livestock have calmed down, and I caught {settlement_npc} humming this morning, which hasn't happened in a month. Take {reward_item}. {reward_flavor} is worth more than coin. You gave us back the night.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 12,
         "passText": "You have a good ear, then you understand what I mean when I say the sound was breaking us. There's a particular pitch they hit that gets into your bones, and after a week of it you can't tell if the ringing is outside or inside your own head. That's when I knew I had to ask for help.",
         "failText": "It's just noise, terrible noise. That's what I keep telling myself."
       },
-      "rewardFlavor": "the coin we pooled together and the first quiet evening we've had in weeks",
+      "rewardFlavor": "the quiet you gave us",
       "valence": "negative",
       "roleAffinity": []
     },
