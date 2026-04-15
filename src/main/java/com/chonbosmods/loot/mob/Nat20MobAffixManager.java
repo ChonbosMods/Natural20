@@ -36,7 +36,6 @@ public class Nat20MobAffixManager {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String MODIFIER_KEY_PREFIX = "nat20:mobaffix:";
-    private static final String TIER_MODIFIER_KEY = "nat20:mobaffix:tier";
 
     private final Nat20MobAffixRegistry registry;
     private final Nat20MobNameGenerator nameGenerator;
@@ -75,10 +74,6 @@ public class Nat20MobAffixManager {
     public void rollAndApply(Ref<EntityStore> mobRef, Store<EntityStore> store, EncounterTier tier) {
         int maxAffixes = tier.maxMobAffixes();
         if (maxAffixes <= 0) {
-            // NORMAL tier: no affixes, but still apply tier stat multiplier if != 1.0
-            if (tier.statMultiplier() != 1.0f) {
-                applyTierStatMultiplier(mobRef, store, tier);
-            }
             return;
         }
 
@@ -86,7 +81,6 @@ public class Nat20MobAffixManager {
         List<Nat20MobAffixDef> pool = registry.getByMinTier(tier.ordinal());
         if (pool.isEmpty()) {
             LOGGER.atWarning().log("No mob affixes available for tier %s (ordinal %d)", tier, tier.ordinal());
-            applyTierStatMultiplier(mobRef, store, tier);
             return;
         }
 
@@ -103,8 +97,7 @@ public class Nat20MobAffixManager {
             LOGGER.atWarning().log("EntityStatMap not found on mob, skipping affix stat modifiers");
         }
 
-        // 4. Apply tier-level stat multiplier
-        applyTierStatMultiplier(mobRef, store, tier);
+        // Tier-level HP/damage scaling now owned by Nat20MobScaleSystem (see progression/).
 
         // 5. Fire onSpawn for each affix's ability handler
         for (Nat20MobAffixDef affix : rolled) {
@@ -213,28 +206,6 @@ public class Nat20MobAffixManager {
                     Modifier.ModifierTarget.MAX,
                     StaticModifier.CalculationType.MULTIPLICATIVE,
                     (float) multiplier);
-            statMap.putModifier(statIndex, key, mod);
-        }
-    }
-
-    private void applyTierStatMultiplier(Ref<EntityStore> mobRef, Store<EntityStore> store,
-                                          EncounterTier tier) {
-        if (tier.statMultiplier() == 1.0f) return;
-
-        EntityStatMap statMap = store.getComponent(mobRef, EntityStatMap.getComponentType());
-        if (statMap == null) return;
-
-        // Apply tier multiplier to common combat stats
-        String[] coreStats = {"Health", "AttackDamage", "AttackSpeed", "MovementSpeed"};
-        for (String statName : coreStats) {
-            int statIndex = resolveStatIndex(statName);
-            if (statIndex == AssetMapWithIndexes.NOT_FOUND) continue;
-
-            String key = TIER_MODIFIER_KEY + ":" + statName;
-            StaticModifier mod = new StaticModifier(
-                    Modifier.ModifierTarget.MAX,
-                    StaticModifier.CalculationType.MULTIPLICATIVE,
-                    tier.statMultiplier());
             statMap.putModifier(statIndex, key, mod);
         }
     }
