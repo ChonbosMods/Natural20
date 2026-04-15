@@ -35,5 +35,8 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new TestDelveFortifiedCommand());
         addSubCommand(new TestResonanceTelekinesisCommand());
         addSubCommand(new SetManaCommand());
+        addSubCommand(new XpAddCommand());
+        addSubCommand(new XpSetCommand());
+        addSubCommand(new LevelSetCommand());
     }
 }
