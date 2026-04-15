@@ -236,14 +236,14 @@
       "conflict1TurnInText": "That's a meal a day for everyone here, give or take. I can look {settlement_npc} in the eye now without flinching. That matters more than I can say.",
       "conflict2Text": "There's one last thing. The storm pushed {enemy_type_plural} out of wherever they were, and they've been creeping in to take what we've put aside. {kill_count} of them cleared and we can finish rebuilding without losing it twice.",
       "conflict2TurnInText": "Quiet for the first time in two weeks. I think we're past the worst of it now. I almost don't trust the feeling.",
-      "resolutionText": "We're going to come through this. Bruised, lighter than we were, but standing. {reward_item}. It's not much, because we don't have much, but every coin in it was put together by people who know what you did for us. We won't forget the help.",
+      "resolutionText": "We're going to come through this. Bruised, lighter than we were, but standing. Take {reward_item}: {reward_flavor}. It's not much, because we don't have much, but every piece of it came from people who know what you did for us. We won't forget the help.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 13,
         "passText": "You're right that this isn't the first time. My grandmother used to tell of a season the storms came twice and a settlement two valleys over didn't recover. I'm afraid we're following the same pattern, and I haven't told anyone here that fear because they don't need it on top of everything else.",
         "failText": "It's just bad weather. Worse than usual. We'll get through it like we always do."
       },
-      "rewardFlavor": "what the village pooled together and the gratitude of every household",
+      "rewardFlavor": "pooled by every household here",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -269,14 +269,14 @@
       "expositionTurnInText": "I heard the noise drop. That's the first night I'll sleep without one ear open. But the damage they did is still here, and we have to start somewhere.",
       "conflict1Text": "They wrecked our seed stores and we'd already eaten most of the surplus. I need {gather_count} {quest_item} or we won't have anything to put in the ground come spring. That's the part I haven't told the others yet.",
       "conflict1TurnInText": "That's enough to plant with. I can stop dreading the conversation I was going to have to have. Thank you, truly.",
-      "resolutionText": "We'll plant in spring and we'll eat in summer, and that's all I was asking the world for. {reward_item}. Take it. It came from people who know exactly what you saved them from, and they wanted you to have something real.",
+      "resolutionText": "We'll plant in spring and we'll eat in summer, and that's all I was asking the world for. Take {reward_item}, {reward_flavor}. It came from people who know exactly what you saved them from, and they wanted you to have something real.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 12,
         "passText": "You're seeing it more clearly than I let on. The damage is worse than what I described. I've been talking it down so the younger ones don't panic. Half of what we have left is half-spoiled and I've been picking through it in the mornings before anyone wakes up.",
         "failText": "It's bad. I won't pretend otherwise. But we're handling it the way you'd expect."
       },
-      "rewardFlavor": "what the settlement could spare and a place at our fire whenever you need one",
+      "rewardFlavor": "what the settlement could spare",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -317,8 +317,8 @@
       "conflict2TurnInText": "Everyone ate tonight. Everyone. That hasn't been true since the fire and I almost forgot what it felt like to set the bowls down.",
       "conflict3Text": "One more thing, and then I swear I'll stop asking. {enemy_type_plural} have been working at what's left of our supplies, looking for scraps. {kill_count} of them cleared off and we can finally start rebuilding without losing more.",
       "conflict3TurnInText": "The yard is quiet. I walked through it just now and didn't hear a single thing moving where it shouldn't be. That's a strange peace, but it's peace.",
-      "resolutionText": "We're going to be all right. Smaller, lighter, with more empty seats at the table than I'd like, but all right. {reward_item}. It's what the settlement could put together, and every piece of it was given on purpose. You came when you didn't have to. We won't forget that here.",
-      "rewardFlavor": "the coin the households pooled and a standing welcome in {settlement_name}",
+      "resolutionText": "We're going to be all right. Smaller, lighter, with more empty seats at the table than I'd like, but all right. Take {reward_item}: {reward_flavor}. Every piece of it was given on purpose. You came when you didn't have to. We won't forget that here.",
+      "rewardFlavor": "coin the households pooled together",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "A fire, and they're calling in the arrangement? Then things are worse than anyone told me. We made that pact because we both knew a day like this might come. I'll gather what we have and send it.",
@@ -2649,7 +2649,7 @@
         "passText": "I won't pretend it doesn't weigh on me. I'm the one people look to when things go wrong, and some mornings I wake up not sure I have the answers they need. But I show up anyway, because that's the job.",
         "failText": "It's a setback. We've had them before and we'll have them again."
       },
-      "rewardFlavor": "what the households could gather and the thanks of everyone here",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -2688,7 +2688,7 @@
         "passText": "You can tell it's not my first time through something like this, can't you. The last flood was worse, and we lost people then. I've been calm because panic doesn't keep water out. But I'm tired of rebuilding the same things.",
         "failText": "We've had weather before. This one just hit harder than most."
       },
-      "rewardFlavor": "the settlement's pooled funds and a warm welcome whenever you return",
+      "rewardFlavor": null,
       "targetNpcOpener": "Flooding in {settlement_name}? That section of the valley is prone to it. I can sketch out a few things that would help with the rebuild and reduce the risk next time around.",
       "targetNpcCloser": "Take these notes back. They should save considerable effort if followed properly.",
       "valence": "negative",
@@ -4720,14 +4720,14 @@
       "expositionTurnInText": "That's a start I can work with. The panic has settled down a notch, which is everything right now. But we've got another problem that showed up while I was putting out the last one.",
       "conflict1Text": "{enemy_type_plural} moved in the night after the fire, drawn by the smoke or the chaos or both. They've been picking through the ruins and getting bolder. I need {kill_count} of them dealt with before they make a bad week into a catastrophe.",
       "conflict1TurnInText": "The yard is quiet again. I stood in it this morning and didn't hear anything that shouldn't be there, and I almost cried from the relief of it.",
-      "resolutionText": "We're not rebuilt, but we're standing, and that's something I couldn't have said three days ago. Take {reward_item}. Every bit of it was set aside for exactly this kind of trouble, and I can't think of anyone who earned it more.",
+      "resolutionText": "We're not rebuilt, but we're standing, and that's something I couldn't have said three days ago. Take {reward_item}, {reward_flavor}. I can't think of anyone who earned it more.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "You're from around here, so you probably heard the rumors already. The fire wasn't random, someone left a lantern burning near the grain, and I know who. They're young and terrified, and if it gets out their life here is over. So I've been saying it was bad luck and carrying the rest alone.",
         "failText": "Fires happen and nobody did anything wrong. Can we focus on the supplies?"
       },
-      "rewardFlavor": "what the households could pull together and a standing place at our table",
+      "rewardFlavor": "set aside for exactly this",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4758,14 +4758,14 @@
       "conflict1TurnInText": "That'll keep us going. I can actually think past today for the first time since the wall fell. There's one more thing, and I wish there weren't.",
       "conflict2Text": "The collapse opened a gap in our perimeter that {enemy_type_plural} have been using to get in. {kill_count} of them cleared out and I can patch the gap without worrying about what's coming through it while I work.",
       "conflict2TurnInText": "The gap is clear and I'm already filling it in. By nightfall we'll have a wall again, even if it's an ugly one.",
-      "resolutionText": "The workshop is standing. Not pretty, not finished, but standing. Take {reward_item}. You showed up when the ground was still shaking and that's the kind of thing a person remembers for a long time.",
+      "resolutionText": "The workshop is standing. Not pretty, not finished, but standing. Take {reward_item}: {reward_flavor}. You showed up when the ground was still shaking and that's the kind of thing a person remembers for a long time.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You're asking the question nobody else thought to ask. If the wall came down suddenly, why was I already clearing the room behind it the week before? Because I watched the cracks widening for months and kept telling myself one more season. The collapse wasn't a surprise to me, and that's the part I haven't been able to say out loud.",
         "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
       },
-      "rewardFlavor": "the emergency fund I kept in a jar that survived the collapse",
+      "rewardFlavor": "the jar that survived collapse",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4796,14 +4796,14 @@
       "conflict1TurnInText": "So {target_npc} says the worst is past. That's the first time in days I've believed something might actually get better instead of worse. Now we can focus on recovery.",
       "conflict2Text": "I need {gather_count} {quest_item} to replace what the water ruined. The silt got into everything, and half of what looked salvageable turned out to be ruined underneath. Bring what you can and we'll make it work.",
       "conflict2TurnInText": "That's enough. We can stretch it. I looked at the field this morning and it almost looked like a field again instead of a mudflat.",
-      "resolutionText": "The water came and it went and we're still here. Take {reward_item}. I didn't think I'd have anything left to give, and the fact that I do feels like proof we came through the worst of it.",
+      "resolutionText": "The water came and it went and we're still here. Take {reward_item}, {reward_flavor}. I didn't think I'd have anything left to give, and the fact that I do feels like proof we came through the worst of it.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "All right. Since you're making it clear I should stop dancing around it. I'd been warned the bank was weak months ago and I told the council it would hold because I didn't want to spend the coin to reinforce it. That decision is why three families are sleeping in the hall tonight instead of their own homes.",
         "failText": "The river does what it wants. Nobody could have predicted the timing."
       },
-      "rewardFlavor": "what the settlement pulled from the mud, cleaned up and honestly offered",
+      "rewardFlavor": "pulled clean from the mud",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The flooding downstream? It was bad here too, but the water's been dropping steadily since yesterday. The feeder stream that caused the surge is back within its banks. I'd say the danger of a second wave is past.",
@@ -4829,14 +4829,14 @@
       "expositionTurnInText": "That'll see us through the next few weeks without anyone going hungry. I can ease up on the portions and stop lying about it. But there's something else I need to close this chapter properly.",
       "conflict1Text": "The root cellar had a {quest_item} in it that belonged to my grandmother. It was buried with everything else. I know it's just a thing, and food matters more, but I'd sleep easier knowing it was back where it belongs. If you find one, bring it to me.",
       "conflict1TurnInText": "There it is. Smaller than the one I lost, but it's the right kind, and holding it feels like holding her hand again for a moment.",
-      "resolutionText": "We're fed, we're sheltered, and I have a piece of her back. Take {reward_item}. I was ready to lose everything, and you stopped that from being the whole story.",
+      "resolutionText": "We're fed, we're sheltered, and I have a piece of her back. Take {reward_item}: {reward_flavor}. I was ready to lose everything, and you stopped that from being the whole story.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Fine, you want the part I've been keeping to myself? The cellar was overloaded because I'd been hoarding, so afraid of running short that I packed it beyond what the ground could support. The weight is what made the slope give way. The disaster I'm recovering from is one I built with my own caution.",
         "failText": "Landslides happen. The hill was always unstable."
       },
-      "rewardFlavor": "the coins I buried separately, which is the one thing that survived",
+      "rewardFlavor": "coins I buried separately",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4862,14 +4862,14 @@
       "expositionTurnInText": "I slept last night. Not well, but I slept, and that's more than I've managed since the strike. Now I need to deal with what the fire actually destroyed.",
       "conflict1Text": "The barn held our winter supplies and most of it is ash now. I need {gather_count} {quest_item} to start rebuilding the stock. If we don't replace it before the cold sets in, the fire will have done its damage twice.",
       "conflict1TurnInText": "That's a solid start. Looking at the shelves filling up again, I can almost remember what it felt like before the lightning hit.",
-      "resolutionText": "We lost the barn but we kept the house, we kept each other, and now we have enough to face the winter. Take {reward_item}. You turned a story about losing everything into a story about keeping what matters.",
+      "resolutionText": "We lost the barn but we kept the house, we kept each other, and now we have enough to face the winter. Take {reward_item}, {reward_flavor}. You turned a story about losing everything into a story about keeping what matters.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
         "failText": "It's been a long couple of days. I'm managing the way anyone would."
       },
-      "rewardFlavor": "the jar of coin I buried behind the house years ago for exactly this kind of night",
+      "rewardFlavor": "a jar buried out back",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4900,14 +4900,14 @@
       "conflict1TurnInText": "The pressure is off. I can hear the settlement breathing again instead of holding its breath. One more thing, and then I think we're through the worst.",
       "conflict2Text": "The tremor knocked stores off shelves and cracked a few containers. We lost more than I first thought. I need {gather_count} {quest_item} to fill the gaps before anyone realizes how thin we've gotten.",
       "conflict2TurnInText": "The shelves look right again. Nobody needs to know how close we came to empty.",
-      "resolutionText": "The ground shook and we shook with it, but we didn't fall. Take {reward_item}. You were the steadiest thing in {settlement_name} for three very unsteady days, and I won't forget it.",
+      "resolutionText": "The ground shook and we shook with it, but we didn't fall. Take {reward_item}, {reward_flavor}. You were the steadiest thing in {settlement_name} for three very unsteady days, and I won't forget it.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
         "passText": "You noticed something about the tremor too, then. It wasn't natural. The vibration had a rhythm to it, a pulse, like something underneath was breathing. I've been afraid to say that out loud because I don't know what it means, and I'd rather patch the well than think about what might be under the ground.",
         "failText": "The earth shakes sometimes. It shook, and now we're dealing with it."
       },
-      "rewardFlavor": "the coin we keep for emergencies, because this was certainly one",
+      "rewardFlavor": "coin kept for emergencies",
       "valence": "negative",
       "roleAffinity": []
     },
