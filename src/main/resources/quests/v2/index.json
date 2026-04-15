@@ -2058,7 +2058,7 @@
           "type": "TALK_TO_NPC"
         }
       ],
-      "expositionText": "My husband passed last winter. I've made my peace with most of it, but there's a thing I can't quite let go of. He always wore a {quest_item}, and I lost the one he had on him in all the hurry afterward. If one turns up out there, even one that isn't his, I'd like to hold it again.",
+      "expositionText": "My husband passed last winter. I've made my peace with most of it, but there's a thing I can't quite let go of. He always wore a {quest_item_full}, and I lost the one he had on him in all the hurry afterward. If one turns up out there, even one that isn't his, I'd like to hold it again.",
       "acceptText": "Thank you. It sounds like such a small thing to ask for, but it isn't, and I think you already know that.",
       "declineText": "Of course. Not everyone wants to be tangled up in another person's grief. I'll be all right either way.",
       "expositionTurnInText": "Oh. I haven't held one of these since the morning before he left. It even smells the same, which I know it shouldn't, but it does. There's one more thing left undone, and I think I can finally face it now.",
@@ -2098,7 +2098,7 @@
       "acceptText": "Thank you. I knew when I asked that this wouldn't bring him back. That isn't what I'm looking for anymore.",
       "declineText": "I understand. I shouldn't have made my grief into someone else's task. I'll keep trying to look the other way when I see them.",
       "expositionTurnInText": "It's a different quiet now. Not better, exactly, but different. I caught myself thinking about something other than him for a whole afternoon, and that felt like a small mercy. There's something else I'd like to ask, while I still have the courage.",
-      "conflict1Text": "He always carried a {quest_item} when he went out. I never got the one he had with him back. I know it's silly, but if any one of them turns up in your travels, I'd like to put it on the shelf where his things sit. It doesn't have to be his. It just has to be the right kind.",
+      "conflict1Text": "He always carried a {quest_item_full} when he went out. I never got the one he had with him back. I know it's silly, but if any one of them turns up in your travels, I'd like to put it on the shelf where his things sit. It doesn't have to be his. It just has to be the right kind.",
       "conflict1TurnInText": "That's enough. That's the one I'll keep. Looking at it doesn't hurt the way I thought it would, which is its own kind of strange.",
       "conflict2Text": "There's one more thread. His old hunting partner {target_npc} lives over in {target_npc_settlement}, and I never told {target_npc_role} how it happened. They deserved better than the rumor that reached them. Go and tell {target_npc} the truth, if you would.",
       "conflict2TurnInText": "Thank you. They needed to hear it, and I needed to know they did. That's the last thing I was holding onto.",
@@ -2129,7 +2129,7 @@
           "countMax": 6
         }
       ],
-      "expositionText": "My mother passed two years ago this month. I've been meaning to mark the day properly and I keep putting it off. She used to carry a {quest_item} everywhere she went. Said it brought her luck. I'd like to hold one again, just for the day. If one finds its way to you, bring it to me.",
+      "expositionText": "My mother passed two years ago this month. I've been meaning to mark the day properly and I keep putting it off. She used to carry a {quest_item_full} everywhere she went. Said it brought her luck. I'd like to hold one again, just for the day. If one finds its way to you, bring it to me.",
       "acceptText": "Thank you. It's small. It matters more than it should, and I think you understand that.",
       "declineText": "That's all right. I've been carrying this on my own for a while. I can keep doing it.",
       "expositionTurnInText": "There it is. She would have laughed at me for getting sentimental over something so plain. I'm going to set it on the table tonight and have a meal with her, the way we used to. There's one other thing, if you're willing.",
@@ -3259,7 +3259,7 @@
           "type": "TALK_TO_NPC"
         }
       ],
-      "expositionText": "My father passed a few months back. I've handled most of the arrangements, but there's a {quest_item} he always kept with him that I'd like to put on the shelf with his other things. If you find one in your travels, I'd take it as a kindness.",
+      "expositionText": "My father passed a few months back. I've handled most of the arrangements, but there's a {quest_item_full} he always kept with him that I'd like to put on the shelf with his other things. If you find one in your travels, I'd take it as a kindness.",
       "acceptText": "I appreciate it. It's a small thing, but it's the last one on the list.",
       "declineText": "No trouble. I'll find one eventually. There's no rush anymore.",
       "expositionTurnInText": "That's the one. Looks about right sitting there next to his other things. There's one more matter I've been meaning to see to.",
@@ -3299,7 +3299,7 @@
       "acceptText": "Good. That frees me up to take care of the things I've been putting off.",
       "declineText": "I'll handle it. I just need to find the time between everything else.",
       "expositionTurnInText": "Quieter now. I can hear myself think again, which is the first step toward getting the rest of this sorted. There's something I've been meaning to do for her.",
-      "conflict1Text": "She kept a {quest_item} on her workbench for as long as I can remember. I'd like to find one and put it there again. The bench looks wrong without it.",
+      "conflict1Text": "She kept a {quest_item_full} on her workbench for as long as I can remember. I'd like to find one and put it there again. The bench looks wrong without it.",
       "conflict1TurnInText": "That's right. That's where it goes. The bench looks like hers again, and that's enough.",
       "conflict2Text": "One last thing. Her friend {target_npc} in {target_npc_settlement} has been asking about her in letters I haven't had the will to answer. Would you go see {target_npc_role} and tell them what happened? I'd rather they hear it straight.",
       "conflict2TurnInText": "Then {target_npc} knows. I should have done that sooner, but I'm glad it's done now.",
@@ -3824,7 +3824,7 @@
       "acceptText": "Thank you. I know it sounds like an old woman's worry, but something feels wrong here beyond the usual trouble.",
       "declineText": "I'll sit with it, then. The old stories say patience is a virtue. They also say so is not getting eaten in your sleep.",
       "expositionTurnInText": "The pressure has eased, and I'm grateful. But something still feels off, and I think I know what to look for.",
-      "conflict1Text": "There's a {quest_item} that my grandmother kept for the rites she used to perform at the turn of each season. We stopped doing them years ago. I think we need to start again, and I need that to begin.",
+      "conflict1Text": "There's a {quest_item_full} that my grandmother kept for the rites she used to perform at the turn of each season. We stopped doing them years ago. I think we need to start again, and I need that to begin.",
       "conflict1TurnInText": "Holding this feels like holding a piece of her. I think she'd be glad someone remembered. Now I need to talk to someone who actually knows the old words.",
       "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who still practices the old ways. Ask them if they'd be willing to teach me the seasonal rite. I'd go myself, but I can't leave {settlement_name} right now.",
       "conflict2TurnInText": "{target_npc} agreed to send me the words? My grandmother would have wept. I'll learn them tonight.",
@@ -4827,7 +4827,7 @@
       "acceptText": "Thank you. I've been rationing portions at the table and pretending nobody notices.",
       "declineText": "I understand. It's a lot to ask. I'll stretch what's left and hope the stretch is long enough.",
       "expositionTurnInText": "That'll see us through the next few weeks without anyone going hungry. I can ease up on the portions and stop lying about it. But there's something else I need to close this chapter properly.",
-      "conflict1Text": "The root cellar had a {quest_item} in it that belonged to my grandmother. It was buried with everything else. I know it's just a thing, and food matters more, but I'd sleep easier knowing it was back where it belongs. If you find one, bring it to me.",
+      "conflict1Text": "The root cellar had a {quest_item_full} in it that belonged to my grandmother. It was buried with everything else. I know it's just a thing, and food matters more, but I'd sleep easier knowing it was back where it belongs. If you find one, bring it to me.",
       "conflict1TurnInText": "There it is. Smaller than the one I lost, but it's the right kind, and holding it feels like holding her hand again for a moment.",
       "resolutionText": "We're fed, we're sheltered, and I have a piece of her back. Take {reward_item}. {reward_flavor}. I was ready to lose everything, and you stopped that from being the whole story.",
       "skillCheck": {
@@ -6770,7 +6770,7 @@
       "acceptText": "Thank you. She always said I worried too much. She'd probably say the same thing about this.",
       "declineText": "I'll go eventually. When it's safe, or when I can't stand the waiting anymore. Whichever comes first.",
       "expositionTurnInText": "I went up this morning. The stone is still standing, and someone, maybe the wind, had scattered wildflowers across the base. I sat there for an hour and didn't say anything. There's one more thing I'd like to bring her.",
-      "conflict1Text": "She used to keep a {quest_item} on her windowsill. Said it reminded her of the good parts. I'd like to leave one at the grave. Something that says I still remember the same things she did.",
+      "conflict1Text": "She used to keep a {quest_item_full} on her windowsill. Said it reminded her of the good parts. I'd like to leave one at the grave. Something that says I still remember the same things she did.",
       "conflict1TurnInText": "I set it next to the stone where the light hits in the afternoon. She would have liked that.",
       "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {reward_item} along, {reward_flavor}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
       "skillCheck": {
@@ -6833,7 +6833,7 @@
           "type": "TALK_TO_NPC"
         }
       ],
-      "expositionText": "My wife passed last month, and I've been going through her things slowly, one drawer at a time. She had a {quest_item} she'd been meaning to return to someone, and I'd like to see it found and sent back. She hated leaving things unfinished, and I hate it on her behalf.",
+      "expositionText": "My wife passed last month, and I've been going through her things slowly, one drawer at a time. She had a {quest_item_full} she'd been meaning to return to someone, and I'd like to see it found and sent back. She hated leaving things unfinished, and I hate it on her behalf.",
       "acceptText": "I appreciate it. She kept everything organized. I'm just following the order she left behind.",
       "declineText": "No need to explain. I'll get to it myself when I'm able. She was patient with me in life, and I expect she still is.",
       "expositionTurnInText": "That's the one. I can see her handwriting on the note pinned to it. She'd labeled everything, even the things she was giving back. The path to return it will take some figuring out, though.",
@@ -6872,7 +6872,7 @@
       "acceptText": "Thank you. The quiet is hard enough without adding fear to it.",
       "declineText": "I understand. I'll get used to both the silence and the noise eventually.",
       "expositionTurnInText": "It's calmer now. I went out to her garden this morning and stood there without looking over my shoulder. That felt like progress. But there's something else I've been meaning to do.",
-      "conflict1Text": "She had a {quest_item} she kept on the mantle, said it reminded her of the village where she grew up. It broke during the last storm and I want to find a replacement. Not the same one, obviously, but something close enough that the mantle doesn't look so bare.",
+      "conflict1Text": "She had a {quest_item_full} she kept on the mantle, said it reminded her of the village where she grew up. It broke during the last storm and I want to find a replacement. Not the same one, obviously, but something close enough that the mantle doesn't look so bare.",
       "conflict1TurnInText": "That's close. Not the same, but she'd have understood the gesture. I put it where hers used to sit, and the room feels less empty now.",
       "resolutionText": "The grounds are safe and the mantle has something on it again. Small things, both of them, but she lived in small things, and I think that's where I'll keep finding her. Carry {reward_item} home with you. {reward_flavor}, from me to you. She would have made you sit down for pie first, but I'm not the baker she was.",
       "skillCheck": {
@@ -6901,7 +6901,7 @@
       "acceptText": "Thank you. I made the promise in his last hour, and I've been carrying it around like a stone ever since.",
       "declineText": "All right. I'll find a way. A promise to a dying man doesn't expire because the road is long.",
       "expositionTurnInText": "So {target_npc} and my brother had an old debt between them, and {target_npc} considers it settled now that word has been delivered. My brother would have been relieved. There's one more thing that would close this chapter.",
-      "conflict1Text": "Find me a {quest_item}. My brother wanted one placed at the crossroads where he and {target_npc} first met. Said it would mark the spot so neither of them would forget, even after. Especially after.",
+      "conflict1Text": "Find me a {quest_item_full}. My brother wanted one placed at the crossroads where he and {target_npc} first met. Said it would mark the spot so neither of them would forget, even after. Especially after.",
       "conflict1TurnInText": "I placed it there myself, at the crossroads, where the path splits. The wind was blowing east, which was his favorite direction. I know that doesn't mean anything, but it felt right.",
       "targetNpcOpener": "His brother sent you. I've been expecting this visit for longer than I'd like to admit. We had words between us, old ones, and he wanted them resolved before the end. Tell his brother the matter is closed, and that I wish I'd said so while there was still time to say it in person.",
       "targetNpcCloser": "The debt is paid, both sides of it. Tell him I'm sorry it took this long.",
