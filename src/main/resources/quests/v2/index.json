@@ -2169,14 +2169,14 @@
       "conflict1TurnInText": "That'll hold us. I don't understand why what used to take an afternoon now takes weeks, but I'm grateful you went out anyway. There's one more thing pressing on me, and I'd be a fool not to ask while you're here.",
       "conflict2Text": "The {enemy_type_plural} have been creeping back in, the same ones I thought we'd cleared. I don't know if it's the same group or a new one, and I've stopped trying to make sense of it. Take down {kill_count} more. We just need another stretch of quiet.",
       "conflict2TurnInText": "Better. I won't say it's over, because I'm not sure anything is over, but it's better than it was. That counts for something tonight.",
-      "resolutionText": "I don't understand half of what's been happening this season, and I've stopped expecting to. But we're still standing, and that's more than I'd have wagered a month ago. Take {reward_item}. I want you to have it before the next strange thing finds us.",
+      "resolutionText": "I don't understand half of what's been happening this season, and I've stopped expecting to. But we're still standing, and that's more than I'd have wagered a month ago. Take {reward_item}, and {reward_flavor}. I want you to have it before the next strange thing finds us.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 14,
         "passText": "You've seen this kind of pattern before? That's almost a relief. I'd started thinking I was the only one who noticed they move differently when the wind shifts. Maybe we're not as blind as I thought.",
         "failText": "It's all guesswork at this point. I'd rather just deal with what's in front of us."
       },
-      "rewardFlavor": "what we can spare from the storehouse and a warm meal besides",
+      "rewardFlavor": "a warm meal besides",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2202,14 +2202,14 @@
       "expositionTurnInText": "That's more than I've been able to gather in a fortnight. I don't know what's been blocking me when it comes so easy to you, but I've stopped trying to puzzle it. There's one more thing pressing, and it's gotten worse while you were out.",
       "conflict1Text": "The {enemy_type_plural} have been showing up where they shouldn't, and I don't know if it's connected to the rest of it or just bad luck on top of bad luck. Take down {kill_count} of them so I can sleep without one ear open. That's all I'm asking for tonight.",
       "conflict1TurnInText": "I slept four hours straight. I haven't done that since this whole strange stretch began. Whatever's behind any of it, you've given me a piece of myself back.",
-      "resolutionText": "I won't tell you we're past it. I don't think I'd believe me if I said it. But things look a little less crooked than they did. Take {reward_item}, and know that an ordinary stretch of days is the most I'm hoping for now.",
+      "resolutionText": "I won't tell you we're past it. I don't think I'd believe me if I said it. But things look a little less crooked than they did. Take {reward_item}. And {reward_flavor}, since I don't know when I'll bake another worth giving. An ordinary stretch of days is the most I'm hoping for now.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 12,
         "passText": "You see it too, then. The way the air's been wrong in the early morning, like it isn't holding the heat it should. I'd thought I was imagining it. Knowing I'm not is almost worse.",
         "failText": "It's a strange season. Strange seasons happen. I'm trying not to dwell."
       },
-      "rewardFlavor": "a sack of what we have and the last good loaf out of my kitchen",
+      "rewardFlavor": "the last good loaf",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2247,14 +2247,14 @@
       "conflict2TurnInText": "That's the most we've had on hand since this whole stretch began. I might actually breathe easy tonight, which would be a change worth marking.",
       "conflict3Text": "And one more. The {enemy_type_plural} are creeping back in already, the same as before, and I don't know if they ever really left. Take {kill_count} more down. I keep thinking each round will be the last one, and I keep being wrong.",
       "conflict3TurnInText": "Better. Quieter. I'm starting to wonder if sustained pushing back is the only answer when you can't see what you're pushing against. It's not understanding, but it's something.",
-      "resolutionText": "I don't know what made any of this happen and I don't think I ever will. But we're standing, and the next stretch of days might even feel ordinary. Take {reward_item}. I wasn't sure I'd ever have anything to give back, and it feels good to be wrong about that.",
+      "resolutionText": "I don't know what made any of this happen and I don't think I ever will. But we're standing, and the next stretch of days might even feel ordinary. {reward_item} is yours, and {reward_flavor}, for whatever those are worth. I wasn't sure I'd ever have anything to give back, and it feels good to be wrong about that.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "Honest answer? Fighting something I can't name has worn me down more than the work itself. I keep waiting to wake up and have it all make sense, and it never does, and I don't know how much longer I can keep getting up.",
         "failText": "It's been a long stretch. I'd rather not turn it over right now."
       },
-      "rewardFlavor": "a fair share of what little we've managed to keep and my honest thanks",
+      "rewardFlavor": "my honest thanks besides",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2892,14 +2892,14 @@
       "conflict1TurnInText": "Better. The road feels passable again. I'm not going to wonder why they were here in the first place. I'm just going to be glad they're not.",
       "conflict2Text": "One last thing. I've been trying to get my hands on a {quest_item} for two weeks and it keeps not working out. If you find one, bring it back. I'd like to end this stretch of bad luck with at least one thing going right.",
       "conflict2TurnInText": "There it is. First thing that's landed in my hands without a fight all season.",
-      "resolutionText": "I won't say things are back to normal, because I'm not sure what normal looks like anymore. But they're workable, and that's enough for now. Take {reward_item}. You helped me stop falling behind.",
+      "resolutionText": "I won't say things are back to normal, because I'm not sure what normal looks like anymore. But they're workable, and that's enough for now. Take {reward_item}, with {reward_flavor} to see you off. You helped me stop falling behind.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "I stopped telling people about the individual problems because each one sounds small on its own. It's the accumulation that wears on you. When nothing works right for long enough, you start to wonder if you've forgotten how to do things properly.",
         "failText": "It's just been a rough stretch. They happen."
       },
-      "rewardFlavor": "what I can pull together from the savings jar and a warm meal",
+      "rewardFlavor": "a warm meal too",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5534,14 +5534,14 @@
       "expositionTurnInText": "You actually found enough. I counted it twice because I don't trust good outcomes on the first pass. Now there's the other shoe, and I know it's coming because it always does.",
       "conflict1Text": "{enemy_type_plural} have been pressing in closer to {settlement_name}, and naturally they chose my side of the settlement to settle nearest to. {kill_count} of them handled would give me a stretch of ordinary days, which is all I've ever asked for.",
       "conflict1TurnInText": "Quiet. Genuinely quiet. I keep waiting for the next thing to go wrong and it hasn't yet. I almost don't know what to do with a day that just works.",
-      "resolutionText": "I won't say the pattern is broken, I've been disappointed too many times for that. But today was good, and yesterday was good, and I'll take two good days in a row as a sign. Take {reward_item}. You showed me what it looks like when things go right for a change.",
+      "resolutionText": "I won't say the pattern is broken, I've been disappointed too many times for that. But today was good, and yesterday was good, and I'll take two good days in a row as a sign. Take {reward_item}: {reward_flavor}, and it turns out I didn't need it. You showed me what it looks like when things go right for a change.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "It's funny you put it that way, because that's exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but there it is.",
         "failText": "That's a strange way to ask about someone's luck. I'll manage, just bring me the {quest_item}."
       },
-      "rewardFlavor": "what I'd set aside for a worse day, since today turned out to be a better one",
+      "rewardFlavor": "what I saved for worse",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5572,14 +5572,14 @@
       "conflict1TurnInText": "That puts us even. Not ahead, but even, and even feels luxurious after the month I've had. There's one last piece, and then maybe I can stop bracing for impact.",
       "conflict2Text": "I need a {quest_item} to finish the last repair properly. Without it I'll jury-rig something that holds for a week and then we're back to the same cycle. I want to break the pattern for real this time.",
       "conflict2TurnInText": "The repair is solid. For the first time in months, everything I look at is in working order. I keep checking, expecting to find something new that's broken, and there's nothing.",
-      "resolutionText": "Nothing is broken. I've said that three times today and it keeps being true. Take {reward_item}. You helped me step off a wheel I'd been running on so long I forgot what solid ground felt like.",
+      "resolutionText": "Nothing is broken. I've said that three times today and it keeps being true. Take {reward_item}, and {reward_flavor} with it. You helped me step off a wheel I'd been running on so long I forgot what solid ground felt like.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You see the pattern I was hoping nobody would piece together. Each repair failed because I rushed it to get to the next one. The roof leaked because I skipped the sealant, the chain snapped because I reused a worn link, and each shortcut made the next failure come sooner. I built this cycle with my own impatience, and admitting that is harder than any of the repairs.",
         "failText": "Things break. I fix them. That's the whole story."
       },
-      "rewardFlavor": "the coin I keep in the toolbox for exactly this kind of reckoning",
+      "rewardFlavor": "the toolbox reckoning coin",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5605,14 +5605,14 @@
       "expositionTurnInText": "That'll hold us through the rough patch. The timing still makes no sense to me, but at least we won't go hungry while I puzzle over it. There's one more thing the early turn brought with it.",
       "conflict1Text": "The {enemy_type_plural} are moving earlier too, pushed out by the same shift that caught us. {kill_count} of them cleared and we can ride out the rest of this wrong-footed season without adding danger on top of shortage.",
       "conflict1TurnInText": "That's better. The pressure from outside has eased, even if the pressure from above hasn't. I can deal with bad weather. Bad weather and bad creatures at the same time was more than I could hold.",
-      "resolutionText": "We came through a season that had no business being this hard, and we're still standing. Take {reward_item}. I can't control the weather or the calendar, but I can recognize someone who showed up when both turned against us.",
+      "resolutionText": "We came through a season that had no business being this hard, and we're still standing. Take {reward_item}, and {reward_flavor}. I can't control the weather or the calendar, but I can recognize someone who showed up when both turned against us.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "Since you're making me say it plainly. I ignored the early signs because I was too proud to admit the season was turning before I was ready. The old farmers warned me and I waved them off, and now everyone here is paying for my stubbornness. The weather didn't betray us, I did, by not listening when I should have.",
         "failText": "Nobody predicted this. It just happened."
       },
-      "rewardFlavor": "what we managed to save from the early harvest and honest gratitude",
+      "rewardFlavor": "honest gratitude besides",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5643,14 +5643,14 @@
       "conflict1TurnInText": "The tunnels are collapsing on their own now that the creatures are gone. I can already see earthworms returning, which is the first sign of recovery. But I still need to feed the soil back to health.",
       "conflict2Text": "I need {gather_count} {quest_item} to amend the field. Good compost, the kind of material that puts back what was taken out. It won't fix everything in one season, but it'll give next year's planting a fighting chance.",
       "conflict2TurnInText": "The field smells like earth again instead of dust. I'd forgotten what healthy soil looks like, and now I'm looking at it.",
-      "resolutionText": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {reward_item}. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know.",
+      "resolutionText": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {reward_item}, and {reward_flavor}, if the ground keeps its word. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
         "passText": "The confidence in your voice when you said the field could recover. I needed to hear someone say it like they believed it. My neighbors have been giving me the look people give when they think you should cut your losses, and I was starting to agree with them. But the way you talked about it, like the ground and I still had a future together, that's what kept me from walking away.",
         "failText": "It's a field problem. I just want it solved."
       },
-      "rewardFlavor": "the savings I'd kept for seed and a promise of first harvest when it comes back",
+      "rewardFlavor": "first harvest when it returns",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5676,14 +5676,14 @@
       "expositionTurnInText": "Better. The outside threat is handled, which means I can turn my attention inward without feeling like I'm ignoring something with teeth. Now for the slow emergency.",
       "conflict1Text": "I need {gather_count} {quest_item} to replace the most critical things that have worn through. Not everything, just enough that the house holds together for another season while I catch up on the rest.",
       "conflict1TurnInText": "That covers the worst of it. The doors close, the tools work, and I can get through a day without something falling apart in my hands. It a victory, but it's stability, and stability has been in short supply.",
-      "resolutionText": "I'm holding steady. Not gaining, but not losing ground anymore, and after the month I've had, that feels like a triumph. Take {reward_item}. You helped me stop the bleeding, and that's the thing that had to happen before anything else could.",
+      "resolutionText": "I'm holding steady. Not gaining, but not losing ground anymore, and after the month I've had, that feels like a triumph. Take {reward_item}, {reward_flavor}. You helped me stop the bleeding, and that's the thing that had to happen before anything else could.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
         "failText": "Things wear out. It's just happening all at once, which is my particular luck."
       },
-      "rewardFlavor": "what I've managed to keep in one piece, offered with real gratitude",
+      "rewardFlavor": "offered with real gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5714,14 +5714,14 @@
       "conflict1TurnInText": "Stocked again. I can look at the shelves without doing mental arithmetic about how many days we have left. There's one last thing pressing on me.",
       "conflict2Text": "The {enemy_type_plural} have been taking advantage of my distraction. {kill_count} of them put down and I can stop treating every problem as urgent and start treating some of them as solved.",
       "conflict2TurnInText": "Solved. Actually solved, not patched, not postponed. The channel holds, the shelves are full, and the road is safe. I keep waiting for the next thing to fail and it hasn't.",
-      "resolutionText": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}. You helped me believe that fixed could actually mean finished.",
+      "resolutionText": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}, and {reward_flavor}. You helped me believe that fixed could actually mean finished.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
         "passText": "You noticed something about the failure pattern, didn't you. The collapse keeps happening in the same spot because there's something in the ground there that rejects normal construction. I've dug it up twice and both times there was a residue I couldn't identify, almost crystalline, and warm to the touch. I don't know what it is, but It natural, and pretending it's just bad soil hasn't been working.",
         "failText": "The ground is difficult. That's all I know and all I need to know right now."
       },
-      "rewardFlavor": "the coin I kept setting aside for the next repair, which I finally don't need",
+      "rewardFlavor": "coin I won't need now",
       "valence": "negative",
       "roleAffinity": []
     },
