@@ -98,6 +98,9 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
                 obj.markComplete();
                 if (quest.markPhaseReadyForTurnIn()) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                    int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                    Natural20.getInstance().getXpService().award(player, ref, store, xp,
+                            "quest:" + quest.getQuestId());
                 }
                 dirty = true;
                 setTurnInParticle(quest);

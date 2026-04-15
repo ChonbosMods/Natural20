@@ -163,6 +163,9 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                     QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), playerData);
                     if (firstReady) {
                         QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                        int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                        Natural20.getInstance().getXpService().award(player, playerRef, store, xp,
+                                "quest:" + quest.getQuestId());
                     }
                 }
             } else {

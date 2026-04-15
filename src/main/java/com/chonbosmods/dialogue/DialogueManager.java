@@ -238,9 +238,18 @@ public class DialogueManager {
         if (queued == null || queued.isEmpty()) return;
         Player player = session.getPlayer();
         if (player == null) return;
+        com.hypixel.hytale.component.Ref<com.hypixel.hytale.server.core.universe.world.storage.EntityStore> playerRef
+                = session.getPlayerRef();
+        var store = playerRef.getStore();
+        com.chonbosmods.data.Nat20PlayerData playerData = session.getPlayerData();
         for (QuestInstance quest : queued) {
             if (quest.markPhaseReadyForTurnIn()) {
                 QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                if (playerData != null) {
+                    int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                    com.chonbosmods.Natural20.getInstance().getXpService()
+                            .award(player, playerRef, store, xp, "quest:" + quest.getQuestId());
+                }
             }
         }
     }

@@ -110,6 +110,9 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 obj.markComplete();
                 if (quest.markPhaseReadyForTurnIn()) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
+                    int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                    Natural20.getInstance().getXpService().award(player, ref, store, xp,
+                            "quest:" + quest.getQuestId());
                 }
                 dirty = true;
                 LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
