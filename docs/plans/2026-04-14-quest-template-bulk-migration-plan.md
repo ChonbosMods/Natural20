@@ -8,17 +8,28 @@
 - `3ffe33a` Phase 1a (Java): dropped `rewardGold` + `rewardItem` record components; removed `reward_gold` binding in `QuestGenerator`; removed `reward_gold` from `DialogueResolver.HIGHLIGHTED_QUEST_VARS`.
 - `5448f2b` Phase 1b (data): `tools/quest_template_migration.py` seeded `rewardFlavor` on all 259 templates from `1464711^`; renamed 259 `{quest_reward}` → `{reward_item}` tokens. Revised-3 (pure rename) approach, preserves authored voice.
 
-**Phase 2:** ✅ complete. 23 batches committed `89391c0` through `b954264` (mundane_batch_01 + v2_batch_01–22).
-- 259 templates total: 234 non-null `rewardFlavor`, 25 null.
-- Null distribution: concentrated in `obtaining` (5), `erroneous_judgment` (3), `disaster` / `enigma` / `mistaken_jealousy` / `rivalry_of_kinsmen` / `self_sacrifice_for_kindred` (2 each), `vengeance` / `conflict_with_fate` / `supplication_fate_variants` / `pursuit` / `ambition` / `necessity_of_sacrificing_loved_ones` / `self_sacrifice_for_an_ideal` (1 each). Zero nulls in grief/deliverance/supplication/crimes-of-love/obstacles-of-love/remorse/loss — appropriate to their tonal register.
+**Phase 2 initial batches:** ✅ complete. 23 batches committed `89391c0` through `b954264` (mundane_batch_01 + v2_batch_01–22).
+- 259 templates total: 234 non-null `rewardFlavor`, 25 null after initial pass.
 - One over-cap straggler flagged for Phase 4 cleanup: `self_sacrifice_for_an_ideal_06` has 6-word flavor (`"a draft of the clean spring"`).
-- Observations from the pass (tracked for targeted polish):
-  - `loss_of_loved_ones` leaned on `Take {reward_item}: {reward_flavor}.` in 7/11 templates before the variety directive was tightened. Candidate for a diversify-pass.
-  - `mundane_batch_01` produced 0 nulls across all 21 mundane templates — keepsake-style flavor on every one. Worth eyeballing whether mundane quests should feel that warm or be more transactional.
 
-**Phase 3:** pending.
+**Phase 2 polish + R13/R14 compliance sweep:** ✅ complete. 4 follow-up commits.
+- Polish passes addressed two observations from the initial batches:
+  - `loss_of_loved_ones` had `Take {reward_item}: {reward_flavor}.` on 7/11 templates (homogeneous).
+  - `mundane_batch_01` produced 0 nulls across all 21 templates (over-warm for casual-errand tone).
+- Discovery mid-polish: the initial Phase 2 subagent prompts did not reference `authoring/authoring_rules.md`, so weaving shapes introduced 46 colons + 13 em-dashes across 45 v2 templates — all R13 violations. Phase 2 also introduced ~5 R14 corrective-reframing constructions.
+- Follow-up commits:
+  - `3baee1b` mundane rebalance + R13 cleanup: 14 null / 7 keep (targeted 60–75% null ratio); stripped all 23 pre-existing colons from the mundane file too. Kept non-null only on `pantry_*` (cooking), 1 `curiosity_*`, 1 `lost_*`, 1 `pickup_*`, 1 `borrowed_*`.
+  - `1625d0e` grief diversify (R13 compliant): 9 distinct weaving shapes across 11 `loss_of_loved_ones` templates, max 2 per shape; dropped 1 R14 reframing construction.
+  - `50305e4` R13/R14 cleanup group A: 33 templates across 10 situations. Removed 25 colons + 9 em-dashes + 3 R14 rewrites.
+  - `c73c75b` R13/R14 cleanup group B: 21 templates across 9 situations. Removed 19 colons + 4 em-dashes + 2 R14 rewrites.
+- Final audit: **0 colons, 0 em-dashes, 0 hyphens-as-dashes** in any text field across both index files.
+- `reference_authoring_rules.md` saved in project memory so future dialogue-editing subagents are briefed on R13/R14/R7/R8 before dispatch.
 
-**Phase 4:** pending.
+**Phase 2 final state:** 259 templates total. Post-polish null/non-null ratio not recomputed per-situation but known shifts: mundane 14 null / 7 non-null (was 0/21); loss_of_loved_ones unchanged in null count (all 11 still non-null, weaving diversified). Awaiting Phase 4 for the final length audit.
+
+**Phase 3 (FETCH_ITEM article audit):** pending.
+
+**Phase 4 (final sweep):** pending.
 
 
 **Revision history:**
