@@ -1585,14 +1585,14 @@
       "expositionTurnInText": "You actually found one. That's a {quest_item} I can put in someone's hands and mean it. Thank you. Now I have to do the harder part.",
       "conflict1Text": "I can't bring this to her myself. Not yet. I need you to find {target_npc} in {target_npc_settlement}. They used to know us both, before all this. If anyone can tell her I'm trying, it's them.",
       "conflict1TurnInText": "You spoke to {target_npc}? And they didn't laugh you out of the room? That's more than I had any right to hope for.",
-      "resolutionText": "She came by this morning. Didn't say much. Just sat with me for a while, and that was more than I'd had in weeks. Take {reward_item}. I owe you something I can't really name.",
+      "resolutionText": "She came by this morning. Didn't say much. Just sat with me for a while, and that was more than I'd had in weeks. Take {reward_item}. {reward_flavor}, for what it's worth. I owe you something I can't really name.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You're right, those two things don't fit together. I said it slipped out, but you can hear that the words were too precise for an accident. I chose them because I knew exactly where she was vulnerable, and calling it a slip is the story I've been telling myself so I can sleep.",
         "failText": "It's complicated. Family things usually are."
       },
-      "rewardFlavor": "what coin I've been setting aside, and a quiet thank-you I won't forget",
+      "rewardFlavor": "coin I set aside",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "They sent you? I'd started to wonder if they'd ever try to fix things. She's been hurting, and she won't say it out loud, but I can see it every time someone brings their name up. The fact that they're making the effort matters more than they realize.",
@@ -1621,8 +1621,8 @@
       "conflict1TurnInText": "That's exactly the kind of {quest_item} I had in mind. He'll know it cost something to send. That matters.",
       "conflict2Text": "Last thing. Would you take it back to {target_npc} for me? I want them to give it to him, in their own words. I'm not ready to stand in front of him, but I can stand behind a gesture.",
       "conflict2TurnInText": "You did it. You actually did it. I think I can breathe a little easier tonight.",
-      "resolutionText": "{target_npc} sent word back. He didn't say much, but he kept the gift, and that's all I asked for. Take {reward_item}. You carried something for me that I couldn't carry alone.",
-      "rewardFlavor": "the best of what I have left from that hard winter, and my honest thanks",
+      "resolutionText": "{target_npc} sent word back. He didn't say much, but he kept the gift, and that's all I asked for. {reward_item} goes with you, and {reward_flavor} along with it. You carried something for me that I couldn't carry alone.",
+      "rewardFlavor": "my honest thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The man who passed through last winter? He made it, barely. He didn't say much about what happened on the road, but I could tell someone had turned him away. He carries things quietly, that one.",
@@ -1648,14 +1648,14 @@
       "expositionTurnInText": "That's a fine {quest_item}. He would have approved of the craftsmanship, at least. Holding it makes the empty spot on the shelf feel like something I'm filling, not just hiding.",
       "conflict1Text": "There's one more thing I need. He always kept a {quest_item} alongside it. Said the two belonged together. If you can find one of those too, then the set will be whole again, the way he had it.",
       "conflict1TurnInText": "Both pieces, side by side. That's how he kept them. That's how I'll keep them. Thank you for not asking me why this mattered so much.",
-      "resolutionText": "I put them up tonight, in the same spot. It's not the same. They're not his. But the hole is gone, and that's something. Take {reward_item}. It's the kind of thing he would have given you, if he were the one standing here.",
+      "resolutionText": "I put them up tonight, in the same spot. It's not the same. They're not his. But the hole is gone, and that's something. {reward_item} is yours: {reward_flavor}. It's the kind of thing he would have given you, if he were the one standing here.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 11,
         "passText": "You're looking at the marks on my hand, aren't you? Yes, that was the same night. I haven't forgiven myself for that part either, but at least it heals.",
         "failText": "It's an old story. Not worth dragging through the mud again."
       },
-      "rewardFlavor": "a small purse and the quiet thanks of a man trying to be better",
+      "rewardFlavor": "a quiet thanks, truly",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3531,14 +3531,14 @@
       "conflict1TurnInText": "That's exactly right. They'll know it's a replacement for what they lost, and they'll know I remembered. Sometimes that's what an apology looks like when words aren't enough.",
       "targetNpcOpener": "Your neighbor told me about that. They weren't angry, mostly just hurt. They'd counted on someone being there, and when nobody came, they handled it alone. It worked out, but the feeling of being on your own like that sticks with a person.",
       "targetNpcCloser": "If someone wants to make it right, a small gesture would go a long way. They're not the type to hold a grudge.",
-      "resolutionText": "I brought the {quest_item} over and sat with them for a while. We didn't talk about what happened, but they set it on the shelf where the old one used to be, and that felt like enough. Take {reward_item}. You helped me stop putting off something I should have done weeks ago.",
+      "resolutionText": "I brought the {quest_item} over and sat with them for a while. We didn't talk about what happened, but they set it on the shelf where the old one used to be, and that felt like enough. Keep {reward_item}: {reward_flavor}, too, if you'll have it. You helped me stop putting off something I should have done weeks ago.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
         "passText": "The truth is I wasn't just busy. I was tired of being the person everyone comes to, and I chose the wrong moment to draw that line. It's one thing to set boundaries and another thing entirely to abandon someone.",
         "failText": "I'd rather not get into the reasons. The result is what matters."
       },
-      "rewardFlavor": "a portion of my stores and my honest gratitude",
+      "rewardFlavor": "a portion of my stores",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3562,14 +3562,14 @@
       "conflict1TurnInText": "{target_npc} remembers the whole thing, and they said they'd given up expecting to hear about it again. That's fair. I gave them no reason to expect anything from me. But they're willing to accept the replacement, and that's more than I deserve.",
       "targetNpcOpener": "I remember that {quest_item}. I noticed it was gone a long time ago, and I had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone finally came to make it right does mean something.",
       "targetNpcCloser": "Tell them the door's open. I'd rather have the friendship back than the thing itself.",
-      "resolutionText": "I sent the {quest_item} along with a letter, the first honest one I've written in years. {target_npc} sent a short reply, just a few words, but kind ones. Take {reward_item}. You helped me close something I'd been keeping open far too long.",
+      "resolutionText": "I sent the {quest_item} along with a letter, the first honest one I've written in years. {target_npc} sent a short reply, just a few words, but kind ones. With {reward_flavor}, I can give you {reward_item} and mean it. You helped me close something I'd been keeping open far too long.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "The real weight of it isn't the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
         "failText": "It's just time I dealt with it. Nothing more to say about it."
       },
-      "rewardFlavor": "what I can spare and the relief of a lighter conscience",
+      "rewardFlavor": "a lighter conscience at last",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7528,14 +7528,14 @@
       "conflict1TurnInText": "That's the one. They mentioned it once, months ago, in passing, and I remembered. I want them to know that even when I'm at my worst, some part of me is still trying.",
       "targetNpcOpener": "I know what was said, and I know it hurt. {settlement_npc} told me about it the same evening, and it was the first time I'd seen them cry in years. They don't want revenge or even an apology, really. They want to know if the person who said it is the real version, or if the kind version they've known for years is the real one.",
       "targetNpcCloser": "An honest gesture would mean more than any words right now.",
-      "resolutionText": "I brought the {quest_item} to {settlement_npc} and didn't say anything about the argument. They looked at it for a long time and then set it on the shelf next to a drawing their child made, where the important things go. Take {reward_item}. You helped me take a step I'd been too ashamed to take alone.",
+      "resolutionText": "I brought the {quest_item} to {settlement_npc} and didn't say anything about the argument. They looked at it for a long time and then set it on the shelf next to a drawing their child made, where the important things go. {reward_item}, and {reward_flavor}, if that means anything coming from me. You helped me take a step I'd been too ashamed to take alone.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win.",
         "failText": "I said something I regret. That's where I'd like to leave it."
       },
-      "rewardFlavor": "what I can offer and the promise that I'll do better",
+      "rewardFlavor": "I'll do better",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7559,14 +7559,14 @@
       "conflict1TurnInText": "{target_npc} said I'd be welcome, but that I should come with honesty, not just with a {quest_item}. That's fair. I owe the truth at minimum.",
       "targetNpcOpener": "I've heard about this. My friend handled those traders on their own, and they came out of it angry, not at the traders, but at the neighbor who watched and walked away. If that person wants to come forward now, the door is open, but only if they're willing to say what really happened and why they stayed quiet.",
       "targetNpcCloser": "Tell them to come honestly or not at all. My friend has had enough of people performing goodness without meaning it.",
-      "resolutionText": "I went to them with the {quest_item} and the truth. I told them I stayed quiet because I was afraid, and they said they already knew that, and that the fear was the part they needed to hear me admit. Take {reward_item}. You helped me face the thing I'd been running from.",
+      "resolutionText": "I went to them with the {quest_item} and the truth. I told them I stayed quiet because I was afraid, and they said they already knew that, and that the fear was the part they needed to hear me admit. Carry {reward_item} home: it comes with {reward_flavor}. You helped me face the thing I'd been running from.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 14,
         "passText": "You see right through the version I'm telling, don't you. I didn't just stay quiet out of fear. One of those traders offered me a cut of the goods afterward if I kept my mouth shut, and I didn't take it, but I didn't refuse it outright either. I let them think I might, and that bought my silence almost as effectively as if I had.",
         "failText": "I was a coward. That's the shape of it."
       },
-      "rewardFlavor": "my honest share and the weight of a burden finally set down",
+      "rewardFlavor": "a burden set down",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7590,14 +7590,14 @@
       "conflict1TurnInText": "That's perfect. Better than the original by a good measure. Now I have to do the part that scares me, which is handing it over and telling the truth about why.",
       "targetNpcOpener": "I work alongside {settlement_npc} most days, and I've noticed the change. Their main tool broke and they've been making do with a poor substitute. They mentioned once that they must have knocked it wrong, and they seemed embarrassed about it. If someone else caused the damage, {settlement_npc} deserves to stop blaming themselves.",
       "targetNpcCloser": "A replacement would go a long way. The truth would go further.",
-      "resolutionText": "I gave {settlement_npc} the new {quest_item} and told them everything. They were quiet for a while, and then they said the hardest part wasn't the broken tool, it was the months of thinking they'd done it to themselves. Take {reward_item}. You helped me stop hiding behind silence.",
+      "resolutionText": "I gave {settlement_npc} the new {quest_item} and told them everything. They were quiet for a while, and then they said the hardest part wasn't the broken tool, it was the months of thinking they'd done it to themselves. Here: {reward_item}. {reward_flavor}, and that's the truth of it. You helped me stop hiding behind silence.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Alright, you've made your point. The reason I hid the damage isn't just embarrassment. I was afraid {settlement_npc} would stop trusting me, and that trust is the foundation of our whole working arrangement. I chose the lie because I thought the truth would cost me the relationship, but instead the lie is costing it slowly.",
         "failText": "I made a mistake and I'm correcting it. That's the whole story."
       },
-      "rewardFlavor": "a fair payment and the honest relief of someone who stopped lying",
+      "rewardFlavor": "I'm done hiding",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7621,14 +7621,14 @@
       "conflict1TurnInText": "{target_npc} said the family suspected it was me all along but couldn't prove it. The fact that I'm admitting it voluntarily is the only reason they're willing to talk. That's more mercy than I earned.",
       "targetNpcOpener": "I've been watching that family suffer for months, and I had my suspicions about where the rumor started. If the person responsible is finally willing to own it, that changes things. The family won't forget, but they might forgive, if the admission is real and not just another performance.",
       "targetNpcCloser": "Send them with the offering and an honest tongue. Anything less and the door stays closed.",
-      "resolutionText": "I went to the family and confessed everything. They listened, took the {quest_item}, and said they'd need time, which is more than I was given any right to ask for. Take {reward_item}. You helped me take responsibility for the worst thing I've ever done to another person.",
+      "resolutionText": "I went to the family and confessed everything. They listened, took the {quest_item}, and said they'd need time, which is more than I was given any right to ask for. {reward_item}. And {reward_flavor}, somehow, since last night. You helped me take responsibility for the worst thing I've ever done to another person.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "You're not going to let me wrap this in soft language, are you. I didn't just start the rumor out of jealousy, I kept feeding it. Every time it started to die down, I'd mention something new, something invented, to keep it alive. I was deliberate, and that's the part that keeps me up at night.",
         "failText": "I did something wrong and I'm trying to fix it. That's where I'll leave it."
       },
-      "rewardFlavor": "my savings and the first honest night's sleep I've had in months",
+      "rewardFlavor": "my first honest sleep",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7652,14 +7652,14 @@
       "conflict1TurnInText": "That's the one. It's a strange kind of apology, proving you listened by giving someone what they wanted. But {settlement_npc} will understand what it means, and that's what matters.",
       "targetNpcOpener": "I know about the letter. {settlement_npc} told me someone had shared things that were never meant to leave the page. They've been sleeping badly and avoiding the market square. The hurt isn't anger, it's the feeling of being seen without permission, and that's harder to recover from than a fight.",
       "targetNpcCloser": "If the person who did this wants to help, they should start by understanding that trust, once broken this way, rebuilds slowly if it rebuilds at all.",
-      "resolutionText": "I left the {quest_item} at {settlement_npc}'s door with a note that said only what I was sorry for, no explanations and no excuses. The next morning they knocked on my door and stood there for a moment before saying thank you, and that felt like a start. Take {reward_item}. You helped me find the only honest way back.",
+      "resolutionText": "I left the {quest_item} at {settlement_npc}'s door with a note that said only what I was sorry for, no explanations and no excuses. The next morning they knocked on my door and stood there for a moment before saying thank you, and that felt like a start. Hold {reward_item}: {reward_flavor}, but it's mine to give. You helped me find the only honest way back.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
         "passText": "You have a way of making people feel like they're in good company, and that's dangerous for me right now because I want to be honest. I didn't stumble on that letter. I went looking through {settlement_npc}'s things because I was curious, and the gossip afterward wasn't carelessness, it was the second violation after the first.",
         "failText": "I read something I shouldn't have and shared it. That's the extent of what I want to say."
       },
-      "rewardFlavor": "what I have and the beginning of accountability",
+      "rewardFlavor": "a beginning, nothing more",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7683,14 +7683,14 @@
       "conflict1TurnInText": "So {target_npc} says the apprentice still talks about it, not with bitterness, but with the quiet disappointment of someone who learned early that promises don't always hold. That's worse than anger. Anger at least means they still expected something from me.",
       "targetNpcOpener": "The apprentice is one of my best workers now, self-taught mostly, which tells you something about their character. They mentioned once that someone in {settlement_name} promised to train them and then disappeared from the arrangement. They didn't seem angry. They seemed resigned, like it confirmed something they'd suspected about how the world works.",
       "targetNpcCloser": "If the person who made that promise wants to resurface, they should bring something real. The apprentice has had enough of good intentions.",
-      "resolutionText": "I brought the {quest_item} to the apprentice myself and told them I was sorry, plainly and without dressing it up. They took the tool, tested the weight of it, and said they could use a good one, and the way they said it told me the door wasn't closed. Take {reward_item}. You helped me stop being the lesson that taught a good person not to trust.",
+      "resolutionText": "I brought the {quest_item} to the apprentice myself and told them I was sorry, plainly and without dressing it up. They took the tool, tested the weight of it, and said they could use a good one, and the way they said it told me the door wasn't closed. Bring {reward_item} with you: proof that {reward_flavor}. You helped me stop being the lesson that taught a good person not to trust.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
         "passText": "You understand something about obligations, I can tell. In the old traditions, a promise to teach is considered sacred, the passing of knowledge from one hand to the next. I grew up hearing those stories and believed them, and then when it was my turn to honor that chain I let it fall. The weight of that isn't just personal, it's something larger that I failed.",
         "failText": "I made a promise and didn't keep it. I'd like to fix that now."
       },
-      "rewardFlavor": "a mentor's wages and the hope that one broken promise doesn't define me",
+      "rewardFlavor": "one promise won't define me",
       "valence": "negative",
       "roleAffinity": []
     },
