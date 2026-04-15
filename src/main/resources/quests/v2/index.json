@@ -1968,14 +1968,14 @@
       "conflict1TurnInText": "That's the one. Or close enough that he'll know what I meant by it. I can feel my hands stop shaking just holding it.",
       "conflict2Text": "There's one more thing, and it's the hardest. {target_npc} in {target_npc_settlement} should know. They were close to him once, before everything got complicated between them. Tell {target_npc_role} what's happening, in person. Don't soften it.",
       "conflict2TurnInText": "Then it's done. They know, and that's what mattered. I owed them that much, even if it cost something to send.",
-      "resolutionText": "I'm going to him tonight. {reward_item} is yours, and I wish I had more to give for what you carried with me. I won't forget that I didn't have to do this alone.",
+      "resolutionText": "I'm going to him tonight. Here: {reward_flavor}, and {reward_item} besides. I won't forget that I didn't have to do this alone.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "I keep telling myself I'm ready. I'm not. I don't know who I am after this, and I'm afraid to find out. But sitting here pretending isn't the same as being there.",
         "failText": "It's a hard road. That's all there is to say."
       },
-      "rewardFlavor": "what coin I've set aside and a quiet thanks I won't take back",
+      "rewardFlavor": "a quiet, steady thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I know why you're here, and I appreciate you telling me in person. I always thought there'd be more time to fix things between us. We let something get in the way and I kept telling myself I'd handle it later.",
@@ -2001,14 +2001,14 @@
       "expositionTurnInText": "Word came back that the way is clearer. I almost wish it weren't. There's still one more piece I can't manage from here, and it's the part I've been dreading most.",
       "conflict1Text": "I can't be the one to arrange it. {target_npc}, the {target_npc_role} in {target_npc_settlement}, agreed years ago to take her in if it ever came to this. I need you to go and tell {target_npc} the time has come. They'll understand what to prepare.",
       "conflict1TurnInText": "Then it's real. I've been pretending this day was theoretical for so long, and now it's just a date on a calendar. I'd ask you to leave me a moment if you didn't already know I needed it.",
-      "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}. It isn't much against what you helped me face, but I want you to have it.",
+      "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}, and {reward_flavor}. It isn't much against what you helped me face, but I want you to have it.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 14,
         "passText": "Can I tell you something I haven't said out loud? I'm not sure I'm strong enough to do this without flinching at the last moment. I keep thinking I'll find a reason to keep her here, and I know that reason would kill her eventually.",
         "failText": "It's a parent's burden. You'd understand it if it were yours."
       },
-      "rewardFlavor": "a small purse and a piece of bread for the road",
+      "rewardFlavor": "bread for the road",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "The time has come, then. I made that promise years ago and hoped it would never be needed, but I meant every word. I'll have a room ready and a meal waiting when she arrives. She won't feel like a burden here.",
@@ -2039,8 +2039,8 @@
       "conflict1TurnInText": "I went out for the first time in weeks and came back without my heart in my throat. That's a kindness I won't forget. There's one more thing, and it's the one I've been avoiding longest.",
       "conflict2Text": "Her brother {target_npc} lives in {target_npc_settlement}. They haven't spoken in years, my fault as much as anyone's. He should hear it from a person, not a letter that arrives too late. Find {target_npc_role} and tell them plainly.",
       "conflict2TurnInText": "He's coming. I didn't think he would. Whatever you said to him, it found the right place to land. She'll see him before the end.",
-      "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {reward_item} is yours, with my thanks. You gave us an ending I can live with.",
-      "rewardFlavor": "a wood-carved keepsake from my workbench and a few coins beside",
+      "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {reward_item} is yours — {reward_flavor}, with my thanks. You gave us an ending I can live with.",
+      "rewardFlavor": "a keepsake from my workbench",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's that far gone? I didn't know. I should have known, and the fact that I didn't is something I'll carry for a long time. We stopped talking over something I can't even name anymore.",
@@ -3203,7 +3203,7 @@
         "passText": "You caught that, didn't you. I said I've made my peace with it, but the truth is I ran the numbers every season for two years and waited for them to come out differently. They never did. The harvest yields, the supply counts, the winters getting longer. It's arithmetic, and the arithmetic says he has to go. I kept hoping one column would change, and none of them changed.",
         "failText": "It's the right call. That's enough for me."
       },
-      "rewardFlavor": "a fair sum I set aside for this day",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I've been expecting this message for a while now. Honestly, I'm surprised it took this long. The room's been ready since autumn.",
@@ -3234,14 +3234,14 @@
       "conflict1TurnInText": "Good. I walked it after you finished and didn't see anything moving. One more thing to arrange.",
       "conflict2Text": "Her brother {target_npc} lives in {target_npc_settlement}. I'd like you to let {target_npc_role} know she's coming and when to expect her. They'll want to prepare.",
       "conflict2TurnInText": "{target_npc} is ready for her? Then there's nothing left to wait on.",
-      "resolutionText": "She left at first light and we didn't make a scene of it. She said she'd write when she arrived, and I said I'd read it twice. Take {reward_item}. This was always the practical choice, and you helped me make it cleanly.",
+      "resolutionText": "She left at first light and we didn't make a scene of it. She said she'd write when she arrived, and I said I'd read it twice. Take {reward_item}, plus {reward_flavor}. This was always the practical choice, and you helped me make it cleanly.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You're right, that doesn't quite hold together. I said we talked it through, but what actually happened is I laid out the supply figures and the road conditions and the winter projections until she couldn't argue back. I didn't persuade her, I cornered her with facts. She agreed because I left no room to disagree, and calling that a conversation is the lie I tell myself so I can sleep.",
         "failText": "We talked it through. The decision was made together."
       },
-      "rewardFlavor": "what I can spare and a handshake worth something",
+      "rewardFlavor": "a handshake worth something",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "She's finally coming? I won't pretend I'm surprised. The letters she's been sending got shorter every month, and I could read between the lines well enough.",
@@ -6548,14 +6548,14 @@
       "conflict1TurnInText": "{target_npc} said my brother already guessed what I'd choose. He told them he would have done the same. I don't know if that makes it better or worse.",
       "targetNpcOpener": "I had a feeling this was coming. The family has been splitting itself in half over this for days. I'll get word to him. He won't be surprised, and he won't hold it against anyone.",
       "targetNpcCloser": "Tell them the message will reach him by morning. That's the best I can do.",
-      "resolutionText": "The supplies reached {other_settlement}, and my brother sent word that he's managing, which is the best either of us can say right now. Take {reward_item}. I owe you for carrying the message I couldn't.",
+      "resolutionText": "The supplies reached {other_settlement}, and my brother sent word that he's managing, which is the best either of us can say right now. Take {reward_item}, and {reward_flavor}, too. I owe you for carrying the message I couldn't.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "Honestly, the deciding part is already done, I made the call two days ago. The reason I haven't moved on it is that I keep hoping something will change so I don't have to live with being the one who chose. But nothing is going to change, is it.",
         "failText": "You're pushing pretty hard on this. It's a hard choice and I'll make it when the path is clear."
       },
-      "rewardFlavor": "the coin I'd set aside for the shipment and a family's quiet thanks",
+      "rewardFlavor": "a family's quiet thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6579,14 +6579,14 @@
       "expositionTurnInText": "You found it. Holding it again feels like borrowing time I already spent. But there's more trouble between here and putting things right.",
       "conflict1Text": "{enemy_type_plural} have settled along the path my daughter takes to the market. {kill_count} of them dealt with and she can move freely again. I can't protect her from everything I've done, but I can protect her from that.",
       "conflict1TurnInText": "The road is clear. She walked it this morning without knowing what you did, and that's exactly how I want it.",
-      "resolutionText": "I put the {quest_item} back where it belongs, and my daughter hasn't asked any questions. The deal is dead and we're no worse for it, thanks to you. Take {reward_item}. It's the least of what I owe.",
+      "resolutionText": "I put the {quest_item} back where it belongs, and my daughter hasn't asked any questions. The deal is dead and we're no worse for it, thanks to you. Bring {reward_item} with you. Carry {reward_flavor} besides. It's the least of what I owe.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "I mean, you know how these trade negotiations go, somebody has to bend. The thing is, she didn't give it away willingly. I told her it was the only option and framed the whole deal so she'd feel like she was choosing, but really I'd already decided for her. That's the part I can't sit with.",
         "failText": "You seem very interested in the details of how it happened. It was a family decision, and that's enough."
       },
-      "rewardFlavor": "what I kept hidden from the traders and a father's honest gratitude",
+      "rewardFlavor": "a father's honest gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6610,14 +6610,14 @@
       "conflict1TurnInText": "He'll have it by the end of the week. I keep imagining his face when he opens it, and I can't tell if it helps or makes it worse.",
       "targetNpcOpener": "You're here about the boy? He's doing well, works hard, eats enough, doesn't complain. I can see he misses home, but he doesn't talk about it, got his mother's stubbornness about that.",
       "targetNpcCloser": "Tell them the boy is safe. That's the word that matters.",
-      "resolutionText": "He's safe and he has something of his mother's. That's the best I can do from here, and it will have to be enough. Take {reward_item}. You bridged a distance I've been too ashamed to cross myself.",
+      "resolutionText": "He's safe and he has something of his mother's. That's the best I can do from here, and it will have to be enough. Keep {reward_item}. {reward_flavor} comes with it, whether you want it or not. You bridged a distance I've been too ashamed to cross myself.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Fine. You want the truth that keeps me up at night? I had a choice between my son and my daughter, and I picked him because he's older and I thought he'd survive it better. I don't know if I was right, and I never will.",
         "failText": "Times were hard, and we did what we had to."
       },
-      "rewardFlavor": "the little I've saved since he left and a parent's lasting debt",
+      "rewardFlavor": "a parent's lasting debt",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6648,14 +6648,14 @@
       "conflict2TurnInText": "{target_npc} is expecting him. They said they'd make a bed and keep the lamp lit. I don't know why that detail is the one that broke me, but it did.",
       "targetNpcOpener": "I've been waiting to hear. The boy is welcome here, and I'll treat him like my own until things settle down. I've got room, and I've got patience, which is what he'll need most.",
       "targetNpcCloser": "Send him when he's ready. We'll be here.",
-      "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. Take {reward_item}. You helped me do the thing I knew was right but couldn't face alone.",
+      "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. {reward_flavor} — have {reward_item} from it. You helped me do the thing I knew was right but couldn't face alone.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "You want me to stop circling it, fine. My wife told me if I send him away she won't forgive me, and I'm going to do it anyway because forgiveness won't mean much if he's dead. That's the choice I've made, and I'm making it with my eyes open.",
         "failText": "It's a family matter. We'll sort it out between ourselves."
       },
-      "rewardFlavor": "the savings I'd kept for his schooling and a father's word that it mattered",
+      "rewardFlavor": "savings kept for his schooling",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6679,14 +6679,14 @@
       "conflict1TurnInText": "{target_npc} didn't ask questions. Just said they'd come. I think they already know, the same way I do.",
       "targetNpcOpener": "I had a feeling I'd hear from her soon. We've known each other since before you were born, and there are some things old friends just sense. I'll come. Tell her I'll bring the good tea, the kind she always pretended not to like.",
       "targetNpcCloser": "I'll be there within the week. She has my word.",
-      "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {reward_item}. You gave her something no amount of coin could buy, and she wanted you to know it.",
+      "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {reward_item}: {reward_flavor}, she wanted you to have it. You gave her something no amount of coin could buy, and she wanted you to know it.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You can see it, can't you. I keep saying the hardest part is letting her go, but that's not it. The hardest part is that she's choosing to leave, and she's right to, and I have to stand here and respect a decision that guts me. I'm not losing her. She's walking away with her eyes open, and I'm the one who can't look.",
         "failText": "She's old, and she's tired. That's as much as I want to say about it."
       },
-      "rewardFlavor": "a keepsake she set aside for whoever helped and my family's gratitude",
+      "rewardFlavor": "a keepsake she set aside",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6710,14 +6710,14 @@
       "expositionTurnInText": "The road is open, and my wife doesn't know yet, but I'll tell her tonight. There's one more thing I need before we go.",
       "conflict1Text": "Bring me a {quest_item}. There's something buried under the floorboards my grandfather left behind, and I need the right tool to get it out. I'm not leaving without it. Everything else can stay, but that comes with us.",
       "conflict1TurnInText": "I have it. I can feel the weight of four generations in my hand, and it's lighter than I thought it would be. We can leave now.",
-      "resolutionText": "We're going. The house will stand empty or it won't, and either way we'll be alive somewhere else. Take {reward_item}. It's from the life I'm leaving behind, and I'd rather it go to someone who helped than sit in a house nobody comes back to.",
+      "resolutionText": "We're going. The house will stand empty or it won't, and either way we'll be alive somewhere else. {reward_item}, {reward_flavor}, yours now. It's from the life I'm leaving behind, and I'd rather it go to someone who helped than sit in a house nobody comes back to.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 14,
         "passText": "You understand, then. The homestead isn't just a house, my family consecrated that ground when they first built here. Leaving means breaking a promise my grandmother made to this land. I've spent every night since the decision asking whether the ancestors will forgive me, and I still don't have an answer.",
         "failText": "It's just a house. A hard one to leave, but just a house."
       },
-      "rewardFlavor": "my grandfather's coin purse and the thanks of a family starting over",
+      "rewardFlavor": "my grandfather's coin purse",
       "valence": "negative",
       "roleAffinity": []
     },
