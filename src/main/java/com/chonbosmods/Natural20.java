@@ -47,6 +47,7 @@ import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
@@ -106,6 +107,7 @@ public class Natural20 extends JavaPlugin {
 
     private static ComponentType<EntityStore, Nat20NpcData> npcDataType;
     private static ComponentType<EntityStore, Nat20PlayerData> playerDataType;
+    private static ComponentType<EntityStore, Nat20MobLevel> mobLevelType;
 
     private final SettlementPlacer placer = new SettlementPlacer();
     private final Nat20NpcManager npcManager = new Nat20NpcManager();
@@ -329,6 +331,10 @@ public class Natural20 extends JavaPlugin {
         return playerDataType;
     }
 
+    public static ComponentType<EntityStore, Nat20MobLevel> getMobLevelType() {
+        return mobLevelType;
+    }
+
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
@@ -338,6 +344,8 @@ public class Natural20 extends JavaPlugin {
                 Nat20NpcData.class, "nat20_npc_data", Nat20NpcData.CODEC, true);
         playerDataType = getEntityStoreRegistry().registerComponent(
                 Nat20PlayerData.class, "nat20_player_data", Nat20PlayerData.CODEC, true);
+        mobLevelType = getEntityStoreRegistry().registerComponent(
+                Nat20MobLevel.class, "nat20_mob_level", Nat20MobLevel.CODEC, true);
         // Register custom NPC instruction list action for dialogue
         // Requires Hytale:NPC dependency in manifest.json so NPCPlugin loads first
         NPCPlugin.get().registerCoreComponentType(
