@@ -1,19 +1,19 @@
 {
   "values": [
-    {"id": "evidence_ledger", "label": "a signed ledger", "labelPlural": "signed ledgers", "fetchItemType": "quest_book"},
-    {"id": "evidence_letter", "label": "a sealed letter", "labelPlural": "sealed letters", "fetchItemType": "quest_letter"},
-    {"id": "evidence_manifest", "label": "the original trade manifest", "labelPlural": "trade manifests", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_witness", "label": "a written witness statement", "labelPlural": "witness statements", "fetchItemType": "quest_document"},
-    {"id": "evidence_contract", "label": "the forged contract", "labelPlural": "forged contracts", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_journal", "label": "a personal journal", "labelPlural": "personal journals", "fetchItemType": "quest_book"},
-    {"id": "evidence_map", "label": "an annotated map", "labelPlural": "annotated maps", "fetchItemType": "quest_letter"},
-    {"id": "evidence_receipt", "label": "a stack of receipts", "labelPlural": "stacks of receipts", "fetchItemType": "quest_document"},
-    {"id": "evidence_orders", "label": "a set of sealed orders", "labelPlural": "sets of sealed orders", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_token", "label": "a marked token", "labelPlural": "marked tokens", "fetchItemType": "quest_treasure"},
-    {"id": "evidence_correspondence", "label": "encoded correspondence", "labelPlural": "encoded correspondence", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_deed", "label": "the original deed", "labelPlural": "original deeds", "fetchItemType": "quest_scroll"},
-    {"id": "evidence_blueprint", "label": "a set of stolen plans", "labelPlural": "sets of stolen plans", "fetchItemType": "quest_letter"},
-    {"id": "evidence_signet", "label": "a signet ring", "labelPlural": "signet rings", "fetchItemType": "quest_treasure"},
-    {"id": "evidence_logbook", "label": "the guard's logbook", "labelPlural": "guard logbooks", "fetchItemType": "quest_book"}
+    {"id": "evidence_ledger",        "noun": "signed ledger",          "nounPlural": "signed ledgers",          "epithet": null,                        "fetchItemType": "quest_book"},
+    {"id": "evidence_letter",        "noun": "sealed letter",          "nounPlural": "sealed letters",          "epithet": null,                        "fetchItemType": "quest_letter"},
+    {"id": "evidence_manifest",      "noun": "trade manifest",         "nounPlural": "trade manifests",         "epithet": "the original",              "fetchItemType": "quest_scroll"},
+    {"id": "evidence_witness",       "noun": "witness statement",      "nounPlural": "witness statements",      "epithet": "in their own hand",         "fetchItemType": "quest_document"},
+    {"id": "evidence_contract",      "noun": "forged contract",        "nounPlural": "forged contracts",        "epithet": null,                        "fetchItemType": "quest_scroll"},
+    {"id": "evidence_journal",       "noun": "personal journal",       "nounPlural": "personal journals",       "epithet": null,                        "fetchItemType": "quest_book"},
+    {"id": "evidence_map",           "noun": "annotated map",          "nounPlural": "annotated maps",          "epithet": null,                        "fetchItemType": "quest_letter"},
+    {"id": "evidence_receipt",       "noun": "stack of receipts",      "nounPlural": "stacks of receipts",      "epithet": null,                        "fetchItemType": "quest_document"},
+    {"id": "evidence_orders",        "noun": "sealed orders",          "nounPlural": "sealed orders",           "epithet": null,                        "fetchItemType": "quest_scroll"},
+    {"id": "evidence_token",         "noun": "marked token",           "nounPlural": "marked tokens",           "epithet": null,                        "fetchItemType": "quest_treasure"},
+    {"id": "evidence_correspondence","noun": "encoded correspondence", "nounPlural": "encoded correspondence",  "epithet": null,                        "fetchItemType": "quest_scroll"},
+    {"id": "evidence_deed",          "noun": "deed",                   "nounPlural": "deeds",                   "epithet": "the original",              "fetchItemType": "quest_scroll"},
+    {"id": "evidence_blueprint",     "noun": "stolen plans",           "nounPlural": "stolen plans",            "epithet": null,                        "fetchItemType": "quest_letter"},
+    {"id": "evidence_signet",        "noun": "signet ring",            "nounPlural": "signet rings",            "epithet": null,                        "fetchItemType": "quest_treasure"},
+    {"id": "evidence_logbook",       "noun": "guard's logbook",        "nounPlural": "guard logbooks",          "epithet": null,                        "fetchItemType": "quest_book"}
   ]
 }

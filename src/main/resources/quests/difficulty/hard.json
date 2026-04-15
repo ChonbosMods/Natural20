@@ -1,0 +1,12 @@
+{
+  "id": "hard",
+  "xpAmount": 200,
+  "rewardTierMin": "Rare",
+  "rewardTierMax": "Epic",
+  "rewardIlvl": 25,
+  "mobIlvl": 25,
+  "mobBoss": true,
+  "bossIlvlOffset": 3,
+  "mobCountMultiplier": 1.3,
+  "gatherCountMultiplier": 1.3
+}

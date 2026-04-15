@@ -9,7 +9,6 @@ import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.quest.DirectionUtil;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
-import com.chonbosmods.quest.PhaseInstance;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestDispositionConstants;
@@ -33,6 +32,9 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
+import com.chonbosmods.loot.Nat20LootData;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -273,11 +275,24 @@ public class DialogueActionRegistry {
                 }
             }
 
-            // Reward (stub: multiplier computed but not yet dispensed)
+            // Reward bookkeeping: gold/flavor stay in template fields (no dispense yet);
+            // the rolled affix item is dispensed only on the final turn-in. Per-phase
+            // multiplier is logged for visibility but does not yet scale anything.
             double multiplier = BASE_REWARD_MULTIPLIER + (quest.getConflictCount() * CONFLICT_REWARD_BONUS);
             if (quest.isSkillcheckPassed()) multiplier += SKILLCHECK_PASS_REWARD_BONUS;
             quest.claimReward(quest.getConflictCount());
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
+
+            // Final turn-in: dispense the rolled affix reward into the player's inventory.
+            // hasMoreConflicts() is true while later conflict phases remain; on the last
+            // phase it flips false and this branch fires exactly once. Failure is logged
+            // SEVERE and the item is dropped (not silently retried) so a full inventory
+            // surfaces immediately. XP dispense is intentionally absent: no XP system
+            // exists in this project yet (rewardXp is stored on QuestInstance for when
+            // one lands).
+            if (!quest.hasMoreConflicts()) {
+                dispenseRewardItem(ctx, quest);
+            }
 
             // Park in AWAITING_CONTINUATION. Marker stays on the source NPC and the
             // return waypoint stays on the map until CONTINUE_QUEST runs.
@@ -729,11 +744,29 @@ public class DialogueActionRegistry {
         World world = Natural20.getInstance().getDefaultWorld();
         if (world == null) return;
 
-        // Build population spec if not already set
+        // Build population spec if not already set. Format must match QuestGenerator's
+        // 6-field KILL_MOBS spec: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>.
+        // Difficulty comes from the quest's stored difficultyId; if the registry can't
+        // resolve it, throw rather than silently fall back to default values.
         if (objective.getPopulationSpec() == null) {
             String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
             int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
-            objective.setPoi(0, 0, 0, "KILL_MOBS:" + enemyTypeId + ":" + spawnCount);
+            String difficultyId = quest.getDifficultyId();
+            if (difficultyId == null) {
+                throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()
+                    + " has no difficultyId; cannot build populationSpec");
+            }
+            com.chonbosmods.quest.model.DifficultyConfig difficulty =
+                Natural20.getInstance().getQuestSystem().getDifficultyRegistry().get(difficultyId);
+            if (difficulty == null) {
+                throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()
+                    + " references unknown difficultyId '" + difficultyId + "'");
+            }
+            String populationSpec = "KILL_MOBS:" + enemyTypeId + ":" + spawnCount
+                + ":" + difficulty.mobIlvl()
+                + ":" + difficulty.mobBoss()
+                + ":" + difficulty.bossIlvlOffset();
+            objective.setPoi(0, 0, 0, populationSpec);
         }
 
         // Try to claim a pre-placed surface fallback POI from the settlement
@@ -802,19 +835,57 @@ public class DialogueActionRegistry {
         bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
         bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
 
-        // Parse population spec and write spawn descriptor
+        // Parse population spec and write spawn descriptor.
+        // Format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
+        // The trailing iLvl/boss/bossOffset fields are not yet applied by the spawn
+        // path; they ride along here so the future spawn-side wiring can pick them up
+        // without changing the format again. Malformed specs throw rather than fall
+        // back to defaults.
         String popSpec = objective.getPopulationSpec();
         if (popSpec != null && !popSpec.equals("NONE")) {
-            int firstColon = popSpec.indexOf(':');
-            int lastColon = popSpec.lastIndexOf(':');
-            if (firstColon > 0 && lastColon > firstColon) {
-                String mobRole = popSpec.substring(firstColon + 1, lastColon);
-                int mobCount = Integer.parseInt(popSpec.substring(lastColon + 1));
-                if (mobCount > 0) {
-                    Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
-                        quest, entrance.getX(), entrance.getY(), entrance.getZ(),
-                        mobRole, mobCount);
-                }
+            String[] parts = popSpec.split(":");
+            if (parts.length != 6) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec for quest " + quest.getQuestId()
+                    + ": expected 6 colon-delimited fields, got " + parts.length
+                    + " (spec='" + popSpec + "')");
+            }
+            String mobRole = parts[1];
+            int mobCount;
+            try {
+                mobCount = Integer.parseInt(parts[2]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec spawnCount for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            // Parse + validate iLvl / boss / bossOffset so a malformed spec fails
+            // at placement rather than silently dropping the difficulty data on the
+            // floor at spawn time. Values are not yet consumed (separate task).
+            try {
+                Integer.parseInt(parts[3]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec mobIlvl for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            if (!"true".equals(parts[4]) && !"false".equals(parts[4])) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec mobBoss for quest " + quest.getQuestId()
+                    + ": expected 'true' or 'false', got '" + parts[4]
+                    + "' (spec='" + popSpec + "')");
+            }
+            try {
+                Integer.parseInt(parts[5]);
+            } catch (NumberFormatException e) {
+                throw new IllegalStateException(
+                    "Malformed populationSpec bossIlvlOffset for quest " + quest.getQuestId()
+                    + " (spec='" + popSpec + "')", e);
+            }
+            if (mobCount > 0) {
+                Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
+                    quest, entrance.getX(), entrance.getY(), entrance.getZ(),
+                    mobRole, mobCount);
             }
         }
 
@@ -892,6 +963,79 @@ public class DialogueActionRegistry {
 
         LOGGER.atInfo().log("PEACEFUL_FETCH: POI set at settlement (%d, %d, %d) for quest %s",
             sx, sy, sz, quest.getQuestId());
+    }
+
+    private static final Gson REWARD_DATA_GSON = new Gson();
+
+    /**
+     * Reconstruct the rolled reward {@link ItemStack} from the primitives stored on the
+     * {@link QuestInstance} and put it in the player's inventory using {@code Player.giveItem}
+     * (the same call the {@code /loot} debug command uses). The {@link Nat20LootData} JSON
+     * is rehydrated and reattached so combat systems see the affix payload.
+     *
+     * <p>Failure modes (missing reward fields, JSON parse failure, full inventory) are
+     * logged at SEVERE with quest id, item id, and player UUID so the gap is loud. The
+     * item is NOT silently dropped or retried: the player's reward is on the floor of
+     * the next session if they want to ask an admin to grant it manually.
+     */
+    private static void dispenseRewardItem(ActionContext ctx, QuestInstance quest) {
+        String itemId = quest.getRewardItemId();
+        int count = quest.getRewardItemCount();
+        String dataJson = quest.getRewardItemDataJson();
+        java.util.UUID playerUuid = ctx.player().getPlayerRef().getUuid();
+
+        if (itemId == null || itemId.isEmpty() || count <= 0 || dataJson == null || dataJson.isEmpty()) {
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense skipped for quest %s, player %s: missing reward fields "
+                    + "(itemId=%s, count=%d, hasJson=%s)",
+                quest.getQuestId(), playerUuid, itemId, count, dataJson != null && !dataJson.isEmpty());
+            return;
+        }
+
+        Nat20LootData lootData;
+        try {
+            lootData = REWARD_DATA_GSON.fromJson(dataJson, Nat20LootData.class);
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                    + "could not parse stored Nat20LootData JSON",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+        if (lootData == null) {
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                    + "Nat20LootData JSON deserialized to null",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+
+        ItemStack stack = new ItemStack(itemId, count)
+            .withMetadata(Nat20LootData.METADATA_KEY, lootData);
+
+        ItemStackTransaction tx;
+        try {
+            tx = ctx.player().giveItem(stack, ctx.playerRef(), ctx.store());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: giveItem threw",
+                quest.getQuestId(), itemId, playerUuid);
+            return;
+        }
+
+        if (tx == null || !tx.succeeded()) {
+            ItemStack remainder = tx != null ? tx.getRemainder() : null;
+            int remainderQty = remainder != null ? remainder.getQuantity() : count;
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense REFUSED for quest %s, item %s, player %s: giveItem "
+                    + "returned !succeeded (remainder=%d). Inventory likely full; reward NOT delivered.",
+                quest.getQuestId(), itemId, playerUuid, remainderQty);
+            return;
+        }
+
+        LOGGER.atInfo().log(
+            "TURN_IN_V2 dispensed reward for quest %s, item %s x%d, to player %s",
+            quest.getQuestId(), itemId, count, playerUuid);
     }
 
     /**

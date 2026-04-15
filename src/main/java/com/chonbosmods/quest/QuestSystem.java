@@ -11,9 +11,9 @@ public class QuestSystem {
 
     private final QuestTemplateRegistry templateRegistry;
     private final QuestPoolRegistry poolRegistry;
+    private final QuestDifficultyRegistry difficultyRegistry;
     private final QuestStateManager stateManager;
     private final QuestGenerator generator;
-    private final QuestRewardManager rewardManager;
     private final ReferenceManager referenceManager;
     private final TopicPoolRegistry topicPoolRegistry;
     private final TopicTemplateRegistry topicTemplateRegistry;
@@ -23,13 +23,14 @@ public class QuestSystem {
         this.templateRegistry = new QuestTemplateRegistry();
         this.poolRegistry = new QuestPoolRegistry();
         this.poolRegistry.setTemplateRegistry(templateRegistry);
+        this.difficultyRegistry = new QuestDifficultyRegistry();
+        this.difficultyRegistry.loadAll();
         this.stateManager = new QuestStateManager();
-        this.rewardManager = new QuestRewardManager();
-        this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry);
+        this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry, difficultyRegistry);
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
         this.topicPoolRegistry = new TopicPoolRegistry();
         this.topicTemplateRegistry = new TopicTemplateRegistry();
-        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, poolRegistry, generator);
+        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, generator);
     }
 
     public void loadTemplates(Path questDataDir) {
@@ -44,9 +45,9 @@ public class QuestSystem {
 
     public QuestTemplateRegistry getTemplateRegistry() { return templateRegistry; }
     public QuestPoolRegistry getPoolRegistry() { return poolRegistry; }
+    public QuestDifficultyRegistry getDifficultyRegistry() { return difficultyRegistry; }
     public QuestStateManager getStateManager() { return stateManager; }
     public QuestGenerator getGenerator() { return generator; }
-    public QuestRewardManager getRewardManager() { return rewardManager; }
     public ReferenceManager getReferenceManager() { return referenceManager; }
     public TopicGenerator getTopicGenerator() { return topicGenerator; }
     public TopicPoolRegistry getTopicPoolRegistry() { return topicPoolRegistry; }

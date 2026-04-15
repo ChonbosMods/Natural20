@@ -14,10 +14,12 @@ import java.util.List;
  * 5-objective template has 4 conflicts. The roll-vs-cap conflict-count model from v1
  * is gone — selection is template-driven.
  *
- * <p>{@code rewardText} is a free-form description of what the player receives on
- * completion (e.g. "a pouch of silver and a hot meal at the tavern"). It is bound
- * to the {@code {quest_reward}} variable so authors can reference it in any text
- * field. When omitted, the variable falls back to a generic placeholder.
+ * <p>Rewards are difficulty-driven at runtime: the reward item is rolled by
+ * {@code AffixRewardRoller} against the quest's rolled {@code DifficultyConfig},
+ * and its display name binds to {@code {reward_item}}. Templates only author
+ * {@code rewardFlavor} (if non-null): a short emotional note (≤ 5 words) that
+ * appears in dialogue but never pretends to be an inventory item, bound as
+ * {@code {reward_flavor}}. XP comes from the difficulty config, not the template.
  *
  * <p>{@code roleAffinity} is a hard eligibility filter. An empty or null list means
  * the template is eligible for any quest-bearer role. A non-empty list restricts
@@ -48,7 +50,7 @@ public record QuestTemplateV2(
     @Nullable String conflict4TurnInText,
     String resolutionText,
     @Nullable SkillCheck skillCheck,
-    String rewardText,
+    @Nullable String rewardFlavor,
     String valence,
     @Nullable List<String> roleAffinity,
     @Nullable String targetNpcOpener,

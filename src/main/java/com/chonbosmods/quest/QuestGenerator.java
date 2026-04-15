@@ -3,11 +3,14 @@ package com.chonbosmods.quest;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
+import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.quest.model.*;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.google.common.flogger.FluentLogger;
+import com.google.gson.Gson;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -16,25 +19,28 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final Gson REWARD_DATA_GSON = new Gson();
+    /** Vanilla Hytale rarity tier order, ascending. {@link #rollTierInRange} uses this to validate
+     *  a difficulty's [rewardTierMin, rewardTierMax] interval and to roll uniformly within it. */
+    private static final List<String> TIER_ORDER = List.of("Common", "Uncommon", "Rare", "Epic", "Legendary");
     /** Extra mobs spawned at a KILL_MOBS POI beyond the required kill count, so the
      *  player always finds enough live targets even after wandering wildlife eats them. */
     private static final int KILL_MOB_SPAWN_BUFFER = 2;
     /** Default KILL_MOBS bounds when an ObjectiveConfig omits countMin/countMax. */
     private static final int KILL_MOB_DEFAULT_MIN = 2;
     private static final int KILL_MOB_DEFAULT_MAX = 4;
-    /** Fallback when a template omits rewardText. */
-    private static final String DEFAULT_REWARD_TEXT = "a fair reward";
-
     private final QuestTemplateRegistry templateRegistry;
     private final SettlementRegistry settlementRegistry;
     private final QuestPoolRegistry poolRegistry;
+    private final QuestDifficultyRegistry difficultyRegistry;
     private final AtomicLong questCounter = new AtomicLong(System.currentTimeMillis());
 
     public QuestGenerator(QuestTemplateRegistry templateRegistry, SettlementRegistry settlementRegistry,
-                           QuestPoolRegistry poolRegistry) {
+                           QuestPoolRegistry poolRegistry, QuestDifficultyRegistry difficultyRegistry) {
         this.templateRegistry = templateRegistry;
         this.settlementRegistry = settlementRegistry;
         this.poolRegistry = poolRegistry;
+        this.difficultyRegistry = difficultyRegistry;
     }
 
     public @Nullable QuestInstance generate(String npcRole, String npcId,
@@ -52,16 +58,41 @@ public class QuestGenerator {
             return null;
         }
 
+        // Roll difficulty up front: drives mob/gather count multipliers below,
+        // reward tier/ilvl/XP, mob iLvl, and boss flag.
+        // If the registry is empty, random() throws: a misconfigured registry
+        // should block quest generation, not silently degrade.
+        DifficultyConfig difficulty = difficultyRegistry.random(random);
+
+        // Roll the actual reward item from the affix loot system. The display name
+        // overrides whatever {reward_item} the template hand-pinned, since the
+        // difficulty-driven roll is now the source of truth for what the player
+        // gets at turn-in. The full Nat20LootData is captured below for dispense.
+        // Exceptions propagate: a misconfigured loot system should fail loud.
+        String rolledTier = rollTierInRange(difficulty.rewardTierMin(), difficulty.rewardTierMax(), random);
+        ItemStack rewardStack = AffixRewardRoller.roll(rolledTier, difficulty.rewardIlvl(), random);
+        Nat20LootData rewardLootData = rewardStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (rewardLootData == null) {
+            throw new IllegalStateException(
+                "AffixRewardRoller produced a stack without Nat20LootData metadata "
+                    + "(itemId=" + rewardStack.getItemId() + ", tier=" + rolledTier
+                    + ", ilvl=" + difficulty.rewardIlvl() + ")");
+        }
+        String rewardItemId = rewardStack.getItemId();
+        int rewardItemCount = rewardStack.getQuantity();
+        String rewardDisplayName = rewardLootData.getGeneratedName();
+
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
 
-        // Per-template author-defined reward flavor (e.g. "a pouch of silver and a hot meal")
-        bindings.put("quest_reward",
-            template.rewardText() != null && !template.rewardText().isEmpty()
-                ? template.rewardText() : DEFAULT_REWARD_TEXT);
+        // Structured reward bindings. {reward_item} is the rolled affix item's
+        // display name so dialogue lines like "Take this {reward_item}" highlight
+        // the real reward; {reward_flavor} stays template-driven.
+        bindings.put("reward_item", rewardDisplayName != null ? rewardDisplayName : "");
+        bindings.put("reward_flavor",
+            template.rewardFlavor() != null ? template.rewardFlavor() : "");
 
         // Store all template text in bindings for dialogue node construction
-        bindings.put("quest_template_id", template.id());
         bindings.put("quest_topic_header", template.topicHeader());
         bindings.put("quest_exposition_text", template.expositionText());
         bindings.put("quest_accept_text", template.acceptText());
@@ -116,7 +147,7 @@ public class QuestGenerator {
         for (int i = 0; i < totalObjectives; i++) {
             ObjectiveConfig config = objConfigs.get(i);
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
-            ObjectiveInstance obj = createObjective(type, config, bindings, random);
+            ObjectiveInstance obj = createObjective(type, config, bindings, random, difficulty);
             if (obj != null) objectives.add(obj);
         }
 
@@ -135,10 +166,48 @@ public class QuestGenerator {
             questId, template.situation(), npcId, npcSettlementCellKey, objectives, bindings
         );
         quest.setMaxConflicts(maxConflicts);
+        quest.setDifficultyId(difficulty.id());
 
-        LOGGER.atInfo().log("Generated v2 quest %s: situation=%s, objectives=%d, for NPC %s",
-            questId, template.situation(), objectives.size(), npcId);
+        // Persist the rolled reward on the QuestInstance so TURN_IN_V2 can dispense it
+        // verbatim. The Nat20LootData JSON round-trips cleanly because every field on the
+        // class is a primitive (affixes/gems serialize to '=' delimited strings).
+        quest.setRewardXp(difficulty.xpAmount());
+        quest.setRewardItemId(rewardItemId);
+        quest.setRewardItemCount(rewardItemCount);
+        quest.setRewardItemDisplayName(rewardDisplayName);
+        quest.setRewardItemDataJson(REWARD_DATA_GSON.toJson(rewardLootData));
+
+        LOGGER.atInfo().log(
+            "Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, "
+                + "rewardTier=%s, rewardItem=%s (id=%s), rewardXp=%d, for NPC %s",
+            questId, template.situation(), difficulty.id(), objectives.size(),
+            rolledTier, rewardDisplayName, rewardItemId, difficulty.xpAmount(), npcId);
         return quest;
+    }
+
+    /**
+     * Roll a tier uniformly within {@code [min, max]} (inclusive), respecting
+     * {@link #TIER_ORDER}. Throws {@link IllegalArgumentException} when either
+     * bound is unrecognized or when {@code max} sorts before {@code min}: a
+     * misconfigured {@link DifficultyConfig} should fail loud at generation
+     * time, not silently collapse to a single tier.
+     */
+    private static String rollTierInRange(String min, String max, Random random) {
+        int minIdx = TIER_ORDER.indexOf(min);
+        int maxIdx = TIER_ORDER.indexOf(max);
+        if (minIdx < 0) {
+            throw new IllegalArgumentException(
+                "rewardTierMin '" + min + "' is not a recognized tier; expected one of " + TIER_ORDER);
+        }
+        if (maxIdx < 0) {
+            throw new IllegalArgumentException(
+                "rewardTierMax '" + max + "' is not a recognized tier; expected one of " + TIER_ORDER);
+        }
+        if (maxIdx < minIdx) {
+            throw new IllegalArgumentException(
+                "rewardTierMax '" + max + "' sorts before rewardTierMin '" + min + "' in " + TIER_ORDER);
+        }
+        return TIER_ORDER.get(minIdx + random.nextInt(maxIdx - minIdx + 1));
     }
 
     /**
@@ -188,8 +257,8 @@ public class QuestGenerator {
         // These globals exist so smalltalk-side quest commentary still has *something*
         // to read. The per-objective overlay in resolveQuestText wins for actual quest text.
         QuestPoolRegistry.ItemEntry gatherItem = poolRegistry.randomCollectResource(random);
-        bindings.put("quest_item", gatherItem.label());
-        bindings.put("gather_item_id", gatherItem.id());
+        bindings.put("quest_item", gatherItem.noun());
+        bindings.put("quest_item_full", gatherItem.fullForm());
         if (gatherItem.category() != null) {
             bindings.put("gather_category", gatherItem.category());
         }
@@ -254,7 +323,8 @@ public class QuestGenerator {
     }
 
     private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
-                                                         Map<String, String> bindings, Random random) {
+                                                         Map<String, String> bindings, Random random,
+                                                         DifficultyConfig difficulty) {
         String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
@@ -273,27 +343,31 @@ public class QuestGenerator {
                     count = config.rollCount(random);
                 }
 
-                // Update global bindings as a back-compat fallback for smalltalk pool entries
-                // that reference {quest_item} / {gather_count}. Per-objective resolveQuestText
-                // will overlay these correctly for the actual quest dialogue.
-                bindings.put("quest_item", collectItem.label());
-                bindings.put("gather_item_id", collectItem.id());
+                // Difficulty multiplier: clamp to 1 so easy + small base count never zeros out.
+                count = Math.max(1, (int) Math.round(count * difficulty.gatherCountMultiplier()));
+
+                bindings.put("quest_item", collectItem.noun());
+                bindings.put("quest_item_full", collectItem.fullForm());
                 bindings.put("gather_count", String.valueOf(count));
 
                 ObjectiveInstance collectObj = new ObjectiveInstance(
-                    type, collectItem.id(), collectItem.label(),
+                    type, collectItem.id(), collectItem.noun(),
                     count, null, null
                 );
-                collectObj.setTargetLabelPlural(collectItem.labelPlural());
+                collectObj.setTargetLabelPlural(collectItem.nounPlural());
+                collectObj.setTargetEpithet(collectItem.epithet());
                 yield collectObj;
             }
             case KILL_MOBS -> {
                 // Try to pre-claim a cave void; if unavailable, create objective without POI
-                // and let resolveAndPlacePoi handle it at runtime (void discovery or surface fallback)
-                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random);
+                // and let resolveAndPlacePoi handle it at runtime (void discovery or surface fallback).
+                // The difficulty mob multiplier is applied inside rollKillCount() so both the
+                // POI path and the deferred fallback path scale identically, and the
+                // populationSpec spawn-buffer invariant in createPOIObjective is preserved.
+                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random, difficulty);
                 if (killObj == null) {
                     LOGGER.atInfo().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
-                    int killCount = rollKillCount(config, random);
+                    int killCount = rollKillCount(config, random, difficulty.mobCountMultiplier());
                     bindings.put("kill_count", String.valueOf(killCount));
                     killObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
                         killCount, null, null);
@@ -302,57 +376,51 @@ public class QuestGenerator {
                 yield killObj;
             }
             case FETCH_ITEM -> {
-                // Determine which fetch item type to use.
-                // Priority: template-pinned fetchItem > pool entry's fetchItemType > legacy fallback
-                String fetchItemType;
-                if (config.fetchItem() != null) {
-                    // Template author pinned a specific trinket (e.g., "quest_vial")
-                    fetchItemType = QuestPoolRegistry.capitalize(config.fetchItem());
-                    // Still draw a random item for the narrative label
-                    QuestPoolRegistry.ItemEntry narrativeItem = random.nextBoolean()
-                        ? poolRegistry.randomKeepsakeItem(random)
-                        : poolRegistry.randomEvidenceItem(random);
-                    bindings.put("quest_item", narrativeItem.label());
-                    bindings.put("gather_item_id", narrativeItem.id());
-                } else {
-                    // Draw a random keepsake or evidence item with its per-entry mapping
-                    QuestPoolRegistry.ItemEntry fetchEntry = random.nextBoolean()
-                        ? poolRegistry.randomKeepsakeItem(random)
-                        : poolRegistry.randomEvidenceItem(random);
-                    bindings.put("quest_item", fetchEntry.label());
-                    bindings.put("gather_item_id", fetchEntry.id());
-                    fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
+                // Draw a keepsake or evidence item. Template may pin a specific item type
+                // (e.g. "quest_vial"); otherwise the drawn pool entry's fetchItemType wins.
+                QuestPoolRegistry.ItemEntry fetchEntry = random.nextBoolean()
+                    ? poolRegistry.randomKeepsakeItem(random)
+                    : poolRegistry.randomEvidenceItem(random);
+
+                String fetchItemType = config.fetchItem() != null
+                    ? QuestPoolRegistry.capitalize(config.fetchItem())
+                    : QuestPoolRegistry.getBaseItemType(fetchEntry);
+
+                bindings.put("quest_item", fetchEntry.noun());
+                bindings.put("quest_item_full", fetchEntry.fullForm());
+                bindings.put("fetch_item_type", fetchItemType);
+                bindings.put("fetch_item_label", fetchEntry.noun());
+
+                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random, difficulty);
+                if (fetchObj != null) {
+                    fetchObj.setTargetEpithet(fetchEntry.epithet());
+                    yield fetchObj;
                 }
 
-                bindings.put("fetch_item_type", fetchItemType);
-                bindings.put("fetch_item_label", bindings.getOrDefault("quest_item", "a quest item"));
-
-                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random);
-                if (fetchObj != null) yield fetchObj;
-
-                // No cave void available: create objective without POI,
-                // let resolveAndPlacePoi handle it at runtime
-                yield new ObjectiveInstance(
-                    type, bindings.get("gather_item_id"), bindings.get("quest_item"),
+                ObjectiveInstance fallback = new ObjectiveInstance(
+                    type, fetchEntry.id(), fetchEntry.noun(),
                     1, null, null
                 );
+                fallback.setTargetEpithet(fetchEntry.epithet());
+                yield fallback;
             }
             case PEACEFUL_FETCH -> {
-                // Draw a random keepsake item for the narrative
                 QuestPoolRegistry.ItemEntry fetchEntry = poolRegistry.randomKeepsakeItem(random);
-                bindings.put("quest_item", fetchEntry.label());
-                bindings.put("gather_item_id", fetchEntry.id());
+                bindings.put("quest_item", fetchEntry.noun());
+                bindings.put("quest_item_full", fetchEntry.fullForm());
                 String fetchItemType = QuestPoolRegistry.getBaseItemType(fetchEntry);
                 bindings.put("fetch_item_type", fetchItemType);
-                bindings.put("fetch_item_label", fetchEntry.label());
+                bindings.put("fetch_item_label", fetchEntry.noun());
                 bindings.put("fetch_variant", "peaceful");
 
                 String targetSettlementKey = bindings.get("target_npc_settlement_key");
 
-                yield new ObjectiveInstance(
-                    type, fetchEntry.id(), fetchEntry.label(),
+                ObjectiveInstance peacefulObj = new ObjectiveInstance(
+                    type, fetchEntry.id(), fetchEntry.noun(),
                     1, null, targetSettlementKey
                 );
+                peacefulObj.setTargetEpithet(fetchEntry.epithet());
+                yield peacefulObj;
             }
             case TALK_TO_NPC -> {
                 String targetNpc = bindings.get("target_npc");
@@ -373,7 +441,8 @@ public class QuestGenerator {
     }
 
     private ObjectiveInstance createPOIObjective(ObjectiveType type, Map<String, String> bindings,
-                                                  ObjectiveConfig config, Random random) {
+                                                  ObjectiveConfig config, Random random,
+                                                  DifficultyConfig difficulty) {
         // Find and claim a unique void for this objective
         double npcX = 0, npcZ = 0;
         try {
@@ -401,7 +470,7 @@ public class QuestGenerator {
         // Required count: KILL_MOBS reads countMin/countMax from the template (with a
         // default if omitted); FETCH_ITEM is always 1 because the chest contains the item.
         int requiredCount = switch (type) {
-            case KILL_MOBS -> rollKillCount(config, random);
+            case KILL_MOBS -> rollKillCount(config, random, difficulty.mobCountMultiplier());
             default -> 1; // FETCH_ITEM
         };
 
@@ -411,7 +480,14 @@ public class QuestGenerator {
             case KILL_MOBS -> requiredCount + KILL_MOB_SPAWN_BUFFER;
             default -> 3; // FETCH_ITEM guards
         };
-        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount;
+        // populationSpec format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
+        // The trailing three fields propagate difficulty so the spawn-side can apply
+        // iLvl scaling and boss promotion when the player arrives at the POI.
+        // Downstream spawn code does not yet read those fields (Task D-future).
+        String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount
+            + ":" + difficulty.mobIlvl()
+            + ":" + difficulty.mobBoss()
+            + ":" + difficulty.bossIlvlOffset();
 
         if (type == ObjectiveType.KILL_MOBS) {
             bindings.put("kill_count", String.valueOf(requiredCount));
@@ -440,11 +516,17 @@ public class QuestGenerator {
     }
 
     /** Roll the required kill count for a KILL_MOBS objective, respecting countMin/countMax
-     *  from the template config and falling back to default bounds when omitted. */
-    private int rollKillCount(ObjectiveConfig config, Random random) {
+     *  from the template config and falling back to default bounds when omitted.
+     *  The difficulty multiplier is applied here (clamped to a minimum of 1) so every
+     *  KILL_MOBS code path scales identically and the spawn-buffer invariant in
+     *  createPOIObjective ({@code spawnCount = requiredCount + KILL_MOB_SPAWN_BUFFER})
+     *  remains correct without a second multiplication. */
+    private int rollKillCount(ObjectiveConfig config, Random random, double difficultyMultiplier) {
         int min = (config != null && config.countMin() != null) ? config.countMin() : KILL_MOB_DEFAULT_MIN;
         int max = (config != null && config.countMax() != null) ? config.countMax() : KILL_MOB_DEFAULT_MAX;
         if (max < min) max = min;
-        return min + random.nextInt(max - min + 1);
+        int rolled = min + random.nextInt(max - min + 1);
+        return Math.max(1, (int) Math.round(rolled * difficultyMultiplier));
     }
+
 }

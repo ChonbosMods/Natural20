@@ -6,7 +6,6 @@ import com.chonbosmods.dialogue.model.DialogueGraph;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestGenerator;
 import com.chonbosmods.quest.QuestInstance;
-import com.chonbosmods.quest.QuestPoolRegistry;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.stats.Skill;
@@ -41,17 +40,15 @@ public class TopicGenerator {
     private static final int MAX_QUEST_FLOOR = 2;
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
-    private final QuestPoolRegistry questPool;
     private final QuestGenerator questGenerator;
 
     /** Shared dedup state, one per world. World-gen is single-threaded per world. */
     private final Map<UUID, PercentageDedup> dedupByWorld = new HashMap<>();
 
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
-                          QuestPoolRegistry questPool, QuestGenerator questGenerator) {
+                          QuestGenerator questGenerator) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
-        this.questPool = questPool;
         this.questGenerator = questGenerator;
     }
 
@@ -237,8 +234,6 @@ public class TopicGenerator {
 
             if (preQuest != null) {
                 bearerRecord.setPreGeneratedQuest(preQuest);
-                focus.setQuestBearer(bearerName, preQuest.getSituationId());
-                focus.setQuestBindings(preQuest.getVariableBindings());
                 LOGGER.atInfo().log("  QUEST BEARER: %s (%s) quest=%s | /tp %d %d %d",
                     bearerName, bearerRecord.getRole(),
                     preQuest.getSituationId(),
@@ -246,7 +241,6 @@ public class TopicGenerator {
                     (int) bearerRecord.getSpawnY(),
                     (int) bearerRecord.getSpawnZ());
             } else {
-                focus.setQuestBearer(null, null);
                 LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest, demoting to normal topic", bearerName);
             }
         }
@@ -293,9 +287,8 @@ public class TopicGenerator {
         // Debug: log per-NPC subject assignments
         for (var npcEntry : npcSubjects.entrySet()) {
             for (SubjectFocus focus : npcEntry.getValue()) {
-                String questTag = focus.hasQuest() ? " [QUEST]" : "";
-                LOGGER.atFine().log("  %s: '%s' (%s)%s",
-                    npcEntry.getKey(), focus.getSubjectValue(), focus.getCategories(), questTag);
+                LOGGER.atFine().log("  %s: '%s' (%s)",
+                    npcEntry.getKey(), focus.getSubjectValue(), focus.getCategories());
             }
         }
 
@@ -313,10 +306,6 @@ public class TopicGenerator {
 
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategories(), focus.isConcrete(), random);
-
-        // v2: quest topics are injected by DialogueManager.injectQuestAvailableTopics,
-        // not baked into the dialogue graph. Treat quest bearers as normal topics.
-        boolean isQuestBearer = false;
 
         // Draw coherent entry from template's pool
         List<PoolEntry> pool = topicPool.getCoherentPool(template.id());
@@ -339,48 +328,27 @@ public class TopicGenerator {
 
         Map<String, String> bindings = buildBindings(
             focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
-            isQuestBearer, template, entry, dedup, random, ctx);
+            template, entry, dedup, random, ctx);
 
-        // Quest bearers keep the template's subject-derived label pattern.
-        // Non-quest topics use the parent topic label (e.g., "Local", "People").
-        String labelPattern = isQuestBearer
-            ? template.labelPattern()
-            : TopicConstants.CATEGORY_LABEL.getOrDefault(template.id(), template.id());
+        String labelPattern = TopicConstants.CATEGORY_LABEL.getOrDefault(template.id(), template.id());
 
         return new TopicGraphBuilder.TopicAssignment(
             focus.getSubjectId(), labelPattern,
-            bindings, true, isQuestBearer,
+            bindings, true,
             skill, template, entry
         );
     }
 
     /**
-     * Build bindings for template resolution. Generated smalltalk entries are self-contained
-     * (no subject_focus variables). Quest bearers still get subject focus bindings for
-     * quest exposition text.
+     * Build bindings for template resolution. Generated smalltalk entries are
+     * self-contained (no subject_focus variables).
      */
     private Map<String, String> buildBindings(SubjectFocus focus, String npcName, String npcRole,
-                                                 int disposition, boolean isQuestBearer,
+                                                 int disposition,
                                                  TopicTemplate template, PoolEntry entry,
                                                  PercentageDedup dedup, Random random,
                                                  SettlementContext ctx) {
         Map<String, String> bindings = new HashMap<>();
-
-        // Subject focus bindings: only for quest bearers (quest exposition text uses them).
-        // Generated smalltalk pool entries are self-contained and don't reference {subject_focus}.
-        if (isQuestBearer) {
-            String subjectValue = focus.getSubjectValue();
-            boolean startsWithThe = subjectValue.toLowerCase().startsWith("the ");
-            String bareValue = startsWithThe ? subjectValue.substring(4) : subjectValue;
-            bindings.put("subject_focus", subjectValue);
-            bindings.put("subject_focus_bare", bareValue);
-            bindings.put("subject_focus_is", focus.isPlural() ? "are" : "is");
-            bindings.put("subject_focus_has", focus.isPlural() ? "have" : "has");
-            bindings.put("subject_focus_was", focus.isPlural() ? "were" : "was");
-            bindings.put("subject_focus_the", (focus.isProper() || startsWithThe) ? subjectValue : "the " + subjectValue);
-            bindings.put("subject_focus_The", focus.isProper() ? subjectValue
-                : startsWithThe ? "T" + subjectValue.substring(1) : "The " + subjectValue);
-        }
 
         // Phase 0: settlement context variables (entity names wrapped for purple highlighting)
         bindings.put("settlement_name", EntityHighlight.wrap(ctx.settlementName()));
@@ -449,7 +417,7 @@ public class TopicGenerator {
         // Tone framing (valence-aware): dedup-aware so the same opener/closer
         // is not reused across the world until ~80% of the lane is exhausted.
         String bracket = dispositionBracket(disposition);
-        FramingShape shape = isQuestBearer ? FramingShape.BARE : FramingShape.roll(bracket, random);
+        FramingShape shape = FramingShape.roll(bracket, random);
         ValenceType entryValence = entry.valence();
         bindings.put("tone_opener", shape.hasOpener()
             ? topicPool.randomToneOpener(bracket, entryValence, dedup, random) + " "
@@ -463,49 +431,6 @@ public class TopicGenerator {
         bindings.put("entry_intro", DialogueResolver.resolve(entry.intro(), bindings));
         if (!entry.reactions().isEmpty()) {
             bindings.put("entry_reaction", DialogueResolver.resolve(entry.reactions().getFirst(), bindings));
-        }
-
-        // Quest bindings for quest bearers
-        if (isQuestBearer && focus.hasQuest() && focus.getQuestBindings() != null) {
-            Map<String, String> qb = focus.getQuestBindings();
-            for (String key : List.of(
-                    "quest_threat", "quest_threat_is", "quest_threat_has", "quest_threat_was",
-                    "quest_threat_the", "quest_threat_The",
-                    "quest_stakes", "quest_stakes_is", "quest_stakes_has", "quest_stakes_was",
-                    "quest_stakes_the", "quest_stakes_The",
-                    "quest_focus", "quest_focus_is", "quest_focus_has", "quest_focus_was",
-                    "quest_focus_the", "quest_focus_The",
-                    "quest_objective_summary",
-                    "quest_plot_step", "quest_outro",
-                    "enemy_type", "enemy_type_plural", "quest_item")) {
-                if (qb.containsKey(key)) bindings.put(key, qb.get(key));
-            }
-
-            String rawExposition;
-            if (qb.containsKey("gather_category")) {
-                rawExposition = questPool.randomCollectExposition(qb.get("gather_category"), random);
-            } else {
-                String situationId = focus.getQuestSituationId();
-                rawExposition = questPool.randomExpositionForSituation(situationId, random);
-                if (rawExposition == null || rawExposition.isEmpty()) {
-                    rawExposition = "Something has gone wrong and the settlement needs help";
-                }
-            }
-            bindings.put("quest_exposition", DialogueResolver.resolve(rawExposition, bindings));
-            bindings.put("quest_detail", DialogueResolver.resolve(
-                topicPool.randomPerspectiveDetail(random), bindings));
-
-            // Resolve plotStep and outro through variable substitution
-            if (bindings.containsKey("quest_plot_step")) {
-                bindings.put("quest_plot_step", DialogueResolver.resolve(bindings.get("quest_plot_step"), bindings));
-            }
-            if (bindings.containsKey("quest_outro")) {
-                bindings.put("quest_outro", DialogueResolver.resolve(bindings.get("quest_outro"), bindings));
-            }
-
-            String tone = questPool.getToneForSituation(focus.getQuestSituationId());
-            bindings.put("quest_accept_response",
-                questPool.randomCounterAccept(focus.getQuestSituationId(), tone, random));
         }
 
         return bindings;
