@@ -1192,14 +1192,14 @@
       "conflict1TurnInText": "The {quest_item} did exactly what I hoped it would. I sat up half the night and watched them slip in like they owned the place. Mystery solved. Now I just have a problem to handle.",
       "conflict2Text": "Now that I know what they are, I'd rather not share my stores with them anymore. Could you handle {kill_count} of the {enemy_type_plural}? They won't be hard to find now that we know what we're looking for.",
       "conflict2TurnInText": "That's the lot of them, I'd wager. The stores were untouched this morning for the first time in weeks, and I can finally stop counting sacks before bed.",
-      "resolutionText": "I'm going to sleep properly tonight, and I have you to thank for it. Take {reward_item}. It's not much, but it's the difference between knowing and wondering, and I owe you for that.",
+      "resolutionText": "I'm going to sleep properly tonight, and I have you to thank for it. Take {reward_item} and {reward_flavor}. It's not much, but it's the difference between knowing and wondering, and I owe you for that.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "There's one detail I left out because it sounded silly. The losses only happen on nights when the wind comes from a particular direction, and I think whatever it is can smell the grain from a long way off. That's the part that tipped me off this isn't just bad counting.",
         "failText": "It's probably nothing dramatic. I just hate not knowing."
       },
-      "rewardFlavor": "what coin I can spare and a sack of the grain you helped me save",
+      "rewardFlavor": "coin and the grain saved",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Stores going missing with nothing broken? I had the exact same problem two seasons ago. It drove me half mad until I figured out the trick. You set out bait that looks like a mistake, not a trap, and you watch.",
@@ -1225,14 +1225,14 @@
       "expositionTurnInText": "{target_npc} said that? Huh. I would never have put those two things together, but now that you say it out loud, I can see exactly how it might fit.",
       "conflict1Text": "If {target_npc}'s thinking lines up with mine, there's a way to test it. I need {gather_count} {quest_item} so I can try the idea out properly. Whatever's been killing the patch, this should either prove or kill the theory before nightfall.",
       "conflict1TurnInText": "That's plenty. I'll set it up myself. By the time the sun's down I'll know whether I owe {target_npc} an apology or a thank you, and probably both.",
-      "resolutionText": "It worked. Two seasons of staring at dead ground and the answer was so simple I'm a little embarrassed. Take {reward_item}. You saved me from staring at it for a third season, and that's worth more than I'm letting on.",
+      "resolutionText": "It worked. Two seasons of staring at dead ground and the answer was so simple I'm a little embarrassed. Take {reward_item}, and once the patch comes back you'll have {reward_flavor}. You saved me from staring at it for a third season, and that's worth more than I'm letting on.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 13,
         "passText": "I'll tell you what nobody else around here would believe. The animals avoid that patch too, even the bold ones. Whatever's wrong with the ground, they figured it out before I did, and that's the part that's been keeping me up.",
         "failText": "I just want to understand it. That's all."
       },
-      "rewardFlavor": "a share of whatever I manage to grow once the patch is fixed",
+      "rewardFlavor": "share of the recovered harvest",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Dead ground near {settlement_name}? I've been wondering about that. Something underneath has been drawing the life out of the soil, and the pattern lines up with the old drainage channels from before anyone was living there.",
@@ -1259,7 +1259,7 @@
       "conflict1Text": "{enemy_type_plural} leave that mark when they're scouting a place. They've been studying us, and they'll be back in numbers if we don't make ourselves unpleasant company. I'd feel a lot better if {kill_count} of them never made the report. Can you handle that?",
       "conflict1TurnInText": "That should be enough to make them think twice. The marks won't matter once the scouts stop coming home, and I can finally stop staring at my own fence post like it owes me an explanation.",
       "resolutionText": "I'm putting this one to bed. The mystery had teeth, but you took them out before they bit anyone. Take {reward_item} with my thanks. I'd rather know what was coming and stop it than wake up to find out the hard way.",
-      "rewardFlavor": "the small store of coin I keep for trouble, since this counted",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -1708,7 +1708,7 @@
       "expositionTurnInText": "That's a fine {quest_item}, and exactly the kind of thing he'd never buy for himself. He's stubborn that way. Holding it actually makes me feel like I might be able to face him.",
       "conflict1Text": "But I can't just hand it over without help. I need you to find {target_npc} in {target_npc_settlement} first. They were there when I gave him the advice, and they know what really happened. If they can tell me what I missed, I'll know what to say when I see him.",
       "conflict1TurnInText": "So that's what he heard me saying. I thought I was offering options, and he heard me telling him he wasn't capable. {target_npc} did me a kindness telling you that. Now I know the apology I owe.",
-      "resolutionText": "I went to him last night. Brought the gift, said the right thing for once, and he laughed. A tired laugh, but a real one. We're not all the way back, but we're talking. Take {reward_item} — and {reward_flavor}, for what you carried with me. This would have stayed broken without you.",
+      "resolutionText": "I went to him last night. Brought the gift, said the right thing for once, and he laughed. A tired laugh, but a real one. We're not all the way back, but we're talking. Take {reward_item} \u2014 and {reward_flavor}, for what you carried with me. This would have stayed broken without you.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
@@ -2785,14 +2785,14 @@
       "expositionTurnInText": "That confirms what I suspected. The healthy patch and the dead patch have different compositions entirely, and now I can see why. Something's been disturbing the ground from underneath.",
       "conflict1Text": "I think {enemy_type_plural} have been nesting below the surface. That would explain the damage. If you handle {kill_count} of them, I can dig down and check properly without worrying about what I'll find.",
       "conflict1TurnInText": "That settles it. Found the tunnels exactly where I expected them. The soil should recover on its own now that the source is dealt with.",
-      "resolutionText": "Mystery solved, and it turned out to be simpler than I thought. Take {reward_item}. I appreciate someone treating a dirt problem like it was worth their time.",
+      "resolutionText": "Mystery solved, and it turned out to be simpler than I thought. Take {reward_item}, with {reward_flavor} once things recover. I appreciate someone treating a dirt problem like it was worth their time.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "I'll admit I was starting to wonder if the land itself was just done with me. Three years of good harvests and then this. It's a relief to know it's something with a cause and not just bad luck deciding to stay.",
         "failText": "It's a puzzle. I like puzzles better when they have answers."
       },
-      "rewardFlavor": "a share of the next harvest and a few coins besides",
+      "rewardFlavor": "harvest share and coins",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -2821,14 +2821,14 @@
       "conflict1TurnInText": "There it is. Scratches on the beams, droppings in the corner. Not a ghost, not my failing mind, just a creature with poor manners. Now I need to seal the gap.",
       "conflict2Text": "I'll need {gather_count} {quest_item} to patch the opening properly. Once it's sealed, my tools should stay where I put them. A welcome change.",
       "conflict2TurnInText": "Done. Sealed tight. I'll check it in the morning, but I think that's the end of it.",
-      "resolutionText": "Everything was exactly where I left it this morning. First time in weeks. Take {reward_item}. You solved something that was making me doubt my own head, and that's worth more than the answer itself.",
+      "resolutionText": "Everything was exactly where I left it this morning. First time in weeks. Take {reward_item}, and consider {reward_flavor} part of the deal whenever you need it. You solved something that was making me doubt my own head, and that's worth more than the answer itself.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 11,
         "passText": "I didn't tell anyone because I thought they'd think I was getting confused. My father had that problem in his later years, and I've been watching for it in myself ever since. Knowing it's just an animal is the best news I've had in a month.",
         "failText": "It's a small mystery. I'd just like it solved."
       },
-      "rewardFlavor": "what I can spare from the till and a standing offer of repair work",
+      "rewardFlavor": "a standing offer of repair",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Missing tools? I've heard a few people mention similar things lately. There's been something getting into buildings through gaps in the roofline, small and clever and not shy about moving things around. I'd check the upper beams first.",
@@ -5133,14 +5133,14 @@
       "expositionTurnInText": "The patterns match up in ways I didn't expect. The marks are territorial, left by something that considers this area claimed. That changes things, because whatever left them is still out there.",
       "conflict1Text": "Now that I know what we're dealing with, I need {kill_count} of the {enemy_type_plural} in the area handled. They're the ones leaving the marks, and their claim on this territory is going to become a real problem if it goes unanswered.",
       "conflict1TurnInText": "The marks will fade in time, and nothing is leaving fresh ones. Mystery solved and problem handled in the same stroke.",
-      "resolutionText": "I can walk past those trees now without that nagging feeling in my chest. Take {reward_item}. You helped me find the answer and then deal with what the answer meant, and both parts mattered.",
+      "resolutionText": "I can walk past those trees now without that nagging feeling in my chest. Take {reward_item}, and I owe you {reward_flavor} the next time we sit down. You helped me find the answer and then deal with what the answer meant, and both parts mattered.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "Oh, you've seen marks like these before? Then maybe you'll understand why I'm not sleeping. I saw the same kind near my old home before I came to {settlement_name}, and a season of attacks followed that drove my family out. I've been downplaying the urgency because I don't want to start a panic, but I know what these marks mean.",
         "failText": "Interesting theory, but I think they're just old scratches. Nothing to get worked up about."
       },
-      "rewardFlavor": "what I can pull together and a story I'll tell properly if you ask",
+      "rewardFlavor": "a story told properly later",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5164,14 +5164,14 @@
       "expositionTurnInText": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. This isn't my imagination, but I need someone who understands this kind of thing.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who has dealt with ground disturbances before. Take the samples to them and ask what they make of it. I need an answer I can bring to the council without sounding like I've lost my mind.",
       "conflict1TurnInText": "So {target_npc} says it's a mineral deposit shifting under pressure. Natural, nothing sinister, and it'll settle on its own within a season. I'm relieved, embarrassed, and grateful in roughly equal measure.",
-      "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {reward_item}. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
+      "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {reward_item}, with {reward_flavor}. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 12,
         "passText": "You felt it too, standing there just now? I watched your feet shift. That's the part nobody believes because they never stay still long enough. I feel it every night through the floor of my house. I moved my bed to the far wall weeks ago and I haven't told a soul, because once you say you feel the ground humming in your sleep, people stop taking you seriously about anything.",
         "failText": "It's just a curiosity. I'd like it explained, that's all."
       },
-      "rewardFlavor": "a modest sum and the gratitude of someone who can finally sleep without wondering",
+      "rewardFlavor": "the thanks of the finally-sleeping",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Interesting samples. The mineral composition tells me there's a deposit underneath that's been subjected to seasonal pressure changes. The humming your friend described is the deposit settling, like a bone joint popping. Harmless, but unsettling if you don't know what it is.",
@@ -5211,7 +5211,7 @@
         "passText": "All right, since you're pressing. I was afraid to investigate too hard because I thought it might be a person, one of the families here that's been struggling. I was prepared to let it continue if someone was taking what they needed and too ashamed to ask. Learning it's creatures is actually a relief, because now I can stop feeling guilty about wanting to fix it.",
         "failText": "I don't have a theory. That's why I need help."
       },
-      "rewardFlavor": "a share of the stores and a few coins from my personal savings",
+      "rewardFlavor": null,
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Losing small amounts from the stores? I had the same problem last year. Turned out to be a type of {enemy_type} that moves in family groups, comes in through gaps you wouldn't think big enough, and carries away just enough to avoid being noticed. Very methodical creatures.",
@@ -5244,14 +5244,14 @@
       "conflict1TurnInText": "Every single piece was moved. Same style, same direction. It's definitely the same creature, and now I know its route. The jokes are over.",
       "conflict2Text": "The route leads to a cluster of {enemy_type_plural} that have been nesting just out of sight. {kill_count} of them removed should put a stop to the nightly rearrangements. I'd like my fence posts to stay where I put them.",
       "conflict2TurnInText": "Everything was exactly where I left it this morning. First time in weeks. The relief is extraordinary.",
-      "resolutionText": "No more surprises at dawn, no more tools on rooftops. Take {reward_item}. You took something that was making me question my own sanity and turned it into a problem with a solution.",
+      "resolutionText": "No more surprises at dawn, no more tools on rooftops. Take {reward_item}, and with it {reward_flavor}. You took something that was making me question my own sanity and turned it into a problem with a solution.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 14,
         "passText": "You think the behavior isn't random? The patterns they arrange things in are too consistent to be play, almost like territory marking expressed through objects instead of scent. I've never heard of creatures doing that. The fact that you recognized it as unusual rather than just mischievous tells me there's something deeper here than pest control.",
         "failText": "It's strange behavior. I just want it to stop."
       },
-      "rewardFlavor": "a fair payment and the satisfaction of my fence posts finally staying put",
+      "rewardFlavor": "peace of mind at dawn",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5277,14 +5277,14 @@
       "expositionTurnInText": "The survey shows disturbance in the soil, consistent with burrowing. Something's been digging tunnels under the old foundation, and the scraping is the sound of it working through packed earth. Now I just need to deal with what's doing the digging.",
       "conflict1Text": "I'm certain it's {enemy_type_plural} tunneling in from the nearby ridge. {kill_count} of them cleared out should collapse their access and stop the noise for good.",
       "conflict1TurnInText": "Silence. Actual silence. I stood by the foundation last night and heard nothing but the wind, and it was the most beautiful sound I've ever not heard.",
-      "resolutionText": "The mystery is solved and the nights are quiet again. Take {reward_item}. You gave {settlement_name} back its peace, and that's worth more than any of us were willing to admit.",
+      "resolutionText": "The mystery is solved and the nights are quiet again. Take {reward_item}, and {reward_flavor} from everyone near the foundation. You gave {settlement_name} back its peace, and that's worth more than any of us were willing to admit.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "All right, I'll tell you the part I've been leaving out. I've known what the sound is for a week, but the last time I raised an alarm about something underground I was wrong and people still remind me of it. I needed someone else to confirm it so they'd actually listen this time. You've given me that.",
         "failText": "I genuinely don't know what it is. That's why I need help."
       },
-      "rewardFlavor": "the coin I'd set aside for the survey and a quiet night's thanks",
+      "rewardFlavor": "a quiet night's heartfelt thanks",
       "valence": "neutral",
       "roleAffinity": []
     },
@@ -5306,14 +5306,14 @@
       "expositionTurnInText": "So {target_npc} says the water source is the issue. A change in mineral content upstream can strip the binding agent right out of the dye. That explains everything, and it means there's a fix.",
       "conflict1Text": "I need a {quest_item} to filter the minerals out of the water before I use it. {target_npc} said this particular method works best for the kind of contamination we're dealing with. Bring me one and I'll test it on the next batch.",
       "conflict1TurnInText": "The batch held its color overnight, and it's still bright this morning. That's the first time in a month. The problem is solved and I feel like a craftsperson again instead of a fraud.",
-      "resolutionText": "My work is my work again, and I know why it stopped being. Take {reward_item}. You helped me find an answer I was too close to see, and that's the kind of help that lasts.",
+      "resolutionText": "My work is my work again, and I know why it stopped being. Take {reward_item}, and {reward_flavor} alongside it. You helped me find an answer I was too close to see, and that's the kind of help that lasts.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "The way you described the problem back to me, with real interest, like the craft itself mattered to you. Nobody here talks about dye work like that, they see the finished cloth and shrug. You looked at the process and treated it like it was worth understanding, and that made me feel like an artisan again instead of someone failing at a chore.",
         "failText": "It's a craft problem. I just want to fix it."
       },
-      "rewardFlavor": "a piece of my best work and honest coin besides",
+      "rewardFlavor": "piece of my best work",
       "valence": "neutral",
       "roleAffinity": [],
       "targetNpcOpener": "Fading dyes? I had the same problem two seasons back. The water source shifted upstream, picking up minerals that react with the binding agent. The dye sets fine but the color leaches out within days.",
@@ -7714,7 +7714,7 @@
       "conflict1TurnInText": "That's exactly right. Every time they brought up getting one of these, I shut it down. Handing this over says more than an apology ever could.",
       "targetNpcOpener": "I've traded with that family for years, and the sibling you're asking about is sharp, reliable, and good with numbers. The bad season was bad luck, nothing more. When I heard someone had taken over their accounts without being asked, I was honestly surprised they allowed it. They must care about the relationship more than their pride, which tells you something.",
       "targetNpcCloser": "Give the reins back and say thank you for their patience. They've earned it.",
-      "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. {reward_item} — and {reward_flavor}, plainly offered. You helped me see that protecting someone and respecting them aren't always the same thing.",
+      "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. {reward_item} \u2014 and {reward_flavor}, plainly offered. You helped me see that protecting someone and respecting them aren't always the same thing.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
@@ -7869,7 +7869,7 @@
       "conflict1TurnInText": "{target_npc} says my cousin is hurt but not closed off. They're angry at our aunt for the things she said privately, and angry at me for revealing them, but underneath it they want the family to hold together. That's something I can work with, carefully this time.",
       "targetNpcOpener": "Your cousin has been here for a few days now. They're upset, but mostly they're confused about why someone they trusted would share private things. The argument with the aunt was already painful, and finding out the confidences were broken made it feel like the whole family was shifting under their feet.",
       "targetNpcCloser": "Give it a little time, then come yourself. Your cousin needs to hear you own what you did, face to face.",
-      "resolutionText": "I went to our aunt first with the {quest_item} and my apology, and she listened, then I went to my cousin and told them the same thing without softening it. Neither conversation was easy, but both ended with the door still open. Take {reward_item}. {reward_flavor}, too — it should stay with someone who helped us keep it. You helped me stop trying to manage my family and start being honest with them instead.",
+      "resolutionText": "I went to our aunt first with the {quest_item} and my apology, and she listened, then I went to my cousin and told them the same thing without softening it. Neither conversation was easy, but both ended with the door still open. Take {reward_item}. {reward_flavor}, too \u2014 it should stay with someone who helped us keep it. You helped me stop trying to manage my family and start being honest with them instead.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 14,
