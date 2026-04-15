@@ -62,7 +62,7 @@
       "conflict1TurnInText": "They said yes? I half thought they'd forgotten me. That's a kindness I won't waste.",
       "conflict2Text": "There's still the matter of the {enemy_type_plural} that started all of this. They've been picking at us like we're already finished. {kill_count} of them dealt with would let me sleep without listening for the door.",
       "conflict2TurnInText": "Quiet. The first real quiet in weeks. I didn't know how loud the worry was until it stopped.",
-      "resolutionText": "I have my work back, I have my pride back, and I have a friend in {target_npc_settlement} again. {reward_item}: {reward_flavor}. Take it, please. I'd give more if I had it, and one day I might.",
+      "resolutionText": "I have my work back, I have my pride back, and I have a friend in {target_npc_settlement} again. Here's {reward_item}, {reward_flavor}. Take it, please. I'd give more if I had it, and one day I might.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
@@ -344,7 +344,7 @@
       "expositionTurnInText": "She let me give it to her without a fuss. I think she could taste that it would help. Her color is already better and I've started to feel like I might survive this.",
       "conflict1Text": "There's one more thing, and I'm almost ashamed to ask. {enemy_type_plural} have been working their way closer and the noise terrifies her. Every time they cry out in the dark she clings to me and I can't pry her off. {kill_count} of them gone and she might sleep through a whole night.",
       "conflict1TurnInText": "She slept. The whole night. I sat in the chair and watched her chest rise and fall and I cried like an idiot. I don't even know what to say to you.",
-      "resolutionText": "She's eating again. She asked about the chickens this morning, which is the most ordinary question in the world, and I almost broke down at the breakfast table because of it. {reward_item}: {reward_flavor}. She'd want you to have it. Thank you for giving her back to me.",
+      "resolutionText": "She's eating again. She asked about the chickens this morning, which is the most ordinary question in the world, and I almost broke down at the breakfast table because of it. Take {reward_item}, {reward_flavor}. She'd want you to have it. Thank you for giving her back to me.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
@@ -436,7 +436,7 @@
       "expositionTurnInText": "That's the kind of work I wanted to see. The pressure on us has eased already. I can feel it. But I don't think we're done yet.",
       "conflict1Text": "I want to be sure they don't come back. There's a {quest_item} I need. It'll let me know we've actually pulled the source out, not just trimmed the edges. Bring me that and I'll sleep easy for the first time in weeks.",
       "conflict1TurnInText": "That's it. That's exactly what I needed to see. It's really over now.",
-      "resolutionText": "I can hear myself think again. Take {reward_item}: {reward_flavor}. It's the least I owe you for finishing what I should have started a month ago. Go on, you've earned it.",
+      "resolutionText": "I can hear myself think again. Take {reward_item}, {reward_flavor}. It's the least I owe you for finishing what I should have started a month ago. Go on, you've earned it.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 12,
@@ -467,7 +467,7 @@
       "expositionTurnInText": "Good. So {target_npc} was right. It's worse than I let myself believe. That settles any doubt I had about doing this.",
       "conflict1Text": "Now we put it down. {kill_count} of those {enemy_type_plural} should be enough to break their numbers and make them think twice about coming this way again. I want this finished, not delayed.",
       "conflict1TurnInText": "That's the work, right there. Feels like the air around {settlement_name} got lighter the moment you walked back through.",
-      "resolutionText": "I won't have to keep one eye on the road from now on, and that's worth more than I can properly say. Take {reward_item} — {reward_flavor}. Spend it however you like. We're square, and the trouble is gone.",
+      "resolutionText": "I won't have to keep one eye on the road from now on, and that's worth more than I can properly say. Take {reward_item}, {reward_flavor}. Spend it however you like. We're square, and the trouble is gone.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
@@ -858,7 +858,7 @@
       "expositionTurnInText": "There it is. Exactly what I needed. You've got a good eye for the right thing. There's one more piece to this, though, if you've still got the patience.",
       "conflict1Text": "The reason I couldn't fetch it myself is the {enemy_type_plural} that have settled in around here. I don't dare cross the area until someone thins them out. Could you handle {kill_count} of them for me?",
       "conflict1TurnInText": "Good. That should make the walk safer for the rest of us, too. I owe you for both pieces of this, not just the one.",
-      "resolutionText": "That's me set for the season, thanks to you. Take {reward_item} — and {reward_flavor}, whenever you like. You've made my work possible again.",
+      "resolutionText": "That's me set for the season, thanks to you. Take {reward_item}, and {reward_flavor}, whenever you like. You've made my work possible again.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
@@ -1075,7 +1075,7 @@
       "conflict1TurnInText": "That should buy us some peace. I can already feel the difference in the way folks here are walking around. You gave them that.",
       "conflict2Text": "There's one thing I've been needing for ages and could never lay hands on. {quest_item}. With that, I can finish what I set out to do. Could you find one for me?",
       "conflict2TurnInText": "You actually found it. I want you to know I'd given up on ever holding one of these again. Come back tonight and let me give you what's owed.",
-      "resolutionText": "It's done. The thing I've been working toward all this time is finally where it should be. Take {reward_item}: {reward_flavor}. It isn't much, but the cause was always more important than what I kept for myself.",
+      "resolutionText": "It's done. The thing I've been working toward all this time is finally where it should be. Take {reward_item}, {reward_flavor}. It isn't much, but the cause was always more important than what I kept for myself.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 14,
@@ -1328,7 +1328,7 @@
       "conflict1TurnInText": "It's safer than it's been all season. I can't believe it took {enemy_type_plural} to make me consider walking that road again. I'm starting to wonder if I should have gone to him a long time ago.",
       "conflict2Text": "I want to bring him something useful, not just words. Could you gather {gather_count} {quest_item}? It's the kind of thing he always needed and could never get enough of. If I show up with that on top of clearing the way, he'll know I mean it.",
       "conflict2TurnInText": "That's perfect. I'm going to pack tonight and walk over in the morning. Whatever happens between us, I'll know I tried, and that's more than I could have said yesterday.",
-      "resolutionText": "We didn't fix everything. We're not going back to the way it was, and I think we both knew that the moment we sat down. But we shook hands, and we'll share the road, and that's enough. {reward_item} is yours. And {reward_flavor}: take it. You gave me back something I didn't think I could get back.",
+      "resolutionText": "We didn't fix everything. We're not going back to the way it was, and I think we both knew that the moment we sat down. But we shook hands, and we'll share the road, and that's enough. {reward_item} is yours. And {reward_flavor}, please take it. You gave me back something I didn't think I could get back.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 13,
@@ -1968,7 +1968,7 @@
       "conflict1TurnInText": "That's the one. Or close enough that he'll know what I meant by it. I can feel my hands stop shaking just holding it.",
       "conflict2Text": "There's one more thing, and it's the hardest. {target_npc} in {target_npc_settlement} should know. They were close to him once, before everything got complicated between them. Tell {target_npc_role} what's happening, in person. Don't soften it.",
       "conflict2TurnInText": "Then it's done. They know, and that's what mattered. I owed them that much, even if it cost something to send.",
-      "resolutionText": "I'm going to him tonight. Here: {reward_flavor}, and {reward_item} besides. I won't forget that I didn't have to do this alone.",
+      "resolutionText": "I'm going to him tonight. Here, {reward_flavor}, and {reward_item} besides. I won't forget that I didn't have to do this alone.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
@@ -2039,7 +2039,7 @@
       "conflict1TurnInText": "I went out for the first time in weeks and came back without my heart in my throat. That's a kindness I won't forget. There's one more thing, and it's the one I've been avoiding longest.",
       "conflict2Text": "Her brother {target_npc} lives in {target_npc_settlement}. They haven't spoken in years, my fault as much as anyone's. He should hear it from a person, not a letter that arrives too late. Find {target_npc_role} and tell them plainly.",
       "conflict2TurnInText": "He's coming. I didn't think he would. Whatever you said to him, it found the right place to land. She'll see him before the end.",
-      "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {reward_item} is yours — {reward_flavor}, with my thanks. You gave us an ending I can live with.",
+      "resolutionText": "We have what time we have left, and now we can spend it without anything unsaid hanging over the room. {reward_item} is yours, {reward_flavor}, with my thanks. You gave us an ending I can live with.",
       "rewardFlavor": "a keepsake from my workbench",
       "valence": "negative",
       "roleAffinity": [],
@@ -2280,7 +2280,7 @@
       "expositionTurnInText": "That's taken care of, then. Good. There's one more thing I should mention while you're here. The stores took a hit during all that trouble.",
       "conflict1Text": "I'm short on {quest_item}. Not dangerously so, but enough that I'd rather get ahead of it now than scramble later. {gather_count} would put me right.",
       "conflict1TurnInText": "That'll do it. Shelves look the way they should again. Come on inside.",
-      "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. {reward_item}: {reward_flavor}. You've earned it, and I'd rather pay a debt when it's fresh.",
+      "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. Take {reward_item}, {reward_flavor}. You've earned it, and I'd rather pay a debt when it's fresh.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 11,
@@ -2573,7 +2573,7 @@
       "expositionTurnInText": "That's the immediate pressure off. But I want to make sure we're not just pushing the problem down the road.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who's dealt with this kind of thing before. Go ask them what they'd recommend to keep it from coming back. I'd rather do this once and do it right.",
       "conflict1TurnInText": "{target_npc} had advice? Good. I'll put it to use. That's the difference between fixing something and actually solving it.",
-      "resolutionText": "The problem is handled and I know it won't circle back around. That's worth a lot to me. Take {reward_item}. And {reward_flavor}: it's a fair exchange for work that was done properly.",
+      "resolutionText": "The problem is handled and I know it won't circle back around. That's worth a lot to me. Take {reward_item}. And {reward_flavor}, a fair exchange for work that was done properly.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
@@ -3761,7 +3761,7 @@
       "expositionTurnInText": "I can fill the shelves again. That's the first time in weeks I've been able to say that. But the reason the reserves ran low in the first place is still out there.",
       "conflict1Text": "{enemy_type_plural} have been raiding what I put aside, and every time I restock they take another piece. {kill_count} of them gone and I can finally stop losing ground. Please.",
       "conflict1TurnInText": "Quiet. Real quiet. I keep walking to the window expecting to see them and there's nothing there. It's strange how much relief feels like confusion.",
-      "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Carry {reward_item}: {reward_flavor}. I was ready to sell everything I had, and you kept me from having to.",
+      "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Carry {reward_item}, {reward_flavor}. I was ready to sell everything I had, and you kept me from having to.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
@@ -4289,7 +4289,7 @@
       "conflict2TurnInText": "The path is clear. I can see it stretching out ahead of us, and for the first time it doesn't end in a question mark.",
       "targetNpcOpener": "A new route to {other_settlement}? I surveyed that ground years ago and gave up because the terrain was too rough for carts. But if you're talking about foot traffic and pack animals, there's a saddle between the ridges that would cut the distance in half. Nobody's maintained it, but the ground is solid.",
       "targetNpcCloser": "If they're serious about this, tell them to start from the eastern fork. That's where the terrain gets cooperative.",
-      "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {reward_item}. And {reward_flavor}: say the word and your name goes on the route beside mine. You helped build something that will outlast both of us.",
+      "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {reward_item}. And {reward_flavor}, and say the word if you want your name on the route beside mine. You helped build something that will outlast both of us.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
@@ -4403,7 +4403,7 @@
       "conflict2TurnInText": "{target_npc} sent instructions? Detailed ones? I was expecting a paragraph and I got a manual. I'll study every word.",
       "targetNpcOpener": "Building a forge from nothing? I respect that, most people want shortcuts. The tempering is where most self-taught smiths run into trouble, heat too fast and the metal remembers, cool too slow and it forgets. I'll write down what I know, because there's no reason someone else should spend years figuring it out.",
       "targetNpcCloser": "Tell them to start with simple stock and work up. Patience is the only shortcut in this trade.",
-      "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {reward_item}. And take {reward_flavor}: it should be in the hands of someone who helped raise the place. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
+      "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {reward_item}. And take {reward_flavor}, because it should be in the hands of someone who helped raise the place. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
@@ -5062,7 +5062,7 @@
       "expositionTurnInText": "{target_npc} is still willing to wait? That's more patience than I deserve. Now let me take care of the reason I've been delayed in the first place.",
       "conflict1Text": "The {enemy_type_plural} around here have been chewing through my schedule. Every time I set out to finish something, they're in the way. {kill_count} of them cleared and I can finally follow through on every promise I've been making.",
       "conflict1TurnInText": "That opens everything up. I can move freely again, and the first thing I'm doing is making good on that favor.",
-      "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Hold onto {reward_item}: {reward_flavor}, too. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
+      "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Hold onto {reward_item}, and {reward_flavor}, too. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
@@ -5439,7 +5439,7 @@
       "conflict1TurnInText": "Good. The water has a chance now. There's one more thing I need before I can call this settled.",
       "conflict2Text": "Bring me a {quest_item}. Something to mark the waterline, so I can track the recovery over the coming weeks. I want to see the numbers change with my own eyes. I've earned that much.",
       "conflict2TurnInText": "The marker is set. I'll check it every morning. The first time the line moves in the right direction, I'll know this was worth it.",
-      "resolutionText": "The water is coming back, slowly, but it's coming. Take {reward_item}: {reward_flavor}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
+      "resolutionText": "The water is coming back, slowly, but it's coming. Take {reward_item}, {reward_flavor}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
@@ -5501,7 +5501,7 @@
       "expositionTurnInText": "The cutting took. There's green where there was nothing, and I stared at it for ten minutes before I trusted my own eyes. Now for the part that's been burning in me since spring.",
       "conflict1Text": "I want {kill_count} of those {enemy_type_plural} gone. They'll come back otherwise, and they'll do to the new growth what they did to the old. I am not watching that happen twice. Not with her garden.",
       "conflict1TurnInText": "They're gone. The ground around the garden is quiet, and the cutting is still standing. I checked it three times today. I'll probably check it three more times tonight.",
-      "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {reward_item}: {reward_flavor}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
+      "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {reward_item}, {reward_flavor}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
@@ -5776,13 +5776,13 @@
       "acceptText": "Good. I've been too angry to ask for help until now, and too tired to keep doing this alone.",
       "declineText": "Fine. I'll board it up myself and hope for the best. That's what I've been doing anyway.",
       "expositionTurnInText": "Quieter already. I walked the perimeter this morning without flinching. But the fence is still a wreck and what he took left holes in more than just the wood.",
-      "conflict1Text": "I need {gather_count} {quest_item} to patch what's broken. Not just the fence, the whole operation. He didn't just leave, he stripped the place on his way out, and I've been pretending it doesn't matter.",
+      "conflict1Text": "I need {gather_count} {quest_item} to patch what's broken. The whole operation needs it, not only the fence. He stripped the place on his way out, and I've been pretending it doesn't matter.",
       "conflict1TurnInText": "That's enough to hold things together for the season. I can finally stop counting what's missing and start working with what's here.",
-      "resolutionText": "The place looks like a place again, instead of a ruin someone walked away from. {reward_item}: yours. {reward_flavor}: don't tell him. I'm still angry at him, but at least now I'm angry from a position of having walls that stand up.",
+      "resolutionText": "The place looks like a place again, instead of a ruin someone walked away from. {reward_item} is yours. And {reward_flavor}, though don't tell him. I'm still angry at him, but at least now I'm angry from a position of having walls that stand up.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You're right, those two things don't add up. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children, and that's why there's a gap in the fence and no conversation about fixing it.",
+        "passText": "You're right, those two things don't add up. He left because I told him our father would have been ashamed of him. I said it in front of his children, and that's why there's a gap in the fence and no conversation about fixing it.",
         "failText": "He left. That's all there is to it."
       },
       "rewardFlavor": "coin I hid from him",
@@ -6513,7 +6513,7 @@
       "expositionTurnInText": "They let me give it to them without arguing, which tells me more about how bad they're feeling than any complaint would. The color in their face is already better. But there's someone I need to involve.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who treated a similar injury years ago. I want them to hear what happened and tell me whether I'm doing enough. The doubt is eating at me.",
       "conflict1TurnInText": "{target_npc} said the approach is right? I almost didn't believe you at first. I've been so convinced I was missing something that hearing I'm not feels strange.",
-      "resolutionText": "They ate a full meal today and complained about being bored. Complaining about boredom is the most hopeful thing I've heard in weeks. {reward_flavor}: take {reward_item}, with every coin I can pull together. You helped me believe I was doing the right things, and sometimes that's the help a parent needs most.",
+      "resolutionText": "They ate a full meal today and complained about being bored. Complaining about boredom is the most hopeful thing I've heard in weeks. Please take {reward_item}, {reward_flavor}, with every coin I can pull together. You helped me believe I was doing the right things, and sometimes that's the help a parent needs most.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
@@ -6648,7 +6648,7 @@
       "conflict2TurnInText": "{target_npc} is expecting him. They said they'd make a bed and keep the lamp lit. I don't know why that detail is the one that broke me, but it did.",
       "targetNpcOpener": "I've been waiting to hear. The boy is welcome here, and I'll treat him like my own until things settle down. I've got room, and I've got patience, which is what he'll need most.",
       "targetNpcCloser": "Send him when he's ready. We'll be here.",
-      "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. {reward_flavor} — have {reward_item} from it. You helped me do the thing I knew was right but couldn't face alone.",
+      "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. Have {reward_item}, {reward_flavor}. You helped me do the thing I knew was right but couldn't face alone.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
@@ -6679,7 +6679,7 @@
       "conflict1TurnInText": "{target_npc} didn't ask questions. Just said they'd come. I think they already know, the same way I do.",
       "targetNpcOpener": "I had a feeling I'd hear from her soon. We've known each other since before you were born, and there are some things old friends just sense. I'll come. Tell her I'll bring the good tea, the kind she always pretended not to like.",
       "targetNpcCloser": "I'll be there within the week. She has my word.",
-      "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {reward_item}: {reward_flavor}, she wanted you to have it. You gave her something no amount of coin could buy, and she wanted you to know it.",
+      "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {reward_item}, {reward_flavor}, she wanted you to have it. You gave her something no amount of coin could buy, and she wanted you to know it.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
