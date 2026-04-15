@@ -1677,14 +1677,14 @@
       "expositionTurnInText": "{target_npc} actually told you? Oh. Oh, that's what she heard. I never meant it that way, not even close. But I see now how it sounded, and I can't unsay it.",
       "conflict1Text": "Now that I know, I want to make it right. There's a {quest_item} she always loved, the kind we used to find together when we were small. If you can bring me one, I'll take it to her myself, and I'll have something to say with my hands when the words won't be enough.",
       "conflict1TurnInText": "That's perfect. She'll know what it means the moment she sees it. Thank you for understanding why this had to be the right one.",
-      "resolutionText": "She let me sit with her this morning. We didn't talk about the thing I said, not yet, but she took the gift and she didn't put it down. That's a beginning. Take {reward_item}. You gave me back something I was sure I'd lost.",
+      "resolutionText": "She let me sit with her this morning. We didn't talk about the thing I said, not yet, but she took the gift and she didn't put it down. That's a beginning. Take {reward_item}. And {reward_flavor}, truly. You gave me back something I was sure I'd lost.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "The honest part is, I was trying to protect her from her family, because I'd seen them be cruel to her before. I wasn't being a busybody. I was being scared for her, and I overstepped because of it.",
         "failText": "I'd rather not pick at it any more than I already have. It hurts enough."
       },
-      "rewardFlavor": "a gift I'd been saving for a better day, and my honest gratitude",
+      "rewardFlavor": "a gift I'd been saving",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "So they finally want to know what happened. She told me everything. Your friend meant well, I can see that, but what she heard was someone going over her head, speaking for her when she'd never asked anyone to. That's the wound.",
@@ -1708,14 +1708,14 @@
       "expositionTurnInText": "That's a fine {quest_item}, and exactly the kind of thing he'd never buy for himself. He's stubborn that way. Holding it actually makes me feel like I might be able to face him.",
       "conflict1Text": "But I can't just hand it over without help. I need you to find {target_npc} in {target_npc_settlement} first. They were there when I gave him the advice, and they know what really happened. If they can tell me what I missed, I'll know what to say when I see him.",
       "conflict1TurnInText": "So that's what he heard me saying. I thought I was offering options, and he heard me telling him he wasn't capable. {target_npc} did me a kindness telling you that. Now I know the apology I owe.",
-      "resolutionText": "I went to him last night. Brought the gift, said the right thing for once, and he laughed. A tired laugh, but a real one. We're not all the way back, but we're talking. Take {reward_item}. This would have stayed broken without you.",
+      "resolutionText": "I went to him last night. Brought the gift, said the right thing for once, and he laughed. A tired laugh, but a real one. We're not all the way back, but we're talking. Take {reward_item} — and {reward_flavor}, for what you carried with me. This would have stayed broken without you.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "I'll tell you what I haven't told anyone. I'm afraid he'll never trust my word again. He used to come to me first when something was hard, and he hasn't since. That's the part that's breaking me.",
         "failText": "It's between brothers. I shouldn't have laid it all out like this."
       },
-      "rewardFlavor": "a portion of what I've put aside this season, and a brother's thanks",
+      "rewardFlavor": "a brother's thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was sitting right there when it happened. Your friend was trying to lay out options, but what landed was the feeling that he couldn't handle his own choices. It hit hard, and he's been carrying it since.",
@@ -1744,8 +1744,8 @@
       "conflict1TurnInText": "Look at this. She'll know what it cost me to choose this for her, and she'll know it's not about being practical. That's the whole point. Thank you.",
       "conflict2Text": "One more favor. Would you take word back to {target_npc} that I'm grateful, and that I'm trying? They've been a better friend to my daughter than I knew, and they should hear it from someone besides me.",
       "conflict2TurnInText": "{target_npc} took the message well? Good. I want her friend to know I'm not the kind of mother who'd resent her for being honest with you.",
-      "resolutionText": "She opened the gift in front of me. She didn't say much, but she sat down next to me, and she stayed. That's the most I've had from her in weeks. Take {reward_item}. You walked through something with me that I couldn't have walked alone.",
-      "rewardFlavor": "a parcel of good food from my pantry and a mother's quiet thanks",
+      "resolutionText": "She opened the gift in front of me. She didn't say much, but she sat down next to me, and she stayed. That's the most I've had from her in weeks. {reward_item} is yours. {reward_flavor}, for seeing this through. You walked through something with me that I couldn't have walked alone.",
+      "rewardFlavor": "a mother's quiet thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Her mother sent you? She's been afraid of that. The comment about her work hit harder than her mother probably knows. What landed was the feeling that she still isn't enough, no matter how hard she tries.",
@@ -3593,14 +3593,14 @@
       "conflict1TurnInText": "Perfect. I'll hand it to my cousin and step back. That's what I should have done the first time. Support from behind, not from in front.",
       "targetNpcOpener": "I was at that council meeting. Your cousin's family member meant well, I could see that. But speaking over someone in a land dispute makes the council wonder who really wants the land. It raised questions nobody had before, and that's what did the damage.",
       "targetNpcCloser": "The council would hear the case again if the cousin brought new evidence themselves. That door isn't closed.",
-      "resolutionText": "My cousin went before the council with the {quest_item} and spoke clearly and well, and the decision was reversed. They thanked me afterward, which surprised me, because I was the one who nearly cost them everything. Take {reward_item}. You helped me see the line between helping and overstepping.",
+      "resolutionText": "My cousin went before the council with the {quest_item} and spoke clearly and well, and the decision was reversed. They thanked me afterward, which surprised me, because I was the one who nearly cost them everything. Here: {reward_item}. {reward_flavor}, honestly given. You helped me see the line between helping and overstepping.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You've put your finger on the thing that doesn't add up. I said I was trying to help, but my cousin never asked me to speak and the council never invited outside voices, so I pushed my way in. When you line those facts up it stops looking like concern and starts looking like what it was. I wanted to feel useful more than I wanted to help.",
         "failText": "I was only trying to help. That's really all there is to say about it."
       },
-      "rewardFlavor": "a fair share from my cousin's stores and my own, combined",
+      "rewardFlavor": "a fair share, combined",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7714,14 +7714,14 @@
       "conflict1TurnInText": "That's exactly right. Every time they brought up getting one of these, I shut it down. Handing this over says more than an apology ever could.",
       "targetNpcOpener": "I've traded with that family for years, and the sibling you're asking about is sharp, reliable, and good with numbers. The bad season was bad luck, nothing more. When I heard someone had taken over their accounts without being asked, I was honestly surprised they allowed it. They must care about the relationship more than their pride, which tells you something.",
       "targetNpcCloser": "Give the reins back and say thank you for their patience. They've earned it.",
-      "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. Take {reward_item}. You helped me see that protecting someone and respecting them aren't always the same thing.",
+      "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. {reward_item} — and {reward_flavor}, plainly offered. You helped me see that protecting someone and respecting them aren't always the same thing.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
         "failText": "I overstepped and I'm correcting it. That's the whole of it."
       },
-      "rewardFlavor": "a fair trade and the beginning of a more honest partnership",
+      "rewardFlavor": "a more honest partnership",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7745,14 +7745,14 @@
       "conflict1TurnInText": "{target_npc} says the position was filled, but the smith has been looking for a second apprentice because the workload doubled this season. The door is still open, if barely. I need to talk to my daughter before it closes.",
       "targetNpcOpener": "I know the smith you're talking about, good teacher, fair, and careful about safety despite the nature of the work. They mentioned wanting a second apprentice recently because the workload doubled. If someone was turned away from the position before, this would be the time to send them back. The window won't stay open indefinitely.",
       "targetNpcCloser": "Send the young one along with my name. I'll vouch for any apprentice willing to start from the ground up.",
-      "resolutionText": "I gave my daughter the {quest_item} and told her the apprenticeship was open. She didn't say much, just took the materials and started packing, and she paused at the door to thank me in a voice that said she'd been waiting a long time. Take {reward_item}. You helped me stop standing between my child and her life.",
+      "resolutionText": "I gave my daughter the {quest_item} and told her the apprenticeship was open. She didn't say much, just took the materials and started packing, and she paused at the door to thank me in a voice that said she'd been waiting a long time. Take {reward_item}: {reward_flavor}, the best I can give. You helped me stop standing between my child and her life.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 11,
         "passText": "You've found the thread I was trying to keep hidden. It was never really about danger, I was afraid she'd succeed somewhere else and stop needing me. A parent isn't supposed to feel that way, but there it is. I dressed up my own fear as concern for her safety, and she's the one who paid for it.",
         "failText": "I made a decision that wasn't mine to make. I'm correcting it now."
       },
-      "rewardFlavor": "a parent's honest share and the gratitude of a lighter heart",
+      "rewardFlavor": "a lighter heart's gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7776,14 +7776,14 @@
       "conflict1TurnInText": "That's exactly what my friend described. Whether they use it to reopen the conversation or just to apologize, it's their choice now. I've done enough deciding for other people.",
       "targetNpcOpener": "I know exactly who you're asking about, and I can tell you they did nothing to deserve being turned away. They're a good person, honest and steady. When the courtship ended suddenly, they were confused and hurt. If this happened because of bad information, the person who gave it should make it known.",
       "targetNpcCloser": "Whatever comes of it, the truth should reach everyone involved. Silence only protects the person who caused the harm.",
-      "resolutionText": "I told my friend everything, the mistake, the confusion, all of it, and they listened without interrupting before taking the {quest_item} and saying they needed time. A week later they told me they'd delivered it and had a long conversation, and the truth is finally out. Take {reward_item}. You helped me face a mistake I was too ashamed to name.",
+      "resolutionText": "I told my friend everything, the mistake, the confusion, all of it, and they listened without interrupting before taking the {quest_item} and saying they needed time. A week later they told me they'd delivered it and had a long conversation, and the truth is finally out. Take {reward_item}. {reward_flavor}, if it means anything. You helped me face a mistake I was too ashamed to name.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
         "failText": "I mixed up two people and spoke too soon. That's really all there is to it."
       },
-      "rewardFlavor": "what I can gather and the hope that honesty still counts for something",
+      "rewardFlavor": "the hope honesty still counts",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7807,14 +7807,14 @@
       "conflict1TurnInText": "{target_npc} says the person waited until evening and was disappointed but not angry. They're willing to try again. That's more than I dared hope. My brother deserves to hear this from me directly.",
       "targetNpcOpener": "I know the person your brother was supposed to meet, and they came to the gathering asking about him all day. When he didn't show they left quietly, but I could see it mattered to them. They've mentioned it since, wondering what went wrong, and if it was just a missed road they'd want to know that.",
       "targetNpcCloser": "Arrange another meeting. I think both of them would be glad of it.",
-      "resolutionText": "I gave my brother the supplies and the news together, and the look on his face when I said they were willing to meet again was worth more than any word. He left the next morning with the right map this time. Take {reward_item}. You gave my brother a second chance that my carelessness nearly took from him.",
+      "resolutionText": "I gave my brother the supplies and the news together, and the look on his face when I said they were willing to meet again was worth more than any word. He left the next morning with the right map this time. {reward_item} is yours. And {reward_flavor}, owed many times over. You gave my brother a second chance that my carelessness nearly took from him.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Alright, you want to know why I was careless, and the honest answer is that I didn't take his trip seriously. He's my younger brother, and I treated his plans like they were less important than mine. I scribbled the route from memory instead of checking it because I was in the middle of something I thought mattered more, and it didn't.",
         "failText": "I gave bad directions and someone I love paid for it. That's all."
       },
-      "rewardFlavor": "travel supplies of my own and a brother's reluctant thanks",
+      "rewardFlavor": "a brother's reluctant thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7838,14 +7838,14 @@
       "conflict1TurnInText": "That's good. Something useful, not sentimental. My friend doesn't need more feelings right now, they need a reason to stop hiding. This gives them one.",
       "targetNpcOpener": "I know both of them, and I saw this coming from a distance. The feelings were one-sided, and anyone watching carefully would have noticed. The person on the receiving end was warm and open, which looks like affection if you're hoping it is, but it was the same warmth they showed everyone. Whoever encouraged the confession wasn't reading the room, they were reading their own hopes.",
       "targetNpcCloser": "The friendship can recover, but it'll take time and space. Don't push anything else.",
-      "resolutionText": "I brought the {quest_item} to my friend and told them I was sorry for the push. They said they knew I meant well, but that meaning well isn't the same as being right, and they took the {quest_item} and went to the market the next day. Take {reward_item}. You helped me understand that good intentions don't protect the people who have to live with the results.",
+      "resolutionText": "I brought the {quest_item} to my friend and told them I was sorry for the push. They said they knew I meant well, but that meaning well isn't the same as being right, and they took the {quest_item} and went to the market the next day. Take {reward_item}, and {reward_flavor}. You helped me understand that good intentions don't protect the people who have to live with the results.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "You have an ease about you that makes me want to drop the pretense, so I will. I didn't just misread the situation, I wanted to be the person who brought two people together because I liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement.",
         "failText": "I read the signals wrong and someone I care about got hurt. That's the simple version."
       },
-      "rewardFlavor": "a practical gift and the understanding that good intentions have limits",
+      "rewardFlavor": "what I owe for overreach",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7869,14 +7869,14 @@
       "conflict1TurnInText": "{target_npc} says my cousin is hurt but not closed off. They're angry at our aunt for the things she said privately, and angry at me for revealing them, but underneath it they want the family to hold together. That's something I can work with, carefully this time.",
       "targetNpcOpener": "Your cousin has been here for a few days now. They're upset, but mostly they're confused about why someone they trusted would share private things. The argument with the aunt was already painful, and finding out the confidences were broken made it feel like the whole family was shifting under their feet.",
       "targetNpcCloser": "Give it a little time, then come yourself. Your cousin needs to hear you own what you did, face to face.",
-      "resolutionText": "I went to our aunt first with the {quest_item} and my apology, and she listened, then I went to my cousin and told them the same thing without softening it. Neither conversation was easy, but both ended with the door still open. Take {reward_item}. You helped me stop trying to manage my family and start being honest with them instead.",
+      "resolutionText": "I went to our aunt first with the {quest_item} and my apology, and she listened, then I went to my cousin and told them the same thing without softening it. Neither conversation was easy, but both ended with the door still open. Take {reward_item}. {reward_flavor}, too — it should stay with someone who helped us keep it. You helped me stop trying to manage my family and start being honest with them instead.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 14,
         "passText": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
         "failText": "I shared something I shouldn't have. The details beyond that are family business."
       },
-      "rewardFlavor": "an heirloom from the family stores and the gratitude of two people starting to mend",
+      "rewardFlavor": "a family heirloom",
       "valence": "negative",
       "roleAffinity": []
     },
