@@ -11,7 +11,7 @@
   "OverlapBehavior": "Overwrite",
   "Infinite": false,
   "Debuff": true,
-  "StatusEffectIcon": "UI/StatusEffects/Burn.png",
+  "StatusEffectIcon": "UI/StatusEffects/Nat20/Bleed.png",
   "Duration": 20,
   "DeathMessageKey": "server.general.deathCause.bleed"
 }
