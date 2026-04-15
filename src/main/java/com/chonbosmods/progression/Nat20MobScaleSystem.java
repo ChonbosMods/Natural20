@@ -77,7 +77,10 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
     /** Upgrade a mob's tier after spawn. Called by spawners for CHAMPION/BOSS groups. */
     public void setTier(Ref<EntityStore> ref, Store<EntityStore> store, Tier newTier) {
         Nat20MobLevel level = store.getComponent(ref, Natural20.getMobLevelType());
-        if (level == null) return;
+        if (level == null) {
+            LOGGER.atWarning().log("setTier called on untagged ref=%s; skipping", ref);
+            return;
+        }
         level.setTier(newTier);
         applyStats(ref, store, level);
         LOGGER.atInfo().log("Retier ref=%s areaLevel=%d tier=%s",
