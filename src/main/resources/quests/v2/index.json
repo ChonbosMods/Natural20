@@ -436,14 +436,14 @@
       "expositionTurnInText": "That's the kind of work I wanted to see. The pressure on us has eased already. I can feel it. But I don't think we're done yet.",
       "conflict1Text": "I want to be sure they don't come back. There's a {quest_item} I need. It'll let me know we've actually pulled the source out, not just trimmed the edges. Bring me that and I'll sleep easy for the first time in weeks.",
       "conflict1TurnInText": "That's it. That's exactly what I needed to see. It's really over now.",
-      "resolutionText": "I can hear myself think again. Take {reward_item}. It's the least I owe you for finishing what I should have started a month ago. Go on, you've earned it.",
+      "resolutionText": "I can hear myself think again. Take {reward_item}: {reward_flavor}. It's the least I owe you for finishing what I should have started a month ago. Go on, you've earned it.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 12,
         "passText": "You'd know better than me, then. They always come from the same direction, always at the same hour. They're not random. Something's drawing them, and that's what I want broken.",
         "failText": "Just trust me when I say it's a pattern. I've been watching long enough to know."
       },
-      "rewardFlavor": "the silver I've been setting aside for exactly this and a clean handshake",
+      "rewardFlavor": "silver saved for this job",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -467,14 +467,14 @@
       "expositionTurnInText": "Good. So {target_npc} was right. It's worse than I let myself believe. That settles any doubt I had about doing this.",
       "conflict1Text": "Now we put it down. {kill_count} of those {enemy_type_plural} should be enough to break their numbers and make them think twice about coming this way again. I want this finished, not delayed.",
       "conflict1TurnInText": "That's the work, right there. Feels like the air around {settlement_name} got lighter the moment you walked back through.",
-      "resolutionText": "I won't have to keep one eye on the road from now on, and that's worth more than I can properly say. Take {reward_item}. Spend it however you like. We're square, and the trouble is gone.",
+      "resolutionText": "I won't have to keep one eye on the road from now on, and that's worth more than I can properly say. Take {reward_item} — {reward_flavor}. Spend it however you like. We're square, and the trouble is gone.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "Since you're asking the right questions, the timing isn't random. They came right after the last caravan from {other_settlement} stopped running. I think the two are connected, and {target_npc} can fill in the rest.",
         "failText": "It's complicated. Easier if you just hear it from {target_npc} directly."
       },
-      "rewardFlavor": "good coin and a meal at my table whenever you pass through",
+      "rewardFlavor": "coin and a warm meal",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "You've come from {settlement_name}? Then they've finally noticed what I've been tracking for weeks. The short version is that we're both right to be worried, and the long version would take all night. I've written it all down.",
@@ -507,14 +507,14 @@
       "conflict1TurnInText": "So {target_npc} has been bleeding even worse than us. That's it then. We're not the only target, and that means the source is bigger than I thought.",
       "conflict2Text": "We finish this together. There's a stronger group of {enemy_type_plural} out there, the ones actually driving the rest, and I want {kill_count} of them dealt with. End the pattern, not just the symptoms.",
       "conflict2TurnInText": "That's done, then. Feels strange to say it out loud. The pattern is broken.",
-      "resolutionText": "Three weeks ago I'd given up on seeing this resolved in my lifetime. Take {reward_item} and know it's the cleanest thing I've handed anyone in a long time. Whatever happens next, this part is over.",
+      "resolutionText": "Three weeks ago I'd given up on seeing this resolved in my lifetime. Take {reward_item}, and {reward_flavor} with it. It's the cleanest thing I've handed anyone in a long time. Whatever happens next, this part is over.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 14,
         "passText": "You've got a good eye. I didn't say it before, but I've been finding tracks I don't recognize. Bigger ones, mixed in with the rest. Whatever's leading them isn't the same as what's been hitting us.",
         "failText": "It's just the same trouble, week after week. Nothing more to it than that."
       },
-      "rewardFlavor": "a proper purse and what's left of my stash of good ale",
+      "rewardFlavor": "a purse and good ale",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Someone from {settlement_name}, finally. We've been hit harder than you have, I'd wager. I stopped counting after the second week because the numbers were scaring people more than the actual threat. But I have it all written down.",
@@ -2573,14 +2573,14 @@
       "expositionTurnInText": "That's the immediate pressure off. But I want to make sure we're not just pushing the problem down the road.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who's dealt with this kind of thing before. Go ask them what they'd recommend to keep it from coming back. I'd rather do this once and do it right.",
       "conflict1TurnInText": "{target_npc} had advice? Good. I'll put it to use. That's the difference between fixing something and actually solving it.",
-      "resolutionText": "The problem is handled and I know it won't circle back around. That's worth a lot to me. Take {reward_item}. It's a fair exchange for work that was done properly.",
+      "resolutionText": "The problem is handled and I know it won't circle back around. That's worth a lot to me. Take {reward_item}. And {reward_flavor}: it's a fair exchange for work that was done properly.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
         "passText": "The real reason I want this finished is that I promised {settlement_npc} things would get better. I've been saying that for three weeks now and my word is starting to wear thin. I'd like to be the kind of person who follows through.",
         "failText": "It's a problem that needs solving. I'm just the one who decided to act on it."
       },
-      "rewardFlavor": "a solid purse and the knowledge that it's done right",
+      "rewardFlavor": "a solid, fair purse",
       "targetNpcOpener": "You're from {settlement_name}? I know the issue you're talking about. I've seen it play out in other settlements. There are steps you can take to discourage them from returning.",
       "targetNpcCloser": "Pass that along. If they follow through, they shouldn't see the same trouble again.",
       "valence": "negative",
@@ -2613,7 +2613,7 @@
         "passText": "I'll tell you why I care about this so much. {settlement_npc} got hurt last month because of the same trouble and wouldn't tell anyone. I found out by accident. I decided then that I was going to fix this whether anyone asked me to or not.",
         "failText": "I've been watching the situation closely. That's all."
       },
-      "rewardFlavor": "fair coin for honest work",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": [
         "Guard",
@@ -4507,14 +4507,14 @@
       "expositionTurnInText": "The den is broken. I can feel the difference in the air. But I want certainty, not hope.",
       "conflict1Text": "Bring me a {quest_item} from the site. Something that proves the den is empty and staying empty. I'm not declaring victory until I can hold the proof in my hand.",
       "conflict1TurnInText": "There it is. Evidence that can't argue back. The den is dead and we're done with them.",
-      "resolutionText": "I slept with the door unlocked last night. First time in months. Take {reward_item}. You finished what I've been circling for weeks, and you did it without flinching.",
+      "resolutionText": "I slept with the door unlocked last night. First time in months. Take {reward_item}, plus {reward_flavor}. You finished what I've been circling for weeks, and you did it without flinching.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "Ha, you've scouted near there too? Funny, because I've actually been out there twice already and both times I turned back before I got close enough to matter. I've been calling it patience, telling people I was waiting for the right moment, but the truth is I was afraid. Hiring you is the only way this gets done.",
         "failText": "I've watched them long enough to know the pattern. That's all there is to tell."
       },
-      "rewardFlavor": "the coin I'd set aside for mercenaries and a drink at my table",
+      "rewardFlavor": "mercenary coin and a drink",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4540,14 +4540,14 @@
       "conflict1TurnInText": "That's the last of them. I checked the count twice. The farms can breathe again, and so can I.",
       "targetNpcOpener": "Livestock kills across multiple farms? That's coordinated hunting behavior, not scavenging. From the bite patterns you're describing, I'd say you have a pack that's shifted its territory. Hit them where they rest during the day and hit them together.",
       "targetNpcCloser": "Don't half-measure it. A broken pack scatters and you end up with three smaller problems instead of one big one.",
-      "resolutionText": "Three nights in a row with no kills. The farmers stopped sleeping in their barns and started sleeping in their beds. Take {reward_item}. You turned a mystery into a solved problem, and this whole valley is better for it.",
+      "resolutionText": "Three nights in a row with no kills. The farmers stopped sleeping in their barns and started sleeping in their beds. Take {reward_item}. {reward_flavor}, too. You turned a mystery into a solved problem, and this whole valley is better for it.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "Sure, everyone's worried about the livestock, it's a community problem. Well, two of those three farms are mine, so maybe I'm a little more worried than most. I've been framing this as a public service because if people knew how much of the loss was mine, they'd call it self-interest and start dragging their feet.",
         "failText": "You seem awfully curious about which farms are affected. The animals are dying, and that should be enough."
       },
-      "rewardFlavor": "good coin from the three farms that can keep their stock now",
+      "rewardFlavor": "coin from three grateful farms",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4578,14 +4578,14 @@
       "conflict1TurnInText": "Look at this. I was right. This is what's been pulling them toward {settlement_name} season after season. With it gone, the pattern should break.",
       "conflict2Text": "One last push. The {enemy_type_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_count} more of them dealt with and the root and the branches are both cut.",
       "conflict2TurnInText": "Done. Truly, finally done. The scouts report nothing moving within a half day's walk. I haven't heard that in over a year.",
-      "resolutionText": "The pattern is broken, the source is removed, and for the first time in memory, {settlement_name} isn't bracing for the next wave. Take {reward_item}. You ended something that nobody else was willing to finish, and that's a different thing entirely.",
+      "resolutionText": "The pattern is broken, the source is removed, and for the first time in memory, {settlement_name} isn't bracing for the next wave. Hold onto {reward_item}; {reward_flavor}. You ended something that nobody else was willing to finish, and that's a different thing entirely.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 14,
         "passText": "You want me to stop dancing around it? Fine. I know exactly who left that lure behind, a trader from {other_settlement} who planted it two years ago to drive the {enemy_type_plural} toward us and away from their own routes. I've been too cautious to accuse them without proof, and the proof is sitting out there in the dirt.",
         "failText": "Something's drawing them. Find it and the rest sorts itself out."
       },
-      "rewardFlavor": "a serious purse from the settlement fund and the satisfaction of a clean ending",
+      "rewardFlavor": "a serious purse, cleanly earned",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4616,14 +4616,14 @@
       "conflict2TurnInText": "{target_npc} has the markers back up? Good. Now the road is watched from both ends and the {enemy_type_plural} have nowhere to settle without being seen.",
       "targetNpcOpener": "The road is clear again? That's the best thing I've heard all month. I pulled my markers two weeks ago because there was no point watching a road nobody could use. I'll have them reset by tomorrow morning and I'll keep eyes on our end.",
       "targetNpcCloser": "Tell them the road is ours again. Both sides of it.",
-      "resolutionText": "Two weeks of clean traffic and counting, and the supply prices have already dropped back to normal. Take {reward_item}. You turned warnings into results, and that's the only language that matters out here.",
+      "resolutionText": "Two weeks of clean traffic and counting, and the supply prices have already dropped back to normal. Keep {reward_item} and {reward_flavor}. You turned warnings into results, and that's the only language that matters out here.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "You want the truth about the warnings? Two of the three were bluffs. I didn't have the resources for real deterrence, so I made noise and hoped. I've been performing strength I didn't have, and now that someone with actual strength is here, I can stop pretending.",
         "failText": "I've tried everything short of direct action. Now it's time for direct action."
       },
-      "rewardFlavor": "the toll revenue we lost during the blockade and a grateful handshake",
+      "rewardFlavor": "recovered toll revenue",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4649,14 +4649,14 @@
       "conflict1TurnInText": "{target_npc} said my friend smiled for the first time since the fire. That's worth more to me than anything I could hold in my hands.",
       "targetNpcOpener": "You're here about the homestead that burned? I've been helping the family rebuild, slowly, because they lost almost everything. When I told them what was done on their behalf, the look on their face was something I won't forget.",
       "targetNpcCloser": "Tell the one who sent you that the family is standing again. Shaky, but standing.",
-      "resolutionText": "The promise is kept. My friend is rebuilding, the things that burned them out are dealt with, and I can finally stop waking up at night thinking about what I owed. Take {reward_item}. You helped me close a book I've been writing in for too long.",
+      "resolutionText": "The promise is kept. My friend is rebuilding, the things that burned them out are dealt with, and I can finally stop waking up at night thinking about what I owed. You've earned {reward_item}, and {reward_flavor}. You helped me close a book I've been writing in for too long.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You can see what I've been carrying, can't you. I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. Every time I tell the story I make it sound clean and righteous, but underneath all of that is a man trying to make up for not showing up when it mattered.",
         "failText": "A friend was wronged and I said I'd see it answered. That's all there is to it."
       },
-      "rewardFlavor": "the bounty my friend insisted on paying and a bond between us that fire couldn't break",
+      "rewardFlavor": "a bond forged by fire",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4687,14 +4687,14 @@
       "conflict2TurnInText": "The case is complete. Evidence, testimony, and motive. The council will hear it next week, and I don't intend to lose.",
       "targetNpcOpener": "I've been expecting someone to come asking about this. I saw the shipments that came through here, and the timing was too convenient. The blight showed up in your orchards exactly one week after a specific trader passed through with unmarked crates. I kept records because something felt wrong.",
       "targetNpcCloser": "I'll testify if they need me to. What was done to those orchards was deliberate, and the person who did it should answer for it.",
-      "resolutionText": "The council ruled in our favor. Sanctions, restitution, and a formal warning that will follow that trader to every market in the region. Take {reward_item}. You helped me prove something everyone suspected but nobody could pin down, and the orchard will bear fruit again because of it.",
+      "resolutionText": "The council ruled in our favor. Sanctions, restitution, and a formal warning that will follow that trader to every market in the region. Carry {reward_item} with {reward_flavor}. You helped me prove something everyone suspected but nobody could pin down, and the orchard will bear fruit again because of it.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 14,
         "passText": "You saw the marks on the lower trunks, didn't you. The damage pattern isn't natural, it's too even, too deliberate, and it starts right at the boundary line where the property meets the road. Whoever did this walked the edge and worked inward. That's not blight, that's someone with a grudge and a steady hand.",
         "failText": "The trees are dying. Could be any number of causes this time of year."
       },
-      "rewardFlavor": "the restitution payment from the council and the first clean apples from the recovering trees",
+      "rewardFlavor": "restitution and clean orchard apples",
       "valence": "negative",
       "roleAffinity": []
     },
