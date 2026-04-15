@@ -30,6 +30,9 @@ public class Nat20PlayerData implements Component<EntityStore> {
     public static final BuilderCodec<Nat20PlayerData> CODEC = BuilderCodec.builder(Nat20PlayerData.class, Nat20PlayerData::new)
             .addField(new KeyedCodec<>("Stats", Codec.INT_ARRAY), Nat20PlayerData::setStats, Nat20PlayerData::getStats)
             .addField(new KeyedCodec<>("Level", Codec.INTEGER), Nat20PlayerData::setLevel, Nat20PlayerData::getLevel)
+            .addField(new KeyedCodec<>("TotalXp", Codec.LONG), Nat20PlayerData::setTotalXp, Nat20PlayerData::getTotalXp)
+            .addField(new KeyedCodec<>("PendingAbilityPoints", Codec.INTEGER),
+                    Nat20PlayerData::setPendingAbilityPoints, Nat20PlayerData::getPendingAbilityPoints)
             .addField(new KeyedCodec<>("Proficiencies", STRING_SET_CODEC), Nat20PlayerData::setProficiencies, Nat20PlayerData::getProficiencies)
             .addField(new KeyedCodec<>("QuestFlags", STRING_MAP_CODEC), Nat20PlayerData::setQuestFlags, Nat20PlayerData::getQuestFlags)
             .addField(new KeyedCodec<>("Reputation", INT_MAP_CODEC), Nat20PlayerData::setReputation, Nat20PlayerData::getReputation)
@@ -49,6 +52,8 @@ public class Nat20PlayerData implements Component<EntityStore> {
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
     private int[] stats = {10, 10, 10, 10, 10, 10};
     private int level = 1;
+    private long totalXp = 0L;
+    private int pendingAbilityPoints = 0;
     private Set<String> proficiencies = new HashSet<>();
     private Map<String, String> questFlags = new HashMap<>();
     private Map<String, Integer> reputation = new HashMap<>();
@@ -90,6 +95,33 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public long getTotalXp() { return totalXp; }
+    public void setTotalXp(long totalXp) { this.totalXp = totalXp; }
+
+    public int getPendingAbilityPoints() { return pendingAbilityPoints; }
+    public void setPendingAbilityPoints(int pendingAbilityPoints) {
+        this.pendingAbilityPoints = pendingAbilityPoints;
+    }
+
+    /**
+     * Add XP. Writes totalXp, recomputes+caches level, accrues pending ability points,
+     * and returns the level delta so the caller can fire side effects (HP modifier,
+     * level-up banner). Pure data mutation: side effects live in the caller.
+     */
+    public int addXp(int amount) {
+        if (amount <= 0) return 0;
+        int oldLevel = this.level;
+        this.totalXp += amount;
+        int newLevel = com.chonbosmods.progression.Nat20XpMath.levelForTotalXp(this.totalXp);
+        if (newLevel != oldLevel) {
+            this.level = newLevel;
+            if (newLevel > oldLevel) {
+                this.pendingAbilityPoints += (newLevel - oldLevel);
+            }
+        }
+        return newLevel - oldLevel;
     }
 
     public Set<String> getProficiencies() {
@@ -480,6 +512,8 @@ public class Nat20PlayerData implements Component<EntityStore> {
         Nat20PlayerData copy = new Nat20PlayerData();
         copy.stats = this.stats.clone();
         copy.level = this.level;
+        copy.totalXp = this.totalXp;
+        copy.pendingAbilityPoints = this.pendingAbilityPoints;
         copy.proficiencies = new HashSet<>(this.proficiencies);
         copy.questFlags = new HashMap<>(this.questFlags);
         copy.reputation = new HashMap<>(this.reputation);
