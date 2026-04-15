@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -99,7 +100,7 @@ public class Nat20ManaLeechSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double basePercent = range.interpolate(rolledAffix.midLevel());
+            double basePercent = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
             double effectivePercent = basePercent;
 
             PlayerStats stats = resolvePlayerStats(attackerRef, store);

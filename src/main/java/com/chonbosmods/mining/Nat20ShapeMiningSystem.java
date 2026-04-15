@@ -1,6 +1,7 @@
 package com.chonbosmods.mining;
 
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -127,7 +128,8 @@ public class Nat20ShapeMiningSystem extends EntityEventSystem<EntityStore, Break
         AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
         if (range == null) return;
 
-        int size = Math.max(1, (int) Math.round(range.interpolate(shape.midLevel())));
+        int size = Math.max(1, (int) Math.round(
+                Nat20AffixScaling.interpolate(range, shape.midLevel(), lootData, lootSystem.getRarityRegistry())));
 
         Ref<EntityStore> playerRef = chunk.getReferenceTo(entityIndex);
         Vector3i origin = event.getTargetBlock();

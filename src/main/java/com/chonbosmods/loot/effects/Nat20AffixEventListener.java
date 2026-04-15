@@ -218,7 +218,8 @@ public class Nat20AffixEventListener {
         AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
         if (range == null) return 0.0;
 
-        double baseValue = range.interpolate(rolledAffix.midLevel());
+        double baseValue = com.chonbosmods.loot.Nat20AffixScaling.interpolate(
+                range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
         double effectiveValue = baseValue;
 
         if (playerStats != null && def.statScaling() != null) {

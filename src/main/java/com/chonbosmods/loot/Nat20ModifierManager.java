@@ -144,7 +144,7 @@ public class Nat20ModifierManager {
                 if (playerData == null || playerId == null) continue;
                 AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
-                double baseValue = range.interpolate(rolledAffix.midLevel());
+                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, rarityRegistry);
                 int bonus = (int) baseValue;
                 if (bonus <= 0) continue;
 
@@ -181,8 +181,8 @@ public class Nat20ModifierManager {
             AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
             if (range == null) continue;
 
-            // Interpolate base value from loot level
-            double baseValue = range.interpolate(rolledAffix.midLevel());
+            // Interpolate base value from loot level (with ilvl + quality scaling)
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, rarityRegistry);
 
             // Apply stat scaling if player stats are available
             double effectiveValue = baseValue;

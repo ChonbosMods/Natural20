@@ -4,6 +4,7 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.combat.Nat20Softcap;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -91,7 +92,7 @@ public class Nat20HasteSystem extends EntityEventSystem<EntityStore, DamageBlock
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double baseValue = range.interpolate(rolledAffix.midLevel());
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
             double effectiveValue = baseValue;
 
             Ref<EntityStore> playerRef = chunk.getReferenceTo(entityIndex);

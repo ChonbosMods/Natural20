@@ -57,8 +57,8 @@ public class Nat20ItemRenderer {
             if (range == null) continue;
 
             // Interpolate at both ends of the rolled level range to get the per-item display range.
-            double minValue = range.interpolate(rolledAffix.minLevel());
-            double maxValue = range.interpolate(rolledAffix.maxLevel());
+            double minValue = Nat20AffixScaling.interpolate(range, rolledAffix.minLevel(), lootData, rarityRegistry);
+            double maxValue = Nat20AffixScaling.interpolate(range, rolledAffix.maxLevel(), lootData, rarityRegistry);
             double midValue = (minValue + maxValue) * 0.5;
 
             // Legacy numeric fields (still used by ComparisonDeltas for STAT-type diffing).

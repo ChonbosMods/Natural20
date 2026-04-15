@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -116,7 +117,9 @@ public class Nat20ThornsSystem extends DamageEventSystem {
                 if (range == null) continue;
 
                 // Per-hit RNG: thorns damage rolls fresh for each reflected attack.
-                double baseValue = range.interpolate(rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current()));
+                double baseValue = Nat20AffixScaling.interpolate(range,
+                        rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current()),
+                        lootData, lootSystem.getRarityRegistry());
                 double effectiveValue = baseValue;
                 PlayerStats stats = resolvePlayerStats(defenderRef, store);
                 if (stats != null && def.statScaling() != null) {

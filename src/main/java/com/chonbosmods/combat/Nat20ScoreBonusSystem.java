@@ -5,6 +5,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.AffixType;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.Nat20AffixDef;
@@ -199,7 +200,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
                 AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = range.interpolate(rolledAffix.midLevel());
+                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
                 double effectiveValue = baseValue;
 
                 if (affixDef.statScaling() != null) {

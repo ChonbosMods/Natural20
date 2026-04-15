@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -148,7 +149,9 @@ public class Nat20ElementalDamageSystem extends DamageEventSystem {
             if (range == null) continue;
 
             // Per-hit RNG: each swing rolls a fresh value uniformly within the item's range.
-            float flatDamage = (float) range.interpolate(rolledAffix.rollLevel(ThreadLocalRandom.current()));
+            float flatDamage = (float) Nat20AffixScaling.interpolate(range,
+                    rolledAffix.rollLevel(ThreadLocalRandom.current()),
+                    lootData, lootSystem.getRarityRegistry());
             if (flatDamage <= 0f) continue;
 
             // Fire secondary damage event with elemental cause

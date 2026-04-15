@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.Nat20AffixDef;
@@ -170,7 +171,7 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
             float damagePerTick = 0.5f; // fallback
             if (range != null) {
                 double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
-                double perTick = range.interpolate(rolledLevel);
+                double perTick = Nat20AffixScaling.interpolate(range, rolledLevel, lootData, lootSystem.getRarityRegistry());
                 // Stat scaling (WIS) amplifies per-tick damage.
                 PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
                 if (dotStats != null && def.statScaling() != null) {

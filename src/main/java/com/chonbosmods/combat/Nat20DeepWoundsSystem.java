@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.Nat20AffixScaling;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -131,7 +132,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
             float damagePerTick = 0.5f;
             if (dotRange != null) {
                 double rolledLevel = rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current());
-                double perTick = dotRange.interpolate(rolledLevel);
+                double perTick = Nat20AffixScaling.interpolate(dotRange, rolledLevel, lootData, lootSystem.getRarityRegistry());
                 PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
                 if (dotStats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
@@ -156,7 +157,9 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
 
             if (CombatDebugSystem.isEnabled(attackerUuid)) {
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-                double baseValue = range != null ? range.interpolate(rolledAffix.midLevel()) : 0;
+                double baseValue = range != null
+                        ? Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry())
+                        : 0;
                 double effectiveValue = baseValue;
                 PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
                 if (playerStats != null && def.statScaling() != null) {
