@@ -27,9 +27,24 @@
 
 **Phase 2 final state:** 259 templates total. Post-polish null/non-null ratio not recomputed per-situation but known shifts: mundane 14 null / 7 non-null (was 0/21); loss_of_loved_ones unchanged in null count (all 11 still non-null, weaving diversified). Awaiting Phase 4 for the final length audit.
 
-**Phase 3 (FETCH_ITEM article audit):** pending.
+**Phase 3 (FETCH_ITEM article audit):** ✅ complete. Batching plan at `docs/plans/2026-04-14-phase3-batches.md` (`0b77e8b`): 8 batches covering 198 in-scope templates with 278 `{quest_item}` occurrences (177 v2 + 21 mundane; mundane file mostly `COLLECT_RESOURCES`, 9 `PEACEFUL_FETCH`). Audit commits:
+- `c375694` batch 01 (deliverance / self_sacrifice_for_kindred / pursuit): 7 `{quest_item_full}` switches, 0 article-only fixes.
+- `4562dbd` batch 02 (vengeance / daring_enterprise / ambition): 2 `_full` switches, 0 article fixes.
+- `b3db546` batch 03 (obtaining / recovery / self_sacrifice_for_an_ideal / enigma): 0 `_full` switches, 6 article-only fixes (5 bare → articled + 1 broken `"one of their {quest_item}"` rewritten).
+- Batches 04 (rivalry_of_kinsmen / mistaken_jealousy / erroneous_judgment) and 05 (remorse / involuntary_crimes_of_love): audited, 0 edits needed — all in-scope references were already properly articled.
+- `a77eb57` batch 06 (obstacles_to_love / madness / necessity_of_sacrificing_loved_ones): 3 `_full` switches, 1 article fix.
+- `826e483` batch 07 (loss_of_loved_ones / conflict_with_fate / supplication / disaster): 11 `_full` switches (grief/keepsake contexts); `conflict_with_fate_04`'s flagged `"enough {quest_item}"` was COLLECT_RESOURCES-scoped and intentionally untouched.
+- Batch 08 mundane (21 templates): audited, 0 edits — 12 COLLECT_RESOURCES templates out of scope, 9 `PEACEFUL_FETCH` templates already well-articled.
 
-**Phase 4 (final sweep):** pending.
+**Phase 4 (final sweep):** ✅ complete.
+- `d184ab0` length audit: tightened the two >5-word `rewardFlavor` stragglers. `self_sacrifice_for_an_ideal_06` "a draft of the clean spring" (6w) → "spring water, clean and cold" (5w). `mundane_curiosity_01` "an old coin with an odd stamp" (7w) → "an odd old coin" (4w).
+- `68ad374` script cleanup + final verify: deleted `tools/quest_template_migration.py`. Final state: 0 `rewardText` / `{quest_reward}` stragglers across `src/main/resources/quests/` and `src/main/java/`; all 259 `rewardFlavor` values ≤5 words (v2: 238 templates / 25 null, mundane: 21 / 14 null); `jq` clean on both index files; `./gradlew compileJava` passes.
+
+**Out-of-scope observations logged during Phase 3** (carried to a follow-up, not bundled into this plan's scope; none carry a `{quest_item}` reference so they were correctly untouched):
+- `erroneous_judgment_03.resolutionText`: R14 corrective-reframing construction ("You didn't just help me, you helped this place...").
+- `mistaken_jealousy_10.expositionTurnInText`: typo "it's good work, but It the miracle" (missing "isn't").
+- `erroneous_judgment_07.declineText`: typo "I suppose It your problem" (missing "isn't").
+- `remorse_09.skillCheck.passText`: borderline R14 cadence ("The real weight of it isn't the thing I took. It's that I let myself...").
 
 
 **Revision history:**
