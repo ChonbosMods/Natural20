@@ -756,14 +756,14 @@
       "expositionTurnInText": "Look at all this. This is real now. I'm not just talking about it anymore. We're actually building toward something.",
       "conflict1Text": "Now I need the showpiece. There's a {quest_item} that would make the whole thing sing, nothing else will do. If you can find me that, I promise I'll make something worth the trouble.",
       "conflict1TurnInText": "It's perfect. It's exactly what I pictured. You've got no idea how long I've been waiting to hold one of these in my own hands.",
-      "resolutionText": "Look at it. I made this. I actually made this, and it's better than I let myself believe it could be. Take {reward_item}. You helped me prove something to myself that I needed to prove for years.",
+      "resolutionText": "Look at it. I made this. I actually made this, and it's better than I let myself believe it could be. Take {reward_item}, and take {reward_flavor}, because I wouldn't have anything to give if you hadn't helped me prove what I needed to prove.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "All right, I'll tell you. My mother used to say I had a head full of clouds and no hands to match. I've been trying to prove her wrong since the day she said it. This is going to be the thing that finally does it.",
         "failText": "It's a dream of mine, that's all. Some dreams are worth chasing even when you can't explain them."
       },
-      "rewardFlavor": "the first piece I make and a generous share of coin from my own savings",
+      "rewardFlavor": "the first piece I make",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -787,14 +787,14 @@
       "expositionTurnInText": "{target_npc} actually agreed to share their knowledge? I could cry. That's exactly what I needed to hear today. Validation that this isn't a foolish dream after all.",
       "conflict1Text": "Now I need to put it into practice. {gather_count} {quest_item}. That's what they recommended I start with. Bring me that and I'll make something worthy of what they taught me.",
       "conflict1TurnInText": "This is everything I needed. I can already feel my hands itching to get to work. I haven't been this excited in I don't know how long.",
-      "resolutionText": "I'm not the same person I was a week ago. I know more, I can do more, and for the first time I really believe I'll get where I want to go. Take {reward_item}. It's the start of what I hope becomes a long friendship.",
+      "resolutionText": "I'm not the same person I was a week ago. I know more, I can do more, and for the first time I really believe I'll get where I want to go. Take {reward_item}. It's the start of what I hope becomes a long friendship, and you'll always have {reward_flavor} when you pass through.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 13,
         "passText": "You've heard of {target_npc}'s reputation, then? Good. Then you understand why I'm willing to send a stranger across the region just for a conversation. There's no one else within reach who's at that level. Not in {settlement_name}, not in {other_settlement}, not anywhere I know of.",
         "failText": "They're someone worth listening to. That's the short of it."
       },
-      "rewardFlavor": "a fair purse and an open invitation to come watch me work whenever you're nearby",
+      "rewardFlavor": "a seat at my bench",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They want to learn from me? I've had people ask before, and most of them quit after the first real lesson. If they're serious, truly serious, then I'll teach them everything I know. I don't waste time on people who aren't ready to work.",
@@ -827,14 +827,14 @@
       "conflict1TurnInText": "That's a relief I didn't even know I was waiting for. The whole place feels lighter, like the future just opened up a little wider.",
       "conflict2Text": "Last thing, and it's the one I'm most excited about. There's a {quest_item} that would be the heart of everything I'm trying to do. It's the one piece I can't substitute. Bring it to me and I can finally say I've done what I set out to do.",
       "conflict2TurnInText": "It's exactly what I dreamed of. I'm going to put it right at the center where everyone can see it. People are going to talk about this for a long time.",
-      "resolutionText": "I look around now and I see something I made happen, not alone, but I started it, and that counts. Take {reward_item}, with my real and lasting thanks. I get to be proud of myself today, and that's a feeling I want to share.",
+      "resolutionText": "I look around now and I see something I made happen, not alone, but I started it, and that counts. Take {reward_item}, with my real and lasting thanks. And expect {reward_flavor}, because I get to be proud of myself today, and that's a feeling I want to share.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 13,
         "passText": "You noticed I've been at this already, didn't you. Yes. I've been quietly putting pieces in place for weeks. I didn't want to ask for help until I knew the bones of the idea would actually hold up. Now I know they do.",
         "failText": "It's just an idea I've been turning over for a while. Nothing fancier than that."
       },
-      "rewardFlavor": "a generous purse from what I've been saving for this and a story I'll tell about you for years",
+      "rewardFlavor": "a story told for years",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -3336,14 +3336,14 @@
       "expositionTurnInText": "That's a solid start. The foundation is going to hold well with this much on hand. There's one more piece I need before I can really get moving.",
       "conflict1Text": "I need a {quest_item} for the main workstation. It's the one thing I can't substitute and I haven't been able to source it locally. If you find one, the whole project comes together.",
       "conflict1TurnInText": "That's exactly what I was after. The workstation is going to be twice as capable as the old one.",
-      "resolutionText": "The expansion is underway. By next month I'll be taking commissions I used to have to turn down, and that's a good feeling. Take {reward_item}. You helped me take a plan off paper and put it into wood and stone.",
+      "resolutionText": "The expansion is underway. By next month I'll be taking commissions I used to have to turn down, and that's a good feeling. Take {reward_item}, and you've earned {reward_flavor} on top of it. You helped me take a plan off paper and put it into wood and stone.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 10,
         "passText": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. Not because I need anyone to remember my name, but because I'd like to know the work continues after I'm done with it.",
         "failText": "It's a good project. That's reason enough."
       },
-      "rewardFlavor": "a fair wage and first pick of anything I craft this season",
+      "rewardFlavor": "first pick this season",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -3381,7 +3381,7 @@
         "passText": "My father ran a route like this before the roads got bad. He always said the trick was starting small and being reliable. I've been reliable my whole life. I just needed the small start.",
         "failText": "It's a sound plan. The details will sort themselves."
       },
-      "rewardFlavor": "a percentage of the first shipment's earnings and my thanks",
+      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "A trade route with regular schedules? I've been hoping someone on that end would finally put it together. The demand is here, I just needed someone steady enough to supply it.",
@@ -6938,14 +6938,14 @@
       "expositionTurnInText": "That's the kind of result people notice. Word is already getting around that the {enemy_type_plural} are handled. Now I want to build on it before the momentum fades.",
       "conflict1Text": "I need {gather_count} {quest_item} to finish a project I've been planning. Something visible, something that shows I can follow through on the big ideas, not just the small ones. Help me stockpile and I'll do the rest.",
       "conflict1TurnInText": "Look at this. I have everything I need to start building. This time next month, people will walk past and know who put it together.",
-      "resolutionText": "It's happening. The project is underway, the {enemy_type_plural} are handled, and {settlement_name} is looking at me differently. Take {reward_item}. You helped me earn something I couldn't buy, and I won't forget who was there at the beginning.",
+      "resolutionText": "It's happening. The project is underway, the {enemy_type_plural} are handled, and {settlement_name} is looking at me differently. Take {reward_item}, and you'll have {reward_flavor} when the history gets written. I won't forget who was there at the beginning.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do.",
         "failText": "That's a funny question, I know what I'm doing. Let's leave it there."
       },
-      "rewardFlavor": "a proper share of the profits and my word that your name goes on the record",
+      "rewardFlavor": "your name on the record",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -6976,14 +6976,14 @@
       "conflict2TurnInText": "That's everything I need to break ground. I can feel the shape of it already. This is going to change things in {settlement_name}.",
       "targetNpcOpener": "Someone finally made the pitch. I've been hearing about this plan secondhand for weeks, and I was wondering when they'd get serious enough to send a proper messenger. Tell them I'm interested. The numbers make sense, and I like ambition that comes with a materials list.",
       "targetNpcCloser": "I'll send my terms by the end of the week. This could work.",
-      "resolutionText": "The foundation is laid, the partners are signed, and I can finally stop talking about what I'm going to do and start showing people what I've done. Take {reward_item}. You weren't just running errands. You helped build something that's going to last.",
+      "resolutionText": "The foundation is laid, the partners are signed, and I can finally stop talking about what I'm going to do and start showing people what I've done. Take {reward_item}. You weren't just running errands. You helped build something that's going to last, which is why you'll see {reward_flavor} when the sign goes up.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "You caught the part I'm not saying out loud. My father ran this same shop for thirty years and never once tried to make it bigger, and people told me I'd end up the same way, steady but small. Every board I lay is an answer to that prediction, and some mornings I'm not sure if I'm building something real or just building spite into a storefront.",
         "failText": "It's a good opportunity. I don't need a deeper reason than that."
       },
-      "rewardFlavor": "a founding partner's share and my guarantee that your name stays on the door",
+      "rewardFlavor": "your name on the door",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7014,14 +7014,14 @@
       "conflict1TurnInText": "The route is open, the backing is secured, and I'm standing where I've been imagining myself for years. It looks even better from here.",
       "targetNpcOpener": "I had a feeling this day would come. They've been building toward something for years, and they've earned the right to call in what I owe. Consider the debt settled. I'll send word and the resources they need.",
       "targetNpcCloser": "Tell them it's done, and that I wish them well. They'll need it where they're headed.",
-      "resolutionText": "Everything is in motion. The favor is called, the road is clear, and I'm finally doing the thing I've been planning since I was old enough to plan. Take {reward_item}. You arrived at the exact right moment, and I believe in rewarding good timing.",
+      "resolutionText": "Everything is in motion. The favor is called, the road is clear, and I'm finally doing the thing I've been planning since I was old enough to plan. Take {reward_item}, and with it {reward_flavor} to whoever you want to carry it. You arrived at the exact right moment, and I believe in rewarding good timing.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "You want the real talk, fine. I've been told no so many times in my life that I stopped counting and started collecting, because every refusal is fuel. The people who laughed at this idea are going to watch it succeed, and I want them to feel exactly what I felt every time they dismissed me.",
         "failText": "I see an opportunity and I'm taking it. Simple as that."
       },
-      "rewardFlavor": "a generous bonus from the first profits and my personal endorsement",
+      "rewardFlavor": "my personal endorsement",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7045,14 +7045,14 @@
       "expositionTurnInText": "Real quality, exactly what I've been looking for. But materials alone don't make a masterwork. I need one more piece.",
       "conflict1Text": "There's a {quest_item} that would make this project something people remember for years. It's rare, and it's out there somewhere, and I need someone willing to track it down. Bring it to me and watch what I do with it.",
       "conflict1TurnInText": "Do you see this? Do you see what we have? This is the piece that turns good into exceptional. I'm going to start tonight.",
-      "resolutionText": "It's done, and it's the finest thing I've ever made. People are already talking about it, and they're using my name in the same breath as the old masters. Take {reward_item}. You helped me make something that proves I belong at the top of this craft.",
+      "resolutionText": "It's done, and it's the finest thing I've ever made. People are already talking about it, and they're using my name in the same breath as the old masters. Take {reward_item}. And take {reward_flavor}, so you carry proof of what we pulled off together.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 14,
         "passText": "You see the edge in me, and you're not wrong. There's a {self_role} in {other_settlement} who's been called the finest in the region for years, and their work is competent while mine is inspired. I've been watching them collect praise for mediocrity until it ate at me so badly I couldn't sit still anymore, and this piece is my answer.",
         "failText": "I take my craft seriously. That's all anyone needs to know."
       },
-      "rewardFlavor": "a handsome payment and a piece of my best work, signed",
+      "rewardFlavor": "a signed piece, my best",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7082,14 +7082,14 @@
       "conflict1TurnInText": "{target_npc} said yes. They actually said yes. I can see the whole thing unfolding now, every step of it, clear as morning.",
       "targetNpcOpener": "I've heard the name mentioned a few times recently, and I was curious what they were after. Building something lasting for {settlement_name}? That takes nerve and materials in equal measure, and I respect anyone willing to put both on the table. I'll lend my support.",
       "targetNpcCloser": "Tell them they have my backing. Now let's see if they can deliver.",
-      "resolutionText": "The land is clear, the backing is real, and the first stones are going down this week. Take {reward_item}. Fifty years from now, someone will ask who helped build this, and your name will be in the answer.",
+      "resolutionText": "The land is clear, the backing is real, and the first stones are going down this week. Take {reward_item}, and you'll have {reward_flavor} beside my own. Fifty years from now, someone will ask who helped build this, and your name will be in the answer.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You see right through the big talk, don't you. I'm not building this because I love {settlement_name}. I'm terrified of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
         "failText": "I want to build something. That's reason enough."
       },
-      "rewardFlavor": "a founder's share and a place of honor in the record books",
+      "rewardFlavor": "a place in the record",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7120,14 +7120,14 @@
       "conflict2TurnInText": "{target_npc} agreed to write the letter. When they read that name at the council table, every head in the room will turn.",
       "targetNpcOpener": "So they're making their move. I've been watching from a distance, and I think they've got the right instincts for it. The question was always whether they'd follow through, and sending you here tells me the answer. I'll write the letter.",
       "targetNpcCloser": "It'll be in their hands before the meeting. Tell them to use it well.",
-      "resolutionText": "The meeting is set, the proposal is funded, and I have a letter from {target_npc} that will make them take me seriously for the first time. Take {reward_item}. Win or lose, you helped me step into the room as someone who belongs there, and that changes everything.",
+      "resolutionText": "The meeting is set, the proposal is funded, and I have a letter from {target_npc} that will make them take me seriously for the first time. Take {reward_item}. Win or lose, {reward_flavor}, and that's a debt I pay in full when the day comes.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 13,
         "passText": "You understand tradition, then, so you'll understand this. The council has always chosen its leaders from the same three families, and my family isn't one of them. That's not written anywhere but it's understood, and breaking that understanding scares them more than anything I might actually do. I'm breaking a rule nobody will admit exists.",
         "failText": "It's politics. Straightforward enough if you know the game."
       },
-      "rewardFlavor": "a generous purse and my promise that I remember the people who helped me climb",
+      "rewardFlavor": "I remember who helped me",
       "valence": "positive",
       "roleAffinity": []
     },
