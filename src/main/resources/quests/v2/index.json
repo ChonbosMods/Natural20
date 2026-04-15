@@ -2064,14 +2064,14 @@
       "expositionTurnInText": "Oh. I haven't held one of these since the morning before he left. It even smells the same, which I know it shouldn't, but it does. There's one more thing left undone, and I think I can finally face it now.",
       "conflict1Text": "His oldest friend {target_npc} lives in {target_npc_settlement}. I sent word back when it happened, but a letter isn't the same as someone telling you. I'd like {target_npc_role} to hear how it really went, from a person who can answer questions. Would you bring the news?",
       "conflict1TurnInText": "Thank you. I should have done that myself, but I couldn't bear telling the story over and over to people who needed to ask. You carried that for me, and it was kind.",
-      "resolutionText": "I think I'll sleep tonight. Properly, for the first time in a while. Take {reward_item}. It isn't payment, it's a thank-you for something that doesn't have a price.",
+      "resolutionText": "I think I'll sleep tonight. Properly, for the first time in a while. Take {reward_item}: {reward_flavor}. It isn't payment, it's a thank-you for something that doesn't have a price.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "What I miss most isn't the big things. It's how he hummed when he didn't know I was listening. I keep catching myself listening for it in {settlement_name} and feeling foolish.",
         "failText": "It's been a long winter. I'd rather not say more than that."
       },
-      "rewardFlavor": "a small ring of his that I have no use for now and won't see wasted",
+      "rewardFlavor": "his small ring",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I knew something was wrong. I hadn't heard from him in too long, and he was never the quiet type. Hearing it spoken is different from fearing it, though. Give me a moment.",
@@ -2102,14 +2102,14 @@
       "conflict1TurnInText": "That's enough. That's the one I'll keep. Looking at it doesn't hurt the way I thought it would, which is its own kind of strange.",
       "conflict2Text": "There's one more thread. His old hunting partner {target_npc} lives over in {target_npc_settlement}, and I never told {target_npc_role} how it happened. They deserved better than the rumor that reached them. Go and tell {target_npc} the truth, if you would.",
       "conflict2TurnInText": "Thank you. They needed to hear it, and I needed to know they did. That's the last thing I was holding onto.",
-      "resolutionText": "I think I'm going to plant something this spring. I hadn't even thought about spring until today. {reward_item} is yours, and I mean every bit of it. You helped me set down something I'd been carrying for too long.",
+      "resolutionText": "I think I'm going to plant something this spring. I hadn't even thought about spring until today. {reward_item} is yours: {reward_flavor}, and I mean every bit of it. You helped me set down something I'd been carrying for too long.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 13,
         "passText": "His grandfather was killed by {enemy_type_plural} too, before any of us were old enough to remember properly. I used to tell my son that story to make him careful. Now I wonder if I made him afraid of the wrong things.",
         "failText": "It's an old grief in this family. That's all I'll say tonight."
       },
-      "rewardFlavor": "a few of his things that should belong to someone who'll use them",
+      "rewardFlavor": "a few of his things",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "So that's the truth of it. I heard a version from someone passing through, but I couldn't make myself believe it. We walked every trail around here together. I keep catching myself saving things to tell him.",
@@ -2135,8 +2135,8 @@
       "expositionTurnInText": "There it is. She would have laughed at me for getting sentimental over something so plain. I'm going to set it on the table tonight and have a meal with her, the way we used to. There's one other thing, if you're willing.",
       "conflict1Text": "The {enemy_type_plural} have been close to {settlement_name} more often lately, and I can't sit with her memory in peace when I'm flinching at every sound outside. Take {kill_count} of them down. I want one quiet evening, that's all.",
       "conflict1TurnInText": "It's the first quiet night I've had in weeks. I lit a candle for her and just sat with it. Nothing grand, but it was what I needed.",
-      "resolutionText": "I'll mark the day properly tomorrow. I haven't been able to do that in two years, and now I think I can. Take {reward_item}. She would have wanted me to give something back to whoever helped.",
-      "rewardFlavor": "the silver clasp she left me, which is no use sitting in a drawer",
+      "resolutionText": "I'll mark the day properly tomorrow. I haven't been able to do that in two years, and now I think I can. Take {reward_item}, {reward_flavor}. She would have wanted me to give something back to whoever helped.",
+      "rewardFlavor": "her silver clasp",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3265,14 +3265,14 @@
       "expositionTurnInText": "That's the one. Looks about right sitting there next to his other things. There's one more matter I've been meaning to see to.",
       "conflict1Text": "His old partner {target_npc} in {target_npc_settlement} should hear the full story. I sent a letter, but letters don't carry much weight for this kind of news. Would you talk to {target_npc_role} in person?",
       "conflict1TurnInText": "Thank you. {target_npc} deserved to hear it from a person, and I wasn't ready to make that trip myself.",
-      "resolutionText": "The shelf looks right now, and the people who needed to know have been told. Take {reward_item}. He was a practical man, and he'd have approved of paying someone fairly for finishing the job.",
+      "resolutionText": "The shelf looks right now, and the people who needed to know have been told. Take {reward_item}: {reward_flavor}. He was a practical man, and he'd have approved of paying someone fairly for finishing the job.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
         "passText": "I thought I'd feel more settled by now, but grief doesn't follow a schedule. Some mornings I forget for a minute, and then I remember, and it's just as fresh. I'm getting through the days, and that counts for something.",
         "failText": "It's been a few months. I'm managing."
       },
-      "rewardFlavor": "a few of his coins that should go to someone who earned them",
+      "rewardFlavor": "a few of his coins",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I had a feeling someone would come with this news sooner or later. He was the kind of man who'd have worked right up until the end, so I imagine that's close to what happened.",
@@ -3303,14 +3303,14 @@
       "conflict1TurnInText": "That's right. That's where it goes. The bench looks like hers again, and that's enough.",
       "conflict2Text": "One last thing. Her friend {target_npc} in {target_npc_settlement} has been asking about her in letters I haven't had the will to answer. Would you go see {target_npc_role} and tell them what happened? I'd rather they hear it straight.",
       "conflict2TurnInText": "Then {target_npc} knows. I should have done that sooner, but I'm glad it's done now.",
-      "resolutionText": "Her bench is set right, her friend has been told, and the road is quiet. That's about as settled as things get. Take {reward_item}. She would have called it practical, and she would have meant it as a compliment.",
+      "resolutionText": "Her bench is set right, her friend has been told, and the road is quiet. That's about as settled as things get. Take {reward_item}: {reward_flavor}. She would have called it practical, and she would have meant it as a compliment.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "I keep her tools in order every morning before I start my own work. I know it's not necessary. I think it's the closest thing I have to a conversation with her anymore, and I'm not ready to give that up.",
         "failText": "We were close. That's about all there is to say."
       },
-      "rewardFlavor": "a share of what she left me and my honest thanks",
+      "rewardFlavor": "a share of her keepsakes",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was wondering why the letters stopped. I'd hoped it was just a busy season, but I suppose I knew better than that. She wasn't the type to forget.",
@@ -6741,14 +6741,14 @@
       "conflict1TurnInText": "{target_npc} knows now. They sent back a message for me, and I'm not ready to read it yet, but I will be. Someday soon.",
       "targetNpcOpener": "I wondered why he hadn't written. We'd been exchanging letters since before the frost, and when they stopped I told myself he was just busy. I'm glad someone came in person. He deserved better than a rumor reaching me months from now.",
       "targetNpcCloser": "Tell her I'll come visit when the roads allow. She shouldn't sit in that house alone too long.",
-      "resolutionText": "His list is a little shorter, and his friend knows the truth. That's what I have to show for today, and it's more than I had yesterday. Take {reward_item}. He'd have wanted to pay properly for the help, and I'd like to honor that.",
+      "resolutionText": "His list is a little shorter, and his friend knows the truth. That's what I have to show for today, and it's more than I had yesterday. Take {reward_item}, {reward_flavor}. He'd have wanted to pay properly for the help, and I'd like to honor that.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "It is nice having the list, you're right, gives you something to do in the morning. That's the part I don't say out loud. I've spent so many years thinking in pairs that I've forgotten how to want things on my own, and the errands keep me moving. I'm afraid of what happens when I run out of them.",
         "failText": "That's a kind thought, but I'd rather not go deeper into it. The errand is what matters."
       },
-      "rewardFlavor": "the payment he'd set aside for the job and my lasting thanks",
+      "rewardFlavor": "the payment he set aside",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6772,14 +6772,14 @@
       "expositionTurnInText": "I went up this morning. The stone is still standing, and someone, maybe the wind, had scattered wildflowers across the base. I sat there for an hour and didn't say anything. There's one more thing I'd like to bring her.",
       "conflict1Text": "She used to keep a {quest_item} on her windowsill. Said it reminded her of the good parts. I'd like to leave one at the grave. Something that says I still remember the same things she did.",
       "conflict1TurnInText": "I set it next to the stone where the light hits in the afternoon. She would have liked that.",
-      "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {reward_item}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
+      "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {reward_item}: {reward_flavor}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 11,
         "passText": "You noticed that the timing doesn't add up. You're right. The {enemy_type_plural} moved in three weeks ago, but I stopped visiting two months before that. I kept finding reasons, the weather, the path, my knees, and none of them were the real one. The real one is that I'm afraid I'll stand at her grave and realize I'm starting to forget her voice, and I don't want to be there when that happens.",
         "failText": "I just miss her. The rest is my own business."
       },
-      "rewardFlavor": "what she left me that I can bear to part with and a sibling's honest thanks",
+      "rewardFlavor": "a keepsake of my sister's",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6805,14 +6805,14 @@
       "conflict1TurnInText": "The shed is untouched. His carvings are still on the shelf, exactly where he left them. I can close the door now and know they'll stay that way.",
       "targetNpcOpener": "I could tell by the way you walked in. You don't bring that kind of quiet for good news. Tell me what happened. I'd rather hear it plainly than wonder.",
       "targetNpcCloser": "I'll write to the family when I can find the right words. Give me a few days.",
-      "resolutionText": "The shed is safe, and his teacher knows. That's two things done, and neither of them will bring him back, but they let me set one plate at supper tonight and mean it. Take {reward_item}. He would have been embarrassed by the fuss, which is exactly why I'm making it.",
+      "resolutionText": "The shed is safe, and his teacher knows. That's two things done, and neither of them will bring him back, but they let me set one plate at supper tonight and mean it. Take {reward_item}: {reward_flavor}. He would have been embarrassed by the fuss, which is exactly why I'm making it.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "You want the part nobody asks about, fine. I'm angry, not at anyone in particular, just angry at the way it happened, angry at the season for turning, angry at the plate for being empty. Grief is supposed to be sad, and it is, but underneath that it's the angriest I've ever been in my life and I have nowhere to put it.",
         "failText": "I'm getting by. Some days are longer than others."
       },
-      "rewardFlavor": "the coins he'd saved in a jar by his bed and a parent's solemn thanks",
+      "rewardFlavor": "coins from his bedside jar",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6843,14 +6843,14 @@
       "conflict2TurnInText": "{target_npc} said they'd forgotten about it entirely, but they were glad to have it back. They asked about her, and I suppose you told them.",
       "targetNpcOpener": "This is the piece she borrowed? I told her to keep it, but that was never her way, she always returned everything, even kindnesses. I'm sorry to hear she's gone. She was one of the careful ones.",
       "targetNpcCloser": "Tell him I remember her fondly. That's the truth, and it's what he needs to hear.",
-      "resolutionText": "Her list is one item shorter, and her name was spoken kindly by someone who knew her. That's a good day, by the measure I use now. Take {reward_item}. She'd have paid you properly and probably fed you too, and I'm doing my best to be as generous as she was.",
+      "resolutionText": "Her list is one item shorter, and her name was spoken kindly by someone who knew her. That's a good day, by the measure I use now. Take {reward_item}, {reward_flavor}. She'd have paid you properly and probably fed you too, and I'm doing my best to be as generous as she was.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
         "failText": "She left things in order, and I'm following it."
       },
-      "rewardFlavor": "what she'd set aside for exactly this purpose and a widower's quiet thanks",
+      "rewardFlavor": "what my wife set aside",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6874,14 +6874,14 @@
       "expositionTurnInText": "It's calmer now. I went out to her garden this morning and stood there without looking over my shoulder. That felt like progress. But there's something else I've been meaning to do.",
       "conflict1Text": "She had a {quest_item} she kept on the mantle, said it reminded her of the village where she grew up. It broke during the last storm and I want to find a replacement. Not the same one, obviously, but something close enough that the mantle doesn't look so bare.",
       "conflict1TurnInText": "That's close. Not the same, but she'd have understood the gesture. I put it where hers used to sit, and the room feels less empty now.",
-      "resolutionText": "The grounds are safe and the mantle has something on it again. Small things, both of them, but she lived in small things, and I think that's where I'll keep finding her. Take {reward_item}. She would have made you sit down for pie first, but I'm not the baker she was.",
+      "resolutionText": "The grounds are safe and the mantle has something on it again. Small things, both of them, but she lived in small things, and I think that's where I'll keep finding her. Take {reward_item}: {reward_flavor}. She would have made you sit down for pie first, but I'm not the baker she was.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
         "passText": "You understand the weight of the small things, don't you. Everyone told me the big moments would be the hardest, the holidays, the anniversaries, but they were wrong. Every morning I come downstairs expecting to hear her humming, and every morning the kitchen is just a kitchen. That's the part that's killing me slowly.",
         "failText": "I miss her, and the house is quiet."
       },
-      "rewardFlavor": "her favorite coin purse and the thanks of a granddaughter who isn't done remembering",
+      "rewardFlavor": "her favorite coin purse",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -6905,14 +6905,14 @@
       "conflict1TurnInText": "I placed it there myself, at the crossroads, where the path splits. The wind was blowing east, which was his favorite direction. I know that doesn't mean anything, but it felt right.",
       "targetNpcOpener": "His brother sent you. I've been expecting this visit for longer than I'd like to admit. We had words between us, old ones, and he wanted them resolved before the end. Tell his brother the matter is closed, and that I wish I'd said so while there was still time to say it in person.",
       "targetNpcCloser": "The debt is paid, both sides of it. Tell him I'm sorry it took this long.",
-      "resolutionText": "The promise is kept, the debt is settled, and there's a marker at the crossroads that will outlast both of us. Take {reward_item}. My brother left it with instructions, and you were the hands that carried it through.",
+      "resolutionText": "The promise is kept, the debt is settled, and there's a marker at the crossroads that will outlast both of us. Take {reward_item}: {reward_flavor}. My brother left it with instructions, and you were the hands that carried it through.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
         "passText": "You noticed the mark on the stone he wanted placed. My brother believed the crossroads held a kind of memory, that places where paths split could hold the echo of the people who stood there and chose. I don't know if he was right, but I know he believed it completely, and I'm not going to let that belief go unhonored.",
         "failText": "It was important to him. That's reason enough for me."
       },
-      "rewardFlavor": "what my brother set aside for this exact purpose and a family's word kept",
+      "rewardFlavor": "what my brother set aside",
       "valence": "negative",
       "roleAffinity": []
     },
