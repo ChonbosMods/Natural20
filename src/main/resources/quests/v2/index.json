@@ -1390,14 +1390,14 @@
       "conflict1TurnInText": "Oh. Oh no. This is not what I thought I was going to be holding right now. I owe someone an apology, and it isn't you.",
       "conflict2Text": "I need you to go back to {target_npc} one more time. I want them to tell me, plainly, that I've been wrong about {settlement_npc} this whole time. I think I need to hear it from someone other than my own embarrassment before I can face the person I've been spying on.",
       "conflict2TurnInText": "{target_npc} was kinder about it than I deserved. I've been building a case against someone who was just trying to do something thoughtful, and I feel about as small as a person can feel.",
-      "resolutionText": "I went and apologized to {settlement_npc} this morning. They laughed at me, which I deserved, and then they hugged me, which I didn't but I'll take it. Please take {reward_item}, and please, please don't tell anyone what I had you do.",
+      "resolutionText": "I went and apologized to {settlement_npc} this morning. They laughed at me, which I deserved, and then they hugged me, which I didn't but I'll take it. Please take {reward_item}, plus {reward_flavor}. And please, please don't tell anyone what I had you do.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "I'll tell you the truth I haven't said out loud. I'm scared they're tired of me. We've been through everything together and lately I feel like I'm losing them, and watching them sneak around is easier than admitting I think they don't want me anymore.",
         "failText": "I just need to know what they're doing. That's all."
       },
-      "rewardFlavor": "what coin I can spare and a promise that I'll never ask you to do this again",
+      "rewardFlavor": "my silent apology, forever",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "{settlement_npc} slipping out before dawn? That doesn't surprise me at all. They used to do the same thing when we were young, always working on something they didn't want anyone seeing before it was finished. Whatever they're up to, I'd bet good coin it's well meant.",
@@ -1423,14 +1423,14 @@
       "expositionTurnInText": "Holding this next to the others, I can see they're nothing alike. The pattern I was so sure of isn't there at all. I feel a little ridiculous and a lot relieved, but I'm not done yet.",
       "conflict1Text": "I still need to know who's been leaving them, and I'd rather not ask my partner directly. Could you go to {target_npc} in {target_npc_settlement}? They notice everything that happens around here, and if anyone's been seen near my partner lately, {target_npc} will know who.",
       "conflict1TurnInText": "It was a child. {target_npc} says it was one of the children, leaving little treasures because my partner once helped them find a lost toy. I have been losing sleep over a six-year-old's gratitude.",
-      "resolutionText": "I went home and told my partner the whole stupid story. They thought it was the funniest thing they'd heard all month, and I'm choosing to take that as forgiveness. Take {reward_item}, and please understand if I never speak of this to anyone, ever again.",
+      "resolutionText": "I went home and told my partner the whole stupid story. They thought it was the funniest thing they'd heard all month, and I'm choosing to take that as forgiveness. Take {reward_item} — and {reward_flavor} — and please understand if I never speak of this to anyone, ever again.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 11,
         "passText": "You're looking at me like you can tell I'm shaking. I am. This isn't me being suspicious, this is me being terrified, and I would rather you knew that than think I'm a bitter person.",
         "failText": "I'm fine. I just need to know."
       },
-      "rewardFlavor": "a small bundle of what I can spare and your discretion, more than anything",
+      "rewardFlavor": "your discretion, more than anything",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Gifts on the workbench? Oh, I know exactly who that is. I've been watching one of the little ones leave things there for weeks, ever since your partner helped them find a lost toy. Quite sweet, really.",
@@ -1454,8 +1454,8 @@
       "expositionTurnInText": "{target_npc} said that? So {settlement_npc} has been giving me credit, just not in earshot of me. That's not what I was expecting, and now I feel a little ill about how I've been thinking of them.",
       "conflict1Text": "I want to be sure before I let myself off the hook. Could you bring me a {quest_item}, the kind {settlement_npc} has been making lately? If I see it for myself, I'll know whether they're using my methods or something they figured out on their own. Either way I want to stop guessing.",
       "conflict1TurnInText": "This isn't my work at all. They've moved past what I taught them and built something new on top of it, and here I was being jealous of someone who was honoring me by doing better than me. I don't know whether to laugh or to hide.",
-      "resolutionText": "I went and told {settlement_npc} I was proud of them, which is the conversation I should have had three weeks ago instead of stewing. They cried, which means I had hurt them more than I knew, and I hate that. Take {reward_item}. You saved a friendship I was too small to save myself.",
-      "rewardFlavor": "the best piece of my own work, since I'd like someone to remember how it looks",
+      "resolutionText": "I went and told {settlement_npc} I was proud of them, which is the conversation I should have had three weeks ago instead of stewing. They cried, which means I had hurt them more than I knew, and I hate that. Take {reward_item}: {reward_flavor}. You saved a friendship I was too small to save myself.",
+      "rewardFlavor": "my best piece of work",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "Of course I remember the teaching, but here's what I've also seen. {settlement_npc} has been singing your friend's praises to anyone who'll listen. They haven't been quiet about it at all. Maybe the praise just hasn't reached the right ears yet.",
@@ -3414,7 +3414,7 @@
         "passText": "I'll be honest with you. I've been told before that I read too much into things, and every time I promise myself I'll stop, I find a new pattern to worry about. This time I was so sure I was right that I didn't stop to ask whether I wanted to be.",
         "failText": "I'd rather just get the facts and move on."
       },
-      "rewardFlavor": "a fair trade's worth and my word that I'll think twice next time",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3438,14 +3438,14 @@
       "conflict1TurnInText": "That's a good {quest_item}. Simple enough that it won't raise questions, and honest enough that they'll know I mean it.",
       "targetNpcOpener": "I remember that conversation clearly. {settlement_npc} was telling a trader from outside that they'd better stop spreading rumors about people in {settlement_name}. It got heated, but {settlement_npc} held their ground. They were standing up for someone they care about.",
       "targetNpcCloser": "If you're asking because someone took it the wrong way, you can set their mind at ease.",
-      "resolutionText": "I gave {settlement_npc} the gift and told them I'd heard them that day, and that I was grateful. They seemed surprised anyone had noticed. Take {reward_item}. You stopped me from holding a grudge against someone who deserved the opposite.",
+      "resolutionText": "I gave {settlement_npc} the gift and told them I'd heard them that day, and that I was grateful. They seemed surprised anyone had noticed. Take {reward_item}, and {reward_flavor}. You stopped me from holding a grudge against someone who deserved the opposite.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
         "passText": "The part I haven't admitted is that I expected the worst because I've been feeling like an outsider here for months. When you already feel unwanted, it's easy to hear confirmation in every conversation you're not part of.",
         "failText": "It's nothing worth going into. I just want clarity."
       },
-      "rewardFlavor": "what I can put together on short notice and my honest thanks",
+      "rewardFlavor": "my quiet, honest thanks",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7158,7 +7158,7 @@
         "passText": "You see the problem with what I just told you, don't you. I said I found discrepancies, but I went looking for them. I started with the conclusion and worked backward through the ledger until the numbers confirmed what I'd already decided. Every ambiguous entry fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
         "failText": "I just want the facts. That's all."
       },
-      "rewardFlavor": "a fair sum and my word that I'll try to see straight from now on",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7182,14 +7182,14 @@
       "conflict1TurnInText": "That's perfect. Simple enough not to raise questions, generous enough to mean something. I'll give it to them tonight and let the whole ugly chapter close.",
       "targetNpcOpener": "You're asking about {settlement_npc}? I see them most evenings, up on the widow Margel's roof patching holes before the rain season. Hard work, and they never mention it to anyone. I assumed the family knew.",
       "targetNpcCloser": "There's nothing to worry about. They're just doing a kindness and being quiet about it.",
-      "resolutionText": "I gave {settlement_npc} the gift, and they looked at me like I'd said something they needed to hear without either of us speaking. Take {reward_item}. You saved me from myself, and that's not a debt I take lightly.",
+      "resolutionText": "I gave {settlement_npc} the gift, and they looked at me like I'd said something they needed to hear without either of us speaking. Take {reward_item}. {reward_flavor}. You saved me from myself, and that's not a debt I take lightly.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 11,
         "passText": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
         "failText": "I just need someone to confirm what I'm hoping is true."
       },
-      "rewardFlavor": "what I can put together quickly and my honest thanks for the discretion",
+      "rewardFlavor": "gratitude, for your discretion",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7213,14 +7213,14 @@
       "conflict1TurnInText": "{target_npc} doesn't suspect a thing. The secret is safe, the renovation will go ahead, and I'll act surprised on my birthday with a guilt that nobody will ever see on my face.",
       "targetNpcOpener": "Looking for materials for the {settlement_name} order? Everything is on track, I've got the last pieces coming in by week's end. Tell them not to worry about the timeline, it'll be ready.",
       "targetNpcCloser": "We're right on schedule. Nothing to report but good news.",
-      "resolutionText": "The kitchen will be beautiful, and {settlement_npc} will never know how close I came to ruining it with my own paranoia. Take {reward_item}. You helped me step back from the edge of something I would have regretted for years.",
+      "resolutionText": "The kitchen will be beautiful, and {settlement_npc} will never know how close I came to ruining it with my own paranoia. Take {reward_item}, with {reward_flavor}. You helped me step back from the edge of something I would have regretted for years.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 14,
         "passText": "You're right that I should just ask them directly, and the fact that I won't tells you something about me I'd rather you didn't know. I'm afraid of the conversation, not because of what they might say but because of what my asking would reveal about me. I don't trust the person I love most in the world, and the distrust comes from nowhere they caused, and I'd rather investigate in secret than face it in the open.",
         "failText": "I just need to understand what's going on. That's all."
       },
-      "rewardFlavor": "a fair payment and my promise to think before I doubt next time",
+      "rewardFlavor": "a promise to doubt less",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7244,14 +7244,14 @@
       "conflict1TurnInText": "That'll be my contribution to the celebration. Anonymous, generous, and motivated entirely by guilt. Which is fine, because the result is the same.",
       "targetNpcOpener": "You're asking about the visitor? That's family business, the good kind. The cousin has been planning a gathering for months, and they came to {settlement_name} to work out the details in person. It's meant to be a surprise for several people in the family, which is why all the secrecy.",
       "targetNpcCloser": "Tell whoever sent you that there's nothing to worry about. It's a happy occasion.",
-      "resolutionText": "The gathering happened, and it was wonderful, and I sat there surrounded by people who love {settlement_npc} and felt ashamed of every dark thought I'd entertained. Take {reward_item}. You stopped me from saying something at exactly the wrong moment, and I owe you for that silence.",
+      "resolutionText": "The gathering happened, and it was wonderful, and I sat there surrounded by people who love {settlement_npc} and felt ashamed of every dark thought I'd entertained. Take {reward_item}. And {reward_flavor}, truly. You stopped me from saying something at exactly the wrong moment, and I owe you for that silence.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
         "failText": "I'm probably overreacting. I just want to be sure."
       },
-      "rewardFlavor": "a fair sum and the deepest thanks of someone who nearly ruined their own happiness",
+      "rewardFlavor": "the deepest thanks I have",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7275,14 +7275,14 @@
       "conflict1TurnInText": "{target_npc} said my work is excellent and always has been, and that losing customers to a newcomer is normal and temporary. They also said the new person has been sending people my way for jobs they can't handle. I didn't know that. I didn't know any of that.",
       "targetNpcOpener": "I know both operations, and I'll tell you straight. The work from {settlement_name} has always been reliable, and that hasn't changed. Newcomers draw attention because they're new, and it always settles down. Between you and me, the new one has been referring overflow work back to the original shop for weeks.",
       "targetNpcCloser": "Tell them to keep doing what they're doing. The quality speaks for itself.",
-      "resolutionText": "I walked over to the new {settlement_npc_role}'s shop this morning and introduced myself properly. We talked for an hour, and by the end of it I felt foolish for every unkind thought I'd had. Take {reward_item}. You showed me that the competition I was afraid of was entirely in my own head.",
+      "resolutionText": "I walked over to the new {settlement_npc_role}'s shop this morning and introduced myself properly. We talked for an hour, and by the end of it I felt foolish for every unkind thought I'd had. Here, {reward_flavor}, and {reward_item} alongside it. You showed me that the competition I was afraid of was entirely in my own head.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 12,
         "passText": "You have a way of making people drop their guard, so all right. I was good once, really good, and somewhere in the last few years I stopped trying to be excellent and started just being adequate. I let my customers go by being too comfortable to fight for them, and that's what the jealousy is really about.",
         "failText": "It's a business matter. I'll sort it out."
       },
-      "rewardFlavor": "a sample of my best recent work and fair coin for your time",
+      "rewardFlavor": "a sample of fine work",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -7310,14 +7310,14 @@
       "conflict1TurnInText": "{target_npc} confirmed it immediately. Said they'd recognize that handwriting anywhere, and that she writes the same way to all her children. I feel smaller than I've felt in years, and I earned every inch of it.",
       "targetNpcOpener": "That handwriting? I'd know it blind, she writes to all her children the same way, long, warm, and never signed. Says putting a name at the bottom makes it feel like business instead of love. I've carried those letters for years.",
       "targetNpcCloser": "Whoever is worried can stop. It's just a mother's love on paper.",
-      "resolutionText": "I put the letter back in the coat pocket and I'll never mention that I read it. {settlement_npc} deserves their mother's words without my fingerprints on them. Take {reward_item}. You helped me see the shape of my own worst instinct before it did any real damage.",
+      "resolutionText": "I put the letter back in the coat pocket and I'll never mention that I read it. {settlement_npc} deserves their mother's words without my fingerprints on them. Take {reward_item}, from someone {reward_flavor}. You helped me see the shape of my own worst instinct before it did any real damage.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 12,
         "passText": "You noticed the pressed flower in the envelope. I noticed it too and thought it was a token of something romantic, but you're right that it's silverveil, and it only grows near old family plots. She sends them pressed into every letter because it connects the words to the family ground. I was so busy looking for a betrayal that I missed a blessing sitting right in front of me.",
         "failText": "I just need to know who wrote it. That's all."
       },
-      "rewardFlavor": "what coin I can spare and the thanks of someone learning to trust better",
+      "rewardFlavor": "learning to trust better",
       "valence": "negative",
       "roleAffinity": []
     },
