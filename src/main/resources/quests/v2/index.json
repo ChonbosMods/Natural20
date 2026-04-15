@@ -542,14 +542,14 @@
       "expositionTurnInText": "That's the first wave. The lingering ones, the ones that got comfortable. I felt the count drop in my chest the moment you came back, and it was lighter than I expected.",
       "conflict1Text": "The rest are harder. The ones that remember why they came in the first place, the ones who'd recognize my name if anyone said it out loud. I want {kill_count} more {enemy_type_plural} put down. Don't come back until the count is what I've been carrying.",
       "conflict1TurnInText": "You finished it. Finished. I haven't said that word about anything in nine years, and I almost don't recognize my own voice saying it.",
-      "resolutionText": "I thought I'd want to celebrate when this was done. Instead I just want to sit. Take {reward_item}. It's what I set aside the day I started counting, and I don't have any other use for it now.",
+      "resolutionText": "I thought I'd want to celebrate when this was done. Instead I just want to sit. Take {reward_item}. {reward_flavor}, and no other use for it now.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 14,
         "passText": "You recognize the kind of work this is, don't you. Old grudges run in this region. Mine isn't the first and it won't be the last, but it's mine, and I've kept the count cleaner than most ever do.",
         "failText": "It's an old story. You don't need the details to do the work."
       },
-      "rewardFlavor": "the silver I've been setting aside since the year it happened",
+      "rewardFlavor": "silver set aside nine years",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -573,14 +573,14 @@
       "expositionTurnInText": "You actually brought it. I half thought you wouldn't bother. Good. Now I can finish what I've been planning.",
       "conflict1Text": "Now the part that matters. I want {kill_count} of those {enemy_type_plural} put down. The same kind that came that night. I don't care which ones. They all share the same blood as far as I'm concerned.",
       "conflict1TurnInText": "It's done. I should feel lighter, and I don't, but I'm not going to pretend that means I was wrong. It just means it cost more than I thought.",
-      "resolutionText": "I won't be lighting a fire in that workshop again, but at least I can walk past it without flinching. Take {reward_item}. I'm closing the books on this, and on a lot of other things while I'm at it.",
+      "resolutionText": "I won't be lighting a fire in that workshop again, but at least I can walk past it without flinching. Take {reward_item}. It's {reward_flavor}. I'm closing the books on this, and on a lot of other things while I'm at it.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 14,
         "passText": "You see right through me, don't you. The truth is I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
         "failText": "I've said what I'm going to say. The rest is mine."
       },
-      "rewardFlavor": "the last of what my father saved and a debt I'll honor in person",
+      "rewardFlavor": "last of my father's savings",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -611,14 +611,14 @@
       "conflict1TurnInText": "That's hers. I haven't touched anything of hers in months. I almost can't look at it. Almost. Now finish what we started.",
       "conflict2Text": "The rest of them. {kill_count} more of those {enemy_type_plural}. I won't be satisfied until their numbers are broken. I know what that makes me. I don't care.",
       "conflict2TurnInText": "Then it's over. I'm not going to say thank you the way other people would. But I see what you did and I won't forget it.",
-      "resolutionText": "I expected this to feel like a door closing. Instead it feels like a room that's just gone quiet. Take {reward_item}. Go live a life that doesn't end up like mine, if you can manage it.",
+      "resolutionText": "I expected this to feel like a door closing. Instead it feels like a room that's just gone quiet. Take {reward_item}. {reward_flavor}. Go live a life that doesn't end up like mine, if you can manage it.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 15,
         "passText": "All right. Since you're asking, and since you're not going to use it against me, I've already tried to do this myself, twice. Both times I lost my nerve at the last moment. That's the real reason I need you. I can't be the one to do it.",
         "failText": "I've told you what I want done. The why is mine to keep."
       },
-      "rewardFlavor": "what coin I have left and the only thing of value I haven't already buried",
+      "rewardFlavor": "the only thing unburied",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2861,7 +2861,7 @@
         "passText": "I know what people think when they hear a grudge that's lasted six months over an animal. But that horse and I worked together for eight years. I raised it from a foal. Losing it was like losing a partner I couldn't replace.",
         "failText": "It's a debt that needs paying. The details are mine."
       },
-      "rewardFlavor": "the coin I set aside the day it happened and a firm handshake",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5339,14 +5339,14 @@
       "expositionTurnInText": "That's {kill_count} fewer of them in the world. I felt something shift in my chest when you told me, and I'm not sure yet if it's relief or if I'm just tired. There's one more piece to this.",
       "conflict1Text": "She had a collar I made her myself, and it's still out there somewhere. I know it's just leather and metal, but it's the last thing I made with my own hands that she wore. Bring me a {quest_item} like it, and I'll hang it by the door where she used to sleep.",
       "conflict1TurnInText": "That's close enough. I hung it on the hook and stood there for a while. She would have scratched at it, probably. She scratched at everything I made.",
-      "resolutionText": "The account is closed. I won't pretend it brought her back or made the house less quiet, but it's done, and done matters. Take {reward_item}. It's what I would have spent on her this winter.",
+      "resolutionText": "The account is closed. I won't pretend it brought her back or made the house less quiet, but it's done, and done matters. Take {reward_item}. {reward_flavor}. Nothing else to do with it now.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult grieving a dog gets a certain look in this settlement. She was more than that. She was the only friend who never needed me to explain myself.",
         "failText": "She was a good dog. There's nothing else to say about it."
       },
-      "rewardFlavor": "the coin I saved for her and a firm, honest handshake",
+      "rewardFlavor": "coin saved for her winter",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5370,14 +5370,14 @@
       "expositionTurnInText": "I set it at the edge of where the oldest tree used to stand. Funny how marking what's gone makes you feel it more clearly, not less. Now comes the part I've been holding in my teeth for months.",
       "conflict1Text": "I want {kill_count} of those {enemy_type_plural} put down. Not pushed back, not scared off, put down. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
       "conflict1TurnInText": "That's the number. I counted them the way I counted the trees. It doesn't balance, because nothing would, but it's as close as the world is going to let me get.",
-      "resolutionText": "The marker stands and the debt is as paid as it can be. Take {reward_item}. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
+      "resolutionText": "The marker stands and the debt is as paid as it can be. Take {reward_item}, {reward_flavor}. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 14,
         "passText": "You're asking how they got in, and you already know the answer, don't you. The fence line on the north side had been failing for two seasons and I kept patching over the weak spots instead of rebuilding. They didn't break through anything. They walked through a gap I'd been pretending wasn't there. The rage I feel isn't just at them. It's at the version of me that decided it could wait.",
         "failText": "They destroyed what I built. The rest is between me and the trees."
       },
-      "rewardFlavor": "the savings I'd meant for the replanting I'll never do",
+      "rewardFlavor": "savings meant for replanting",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5403,14 +5403,14 @@
       "expositionTurnInText": "Good. I rebuilt the stones this morning and they're still standing. But the ones that scattered them aren't the only group in the area, and I want to be thorough.",
       "conflict1Text": "There are more of them nearby, the same kind, and I won't rest easy knowing they're within reach of her resting place. {kill_count} more {enemy_type_plural} dealt with, and I can visit her without watching the ground.",
       "conflict1TurnInText": "The area is clear. I walked out there just now and it was quiet the way it should be quiet. Like a place that's been left in peace.",
-      "resolutionText": "She's resting properly again, and nothing is going to disturb that as long as I'm breathing. Take {reward_item}. It's what she would have wanted me to give someone who helped keep her memory whole.",
+      "resolutionText": "She's resting properly again, and nothing is going to disturb that as long as I'm breathing. Take {reward_item}. {reward_flavor}. She would have wanted it given to someone who helped keep her memory whole.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 14,
         "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
         "failText": "She was my sister. That's all the reason I need, and all the reason I'll give."
       },
-      "rewardFlavor": "the coin I kept beside her stone and a debt I'll carry with dignity",
+      "rewardFlavor": "coin kept beside her stone",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5439,14 +5439,14 @@
       "conflict1TurnInText": "Good. The water has a chance now. There's one more thing I need before I can call this settled.",
       "conflict2Text": "Bring me a {quest_item}. Something to mark the waterline, so I can track the recovery over the coming weeks. I want to see the numbers change with my own eyes. I've earned that much.",
       "conflict2TurnInText": "The marker is set. I'll check it every morning. The first time the line moves in the right direction, I'll know this was worth it.",
-      "resolutionText": "The water is coming back, slowly, but it's coming. Take {reward_item}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
+      "resolutionText": "The water is coming back, slowly, but it's coming. Take {reward_item}: {reward_flavor}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "Fine. The part I haven't said is that I was warned this could happen. Someone told me the creatures were moving into the watershed and I dismissed it because I didn't want to spend the season building barriers instead of fishing. My livelihood was destroyed by my own stubbornness, and the anger I feel at those creatures is really anger I can't bear to aim at myself.",
         "failText": "They fouled the water. That's the fact, and that's what I'm settling."
       },
-      "rewardFlavor": "the last of my savings and the first catch when the fish return",
+      "rewardFlavor": "first catch when fish return",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5470,14 +5470,14 @@
       "expositionTurnInText": "They're down. I thought I'd feel victorious, and instead I just feel like the room got a little less loud inside my head. There's one more thing.",
       "conflict1Text": "Bring me a {quest_item}. I'm going to set it where the thing I lost used to sit, not as a replacement, but as proof that the space doesn't have to stay empty. That's the closest I'll get to peace, and I want to get there.",
       "conflict1TurnInText": "I placed it this morning. Stood there looking at it for a long time. It doesn't fill the gap. But it occupies the space, and that's different from empty.",
-      "resolutionText": "The work is done and the space has something in it again. Take {reward_item}. I'm not going to call it closure, because I don't believe in the word. But the weight shifted, and I can stand a little straighter under it now.",
+      "resolutionText": "The work is done and the space has something in it again. Take {reward_item} and {reward_flavor}. I'm not going to call it closure, because I don't believe in the word. But the weight shifted, and I can stand a little straighter under it now.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "The way you said that, so easily, like grief is something you can just name and set down. I've been trying to do that for a year and couldn't manage the first part. Nobody here talks about loss that directly, they circle it and whisper around it. You just walked up to it and called it what it is, and something in me unclenched.",
         "failText": "It's old anger. I don't need it explained to me, just answered."
       },
-      "rewardFlavor": "the coin I've been keeping in the empty space since it happened",
+      "rewardFlavor": "coin from the empty space",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -5501,14 +5501,14 @@
       "expositionTurnInText": "The cutting took. There's green where there was nothing, and I stared at it for ten minutes before I trusted my own eyes. Now for the part that's been burning in me since spring.",
       "conflict1Text": "I want {kill_count} of those {enemy_type_plural} gone. They'll come back otherwise, and they'll do to the new growth what they did to the old. I am not watching that happen twice. Not with her garden.",
       "conflict1TurnInText": "They're gone. The ground around the garden is quiet, and the cutting is still standing. I checked it three times today. I'll probably check it three more times tonight.",
-      "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {reward_item}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
+      "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {reward_item}: {reward_flavor}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
         "passText": "You understand what a garden like that means, then. My mother planted it following the old seasonal rites, the way her mother taught her, putting the first seeds in on the morning her tradition marked as the beginning of growth. It was her way of keeping faith with something larger. Watching it get destroyed felt like watching her prayers get answered with silence.",
         "failText": "It's a garden. It was my mother's. That's reason enough."
       },
-      "rewardFlavor": "the savings she left me, spent on exactly the kind of thing she'd approve of",
+      "rewardFlavor": "savings my mother left me",
       "valence": "negative",
       "roleAffinity": []
     },
