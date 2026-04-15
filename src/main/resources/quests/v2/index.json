@@ -1771,14 +1771,14 @@
       "expositionTurnInText": "Look at it. That's exactly the kind of {quest_item} I was picturing without knowing how to picture it. Now I just have to not drop it on the way there.",
       "conflict1Text": "One more thing, and this one I really can't do alone. They moved to {target_npc_settlement} last spring, and I haven't worked up the nerve to visit. Could you go to {target_npc} for me and just. Tell them I've been thinking about them? Pass the gift along if it feels right.",
       "conflict1TurnInText": "{target_npc} smiled? You're sure? You're not just being kind to me? That's. That's more than I let myself hope for, walking out the door this morning.",
-      "resolutionText": "{target_npc} sent word back. They asked when I was coming to visit, and they used the word 'when,' not 'if.' I've already started rehearsing what I'll say. Take {reward_item}. I won't forget that you're the reason I get to be this nervous about something this good.",
+      "resolutionText": "{target_npc} sent word back. They asked when I was coming to visit, and they used the word 'when,' not 'if.' I've already started rehearsing what I'll say. Take {reward_item}. Consider it {reward_flavor}, pressed on you with both hands. I won't forget that you're the reason I get to be this nervous about something this good.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 11,
         "passText": "I've been carrying a folded note in my pocket for three months. It's the words I would say if I could ever get them out. I haven't shown it to anyone, but I can tell you it exists.",
         "failText": "Let's just say it's been on my mind for a while. That's all there is to it."
       },
-      "rewardFlavor": "a basket of the good things from my kitchen, and the biggest grin you've seen all week",
+      "rewardFlavor": "a basket and a grin",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They've been thinking about me? I was starting to wonder if I'd been forgotten after the move. I didn't want to leave, you know. The hardest part was walking away without knowing if it mattered to anyone there.",
@@ -1807,14 +1807,14 @@
       "conflict1TurnInText": "That's just right. Not flashy, not cheap, just considered. Holding this, I almost feel like I might survive the conversation.",
       "conflict2Text": "Last thing. Could you let {target_npc} know I'm coming to ask her properly next week? I'd rather she hear it from a friend first than be ambushed by me on her doorstep. It might soften the ground a little.",
       "conflict2TurnInText": "{target_npc} agreed to put in a word? That's a kindness I won't forget. Now all I have to do is the actual asking, which somehow feels easier knowing the door isn't shut.",
-      "resolutionText": "She didn't say yes. She didn't say no, either. She said 'we'll see how you carry yourself this season,' and that's the most generous thing she's ever offered me. I'll take it. Please take {reward_item}. You helped me get to a 'we'll see,' and that's a whole new horizon.",
+      "resolutionText": "She didn't say yes. She didn't say no, either. She said 'we'll see how you carry yourself this season,' and that's the most generous thing she's ever offered me. I'll take it. Please take {reward_item}, along with {reward_flavor} for the occasion. You helped me get to a 'we'll see,' and that's a whole new horizon.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 13,
         "passText": "You're right to ask. Yes, my own parents had to win over an unwilling family. I grew up hearing the story, and I think part of why this one matters so much is because I know it can be done.",
         "failText": "It's an old family thing. I don't want to bore you with it."
       },
-      "rewardFlavor": "a fine bottle I've been saving for the right occasion, and a hopeful heart",
+      "rewardFlavor": "a fine bottle, saved long",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "You want to know how to win her over? I've known that woman since we were children, and she values intention over everything. She once turned away a suitor who brought plenty but no sincerity. Whatever your friend brings, it needs to feel considered.",
@@ -1840,8 +1840,8 @@
       "expositionTurnInText": "Yes. Yes, that's the practical half. Every time they pick this up, they'll think of me, and I want that very much.",
       "conflict1Text": "Now the foolish half. Find me a {quest_item} that has no practical purpose at all. Pretty, strange, the kind of thing that just makes someone smile. The whole point of the tradition is that you give one thing they need and one thing they'd never ask for.",
       "conflict1TurnInText": "Oh, that's wonderful. That is perfectly, perfectly foolish. They'll laugh, and that's exactly what my grandmother said the foolish gift was supposed to do.",
-      "resolutionText": "I haven't asked them yet. I will tomorrow morning, with both gifts in hand. But I already feel different than I did a week ago. Whatever they say, I tried, and that's a thing I never thought I'd be able to say. Take {reward_item}. You gave me back a tradition I almost talked myself out of honoring.",
-      "rewardFlavor": "a share of the good things I've been saving for my own celebration, whenever it comes",
+      "resolutionText": "I haven't asked them yet. I will tomorrow morning, with both gifts in hand. But I already feel different than I did a week ago. Whatever they say, I tried, and that's a thing I never thought I'd be able to say. Take {reward_item}. Here's {reward_flavor} too, because you deserve to share in it. You gave me back a tradition I almost talked myself out of honoring.",
+      "rewardFlavor": "a share of savings",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -3624,14 +3624,14 @@
       "conflict1TurnInText": "That's exactly right. Not too much, not too little. They'll understand what it means, and if they don't, it's still a nice thing to receive. Either way, I've said what I needed to say.",
       "targetNpcOpener": "I've been carrying letters between those two for months now, and I'll tell you, the handwriting on both sides has gotten more careful over time. That's how you know someone is choosing their words. The last letter I carried had a pressed flower tucked inside the fold.",
       "targetNpcCloser": "If you ask me, the bridge is already halfway built. Someone just needs to take the next step.",
-      "resolutionText": "I sent the {quest_item} with my letter, and the reply came faster than any before it. They're coming to visit next month, and they used the word 'looking forward' twice, which I read three times to be sure. Take {reward_item}. You helped me stop waiting and start moving, and that was the part I couldn't do alone.",
+      "resolutionText": "I sent the {quest_item} with my letter, and the reply came faster than any before it. They're coming to visit next month, and they used the word 'looking forward' twice, which I read three times to be sure. Take {reward_item}, and {reward_flavor} besides. You helped me stop waiting and start moving, and that was the part I couldn't do alone.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 10,
         "passText": "I've been cautious because I lost someone before, a long time ago, and I told myself I wouldn't put that much weight on another person's feelings again. But here I am, reading letters by candlelight and caring about every word. Caution only works if you're not already invested, and I passed that point months ago.",
         "failText": "It's just something I've been thinking about. We'll see how it goes."
       },
-      "rewardFlavor": "the good preserves I've been saving and a hopeful heart's thanks",
+      "rewardFlavor": "preserves and quiet thanks",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7900,14 +7900,14 @@
       "conflict1TurnInText": "Good. It a grand gesture, and It meant to be. It just says someone from my side thought of them kindly, and I want them to sit with that before they know it was me.",
       "targetNpcOpener": "I've known both families since before the feud hardened into what it is now. Honestly, most of the younger people on both sides barely remember what started it. The problem is that nobody wants to be the first to reach across, because the first one to bend gets accused of weakness. Someone from outside could change that.",
       "targetNpcCloser": "Send the gift through me. I'll make sure it arrives without baggage.",
-      "resolutionText": "The gift reached the other family, and when they learned it came from me, there was silence, then a long conversation, then a message back saying they'd be willing to talk. Not a truce, not yet, but a conversation, and that's more than either family has managed in a generation. Take {reward_item}. You helped me stop waiting for permission and start building something instead.",
+      "resolutionText": "The gift reached the other family, and when they learned it came from me, there was silence, then a long conversation, then a message back saying they'd be willing to talk. Not a truce, not yet, but a conversation, and that's more than either family has managed in a generation. Take {reward_item}. I'm adding {reward_flavor}, since this day deserves a second gesture. You helped me stop waiting for permission and start building something instead.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 12,
         "passText": "You can see I'm not telling you the whole shape of this, can't you. The feud isn't the only obstacle, my own family warned me directly to stay away from that side and I told them I had. I've been lying to the people I live with to protect something they'd tear apart if they knew. Every time I come home from a meeting I carry the weight of the deception alongside the joy of the visit.",
         "failText": "It's a family matter with complications. I'd rather focus on what comes next."
       },
-      "rewardFlavor": "a token from my family's stores and a heart that's lighter for having tried",
+      "rewardFlavor": "a token from family stores",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7931,14 +7931,14 @@
       "conflict1TurnInText": "{target_npc} agreed without hesitation. They said they'd been wondering when I'd finally work up the nerve. That's embarrassing and reassuring in equal measure.",
       "targetNpcOpener": "I've known this person since they were small, and I can tell you they're the kind who means what they say and follows through. If they've chosen someone, they've chosen carefully. I'd be honored to speak for them. Honestly, I've been waiting to be asked.",
       "targetNpcCloser": "Tell them to stop worrying and start preparing. The hard part is the asking, not the answer.",
-      "resolutionText": "The offering was accepted, {target_npc} spoke beautifully, and the family welcomed me in a way I didn't dare expect. The person I love stood next to me the whole time, steady as stone, and when it was done they squeezed my hand and said it was about time. Take {reward_item}. You helped me clear the last obstacle between me and the rest of my life.",
+      "resolutionText": "The offering was accepted, {target_npc} spoke beautifully, and the family welcomed me in a way I didn't dare expect. The person I love stood next to me the whole time, steady as stone, and when it was done they squeezed my hand and said it was about time. Take {reward_item}, and take {reward_flavor} besides, pressed into your hands with everything I have. You helped me clear the last obstacle between me and the rest of my life.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "You've guessed that I'm holding something back, haven't you. I had the money once and I spent it helping a friend in trouble, and I'd do it again, but I haven't told the family that. I let them think I'm simply poor rather than admit I chose someone else's crisis over this offering. I'm afraid they'd see it as proof that I don't prioritize their traditions.",
         "failText": "The money is short. That's the obstacle and I'm working to clear it."
       },
-      "rewardFlavor": "a share of my savings and the joy of someone whose life just changed",
+      "rewardFlavor": "a share of my savings",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7962,14 +7962,14 @@
       "conflict1TurnInText": "The quality speaks for itself. My family values skill, and this shows skill plainly. If they can't see past the name to the work, then the tradition is smaller than I thought it was.",
       "targetNpcOpener": "I've led this trade circle long enough to know when the rules serve us and when we serve the rules. There have been outsiders welcomed before, three times in my memory, and each time the circle was stronger for it. The tradition exists to keep our standards high, not to keep good people out.",
       "targetNpcCloser": "Bring the evidence of their craft. I'll make sure it gets a fair hearing.",
-      "resolutionText": "I presented the {quest_item} to my family with {target_npc}'s precedent behind it, and my father held it in his hands for a long time before nodding. The person I love was waiting outside, and when I came to tell them they smiled like they'd known all along. Take {reward_item}. You helped me prove that tradition and love don't have to be opposites.",
+      "resolutionText": "I presented the {quest_item} to my family with {target_npc}'s precedent behind it, and my father held it in his hands for a long time before nodding. The person I love was waiting outside, and when I came to tell them they smiled like they'd known all along. Take {reward_item}, and with it {reward_flavor}: nothing less would feel right. You helped me prove that tradition and love don't have to be opposites.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 12,
         "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
         "failText": "It's a tradition that goes back a long way. I don't think the history changes what I'm dealing with now."
       },
-      "rewardFlavor": "a craftworker's best piece and the courage that came from your help",
+      "rewardFlavor": "a craftworker's best piece",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -7993,14 +7993,14 @@
       "conflict1TurnInText": "So {target_npc} says this person has mentioned me more than once, and always warmly. They asked about my work, my health, whether I'd been through {other_settlement} recently. That's not nothing. That's an opening, and I've been too scared to step through it.",
       "targetNpcOpener": "I know exactly who you mean. Your name comes up more often than you'd expect from casual acquaintance, and they ask about you the way someone asks when they're hoping for a particular answer. I haven't said anything because it wasn't my place, but if someone is asking directly, then yes, there's interest there.",
       "targetNpcCloser": "Send the gift. Believe me, it'll be welcome.",
-      "resolutionText": "I sent the {quest_item} with a short note, honest but careful, and the reply came within the week. They said they'd been hoping to hear from me, and we're writing properly now with a visit planned for next month. Take {reward_item}. You helped me stop being paralyzed by what I might lose and start moving toward what I might gain.",
+      "resolutionText": "I sent the {quest_item} with a short note, honest but careful, and the reply came within the week. They said they'd been hoping to hear from me, and we're writing properly now with a visit planned for next month. Take {reward_item}. It's {reward_flavor}, but freely given. You helped me stop being paralyzed by what I might lose and start moving toward what I might gain.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 10,
         "passText": "Fine, you've made the cost of silence plain enough. The last time I told someone how I felt, they didn't feel the same and the friendship ended entirely. I'm terrified of losing this person from my life by asking for more than friendship offers. But you're right that doing nothing is its own kind of loss.",
         "failText": "The distance makes it hard. That's the whole of it."
       },
-      "rewardFlavor": "what I can offer and the relief of someone who finally took the step",
+      "rewardFlavor": "what I can offer",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -8024,14 +8024,14 @@
       "conflict1TurnInText": "That's good. Something personal, something practical, something that belongs in a home. When they see it on their shelf, they'll know I'm thinking about their space as partly mine, and that might be the beginning of a new way of looking at this.",
       "targetNpcOpener": "I know that problem well. I spent five years going back and forth between two places, and for the first two I was miserable because I kept thinking I had to pick one. What changed was realizing that the traveling itself could be the life, not the obstacle to one. We built a routine around the road, and the road became home in its own way.",
       "targetNpcCloser": "Start small and leave something of yourself in their space. The rest follows from there.",
-      "resolutionText": "I brought the {quest_item} and placed it on their windowsill, and they put their hand on mine and said they'd been wanting something of mine to keep there. We talked all evening about what a life between two hearths could look like, and for the first time it felt possible. Take {reward_item}. You helped me see that the distance doesn't have to be the end of the story.",
+      "resolutionText": "I brought the {quest_item} and placed it on their windowsill, and they put their hand on mine and said they'd been wanting something of mine to keep there. We talked all evening about what a life between two hearths could look like, and for the first time it felt possible. Take {reward_item} with my thanks, plus {reward_flavor} to carry with you. You helped me see that the distance doesn't have to be the end of the story.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 11,
         "passText": "You know how to put people at ease, and I need that right now because I'm about to admit something I haven't told anyone. The real obstacle is that I'm afraid I'm not enough to justify the effort. Why would someone rearrange their life for me? I've been hiding that question behind logistics because logistics are easier to talk about than worth.",
         "failText": "It's a question of distance and roots. That's the puzzle I'm trying to solve."
       },
-      "rewardFlavor": "something from both hearths and the warmth of a decision finally made",
+      "rewardFlavor": "something from both hearths",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -8055,14 +8055,14 @@
       "conflict1TurnInText": "{target_npc} read it, made two small suggestions, and said it was the most honest thing I've ever written. They said to send it before I lose my nerve again, and they're right.",
       "targetNpcOpener": "I've been watching this person agonize over this for longer than they'd want me to say, writing and rewriting and throwing it away. The problem was never the words, it was the willingness to be seen. If they've finally reached the point of asking for help, that means they're ready. Let me see the letter.",
       "targetNpcCloser": "It's good, honest and unguarded. Send it today, before the doubt comes back.",
-      "resolutionText": "I sent the letter with the {quest_item}, and the reply came three days later, four lines that each mattered more than anything I'd written in all my drafts. They said they'd been hoping I'd say something, and that the waiting had been its own kind of answer until now. Take {reward_item}. You helped me stop revising my feelings and start living them.",
+      "resolutionText": "I sent the letter with the {quest_item}, and the reply came three days later, four lines that each mattered more than anything I'd written in all my drafts. They said they'd been hoping I'd say something, and that the waiting had been its own kind of answer until now. Take {reward_item}: {reward_flavor}, and I do not say that lightly. You helped me stop revising my feelings and start living them.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 11,
         "passText": "You understand something about devotion, I think. In the old ways, a declaration of the heart was treated like a vow, spoken once and witnessed, and I grew up with that weight on every word. Once I say it, it becomes binding, permanent, real in a way that can't be taken back. That's why every draft feels like too much, because to me it is.",
         "failText": "I just want to get the words right. That's all I'm after."
       },
-      "rewardFlavor": "the finest thing I own and a heart finally unburdened",
+      "rewardFlavor": "the finest thing I own",
       "valence": "positive",
       "roleAffinity": []
     }
