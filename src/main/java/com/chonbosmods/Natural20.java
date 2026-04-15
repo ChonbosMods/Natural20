@@ -50,6 +50,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.MobScalingConfig;
+import com.chonbosmods.progression.PlayerLevelHpSystem;
 import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
@@ -148,6 +149,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20GallantSystem gallantSystem;
     private Nat20WeaknessApplySystem weaknessApplySystem;
     private Nat20MobScaleSystem mobScaleSystem;
+    private PlayerLevelHpSystem playerLevelHpSystem;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -342,6 +344,10 @@ public class Natural20 extends JavaPlugin {
         return mobScaleSystem;
     }
 
+    public PlayerLevelHpSystem getPlayerLevelHpSystem() {
+        return playerLevelHpSystem;
+    }
+
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
@@ -382,6 +388,7 @@ public class Natural20 extends JavaPlugin {
         MobScalingConfig mobScalingConfig = MobScalingConfig.load();
         mobScaleSystem = new Nat20MobScaleSystem(mobScalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
+        playerLevelHpSystem = new PlayerLevelHpSystem(mobScalingConfig);
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
@@ -526,6 +533,11 @@ public class Natural20 extends JavaPlugin {
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
             // focusedMindSystem is an ECS ticking system, no manual player tracking needed
             // attackSpeedSystem is an ECS ticking system, no manual player tracking needed
+
+            // Apply level-derived max-HP modifier on connect.
+            if (playerLevelHpSystem != null) {
+                playerLevelHpSystem.updatePlayerMaxHp(event.getPlayerRef(), event.getPlayerRef().getStore());
+            }
 
             // Mark player dirty so Phase 3 score bonuses are applied on connect
             Nat20ScoreDirtyFlag.markDirty(uuid);
