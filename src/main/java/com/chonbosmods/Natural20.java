@@ -50,6 +50,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.MobScalingConfig;
+import com.chonbosmods.progression.Nat20XpOnKillSystem;
 import com.chonbosmods.progression.Nat20XpService;
 import com.chonbosmods.progression.PlayerLevelHpSystem;
 import com.chonbosmods.marker.QuestMarkerManager;
@@ -396,6 +397,7 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
         playerLevelHpSystem = new PlayerLevelHpSystem(mobScalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
+        getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(mobScalingConfig, xpService));
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());
