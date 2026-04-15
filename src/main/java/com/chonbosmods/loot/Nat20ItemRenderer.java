@@ -208,21 +208,26 @@ public class Nat20ItemRenderer {
     }
 
     private String renderFlatDamageRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
-        // e.g. "5-8 Fire Damage" or "5 Fire Damage" (collapsed)
-        String text = formatRange(minValue, maxValue, false) + " " + entry.displayName();
-        return color(entry.elementColor(), text);
+        // e.g. "Adds 5-8 Fire Damage" — "Adds " inherits default text colour; the rest is element-coloured.
+        String coloured = color(entry.elementColor(),
+                formatRange(minValue, maxValue, false) + " " + entry.displayName());
+        return "Adds " + coloured;
     }
 
     private String renderDotTotalRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
-        // Total = per-tick value × tick count. Element name comes from the display name's own element.
+        // Total = per-tick value × tick count. Bleed omits the element word (bleed is physical).
         double minTotal = minValue * Nat20AffixDisplay.DOT_TICK_COUNT;
         double maxTotal = maxValue * Nat20AffixDisplay.DOT_TICK_COUNT;
-        String element = elementForDotColor(entry.elementColor());
-        String text = entry.displayName() + ": "
-                + formatRange(minTotal, maxTotal, false)
-                + " " + element
-                + " over " + Nat20AffixDisplay.DOT_DURATION_SECONDS + "s";
-        return color(entry.elementColor(), text);
+        boolean isBleed = Nat20AffixDisplay.BLEED.equals(entry.elementColor());
+        StringBuilder sb = new StringBuilder()
+                .append(entry.displayName()).append(": ")
+                .append(formatRange(minTotal, maxTotal, false));
+        if (!isBleed) {
+            String element = elementForDotColor(entry.elementColor());
+            if (!element.isEmpty()) sb.append(" ").append(element);
+        }
+        sb.append(" over ").append(Nat20AffixDisplay.DOT_DURATION_SECONDS).append("s");
+        return color(entry.elementColor(), sb.toString());
     }
 
     private String renderPercentBuff(Nat20AffixDisplay.Entry entry, double midValue, String rarityColor) {

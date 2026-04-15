@@ -84,12 +84,12 @@ public final class Nat20AffixDisplay {
             Map.entry("VoidDamage",   Entry.flatDamage("Void Damage",   VOID)),
             Map.entry("ThornsDamage", Entry.flatDamage("Thorns Damage", BLEED)),
 
-            // DoT totals
-            Map.entry("IgniteDamage",  new Entry("Ignite",       Format.DOT_TOTAL_RANGE, FIRE,   null)),
-            Map.entry("ColdDamage",    new Entry("Cold",         Format.DOT_TOTAL_RANGE, FROST,  null)),
-            Map.entry("InfectDamage",  new Entry("Infect",       Format.DOT_TOTAL_RANGE, POISON, null)),
-            Map.entry("CorruptDamage", new Entry("Corrupt",      Format.DOT_TOTAL_RANGE, VOID,   null)),
-            Map.entry("BleedDamage",   new Entry("Deep Wounds",  Format.DOT_TOTAL_RANGE, BLEED,  null)),
+            // DoT totals — display name is the conjugated verb the weapon performs on the target.
+            Map.entry("IgniteDamage",  new Entry("Ignites",  Format.DOT_TOTAL_RANGE, FIRE,   null)),
+            Map.entry("ColdDamage",    new Entry("Chills",   Format.DOT_TOTAL_RANGE, FROST,  null)),
+            Map.entry("InfectDamage",  new Entry("Infects",  Format.DOT_TOTAL_RANGE, POISON, null)),
+            Map.entry("CorruptDamage", new Entry("Corrupts", Format.DOT_TOTAL_RANGE, VOID,   null)),
+            Map.entry("BleedDamage",   new Entry("Bleeds",   Format.DOT_TOTAL_RANGE, BLEED,  null)),
 
             // Resistances (element-colored)
             Map.entry("FireResistance",     Entry.percentEl("Fire Resistance",   FIRE)),
@@ -98,11 +98,11 @@ public final class Nat20AffixDisplay {
             Map.entry("VoidResistance",     Entry.percentEl("Void Resistance",   VOID)),
             Map.entry("PhysicalResistance", Entry.percent("Physical Resistance")),
 
-            // Elemental weaknesses (positive value, "Weakness" name)
-            Map.entry("FireWeakness",   Entry.percentEl("Fire Weakness",   FIRE)),
-            Map.entry("FrostWeakness",  Entry.percentEl("Frost Weakness",  FROST)),
-            Map.entry("PoisonWeakness", Entry.percentEl("Poison Weakness", POISON)),
-            Map.entry("VoidWeakness",   Entry.percentEl("Void Weakness",   VOID)),
+            // Elemental vulnerabilities (positive value; display name per D&D 5e terminology)
+            Map.entry("FireWeakness",   Entry.percentEl("Fire Vulnerability",   FIRE)),
+            Map.entry("FrostWeakness",  Entry.percentEl("Frost Vulnerability",  FROST)),
+            Map.entry("PoisonWeakness", Entry.percentEl("Poison Vulnerability", POISON)),
+            Map.entry("VoidWeakness",   Entry.percentEl("Void Vulnerability",   VOID)),
 
             // Combat modifiers (fixed %)
             Map.entry("Nat20CritChance",   Entry.percentEl("Crit Chance", CRIT_YELLOW)),
