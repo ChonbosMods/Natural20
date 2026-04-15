@@ -197,6 +197,21 @@ public class ConversationSession {
         try {
         if (topicsLocked || ended) return;
 
+        if (topicId.equals(activeTopicId)
+                && continueChainNodeIds != null
+                && continueChainIndex < continueChainNodeIds.size() - 1) {
+            DialogueNode activeNode = graph.getNode(activeNodeId);
+            if (activeNode instanceof DialogueNode.DialogueTextNode activeText) {
+                ResponseOption continueOpt = activeText.responses().stream()
+                    .filter(r -> r.responseType() == ResponseType.CONTINUE)
+                    .findFirst().orElse(null);
+                if (continueOpt != null) {
+                    handleFollowUpSelected(continueOpt.id());
+                    return;
+                }
+            }
+        }
+
         TopicDefinition topic = graph.topics().stream()
             .filter(t -> t.id().equals(topicId))
             .findFirst().orElse(null);
