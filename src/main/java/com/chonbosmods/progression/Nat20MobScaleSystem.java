@@ -10,6 +10,10 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.RefSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
+import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
+import com.hypixel.hytale.server.core.modules.entitystats.modifier.Modifier;
+import com.hypixel.hytale.server.core.modules.entitystats.modifier.StaticModifier;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
@@ -23,6 +27,9 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|MobScale");
     private static final Query<EntityStore> QUERY = Query.any();
+
+    private static final String MOD_KEY_HP  = "nat20:mob:mlvl-tier-hp";
+    private static final String MOD_KEY_DMG = "nat20:mob:mlvl-tier-dmg";
 
     private final MobScalingConfig config;
 
@@ -54,7 +61,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         }
         level.setAreaLevel(areaLevel);
         level.setTier(Tier.REGULAR);
-        // applyStats intentionally deferred to Task 3.2.
+        applyStats(ref, store, level);
         level.setScaled(true);
 
         LOGGER.atInfo().log("Tagged %s areaLevel=%d tier=REGULAR (distance=%.1f)",
@@ -72,8 +79,29 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         Nat20MobLevel level = store.getComponent(ref, Natural20.getMobLevelType());
         if (level == null) return;
         level.setTier(newTier);
-        // applyStats intentionally deferred to Task 3.2.
+        applyStats(ref, store, level);
         LOGGER.atInfo().log("Retier ref=%s areaLevel=%d tier=%s",
                 ref, level.getAreaLevel(), newTier);
+    }
+
+    private void applyStats(Ref<EntityStore> ref, Store<EntityStore> store, Nat20MobLevel level) {
+        EntityStatMap statMap = store.getComponent(ref, EntityStatMap.getComponentType());
+        if (statMap == null) return;
+
+        int mlvl = config.mlvlForTier(level.getAreaLevel(), level.getTier());
+        MobScalingConfig.TierMult mult = config.multipliersFor(level.getTier());
+
+        double hpMult  = config.hpScale(mlvl)  * mult.hpMult();
+        double dmgMult = config.dmgScale(mlvl) * mult.dmgMult();
+
+        int hpStat  = EntityStatType.getAssetMap().getIndex("Health");
+        int dmgStat = EntityStatType.getAssetMap().getIndex("AttackDamage");
+
+        statMap.putModifier(hpStat,  MOD_KEY_HP,
+                new StaticModifier(Modifier.ModifierTarget.MAX,
+                        StaticModifier.CalculationType.MULTIPLICATIVE, (float) hpMult));
+        statMap.putModifier(dmgStat, MOD_KEY_DMG,
+                new StaticModifier(Modifier.ModifierTarget.MAX,
+                        StaticModifier.CalculationType.MULTIPLICATIVE, (float) dmgMult));
     }
 }
