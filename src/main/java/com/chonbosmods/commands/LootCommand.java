@@ -69,7 +69,7 @@ public class LootCommand extends AbstractPlayerCommand {
             baseName = itemId;
         }
 
-        int ilvl = context.provided(levelArg) ? Math.clamp(levelArg.get(context), 1, 20) : 10;
+        int ilvl = context.provided(levelArg) ? Math.clamp(levelArg.get(context), 1, 40) : 10;
 
         Nat20LootData lootData;
         if (context.provided(rarityArg)) {
