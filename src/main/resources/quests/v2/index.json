@@ -24,14 +24,14 @@
       "expositionTurnInText": "I slept last night. First time in days. But the trouble isn't just the {enemy_type_plural} themselves. There's the mess they made of everything I'd put aside.",
       "conflict1Text": "They tore through my stores and I've got nothing left to work with. I need {gather_count} {quest_item} just to get back on my feet. I hate having to ask for more, but I'm out of options.",
       "conflict1TurnInText": "That's enough to start over with. I can feel my hands not shaking when I count it out. It's been a long time since I could say that.",
-      "resolutionText": "I'll be all right now. Truly. Take {reward_item}. It's not what your time was worth, but it's what I can give and mean it. You gave me back my own home.",
+      "resolutionText": "I'll be all right now. Truly. Take {reward_item}. And {reward_flavor}. It's not what your time was worth, but it's what I can give and mean it. You gave me back my own home.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "The truth is I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
         "failText": "It's been a hard stretch. I'd rather not get into the details."
       },
-      "rewardFlavor": "what coin I've kept hidden and a meal whenever you pass through",
+      "rewardFlavor": "hidden coin and a meal",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -62,14 +62,14 @@
       "conflict1TurnInText": "They said yes? I half thought they'd forgotten me. That's a kindness I won't waste.",
       "conflict2Text": "There's still the matter of the {enemy_type_plural} that started all of this. They've been picking at us like we're already finished. {kill_count} of them dealt with would let me sleep without listening for the door.",
       "conflict2TurnInText": "Quiet. The first real quiet in weeks. I didn't know how loud the worry was until it stopped.",
-      "resolutionText": "I have my work back, I have my pride back, and I have a friend in {target_npc_settlement} again. {reward_item}. Take it, please. I'd give more if I had it, and one day I might.",
+      "resolutionText": "I have my work back, I have my pride back, and I have a friend in {target_npc_settlement} again. {reward_item}: {reward_flavor}. Take it, please. I'd give more if I had it, and one day I might.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
         "passText": "All right. The truth is the order isn't just an order. It's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
         "failText": "It's just an order. A late one is bad enough. Let's leave it there."
       },
-      "rewardFlavor": "the last of my savings and a standing welcome at my table",
+      "rewardFlavor": "the last of my savings",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -108,8 +108,8 @@
       "conflict1TurnInText": "I can't believe I'm standing here saying it's over. Or near to it. Even {settlement_npc} stopped looking over their shoulder this morning.",
       "conflict2Text": "There's one last thing, and I promise it's the last. They wrecked our food stores when they were prowling around. I need {gather_count} {quest_item} put aside or we won't see spring. It's not glory work, I know.",
       "conflict2TurnInText": "That'll get us through. I keep wanting to cry and I keep not letting myself, because I'm afraid if I start I won't stop.",
-      "resolutionText": "You saved this place. I'm not exaggerating and I'm not being dramatic, I'm just saying the thing as it is. Take {reward_item}. It's most of what I have left, and it's the easiest debt I've ever paid. We'll remember you here.",
-      "rewardFlavor": "the silver I'd saved for a worse winter and my lasting gratitude",
+      "resolutionText": "You saved this place. I'm not exaggerating and I'm not being dramatic, I'm just saying the thing as it is. Take {reward_item}, and {reward_flavor}. It's most of what I have left, and it's the easiest debt I've ever paid. We'll remember you here.",
+      "rewardFlavor": "silver saved for worse winter",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2280,14 +2280,14 @@
       "expositionTurnInText": "That's taken care of, then. Good. There's one more thing I should mention while you're here. The stores took a hit during all that trouble.",
       "conflict1Text": "I'm short on {quest_item}. Not dangerously so, but enough that I'd rather get ahead of it now than scramble later. {gather_count} would put me right.",
       "conflict1TurnInText": "That'll do it. Shelves look the way they should again. Come on inside.",
-      "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. Take {reward_item}. You've earned it, and I'd rather pay a debt when it's fresh.",
+      "resolutionText": "Everything's back where it ought to be, and I've got you to thank for it. {reward_item}: {reward_flavor}. You've earned it, and I'd rather pay a debt when it's fresh.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 11,
         "passText": "You noticed the chair, didn't you. I forgot I'd left it against the door. I've been barricading myself in every night for two weeks now, and this morning I realized I'd started doing it during the day too. That's when I knew I couldn't handle this alone anymore.",
         "failText": "Everything's in order here. Just a rough stretch with the wildlife."
       },
-      "rewardFlavor": "a fair day's wage and a standing offer of supper",
+      "rewardFlavor": "a fair day's wage",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -2316,14 +2316,14 @@
       "conflict1TurnInText": "They agreed? Good. I figured they would. That takes a weight off going forward.",
       "conflict2Text": "One more thing, if you're willing. I need {gather_count} {quest_item} to fill out what's been running thin. After that I'll be properly caught up.",
       "conflict2TurnInText": "That does it. I can stop rationing and start working normally again.",
-      "resolutionText": "I'm back on my feet, and it didn't take half as long as I expected. Take {reward_item}. You made a hard stretch considerably shorter.",
+      "resolutionText": "I'm back on my feet, and it didn't take half as long as I expected. Take {reward_item}, and {reward_flavor} too. You made a hard stretch considerably shorter.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "If I'm honest, I've been putting off asking anyone for help for weeks. Pride, mostly. It's a poor substitute for supplies, but it's hard to let go of.",
         "failText": "I've just been busy. It happens."
       },
-      "rewardFlavor": "what I can spare from the stores and my thanks",
+      "rewardFlavor": "what I can spare",
       "targetNpcOpener": "So you're here on behalf of the {self_role} in {settlement_name}. I'd been expecting word sooner, to be honest. The arrangement still holds. I'll send what I can by week's end.",
       "targetNpcCloser": "Tell them it's coming. No need to worry about it further.",
       "valence": "negative",
@@ -3657,14 +3657,14 @@
       "expositionTurnInText": "I felt the pressure ease the moment you came back. But the damage is already done to our supplies, and I still need to cover that before anyone notices.",
       "conflict1Text": "I need {gather_count} {quest_item} put away before {settlement_npc} checks the stores. If they see how low we really are, I'll have to explain everything, and I'd rather fix it first and explain never.",
       "conflict1TurnInText": "That's enough to fill the gaps. Nobody will know how close we came. Maybe that's cowardly, but right now I'll take cowardly over chaos.",
-      "resolutionText": "The stores are full, the {enemy_type_plural} are gone, and {settlement_npc} still thinks I had it all under control. Take {reward_item}. You saved me from a mess that was half my own making, and I won't forget that.",
+      "resolutionText": "The stores are full, the {enemy_type_plural} are gone, and {settlement_npc} still thinks I had it all under control. Keep {reward_item}. Plus {reward_flavor}. You saved me from a mess that was half my own making, and I won't forget that.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You're right, the numbers I gave {settlement_npc} don't hold together. I've been skimming from my own rations to keep the public count looking right, reporting what we should have instead of what we do. I haven't eaten a full meal in four days, and nobody questioned it until you.",
         "failText": "The stores are where they are. I've given you the count."
       },
-      "rewardFlavor": "a pouch of coin I kept hidden for exactly this kind of trouble",
+      "rewardFlavor": "coin hidden for trouble",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3688,14 +3688,14 @@
       "conflict1TurnInText": "{target_npc} didn't hold it against me? I was sure they'd be furious. I suppose I've been building up the worst case in my head for so long that I forgot people can be decent.",
       "targetNpcOpener": "So they finally sent word. Honestly, I'd half given up on hearing from them. The debt isn't the issue, what bothered me was the silence. People disappear on you and you start thinking the worst.",
       "targetNpcCloser": "Tell them it's fine, the money can wait. I just wanted to know they were still alive.",
-      "resolutionText": "My back's getting better, the debt is settled, and I can look at myself in a mirror again without wincing. Take {reward_item}. You did the hard parts I couldn't face, and I mean that literally and otherwise.",
+      "resolutionText": "My back's getting better, the debt is settled, and I can look at myself in a mirror again without wincing. Have {reward_item}, with {reward_flavor}. You did the hard parts I couldn't face, and I mean that literally and otherwise.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "Oh, you've dealt with {settlement_npc} before? Then you know how they get about the rotation. The debt is really from medicine I bought for my daughter last winter, and {target_npc} would forgive the whole thing if they knew, but then I'd owe them pity instead of coin. Pity is a debt you never pay off.",
         "failText": "That's a lot of questions about my finances for someone I just met. Let's keep this about the {quest_item}."
       },
-      "rewardFlavor": "a handful of silver and my word that I'll pay it forward",
+      "rewardFlavor": "silver and my word",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3728,14 +3728,14 @@
       "conflict2TurnInText": "That's advice I can actually use. I was leaving feed scraps too close to the perimeter. Drawing them in without knowing it. No wonder they kept coming back.",
       "targetNpcOpener": "Predators at the fence line? That's almost always a bait problem. Something close to the perimeter smells good enough to draw them in, and once they learn the pattern they'll keep testing it. Move the feeding area to the center of the enclosure and bury the scraps deep.",
       "targetNpcCloser": "It's a common mistake. The fix is simple once you know what to look for.",
-      "resolutionText": "I moved the feed, rebuilt the fence, and last night was the quietest I can remember. Take {reward_item}. You gave me answers on top of help, and that's worth more than either one alone.",
+      "resolutionText": "I moved the feed, rebuilt the fence, and last night was the quietest I can remember. Take {reward_item} and {reward_flavor}. You gave me answers on top of help, and that's worth more than either one alone.",
       "skillCheck": {
         "skill": "NATURE",
         "dc": 11,
         "passText": "You know what you're looking at, then. They're not just raiding, they're denning nearby, and the torn fence isn't random damage. They're testing the weak points and coming back to the same ones every night. I've been sleeping in the pen with a club because I can't afford to lose these animals, and I didn't know how to explain that to anyone who hadn't seen the pattern.",
         "failText": "They keep getting through the fence. I don't know much about why they pick the spots they pick."
       },
-      "rewardFlavor": "the coin I've been hiding under the floorboard and a debt I intend to repay",
+      "rewardFlavor": "coin from the floorboard",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3761,14 +3761,14 @@
       "expositionTurnInText": "I can fill the shelves again. That's the first time in weeks I've been able to say that. But the reason the reserves ran low in the first place is still out there.",
       "conflict1Text": "{enemy_type_plural} have been raiding what I put aside, and every time I restock they take another piece. {kill_count} of them gone and I can finally stop losing ground. Please.",
       "conflict1TurnInText": "Quiet. Real quiet. I keep walking to the window expecting to see them and there's nothing there. It's strange how much relief feels like confusion.",
-      "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Take {reward_item}. I was ready to sell everything I had, and you kept me from having to.",
+      "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Carry {reward_item}: {reward_flavor}. I was ready to sell everything I had, and you kept me from having to.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "All right, stop looking at me like that. The real problem is that I spent the emergency fund on a gift for my partner's birthday two months ago and thought I'd earn it back before anyone noticed. Everything that's gone wrong since has been piling on top of that one stupid decision.",
         "failText": "Supplies run out, it happens. I'd rather fix it than talk about it."
       },
-      "rewardFlavor": "every coin I can scrape together and a promise I mean to keep",
+      "rewardFlavor": "every coin I can scrape",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3792,14 +3792,14 @@
       "expositionTurnInText": "You actually brought it. I'm not going to pretend I'm not emotional about that. I've asked six people this week and you're the first one who came through.",
       "conflict1Text": "While I'm being honest with you, I'm also short on {quest_item}. {gather_count} would get me back to something resembling stable. I know I'm stacking favors, and I know what that looks like. But I'm asking anyway.",
       "conflict1TurnInText": "That's enough. That's actually enough. I keep counting it over because I'm not used to having enough of anything.",
-      "resolutionText": "I can stand on my own feet again, at least for a while. Take {reward_item}. I'd write you a song about it if I thought you'd want one, but coin is probably more useful.",
+      "resolutionText": "I can stand on my own feet again, at least for a while. Bring {reward_item}. {reward_flavor}, also. I'd write you a song about it if I thought you'd want one, but coin is probably more useful.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "You caught that, did you, the way I frame everything like a story. It's a habit from years of busking, making my problems sound charming because that's the only way anyone ever listens. The truth underneath all the polish is that I haven't eaten properly in a week and I'm scared.",
         "failText": "Everyone has hard stretches. Mine happens to be now."
       },
-      "rewardFlavor": "the last of my performance earnings and a song in your name if you ever want it",
+      "rewardFlavor": "my last performance earnings",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3830,14 +3830,14 @@
       "conflict2TurnInText": "{target_npc} agreed to send me the words? My grandmother would have wept. I'll learn them tonight.",
       "targetNpcOpener": "The seasonal rite? It's rare that anyone asks about it anymore, most settlements stopped observing it two generations back. But the practice itself is sound, and I've kept the tradition alive here. I'll write down the invocations and the offerings list.",
       "targetNpcCloser": "Tell them the balance doesn't restore itself, someone has to tend it. I'm glad someone remembers that.",
-      "resolutionText": "I performed the rite last night, the first time anyone has done it in {settlement_name} in twenty years. The air felt different this morning. Take {reward_item}. You helped me find something I didn't know I'd lost.",
+      "resolutionText": "I performed the rite last night, the first time anyone has done it in {settlement_name} in twenty years. The air felt different this morning. Hold {reward_item}, along with {reward_flavor}. You helped me find something I didn't know I'd lost.",
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 13,
         "passText": "You know the old calendar. Then you understand what I mean when I say we're two seasons overdue. My grandmother never missed an observance in her life, and the year after she died is when the trouble started. I don't think that's a coincidence, and I've been too ashamed of my own neglect to say so until now.",
         "failText": "It's an old tradition. I won't bore you with the details."
       },
-      "rewardFlavor": "the coin my grandmother left me and a blessing spoken in the old way",
+      "rewardFlavor": "my grandmother's coin",
       "valence": "negative",
       "roleAffinity": []
     },
