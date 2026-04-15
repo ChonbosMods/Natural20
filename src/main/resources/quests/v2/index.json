@@ -1484,14 +1484,14 @@
       "conflict1TurnInText": "This is exactly what I needed. Holding this, I can see how it all fits together, and now I know who actually did it. I almost wish I didn't, because the truth is going to upset some people who don't want to be upset.",
       "conflict2Text": "I need {target_npc} to come back here and say what they told you, in front of the people who matter. Could you go ask them to make the trip? They won't want to. They'd rather stay out of our business. But they'll come if you tell them I'm asking and that I have proof now.",
       "conflict2TurnInText": "{target_npc} agreed to come. That's everything. With their testimony and the evidence you found, there's no version of this where my friend stays accused. The truth is finally going to get its turn to speak.",
-      "resolutionText": "It's done. My friend's name is clear, and the people who were so quick to accuse them have been just as quick to look at their own boots. That's how it should be. Take {reward_item}. You stood up for someone you'd never even met, and that's the kind of thing I want to remember about people.",
+      "resolutionText": "It's done. My friend's name is clear, and the people who were so quick to accuse them have been just as quick to look at their own boots. That's how it should be. Take {reward_item}: {reward_flavor}. You stood up for someone you'd never even met, and that's the kind of thing I want to remember about people.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
         "passText": "There's a piece I haven't told anyone yet. The person who first pointed at my friend had reasons of their own to want them gone, and I think the accusation was the lever, not the cause. I haven't said it out loud because I don't have proof, but I will by the time this is over.",
         "failText": "It's a complicated story and I don't have it all straight in my head yet."
       },
-      "rewardFlavor": "what coin I have set aside and a friendship that owes you one too",
+      "rewardFlavor": "coin and a friend's debt",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was there that day, and your friend was with me most of the afternoon. We were going over stock and comparing notes. There's no way they could have been where people are saying they were.",
@@ -1517,14 +1517,14 @@
       "expositionTurnInText": "Holding this is the first piece of evidence anyone has given me a chance to show. I feel like I can breathe a little. But evidence alone won't fix what people have been telling each other about me.",
       "conflict1Text": "I need {target_npc} in {target_npc_settlement} to vouch for me. They were the one I gave the original to, weeks ago, and they can tell anyone who'll listen that the story being passed around is wrong. Could you ask them to speak up for me? They don't owe me anything, but they're a fair person, and that's what I'm counting on.",
       "conflict1TurnInText": "{target_npc} is willing to come and say it plainly. I almost wept when you told me. I haven't had someone in my corner in weeks, and now I've got two of you, and that's more than I had any right to expect.",
-      "resolutionText": "{target_npc} came and said their piece, and the people who'd been so sure of themselves had nothing to say back. My name is mine again. Take {reward_item}. You and {target_npc} gave me something I didn't think I'd get back, and I'm going to remember who showed up when nobody else would.",
+      "resolutionText": "{target_npc} came and said their piece, and the people who'd been so sure of themselves had nothing to say back. My name is mine again. Take {reward_item}, and with it {reward_flavor}. You and {target_npc} gave me something I didn't think I'd get back, and I'm going to remember who showed up when nobody else would.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
         "passText": "I'll tell you what I haven't told anyone. I almost left {settlement_name} last week. I had my pack at the door and I was going to walk out and let them think whatever they wanted. The only reason I'm still here is that I decided I'd rather be cleared than be free.",
         "failText": "It's been a hard few weeks. I'd rather not get into it."
       },
-      "rewardFlavor": "a share of my own stores and the kind of thanks I don't usually give freely",
+      "rewardFlavor": "thanks I rarely give freely",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I still have what they gave me, right here. They handed it to me freely, weeks before any of this started. Whoever's been spreading the other story either doesn't know the truth or doesn't want to.",
@@ -1558,8 +1558,8 @@
       "conflict2TurnInText": "Now I have the whole picture. The damage, the cause, the timeline. It all fits, and none of it points at the person they've been blaming. I'm almost looking forward to the conversation I get to have next.",
       "conflict3Text": "Last thing. I need {target_npc} to come back to {settlement_name} with me and say what they saw, in person, in front of everyone who's been spreading the wrong story. Could you ask them once more? With everything we've gathered, they'll know it's worth the trip.",
       "conflict3TurnInText": "{target_npc} is on their way. Between their testimony and what we've gathered, this is going to be the cleanest exoneration anyone in {settlement_name} has ever seen. My friend deserves nothing less.",
-      "resolutionText": "It's over. My friend has their good name back, and the people who were so eager to take it have learned to be slower with their accusations next time. That's the part I'm proudest of. Take {reward_item}. You didn't just help me, you helped this place be a little fairer than it was yesterday.",
-      "rewardFlavor": "what I can give from my own stores and the lasting thanks of the person you cleared",
+      "resolutionText": "It's over. My friend has their good name back, and the people who were so eager to take it have learned to be slower with their accusations next time. That's the part I'm proudest of. Take {reward_item}, along with {reward_flavor}. You didn't just help me, you helped this place be a little fairer than it was yesterday.",
+      "rewardFlavor": "the cleared friend's lasting thanks",
       "valence": "negative",
       "roleAffinity": [],
       "targetNpcOpener": "I was first on the scene, and what I saw doesn't match what people have been saying. The marks were too deep, too even, and in places nobody could have reached without help. Something else did this.",
@@ -3469,14 +3469,14 @@
       "conflict1TurnInText": "So {target_npc} says the goods were switched after they left my hands. That's what I've been saying, and now there's someone besides me who can prove it. I can finally stop defending myself and let the facts do the talking.",
       "targetNpcOpener": "I remember that shipment. I handled it personally, and what I packed was solid work. What arrived at the other end was not the same goods. Someone made a switch between here and there, and it wasn't the person everyone's been blaming.",
       "targetNpcCloser": "I'll say it to anyone who asks. The work that left this table was sound.",
-      "resolutionText": "The family in {other_settlement} heard the real story and sent word that they don't hold it against me. That's all I wanted. Take {reward_item}. I'm glad there are still people willing to look at evidence instead of just listening to gossip.",
+      "resolutionText": "The family in {other_settlement} heard the real story and sent word that they don't hold it against me. That's all I wanted. Take {reward_item}: {reward_flavor}. I'm glad there are still people willing to look at evidence instead of just listening to gossip.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
         "failText": "I appreciate the concern, but I'm handling it. Some things you just work through on your own."
       },
-      "rewardFlavor": "a sample of my best work and a fair bit of coin",
+      "rewardFlavor": "a sample of my work",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -3500,14 +3500,14 @@
       "conflict1TurnInText": "That confirms it. The pattern is exactly what you'd expect from a fallen lantern, and nothing like what you'd see from someone setting a fire on purpose. My apprentice can hold their head up again.",
       "targetNpcOpener": "I was on the road that evening and I saw the whole thing. A gust caught a lantern on the fence post and it went over. Nobody was within fifty paces of it. I would have said something sooner, but I didn't know anyone was being blamed until now.",
       "targetNpcCloser": "I'll put my name behind what I saw. The young one had nothing to do with it.",
-      "resolutionText": "I showed the evidence to the people who mattered, and {target_npc}'s account put it to rest. My apprentice came to work this morning without that hunted look they've been wearing all week, and that alone was worth everything. Take {reward_item}. You helped me protect someone who couldn't protect themselves.",
+      "resolutionText": "I showed the evidence to the people who mattered, and {target_npc}'s account put it to rest. My apprentice came to work this morning without that hunted look they've been wearing all week, and that alone was worth everything. Take {reward_item}, and with it {reward_flavor}. You helped me protect someone who couldn't protect themselves.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You can see it on me, can't you. I keep saying I'm angry on their behalf, but the truth is I'm terrified. My apprentice offered to confess to it just to make the pressure stop, and I had to talk them out of it. That's what false accusations do to a young person who did nothing wrong.",
         "failText": "I'm fine. It's them I'm worried about, not me."
       },
-      "rewardFlavor": "a fair day's wages and the gratitude of a mentor and their apprentice",
+      "rewardFlavor": "a mentor and apprentice's gratitude",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7348,7 +7348,7 @@
         "passText": "Well, since you've heard what happened at the council, I might as well be straight with you. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted my word and I spent that trust on a grudge.",
         "failText": "That's an odd angle to come at this from. I made a mistake, and that's the whole story."
       },
-      "rewardFlavor": "what I owe and then some, because the debt is bigger than coin",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7379,7 +7379,7 @@
         "passText": "You trade with the storehouse too? Then you know how things work over there, the security, who comes and goes. The reason I stayed quiet is that the storehouse manager is a friend of mine and I didn't want to suggest his security failed. I let a child take the fall to protect a grown man's reputation.",
         "failText": "You're asking questions that sound friendly but feel pointed. I said I should have spoken up, and that's all I've got."
       },
-      "rewardFlavor": "a family's gratitude and everything I can put together",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7403,14 +7403,14 @@
       "conflict1TurnInText": "So {target_npc} found them, and they're safe but shaken. They told {target_npc} they'd never set foot in {settlement_name} again, and honestly, I can't argue with that. At least they know the accusation has been dropped.",
       "targetNpcOpener": "That traveler came through here two days ago, still upset. They said a whole settlement turned on them over a poisoned well and nobody would listen. I gave them a bed and a meal. They're a decent person who got treated like a criminal for no reason.",
       "targetNpcCloser": "I'll pass along the message. Whether they accept it is up to them.",
-      "resolutionText": "The well is repaired, the word is out, and a few people in {settlement_name} are finally willing to admit we were wrong. Not all of them, but enough. Take {reward_item}. You helped me make right what I could, even if I can't undo all of it.",
+      "resolutionText": "The well is repaired, the word is out, and a few people in {settlement_name} are finally willing to admit we were wrong. Not all of them, but enough. Take {reward_item}: {reward_flavor}. You helped me make right what I could, even if I can't undo all of it.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
         "passText": "Fine, you want the truth? I was one of the loudest voices calling for the traveler to be thrown out. I saw a stranger near the well and chose the easiest explanation because it felt good to have someone to blame. I cared about feeling certain more than being right.",
         "failText": "Mistakes were made. I'm trying to fix them now."
       },
-      "rewardFlavor": "a portion of what I have and the hope that it counts for something",
+      "rewardFlavor": "hope it counts for something",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7441,7 +7441,7 @@
         "passText": "Let me be blunt with you since you're being blunt with me. I went public because I wanted to look sharp in front of the council. Catching someone skimming surplus would have made me look like the responsible one, the watchful neighbor. I put my own ambition ahead of someone's reputation and I'll regret it for a long time.",
         "failText": "I jumped to conclusions. That's all there is to say."
       },
-      "rewardFlavor": "everything I can spare, which isn't enough, but it's honest",
+      "rewardFlavor": null,
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7466,14 +7466,14 @@
       "conflict1TurnInText": "So {target_npc} says the healer's method was textbook, careful and well-measured. The only unusual part was the patience required, and we couldn't manage even that much. I owe the healer an apology that I'm not sure they'll accept.",
       "targetNpcOpener": "I've seen this treatment before. The fever spikes before it breaks, and to an untrained eye it looks like the patient is declining. But the remedy is sound. Whoever administered it knew exactly what they were doing and showed real discipline in staying the course.",
       "targetNpcCloser": "If they're being questioned for this, the people doing the questioning should be ashamed of themselves.",
-      "resolutionText": "I brought {target_npc}'s assessment to the settlement and read it aloud. The healer was there, standing at the back, and when I finished they nodded once and left without a word. Take {reward_item}. You helped restore something I nearly destroyed with ignorance.",
+      "resolutionText": "I brought {target_npc}'s assessment to the settlement and read it aloud. The healer was there, standing at the back, and when I finished they nodded once and left without a word. Take {reward_item}, and with it {reward_flavor}. You helped restore something I nearly destroyed with ignorance.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You caught the part I was hoping nobody would question. I said people started talking, like it happened on its own, but it didn't. I was the first voice, the one who saw the patient getting worse and said it out loud, and the rest of the settlement followed my lead because I sounded certain.",
         "failText": "I made assumptions I shouldn't have. The details don't change what needs to happen now."
       },
-      "rewardFlavor": "a careful measure of what I have and the healer's future goodwill, I hope",
+      "rewardFlavor": "the healer's future goodwill",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -7497,14 +7497,14 @@
       "conflict1TurnInText": "That's the right choice. I'll send it with a letter explaining everything. Whether they forgive me or not, they'll know the truth finally reached {settlement_name}.",
       "targetNpcOpener": "I handled that shipment myself, two wagons packed carefully at the family's own expense. They didn't want recognition, they just wanted to help. Then the middleman told everyone it was his doing, and the family was too proud to correct the record. They've been living under that false accusation ever since.",
       "targetNpcCloser": "It's past time someone set the story straight. That family deserves better.",
-      "resolutionText": "The {quest_item} reached the family along with my letter, and they sent back a reply, short and dignified and kinder than I had any right to expect. I read it to the settlement square. Take {reward_item}. You helped me fix a story I should never have told.",
+      "resolutionText": "The {quest_item} reached the family along with my letter, and they sent back a reply, short and dignified and kinder than I had any right to expect. I read it to the settlement square. Take {reward_item}: {reward_flavor}. You helped me fix a story I should never have told.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 12,
         "passText": "You noticed something odd about the timing, didn't you. The middleman used a preservation charm on the grain so it would look freshly harvested when it arrived, hiding the fact that it had traveled from much farther away. That's how he made the story believable. Without the charm, everyone would have known the grain came from outside.",
         "failText": "There's more to it than I've said, but the facts are enough for now."
       },
-      "rewardFlavor": "a share of what the settlement owes and my word that the truth will stand",
+      "rewardFlavor": "what the settlement owes you",
       "valence": "negative",
       "roleAffinity": []
     },
