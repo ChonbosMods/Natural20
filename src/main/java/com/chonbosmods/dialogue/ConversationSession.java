@@ -468,6 +468,12 @@ public class ConversationSession {
                 result.passed(), result.critical()
             ));
 
+            if (result.passed() && playerData != null) {
+                int xp = com.chonbosmods.progression.Nat20XpMath.d20SuccessXp(playerData.getLevel());
+                com.chonbosmods.Natural20.getInstance().getXpService()
+                        .award(player, playerRef, store, xp, "d20:" + stat.name());
+            }
+
             String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
             processNode(nextNodeId);
 
