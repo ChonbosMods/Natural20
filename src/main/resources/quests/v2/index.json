@@ -129,7 +129,7 @@
       "acceptText": "Bless you. Just tell her I'm coming as soon as I can find someone to mind the little ones. Tell her that, please.",
       "declineText": "Don't. Don't say no to me. She's the only family I have left and I can't get to her, do you understand? I'm begging you.",
       "expositionTurnInText": "You spoke to {target_npc}? And she's holding on? I can breathe a little. But if she's still that weak, there's something I need you to bring her.",
-      "conflict1Text": "She used to swear by a particular {quest_item} when our mother was sick. It always brought her around. I don't have any here. Bring it back to me and I'll get it to her tonight, I swear I will.",
+      "conflict1Text": "She used to swear by a particular {quest_item_full} when our mother was sick. It always brought her around. I don't have any here. Bring it back to me and I'll get it to her tonight, I swear I will.",
       "conflict1TurnInText": "Oh, thank everything. I'll have this in her hands by sundown if I have to walk through snow to do it.",
       "resolutionText": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It isn't enough, but it's what I have, and {reward_flavor}. You gave me back my sister.",
       "skillCheck": {
@@ -338,7 +338,7 @@
           "countMax": 6
         }
       ],
-      "expositionText": "My daughter's been running a fever for three days and nothing I have is bringing it down. There's a {quest_item} that would help, but I can't leave her side long enough to find one myself. She cries when I'm not in the room and I can't bear it.",
+      "expositionText": "My daughter's been running a fever for three days and nothing I have is bringing it down. There's a {quest_item_full} that would help, but I can't leave her side long enough to find one myself. She cries when I'm not in the room and I can't bear it.",
       "acceptText": "Thank you. Truly. Now I don't have to choose between her and the thing she needs.",
       "declineText": "All right. I'll go myself, then, when she finally sleeps. I'll only be gone a little while. She probably won't notice. She probably won't.",
       "expositionTurnInText": "She let me give it to her without a fuss. I think she could taste that it would help. Her color is already better and I've started to feel like I might survive this.",
@@ -2385,7 +2385,7 @@
       "acceptText": "Good. The sooner it's done, the sooner things can move again.",
       "declineText": "Right. We'll wait it out, then. It'll open up eventually, one way or another.",
       "expositionTurnInText": "I can already see the difference. People are talking about making the trip again. But while the road was down, something else came up.",
-      "conflict1Text": "We've been waiting on a {quest_item} that should have come through days ago. It's probably sitting at a dead drop somewhere between here and there. See if you can track it down.",
+      "conflict1Text": "We've been waiting on a {quest_item_full} that should have come through days ago. It's probably sitting at a dead drop somewhere between here and there. See if you can track it down.",
       "conflict1TurnInText": "That's the one. Good condition, too. We can put this to use right away.",
       "conflict2Text": "One last thing. {target_npc} in {target_npc_settlement} needs to know the road is open again. They're a {target_npc_role}, and they've been holding off on sending supplies until it was safe. Let them know it's clear.",
       "conflict2TurnInText": "{target_npc} is sending a cart? That settles everything. We're back to normal.",
@@ -3905,7 +3905,7 @@
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
+        "passText": "You caught that. I said 'read about' and not 'heard about.' I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item_full} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
         "failText": "I heard it helps. That's enough reason to try."
       },
       "rewardFlavor": "a seat at our table",
@@ -4574,7 +4574,7 @@
       "acceptText": "Now we're approaching this the right way. Not just reacting, but actually solving it.",
       "declineText": "Fine. We'll keep trimming branches until we're buried under them. Some of us were born for half measures, I suppose.",
       "expositionTurnInText": "Breathing room. Good. Now let's find what's drawing them here in the first place.",
-      "conflict1Text": "There's a {quest_item} out there that I think is acting as a lure. Something left behind by whoever was here before us, maybe on purpose, maybe by accident. Find it and bring it to me. If I'm right, removing it changes the equation entirely.",
+      "conflict1Text": "There's a {quest_item_full} out there that I think is acting as a lure. Something left behind by whoever was here before us, maybe on purpose, maybe by accident. Find it and bring it to me. If I'm right, removing it changes the equation entirely.",
       "conflict1TurnInText": "Look at this. I was right. This is what's been pulling them toward {settlement_name} season after season. With it gone, the pattern should break.",
       "conflict2Text": "One last push. The {enemy_type_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_count} more of them dealt with and the root and the branches are both cut.",
       "conflict2TurnInText": "Done. Truly, finally done. The scouts report nothing moving within a half day's walk. I haven't heard that in over a year.",
@@ -6442,7 +6442,7 @@
       "acceptText": "Thank you. He won't tell me anything, and I can't fix what I don't understand.",
       "declineText": "I'll figure it out. Brothers always figure it out, eventually.",
       "expositionTurnInText": "So that's what happened. I can see why he's ashamed, but It as bad as what I'd been imagining. Now I need to give him something to work toward.",
-      "conflict1Text": "There's a {quest_item} he's always talked about wanting. If I can put one in his hands, it might remind him that he's capable of the work, even if the last place didn't see it. Sometimes you need proof you can hold something before you believe you can build with it.",
+      "conflict1Text": "There's a {quest_item_full} he's always talked about wanting. If I can put one in his hands, it might remind him that he's capable of the work, even if the last place didn't see it. Sometimes you need proof you can hold something before you believe you can build with it.",
       "conflict1TurnInText": "He picked it up and turned it over in his hands for a long time. Then he looked at me and said thank you, which is the first full sentence he's spoken in two weeks.",
       "resolutionText": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. {reward_item} is yours, along with {reward_flavor}. You helped me reach a person I couldn't reach alone, and that's a debt I'll carry gladly.",
       "skillCheck": {
@@ -6480,7 +6480,7 @@
       "expositionTurnInText": "She opened the curtain this afternoon. Just an inch, but the light came in and she didn't flinch. That's a step. I need to take the next one.",
       "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role} who knew her before this started. I think hearing from someone outside these walls might remind her that the world isn't only the thing that scared her.",
       "conflict1TurnInText": "{target_npc} sent a message back with you? She read it twice and put it under her pillow. That's the most she's engaged with anything from outside in weeks.",
-      "conflict2Text": "There's a {quest_item} she used to keep with her on every trip. I think putting it back in her hands might help her remember who she was before fear took over. She won't ask for it herself.",
+      "conflict2Text": "There's a {quest_item_full} she used to keep with her on every trip. I think putting it back in her hands might help her remember who she was before fear took over. She won't ask for it herself.",
       "conflict2TurnInText": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. Not with fear this time. More like someone considering a possibility.",
       "resolutionText": "She walked to the gate this morning and stood there for five minutes before coming back inside. She smiled when she closed the door, and that was the first real smile in six weeks. {reward_flavor} comes with {reward_item}. The road back is long, but she's on it now.",
       "skillCheck": {
