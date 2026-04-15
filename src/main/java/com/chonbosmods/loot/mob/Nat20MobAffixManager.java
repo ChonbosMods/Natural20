@@ -27,7 +27,6 @@ import java.util.concurrent.ThreadLocalRandom;
  * <ul>
  *   <li>Filter the affix pool by tier and roll a random subset</li>
  *   <li>Apply per-affix stat multipliers via {@link EntityStatMap}</li>
- *   <li>Apply the tier-level base stat multiplier</li>
  *   <li>Fire {@link MobAbilityHandler#onSpawn} for each affix's ability type</li>
  *   <li>Track applied affixes per mob for loot drops and nameplate display</li>
  * </ul>
@@ -99,7 +98,7 @@ public class Nat20MobAffixManager {
 
         // Tier-level HP/damage scaling now owned by Nat20MobScaleSystem (see progression/).
 
-        // 5. Fire onSpawn for each affix's ability handler
+        // 4. Fire onSpawn for each affix's ability handler
         for (Nat20MobAffixDef affix : rolled) {
             if (affix.abilityType() != null && !affix.abilityType().isEmpty()) {
                 MobAbilityHandler handler = abilityHandlers.get(affix.abilityType());
@@ -115,10 +114,10 @@ public class Nat20MobAffixManager {
             }
         }
 
-        // 6. Store applied affixes for later lookup
+        // 5. Store applied affixes for later lookup
         appliedAffixes.put(mobRef, List.copyOf(rolled));
 
-        // 7. Generate and apply elite name
+        // 6. Generate and apply elite name
         String eliteName = nameGenerator.generate(tier);
         if (eliteName != null) {
             try {
