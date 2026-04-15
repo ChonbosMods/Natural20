@@ -38,5 +38,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new XpAddCommand());
         addSubCommand(new XpSetCommand());
         addSubCommand(new LevelSetCommand());
+        addSubCommand(new StatsCommand());
     }
 }
