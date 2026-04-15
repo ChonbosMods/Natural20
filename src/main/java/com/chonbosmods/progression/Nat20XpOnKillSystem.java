@@ -1,6 +1,7 @@
 package com.chonbosmods.progression;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.data.Nat20NpcData;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
@@ -66,6 +67,10 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
         // Filter to scaled mobs (non-mob entities don't carry Nat20MobLevel).
         Nat20MobLevel level = store.getComponent(victimRef, Natural20.getMobLevelType());
         if (level == null) return;
+
+        // Skip settlement NPCs (shopkeepers, residents): no XP for griefing peaceful villagers.
+        Nat20NpcData npcData = store.getComponent(victimRef, Natural20.getNpcDataType());
+        if (npcData != null && npcData.getSettlementCellKey() != null) return;
 
         int mlvl = config.mlvlForTier(level.getAreaLevel(), level.getTier());
         double weight = config.killXpWeight(level.getTier());
