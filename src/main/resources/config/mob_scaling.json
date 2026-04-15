@@ -1,0 +1,45 @@
+{
+  "area_level": {
+    "bands": [
+      { "max_distance": 1000,  "area_level_start": 1,  "area_level_end": 10 },
+      { "max_distance": 2500,  "area_level_start": 11, "area_level_end": 20 },
+      { "max_distance": 5000,  "area_level_start": 21, "area_level_end": 30 },
+      { "max_distance": 10000, "area_level_start": 31, "area_level_end": 40 }
+    ],
+    "default_area_level": 40
+  },
+  "mlvl_offsets": {
+    "REGULAR": 0,
+    "CHAMPION": 2,
+    "BOSS": 3,
+    "DUNGEON_BOSS": 5
+  },
+  "tier_multipliers": {
+    "REGULAR":      { "hp_mult": 1.0,  "dmg_mult": 1.0 },
+    "CHAMPION":     { "hp_mult": 4.0,  "dmg_mult": 2.0 },
+    "BOSS":         { "hp_mult": 8.0,  "dmg_mult": 3.0 },
+    "DUNGEON_BOSS": { "hp_mult": 20.0, "dmg_mult": 4.0 }
+  },
+  "monster_scaling": {
+    "base_hp": 40, "base_dmg": 12,
+    "hp_growth": 0.1372, "dmg_growth": 0.1031
+  },
+  "xp_economy": {
+    "unit": 15,
+    "base_per_level": 909,
+    "growth_per_level": 1.12,
+    "level_cap": 40,
+    "award_radius_blocks": 64,
+    "source_weights": {
+      "regular_kill": 1.0,
+      "champion_kill": 2.5,
+      "boss_kill": 5.0,
+      "dungeon_boss_kill": 8.0,
+      "quest_phase": 7.0,
+      "d20_success": 5.0
+    }
+  },
+  "player_scaling": {
+    "base_hp": 100, "hp_per_level": 5
+  }
+}
