@@ -852,7 +852,7 @@
           "countMax": 5
         }
       ],
-      "expositionText": "I'm running low on {quest_item} and I can't make my usual rounds without it. Anything you can scrounge up would save me a lot of trouble. I'd go myself, but my hands aren't what they used to be.",
+      "expositionText": "I'm short a {quest_item} and I can't make my usual rounds without it. Anything you can scrounge up would save me a lot of trouble. I'd go myself, but my hands aren't what they used to be.",
       "acceptText": "Bless you for that. I'll get the kettle on while you're out.",
       "declineText": "Ah well. I'll dig around tomorrow and see what I can turn up.",
       "expositionTurnInText": "There it is. Exactly what I needed. You've got a good eye for the right thing. There's one more piece to this, though, if you've still got the patience.",
@@ -893,7 +893,7 @@
       "acceptText": "Appreciated. Tell them I sent you and they'll know who you mean.",
       "declineText": "Fair enough. I'll send word the next time a traveler passes through.",
       "expositionTurnInText": "{target_npc} pointed you in the right direction? Good. They've always been straight with me. Now I just need the materials to actually do the work.",
-      "conflict1Text": "I need {quest_item} to follow the pattern through. It's not exotic, but I haven't had a chance to gather it myself. Bring me what you can find.",
+      "conflict1Text": "I need a {quest_item} to follow the pattern through. It's not exotic, but I haven't had a chance to gather it myself. Bring me what you can find.",
       "conflict1TurnInText": "Perfect. This is the right grade. I can feel it. There's one more thing pinching me, and then I can finally get to the bench.",
       "conflict2Text": "I won't lie, the {enemy_type_plural} prowling near {settlement_name} have me uneasy about leaving the workshop at all. If you could clear out {kill_count} of them, I'd breathe a lot easier while I work.",
       "conflict2TurnInText": "That's a weight off. I can hear myself think for the first time in days. Come back and let me settle up.",
@@ -931,7 +931,7 @@
       "acceptText": "Right then. I'll have something hot waiting when you're back.",
       "declineText": "Suit yourself. I'll keep ducking around them like I have been.",
       "expositionTurnInText": "That's a relief. The whole place feels lighter knowing they're handled. Now for the actual reason I needed them gone in the first place.",
-      "conflict1Text": "I need {quest_item} to keep things running properly here. It's not glamorous work, but it's what I'd be doing myself if the path weren't a problem. Bring me what you can.",
+      "conflict1Text": "I need a {quest_item} to keep things running properly here. It's not glamorous work, but it's what I'd be doing myself if the path weren't a problem. Bring me what you can.",
       "conflict1TurnInText": "Just what I needed. You've saved me a couple of long days of grumbling. Sit down a minute and I'll fetch your due.",
       "resolutionText": "Now I can actually get back to the work I'm supposed to be doing. Take {reward_item} with my thanks. And {reward_flavor}, any time you stop in. It's good to feel caught up for once.",
       "rewardFlavor": "a warm cup next visit",
@@ -994,7 +994,7 @@
           "countMax": 5
         }
       ],
-      "expositionText": "Something of mine went missing, and I need it back. {quest_item}. It doesn't sound like much, but it's been in my family longer than I have. If you spot one out there, please bring it to me.",
+      "expositionText": "Something of mine went missing, and I need it back. My {quest_item}. It doesn't sound like much, but it's been in my family longer than I have. If you spot one out there, please bring it to me.",
       "acceptText": "Thank you. I've been sick over this for days. It means something to have help.",
       "declineText": "I see how it is. I'll keep looking on my own, then.",
       "expositionTurnInText": "That's it. That's actually it. I almost can't believe I'm holding it again. But I need to know how it ended up out there in the first place.",
@@ -1073,7 +1073,7 @@
       "expositionTurnInText": "Look at all that. I haven't seen the supply this full in months. It's a real start, and it's all because you said yes.",
       "conflict1Text": "The hardest part is that the {enemy_type_plural} keep undoing what we manage to put together. I need {kill_count} of them dealt with, or none of this matters by the end of the week.",
       "conflict1TurnInText": "That should buy us some peace. I can already feel the difference in the way folks here are walking around. You gave them that.",
-      "conflict2Text": "There's one thing I've been needing for ages and could never lay hands on. {quest_item}. With that, I can finish what I set out to do. Could you find one for me?",
+      "conflict2Text": "There's one thing I've been needing for ages and could never lay hands on. A {quest_item}. With that, I can finish what I set out to do. Could you find one for me?",
       "conflict2TurnInText": "You actually found it. I want you to know I'd given up on ever holding one of these again. Come back tonight and let me give you what's owed.",
       "resolutionText": "It's done. The thing I've been working toward all this time is finally where it should be. Take {reward_item}, {reward_flavor}. It isn't much, but the cause was always more important than what I kept for myself.",
       "skillCheck": {
@@ -1153,7 +1153,7 @@
           "countMax": 7
         }
       ],
-      "expositionText": "I keep this place running because somebody has to, and lately that somebody is only me. I'm short on {quest_item}, and without it I won't be able to keep my doors open by week's end. Help me find one.",
+      "expositionText": "I keep this place running because somebody has to, and lately that somebody is only me. I'm short a {quest_item}, and without it I won't be able to keep my doors open by week's end. Help me find one.",
       "acceptText": "I appreciate it more than I can say. Folks here need somewhere to come in out of the dark.",
       "declineText": "I'll keep looking on my own. The work doesn't end because one person walked away from it.",
       "expositionTurnInText": "There it is. That'll keep me going for a good while yet. There's one more thing I need handled before I can settle into the work properly.",
