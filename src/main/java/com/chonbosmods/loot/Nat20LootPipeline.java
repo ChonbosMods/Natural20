@@ -268,16 +268,16 @@ public class Nat20LootPipeline {
     }
 
     /**
-     * Derive min/max rarity quality values from item level.
-     * ilvl 1-5:  Common-Rare,    ilvl 6-10: Common-Epic,
-     * ilvl 11-15: Uncommon-Legendary, ilvl 16-20: Rare-Legendary.
+     * Derive min/max rarity quality values from item level (per design doc §5.1).
+     * ilvl 1-8:   Common-Rare,           ilvl 9-15:  Common-Epic,
+     * ilvl 16-25: Uncommon-Legendary,    ilvl 26+:   all rarities (Common-Legendary).
      * @return int[2] = {minQualityValue, maxQualityValue}
      */
     public static int[] rarityGateForIlvl(int ilvl) {
-        if (ilvl <= 5) return new int[]{1, 3};       // Common-Rare
-        if (ilvl <= 10) return new int[]{1, 4};      // Common-Epic
-        if (ilvl <= 15) return new int[]{2, 5};      // Uncommon-Legendary
-        return new int[]{3, 5};                       // Rare-Legendary
+        if (ilvl <= 8)  return new int[]{1, 3};   // Common-Rare
+        if (ilvl <= 15) return new int[]{1, 4};   // Common-Epic
+        if (ilvl <= 25) return new int[]{2, 5};   // Uncommon-Legendary
+        return new int[]{1, 5};                   // All rarities
     }
 
     private int rollSockets(Nat20RarityDef rarity, Random random) {
