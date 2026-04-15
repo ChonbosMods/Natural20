@@ -2,6 +2,25 @@
 
 > **For Claude:** Execute phase-by-phase. Phase 1 is script-assisted and lands one commit. Phases 2–3 dispatch multiple subagents in ordered batches, one commit per batch.
 
+## Progress (as of 2026-04-14)
+
+**Phase 1:** ✅ complete.
+- `3ffe33a` Phase 1a (Java): dropped `rewardGold` + `rewardItem` record components; removed `reward_gold` binding in `QuestGenerator`; removed `reward_gold` from `DialogueResolver.HIGHLIGHTED_QUEST_VARS`.
+- `5448f2b` Phase 1b (data): `tools/quest_template_migration.py` seeded `rewardFlavor` on all 259 templates from `1464711^`; renamed 259 `{quest_reward}` → `{reward_item}` tokens. Revised-3 (pure rename) approach, preserves authored voice.
+
+**Phase 2:** ✅ complete. 23 batches committed `89391c0` through `b954264` (mundane_batch_01 + v2_batch_01–22).
+- 259 templates total: 234 non-null `rewardFlavor`, 25 null.
+- Null distribution: concentrated in `obtaining` (5), `erroneous_judgment` (3), `disaster` / `enigma` / `mistaken_jealousy` / `rivalry_of_kinsmen` / `self_sacrifice_for_kindred` (2 each), `vengeance` / `conflict_with_fate` / `supplication_fate_variants` / `pursuit` / `ambition` / `necessity_of_sacrificing_loved_ones` / `self_sacrifice_for_an_ideal` (1 each). Zero nulls in grief/deliverance/supplication/crimes-of-love/obstacles-of-love/remorse/loss — appropriate to their tonal register.
+- One over-cap straggler flagged for Phase 4 cleanup: `self_sacrifice_for_an_ideal_06` has 6-word flavor (`"a draft of the clean spring"`).
+- Observations from the pass (tracked for targeted polish):
+  - `loss_of_loved_ones` leaned on `Take {reward_item}: {reward_flavor}.` in 7/11 templates before the variety directive was tightened. Candidate for a diversify-pass.
+  - `mundane_batch_01` produced 0 nulls across all 21 mundane templates — keepsake-style flavor on every one. Worth eyeballing whether mundane quests should feel that warm or be more transactional.
+
+**Phase 3:** pending.
+
+**Phase 4:** pending.
+
+
 **Revision history:**
 - 2026-04-14 (initial): plan written assuming `rewardText` still on disk as source material for Phase 2.
 - 2026-04-14 (revised 1): commit `1464711` deleted `rewardText` from all 259 templates as part of the v1 cleanup. Phase 1 now pulls source material from git history via `git show 1464711^:<file>` instead of reading the live file. Phase 2's "delete rewardText" step is removed (it's already gone).
