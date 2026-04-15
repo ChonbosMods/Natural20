@@ -642,14 +642,14 @@
       "expositionTurnInText": "You actually brought it. I'm holding it and I still half don't believe it. We're past the easy part now, but we're not turning back.",
       "conflict1Text": "Here's where it gets thorny. There's {kill_count} {enemy_type_plural} between us and finishing this, and they aren't going to step aside politely. I won't ask you to do anything I wouldn't do myself. But you're better at it than I am.",
       "conflict1TurnInText": "That's it. That's the last thing standing in our way. I can hardly believe we got this far without it falling apart.",
-      "resolutionText": "We did it. We actually did it. And it's better than I let myself imagine. Take {reward_item}, and know that you didn't just help me, you helped me believe I could finish something this big.",
+      "resolutionText": "We did it. We actually did it. And it's better than I let myself imagine. Take {reward_item}, and know that you didn't just help me, you helped me believe I could finish something this big. {reward_flavor}, truly, for what you did here.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "All right, here's the truth. This isn't really about the project. It's about proving to myself that I can still chase a thing and catch it. I haven't felt that way in a long time, and I'm not letting it slip past me.",
         "failText": "It's a project. A good one. That's enough reason on its own."
       },
-      "rewardFlavor": "a proper share of what we make together and my honest gratitude",
+      "rewardFlavor": "my honest gratitude",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -678,14 +678,14 @@
       "conflict1TurnInText": "That's a real pile. I can almost see the shape of the thing already. We're closer than I thought we'd be at this stage.",
       "conflict2Text": "There's one more piece I can't make myself, a {quest_item}, and a tricky one to come by. Bring me that and we cross the line from planning into doing. I'm so close I can taste it.",
       "conflict2TurnInText": "Look at this. Look at it. We have everything. I haven't been this excited about anything in years.",
-      "resolutionText": "It's done, and it's better than I imagined. I dared to try and it actually worked. Take {reward_item}. You weren't a hired hand on this, you were a partner, and I want you to feel like one.",
+      "resolutionText": "It's done, and it's better than I imagined. I dared to try and it actually worked. Take {reward_item}, and {reward_flavor} from here on. You weren't a hired hand on this, you were a partner, and I want you to feel like one.",
       "skillCheck": {
         "skill": "PERCEPTION",
         "dc": 13,
         "passText": "You noticed the drawings, didn't you. Yes. I've been planning this for the better part of a year. I just needed the courage to ask out loud, and that took longer than the planning did.",
         "failText": "It's a fresh idea. I've been tossing it around for a while, that's all."
       },
-      "rewardFlavor": "a fair cut of what comes from this and an open door whenever you visit",
+      "rewardFlavor": "an open door, always",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Someone's actually attempting it? I tried something similar years ago and I'll tell you straight, the plan matters less than the person behind it. If they're stubborn enough to send you across the region for my opinion, they might actually pull it off.",
@@ -723,14 +723,14 @@
       "conflict2TurnInText": "{target_npc} actually agreed to share what they know? That's the last piece of doubt gone. Now let's finish this.",
       "conflict3Text": "Last thing, I promise. There's a {quest_item} I need to make this real. The centerpiece of the whole thing. Bring me that and I'll have everything I need to finally see this through.",
       "conflict3TurnInText": "There it is. The last piece. I'm holding the future of this whole project in my hands and it feels exactly the way I dreamed it would.",
-      "resolutionText": "I dared to start something I wasn't sure I could finish, and look at it now. Take {reward_item}. You've been more than help, you've been the reason I didn't give up halfway. I won't forget that.",
+      "resolutionText": "I dared to start something I wasn't sure I could finish, and look at it now. Take {reward_item}. And {reward_flavor}, carved into it alongside mine. You've been more than help, you've been the reason I didn't give up halfway. I won't forget that.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 14,
         "passText": "All right, since you've been straight with me, I'll be straight with you. I'm scared of this. Every step. I've been pretending I'm not because I knew if I admitted it I'd never start. So thank you for not letting me see how foolish I look.",
         "failText": "I've got my plan. I just need the help to make it real."
       },
-      "rewardFlavor": "a generous share of what the project earns and a name on whatever it becomes",
+      "rewardFlavor": "your name on this",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "They want to learn from me? That's flattering, and a little terrifying, because what I know came from getting it wrong a dozen times first. But I'll share what I can. Better they learn from my mistakes than make new ones.",
@@ -2506,14 +2506,14 @@
       "conflict1TurnInText": "Clean and clear. That's the workspace sorted. One more piece and we're there.",
       "conflict2Text": "I'd like {target_npc} in {target_npc_settlement} to weigh in before I commit fully. They're a {target_npc_role}, and their opinion would confirm whether I'm on the right track. Would you ask them?",
       "conflict2TurnInText": "{target_npc} thinks it'll work? That's all the confirmation I needed. Time to finish what I started.",
-      "resolutionText": "It's done, and it turned out exactly as I'd planned. Take {reward_item}. You helped me turn an idea into something real, and I value that.",
+      "resolutionText": "It's done, and it turned out exactly as I'd planned. Take {reward_item}. And {reward_flavor} whenever you need it, for as long as I'm running the place. You helped me turn an idea into something real, and I value that.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
         "passText": "I'll level with you. I've had this idea for two years and I've talked myself out of starting it at least a dozen times. Having someone else involved makes it harder to back out. That's partly why I asked.",
         "failText": "It's a solid plan. I just need the help to execute it."
       },
-      "rewardFlavor": "a fair share of the proceeds and an open door at my workshop",
+      "rewardFlavor": "an open door here",
       "targetNpcOpener": "The {self_role} from {settlement_name} wants my assessment? I've heard bits about this project. The approach is sound from what I can tell. I'd say go ahead with it.",
       "targetNpcCloser": "Tell them they have my approval. It's a good use of their time and resources.",
       "valence": "positive",
@@ -2539,14 +2539,14 @@
       "expositionTurnInText": "That's the key piece. I can already see how the rest fits together. Now I just need the materials to build it out.",
       "conflict1Text": "I need {gather_count} {quest_item} for the construction. It's straightforward work, but there's more of it than I can manage alone while keeping everything else running.",
       "conflict1TurnInText": "That's everything I needed. I can start putting it together this afternoon.",
-      "resolutionText": "It's finished, and it looks exactly the way I pictured it. Take {reward_item}. You helped me build something I've been carrying around in my head for months, and now it's standing right there in front of me.",
+      "resolutionText": "It's finished, and it looks exactly the way I pictured it. Take {reward_item}, and take {reward_flavor} with you. You helped me build something I've been carrying around in my head for months, and now it's standing right there in front of me.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
         "passText": "I've been carrying this plan around for two years and never once shown it to anyone. I was afraid that if someone I respected looked at it and shrugged, the dream would be over. Telling you about it is the first time I've let it be real outside my own head.",
         "failText": "It's a project I believe in. That's reason enough."
       },
-      "rewardFlavor": "a proper payment and the satisfaction of seeing it built",
+      "rewardFlavor": "proof it could be built",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4289,14 +4289,14 @@
       "conflict2TurnInText": "The path is clear. I can see it stretching out ahead of us, and for the first time it doesn't end in a question mark.",
       "targetNpcOpener": "A new route to {other_settlement}? I surveyed that ground years ago and gave up because the terrain was too rough for carts. But if you're talking about foot traffic and pack animals, there's a saddle between the ridges that would cut the distance in half. Nobody's maintained it, but the ground is solid.",
       "targetNpcCloser": "If they're serious about this, tell them to start from the eastern fork. That's where the terrain gets cooperative.",
-      "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {reward_item}. You helped build something that will outlast both of us.",
+      "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {reward_item}. And {reward_flavor}: say the word and your name goes on the route beside mine. You helped build something that will outlast both of us.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You saw the gap in the plan, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing but confidence and a map full of guesses.",
         "failText": "It's a new route. All new routes involve some uncertainty."
       },
-      "rewardFlavor": "the first profits from the new trade route and a full partnership if you want it",
+      "rewardFlavor": "full partnership, if you want",
       "valence": "positive",
       "roleAffinity": [
         "Traveler"
@@ -4322,14 +4322,14 @@
       "expositionTurnInText": "The foundation is laid and it looks exactly the way I drew it. I keep walking past it and touching the stones to make sure they're real. One more piece and we fire the first batch.",
       "conflict1Text": "I need a {quest_item} for the chimney assembly. It's the piece that makes the whole thing draw properly. Without it, the kiln smokes instead of fires and everything I've built is decoration.",
       "conflict1TurnInText": "It fits. I tested the draw three times and it pulls clean every time. We are ready to fire.",
-      "resolutionText": "The first batch came out perfect. I held one of the pieces up to the light and I could see my own reflection in the glaze, and behind it, every doubt I ever had about whether I could do this. Take {reward_item}. You helped me build something I'll be proud of for the rest of my life.",
+      "resolutionText": "The first batch came out perfect. I held one of the pieces up to the light and I could see my own reflection in the glaze, and behind it, every doubt I ever had about whether I could do this. Take {reward_item}. Keep {reward_flavor} as a marker of the day this thing finally worked. You helped me build something I'll be proud of for the rest of my life.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 11,
         "passText": "You're wondering why I didn't mention this to the council first. Because {settlement_npc} told me the council would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with my own materials, and I'll present them with a working kiln instead of a proposal they can reject.",
         "failText": "It's a project I've been meaning to start. The timing finally felt right."
       },
-      "rewardFlavor": "the first fired piece from the new kiln and a share of what it earns",
+      "rewardFlavor": "the first piece we fired",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4363,14 +4363,14 @@
       "conflict2TurnInText": "Everything's ready. Maps, tools, provisions. I'm leaving at first light and I've never been more certain about anything.",
       "targetNpcOpener": "Surveying past the eastern ridge? The geography is promising if you approach from the northern slope, and I mapped the drainage patterns from a distance. There's a valley that looked fertile. Take my field notes and improve on them.",
       "targetNpcCloser": "If they find what I think is out there, the whole region benefits. Tell them to be thorough and be careful.",
-      "resolutionText": "I found a valley with water, good soil, and more space than {settlement_name} has used in a generation. I came back with a map and a grin I couldn't wipe off my face for three days. Take {reward_item}. You made this possible, every step of it.",
+      "resolutionText": "I found a valley with water, good soil, and more space than {settlement_name} has used in a generation. I came back with a map and a grin I couldn't wipe off my face for three days. Take {reward_item}. And {reward_flavor}, where anyone can see it. You made this possible, every step of it.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "You can see right through me, can't you. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face I was going to get myself killed. The truth underneath all the bravado is that I'd rather die finding something than live wondering what was out there. I haven't said that part out loud before.",
         "failText": "I know what I'm getting into. I've weighed the risks and I'm comfortable with them."
       },
-      "rewardFlavor": "a cut of whatever the new territory yields and my name on the map beside yours",
+      "rewardFlavor": "your name beside mine, always",
       "valence": "positive",
       "roleAffinity": [
         "Traveler"
@@ -4403,14 +4403,14 @@
       "conflict2TurnInText": "{target_npc} sent instructions? Detailed ones? I was expecting a paragraph and I got a manual. I'll study every word.",
       "targetNpcOpener": "Building a forge from nothing? I respect that, most people want shortcuts. The tempering is where most self-taught smiths run into trouble, heat too fast and the metal remembers, cool too slow and it forgets. I'll write down what I know, because there's no reason someone else should spend years figuring it out.",
       "targetNpcCloser": "Tell them to start with simple stock and work up. Patience is the only shortcut in this trade.",
-      "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {reward_item}. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
+      "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {reward_item}. And take {reward_flavor}: it should be in the hands of someone who helped raise the place. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
         "passText": "You saw the drawings on the wall, didn't you. Those aren't just plans. They're dreams I've been sketching since I was twelve years old, sitting in the back of someone else's forge and wondering if I'd ever have my own. I didn't tell you that because I wanted you to see the ambition, not the longing.",
         "failText": "It's a forge. Every smith needs one eventually."
       },
-      "rewardFlavor": "the first blade from my forge and a standing offer to craft whatever you need",
+      "rewardFlavor": "the first blade I forged",
       "valence": "positive",
       "roleAffinity": [
         "ArtisanBlacksmith"
@@ -4438,14 +4438,14 @@
       "expositionTurnInText": "The field is clear and ready. I walked every row this morning imagining what it'll look like in three months. Now I need the materials to prepare the soil.",
       "conflict1Text": "The soil needs amendment before anything exotic will take root. I need {gather_count} {quest_item} to treat the beds properly. If I skip this step, I'm just planting expensive seeds in dirt that hates them.",
       "conflict1TurnInText": "The soil smells different already. Rich, alive, ready to grow something it's never grown before. I planted the first seeds an hour ago and I swear I can feel them thinking about it.",
-      "resolutionText": "The first shoots are up. Green and strong and completely impossible according to everyone who told me it couldn't be done. Take {reward_item}. You were part of proving something that mattered to me, even if the rest of {settlement_name} thinks I'm eccentric.",
+      "resolutionText": "The first shoots are up. Green and strong and completely impossible according to everyone who told me it couldn't be done. Take {reward_item}, and take {reward_flavor} when it comes in, because you earned it as much as I did. You were part of proving something that mattered to me, even if the rest of {settlement_name} thinks I'm eccentric.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 12,
         "passText": "You can sense it too, can't you, the soil in that lower field isn't just well-drained. There's some quality in the mineral content that shouldn't occur naturally this far from the coast, and whatever it is, it's the reason I think this will work when everyone else says it won't. I haven't published my findings because I don't want anyone else claiming the plot.",
         "failText": "The soil is right for what I'm trying to do. I've done my homework."
       },
-      "rewardFlavor": "the first harvest of something nobody believed could grow here",
+      "rewardFlavor": "the first impossible harvest",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -4476,14 +4476,14 @@
       "conflict2TurnInText": "The ravine is clear and the first pilings are going in. I stood on the edge this morning and for the first time I could see the other side as close instead of far away.",
       "targetNpcOpener": "A bridge? We've been talking about one for years but nobody wanted to be the first to commit resources. If {settlement_name} is ready to go halves, we're in, because the traffic alone would pay for itself in two seasons. Send me the plans and I'll start organizing our end.",
       "targetNpcCloser": "Tell them we'll match whatever they put in. This is overdue and we both know it.",
-      "resolutionText": "The bridge opened today, and I walked across it with nothing to hold onto and nothing to fear. I could see people on both sides watching. Take {reward_item}. You helped connect two settlements that have been staring at each other across a gap for too long.",
+      "resolutionText": "The bridge opened today, and I walked across it with nothing to hold onto and nothing to fear. I could see people on both sides watching. Take {reward_item}. And {reward_flavor}, at the crossing, where every traveler will read it. You helped connect two settlements that have been staring at each other across a gap for too long.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "All right, fine. The real reason nobody's built this bridge before is that the landowner on the other side has been blocking proposals for years to protect his ferry toll. I know because he told me to my face that he'd undercut anyone who tried. I've been too afraid of his influence to push back, but if you're backing me, I'm not afraid anymore.",
         "failText": "It's infrastructure. The region needs it and we're the ones in a position to build it."
       },
-      "rewardFlavor": "a share of the first season's toll revenue and a plaque with your name at the crossing",
+      "rewardFlavor": "your name on the bridge",
       "valence": "positive",
       "roleAffinity": []
     },
