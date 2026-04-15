@@ -2852,7 +2852,7 @@
       "acceptText": "Then we have an understanding. I'm not in a rush, but I do want it done.",
       "declineText": "I'll manage. I've been managing. That's not the same as being satisfied with it.",
       "expositionTurnInText": "Good. The numbers are thinner now. I can walk that stretch without my jaw tightening. There's one more thing I'd like, and then I'll consider the matter closed.",
-      "conflict1Text": "There's a {quest_item} I lost the night they came through. It was my father's, and it meant something to me beyond its use. If one turns up in your travels, I'd like it back on the shelf where it belongs.",
+      "conflict1Text": "There's a {quest_item_full} I lost the night they came through. It was my father's, and it meant something to me beyond its use. If one turns up in your travels, I'd like it back on the shelf where it belongs.",
       "conflict1TurnInText": "That's the one. Or close enough. Looking at it, I feel like something that was out of place has been put back.",
       "resolutionText": "I'm calling it settled. The account is even enough for my purposes. Take {reward_item}. Clean and done, the way I prefer things.",
       "skillCheck": {
@@ -7043,7 +7043,7 @@
       "acceptText": "Now we're moving. I can already feel the shape of what this is going to become.",
       "declineText": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed up and who didn't.",
       "expositionTurnInText": "Real quality, exactly what I've been looking for. But materials alone don't make a masterwork. I need one more piece.",
-      "conflict1Text": "There's a {quest_item} that would make this project something people remember for years. It's rare, and it's out there somewhere, and I need someone willing to track it down. Bring it to me and watch what I do with it.",
+      "conflict1Text": "There's a {quest_item_full} that would make this project something people remember for years. It's rare, and it's out there somewhere, and I need someone willing to track it down. Bring it to me and watch what I do with it.",
       "conflict1TurnInText": "Do you see this? Do you see what we have? This is the piece that turns good into exceptional. I'm going to start tonight.",
       "resolutionText": "It's done, and it's the finest thing I've ever made. People are already talking about it, and they're using my name in the same breath as the old masters. Take {reward_item}. And take {reward_flavor}, so you carry proof of what we pulled off together.",
       "skillCheck": {
