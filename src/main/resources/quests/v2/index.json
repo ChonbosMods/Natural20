@@ -963,14 +963,14 @@
       "expositionTurnInText": "That's a start. I can already feel the knot in my chest loosening. But knocking them down doesn't put back what they took.",
       "conflict1Text": "I need {gather_count} {quest_item} to replace what we lost. It's the same thing they ruined, and I won't feel right until the shelves look the way they should. Help me put it back.",
       "conflict1TurnInText": "Look at that. Almost like it never happened. Almost. Come inside, I want to settle this properly.",
-      "resolutionText": "We're whole again. That's what matters. Take {reward_item}. You didn't just fix the problem, you gave me back the feeling that someone in this world cares whether things stay where they belong.",
+      "resolutionText": "We're whole again. That's what matters. Take {reward_item}, and {reward_flavor} besides. You didn't just fix the problem, you gave me back the feeling that someone in this world cares whether things stay where they belong.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
         "passText": "It's not really about the supplies, is it? I built that store with my own two hands over the last three years. Watching it disappear in one night made me feel like I'd never had it at all.",
         "failText": "It's a practical loss. Practical losses need practical solutions."
       },
-      "rewardFlavor": "what little I have left in coin and a debt I'll remember",
+      "rewardFlavor": "coin I can spare",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -1002,14 +1002,14 @@
       "conflict1TurnInText": "So {target_npc} told you the truth of it. I had a feeling. At least now I know what really happened, and I know what needs doing about it.",
       "conflict2Text": "The {enemy_type_plural} that took advantage of all this are still out there. I want {kill_count} of them dealt with so I can stop looking over my shoulder every time I open the door.",
       "conflict2TurnInText": "Good. That's the last piece. I can finally let myself rest about this.",
-      "resolutionText": "It's back where it belongs, and I know the full story for the first time. Take {reward_item}. I want you to have it. You gave me back more than just an object.",
+      "resolutionText": "It's back where it belongs, and I know the full story for the first time. Take {reward_item}. {reward_flavor}, too. I want you to have it. You gave me back more than just an object.",
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 14,
         "passText": "You recognize the make? Then you know it's older than this settlement. My grandmother carried it when there was nothing here but the road and a promise. Losing it felt like losing her again.",
         "failText": "It's old. That's all anyone needs to know."
       },
-      "rewardFlavor": "the small purse I keep for emergencies and my honest thanks",
+      "rewardFlavor": "my emergency purse",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -1040,8 +1040,8 @@
       "expositionTurnInText": "That's most of what I'd lost. Looking at it stacked up again, I almost feel like myself. Almost. There's still the matter of what caused all this.",
       "conflict1Text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. Not for revenge. For the simple fact that I shouldn't have to live with the worry.",
       "conflict1TurnInText": "There. Now I can sleep without expecting to wake up to another mess. I won't forget this.",
-      "resolutionText": "I'm whole again. Took longer than I'd have liked, but here we are. Take {reward_item}. You helped me get back what I'd already mourned, and that's worth more than what I'm offering.",
-      "rewardFlavor": "the silver I'd been saving for a better year and my deepest thanks",
+      "resolutionText": "I'm whole again. Took longer than I'd have liked, but here we are. Take {reward_item}: {reward_flavor}. You helped me get back what I'd already mourned, and that's worth more than what I'm offering.",
+      "rewardFlavor": "silver saved for better days",
       "valence": "negative",
       "roleAffinity": [
         "Villager",
@@ -2429,14 +2429,14 @@
       "conflict1TurnInText": "That should put a stop to it. I can stop checking the stores every morning. There's one more loose end, though.",
       "conflict2Text": "{target_npc} in {target_npc_settlement} was the one who warned me something was off. They're a {target_npc_role}. I'd like you to let them know we handled it. They worry.",
       "conflict2TurnInText": "Good. {target_npc} can stop keeping an eye out on our behalf. Everything's accounted for.",
-      "resolutionText": "Stores are full, the problem is solved, and the people who were concerned have been told. Take {reward_item}. It's what I'd have spent on the trouble anyway, and this way I got it done properly.",
+      "resolutionText": "Stores are full, the problem is solved, and the people who were concerned have been told. Take {reward_item}, plus {reward_flavor}. It's what I'd have spent on the trouble anyway, and this way I got it done properly.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
         "passText": "I should tell you it wasn't just supplies. There was something in there from my late wife. A small thing, but I found it in the mess afterward, and that's when I decided I was done tolerating the situation.",
         "failText": "Just a supply issue. Nothing more complicated than that."
       },
-      "rewardFlavor": "a fair sum and my word that I won't forget the help",
+      "rewardFlavor": "a fair sum, freely given",
       "targetNpcOpener": "You're here about the trouble at {settlement_name}? I'm glad they took it seriously. I noticed the signs a while back and figured I should say something before it got out of hand.",
       "targetNpcCloser": "Glad it's resolved. Tell them the offer to help stands if anything else comes up.",
       "valence": "negative",
@@ -2465,14 +2465,14 @@
       "expositionTurnInText": "That's the one. Or close enough. Good. Now there's the matter of what fell behind while I was without it.",
       "conflict1Text": "I need {gather_count} {quest_item} to make up for lost ground. A week without my usual setup means a week of backlog. Nothing dramatic, just honest work that needs doing.",
       "conflict1TurnInText": "That puts me right where I should have been all along. Like the interruption never happened.",
-      "resolutionText": "Everything is back in order, and I can stop thinking about what went wrong and start thinking about what comes next. Take {reward_item}. It's a fair trade for the peace of mind.",
+      "resolutionText": "Hold onto {reward_item}. {reward_flavor} goes with it. Everything is back in order, and I can stop thinking about what went wrong and start thinking about what comes next. It's a fair trade for the peace of mind.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
         "passText": "It bothers me more than it should, losing things. My father ran this operation before me and he never lost a single day to disorganization. I measure myself against that, probably more than is healthy.",
         "failText": "Things go missing. It's just the way of it sometimes."
       },
-      "rewardFlavor": "what I can spare from the till and a solid handshake",
+      "rewardFlavor": "what the till can spare",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4058,14 +4058,14 @@
       "conflict1TurnInText": "{target_npc} confirmed it on sight, didn't even hesitate. I've been second-guessing myself for days, wondering if I was wrong. That's a relief and an insult at the same time.",
       "targetNpcOpener": "Let me see those. Yes, this is obvious, the original is short on weight and the alloy is wrong. Whoever made this swap knew the buyer wouldn't check right away. It's a common trick in bulk trades, and it works because most people are too embarrassed to complain.",
       "targetNpcCloser": "I'll put my assessment in writing. Nobody should get away with this kind of dealing.",
-      "resolutionText": "The trade council ruled in my favor and I got every coin back. The look on that merchant's face when {target_npc}'s letter was read aloud was almost worth the trouble. Take {reward_item}. You helped me prove what I already knew, and sometimes that's the hardest part.",
+      "resolutionText": "The trade council ruled in my favor and I got every coin back. The look on that merchant's face when {target_npc}'s letter was read aloud was almost worth the trouble. Keep {reward_item}, and {reward_flavor} along with it. You helped me prove what I already knew, and sometimes that's the hardest part.",
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 12,
         "passText": "You spotted it too, the weight was wrong for the size. I should have checked before I paid, but I was in a rush and the merchant saw someone careless and took advantage. Half the weight, wrong material underneath the finish, and I handed over full price without a second look. That's the part that burns.",
         "failText": "I was cheated. The details aren't complicated enough to be worth explaining."
       },
-      "rewardFlavor": "a share of the refund and my word as a fair dealer",
+      "rewardFlavor": "a share of the refund",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4094,14 +4094,14 @@
       "expositionTurnInText": "That's a start. A real one. But the stores are still half empty and I can't trade what I don't have. The damage they did set me back weeks.",
       "conflict1Text": "I need {gather_count} {quest_item} to replace what they destroyed. Not what they ate. What they destroyed, purely out of spite, as far as I can tell. There was food they didn't even want scattered across the floor and trampled.",
       "conflict1TurnInText": "Shelves are full again. The room doesn't look like a battlefield anymore. I can walk in there without my stomach dropping.",
-      "resolutionText": "I'm back where I was before they came through, and this time the doors are reinforced and the windows are boarded properly. Take {reward_item}. You helped me reclaim something that felt like it had been taken permanently, and I needed that feeling more than the supplies themselves.",
+      "resolutionText": "I'm back where I was before they came through, and this time the doors are reinforced and the windows are boarded properly. Carry {reward_item} home. {reward_flavor} is yours as well. You helped me reclaim something that felt like it had been taken permanently, and I needed that feeling more than the supplies themselves.",
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
         "passText": "Right, so you've seen how tight storage gets around here, that's actually the whole problem. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I've been trying to replace everything before any of them check. If they find out I lost what they gave me, I lose more than goods.",
         "failText": "I appreciate the help, but I don't need anyone digging into the details. Just handle the {enemy_type_plural}."
       },
-      "rewardFlavor": "the payment I set aside from the last trade run and my honest thanks",
+      "rewardFlavor": "payment from the last run",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4132,14 +4132,14 @@
       "conflict2TurnInText": "The last cart arrived with every piece accounted for. First time in months. Now the only losses are the ones happening at their end, and everyone can see it.",
       "targetNpcOpener": "The scales? I've had complaints before, and I'll be honest with you, they were last calibrated over a year ago and they've drifted. Whether anyone took advantage of that drift on purpose I can't say. But the traders from {settlement_name} have been getting less than they should.",
       "targetNpcCloser": "I'll recalibrate them this week. Tell your person that the next weigh-in will be fair.",
-      "resolutionText": "Fair trades, full carts, and no more arguments about who's cheating whom. Take {reward_item}. You gave me back something I'd stopped believing I'd see, which is a level field.",
+      "resolutionText": "Fair trades, full carts, and no more arguments about who's cheating whom. Have {reward_item}, and {reward_flavor} while we're at it. You gave me back something I'd stopped believing I'd see, which is a level field.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
         "passText": "All right, I'll say the part I've been leaving out. I know exactly who's been tilting the scales, and It some accident of calibration. {settlement_npc} told me months ago who was doing it, and I was too afraid of losing the trade relationship to confront them. Being robbed politely felt safer than being cut off entirely.",
         "failText": "The scales are wrong and I want them fixed. That's the whole of it."
       },
-      "rewardFlavor": "the difference I've been losing on trades and a fair handshake",
+      "rewardFlavor": "what I'd been losing weekly",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanBlacksmith",
@@ -4168,14 +4168,14 @@
       "expositionTurnInText": "I can feel the soil coming back to life. That's not poetry, I can actually feel the difference in my hands. But the blight didn't come from nowhere.",
       "conflict1Text": "The {enemy_type_plural} have been burrowing through the root systems and carrying the rot with them. {kill_count} of them cleared out and the new growth has a chance. Otherwise I'm just planting into the same poison.",
       "conflict1TurnInText": "No more tunnels, no more rot spreading underground. For the first time since this started, I planted something and believed it would actually grow.",
-      "resolutionText": "The first new shoot came up this morning. Small and pale and perfect. Take {reward_item}. You helped me take back something that was mine, and you helped me believe it was worth taking back.",
+      "resolutionText": "The first new shoot came up this morning. Small and pale and perfect. Bring {reward_item} with you, and {reward_flavor}. You helped me take back something that was mine, and you helped me believe it was worth taking back.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
         "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
         "failText": "It's a garden that fed my family. That should be reason enough."
       },
-      "rewardFlavor": "the first harvest from the new beds and the coin I saved by not giving up",
+      "rewardFlavor": "the first harvest's coin",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -4207,14 +4207,14 @@
       "conflict2TurnInText": "{target_npc} sent their notes along with a kind word. I'd forgotten they could be generous. The gaps in my archive are filled.",
       "targetNpcOpener": "A workshop fire? That's every craftsperson's worst fear. I still have my notes from our training years, and they're welcome to copy whatever they need. Some of it will be outdated, but the foundations don't change.",
       "targetNpcCloser": "Tell them I'm sorry about the fire. And tell them their work was too good to lose.",
-      "resolutionText": "The archive is rebuilt, the formulas are tested, and I can work again without second-guessing every measurement. Take {reward_item}. You helped me recover something that fire couldn't kill, only scatter.",
+      "resolutionText": "The archive is rebuilt, the formulas are tested, and I can work again without second-guessing every measurement. Take {reward_item}. And {reward_flavor}. You helped me recover something that fire couldn't kill, only scatter.",
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 14,
         "passText": "You have an artist's eye, then you understand what it means to lose a body of work. Those records weren't just recipes, they were the conversation I had with my craft over twenty years, every mistake and discovery in my own handwriting. Rebuilding them isn't just practical, it's an act of remembering who I am.",
         "failText": "I need my records back to do my job. That's the practical reality."
       },
-      "rewardFlavor": "the first piece made from the restored formulas and a craftsman's gratitude",
+      "rewardFlavor": "a piece from restored formulas",
       "valence": "negative",
       "roleAffinity": [
         "ArtisanAlchemist",
@@ -4249,14 +4249,14 @@
       "conflict1TurnInText": "Solid. I tested every beam myself and none of them so much as creaked. We can start working the seam again.",
       "conflict2Text": "One last thing. I need {gather_count} {quest_item} to get the operation running again. Tools, supplies, the things we stripped out when we abandoned the site. It feels good to be restocking instead of retreating.",
       "conflict2TurnInText": "The mine is operational. I sent the first crew down this morning and they came back grinning. I'd forgotten what that looked like.",
-      "resolutionText": "We pulled our first proper load today and it's better quality than what we've been buying. Take {reward_item}. You gave us back our livelihood, and the look on the {other_settlement} merchant's face when I cancelled the next order was a reward all its own.",
+      "resolutionText": "We pulled our first proper load today and it's better quality than what we've been buying. Take {reward_item}, with {reward_flavor} on top. You gave us back our livelihood, and the look on the {other_settlement} merchant's face when I cancelled the next order was a reward all its own.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
         "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
         "failText": "They moved in because it was empty. That's what animals do."
       },
-      "rewardFlavor": "the first profits from the reopened mine and a standing account in my name",
+      "rewardFlavor": "first profits from the mine",
       "valence": "negative",
       "roleAffinity": []
     },
