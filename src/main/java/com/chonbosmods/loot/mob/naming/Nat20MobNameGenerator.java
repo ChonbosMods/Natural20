@@ -69,6 +69,18 @@ public class Nat20MobNameGenerator {
 
             LOGGER.atInfo().log("Loaded elite name pools: %d prefixes, %d suffixes, %d appellations",
                     prefixes.size(), suffixes.size(), appellations.size());
+
+            for (MobNameRarity r : MobNameRarity.values()) {
+                int p = (int) prefixes.stream()
+                        .filter(w -> w.minRarity().rank() <= r.rank()
+                                && (w.maxRarity() != null ? w.maxRarity().rank() : w.minRarity().rank()) >= r.rank())
+                        .count();
+                int s = (int) suffixes.stream()
+                        .filter(w -> w.minRarity().rank() <= r.rank()
+                                && (w.maxRarity() != null ? w.maxRarity().rank() : w.minRarity().rank()) >= r.rank())
+                        .count();
+                LOGGER.atInfo().log("Name pool band %s: %d prefixes, %d suffixes", r, p, s);
+            }
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to load elite name pools from %s", POOL_RESOURCE);
         }
@@ -200,8 +212,9 @@ public class Nat20MobNameGenerator {
     private List<MobNameWord> filterWords(List<MobNameWord> pool, MobNameRarity rarity) {
         List<MobNameWord> result = new ArrayList<>();
         for (MobNameWord word : pool) {
+            MobNameRarity effectiveMax = (word.maxRarity() != null) ? word.maxRarity() : word.minRarity();
             if (word.minRarity().rank() <= rarity.rank()
-                    && (word.maxRarity() == null || word.maxRarity().rank() >= rarity.rank())) {
+                    && effectiveMax.rank() >= rarity.rank()) {
                 result.add(word);
             }
         }
