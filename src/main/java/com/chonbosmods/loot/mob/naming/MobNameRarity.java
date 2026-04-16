@@ -2,7 +2,8 @@ package com.chonbosmods.loot.mob.naming;
 
 /**
  * Rarity tiers for elite mob name generation.
- * Maps from EncounterTier ordinals: 0=NORMAL (no name), 1=UNCOMMON, 2=RARE, 3=EPIC, 4=LEGENDARY.
+ * Used internally by Nat20MobNameGenerator for name-pool filtering.
+ * Nat20MobNameGenerator.rarityFor(DifficultyTier) maps DifficultyTier values to these rarities.
  */
 public enum MobNameRarity {
     UNCOMMON(1),
@@ -35,9 +36,10 @@ public enum MobNameRarity {
     }
 
     /**
-     * Map an EncounterTier ordinal to a naming rarity.
-     * Ordinal 0 (NORMAL) should never be called: those mobs get no name.
+     * Map a tier ordinal to a naming rarity.
+     * Ordinal 0 should never be called: those mobs get no name.
      * 1=UNCOMMON, 2=RARE, 3=EPIC, 4=LEGENDARY; anything else defaults to UNCOMMON.
+     * Note: currently unused (name generator uses switch-based rarityFor(DifficultyTier) instead). Candidate for future deletion.
      */
     public static MobNameRarity fromTierOrdinal(int ordinal) {
         return switch (ordinal) {
