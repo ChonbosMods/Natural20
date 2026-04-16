@@ -42,12 +42,25 @@ public final class MobScalingConfig {
     private final int playerBaseHp;
     private final int playerHpPerLevel;
 
+    private final Map<DifficultyTier, Integer> difficultyWeights;
+    private final Map<DifficultyTier, Integer> difficultyMlvlMods;
+    private final int bossLegendaryChance;
+    private final Map<Tier, Map<DifficultyTier, Integer>> affixCounts;
+    private final int groupMinChampions;
+    private final int groupMaxChampions;
+    private final int groupDefaultChampions;
+
     private MobScalingConfig(List<Band> bands, int defaultAreaLevel,
                              Map<Tier, Integer> mlvlOffsets, Map<Tier, TierMult> tierMultipliers,
                              int baseHp, int baseDmg, double hpGrowth, double dmgGrowth,
                              double awardRadiusBlocks, Map<Tier, Double> tierXpWeights,
                              double questPhaseWeight, double d20SuccessWeight,
-                             int playerBaseHp, int playerHpPerLevel) {
+                             int playerBaseHp, int playerHpPerLevel,
+                             Map<DifficultyTier, Integer> difficultyWeights,
+                             Map<DifficultyTier, Integer> difficultyMlvlMods,
+                             int bossLegendaryChance,
+                             Map<Tier, Map<DifficultyTier, Integer>> affixCounts,
+                             int groupMinChampions, int groupMaxChampions, int groupDefaultChampions) {
         this.bands = List.copyOf(bands);
         this.defaultAreaLevel = defaultAreaLevel;
         this.mlvlOffsets = Map.copyOf(mlvlOffsets);
@@ -60,6 +73,18 @@ public final class MobScalingConfig {
         this.d20SuccessWeight = d20SuccessWeight;
         this.playerBaseHp = playerBaseHp;
         this.playerHpPerLevel = playerHpPerLevel;
+        this.difficultyWeights = Map.copyOf(difficultyWeights);
+        this.difficultyMlvlMods = Map.copyOf(difficultyMlvlMods);
+        this.bossLegendaryChance = bossLegendaryChance;
+        // affixCounts is a nested map: deep-copy by value to preserve immutability
+        Map<Tier, Map<DifficultyTier, Integer>> frozenAffix = new EnumMap<>(Tier.class);
+        for (var entry : affixCounts.entrySet()) {
+            frozenAffix.put(entry.getKey(), Map.copyOf(entry.getValue()));
+        }
+        this.affixCounts = Map.copyOf(frozenAffix);
+        this.groupMinChampions = groupMinChampions;
+        this.groupMaxChampions = groupMaxChampions;
+        this.groupDefaultChampions = groupDefaultChampions;
     }
 
     public static MobScalingConfig load() {
@@ -112,12 +137,47 @@ public final class MobScalingConfig {
             int pBaseHp = ps.get("base_hp").getAsInt();
             int pHpPerLevel = ps.get("hp_per_level").getAsInt();
 
+            JsonObject diff = root.getAsJsonObject("difficulty");
+
+            Map<DifficultyTier, Integer> weightsMap = new EnumMap<>(DifficultyTier.class);
+            JsonObject wObj = diff.getAsJsonObject("weights");
+            for (DifficultyTier d : DifficultyTier.values()) {
+                String key = d.namePoolKey();
+                if (wObj.has(key)) weightsMap.put(d, wObj.get(key).getAsInt());
+            }
+
+            Map<DifficultyTier, Integer> mlvlMods = new EnumMap<>(DifficultyTier.class);
+            JsonObject mdObj = diff.getAsJsonObject("mlvl_mods");
+            for (DifficultyTier d : DifficultyTier.values()) {
+                mlvlMods.put(d, mdObj.get(d.namePoolKey()).getAsInt());
+            }
+
+            int bossLegendary = diff.get("boss_legendary_chance").getAsInt();
+
+            Map<Tier, Map<DifficultyTier, Integer>> affixes = new EnumMap<>(Tier.class);
+            JsonObject acObj = diff.getAsJsonObject("affix_counts");
+            for (Tier t : Tier.values()) {
+                if (!acObj.has(t.name())) continue;
+                JsonObject tObj = acObj.getAsJsonObject(t.name());
+                Map<DifficultyTier, Integer> row = new EnumMap<>(DifficultyTier.class);
+                for (DifficultyTier d : DifficultyTier.values()) {
+                    row.put(d, tObj.has(d.namePoolKey()) ? tObj.get(d.namePoolKey()).getAsInt() : 0);
+                }
+                affixes.put(t, row);
+            }
+
+            JsonObject gs = diff.getAsJsonObject("group_size");
+            int gMin = gs.get("min_champions").getAsInt();
+            int gMax = gs.get("max_champions").getAsInt();
+            int gDefault = gs.get("default_champions").getAsInt();
+
             LOGGER.atInfo().log("Loaded mob_scaling.json: %d bands, default_area_level=%d",
                     bands.size(), defaultAreaLevel);
             return new MobScalingConfig(bands, defaultAreaLevel, offsets, mults,
                     baseHp, baseDmg, hpGrowth, dmgGrowth,
                     awardRadius, tierWeights, questWeight, d20Weight,
-                    pBaseHp, pHpPerLevel);
+                    pBaseHp, pHpPerLevel,
+                    weightsMap, mlvlMods, bossLegendary, affixes, gMin, gMax, gDefault);
         } catch (Exception e) {
             throw new RuntimeException("Failed to load " + RESOURCE_PATH, e);
         }
@@ -154,6 +214,16 @@ public final class MobScalingConfig {
     public double d20SuccessWeight() { return d20SuccessWeight; }
     public int playerBaseHp() { return playerBaseHp; }
     public int playerHpPerLevel() { return playerHpPerLevel; }
+
+    public int difficultyWeight(DifficultyTier d)     { return difficultyWeights.getOrDefault(d, 0); }
+    public int difficultyMlvlMod(DifficultyTier d)    { return difficultyMlvlMods.getOrDefault(d, 0); }
+    public int bossLegendaryChance()                  { return bossLegendaryChance; }
+    public int affixCountFor(Tier t, DifficultyTier d) {
+        return affixCounts.getOrDefault(t, Map.of()).getOrDefault(d, 0);
+    }
+    public int groupMinChampions()     { return groupMinChampions; }
+    public int groupMaxChampions()     { return groupMaxChampions; }
+    public int groupDefaultChampions() { return groupDefaultChampions; }
 
     /** HP scale factor for {@code mlvl}: {@code 1 + (mlvl-1)*hp_growth}. */
     public double hpScale(int mlvl) { return 1.0 + (mlvl - 1) * hpGrowth; }
