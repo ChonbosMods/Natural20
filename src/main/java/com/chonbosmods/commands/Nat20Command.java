@@ -9,6 +9,7 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new PlaceCommand());
         addSubCommand(new SpawnNpcCommand());
         addSubCommand(new SpawnGroupCommand());
+        addSubCommand(new SpawnTierCommand());
         addSubCommand(new BlockNamesCommand());
         addSubCommand(new ModelsCommand());
         addSubCommand(new RolesCommand());
