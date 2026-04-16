@@ -153,6 +153,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20MobScaleSystem mobScaleSystem;
     private PlayerLevelHpSystem playerLevelHpSystem;
     private Nat20XpService xpService;
+    private MobScalingConfig scalingConfig;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -355,6 +356,10 @@ public class Natural20 extends JavaPlugin {
         return xpService;
     }
 
+    public MobScalingConfig getScalingConfig() {
+        return scalingConfig;
+    }
+
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
@@ -392,12 +397,12 @@ public class Natural20 extends JavaPlugin {
         lootSystem.getGarbageCollector().start();
 
         // XP/mlvl/ilvl: load config + register scale system
-        MobScalingConfig mobScalingConfig = MobScalingConfig.load();
-        mobScaleSystem = new Nat20MobScaleSystem(mobScalingConfig);
+        scalingConfig = MobScalingConfig.load();
+        mobScaleSystem = new Nat20MobScaleSystem(scalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
-        playerLevelHpSystem = new PlayerLevelHpSystem(mobScalingConfig);
+        playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
-        getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(mobScalingConfig, xpService));
+        getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService));
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());

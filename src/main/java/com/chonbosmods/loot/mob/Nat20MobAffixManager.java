@@ -1,9 +1,12 @@
 package com.chonbosmods.loot.mob;
 
+import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.def.Nat20MobAffixDef;
 import com.chonbosmods.loot.mob.abilities.MobAbilityHandler;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
 import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
+import com.chonbosmods.progression.DifficultyTier;
+import com.chonbosmods.progression.Tier;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.assetstore.map.AssetMapWithIndexes;
 import com.hypixel.hytale.component.Ref;
@@ -63,72 +66,65 @@ public class Nat20MobAffixManager {
     }
 
     /**
-     * Roll random affixes for a mob based on its encounter tier, apply stat modifiers,
-     * and fire ability onSpawn callbacks.
+     * Roll random affixes for a mob based on its role and difficulty tier, apply stat
+     * modifiers, and fire ability onSpawn callbacks. Nameplate is only assigned for
+     * BOSS / DUNGEON_BOSS roles.
      *
-     * @param mobRef the entity reference for the mob
-     * @param store  the entity store containing the mob
-     * @param tier   the encounter tier determining affix count and stat scaling
+     * @param mobRef     the entity reference for the mob
+     * @param store      the entity store containing the mob
+     * @param role       the mob's role (REGULAR / CHAMPION / BOSS / DUNGEON_BOSS)
+     * @param difficulty the rolled difficulty tier (UNCOMMON / RARE / EPIC / LEGENDARY)
      */
-    public void rollAndApply(Ref<EntityStore> mobRef, Store<EntityStore> store, EncounterTier tier) {
-        int maxAffixes = tier.maxMobAffixes();
-        if (maxAffixes <= 0) {
-            return;
-        }
+    public void rollAndApply(Ref<EntityStore> mobRef, Store<EntityStore> store,
+                             Tier role, DifficultyTier difficulty) {
+        int maxAffixes = Natural20.getInstance().getScalingConfig().affixCountFor(role, difficulty);
+        if (maxAffixes <= 0) return;
 
-        // 1. Filter affix pool by tier
-        List<Nat20MobAffixDef> pool = registry.getByMinTier(tier.ordinal());
+        List<Nat20MobAffixDef> pool = registry.getByMinTier(role.ordinal());
         if (pool.isEmpty()) {
-            LOGGER.atWarning().log("No mob affixes available for tier %s (ordinal %d)", tier, tier.ordinal());
+            LOGGER.atWarning().log("No mob affixes for role=%s difficulty=%s", role, difficulty);
             return;
         }
 
-        // 2. Roll up to maxAffixes random affixes (no duplicates)
         List<Nat20MobAffixDef> rolled = rollAffixes(pool, maxAffixes);
 
-        // 3. Apply per-affix stat multipliers
         EntityStatMap statMap = store.getComponent(mobRef, EntityStatMap.getComponentType());
         if (statMap != null) {
-            for (Nat20MobAffixDef affix : rolled) {
-                applyAffixStatMultipliers(statMap, affix);
-            }
+            for (Nat20MobAffixDef affix : rolled) applyAffixStatMultipliers(statMap, affix);
         } else {
-            LOGGER.atWarning().log("EntityStatMap not found on mob, skipping affix stat modifiers");
+            LOGGER.atWarning().log("EntityStatMap missing on mob, skipping affix modifiers");
         }
 
-        // Tier-level HP/damage scaling now owned by Nat20MobScaleSystem (see progression/).
-
-        // 4. Fire onSpawn for each affix's ability handler
         for (Nat20MobAffixDef affix : rolled) {
             if (affix.abilityType() != null && !affix.abilityType().isEmpty()) {
                 MobAbilityHandler handler = abilityHandlers.get(affix.abilityType());
                 if (handler != null) {
-                    try {
-                        handler.onSpawn(mobRef, store, affix);
-                    } catch (Exception e) {
+                    try { handler.onSpawn(mobRef, store, affix); }
+                    catch (Exception e) {
                         LOGGER.atSevere().withCause(e).log(
-                                "Ability handler '%s' threw on onSpawn for affix '%s'",
-                                affix.abilityType(), affix.id());
+                            "Ability handler '%s' threw on onSpawn for affix '%s'",
+                            affix.abilityType(), affix.id());
                     }
                 }
             }
         }
 
-        // 5. Store applied affixes for later lookup
         appliedAffixes.put(mobRef, List.copyOf(rolled));
 
-        // 6. Generate and apply elite name
-        String eliteName = nameGenerator.generate(tier);
-        if (eliteName != null) {
-            try {
-                store.putComponent(mobRef, Nameplate.getComponentType(), new Nameplate(eliteName));
-            } catch (Exception e) {
-                LOGGER.atWarning().withCause(e).log("Failed to set elite nameplate for mob %s", mobRef);
+        // Nameplate only for BOSS / DUNGEON_BOSS
+        if (role == Tier.BOSS || role == Tier.DUNGEON_BOSS) {
+            String eliteName = nameGenerator.generate(difficulty);
+            if (eliteName != null) {
+                try {
+                    store.putComponent(mobRef, Nameplate.getComponentType(), new Nameplate(eliteName));
+                } catch (Exception e) {
+                    LOGGER.atWarning().withCause(e).log("Failed to set elite nameplate for mob %s", mobRef);
+                }
             }
         }
 
-        LOGGER.atInfo().log("Applied %d affix(es) to mob %s (tier %s, name=%s): %s",
-                rolled.size(), mobRef, tier, eliteName,
+        LOGGER.atInfo().log("Applied %d affix(es) role=%s difficulty=%s: %s",
+                rolled.size(), role, difficulty,
                 rolled.stream().map(Nat20MobAffixDef::displayName).toList());
     }
 

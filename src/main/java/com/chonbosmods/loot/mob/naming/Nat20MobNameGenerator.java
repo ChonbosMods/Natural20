@@ -1,6 +1,6 @@
 package com.chonbosmods.loot.mob.naming;
 
-import com.chonbosmods.loot.mob.EncounterTier;
+import com.chonbosmods.progression.DifficultyTier;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -142,25 +142,22 @@ public class Nat20MobNameGenerator {
     // ── Generation ───────────────────────────────────────────────────────
 
     /**
-     * Generate an elite name for the given encounter tier using ThreadLocalRandom.
-     * Returns null for NORMAL tier (no name).
+     * Generate an elite name for the given difficulty tier using ThreadLocalRandom.
+     * Returns null if {@code difficulty} is null.
      */
     @Nullable
-    public String generate(EncounterTier tier) {
-        return generate(tier, ThreadLocalRandom.current());
+    public String generate(DifficultyTier difficulty) {
+        return generate(difficulty, ThreadLocalRandom.current());
     }
 
     /**
-     * Generate an elite name for the given encounter tier using the supplied Random.
-     * Returns null for NORMAL tier (no name).
+     * Generate an elite name for the given difficulty tier using the supplied Random.
+     * Returns null if {@code difficulty} is null.
      */
     @Nullable
-    public String generate(EncounterTier tier, Random random) {
-        if (tier == EncounterTier.NORMAL) {
-            return null;
-        }
-
-        MobNameRarity rarity = MobNameRarity.fromTierOrdinal(tier.ordinal());
+    public String generate(DifficultyTier difficulty, Random random) {
+        if (difficulty == null) return null;
+        MobNameRarity rarity = rarityFor(difficulty);
 
         List<MobNameWord> eligiblePrefixes = filterWords(prefixes, rarity);
         List<MobNameWord> eligibleSuffixes = filterWords(suffixes, rarity);
@@ -187,6 +184,15 @@ public class Nat20MobNameGenerator {
         String fallback = buildName(eligiblePrefixes, eligibleSuffixes, eligibleTitles, rarity, random);
         recordName(fallback);
         return fallback;
+    }
+
+    private MobNameRarity rarityFor(DifficultyTier d) {
+        return switch (d) {
+            case UNCOMMON  -> MobNameRarity.UNCOMMON;
+            case RARE      -> MobNameRarity.RARE;
+            case EPIC      -> MobNameRarity.EPIC;
+            case LEGENDARY -> MobNameRarity.LEGENDARY;
+        };
     }
 
     // ── Filtering ────────────────────────────────────────────────────────
