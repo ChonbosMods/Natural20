@@ -78,7 +78,7 @@ public class Nat20MobAffixRegistry {
             obj.has("AbilityType") ? obj.get("AbilityType").getAsString() : "",
             abilityConfig,
             obj.has("LootBonusMultiplier") ? obj.get("LootBonusMultiplier").getAsDouble() : 1.0,
-            obj.has("MinEncounterTier") ? obj.get("MinEncounterTier").getAsInt() : 1
+            obj.has("MinTier") ? obj.get("MinTier").getAsInt() : 1
         );
     }
 
@@ -89,7 +89,7 @@ public class Nat20MobAffixRegistry {
     public List<Nat20MobAffixDef> getByMinTier(int maxTier) {
         List<Nat20MobAffixDef> result = new ArrayList<>();
         for (var def : mobAffixesById.values()) {
-            if (def.minEncounterTier() <= maxTier) {
+            if (def.minTier() <= maxTier) {
                 result.add(def);
             }
         }

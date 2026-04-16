@@ -11,5 +11,5 @@ public record Nat20MobAffixDef(
     String abilityType,
     @Nullable Map<String, Object> abilityConfig,
     double lootBonusMultiplier,
-    int minEncounterTier
+    int minTier
 ) {}
