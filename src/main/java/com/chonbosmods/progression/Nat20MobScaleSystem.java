@@ -3,6 +3,7 @@ package com.chonbosmods.progression;
 import com.chonbosmods.Natural20;
 import com.hypixel.hytale.component.AddReason;
 import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
@@ -117,7 +118,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
      * tier overwrites tint + mlvl mod.
      */
     public void applyDifficulty(Ref<EntityStore> ref, Store<EntityStore> store,
-                                CommandBuffer<EntityStore> cb, DifficultyTier difficulty) {
+                                ComponentAccessor<EntityStore> accessor, DifficultyTier difficulty) {
         Nat20MobLevel level = store.getComponent(ref, Natural20.getMobLevelType());
         if (level == null) {
             LOGGER.atWarning().log("applyDifficulty on untagged ref=%s; skipping", ref);
@@ -125,13 +126,13 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         }
         level.setDifficultyTier(difficulty);
         applyStats(ref, store, level);
-        applyTint(ref, store, cb, difficulty);
+        applyTint(ref, store, accessor, difficulty);
         LOGGER.atInfo().log("Applied difficulty ref=%s tier=%s areaLevel=%d",
                 ref, difficulty, level.getAreaLevel());
     }
 
     private void applyTint(Ref<EntityStore> ref, Store<EntityStore> store,
-                           CommandBuffer<EntityStore> cb, DifficultyTier difficulty) {
+                           ComponentAccessor<EntityStore> accessor, DifficultyTier difficulty) {
         try {
             EntityEffect effect = EntityEffect.getAssetMap().getAsset(difficulty.tintEffectId());
             if (effect == null) {
@@ -144,7 +145,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
                 LOGGER.atWarning().log("No EffectControllerComponent on ref=%s", ref);
                 return;
             }
-            controller.addEffect(ref, effect, cb);
+            controller.addEffect(ref, effect, accessor);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to apply tint effect for %s", difficulty);
         }

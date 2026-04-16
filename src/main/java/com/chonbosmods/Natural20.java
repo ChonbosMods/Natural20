@@ -47,6 +47,7 @@ import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.MobScalingConfig;
@@ -151,6 +152,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20GallantSystem gallantSystem;
     private Nat20WeaknessApplySystem weaknessApplySystem;
     private Nat20MobScaleSystem mobScaleSystem;
+    private Nat20MobGroupSpawner mobGroupSpawner;
     private PlayerLevelHpSystem playerLevelHpSystem;
     private Nat20XpService xpService;
     private MobScalingConfig scalingConfig;
@@ -348,6 +350,10 @@ public class Natural20 extends JavaPlugin {
         return mobScaleSystem;
     }
 
+    public Nat20MobGroupSpawner getMobGroupSpawner() {
+        return mobGroupSpawner;
+    }
+
     public PlayerLevelHpSystem getPlayerLevelHpSystem() {
         return playerLevelHpSystem;
     }
@@ -400,6 +406,7 @@ public class Natural20 extends JavaPlugin {
         scalingConfig = MobScalingConfig.load();
         mobScaleSystem = new Nat20MobScaleSystem(scalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
+        mobGroupSpawner = new Nat20MobGroupSpawner(scalingConfig);
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
         getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService));
