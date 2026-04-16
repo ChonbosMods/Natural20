@@ -41,5 +41,29 @@
   },
   "player_scaling": {
     "base_hp": 100, "hp_per_level": 5
+  },
+  "difficulty": {
+    "weights": {
+      "uncommon": 45,
+      "rare": 40,
+      "epic": 15
+    },
+    "mlvl_mods": {
+      "uncommon": 1,
+      "rare": 2,
+      "epic": 3,
+      "legendary": 5
+    },
+    "boss_legendary_chance": 25,
+    "affix_counts": {
+      "CHAMPION":     { "uncommon": 1, "rare": 2, "epic": 3, "legendary": 0 },
+      "BOSS":         { "uncommon": 2, "rare": 3, "epic": 4, "legendary": 5 },
+      "DUNGEON_BOSS": { "uncommon": 3, "rare": 4, "epic": 5, "legendary": 6 }
+    },
+    "group_size": {
+      "min_champions": 3,
+      "max_champions": 7,
+      "default_champions": 7
+    }
   }
 }
