@@ -1,13 +1,12 @@
 package com.chonbosmods.quest;
 
-import com.chonbosmods.Natural20;
-import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.npc.entities.NPCEntity;
+import com.hypixel.hytale.server.npc.NPCPlugin;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -48,39 +47,35 @@ public class POIPopulationListener {
     }
 
     /**
-     * Spawn a tiered mob group at the given POI position via Nat20MobGroupSpawner.
-     * The {@code count} parameter is interpreted as champion count: the spawner always
-     * adds exactly 1 boss in addition to the champions. Returns UUIDs of all spawned
-     * mobs (champions + boss) for kill-tracking.
+     * Spawn mobs at the given POI position. Extracted for use by the proximity system.
      */
     public List<String> spawnMobs(World world, String mobRole, int count,
                                    int poiX, int poiY, int poiZ) {
+        Store<EntityStore> store = world.getEntityStore().getStore();
         List<String> uuids = new ArrayList<>();
-        Vector3d anchor = new Vector3d(poiX, poiY + 1.0, poiZ);
-        var spawner = Natural20.getInstance().getMobGroupSpawner();
-        var result = spawner.spawnGroup(world, mobRole, count, anchor, null, false);
-        if (result == null) {
-            LOGGER.atWarning().log("POI group spawn failed for role=%s | /tp %d %d %d",
-                    mobRole, poiX, poiY, poiZ);
+        Random rng = new Random();
+
+        int roleIndex = NPCPlugin.get().getIndex(mobRole);
+        if (roleIndex < 0) {
+            LOGGER.atWarning().log("POI spawn: unknown role '%s'", mobRole);
             return uuids;
         }
-        Store<EntityStore> store = world.getEntityStore().getStore();
-        for (Ref<EntityStore> ref : result.champions()) {
-            String uuid = resolveUuid(store, ref);
-            if (uuid != null) uuids.add(uuid);
-        }
-        if (result.boss() != null) {
-            String uuid = resolveUuid(store, result.boss());
-            if (uuid != null) uuids.add(uuid);
-        }
-        LOGGER.atInfo().log("POI spawned group role=%s champions=%d boss=%s | /tp %d %d %d",
-                mobRole, result.champions().size(), result.bossDifficulty(), poiX, poiY, poiZ);
-        return uuids;
-    }
 
-    @Nullable
-    private String resolveUuid(Store<EntityStore> store, Ref<EntityStore> ref) {
-        NPCEntity npc = store.getComponent(ref, NPCEntity.getComponentType());
-        return npc != null ? npc.getUuid().toString() : null;
+        for (int i = 0; i < count; i++) {
+            // Small spread (±1.5 blocks) to avoid spawning into dungeon walls.
+            // The entrance position itself is guaranteed to be air.
+            double offsetX = (rng.nextDouble() - 0.5) * 3;
+            double offsetZ = (rng.nextDouble() - 0.5) * 3;
+            Vector3d spawnPos = new Vector3d(poiX + offsetX, poiY + 1.0, poiZ + offsetZ);
+            Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
+
+            var result = NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
+            if (result != null) {
+                uuids.add(result.second().getUuid().toString());
+            }
+        }
+
+        LOGGER.atInfo().log("POI spawned %d %s | /tp %d %d %d", uuids.size(), mobRole, poiX, poiY, poiZ);
+        return uuids;
     }
 }
