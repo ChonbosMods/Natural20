@@ -6,6 +6,7 @@ import com.chonbosmods.loot.Nat20LootPipeline;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.def.Nat20MobAffixDef;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
+import com.chonbosmods.progression.DifficultyTier;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Ref;
@@ -24,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * <ul>
  *   <li>Each mob affix shifts the rarity floor up by one tier</li>
  *   <li>The product of all affix {@code lootBonusMultiplier} values determines drop count</li>
- *   <li>Champion and Boss tiers guarantee at least one affix-eligible item drop</li>
+ *   <li>Legendary and Epic difficulty tiers guarantee at least one affix-eligible item drop</li>
  * </ul>
  *
  * <p>This class exposes {@link #onMobDeath} as a public method that can be called
@@ -80,20 +81,21 @@ public class Nat20MobLootListener {
         // 3. Determine drop count from multiplier (minimum 1)
         int dropCount = Math.max(1, (int) Math.round(lootMultiplier));
 
-        // 4. Champion/Boss guarantee: at least 1 drop (already enforced by max(1, ...) above,
+        // Read the mob's Nat20MobLevel once for both the difficulty guarantee and ilvl.
+        // Falls back to null/10 for pre-system saves where the component never got attached.
+        Nat20MobLevel level = store.getComponent(mobRef, Natural20.getMobLevelType());
+
+        // 4. Legendary/Epic guarantee: at least 1 drop (already enforced by max(1, ...) above,
         //    but this makes the intent explicit and allows future escalation)
-        EncounterTier tier = resolveTierFromAffixCount(affixes.size());
-        if (tier == EncounterTier.CHAMPION || tier == EncounterTier.BOSS) {
+        DifficultyTier difficulty = (level != null) ? level.getDifficultyTier() : null;
+        if (difficulty == DifficultyTier.LEGENDARY || difficulty == DifficultyTier.EPIC) {
             dropCount = Math.max(dropCount, 1);
         }
 
-        // Read ilvl from the dying mob's Nat20MobLevel (areaLevel = ilvl).
-        // Falls back to 10 for pre-system saves where the component never got attached.
-        Nat20MobLevel level = store.getComponent(mobRef, Natural20.getMobLevelType());
         int ilvl = (level != null) ? level.getAreaLevel() : 10;
 
-        LOGGER.atInfo().log("Loot params: rarityFloor=%d, lootMultiplier=%.2f, dropCount=%d, tier=%s, ilvl=%d",
-                rarityFloor, lootMultiplier, dropCount, tier, ilvl);
+        LOGGER.atInfo().log("Loot params: rarityFloor=%d, lootMultiplier=%.2f, dropCount=%d, difficulty=%s, ilvl=%d",
+                rarityFloor, lootMultiplier, dropCount, difficulty, ilvl);
 
         // 5. Generate loot items via the pipeline
         List<Nat20LootData> results = generateDrops(dropCount, rarityFloor, ilvl);
@@ -170,11 +172,4 @@ public class Nat20MobLootListener {
         return key != null ? key : fallback;
     }
 
-    /**
-     * Map affix count to an approximate encounter tier.
-     * NORMAL=0, ENHANCED=1, ELITE=2, CHAMPION=3, BOSS=4.
-     */
-    private EncounterTier resolveTierFromAffixCount(int affixCount) {
-        return EncounterTier.fromOrdinal(Math.min(affixCount, EncounterTier.values().length - 1));
-    }
 }
