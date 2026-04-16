@@ -254,7 +254,7 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             List<TopicGraphBuilder.TopicAssignment> assignments = new ArrayList<>();
             for (SubjectFocus focus : npcSubjects.get(npcName)) {
-                assignments.add(buildAssignment(focus, npc, random, dedup, ctx));
+                assignments.add(buildAssignment(focus, npc, random, dedup, ctx, npc.getPreGeneratedQuest()));
             }
             npcAssignments.put(npcName, assignments);
         }
@@ -302,7 +302,8 @@ public class TopicGenerator {
      */
     private TopicGraphBuilder.TopicAssignment buildAssignment(
             SubjectFocus focus, NpcRecord npc, Random random,
-            PercentageDedup dedup, SettlementContext ctx) {
+            PercentageDedup dedup, SettlementContext ctx,
+            @javax.annotation.Nullable QuestInstance preGeneratedQuest) {
 
         TopicTemplate template = templateRegistry.randomTemplateForSubject(
             focus.getCategories(), focus.isConcrete(), random);
@@ -328,7 +329,7 @@ public class TopicGenerator {
 
         Map<String, String> bindings = buildBindings(
             focus, npc.getGeneratedName(), npc.getRole(), npc.getDisposition(),
-            template, entry, dedup, random, ctx);
+            template, entry, dedup, random, ctx, preGeneratedQuest);
 
         String labelPattern = TopicConstants.CATEGORY_LABEL.getOrDefault(template.id(), template.id());
 
@@ -347,7 +348,8 @@ public class TopicGenerator {
                                                  int disposition,
                                                  TopicTemplate template, PoolEntry entry,
                                                  PercentageDedup dedup, Random random,
-                                                 SettlementContext ctx) {
+                                                 SettlementContext ctx,
+                                                 @javax.annotation.Nullable QuestInstance preGeneratedQuest) {
         Map<String, String> bindings = new HashMap<>();
 
         // Phase 0: settlement context variables (entity names wrapped for purple highlighting)
@@ -377,9 +379,21 @@ public class TopicGenerator {
             bindings.put("poi_type", ctx.poiTypes().get(random.nextInt(ctx.poiTypes().size())));
         }
 
-        // Mob type
+        // Mob type: prefer the NPC's pre-generated quest binding so dialogue text
+        // agrees with the POI spawn descriptor. If no binding exists yet, pick one
+        // and persist it into the quest so the POI spawn path sees the same value.
         if (!ctx.mobTypes().isEmpty()) {
-            bindings.put("mob_type", ctx.mobTypes().get(random.nextInt(ctx.mobTypes().size())));
+            String chosenMob;
+            if (preGeneratedQuest != null
+                    && preGeneratedQuest.getVariableBindings().containsKey("mob_type")) {
+                chosenMob = preGeneratedQuest.getVariableBindings().get("mob_type");
+            } else {
+                chosenMob = ctx.mobTypes().get(random.nextInt(ctx.mobTypes().size()));
+                if (preGeneratedQuest != null) {
+                    preGeneratedQuest.getVariableBindings().put("mob_type", chosenMob);
+                }
+            }
+            bindings.put("mob_type", chosenMob);
         }
 
         // Other settlement

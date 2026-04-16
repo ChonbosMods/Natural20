@@ -850,7 +850,12 @@ public class DialogueActionRegistry {
                     + ": expected 6 colon-delimited fields, got " + parts.length
                     + " (spec='" + popSpec + "')");
             }
-            String mobRole = parts[1];
+            // Prefer the quest's mob_type binding (set by dialogue text resolution
+            // on whichever side ran first) so the spawned mob matches the role the
+            // player was just told to kill. Fall back to the population spec's
+            // mobRole field when no binding exists (e.g., legacy saves).
+            String boundMob = quest.getVariableBindings().get("mob_type");
+            String mobRole = (boundMob != null) ? boundMob : parts[1];
             int mobCount;
             try {
                 mobCount = Integer.parseInt(parts[2]);

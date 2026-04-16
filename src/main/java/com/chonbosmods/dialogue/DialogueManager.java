@@ -342,8 +342,20 @@ public class DialogueManager {
         }
         var mobTypes = settlement.getSettlementType().getMobTypes();
         if (!mobTypes.isEmpty()) {
-            var random = new Random(cellKey.hashCode() ^ 13);
-            bindings.put("mob_type", mobTypes.get(random.nextInt(mobTypes.size())));
+            // Prefer the NPC's pre-generated quest binding so dialogue text agrees
+            // with the POI spawn descriptor (quest.variableBindings is the single
+            // source of truth for mob_type on a per-quest basis).
+            var npcRecord = settlement.getNpcByName(npcData.getGeneratedName());
+            QuestInstance quest = npcRecord != null ? npcRecord.getPreGeneratedQuest() : null;
+            String chosen;
+            if (quest != null && quest.getVariableBindings().containsKey("mob_type")) {
+                chosen = quest.getVariableBindings().get("mob_type");
+            } else {
+                var random = new Random(cellKey.hashCode() ^ 13);
+                chosen = mobTypes.get(random.nextInt(mobTypes.size()));
+                if (quest != null) quest.getVariableBindings().put("mob_type", chosen);
+            }
+            bindings.put("mob_type", chosen);
         }
 
         // Settlement name
