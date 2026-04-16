@@ -74,12 +74,17 @@ public class Nat20MobGroupSpawner {
             bossDiff = DifficultyTier.LEGENDARY;
         }
 
+        // Champions cap at EPIC. If the group itself is LEGENDARY (only possible via forced),
+        // champions drop to EPIC while the boss retains LEGENDARY.
+        DifficultyTier championDiff = (groupDiff == DifficultyTier.LEGENDARY)
+                ? DifficultyTier.EPIC : groupDiff;
+
         List<Ref<EntityStore>> champs = new ArrayList<>(clampedCount);
         for (int i = 0; i < clampedCount; i++) {
             Vector3d pos = spreadAround(anchor, 3.0);
             Ref<EntityStore> ref = spawnOne(world, roleIndex, pos);
             if (ref == null) continue;
-            applyFullStack(store, ref, Tier.CHAMPION, groupDiff);
+            applyFullStack(store, ref, Tier.CHAMPION, championDiff);
             champs.add(ref);
         }
 
