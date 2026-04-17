@@ -186,9 +186,12 @@ public class Nat20ItemRenderer {
     private String renderAffixLine(Nat20AffixDef def, RolledAffix roll,
                                     double minValue, double maxValue, double midValue,
                                     String rarityColor) {
-        // ABILITY affixes have no targetStat — use the per-id formatter.
+        // ABILITY affixes have no targetStat — use the per-id formatter. Indestructible keeps
+        // the legacy gold hue; every other ability renders white.
         if (def.type() == AffixType.ABILITY) {
-            return color(Nat20AffixDisplay.ABILITY_GOLD, Nat20AffixDisplay.abilityLine(def.id(), midValue));
+            String abilityColor = "nat20:indestructible".equals(def.id())
+                    ? Nat20AffixDisplay.ABILITY_GOLD : "#FFFFFF";
+            return color(abilityColor, Nat20AffixDisplay.abilityLine(def.id(), midValue));
         }
 
         Nat20AffixDisplay.Entry entry = Nat20AffixDisplay.forTargetStat(def.targetStat());
