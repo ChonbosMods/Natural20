@@ -60,7 +60,6 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:attack_speed";
-    private static final double SOFTCAP_K = 0.35;
     private static final long CHAIN_SYNC_COOLDOWN_MS = 24L;
 
     private final Nat20LootSystem lootSystem;
@@ -229,7 +228,11 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
                 effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
             }
 
-            return (float) Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
+            // No softcap: the tooltip value (ilvl-scaled) + DEX scaling is the
+            // actual server-side time shift. Felt speed is already constrained
+            // by the client animation pipeline we can't alter on MVP, so a
+            // second cap here would only widen the tooltip-vs-reality gap.
+            return (float) effectiveValue;
         }
 
         return 0f;
