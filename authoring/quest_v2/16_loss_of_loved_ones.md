@@ -4,7 +4,9 @@
 
 **Tone arc:** mourning → bittersweet peace
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Loss of Loved Ones, the boss is the named thing responsible for the loss: the creature or raider whose name the NPC has been holding in their mouth like a splinter. The register is grief turned to hatred, not cold revenge (that is Vengeance). The NPC is not past it: they are trying to put the thing down so they can begin to be. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` wherever the threat is named. `{enemy_type_plural}` is permitted only for the boss's kin or pack. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

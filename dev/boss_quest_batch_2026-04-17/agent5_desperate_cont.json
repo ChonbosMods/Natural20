@@ -1,0 +1,151 @@
+[
+  {
+    "id": "supplication_14",
+    "topicHeader": "Past My Years",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I used to handle the woods around here myself when I had the knees for it. Those years are behind me, and {boss_name} seems to know it, which is why they've made a habit of circling the fence every night. I'd go out and see to it if my hands would hold steady, but they won't. I'm asking you because I've got nothing left to put in front of the trouble.",
+    "acceptText": "Bless you. I've had that request sitting in my chest for a week and it's been harder to carry than any load I used to lift.",
+    "declineText": "I see. I'll keep the shutters closed and hope the nights get shorter. You don't owe an old fool anything.",
+    "expositionTurnInText": "You're back in one piece. I sat by the window the whole time, listening, and I kept thinking I'd hear something go wrong. Thank you for proving my worry wrong.",
+    "resolutionText": "The quiet out there tonight is the first quiet I've trusted in a long while. Please take {reward_item}, it's most of what I set aside when I could still earn. You gave an old body its evenings back.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You're looking at the chair by the door. Yes, I sleep there now, with an axe I can barely swing across my lap. I haven't made it to my own bed in weeks, and I won't until this is done.",
+      "failText": "I'm managing well enough. Old folks like me always do."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_15",
+    "topicHeader": "For Someone Sick",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My partner hasn't been able to stand for more than a few minutes since the fever took hold. I need {quest_item} to keep them steady through the next stretch, and I can't leave the house long enough to go looking myself. Everything I own has bent around keeping them alive, and I've got nothing left to bend. Could you bring that back for me.",
+    "acceptText": "Thank you. Truly. I'll be sitting with them until you come back, and knowing you're out there doing that is the closest I've felt to rest in weeks.",
+    "declineText": "Alright. I'll think of something else, or I'll go without sleep another night and figure it out. I don't hold it against you, everyone's got their own to carry.",
+    "expositionTurnInText": "You brought it. Oh, you brought it. I can settle them properly tonight and finally close my own eyes for an hour. Which means I can tell you the part I couldn't bring myself to say when I was this close to breaking.",
+    "conflict1Text": "There's more keeping me in that chair than the fever. {boss_name} has been prowling the paths I used to take for supplies, and I stopped going out the day they were first sighted. If you could put an end to them, I could actually leave the house again and do my share. I can't face them on my own in the shape I'm in.",
+    "conflict1TurnInText": "It's done. I almost don't know how to sit with that. I can walk to the well in the morning and not count my steps for the first time since this started.",
+    "resolutionText": "My partner asked about you this morning, which is the first thing they've asked about that wasn't water or pain. Take {reward_item}, please. You gave two of us our days back, not just one.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I haven't let myself cry in front of them once. They'd hear it, and then they'd start apologizing for being ill, and I can't take that from them on top of everything else. I do it in the garden when the wind's loud enough to cover it.",
+      "failText": "We're getting by. That's all anyone can ask right now."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_16",
+    "topicHeader": "Someone Who Knew",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I don't talk much, and I've asked even less of strangers, but here we are. {target_npc} over in {target_npc_settlement} knew the worst of what lives out in these parts back when they were younger, and I need whatever they remember before I ask anything else of you. Go to them, if you would, and come back with what they say. I'd rather waste a trip than send you blind into what I think is coming.",
+    "acceptText": "Good. I appreciate you humoring me on the slow way around. I've spent my whole life keeping my head down and I'd like to keep it attached a while longer.",
+    "declineText": "I understand. Quiet folk ask for quiet favors, and that one wasn't quiet enough. I'll keep my door locked and figure the rest out.",
+    "expositionTurnInText": "You spoke with them. Thank you. That tracks with what I was afraid of, and I'm sorry, because it means the next ask is worse than the first.",
+    "conflict1Text": "The thing {target_npc} described by name is {boss_name}, and they've made a circuit of the region again after all these years. I can't face something that outlived a generation of people braver than me. If you can end it, I can finally stop bracing for the sound of them outside my walls. Please.",
+    "conflict1TurnInText": "You really did it. I keep expecting to hear what I used to hear at night and the quiet is taking some getting used to.",
+    "resolutionText": "I've been a quiet man my whole life and this is the loudest thanks I know how to give. Take {reward_item}, please. You gave a quiet man his quiet back, and I won't forget what that cost you.",
+    "targetNpcOpener": "You came from them, did you. Alright. Yes, I remember the name, and I wish I didn't. My grandfather swore he'd seen it put a whole caravan in the dirt when he was a young man, and he wasn't one for stories.",
+    "targetNpcCloser": "Tell them I wish them luck, and tell them to send someone who isn't them. That's not a thing for quiet people to tangle with.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_13",
+    "topicHeader": "After The Fire",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The fire took the better part of our stores and half the outer buildings before we got it down. We're still sifting through the ash, and we need {gather_count} {quest_item} to get the replacements stood up before the cold sets in. Everyone in {settlement_name} is doing what they can, but we're short of hands and shorter of sleep. Would you help us get those together.",
+    "acceptText": "That's good to hear. I'll pass the word so the others can plan around the help, it'll ease a few backs tonight.",
+    "declineText": "That's fair. We'll find a way, same as we found a way through the fire. I don't begrudge you for having your own road to walk.",
+    "expositionTurnInText": "That's enough to start putting walls back up before the frost. We can breathe for the first time in days. Which brings me to the part I've been dreading.",
+    "conflict1Text": "The fire didn't start on its own. {boss_name} has been nesting in the hills above {settlement_name} for a season, and what came down that night came down with intent. None of us here can face something like that, not with the work we've still got to do just to stay warm. If you could finish it, we could actually stop watching the ridgeline every sunset.",
+    "conflict1TurnInText": "It's over. That word feels strange in my mouth after all this. I'll tell the others at supper, and maybe for once we'll eat without flinching at every sound from the hills.",
+    "resolutionText": "We can rebuild without one eye always on the smoke. Take {reward_item}, please. You gave {settlement_name} the chance to put this season behind us properly.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 13,
+      "passText": "You're right, the burn pattern was wrong for wind or dry brush. I noticed it the morning after, and I haven't said so out loud, because people here need to believe it was bad luck for a little longer. Thank you for not making me keep that alone.",
+      "failText": "It was a dry season. These things happen when the weather turns on you."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_14",
+    "topicHeader": "What Keeps Coming Back",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "We lost most of this season's harvest and the replanting hasn't been going any better, because {boss_name} keeps coming through the fields at dusk. We've patched the fences three times and it's walked through them three times. The folks here in {settlement_name} are tired, and I've been the one who has to say out loud that we won't make it through winter if this keeps up. Could you handle it while we still have something worth saving.",
+    "acceptText": "Good. I'll hold off on the next fence repair until I hear from you, no sense wasting the timber twice.",
+    "declineText": "That's fair. We'll stretch what we've got and hope for a kinder spring. I didn't come into this expecting miracles from strangers.",
+    "expositionTurnInText": "It's quiet out in the rows tonight, properly quiet. I walked the whole line after sundown for the first time in months and came back without patching a thing.",
+    "resolutionText": "We've got enough left to replant the near plots and see the season through. Please take {reward_item}, it's a fair share from what {settlement_name} still has in the stores. You gave the ground back to us.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 12,
+      "passText": "You've read this pattern before, haven't you. Yes, we had something like it two generations back, and the stories say the village that ignored it didn't last the winter. I've been quoting those stories to myself every night to keep moving.",
+      "failText": "Hard seasons come around. We'll get through this one like the rest."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_15",
+    "topicHeader": "What The Collapse Let Out",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 5, "countMax": 10 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The old working up the hill caved in on itself last week and took two of our people with it before we got them out. We're patching what equipment survived and we need {gather_count} {quest_item} before we can get back to any proper work. Everyone here has been pulling double since, and a borrowed pair of hands would go a long way toward catching us up. Would you lend a hand.",
+    "acceptText": "That's a kindness. I'll pass it along to the crew so they can stop worrying about that part for a night.",
+    "declineText": "That's fair. We'll find another way, we always do. You didn't cause this and I won't pretend you owe us for it.",
+    "expositionTurnInText": "That's enough to get the tools squared away and the crew back on their feet. I can breathe past the first layer of this. Which brings me to the layer underneath.",
+    "conflict1Text": "The collapse buried our people, and it opened something up underneath that none of us knew was there. {boss_name} came up out of that hole the same night, and we've been taking turns watching the approach ever since. None of us here is equipped to face a {group_difficulty} thing like that after what the week has already cost us. If you could end it, we could grieve properly instead of pacing.",
+    "conflict1TurnInText": "It's done, then. I'll sleep tonight, and so will the rest of the crew. We can finally hold a proper wake for the two we lost without one ear always on the ridge.",
+    "resolutionText": "We'll rebuild the working when hands have steadied, and the rest will keep. Take {reward_item}, please, it's what we could put together from the stores that survived. You gave us room to mourn.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_16",
+    "topicHeader": "What The Storm Brought",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The storm three nights ago tore half the roofs off {settlement_name} and drove something in from wherever it came from. {boss_name} has been lingering at the edge of the wind damage ever since, and we think it rode in on the weather. We've got too much patching to do to spare anyone for a fight we can't win. Could you take care of that before we lose anything else to it.",
+    "acceptText": "Good. The crews on the roofs will breathe a little easier knowing someone's walking the perimeter for them.",
+    "declineText": "That's fair. We'll keep watches posted and hope it moves on the way it came in. I won't pretend we had a claim on your time.",
+    "expositionTurnInText": "The watches came down off the wall tonight for the first time since the storm. People are sleeping under proper roofs again and not jumping at every creak from outside.",
+    "resolutionText": "The storm's still ours to clean up, but at least we only have to clean up the storm. Please take {reward_item}, it's what {settlement_name} could gather between the patching and the hauling. You gave us back the quiet nights.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 13,
+      "passText": "You've seen weather like that push things in before, haven't you. I hoped I was wrong about it riding the front, and I'm sorry to hear I wasn't. At least I can stop doubting my own read on it now.",
+      "failText": "Storms bring what storms bring. We'll manage whatever they leave behind."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

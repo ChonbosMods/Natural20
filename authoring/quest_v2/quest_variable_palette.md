@@ -52,18 +52,18 @@ These variables are overlaid by `DialogueResolver.resolveQuestText()` based on w
 | `{gather_count}` | yes | COLLECT_RESOURCES |
 | `{kill_count}` | yes | KILL_MOBS |
 | `{enemy_type}` | yes | KILL_MOBS |
-| `{enemy_type_plural}` | yes | KILL_MOBS (use when count > 1) |
+| `{enemy_type_plural}` | yes | KILL_MOBS (use when count > 1), KILL_BOSS (the boss's gang/kin) |
 
-### 1.5 Boss bindings (quest-level, forceBossDirection only)
+### 1.5 Boss bindings (quest-level, KILL_BOSS only)
 
-Available **only when the template sets `"forceBossDirection": true`** on its KILL_MOBS objective. In that case `QuestGenerator` pre-rolls the boss identity at quest-generation time and the coordinator reuses those values when spawning at the POI, so both variables are safe to reference in any text field (including `expositionText`, `acceptText`, `declineText`).
+Available **only when the template declares an objective with `"type": "KILL_BOSS"`**. In that case `QuestGenerator` pre-rolls the boss identity at quest-generation time and the coordinator reuses those values when spawning at the POI, so both variables are safe to reference in any text field (including `expositionText`, `acceptText`, `declineText`).
 
 | Variable | Highlighted | Notes |
 |---|---|---|
 | `{boss_name}` | **yes** | The named boss the player must kill (e.g. `"Grishka the Bonebreaker"`). The actual spawned entity's nameplate matches. |
 | `{group_difficulty}` | no | The group's rarity tier label (`"uncommon"` / `"rare"` / `"epic"` / `"legendary"`). Use sparingly as flavor. |
 
-**Without `forceBossDirection: true`**, KILL_MOBS objectives roll a 50/50 between KILL_COUNT (kill N of a type) and KILL_BOSS (kill one named boss) only at POI-approach time. In that case `{boss_name}` is not bound until the player reaches the POI, so it must not appear in pre-POI text fields.
+`KILL_MOBS` objectives never bind `{boss_name}` or `{group_difficulty}`: those tokens are reserved for `KILL_BOSS`. A `KILL_MOBS` POI always resolves to a group kill (N of a type); there is no runtime promotion to a boss.
 
 ### 1.6 Text-field → objective binding
 
@@ -91,7 +91,8 @@ Quest chains support 2-5 objectives (exposition + 1-4 conflicts). All conflict p
 
 | Variable | Highlighted | Notes |
 |---|---|---|
-| `{quest_reward}` | yes | Author-defined free text from the template's `rewardText` field. Falls back to `"a fair reward"` if omitted. Reward text should be voiced ("what silver I have and a debt I won't forget"), not an inventory list. |
+| `{reward_item}` | yes | The rolled affix reward's display name (e.g. `"Grishka's Toll-Breaker"`). Driven by the quest's rolled difficulty tier + iLvl, not the template. Always bound. Always highlighted. |
+| `{reward_flavor}` | no | Short voiced flavor phrase from the template's `rewardFlavor` field. Should read as an emotional tail on the gesture ("what silver I have and a debt I won't forget"), not an inventory note. Empty string if omitted. |
 
 ---
 
@@ -106,9 +107,10 @@ Quick reference for what's available where:
 | `{other_settlement}` | Any text field | Nearby settlement exists (always available as flavor) |
 | `{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}` | Any text field | **Only when a TALK_TO_NPC objective exists in the chain** |
 | `{kill_count}`, `{enemy_type}`, `{enemy_type_plural}` | Text fields bound to a KILL_MOBS objective | Only in the matching field |
+| `{enemy_type_plural}` | Text fields bound to a KILL_BOSS objective | Refers to the boss's gang/kin, not the boss themselves |
 | `{quest_item}`, `{gather_count}` | Text fields bound to COLLECT_RESOURCES or FETCH_ITEM | Only in the matching field |
-| `{boss_name}`, `{group_difficulty}` | Any text field | Only when template sets `forceBossDirection: true` |
-| `{quest_reward}` | Any text field (typically resolutionText) | Always |
+| `{boss_name}`, `{group_difficulty}` | Any text field | Only when an objective has `"type": "KILL_BOSS"` |
+| `{reward_item}`, `{reward_flavor}` | Any text field (typically resolutionText) | Always (reward_flavor = empty if template omits rewardFlavor) |
 
 ---
 

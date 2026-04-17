@@ -1,0 +1,117 @@
+[
+  {
+    "id": "pursuit_15",
+    "topicHeader": "A Name From The Road",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "I trade through {other_settlement} a few times a year, and the same name keeps coming up over their cups and over mine. {boss_name}. The people there have been putting up with a pattern long enough to learn it by heart, and I'd rather see it finished before it spreads over the roads I actually use. I've carried that name home. Time it stopped moving.",
+    "acceptText": "Good. I had a feeling you'd say yes, and I'm glad to be right for once.",
+    "declineText": "Fair enough. I'll keep asking down the road. The name doesn't stop moving just because you did.",
+    "expositionTurnInText": "So it's done. I'll be able to go back through {other_settlement} next season without hearing {boss_name} for the tenth time in a row. That's a trip I don't have to dread anymore.",
+    "resolutionText": "Take {reward_item}, you earned it going in alone on a name I brought home. I can get back to trading now and stop carrying something that was never mine to carry.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "You want specifics, you can have them. Three settlements on my loop have stories now. Same pattern in every one, just different seasons and different faces at the funerals.",
+      "failText": "The details run together after a while. Enough that I'm sure, which is why I'm asking."
+    },
+    "valence": "neutral",
+    "roleAffinity": [
+      "Traveler"
+    ]
+  },
+  {
+    "id": "pursuit_16",
+    "topicHeader": "My Shrinking Range",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "My trapline used to run most of a day's walk out from {settlement_name}, and these past seasons it's been pulling in closer and closer. I'm going to put a stop to that, but I've been out of {quest_item} for months and I won't take another step into the woods without one. Bring me a {quest_item} I can rely on and I'll tell you the rest.",
+    "acceptText": "Glad to hear it. I've been ready for this conversation a while, I just needed the right pair of hands.",
+    "declineText": "Alright. The range keeps shrinking whether you walk out the door or not. I'll find someone with more season in them.",
+    "expositionTurnInText": "That'll do. That'll do nicely. Sit down a minute and let me tell you what I've actually been holding back.",
+    "conflict1Text": "The reason my line keeps pulling in is {boss_name}. I've been reading the sign for two years and there's no mistaking it now. {enemy_type_plural} clear the edges for {boss_name}, and if you put the source down the edges go quiet again. That's how this kind of thing works.",
+    "conflict1TurnInText": "You did it. I can walk out past my old markers tomorrow and set my line back where it belongs. That's the first time in three years I can say that out loud.",
+    "resolutionText": "Here, take {reward_item}. Old hunters don't have much to give, but what we have we give properly. The woods are mine again, and at my age that's a gift I didn't think I'd get.",
+    "skillCheck": {
+      "skill": "NATURE",
+      "dc": 13,
+      "passText": "You track, don't you. Then you've seen the way a good kill site goes quiet for a season after. What's been around my line isn't that kind of quiet. It's the kind where the game never comes back, because something bigger has claimed the ground.",
+      "failText": "Trust the old hunter's read on it. That's as much as I can give you without drawing a map."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "pursuit_18",
+    "topicHeader": "Work I Can't Finish",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "Every batch of orders I've tried to finish this year has fallen through because of the same pattern of trouble at the edges of {settlement_name}. I've decided I'm done working around it, and I'm going to handle the cause directly. First I need {gather_count} {quest_item} to restock what the delays ate through. Bring me that and we'll talk about the rest.",
+    "acceptText": "Good. I've been waiting for someone who'd take the work seriously instead of telling me to be patient.",
+    "declineText": "Alright. The work piles up either way. I'll catch the next capable hand through the door.",
+    "expositionTurnInText": "That's what I needed. My shelves look like a working shop again for the first time in months. Sit down. You've earned the rest of the story.",
+    "conflict1Text": "The cause I've been talking around is {boss_name}. Every time a caravan gets hit, my supply dries up. Every week my apprentice won't walk to the gate, I lose another day. {boss_name} sits at the center of it, and cutting the center out is the only thing that's going to let me work properly again.",
+    "conflict1TurnInText": "So it's finished. I can hear the shop settling back into itself already. My apprentice walked to the gate this morning without looking over her shoulder, and that told me everything I needed to know.",
+    "resolutionText": "Take {reward_item}, with my thanks. It's the best thing to come off my bench in a year, and it belongs with whoever made it possible. I've got a backlog to clear and the peace to clear it in. Good work.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You see how uneven my batches are if you look at the shelf. The newest pieces are the finest I've made in years, because I'm trying to prove to myself I still can. The older ones I'd rather not show anyone.",
+      "failText": "The work speaks for itself, or it doesn't. Either way I've said what needed saying."
+    },
+    "valence": "neutral",
+    "roleAffinity": [
+      "ArtisanBlacksmith"
+    ]
+  },
+  {
+    "id": "pursuit_19",
+    "topicHeader": "A Second Try",
+    "situation": "pursuit",
+    "objectives": [
+      {
+        "type": "TALK_TO_NPC"
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "I went after this myself a year and change ago, and I came back a lot worse than I went out. Before I ask you anything else, I'd like you to go see {target_npc} over in {target_npc_settlement}. They pulled me out of it last time and they know the ground better than anyone I could point you to. A {target_npc_role}'s eyes on this will tell you more than my mouth ever could.",
+    "acceptText": "Thank you. I've been sitting on this longer than I wanted to, and it helps just knowing someone else is moving on it.",
+    "declineText": "Your call. I understand, and I'll find another way around to it. The problem doesn't go anywhere while I wait.",
+    "expositionTurnInText": "So you found {target_npc}. Good. I wanted you to hear it from someone who was on the ground that day instead of just from the person who got carried off it. Now you've got what I couldn't give you myself.",
+    "conflict1Text": "The name is {boss_name}. Same name that put me on my back last year, and I'd like it gone for good this time. Someone steadier than I am needs to finish it, and I want it done properly.",
+    "conflict1TurnInText": "Quiet, isn't it. I thought hearing it finished would land harder than it did. Mostly I just feel like I can breathe without bracing for next season.",
+    "resolutionText": "Here, take {reward_item}. I had it set aside in case I ever got a second run at this, and a second run is what you gave me. I can walk past a mirror again without the old anger looking back.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "You've seen this kind of thing before, haven't you. Then you know they don't get weaker with time. I went in thinking I'd catch it while it was still growing into itself. I won't make that mistake for you.",
+      "failText": "It's old business. What matters is finishing it, not dressing it up with stories."
+    },
+    "targetNpcOpener": "So they finally asked for help. Good. I carried them out of that fight with my own hands, and I've been waiting to see if they'd ever be ready to try again. They're not the same person they were going in, and I think that's why they're ready now.",
+    "targetNpcCloser": "Tell them I said it's about time. And tell them I'll come down and see them when it's done.",
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "pursuit_17",
+  "topicHeader": "I Know The Type",
+  "situation": "pursuit",
+  "objectives": [
+    {
+      "type": "KILL_BOSS"
+    }
+  ],
+  "expositionText": "I ran with a rough crew for years before I settled in {settlement_name}, and the name {boss_name} has the same shape as half the ones I left behind. Takes where the line is weakest, keeps enough around itself that nobody wants to be the first to test it. That kind doesn't stop until someone stops it. I've got a quieter life now, and I'd like to keep it.",
+  "acceptText": "Good. You've got the look of someone who'll actually finish, and that's what this calls for.",
+  "declineText": "Suit yourself. The type I'm talking about only keeps growing until someone trims it back. I'll keep looking.",
+  "expositionTurnInText": "Dead, then. Good. That name had a particular weight to it for me, and I'm glad to set it down.",
+  "resolutionText": "Take {reward_item}. I kept it from the old days and I'd rather it belong to someone who did right with it than sit in my kit reminding me of who I used to be. Quieter days from here, that's what I'm after.",
+  "skillCheck": {
+    "skill": "INSIGHT",
+    "dc": 13,
+    "passText": "Honest answer, I used to be the muscle for someone cut from the same cloth. I left because I couldn't stomach what we were becoming. Handing you this name feels like paying back a little of what I owe.",
+    "failText": "I've got my reasons. They're mine, and they don't need airing."
+  },
+  "valence": "neutral",
+  "roleAffinity": []
+}

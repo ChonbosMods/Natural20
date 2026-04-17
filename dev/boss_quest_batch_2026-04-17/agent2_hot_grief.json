@@ -1,0 +1,73 @@
+[
+  {
+    "id": "loss_of_loved_ones_12",
+    "topicHeader": "A Name I Can't Put Down",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My husband didn't come home last spring, and I've spent the year since learning how to eat a meal and sleep through the night again. Before I do anything else, I need the {quest_item} he had on him when he went out. I can't rest knowing it's still out there somewhere. If you can bring that back to me, I can bear whatever comes next.",
+    "acceptText": "Thank you. I've been carrying this alone for a long time, and it helps just knowing someone else will touch it.",
+    "declineText": "Oh, alright. I shouldn't have asked, maybe. It's a lot to lay at a stranger's feet.",
+    "expositionTurnInText": "That's it. I can feel where he wore it soft, and that alone undoes me a little. I'll hold onto it while I tell you the rest.",
+    "conflict1Text": "Holding this made it real again, and I may as well say what I've been holding back. A traveler gave me the name of the thing that took him. {boss_name}. I say it in the dark sometimes just to make sure I still can, and I need the name to stop living in my head. Put {boss_name} down for me, please. I know it's a {group_difficulty} thing and I wouldn't ask if I could sleep any other way.",
+    "conflict1TurnInText": "You did it. You really did. I thought hearing it would feel like something bigger, but mostly it just feels quiet, and that's what I wanted.",
+    "resolutionText": "Take {reward_item} with my thanks. It was his, and he'd want it used by someone who finished what he couldn't. Tonight I think I'll sleep, and tomorrow I'll start learning what the rest of my life is going to look like.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The hardest part isn't missing him. It's the anger. I didn't know I had this much of it in me, and I'm tired of carrying it around the house like a second body.",
+      "failText": "It's been a long year. That's the best I can say about it right now."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_13",
+    "topicHeader": "For My Sister",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My sister was the steady one. She stood with me since we were children, and she was gone before I understood what had happened. Before I move on anything else, I'd like you to go see {target_npc} over in {target_npc_settlement}. She was my sister's closest friend, and she deserves to hear what I'm about to do from a real person before I set any of it in motion.",
+    "acceptText": "I appreciate that. She was soft with my sister in a way I never quite was, and I don't want to do this without her knowing.",
+    "declineText": "Fair enough. It's a strange errand to hand someone. I'll find another way to say what needs saying.",
+    "expositionTurnInText": "You spoke with her. Good. She always took longer than the rest of us to say what she meant, but when she said it, she meant it. I feel steadier knowing she's been told.",
+    "conflict1Text": "Now the part I couldn't send in a message. The thing that took her goes by {boss_name}, and I've known that name for months without being able to do anything with it. My sister would have told me that hate is a poor reason for anything, but she isn't here to tell me. Go end it, and come back when {boss_name} is no longer a name anyone has to fear.",
+    "conflict1TurnInText": "Quiet, isn't it. I thought I'd have more to say when this day came. Mostly I just want to sit for a while and think about her without the other thing crowding in.",
+    "resolutionText": "{reward_item}, please. She would have wanted it with someone who earned it, and you did. I can talk about her now without every sentence ending at the same dark place, and that's more than I expected to have.",
+    "targetNpcOpener": "They told you why, didn't they. She and I were like siblings ourselves by the end, you know. I'm glad they're finally moving on what's been eating them, though I worry about what they'll be like on the other side of whatever they're planning.",
+    "targetNpcCloser": "Tell them I said go on, then. And tell them to come see me after. They shouldn't be alone when the quiet settles in.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 12,
+      "passText": "We grew up in a house with thin walls and a stubborn mother, and my sister was the one who kept me from breaking things I couldn't fix. Half the good choices I ever made were really hers. I don't know who I am yet without her pulling me back from the edge.",
+      "failText": "She was my sister. There isn't a short version of what that meant."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_14",
+    "topicHeader": "The Old Grave",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "This is going to sound strange. My brother died nine years ago, and until last month I didn't know what killed him. A traveler came through {settlement_name} and said the name without knowing what it meant to me. {boss_name}. I sat with it for a week before I could even say it out loud. I'm too old to chase anything down myself, but if you'd end {boss_name} for me, I think I could finally put him properly to rest.",
+    "acceptText": "That's kind of you. I thought I'd made my peace with the not-knowing, and then the knowing came and undid all of it at once.",
+    "declineText": "No, no, it's fine. You've got your own life, and I've had nine years already. Another few won't matter.",
+    "expositionTurnInText": "It's done, then. {boss_name}, finally. I keep waiting to feel the thing I thought I'd feel, and instead I just feel tired in a way that isn't bad. Like I've been holding my breath for nine years and someone's told me I can stop.",
+    "resolutionText": "Please take {reward_item}. It belonged to my brother, and I've had no reason to part with it until today. I'll visit his stone this evening and tell him the news, and I think for the first time since he went I'll have something to say that isn't an apology.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I wasn't with him, you see. I was supposed to be, and I wasn't, and for nine years I told myself it wouldn't have mattered. Learning the name has made that lie harder to tell. This is the closest I'll ever come to being there for him.",
+      "failText": "It's an old wound. I'd rather not scratch at it any more than I have to."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

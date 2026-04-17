@@ -1,0 +1,30 @@
+{
+  "id": "remorse_14",
+  "topicHeader": "What I Sold",
+  "situation": "remorse",
+  "objectives": [
+    {
+      "type": "TALK_TO_NPC"
+    },
+    {
+      "type": "KILL_BOSS"
+    }
+  ],
+  "expositionText": "Before I can say the hard part, I need someone to go speak to {target_npc} over in {target_npc_settlement} for me. I owe them a conversation I've been dodging for half a year, and my feet won't carry me there. Tell them I'm finally trying to put something right. They'll know what you mean, and they'll tell you more than I can get out in one sitting.",
+  "acceptText": "Thank you. I've had this sitting on my chest so long I'd stopped noticing the weight, and I noticed it the moment you said yes.",
+  "declineText": "That's fair. I've been avoiding it myself, so I can't begrudge anyone else for not wanting a piece of it. I'll sit with it a while longer.",
+  "expositionTurnInText": "You went. You actually went. Sit down, because the rest of it is the part I couldn't put in a message, and you deserve to hear it from me directly.",
+  "conflict1Text": "I sold {boss_name} something I should have known better than to part with, and they have been using it against people like {target_npc} ever since. A {target_npc_role} does not come asking for my help, so I am asking on their behalf. End {boss_name}, so what I put into their hands cannot be used to hurt anyone else. I will not make the same mistake twice.",
+  "conflict1TurnInText": "So it is over. I have been waiting to feel worse or better, and mostly I just feel like I can finally breathe all the way in. That is more than I thought I would get.",
+  "resolutionText": "{target_npc} sent word this morning. They are not ready to call us friends again, but they asked after my health, and I had not realized how much I needed to hear that. Please take {reward_item}. It is the best thing in this house, and it belongs with the one who carried my apology where my feet could not.",
+  "targetNpcOpener": "They sent you, didn't they. I was wondering when they were going to try something like this. Tell me they're actually doing something about what they let loose, because an apology by itself is not going to be enough.",
+  "targetNpcCloser": "Tell them I heard it, and tell them to finish what they started. When {boss_name} is done I'll come find them myself, and we'll see where we stand after.",
+  "skillCheck": {
+    "skill": "INSIGHT",
+    "dc": 14,
+    "passText": "I knew what they were when I took the coin. I told myself I did not, and I believed it for about an hour. Every hour since, I have known exactly what I did and who I did it for, and I have kept quiet about it because admitting it was harder than living with it.",
+    "failText": "I made a bad trade. I would rather not sit with the particulars any longer than I have to."
+  },
+  "valence": "negative",
+  "roleAffinity": []
+}

@@ -114,7 +114,7 @@ Other critical reminders:
 - {target_npc}, {target_npc_role}, {target_npc_settlement} are ONLY available when a TALK_TO_NPC objective exists.
 - {settlement_npc} is FLAVOR ONLY — never frame as an objective target.
 - Max 4 sentences per text field. Most should use 2-3.
-- resolutionText must reference {quest_reward} and must close the arc — no cliffhangers.
+- resolutionText must reference {reward_item} and {reward_flavor} and must close the arc, no cliffhangers.
 - declineText tone is situation-specific — check the situation document.
 - Every objective in the chain must be referenced in its corresponding text field.
 - Only use objective types listed as available for each situation.
@@ -128,7 +128,7 @@ As each agent returns its JSON array:
 1. **Parse the JSON.** If it fails to parse, report the agent and the parse error.
 
 2. **Schema check each template:**
-   - Required fields present: id, situation, objectives, expositionText, acceptText, declineText, expositionTurnInText, conflict1Text, conflict1TurnInText, resolutionText, rewardText, valence
+   - Required fields present: id, situation, objectives, expositionText, acceptText, declineText, expositionTurnInText, resolutionText, valence (conflict1Text/conflict1TurnInText required for 2+ objective chains; rewardFlavor is optional)
    - objectives array length = 1 + number of conflict phases with text fields
    - Optional conflict fields (2-4) present only when matching objectives exist
    - ID format matches `situation_slug_nn`
@@ -140,7 +140,7 @@ As each agent returns its JSON array:
    - Scan for `{quest_item}`, `{gather_count}` — verify they only appear in fields bound to COLLECT_RESOURCES or FETCH_ITEM objectives
    - Scan for `{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}` — verify a TALK_TO_NPC objective exists in the chain
    - Scan for forbidden smalltalk variables: `{mob_type}`, `{npc_name}`, `{npc_name_2}`, `{npc_role}`, `{poi_type}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`, `{direction}`, `{location_hint}`, `{time_ref}`, `{tone_opener}`, `{tone_closer}`, `{subject_focus}` and variants — reject any template containing these
-   - Verify `{quest_reward}` appears in resolutionText
+   - Verify `{reward_item}` and `{reward_flavor}` appear in resolutionText
 
 4. **Entity grounding check each template (THE MOST IMPORTANT CHECK):**
    - Scan all text fields for spatial nouns (structures, landmarks, terrain features, interiors)

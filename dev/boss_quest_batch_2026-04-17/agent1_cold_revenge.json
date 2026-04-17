@@ -1,0 +1,71 @@
+[
+  {
+    "id": "vengeance_11",
+    "topicHeader": "A Silver Debt",
+    "situation": "vengeance",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "Nine winters ago {boss_name} came through here and left me without my father. I kept his belt on a nail above my workbench, and I have looked at it every morning since. I am not a young woman anymore, and I am done waiting. If you are willing, I want that name crossed off.",
+    "acceptText": "Good. I had my answer ready if you said no, and I do not need it now. Go.",
+    "declineText": "Of course. Everyone has their own dead to carry, and mine is not your burden. Close the door behind you.",
+    "expositionTurnInText": "So it is done. {boss_name} is gone, and the world does not feel lighter the way I thought it would. Sit down a moment. I want to look at someone who saw it through.",
+    "resolutionText": "Take the belt off the nail for me, would you. I cannot look at it anymore, and I do not want it thrown out either. Take {reward_item} too. I set it aside for whoever finished this, and I would rather it buy you a good meal than sit here another winter.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The worst part is I heard it from the road, close enough to count the steps it took away from what it had done. I have carried that sound through every quiet night since.",
+      "failText": "It was a long time ago. The details do not matter anymore, only the ending does."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_12",
+    "topicHeader": "What They Took",
+    "situation": "vengeance",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I have been putting off a piece of work for a year because I did not have the means, and I am tired of putting it off. If you are willing to help, I need {gather_count} {quest_item} to start with. Bring those and I will tell you what I am actually asking. I will only get one shot at what comes after, and I want to be ready.",
+    "acceptText": "Alright. Do not come back empty-handed and I will not waste your time either. We will talk properly once the {quest_item} is on my table.",
+    "declineText": "Figures. Polite people always have somewhere better to be. Walk on, then.",
+    "expositionTurnInText": "That is enough {quest_item}. I have not touched a project like this since before it happened, but my hands remember. Sit down, I owe you the rest of it now.",
+    "conflict1Text": "{boss_name} made a show of me in front of my own people here in {settlement_name}. Took something of my mother's off my own neck and laughed while I stood there. They keep {enemy_type_plural} close, so you will have to cut through them to get at the real problem. I am not asking you to be quiet about it either.",
+    "conflict1TurnInText": "It is done. They cannot flaunt what they took from me anymore, and I can close my eyes without hearing them laugh in the dark. That is enough.",
+    "resolutionText": "I can stand in my own settlement again without flinching, and that is more than I thought I would have. Take {reward_item}, please. I am quieter than I was yesterday, and that is worth more to me than the silver ever was.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You can see the mark on my collarbone where they tore the chain off. I keep my scarf over it, but I cannot stop touching it. Every time my fingers find it, I remember the sound the clasp made when it broke.",
+      "failText": "They took something of mine. That is all you need to know."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_12",
+    "topicHeader": "My Brother's Door",
+    "situation": "remorse",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "Before I can say any of the harder things out loud, I need someone to go see my brother for me. {target_npc} lives in {target_npc_settlement}, and he has not spoken to me in a long time for reasons that are mine to carry. Tell him I am finally trying to set something right. He deserves to hear it from a steady voice, and mine has not been steady in a year.",
+    "acceptText": "Thank you. I have been holding onto this for a long time, and I did not know I was allowed to put it down.",
+    "declineText": "I understand. If I were you, I would not want any part of this either. I am sorry I even asked.",
+    "expositionTurnInText": "He heard you out. That is more than I had any right to hope for. Sit with me a moment, because what I am about to ask is harder, and I owe you the whole of it now.",
+    "conflict1Text": "I led {boss_name} to my brother's door. Not on purpose, but I kept the company I kept and I talked when I should not have, and he barely lived through what came after. I want to finish what I started by ending the one I brought down on him. A {target_npc_role} like my brother will never ask me for this, but I owe him the doing.",
+    "conflict1TurnInText": "{boss_name} is dead. I thought I would feel more than I do, but maybe this is what finishing looks like. My hands are quiet for the first time in a year.",
+    "resolutionText": "My brother answered my letter this morning. He has not forgiven me and he may never, but he answered, and that is more than I had yesterday. Please take {reward_item}. It is overdue in more ways than one, and I would rather it leave this house in good hands.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I drank with them for weeks, flattered they listened to me. When my brother's name came out of my mouth I watched their faces change, and I did nothing. That is the part I cannot forgive.",
+      "failText": "I said too much to the wrong person once. That is the short of it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

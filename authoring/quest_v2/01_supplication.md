@@ -4,7 +4,9 @@
 
 **Tone arc:** desperate → grateful
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Supplication, the NPC must know the boss by name and be openly outmatched. The register is "I can't face them alone," not "we've seen some monsters lately." The boss has been terrorizing the NPC or their household long enough to have earned a name and a reputation. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` where the threat is named. `{enemy_type_plural}` is permitted only for the boss's followers. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

@@ -4,7 +4,9 @@
 
 **Tone arc:** bitter/cold → settled
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Vengeance, the NPC must have a specific named-villain relationship with the boss: a concrete wrong, a long-nursed hatred, a score that has a face. The boss is singular: do NOT use `{kill_count}` or `{enemy_type}` as the target in boss-quest text, and do not write the plural form as if describing the boss themselves. Use `{boss_name}` wherever the threat is named. `{enemy_type_plural}` is permitted only for the boss's gang/kin (the followers the player will cut through to reach them). `{group_difficulty}` is available as a quiet flavor variable ("legendary," "epic") but should not appear in most text.
 
 ---
 

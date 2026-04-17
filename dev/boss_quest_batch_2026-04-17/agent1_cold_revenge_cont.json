@@ -1,0 +1,157 @@
+[
+  {
+    "id": "vengeance_13",
+    "topicHeader": "An Old Limp",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "My son walks with a limp, and he will walk with it until the day he goes in the ground. {boss_name} is the reason, and I have known the name for three years now. I am past the age where I can see to it myself, but you are not. If you are the one who finishes this, I will not forget you.",
+    "acceptText": "Good. A willing hand is what I have been waiting for, and you are one. Do what needs doing.",
+    "declineText": "Of course you will not. Nobody has, and I do not know why I expected you to be different. Go on, then.",
+    "expositionTurnInText": "So the name is finished. I heard it from a trader on the road before you even came back, and I sat down where I stood. {boss_name} is not a sound I will have to carry anymore.",
+    "resolutionText": "Come with me to the window. My son is out there teaching his own boy to throw a stone, and today he looked up at me without that shadow in his face. Take {reward_item}. I was saving it for a day that felt like an ending, and today does.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You see the cane by the door, and you see how worn the handle is. My son uses his own now, but that one on the nail was mine, from the year I did what I could to stand between them and it was not enough. I gave it to him the day he learned to walk again.",
+      "failText": "He is strong in the ways that matter. That is all I will say about him today."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_14",
+    "topicHeader": "What the Fire Took",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "There is a {quest_item} of mine sitting with a trader in {other_settlement}, and I need it back before I take another step. I could not bring myself to go fetch it after what happened, and it has been sitting over there long enough. Bring it to my hand and I will tell you the rest of what I am asking. I am not ready to speak the rest out loud until I have it with me again.",
+    "acceptText": "Good. I have waited long enough already, and I will not waste your time when you return. Go get it and come back.",
+    "declineText": "So be it. I have been carrying this on my own for a year, and I can carry it a while longer. Shut the door on your way out.",
+    "expositionTurnInText": "There it is. I did not think I would feel anything when it was back in my hand, and I was wrong. Sit with me a moment, because now I can say the part I could not say before.",
+    "conflict1Text": "{boss_name} came through here last spring and left my livelihood in ashes, and I stood in the street watching a year of my work burn. I have not been the same person since, and I do not intend to stay that way. They keep {enemy_type_plural} close, so you will have to cut through those before you reach the real problem. End it for me.",
+    "conflict1TurnInText": "It is done, then. I thought the fire would burn in me forever, and it turns out even that goes out when there is nothing left to feed it. My hands are still for the first time in a year.",
+    "resolutionText": "I can smell rain tonight instead of smoke, and I had forgotten what that was like. Take {reward_item}, please. I am starting over with less than I had, and I would rather the best of what I kept go to the one who made the starting over possible.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The worst part was not the loss. I can rebuild, I have hands. The worst part was the sound of it at the end, and I have carried that sound through every quiet night since, whether I was asleep or not.",
+      "failText": "I lost a great deal that afternoon. The particulars do not help me now."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "vengeance_15",
+    "topicHeader": "A Long Shadow",
+    "situation": "vengeance",
+    "objectives": [
+      {
+        "type": "COLLECT_RESOURCES",
+        "countMin": 4,
+        "countMax": 8
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "I've got work around the house I've been dodging for months because I haven't had the supplies, and I'm sick of the excuse. If you'll help me out, I need {gather_count} {quest_item} to finally get it moving. Bring it back and I'll tell you the real reason I've been putting it off. I've had my head down for a year now, and I'm ready to lift it.",
+    "acceptText": "Good. I'll have the rest of it ready to say out loud by the time you're back. Don't keep me waiting longer than you have to.",
+    "declineText": "Right. Well, I've been on my own with this for a while, so another week won't kill me. Try to shut the door quietly on your way out.",
+    "expositionTurnInText": "That's what I needed. Put it on the bench there and sit down for a minute. I can say the rest of it now that my hands have something to do.",
+    "conflict1Text": "{boss_name} has been a shadow over {settlement_name} for two winters now, and I've been one of the ones learning to live small because of it. Every trip to the well, every errand, every time the light starts to go. I'm done. They keep {enemy_type_plural} near them, so you'll have to cut through those to reach the real one, and then we're finally finished with this.",
+    "conflict1TurnInText": "You're sure. You're actually sure. I went outside just now and stood in the middle of my own street for as long as I wanted, and I can't remember the last time I did that.",
+    "resolutionText": "I can hear myself think tonight, and that's not something I've been able to say in a long time. Take {reward_item} with my thanks. It sat in a drawer through all of this, waiting for a day worth opening the drawer for, and today's the day.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "I used to be the loud one at the table. Ask anyone who knew me before. Two winters of swallowing it and I barely recognize the sound of my own voice when I talk about anything that matters. I'm hoping I get that back.",
+      "failText": "It's been a quiet couple of years. I'd rather not get into why."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_13",
+    "topicHeader": "A Warning I Swallowed",
+    "situation": "remorse",
+    "objectives": [
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "I knew {boss_name} was coming through {settlement_name} a full day before they did, and I said nothing to anyone. My neighbor lost more than I can say out loud, and I've been sick with it ever since. I can't undo my silence, but I can see the name ended. If you'll do it, I'll spend the rest of my life telling the truth when it matters.",
+    "acceptText": "Thank you. I've been waiting to be allowed to try to fix this, and I didn't know who to ask.",
+    "declineText": "I understand. I wouldn't help me either, if I'd been told what I just told you. I'm sorry I asked.",
+    "expositionTurnInText": "It's done. I heard before you got here, and I sat on the step a long time waiting for something in me to feel different. I think it has, a little. Thank you for what you did.",
+    "resolutionText": "I went over and spoke to my neighbor this morning, properly, for the first time since. They didn't forgive me and I didn't ask them to, but they let me say it. Take {reward_item} with my thanks. It's the start of how I'm going to try to live from now on.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I told myself I wasn't sure. I told myself the warning might be wrong and I didn't want to start a panic over nothing. The truth is I was scared of what {boss_name} would do to me if I was the one who spoke up, and I let somebody else pay for my quiet.",
+      "failText": "I had a chance to say something and I didn't. That's the short of it, and the long of it doesn't help anyone."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_15",
+    "topicHeader": "What I Left Behind",
+    "situation": "remorse",
+    "objectives": [
+      {
+        "type": "FETCH_ITEM"
+      },
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "There is a {quest_item} of my sister's with a trader in {other_settlement}, and I could not bring myself to go and claim it after what happened. I need it back in this house before I can speak the rest of what I owe her memory. If you would go and collect it for me, I can say the part I have been putting off. I have not been ready until now, and I am trying to be.",
+    "acceptText": "Thank you. I have been holding this in for so long I forgot I was holding it, and something in me loosened when you agreed.",
+    "declineText": "I understand, and I am not going to ask you twice. This is mine to carry one way or another, and I should not have handed it to a stranger.",
+    "expositionTurnInText": "You brought it. I had not seen it since the week it happened, and my hands do not quite know what to do with it yet. Sit down a moment, and I will tell you the part I could not say before.",
+    "conflict1Text": "The night {boss_name} came, I was supposed to be with her, and I was not, because I had drawn them to that road a week earlier and I was afraid to show my face. She went in my place, and she did not come back. I want {boss_name} finished by the same hands that brought this home to me. No one else should stand in for me again.",
+    "conflict1TurnInText": "So it is over. I thought I would have more to say when the day came, and I find I do not. I am going to sit with her things a while, and I think for the first time that will feel like company instead of a wound.",
+    "resolutionText": "I put her {quest_item} back where she used to keep it, and the house feels like hers again for the first time in a year. Please take {reward_item}. She would have liked you, and I would rather something of hers go out the door with someone who earned it than sit in a drawer while I pretend I am the one who deserves to keep it.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I hid in the back of a traveler's cart the day she went. I could have walked back with her. I told myself I was being careful, and I have spent a year learning that what I actually was had a harder word for it.",
+      "failText": "She was the better of us, and she is gone. There is not much more to it than that, from my end."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "remorse_16",
+    "topicHeader": "A Thing I Kept Quiet",
+    "situation": "remorse",
+    "objectives": [
+      {
+        "type": "KILL_BOSS"
+      }
+    ],
+    "expositionText": "I've been sitting on something for a long time, and it's the reason {boss_name} has had the run of this region for as long as they have. I saw what they were doing early on and I kept my mouth shut, because speaking up would have cost me more than I was willing to pay at the time. I can't take the silence back, but I can see the name finished. Please, if you're willing.",
+    "acceptText": "Thank you. I haven't slept properly since I realized I could have said something early, and maybe tonight I will.",
+    "declineText": "I understand. It's a lot to lay at a stranger's feet, and it's not your mess to clean up. I'll find another way, or I won't.",
+    "expositionTurnInText": "So {boss_name} is done. I heard before you walked in, and I've been sitting here trying to feel what I thought I'd feel. Mostly it's quiet, and the quiet is the best thing I've felt in a long while.",
+    "resolutionText": "I'm going to start telling the truth about this when people ask, starting tomorrow. It won't undo what the silence cost, but it might stop me from making the same choice again. Take {reward_item}, please. I'd rather it go with someone who acts when it matters than sit here reminding me that I didn't.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I told myself I had a family to think about. What I was really protecting was my own comfort, and speaking up would have cost me that, and I chose comfort. I'd like to be the kind of person who chooses differently next time.",
+      "failText": "It was a long time ago, and the reasons I had then don't sound like much now. I'd rather leave it at that."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

@@ -4,7 +4,9 @@
 
 **Tone arc:** guilty → lightened
 
-**Available objectives:** TALK_TO_NPC, FETCH_ITEM
+**Available objectives:** KILL_BOSS, TALK_TO_NPC, FETCH_ITEM
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Remorse, the boss is a named threat the NPC is morally entangled with: "I led them to my brother," "I sold the route and now they've named a captain after it," "I was their supplier before I knew what they were." The NPC is not chasing payback (that is Vengeance). They are trying to undo the specific harm their choice enabled, and that means killing the specific thing they helped create or empower. Survivor's guilt, quiet shame, steady hand. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` wherever the threat is named. `{enemy_type_plural}` is permitted only for the boss's followers. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "conflict_with_fate_14",
+    "topicHeader": "An Old Habit",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The nights around {settlement_name} have been off their rhythm for weeks, and I keep catching myself reaching for habits my grandmother taught me. Before I ask anything bigger, I want a {quest_item} to keep near the door. It's a small old thing and probably won't do much, but my hands want it done, and I've learned to listen to my hands.",
+    "acceptText": "Good. It eases me that someone else thinks this is worth an afternoon.",
+    "declineText": "Well, I've been looking after myself for a long time, and I'll keep on. No hard feelings.",
+    "expositionTurnInText": "Thank you. Having this by the door has quieted something in my chest that I couldn't settle any other way. I feel steadier now, and steady is what I need for the harder thing.",
+    "conflict1Text": "The travelers through here have been saying a name, and the name is {boss_name}. The old ways tell you to put a thing at your threshold and then go meet the threat at a distance, and that's what I'm asking of you. I won't pretend the warding did the work. I'll ask you to do the rest.",
+    "conflict1TurnInText": "Then the threshold held and the field did too. I feel my shoulders drop for the first time in a while, and I didn't realize how long they'd been up.",
+    "resolutionText": "I'll keep the thing by the door a while longer. Old habits are good for seasons like the one we just had, and I don't think we've seen the last of strangeness around here. Take {reward_item} with my thanks, and know an old habit was repaid tonight.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "The warding I asked for isn't a secret, but nobody young asks about it anymore, so I don't bring it up. My grandmother kept one through a season like this one, and she said afterwards that it mattered less what it was and more that she kept it. I've come around to thinking she was right.",
+      "failText": "It's just something my family used to do. I'd rather not make more of it than that."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_15",
+    "topicHeader": "New To This",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I moved to {settlement_name} this spring and everyone here acts like the last two months are normal, and I can't get my footing. Before I do anything about it, I want to hear from someone who's been through a season like this before. Go find {target_npc} over in {target_npc_settlement} and ask them what they remember. I need to know if the people around me are calm because they understand it or because they've just stopped trying.",
+    "acceptText": "Thank you. Everyone here kept telling me to let it alone, and you're the first person who didn't.",
+    "declineText": "Alright. I'll keep asking around. Someone will eventually give me a straight answer.",
+    "expositionTurnInText": "So it has happened before, and people did get through it. That's more than I had this morning, and it's enough to stand on. I think I'm ready to stop waiting for it to pass on its own.",
+    "conflict1Text": "{target_npc} told you the name, and now I'll say it back to you. It's {boss_name}, and whatever it actually is, it's the part of this I can point at. The folks here who've seen a bad season before will know what to do about the rest. I'd like to be useful for the piece that can actually be closed.",
+    "conflict1TurnInText": "Then it's done, and I feel something I wasn't sure I'd feel again, which is settled. The older folks were right that a season like this passes, and I was right that you don't have to only wait it out.",
+    "resolutionText": "I think I'll stay. This morning I wasn't sure, and tonight I am, and that's mostly because of you. Take {reward_item} with my thanks, and if anyone else turns up here looking as lost as I was, point them my way.",
+    "targetNpcOpener": "Oh, they sent you to me about this. I've lived long enough to remember the last bad stretch like this one, and I'll tell you what I told them back then. You never quite understand it. You outlast it, and you lean on people who've seen it before.",
+    "targetNpcCloser": "Tell them the pattern holds. It felt like the end of the world the first time too, and it wasn't.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "Honestly, I haven't told anyone here that I almost went back home last week. I packed a bag and sat with it for an hour. I'm still here because I wanted to see how people who belong to a place handle something like this, and I'm trying to be one of them.",
+      "failText": "I'm fine, I'm just still settling in. Everyone has a rough first season somewhere."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

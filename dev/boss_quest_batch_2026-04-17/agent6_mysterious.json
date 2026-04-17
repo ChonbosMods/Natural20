@@ -1,0 +1,71 @@
+[
+  {
+    "id": "conflict_with_fate_11",
+    "topicHeader": "A Name At Last",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "For about a month now things haven't been right around {settlement_name}, and I couldn't put a name to any of it. Folks have been asking around for a {quest_item}, something to hold onto while the rest of this sorts itself out, and I've been asking too. If you turn one up, bring it to me. I'd rather hold something than hold nothing right now.",
+    "acceptText": "Thank you. I wasn't sure anybody would want to hear this one, let alone answer it.",
+    "declineText": "I suppose I expected that. Well. Nothing for it, then.",
+    "expositionTurnInText": "You found it. I didn't really think you would, and I'm grateful. I'll keep it close, for whatever good that does. It's a small thing, but a small thing is more than I had yesterday.",
+    "conflict1Text": "Now the harder part, and the part I was putting off. The quiet has a name now, and the name is {boss_name}. I don't care what it is, I care that it stops. Whatever you have to do.",
+    "conflict1TurnInText": "You did it. You actually did it. I keep waiting to feel more afraid than I do, and the feeling isn't coming.",
+    "resolutionText": "I don't think I'll ever understand what that was, and I've stopped trying. Take {reward_item} with my thanks. You gave us a quiet night, and that's more than I thought any of us would get.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "I haven't slept in my own bed in weeks. I can't tell you why. I just know I can't be alone with a thought after dark, so I sit up with whoever else is awake and I wait for morning.",
+      "failText": "It's been a strange month. That's all I've got for it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_12",
+    "topicHeader": "What Travelers Say",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 7 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "It's been a bad season around {settlement_name}, and the travelers coming through from {other_settlement} speak carefully, like nobody quite wants to say what they mean. I'm old enough not to chase what I can't fix. Before I ask anything harder of you, I need {gather_count} {quest_item} to keep things running in this house while the rest of it plays out. Having my own work in order is the only honest ground I've got to stand on.",
+    "acceptText": "Good of you. I've lived long enough to know nothing is certain, but I'll take a willing pair of hands over certainty any day.",
+    "declineText": "Fair enough. I'll manage the way I've managed everything else, slowly and with worse knees than I'd like.",
+    "expositionTurnInText": "That'll see us through. I know it seems small next to the rest, but it's settled something in me to have the house in order again. Now I have to ask you for the thing I've been putting off asking.",
+    "conflict1Text": "Travelers from {other_settlement} have been saying a name for weeks, and it's {boss_name}. That's the piece of this I can point at, and that makes it the piece that can be ended. I don't know if this fixes what's wrong out there, and I won't lie and say it does. But a named thing can die, and I want this one to.",
+    "conflict1TurnInText": "Then that's that. I said a named thing can die, and I meant it, but hearing it's done feels different than saying it would feel.",
+    "resolutionText": "I'm not going to pretend I understand any of what the last season has been. I just know it's quieter tonight than it has been. Take {reward_item} with my thanks, and know that an old woman slept easier because of you.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "My grandmother used to talk about a bad year like this one, long before my time. She never named what caused it either. She just said you get through by naming what you can and feeding the people you've got.",
+      "failText": "It's an old pattern. That's all I'll say."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "conflict_with_fate_13",
+    "topicHeader": "Just A Beast",
+    "situation": "conflict_with_fate",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "People around {settlement_name} have been whispering the name {boss_name} like it means something, and I'm tired of it. It has a name, and a name means it has a body, and a body can be put in the ground. I'd like that to be done soon, and I'd like the one doing it to be you.",
+    "acceptText": "Thank you. A straight answer is the first sensible thing I've heard about this all week.",
+    "declineText": "Well. The name's out there whether you go or not. Something will sort it eventually.",
+    "expositionTurnInText": "Then it's done. {boss_name} is a name people won't have to keep saying, and that alone is worth something. I told you it would end like anything else ends, and I was right.",
+    "resolutionText": "I don't want to hear any more stories about it. It was a {group_difficulty} thing and it's finished, and that's the whole of what I need to know. Take {reward_item} and let's all go back to talking about the weather like normal people.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "Fine, I'll grant you the pattern isn't ordinary. Whatever it was, it didn't behave the way things around here usually do. But a strange thing is still a thing, and I'd rather act like I know what I'm doing than stand around wondering.",
+      "failText": "It had a name. That's the beginning and end of it."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

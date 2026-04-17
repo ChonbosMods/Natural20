@@ -4,7 +4,9 @@
 
 **Tone arc:** devoted/anxious → relieved
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Self-Sacrifice for Kindred, the boss is the specific named threat the NPC has been holding off their family: the raider who keeps coming back to this one farm, the creature that has learned the route between the house and the well. The NPC has been carrying this alone because leaving the family unattended to deal with it is impossible. Protective, exhausted, specific. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` wherever the threat is named. `{enemy_type_plural}` is permitted only for the boss's followers. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

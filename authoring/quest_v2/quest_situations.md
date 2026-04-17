@@ -11,6 +11,7 @@
 | Type | What the player does |
 |---|---|
 | KILL_MOBS | Kill N of an enemy type |
+| **KILL_BOSS** | **Kill one named boss (single target; `{boss_name}` and `{group_difficulty}` bound pre-POI; champions spawn alongside but do not count toward completion)** |
 | COLLECT_RESOURCES | Gather N of a resource |
 | FETCH_ITEM | Retrieve a specific item |
 | TALK_TO_NPC | Speak to a named NPC at another settlement |
@@ -25,7 +26,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Someone begs for help they can't handle alone. The most basic quest shape: a person in need, a problem beyond their means, and you.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
 
 **Tone arc:** desperate → grateful
 
@@ -37,7 +38,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Rescue the helpless from a threat. Someone is in danger and can't extract themselves. The quest is about removing the danger or reaching the person.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
 
 **Tone arc:** urgent → relieved
 
@@ -73,7 +74,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Hunting down a threat. Something has been causing problems and it's time to deal with it directly. Proactive, not reactive.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
 
 **Tone arc:** determined/angry → satisfied
 
@@ -85,7 +86,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** The community has been hit by something and needs to stabilize. Crops failed, creatures overran an area, supplies were destroyed. The quest is about recovery and triage.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
 
 **Tone arc:** shaken → stabilized
 
@@ -121,7 +122,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Someone wronged the NPC or their community, and they want payback. Not justice — this is personal. The NPC may not be entirely in the right.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM
 
 **Tone arc:** bitter/cold → settled (not necessarily happy)
 
@@ -133,7 +134,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Unknown or incomprehensible forces are plaguing the land. Things are going wrong and nobody knows why. The quest is about pushing back against something that feels bigger than anyone.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES
 
 **Tone arc:** bewildered/fatalistic → cautiously hopeful
 
@@ -181,7 +182,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** The NPC is doing something difficult for family. They need help because they've stretched themselves thin trying to provide, protect, or care for someone.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
 
 **Tone arc:** devoted/anxious → relieved
 
@@ -205,7 +206,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** Grief, remembrance, seeking closure. Someone is gone and the NPC is dealing with it. The quest is about honoring, remembering, or finding peace.
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
 
 **Tone arc:** mourning → bittersweet peace
 
@@ -253,7 +254,7 @@ Quest chains are 2–3 phases (exposition + 1–2 conflicts + resolution). Each 
 
 **Description:** The NPC wronged someone and wants to make it right. They're carrying guilt and need help bridging the gap — delivering an apology, making a gesture, or retrieving something to offer as amends.
 
-**Available objectives:** TALK_TO_NPC, FETCH_ITEM
+**Available objectives:** KILL_BOSS, TALK_TO_NPC, FETCH_ITEM
 
 **Tone arc:** guilty → lightened
 

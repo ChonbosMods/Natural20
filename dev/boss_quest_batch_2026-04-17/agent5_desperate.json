@@ -1,0 +1,71 @@
+[
+  {
+    "id": "supplication_12",
+    "topicHeader": "No One Left To Send",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I've been barely holding things together here for weeks and I can't keep patching it with spit and prayers. I need a hand pulling {gather_count} {quest_item} so I can shore up what I've got before anything else goes wrong. Everyone I'd normally ask is stretched as thin as I am, and I've run out of ways to stall. Will you help me get that far.",
+    "acceptText": "Oh. Alright. I wasn't sure you'd say yes, and I'd already started thinking about what I'd do when you didn't.",
+    "declineText": "I see. I'll try to figure something out. I don't blame you for walking away, there's only so much one person can take on.",
+    "expositionTurnInText": "That's a real help, more than you know. I can keep the roof on and the stores full for a while now. Which means I can finally say the part I've been dreading to say out loud.",
+    "conflict1Text": "There's a reason I've been running out of people to ask. {boss_name} has been picking us apart since the frost broke, and I can't face them, but you might. They've made a {group_difficulty} game out of us. Please, end it before they come for what I've just put back together.",
+    "conflict1TurnInText": "It's done. It's actually done. I keep waiting to hear them outside, and the quiet is the strangest part.",
+    "resolutionText": "I never thought I'd see the end of this. Take {reward_item} with my thanks, and know you gave me my life back in pieces I can finally use. I owe you more than I can say.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I haven't slept through a night since things started falling apart. Every creak in the beams and I'm up with a knife I barely know how to hold. I'm ashamed of how relieved I am that someone else is going to handle this.",
+      "failText": "It's been rough. That's really all I want to say about it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "supplication_13",
+    "topicHeader": "Afraid To Go Out",
+    "situation": "supplication",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My daughter hasn't been past the gate in a month. It's {boss_name}, that's the name the other parents whisper, and they've made the fields too dangerous for any of our children to walk. We're running thin on what we can grow inside the walls, and she's started asking why I look so tired. I can't send her out and I can't go myself, so I'm asking you.",
+    "acceptText": "Thank you. I've been holding that ask in my throat for days, afraid of how it would sound out loud.",
+    "declineText": "Alright. I don't blame you, they've got a reputation for a reason. We'll manage a little longer somehow.",
+    "expositionTurnInText": "You did it. You really did it. I haven't told her yet because I want to watch her face when she realizes she can run outside again.",
+    "resolutionText": "I watched her chase a bird out past the fence this morning and she didn't look back once. {reward_item}, please. You gave her back the rest of her childhood.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You're looking at my hands. Yes, they shake like that most mornings now. And you've seen how thin she's gotten, haven't you. I've been putting half my plate on hers and she still asks if I'm feeling well.",
+      "failText": "We're managing. Everyone around here is."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "disaster_12",
+    "topicHeader": "What The Raid Left",
+    "situation": "disaster",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 6, "countMax": 12 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The raid passed through {settlement_name} two weeks ago and we're still picking through what's left. We're rebuilding as fast as we can, but I need {gather_count} {quest_item} before the rains to patch the worst of it. Everyone here is already doing the work of two, so any hand we can borrow counts. Will you help us get that far, at least.",
+    "acceptText": "Good. That's good. I'll tell the others we've got someone willing to lift with us.",
+    "declineText": "That's fair. We'll find another way, same as we always do. You didn't make this mess and I won't pretend you owe us for it.",
+    "expositionTurnInText": "That's enough to patch the worst of it before the weather turns. We can breathe a little now, and that means I can finally talk about the part nobody around here wants to say out loud.",
+    "conflict1Text": "The ones who hit us didn't all leave. {boss_name} is still out there, the one who led them in, and every night we go to sleep wondering if they're coming back to finish what they started. None of us can face a {group_difficulty} threat like that, not after what we've been through. If you could end that for us, we could actually start calling this recovery.",
+    "conflict1TurnInText": "It's over, then. You don't know what it means to hear that. I'll pass the word around tonight and watch people's shoulders come down for the first time in weeks.",
+    "resolutionText": "We can rebuild properly now, without one eye always on the treeline. {reward_item}, please. You gave {settlement_name} its evenings back.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "You've seen this before, haven't you. That look on your face, you know how these things usually end when the leader walks away alive. That's why I'm asking instead of waiting it out, I know what comes next if we let it.",
+      "failText": "It's been a hard season. We're getting through it one day at a time."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

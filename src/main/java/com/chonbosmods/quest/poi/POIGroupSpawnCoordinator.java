@@ -77,9 +77,9 @@ public class POIGroupSpawnCoordinator {
         Map<String, String> questBindings = quest.getVariableBindings();
 
         // 2. Roll championCount. group/boss difficulty may be pre-rolled at
-        //    quest generation when the template sets forceBossDirection=true;
-        //    in that case reuse the pre-rolled values verbatim so {boss_name}
-        //    (already bound and shown in exposition) matches the actual spawn.
+        //    quest generation for KILL_BOSS objectives; in that case reuse the
+        //    pre-rolled values verbatim so {boss_name} (already bound and shown
+        //    in exposition) matches the actual spawn.
         int championCount = ThreadLocalRandom.current().nextInt(
                 config.groupMinChampions(), config.groupMaxChampions() + 1);
 
@@ -99,11 +99,11 @@ public class POIGroupSpawnCoordinator {
 
         // 3. Direction: honor objective.forcedPoiDirection when set. Otherwise default
         //    to KILL_COUNT. The original 50/50 roll was removed because existing v2
-        //    dramatic templates author {kill_count} / {enemy_type_plural} directly in
-        //    their exposition and conflict text: a random promotion to KILL_BOSS
-        //    would leave those templates referencing a count that no longer matches
-        //    the objective, and an enemy plural against a single named boss.
-        //    KILL_BOSS is opt-in via the template's forceBossDirection flag.
+        //    dramatic KILL_MOBS templates author {kill_count} / {enemy_type_plural}
+        //    directly in their exposition and conflict text: a random promotion to
+        //    KILL_BOSS would leave those templates referencing a count that no longer
+        //    matches the objective, and an enemy plural against a single named boss.
+        //    Boss quests opt in explicitly via ObjectiveType.KILL_BOSS.
         PoiGroupDirection direction = objective.getForcedPoiDirection();
         if (direction == null) {
             direction = PoiGroupDirection.KILL_COUNT;
@@ -115,7 +115,7 @@ public class POIGroupSpawnCoordinator {
         List<RolledAffix> bossAffixes = affixMgr.rollAffixes(Tier.BOSS, bossDiff);
 
         // 6. Boss name: reuse pre-bound name if the quest generator already wrote one
-        //    (forceBossDirection path); otherwise generate from seeded RNG so
+        //    (KILL_BOSS pre-roll path); otherwise generate from seeded RNG so
         //    reconciliation reproduces it after server restart.
         String bossName = questBindings.get("boss_name");
         if (bossName == null || bossName.isEmpty()) {

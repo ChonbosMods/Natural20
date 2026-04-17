@@ -1,0 +1,226 @@
+[
+  {
+    "id": "deliverance_14",
+    "topicHeader": "Bring Her Home",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 7 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My daughter has been gone three nights now and I've been doing what I can to ready the house for her return. I need {gather_count} {quest_item} before anything else, so I can finish what I've been preparing for her. I haven't slept since the first night, and my hands aren't steady enough to see it through alone. Help me with this part first, friend, and then I'll tell you the rest.",
+    "acceptText": "Thank you. You've given me something to do besides stand at the door and listen.",
+    "declineText": "Please, she's a child. If you won't help then I'll go myself, and we both know how that ends.",
+    "expositionTurnInText": "Set it down there, that's perfect. Now sit with me a moment, because the reason she isn't home yet is the harder piece of this, and I couldn't say it with my hands full.",
+    "conflict1Text": "{boss_name} took her. I know it because I saw the shape of it at the edge of the fields the night before, and I know it because nothing else moves the way the ground moved when she went missing. It runs with the {group_difficulty} kind, but {boss_name} is the one that carried her off. End it, and bring her back to the door I've been waiting at.",
+    "conflict1TurnInText": "She's at the table. She's not talking yet and she won't let me out of her sight, but she's eating. I don't have words for what you did. I'll find them later.",
+    "resolutionText": "Take {reward_item}, please. I was saving it for her naming day but she'd rather you have it and so would I. Come see her in a week or two, when she's ready to meet the one who brought her home.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I keep picturing it. Every quiet minute in this house I picture what it did to her, what she saw, what she thought when I wasn't there. I'd trade ten years of my life to take those pictures out of my head.",
+      "failText": "I'm fine. Please, just help me, there's no time for talking it out."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_15",
+    "topicHeader": "My Father's Room",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My father hasn't left his room in four days, and it isn't illness that's keeping him there. {boss_name} has been circling the house every night, close enough that he can hear it breathing through the wall, and he's too old and too proud to admit he's afraid. It's a {group_difficulty} thing and it knows we're the weak door on this side of {settlement_name}. End it, so he can sit at his own table again and pretend he was never scared at all.",
+    "acceptText": "Bless you. He'll never say thank you for this, you should know that in advance, but I will for the both of us.",
+    "declineText": "He's going to die in that room if this keeps up. The waiting will finish him sooner than the thing outside ever could. Please reconsider.",
+    "expositionTurnInText": "It's done. I heard him shift his chair on the other side of the wall when the word reached me, and I think he knew before I said a thing. He won't come out tonight, but he moved, and that's the most I've gotten in four days.",
+    "resolutionText": "He walked to the window this morning and opened it. He hasn't done that since autumn. Take {reward_item}, it was his once, and he'd want it with someone who earned a place in this house. Come in for tea when you pass through {settlement_name} again.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You see the scratches on the bottom of the door, don't you. From the inside. He's been bracing it with a chair when I'm not looking, and trying to hide the marks with the rug. He doesn't know I know.",
+      "failText": "He's managing. We're managing. I just need someone steadier than me to finish it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_16",
+    "topicHeader": "My Husband's Strength",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My husband is wasting away and I can't get him to eat enough to matter. He had a {quest_item} he traded for in {other_settlement} last spring and he's been asking for it in the fevered hours, and I think having it in his hand would do more than anything I've tried. I can't leave him long enough to fetch it myself. Please, bring it back to me, and then we'll talk about the rest.",
+    "acceptText": "Oh thank you, thank you. I've been trying to hold two lives together with one pair of hands, and you just picked up a corner of it.",
+    "declineText": "Then I'll watch him get thinner and I'll keep lying to him about why. Please. Please think on it a little longer.",
+    "expositionTurnInText": "You have no idea. He held it and his whole face changed, he ate half a bowl for the first time in a week. Sit with me, because the reason he's in this state is the part I couldn't tell you with him listening through the wall.",
+    "conflict1Text": "{boss_name} has been starving him out for a month now. Every time he tries to work the fields it's there at the treeline, and every time he comes back in he's more hollow than before. It keeps {group_difficulty} company but {boss_name} is the one wearing him down. End it, and give him back the appetite of a man who isn't being hunted.",
+    "conflict1TurnInText": "He ate a full meal. He sat up on his own and he ate a full meal and he asked about the weather like a person again. I'm crying and I don't even care, you made this happen.",
+    "resolutionText": "Take {reward_item}, please. It's the best thing in this house that isn't my husband. He'll want to thank you himself once his voice is back, so come through any time.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_17",
+    "topicHeader": "The Family Next Door",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The family next door hasn't opened their door in two days, and I can hear the children crying through the wall at night. Something is hunting their house specifically and it's getting bolder every time it comes back. I sent word to {target_npc} over in {target_npc_settlement} because they've seen this kind of thing before and I need their read before I do anything stupid. Go speak with {target_npc} first, please, I'll lose my nerve if I try to do this blind.",
+    "acceptText": "You're a steadier soul than I've been all week. Go carefully, and come back as soon as you know what they know.",
+    "declineText": "Those children, friend. I can hear them. If nobody helps me then I'll walk over there myself tonight, and I'm not the person for that kind of walk.",
+    "expositionTurnInText": "So it's what we feared. Sit down, because now I have to ask you the harder thing, and I've been working up to it since you left.",
+    "conflict1Text": "{boss_name} is what's been hunting them. {target_npc} confirmed what I suspected, and they say it's singled out that house for reasons only it understands. A {group_difficulty} thing, grown too comfortable with our street. End it, so those children can open a window without their mother holding her breath.",
+    "conflict1TurnInText": "Their door opened an hour ago. The smallest one came out first and just stood in the sun. I've never been so glad to see a child look bored.",
+    "resolutionText": "They sent this over for you. Take {reward_item} with their thanks, and mine, and whatever else a person can send through a wall. The mother says come by when you next pass through {settlement_name}, she wants to look at you properly.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 12,
+      "passText": "I'm ashamed to say it, but I almost packed a bag yesterday. Almost left the whole row of houses to handle itself. I'm glad you came before I gave in to it.",
+      "failText": "I'll hold the line here. Just go, please, we don't have the evenings for talking."
+    },
+    "targetNpcOpener": "They sent you, then. Good. I've watched three families lose their peace to this kind of thing and every time it starts the same way, with a house that goes quiet. The family next to them is right to be frightened.",
+    "targetNpcCloser": "Tell them to latch the shutters on the side closest to the fields and to stop leaving the lamp lit past dark. And tell them I'm thinking of them.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_18",
+    "topicHeader": "The Boy I'm Teaching",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The boy I took on as my apprentice is hiding in my back room and he won't come out. {boss_name} has been promising to return for him, and he believes it with every piece of himself, and he's stopped sleeping because of it. It keeps a {group_difficulty} sort of company around {settlement_name} but {boss_name} is the one that made him a promise. End it, so I can tell him the promise died with the thing that made it.",
+    "acceptText": "He'll cry when I tell him someone's gone to do it. He cries at everything now. I still think it will help.",
+    "declineText": "He's sixteen and he hasn't slept in a week. If this goes on much longer he'll break in a way I can't put back together. I'm asking you to think on that.",
+    "expositionTurnInText": "It's done? Let me go tell him. He's been braced for a promise that was still coming, and the news of it dying will take him a while to land. Wait here a moment.",
+    "resolutionText": "He came out this morning. He ate with me and he picked up his tools and he worked a full hour before his hands started shaking, and that's the best hour he's had in weeks. Take {reward_item}, it's his gift more than mine, he insisted. He wants to meet you when he's steadier.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I've been calling him my apprentice because that's the word I can say out loud. He has no one else, and I took him on the week his mother died. Calling him what he actually is feels like a claim I haven't earned yet.",
+      "failText": "He's a good boy and he deserves help. That's as much as I need to say."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_19",
+    "topicHeader": "Little Brother",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 3, "countMax": 6 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My little brother is back under my roof and he's in a shape I haven't seen since we were children, wordless and hollow. I need {gather_count} {quest_item} so I can finish what I've been putting together to bring him back to himself. My parents are gone and there's nobody else he'll accept this from, so it has to be me, and I can't do the running as well. Help me with this and then I'll say the rest of it.",
+    "acceptText": "You don't know what it means to have a second pair of hands in this. I've been carrying him alone and I was starting to drop pieces of him.",
+    "declineText": "Then I'll keep carrying him alone, and I'll keep dropping pieces, and maybe I'll lose a piece I can't get back. Please don't walk away from this one.",
+    "expositionTurnInText": "That's the last of it. Thank you. Now sit, because the reason he's like this is the thing I couldn't name while I was still gathering my nerve.",
+    "conflict1Text": "{boss_name} is what took him the first time, when we were small, and {boss_name} is what got him again this season. It travels with a {group_difficulty} pack around the edges of {settlement_name} now, but it is the one that matters. End it for good this time, so my brother can sleep in a house that isn't listening for it.",
+    "conflict1TurnInText": "He spoke today. Three words, about the weather, but he spoke. I turned away so he wouldn't see me cry and then he cried too, and we just sat there for a while.",
+    "resolutionText": "Here, take {reward_item}. Our mother left it to both of us and he says you should have it, and I agree. Come see us both when he's ready for company, he wants to know the name of the one who came.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I didn't find him the first time, when we were small. He found his way back on his own after three weeks and I've carried that failure every day since. I'm not letting it happen twice.",
+      "failText": "He'll be all right. He always is. I just need the help I'm asking for and no more than that."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "self_sacrifice_for_kindred_13",
+    "topicHeader": "My Mother's Night",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 7 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I've been sitting at my mother's door every night for two months, and it's getting harder to keep standing by the third watch. I need {gather_count} {quest_item} to finish what I've been stockpiling so I can keep her comfortable. She thinks I'm sleeping in the next room. I'd like to keep her thinking that, so help me with this part quiet, friend, and I'll explain the rest when it's done.",
+    "acceptText": "You've already lightened it. I haven't let go of a single worry in eight weeks and now I feel one loosen.",
+    "declineText": "I understand. I'll keep the watch. I always do. I just hoped this once I'd get to put the chair down.",
+    "expositionTurnInText": "That's enough to see her through the worst of it. Sit with me, because I owe you the truth about what I've been sitting at that door against.",
+    "conflict1Text": "{boss_name} has been coming for her since the nights got long. I meet it on the step with whatever I can hold and every time it tests a different window before it leaves, learning which one I'm slowest at. Only a {group_difficulty} thing, but it knows her breathing now. End it, so I can sit by her bed for the right reason instead of the watching one.",
+    "conflict1TurnInText": "I slept last night. On the floor of her room, with my hand in hers, and I slept. She woke me up at dawn to tell me I looked rested and she hasn't said that in a year.",
+    "resolutionText": "Take {reward_item}, please. I'm going to her room now to sit without a weapon in my lap, which I haven't done in longer than I want to count. Come by if you're near {settlement_name}, she'd like to meet the one who let her son rest.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I've been lying to her about my father too. She asks every morning if he came by and I say he's coming later. He isn't. He never will. I just can't watch her face when she remembers.",
+      "failText": "I'm all right. Just help me finish this, that's all I'm asking for tonight."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "self_sacrifice_for_kindred_14",
+    "topicHeader": "The Stock We Have Left",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "Every night for three weeks I've been walking the long way around my own stock, drawing {boss_name} off so it doesn't get at the rest of what my family has left to eat. It's a {group_difficulty} thing and it's learned my pattern, which means soon I won't be enough of a distraction and then we lose the herd. I can't be the decoy and the one that ends it. Please, put it down so I can stop playing bait at my own gate.",
+    "acceptText": "You don't know. You just don't know. I've been walking in circles in the dark and now maybe I don't have to.",
+    "declineText": "Then I keep walking. I'll keep at it until I can't anymore, and then my wife will find me where I fell, and we'll all learn what comes next together.",
+    "expositionTurnInText": "It's finished? I stopped walking about an hour before you got back, without knowing why, and now I do. I'm going to sit down properly for the first time since the snow broke.",
+    "resolutionText": "The stock settled overnight. They can feel the difference, I swear they can. Take {reward_item}, it was meant to be traded but I'd rather it be on you. Come by for a meal when you're next near {settlement_name}, there's finally enough to share.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You see the way I'm leaning on the post. Right ankle's been swollen for a week, I rolled it on a rut two nights ago and I kept walking anyway. If I sit down proper I don't know if I get back up.",
+      "failText": "Long shift. That's all. I'll be upright again come morning."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "self_sacrifice_for_kindred_15",
+    "topicHeader": "What The Mill Needs",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "The mill is the last thing my family owns outright and I'm close to losing it. I had a {quest_item} on order with a trader who passes through {other_settlement}, and if I don't get it here soon the whole season's work grinds to a stop. I can't leave the mill unattended long enough to go myself, and my wife and the children need the flour more than they need me on the road. Fetch it back for me, friend, and we'll talk about the harder thing after.",
+    "acceptText": "Thank you. I've been carrying this in my chest and I can feel it start to sit lower. That's your doing.",
+    "declineText": "Then the mill goes and we go with it. I won't ask twice, but I'll remember the asking.",
+    "expositionTurnInText": "You brought it back and the mill can run again, which means my family eats this winter. Sit a moment, because the reason I couldn't leave it alone is the part I've been holding back.",
+    "conflict1Text": "{boss_name} has been bargaining with me. That's the word for it. It comes at dusk and it takes one thing and it leaves, and if I give it the one thing it leaves quietly, and if I don't it takes two. I've been feeding a {group_difficulty} predator from my own stores to keep it off my family, and I can't do it any longer. End it, so I can stop trading pieces of us away.",
+    "conflict1TurnInText": "I put the full ration on the table tonight. My youngest asked why there was so much and I said because we have it, and I watched her believe me for the first time in months.",
+    "resolutionText": "Take {reward_item}, please. It was part of what I'd been setting aside for the bargain, and I'd rather it go to the one who ended the bargaining. Come through {settlement_name} again and the mill will be running for you.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "It's been longer than I said. A full year, going all the way back to last winter. I've been handing things over since then and lying to my wife about where the stores keep going. She thinks I'm a worse manager than I am, and I'd rather she think that than know what's actually been happening.",
+      "failText": "It's been hard. That's as much of it as I feel like putting into words right now."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "self_sacrifice_for_kindred_16",
+    "topicHeader": "My Whole House",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I've been standing between my whole house and {boss_name} for longer than I can count now. I sleep in the front room with the door at my back so the rest of them can sleep at all, and I've learned its patterns well enough to meet it every time it comes. It travels with a {group_difficulty} kind around {settlement_name} and it's patient, which is the piece that's wearing me down. End it, so my family can stop living behind me and start living next to me again.",
+    "acceptText": "You've no idea. I've been a door for my own family for so long I forgot I was a person too.",
+    "declineText": "All right. I'll keep standing. I'll stand until I can't and then we'll see what falls. That's not on you, that's on the standing.",
+    "expositionTurnInText": "It's done. I walked through my own front room a little while ago without the axe in my hand, and my wife noticed before I did. I don't quite know what to do with my hands tonight.",
+    "resolutionText": "I slept in my own bed last night. Next to my wife, with the door left unblocked, like an ordinary man in an ordinary house. Take {reward_item}, it's little enough for what you gave back to us. Come eat with my family when you can, they want to meet the one who let me sit down.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 13,
+      "passText": "You see the way I'm holding my left arm. Dislocated it two weeks back and popped it back in myself, and I haven't let the children see me wince since. I can't show them a father who's breaking. Not yet.",
+      "failText": "Just tired. That's all any of us are around here, tired."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]

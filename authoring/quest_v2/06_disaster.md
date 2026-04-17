@@ -4,7 +4,9 @@
 
 **Tone arc:** shaken → stabilized
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Disaster, the boss is the named figurehead of the aftermath: the leader of the band that burned the granary, the raid captain who broke the wall, the named thing that came out of the storm. Not the disaster itself (that has passed), but the specific remaining threat whose removal finally closes the wound. The register is weary, communal, practical. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` where the threat is named. `{enemy_type_plural}` is permitted only for the boss's gang. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

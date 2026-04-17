@@ -4,7 +4,9 @@
 
 **Tone arc:** urgent → relieved
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Deliverance, the boss is the specific named threat holding or endangering the loved one. The NPC knows who has them (or is menacing them) and can name the threat: not "something took them," but "{boss_name} took them." Protective rage, not cold vengeance. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` wherever the threat is named. `{enemy_type_plural}` is permitted only for the boss's gang. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

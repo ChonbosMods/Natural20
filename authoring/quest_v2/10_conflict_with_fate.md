@@ -4,7 +4,9 @@
 
 **Tone arc:** bewildered/fatalistic → cautiously hopeful
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, COLLECT_RESOURCES
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, COLLECT_RESOURCES
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Conflict with Fate, the boss is a named-but-uncanny threat: the thing that has a name now, even though nobody understands what it is or where it came from. The dread is still mystical but the target has finally resolved into something specific. The NPC isn't sure killing it will fix anything deeper: but it is the one piece of this they can act on. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` where the threat is named. `{enemy_type_plural}` is permitted only for the boss's kin. `{group_difficulty}` is available as a quiet flavor variable (and "legendary" reads especially well for this register).
 
 ---
 

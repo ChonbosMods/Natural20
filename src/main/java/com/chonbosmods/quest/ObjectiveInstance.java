@@ -21,8 +21,9 @@ public class ObjectiveInstance {
     private int poiCenterZ;
     private String populationSpec;
 
-    // When set, POIGroupSpawnCoordinator.firstSpawn skips its 50/50 direction roll
-    // and uses this value. Set by QuestGenerator when the template has forceBossDirection=true.
+    // When set, POIGroupSpawnCoordinator.firstSpawn uses this direction instead of
+    // defaulting to KILL_COUNT. Set by QuestGenerator.applyBossPreRoll for KILL_BOSS
+    // objectives so the coordinator reuses the pre-rolled boss metadata verbatim.
     private PoiGroupDirection forcedPoiDirection;
 
     public ObjectiveInstance() {}

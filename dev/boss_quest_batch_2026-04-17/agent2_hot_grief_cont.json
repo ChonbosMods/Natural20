@@ -1,0 +1,219 @@
+[
+  {
+    "id": "loss_of_loved_ones_15",
+    "topicHeader": "My Wife's Unfinished Row",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My wife passed two winters ago, and there is work of hers I have never been able to finish for her. I need {gather_count} of {quest_item} to do it properly, and I cannot bring myself to gather them for some reason. If you'd do that for me, I could sit with her things one last time and actually get somewhere.",
+    "acceptText": "Thank you. I didn't know I'd been waiting for someone to offer until you did.",
+    "declineText": "That's alright. It's been two winters already, so it can wait a little longer.",
+    "expositionTurnInText": "You brought plenty. I'll spend the evening with her tools and see how far I get. It's strange how much lighter I feel just having these in front of me.",
+    "conflict1Text": "There is one more thing, and I'd be a coward not to say it now. I finally know what took her. It goes by {boss_name}, and for two winters I told myself the name didn't matter. It matters. Put {boss_name} down for me so I can finish her work without it breathing on my shoulder.",
+    "conflict1TurnInText": "It is done. I thought I might weep, and I haven't, and that surprises me more than anything. I'll finish her work tomorrow with steady hands for the first time.",
+    "resolutionText": "Take {reward_item}, please. She bought it for me our first year together and I have kept it folded away because I couldn't bear to use it. You've given me back the part of my life where her things can be used and not just mourned.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "The truth is I stopped doing her work because finishing it felt like admitting she was really gone. I know how that sounds. I'm sixty-four years old and I have been hiding from a row of unfinished stitches like a child.",
+      "failText": "It's been two winters. Some things don't mend on a schedule."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_16",
+    "topicHeader": "My Boy's Last Errand",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My son was thirteen when he went out and didn't come back. That was three months ago. He'd left a {quest_item} with the trader before he went, something he meant to pick up on the way home, and I haven't been able to go claim it myself. If you could bring it here, I think I could finally start putting his room in order.",
+    "acceptText": "Oh, thank you. I've walked past that trader three times and turned around every time.",
+    "declineText": "I understand. A mother asking a stranger for her dead son's errand, that's a lot.",
+    "expositionTurnInText": "That's his. I can feel him on it somehow, though I know that sounds foolish. I'll sit with it a while before I say the rest.",
+    "conflict1Text": "Now the part I could not bring myself to say with his {quest_item} still out there waiting. A woman came through {settlement_name} last month and named the thing that did it. {boss_name}. I have whispered that name to the ceiling more nights than I'd admit, and I need the thing itself ended before I can go into his room without shaking. End {boss_name} for me, please.",
+    "conflict1TurnInText": "You came back. I half expected you not to. I keep thinking he would have liked you, and then I remember he never got to meet you, and then I sit with that for a minute.",
+    "resolutionText": "Please, take {reward_item}. It was going to be his when he came of age, and now it won't be, and I would rather it be with you than in a box I can't open. I'm going into his room tonight. I haven't been in there since.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_17",
+    "topicHeader": "What My Master Left",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My master took me in when I was a boy with nothing, and he died four years back before I was half the tradesman he was. Last month a hunter stopped through and told me what had really happened out there. {boss_name}. I've been circling the name like I'm afraid it'll bite me if I touch it. I can't go chase a {group_difficulty} thing alone at my age, but I'd sleep easier if someone could end {boss_name} on my behalf.",
+    "acceptText": "That's more than I had a right to ask. I've been teaching myself to live with not-knowing, and the knowing is worse than I imagined.",
+    "declineText": "Aye, that's fair. It's my ghost, not yours. I'll carry it a while longer.",
+    "expositionTurnInText": "It's done, then. I don't know what I expected to feel. Mostly I'm thinking about him, and that's the first time in four years I've thought about him without the not-knowing in the way.",
+    "resolutionText": "Here, take {reward_item}. He gave it to me the day he said I was ready, and I never was, not really. But I think he'd want it with someone who finished the thing he couldn't. I'll visit his marker this week and tell him about you.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "He wasn't my father. I had a father, and he wasn't kind. My master was the first man who ever looked at me like I was worth the time, and I've never told another soul that out loud.",
+      "failText": "He was my master. Some things don't need saying past that."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_18",
+    "topicHeader": "Her Friend Should Know",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My grandmother raised me, and she's been gone eight months now. Before I do anything else, I need {target_npc} over in {target_npc_settlement} to hear something from me directly. The two of them were close for fifty years, and I owe her that courtesy before I take any next step. Would you go tell her I'm ready to talk, and bring back whatever she has to say to me?",
+    "acceptText": "Thank you. She and my grandmother had their own language by the end, and I want her in this.",
+    "declineText": "Alright. I'll ride out to see her myself when I can manage it. It's a strange errand to hand over, I know.",
+    "expositionTurnInText": "You saw her. Good. She always knew what to say when I didn't, and it sounds like she still does. I needed her blessing on what's coming more than I knew.",
+    "conflict1Text": "Now the harder thing. My grandmother didn't die of old age, whatever I told people. I learned months later that a {group_difficulty} creature named {boss_name} was what actually took her, and I've been sitting with that name ever since. End {boss_name} for me. I can't lay her properly to rest while it's still out there walking around with her in its history.",
+    "conflict1TurnInText": "You did it. I can feel something uncurl in my chest that's been tight since the day I learned the name. I'll visit her stone this evening, and for the first time I won't have to lie to her about why I've come.",
+    "resolutionText": "Please take {reward_item}. It was hers, and she'd want it out in the world doing some good rather than sitting on my shelf collecting dust. Thank you for carrying the part of this I couldn't.",
+    "targetNpcOpener": "So they're finally ready to talk about it. I've been waiting eight months for that knock on my door. Your grandmother and I used to laugh about how stubborn that child was, and I see they haven't changed a bit.",
+    "targetNpcCloser": "Tell them I said yes, and tell them to come sit with me when it's done. I have stories about her they've never heard, and I've been saving them.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 12,
+      "passText": "She taught me to read by the fire, and when I got the words wrong she'd make up a new meaning so I didn't feel stupid. I still catch myself doing that with my own mistakes. It's the only inheritance I have from her that really matters.",
+      "failText": "She was everything to me. I don't know how to say it shorter than that."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_19",
+    "topicHeader": "The Pupil I Couldn't Save",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I trained fighters for thirty years and I buried one of mine last autumn. She was the best student I ever had, and I wasn't there when it mattered. I know the name of what took her now. {boss_name}. My knees won't carry me out to face a {group_difficulty} thing anymore, so I'm asking you to end {boss_name} in my place, and don't tell me it's not my fight. It is. I just can't be the one to finish it.",
+    "acceptText": "Thank you. An old fighter asking someone else to swing the blade is not a proud day, but it's the right one.",
+    "declineText": "Fine. I've trained enough young ones not to expect yes every time. I'll find another way.",
+    "expositionTurnInText": "It's finished. I spent my whole life teaching others to close things cleanly, and I couldn't close this one myself. You did it for me. Sit with me a minute before you go.",
+    "resolutionText": "Take {reward_item}. It was hers, and I kept it because I couldn't stand the thought of it in anyone else's hands. That was pride, and pride has kept me awake long enough. It belongs with a fighter. That's you, now.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 14,
+      "passText": "I was supposed to be with her that week and I cancelled because my back was bothering me. My back. That's the reason I get to still be here and she doesn't, and I have to carry that every morning I wake up and she doesn't.",
+      "failText": "She was my student. That's the weight of it, and I'd rather not unpack it in front of a stranger."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_20",
+    "topicHeader": "A Letter Never Sent",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My brother and I stopped speaking before he died last year, and I have carried that silence around like a second pack ever since. There's a message I need {target_npc} in {target_npc_settlement} to hear from me, and I can't put it in writing because writing is what got us into this. Would you go see them and carry back what they say?",
+    "acceptText": "Thank you. I should have done this the week after he passed, and instead I waited a full year. That's on me.",
+    "declineText": "That's fair. It's been a year of me not doing it, so one more refusal won't change much.",
+    "expositionTurnInText": "You went. You really did. Whatever they said to you, I can tell by your face they didn't hate me for it. That's already more than I expected from this week.",
+    "conflict1Text": "I didn't tell you everything because I wanted them to hear it first. My brother didn't die the way people around here say he did. The thing that took him goes by {boss_name}, and I've known the name for six months and done nothing because I thought hate wasn't a good enough reason. I've changed my mind. End {boss_name}, please, and come back when it's quiet again.",
+    "conflict1TurnInText": "Quiet. That's the word for it. I have spent a year waking up to a fight I never got to finish, and this morning I woke up without it for the first time. I don't quite know who I am without that weight yet.",
+    "resolutionText": "Please, take {reward_item}. It was our father's, and my brother and I fought about who should have it for the better part of a decade. I am tired of objects being the reason people don't speak. You've earned it more than either of us ever did.",
+    "targetNpcOpener": "So they finally came around. I've been expecting this knock for months, honestly. Your friend and their brother were both too stubborn to live, and only one of them had to learn that the hard way.",
+    "targetNpcCloser": "Tell them I forgive them on his behalf, as much as that's worth from someone who wasn't his blood. And tell them to come see me when they're ready to actually sit with it.",
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_21",
+    "topicHeader": "My Father's Toolkit",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 3, "countMax": 6 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My father died six years ago and I have finally decided to take up his trade in earnest. I need {gather_count} of {quest_item} to start, and I haven't been able to gather them myself without crumbling. If you'd bring them to me, I can open his kit for the first time since we buried him.",
+    "acceptText": "Thank you. I should have done this years ago, and I didn't, and I'm done punishing myself for that.",
+    "declineText": "Alright. It's been six years. Another week of procrastinating won't kill me.",
+    "expositionTurnInText": "You brought what I need. I sorted through his kit last night, piece by piece, and I cried like I haven't since the funeral. Now I'm ready for the rest.",
+    "conflict1Text": "Opening his kit shook something loose. I realized I have been using his absence as an excuse to not live, and part of that excuse is a name I've been protecting. {boss_name}. That's what took him, and I've sat with it long enough. End {boss_name} for me, and I'll stop hiding behind a ghost.",
+    "conflict1TurnInText": "You came back. I think this is the first morning of my actual life, and I mean that without theatrics. I'm going to be alright.",
+    "resolutionText": "Take {reward_item}. It was one of the first things he ever made, and keeping it on a shelf wasn't what he intended for it. Put it to use. That's what he'd have said, exactly like that, with no extra words.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "The truth is I was relieved when he died. It came later, when I realized I didn't have to try to be him anymore. Then I felt so guilty about the relief that I spent six years trying to be him anyway. I'm done with that.",
+      "failText": "He was my father. Taking up his trade is the least I can do."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_22",
+    "topicHeader": "Before The Season Turns",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My husband and I ran this place together for thirty-one years before he went last spring, and every morning I wake up and forget for about ten seconds. There's a {quest_item} of his that ended up at a neighbor's house by accident, and I keep meaning to collect it and keep failing. Would you bring it to me? I think I need to hold it before the season turns.",
+    "acceptText": "Oh, thank you. I'd have been writing myself notes about it for another six months.",
+    "declineText": "That's alright, dear. I'll get to it eventually. Some days I do and some days I don't, and today I don't.",
+    "expositionTurnInText": "There it is. I can feel the shape of his hand on it, which is ridiculous because a {quest_item} doesn't keep a person, but there it is anyway. Sit with me while I say the rest.",
+    "conflict1Text": "A traveler came through in the autumn and named the thing that took him. {boss_name}. I wrote it down on a scrap of paper and put it under a cup on my kitchen table, and I have not lifted that cup since. I need {boss_name} ended before I can lift it. Would you do that for an old woman who's tired of being afraid of her own table?",
+    "conflict1TurnInText": "You're back. I lifted the cup this morning, before you even returned, because somehow I knew. The scrap of paper is in the fire now. That's enough for one day.",
+    "resolutionText": "Take {reward_item}, please. It was his, and he always said good things belong with people who use them, not with old widows who stare at them. The season is turning, and for the first time in a year I'm not dreading it.",
+    "valence": "neutral",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_23",
+    "topicHeader": "Our Children's Father",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My husband was killed five months ago and our two children still ask me every night when he's coming home. I can't answer them properly while the thing that did it is still out there. It goes by {boss_name}, and I learned the name from a man who passed through {settlement_name} last week and didn't know what it meant to me. End {boss_name}, and I'll finally be able to tell my children something true.",
+    "acceptText": "Thank you. Nights are the hardest, and I've been rehearsing what to tell them for weeks.",
+    "declineText": "I understand. You've your own family to think about, I'm sure. I shouldn't have put you in the middle of mine.",
+    "expositionTurnInText": "It's finished. I told the children tonight, simply, with the name and the ending both. They cried, and then they slept, and then I cried alone in the kitchen, which is exactly how it needed to go.",
+    "resolutionText": "Please, take {reward_item}. It belonged to him, and I'd rather it be with someone who helped us than sit in a drawer reminding me of him every time I open it. Our children will grow up knowing his story has an ending, and that's because of you.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "I am so angry I can hardly breathe sometimes, and I can't be angry in front of them, so I am angry in the pantry and the garden and the dark. Tonight I might be angry one more time, and then maybe less tomorrow.",
+      "failText": "I've got two children watching me, so I don't get to fall apart. That's the long and short of it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "loss_of_loved_ones_24",
+    "topicHeader": "The Friend Of My Youth",
+    "situation": "loss_of_loved_ones",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I had a friend who stood with me from the time we were small, and he died twenty years ago this month. I never got the {quest_item} he had on him when he went, and somehow I have decided that this is the year I stop pretending it doesn't matter. Would you find it and bring it here? I am too old to be afraid of an old ache anymore.",
+    "acceptText": "Thank you. Twenty years is a long time to keep saying next year.",
+    "declineText": "That's alright. I've made it twenty years without it, so I'll make it a few more.",
+    "expositionTurnInText": "There it is. I held one just like it the last time I saw him, and for a moment I was nineteen again in a way that didn't hurt. Sit down while I finish this.",
+    "conflict1Text": "Now that I've held the {quest_item}, I can say the other thing. A hunter came through last month and said a name I had heard rumored for twenty years and never confirmed. {boss_name}. Still out there, apparently, and I am too old to leave it for some future person to deal with. End {boss_name}, and let me close the book on the friend of my youth.",
+    "conflict1TurnInText": "It is done. Twenty years and it's done. I am going to sit here for a while and try to remember what he looked like when he laughed, and not what he looked like the last time I saw him.",
+    "resolutionText": "Please, take {reward_item}. He gave it to me when we were twenty, and I have kept it safe through three homes and two wives and a lifetime of small disasters. It belongs with someone who earned it, and you have. I think tonight I'll dream about him properly for the first time in years.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 13,
+      "passText": "We were going to travel together when we were older. That was the plan we made at nineteen, and we both laughed at it at the time, and then he never got older. I travelled anyway, eventually, and I spent a lot of the miles talking to him in my head.",
+      "failText": "He was my friend. That's what you needed to know, and the rest is mine."
+    },
+    "valence": "neutral",
+    "roleAffinity": []
+  }
+]

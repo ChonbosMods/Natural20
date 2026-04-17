@@ -1,0 +1,71 @@
+[
+  {
+    "id": "pursuit_12",
+    "topicHeader": "Time To End It",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 8 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I've been cataloguing the raids on {settlement_name} for months, and I'm done sitting with a notebook. I want to go at this properly, and that means supplies first. Bring me {gather_count} {quest_item} so I'm not walking out there short on anything that matters.",
+    "acceptText": "Good. I was hoping someone would have the sense to say yes. Let's get to work.",
+    "declineText": "Fine. Your call. I'll ask the next capable hand that walks through {settlement_name}, and the pattern keeps getting worse in the meantime.",
+    "expositionTurnInText": "That's a solid haul. We go in prepared or we don't go in at all, and now we're prepared. I can tell you the rest now.",
+    "conflict1Text": "The name at the center of every raid is {boss_name}. I've watched their {enemy_type_plural} bleed us dry long enough, and I want the source gone. One clean kill and the pattern breaks.",
+    "conflict1TurnInText": "Dead. Really dead. I kept waiting for bad news to come back with you and it didn't.",
+    "resolutionText": "That's settled. Take {reward_item}, you earned it twice over. I can finally stop cataloging raids in my head at night. Good.",
+    "skillCheck": {
+      "skill": "INVESTIGATION",
+      "dc": 13,
+      "passText": "Since you're asking, I kept a tally. Three livestock runs, two supply trains, one clean patrol gone quiet. Every strike comes after a quiet week, so we've got maybe six days before the next one.",
+      "failText": "Let's just say I've seen enough to know it's time. That's all you need from me."
+    },
+    "valence": "neutral",
+    "roleAffinity": ["Guard"]
+  },
+  {
+    "id": "pursuit_13",
+    "topicHeader": "My Father's Work",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "TALK_TO_NPC" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My father spent the last years of his life on this, and I took up his post in {settlement_name} knowing his work wasn't finished. Before I say another word, I need you to go speak with {target_npc} over in {target_npc_settlement}. They were on this trail before I was old enough to hold a blade, and I want to hear my father's name come out of a {target_npc_role}'s mouth one more time.",
+    "acceptText": "Thank you for taking this seriously. I've carried this long enough.",
+    "declineText": "Alright. I'll find someone else, or I'll go myself when the season turns. One way or another it ends.",
+    "expositionTurnInText": "So you found {target_npc}. Good. I wanted you to hear it from someone who's been on this trail longer than I've been alive, not just from me. Now you know what I know.",
+    "conflict1Text": "Finish it. Find {boss_name} and put an end to this. I've been handed every scrap of my father's work and a {group_difficulty} threat's worth of warnings, and I want to be the one who finally closes the book.",
+    "conflict1TurnInText": "You actually did it. I sat down when you told me. I haven't sat down in weeks.",
+    "resolutionText": "My father would have liked you. Here, take {reward_item}, it belongs with whoever finished this. The name stops with us, and that's enough.",
+    "skillCheck": {
+      "skill": "HISTORY",
+      "dc": 12,
+      "passText": "You know the old stories about this one, don't you. Then you understand why every {target_npc_role} in the region has a file on them. My father's was the thickest.",
+      "failText": "The details don't matter much. What matters is that it ends."
+    },
+    "valence": "neutral",
+    "roleAffinity": ["Guard"]
+  },
+  {
+    "id": "pursuit_14",
+    "topicHeader": "A Quiet Decision",
+    "situation": "pursuit",
+    "objectives": [
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "We talked it over this week, all of us in {settlement_name}, and we agreed. {boss_name} has been a shadow over this place for too long. I'm the one asking because I drew the short straw, but every voice was the same. It's time.",
+    "acceptText": "I'm grateful. I'll tell the others tonight that it's in motion.",
+    "declineText": "I understand. We'll keep asking around. The decision's made, whether it's you or the next traveler through.",
+    "expositionTurnInText": "So it's done. I wasn't sure I'd live to say those words in that order. Thank you for going where the rest of us couldn't.",
+    "resolutionText": "Take {reward_item}. It belongs with whoever finally closed this for us. The children can play past the walls again, and that's what I'll remember.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 13,
+      "passText": "You can see it, can't you. I'm tired, and so is everyone else here. Anger burns out, and what we have left is the quiet kind of resolve that finally moved us.",
+      "failText": "We've simply made up our minds. That's all there is to it."
+    },
+    "valence": "positive",
+    "roleAffinity": []
+  }
+]

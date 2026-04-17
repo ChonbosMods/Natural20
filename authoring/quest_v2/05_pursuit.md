@@ -4,7 +4,9 @@
 
 **Tone arc:** determined/angry → satisfied
 
-**Available objectives:** KILL_MOBS, FETCH_ITEM, TALK_TO_NPC
+**Available objectives:** KILL_MOBS, KILL_BOSS, FETCH_ITEM, TALK_TO_NPC
+
+**KILL_BOSS variants:** When authoring a KILL_BOSS template for Pursuit, the boss is the named source of a pattern of problems the NPC has finally decided to end. The NPC knows the name: they have been hearing it long enough to learn it. The register is "enough is enough," not panic. Proactive, practical, determined. The boss is singular: do NOT use `{kill_count}` or `{enemy_type_plural}` as the target. Use `{boss_name}` where the threat is named. `{enemy_type_plural}` is permitted only for the boss's followers. `{group_difficulty}` is available as a quiet flavor variable.
 
 ---
 

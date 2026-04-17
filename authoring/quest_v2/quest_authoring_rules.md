@@ -102,9 +102,9 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 ## Reward Rules
 
-31. **`{quest_reward}` is author-defined free text.** The `rewardText` field in the template JSON populates this variable. If omitted, it falls back to "a fair reward." Authors should write reward text that feels proportional to the quest's emotional weight and practical to the NPC's station.
+31. **`{reward_item}` and `{reward_flavor}` power the reward line.** `{reward_item}` is the rolled affix reward's display name (highlighted, always bound at runtime by the difficulty-driven loot roll). `{reward_flavor}` is author-defined voiced flavor from the template's `rewardFlavor` field (empty string if omitted). Write flavor that feels proportional to the quest's emotional weight and practical to the NPC's station.
 
-32. **Reward text should be voiced, not listed.** "I'll make it worth your while" or "the best I can offer" or "some silver and my gratitude" — not "50 silver, 2 iron ingots, and 100 XP." The reward is a narrative promise, not an inventory manifest.
+32. **Reward flavor should be voiced, not listed.** "I'll make it worth your while" or "the best I can offer" or "what silver I have and a debt I won't forget", not "50 silver, 2 iron ingots, and 100 XP." Flavor is a narrative tail on the gesture, not an inventory manifest. The rolled `{reward_item}` handles the material side; `{reward_flavor}` carries the emotion.
 
 ---
 

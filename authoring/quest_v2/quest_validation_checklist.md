@@ -30,7 +30,7 @@ Human-review checklist for spot-checking sub-agent quest template output. For ea
 - [ ] First person or direct address only — no narrator voice, no third-person reporting
 - [ ] Passes the briefing test: would a real person say this to someone they're asking for help?
 - [ ] No mechanical references ("accept this quest," "return when complete," "quest log," "objective")
-- [ ] rewardText is voiced ("what silver I have") not listed ("50 silver, 3 iron bars")
+- [ ] rewardFlavor is voiced ("what silver I have") not listed ("50 silver, 3 iron bars")
 - [ ] No lore dumps — NPC tells you their problem, not regional history
 
 ## Structural Integrity
@@ -42,7 +42,7 @@ Human-review checklist for spot-checking sub-agent quest template output. For ea
 - [ ] Optional conflict fields (conflict2-4) are present only when matching objectives exist
 - [ ] expositionTurnInText bridges naturally into conflict1Text
 - [ ] Each conflictTurnInText bridges into the next phase or sets up resolution
-- [ ] resolutionText references `{quest_reward}` naturally
+- [ ] resolutionText references `{reward_item}` and `{reward_flavor}` naturally
 - [ ] resolutionText feels like an ending — no cliffhangers, no sequel hooks, no loose threads
 
 ## Situation Fidelity
@@ -125,7 +125,7 @@ If you see any of these, the template should be rejected or rewritten:
 | `{target_npc}` with no TALK_TO_NPC in the chain | Unbound variable. |
 | "Go talk to {settlement_npc}" | settlement_npc is flavor only, not an objective target. |
 | "But perhaps there's more to discover..." in resolution | Cliffhanger. Resolution must close. |
-| "50 silver and a new sword" as rewardText | Inventory list, not voiced reward. |
+| "50 silver and a new sword" as rewardFlavor | Inventory list, not voiced reward. |
 | passText reveals emotion, skill is NATURE | Skill type mismatch. |
 | "For centuries, our ancestors..." | Lore dump. |
 | Exposition could be swapped to a different situation with no changes | Situation fidelity failure. |

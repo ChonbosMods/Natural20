@@ -13,10 +13,7 @@
     "acceptText",
     "declineText",
     "expositionTurnInText",
-    "conflict1Text",
-    "conflict1TurnInText",
     "resolutionText",
-    "rewardText",
     "valence"
   ],
   "properties": {
@@ -72,17 +69,17 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["KILL_MOBS", "COLLECT_RESOURCES", "FETCH_ITEM", "TALK_TO_NPC"],
-            "description": "Objective type. Determines which per-objective variables are valid in the corresponding text field."
+            "enum": ["KILL_MOBS", "KILL_BOSS", "COLLECT_RESOURCES", "FETCH_ITEM", "TALK_TO_NPC"],
+            "description": "Objective type. Determines which per-objective variables are valid in the corresponding text field. KILL_BOSS spawns one named boss (count is always 1, {boss_name} is pre-rolled at generation)."
           },
           "countMin": {
             "type": "integer",
-            "description": "Minimum count for KILL_MOBS or COLLECT_RESOURCES. Generator picks a value between countMin and countMax.",
+            "description": "Minimum count for KILL_MOBS or COLLECT_RESOURCES. Generator picks a value between countMin and countMax. Ignored for KILL_BOSS (always 1).",
             "minimum": 1
           },
           "countMax": {
             "type": "integer",
-            "description": "Maximum count for KILL_MOBS or COLLECT_RESOURCES.",
+            "description": "Maximum count for KILL_MOBS or COLLECT_RESOURCES. Ignored for KILL_BOSS (always 1).",
             "minimum": 1
           }
         }
@@ -165,7 +162,7 @@
 
     "resolutionText": {
       "type": "string",
-      "description": "Final dialogue. Closes the emotional arc. Must reference {quest_reward} naturally. Must feel like an ending. Max 4 sentences.",
+      "description": "Final dialogue. Closes the emotional arc. Must reference {reward_item} and {reward_flavor} naturally. Must feel like an ending. Max 4 sentences.",
       "maxLength": 600
     },
 
@@ -198,9 +195,9 @@
       "required": ["skill", "dc", "passText", "failText"]
     },
 
-    "rewardText": {
+    "rewardFlavor": {
       "type": "string",
-      "description": "Free text that populates {quest_reward}. Should be voiced and proportionate, not an inventory list. Falls back to 'a fair reward' if omitted.",
+      "description": "Short voiced flavor phrase that populates {reward_flavor} in dialogue (e.g. 'silver set aside nine years', 'what little I have and a debt I won't forget'). Should be proportionate to the NPC's station, not an inventory list. The rolled item name is separately bound as {reward_item}, so do not name a specific item here — this is the emotional tail of the gesture.",
       "maxLength": 200
     },
 
@@ -242,7 +239,8 @@
       "{settlement_npc}",
       "{settlement_npc_role}",
       "{other_settlement}",
-      "{quest_reward}"
+      "{reward_item}",
+      "{reward_flavor}"
     ],
     "requires_talk_to_npc_objective": [
       "{target_npc}",
@@ -251,10 +249,12 @@
     ],
     "per_objective_overlay": {
       "KILL_MOBS": ["{kill_count}", "{enemy_type}", "{enemy_type_plural}"],
+      "KILL_BOSS": ["{boss_name}", "{group_difficulty}", "{enemy_type_plural}"],
       "COLLECT_RESOURCES": ["{quest_item}", "{gather_count}"],
       "FETCH_ITEM": ["{quest_item}"],
       "TALK_TO_NPC": ["{target_npc}", "{target_npc_role}", "{target_npc_settlement}"]
     },
+    "kill_boss_notes": "Do NOT use {kill_count} in KILL_BOSS text — the count is always 1 and is not bound as a variable. Use {enemy_type_plural} only to refer to the boss's followers/kin, never the boss themselves; the boss is always {boss_name}. {boss_name} and {group_difficulty} are quest-level bindings and are valid in ANY text field when a KILL_BOSS objective is present in the chain.",
     "field_to_objective_binding": {
       "expositionText": "objectives[0]",
       "expositionTurnInText": "objectives[0]",
@@ -281,17 +281,17 @@
     "expositionText": "I wouldn't ask if I had another choice. {enemy_type_plural} have been coming every night this week. We've lost stock, we've lost sleep, and I'm out of ideas. I need {kill_count} of them dealt with before they take what's left.",
     "acceptText": "Thank you. I mean that. I wasn't sure anyone would say yes.",
     "declineText": "I see. I suppose I'll figure something out. I always do, one way or another.",
-    "expositionTurnInText": "You came back. That alone means more than you know. But the damage they did — I still need {gather_count} {quest_item} to patch what's broken.",
+    "expositionTurnInText": "You came back. That alone means more than you know. I still need {gather_count} {quest_item} to patch what they broke.",
     "conflict1Text": "The {enemy_type_plural} are handled, but the mess they left behind isn't. I need {gather_count} {quest_item} to get us through the next few weeks. Can you manage that?",
     "conflict1TurnInText": "Every time you come back, things are a little better than when you left. I can feel it settling.",
-    "resolutionText": "I don't know what we would have done. Take {quest_reward} — I wish it were more. You've given us a chance to breathe again.",
+    "resolutionText": "I don't know what we would have done. Take {reward_item}, I wish it were more. It's {reward_flavor}, and you've given us a chance to breathe again.",
     "skillCheck": {
       "skill": "INSIGHT",
       "dc": 12,
       "passText": "Honestly? I haven't slept in three days. Every sound outside the wall and I'm up, grabbing whatever's closest. My hands shake in the morning now.",
       "failText": "It's been hard. That's all I'll say about it."
     },
-    "rewardText": "what silver I have and a debt I won't forget",
+    "rewardFlavor": "what silver I have and a debt I won't forget",
     "valence": "negative",
     "roleAffinity": []
   }

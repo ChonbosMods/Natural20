@@ -1,0 +1,74 @@
+[
+  {
+    "id": "deliverance_12",
+    "topicHeader": "My Son, Please",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 4, "countMax": 7 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "My boy is hurt and he's asleep in the back room, and I need him settled before anything else happens. Before I do another thing I need {gather_count} {quest_item} so I can take proper care of him through the night. My leg won't carry me more than the length of the house anymore, or I'd be out there gathering it myself. Please, I want him to wake up to a better morning than the one he went to sleep on.",
+    "acceptText": "Thank the stars. Hurry, please, every hour he's lying like that is an hour I can't breathe.",
+    "declineText": "Please, he's just a boy. If nobody helps me settle him then I don't know what I'll do, I really don't.",
+    "expositionTurnInText": "You brought it. Good. Set it there and come close, because the harder part is the reason he's in that bed at all.",
+    "conflict1Text": "{boss_name} is what dragged him off and what sent him back half-dead. It keeps to the {group_difficulty} kind of company, but {boss_name} is the one that matters. End it, so he can wake up to a world that isn't waiting for it.",
+    "conflict1TurnInText": "He opened his eyes an hour ago. He's breathing easy and he's asleep again now, in the bed I finally got him settled into. I don't have words for this yet, give me a moment.",
+    "resolutionText": "Take {reward_item} with my thanks. It was meant for him one day but he'd want you to have it, and so do I. Come and see him when he's up, he'll want to thank the one who finished {boss_name}.",
+    "skillCheck": {
+      "skill": "INSIGHT",
+      "dc": 12,
+      "passText": "I haven't told anyone, but I heard him crying the first night. On the wind. I've been sitting by the door since, in case he got close enough to call for me.",
+      "failText": "I'm holding up. Please, just go, there isn't time for sitting and talking."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "deliverance_13",
+    "topicHeader": "The Girl I Took In",
+    "situation": "deliverance",
+    "objectives": [
+      { "type": "FETCH_ITEM" },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "There's a girl staying with me, a traveler who came through on her way somewhere and hasn't had the strength to move on since. She left a {quest_item} with a trader when she passed through {settlement_name}, and she's been asking after it in her sleep. If I can put it in her hand she'll rest easier than she has in weeks. I need you to get it back for her before anything else, because that's the part she'd ask for herself if she had the voice for it.",
+    "acceptText": "You're a kinder soul than most. She doesn't know I'm asking, so keep it quiet when you come back.",
+    "declineText": "Oh. Oh, I see. Well, if nobody helps then she fades a little more, and I sit here watching it happen.",
+    "expositionTurnInText": "You found it. She went quiet when I set it beside her and then slept for the first real stretch I've seen in weeks. Now there's a harder part, and I couldn't say it with her listening earlier.",
+    "conflict1Text": "{boss_name} is what's been starving her out. It's been circling the edges of {settlement_name} for weeks, eating her stores before she could reach them, cutting her off from the road she meant to take. A {group_difficulty} thing, from what the traders say, but a thing that dies like any other. End it and she eats again, she sleeps again, she walks out of here on her own feet.",
+    "conflict1TurnInText": "She's at the window. I told her what you did and she wanted to come find you herself, but her legs still won't carry her. She's smiling though. First time in weeks.",
+    "resolutionText": "I've nothing grand, but please take {reward_item}. She says she'll remember your name for the rest of her days, and I'll make sure she does.",
+    "skillCheck": {
+      "skill": "PERSUASION",
+      "dc": 13,
+      "passText": "She's not really a stranger, if I'm honest. She's my cousin's daughter and my cousin is gone, and I'm the only one she had left to find. I couldn't say it in front of her, she hates being a burden.",
+      "failText": "She's just someone who needed a door to knock on. That's all I'll say about it."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  },
+  {
+    "id": "self_sacrifice_for_kindred_12",
+    "topicHeader": "Finally Some Rest",
+    "situation": "self_sacrifice_for_kindred",
+    "objectives": [
+      { "type": "COLLECT_RESOURCES", "countMin": 3, "countMax": 6 },
+      { "type": "KILL_BOSS" }
+    ],
+    "expositionText": "I've been fortifying the house for months now, and I'm close to having it done. I need {gather_count} {quest_item} to finish the last of it, and my hands are shaking too much lately to go gather it myself. My wife thinks I'm out checking snares. She doesn't need to know different, not yet. Just help me finish what I started, friend, and I'll tell you the rest after.",
+    "acceptText": "You have no idea what this means. I might actually sleep tonight, just knowing someone else is carrying a piece of it.",
+    "declineText": "I understand. I'll keep holding. I always do. I just hoped, for a moment, that I wouldn't have to.",
+    "expositionTurnInText": "That's everything I needed. Sit down. I owe you the truth about what I've been fortifying against, and why I couldn't finish alone.",
+    "conflict1Text": "{boss_name} has been coming for my family since the leaves turned last year. Every time, I meet it at the door with whatever I can hold, and every time, it leaves and comes back a week later. It's only a {group_difficulty} thing, but it's learned us, it knows when I'm tired and which window my daughter sleeps by. End it, so I can put the axe down for good.",
+    "conflict1TurnInText": "You did it. You really did it. I went inside and looked at them sleeping, all of them, and I just stood there. I haven't stood still like that in a year.",
+    "resolutionText": "Here, take {reward_item}. I'm going to sleep tonight next to my wife for the first time in too long, and that's because of you, friend.",
+    "skillCheck": {
+      "skill": "PERCEPTION",
+      "dc": 12,
+      "passText": "You see these, don't you. Four scars on my forearm, one for each time something got past me. The last one was close to my daughter's room. I haven't told anyone in the house. I never will.",
+      "failText": "I'm tired. That's all. Just tired."
+    },
+    "valence": "negative",
+    "roleAffinity": []
+  }
+]
