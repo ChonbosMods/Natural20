@@ -14,26 +14,11 @@
   "TargetStat": "Evasion",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common": {
-      "Min": 1.0,
-      "Max": 1.0
-    },
-    "Uncommon": {
-      "Min": 1.0,
-      "Max": 1.0
-    },
-    "Rare": {
-      "Min": 1.0,
-      "Max": 1.0
-    },
-    "Epic": {
-      "Min": 1.0,
-      "Max": 1.0
-    },
-    "Legendary": {
-      "Min": 1.0,
-      "Max": 1.0
-    }
+    "Common":    { "Min": 0.02, "Max": 0.02 },
+    "Uncommon":  { "Min": 0.03, "Max": 0.03 },
+    "Rare":      { "Min": 0.04, "Max": 0.04 },
+    "Epic":      { "Min": 0.06, "Max": 0.06 },
+    "Legendary": { "Min": 0.08, "Max": 0.08 }
   },
   "Description": "Chance to completely dodge melee attacks.",
   "MobEligible": true,

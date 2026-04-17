@@ -36,7 +36,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Evasion: chance to fully dodge melee attacks. Filter Group system.
- * Scans armor, sums evasion chance, applies softcap, rolls.
+ * Scans armor, sums rolled dodge % (each piece 2-8% before scaling),
+ * clamps at {@link #MAX_DODGE_CHANCE}, rolls.
  */
 public class Nat20EvasionSystem extends DamageEventSystem {
 
@@ -45,7 +46,7 @@ public class Nat20EvasionSystem extends DamageEventSystem {
     private static final String AFFIX_ID = "nat20:evasion";
     private static final String PARTICLE = "Nat20_Evasion";
     private static final String DODGE_SOUND = "SFX_Toad_Rhino_Tongue_Whoosh";
-    private static final double SOFTCAP_K = 0.20;
+    private static final double MAX_DODGE_CHANCE = 0.50;
     private static final float TORSO_OFFSET_Y = 0.9f;
 
     private final Nat20LootSystem lootSystem;
@@ -107,11 +108,7 @@ public class Nat20EvasionSystem extends DamageEventSystem {
         }
 
         if (totalChance <= 0) return;
-        if (totalChance < 1.0) {
-            totalChance = Nat20Softcap.softcap(totalChance, SOFTCAP_K);
-        } else {
-            totalChance = 1.0;
-        }
+        if (totalChance > MAX_DODGE_CHANCE) totalChance = MAX_DODGE_CHANCE;
 
         double roll = ThreadLocalRandom.current().nextDouble();
         if (roll > totalChance) return;
