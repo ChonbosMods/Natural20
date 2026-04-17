@@ -11,6 +11,7 @@ import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.util.TargetUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -124,6 +125,36 @@ public class MobGroupChunkListener {
             LOGGER.atWarning().withCause(e).log("Entity sweep failed for %s", record.getGroupKey());
             return;
         }
+        // Tier-2 naked-revival sweep: native persistence sometimes revives our
+        // group mobs without the custom Nat20MobGroupMemberComponent attached. They
+        // become invisible to the (groupKey, slotIndex) scan below and to the kill
+        // tracker, but still exist in the world and still carry Tier.BOSS / CHAMPION
+        // scale tags (so they still drop loot and award XP). Without this sweep,
+        // reconciliation would spawn a fresh mob on top of each naked revival and
+        // the player would see duplicates (e.g. two bosses, two sets of champions).
+        //
+        // Detection heuristic: same mobRole as the record AND missing our member
+        // component. Wild same-role spawns near a dungeon anchor are rare enough
+        // that the false-positive cost is acceptable vs. duplicate-boss fights.
+        int ghostsRemoved = 0;
+        String expectedRole = record.getMobRole();
+        for (Ref<EntityStore> ref : nearby) {
+            if (!ref.isValid()) continue;
+            if (store.getComponent(ref, Natural20.getMobGroupMemberType()) != null) continue;
+            NPCEntity npc = store.getComponent(ref, NPCEntity.getComponentType());
+            if (npc == null) continue;
+            if (!expectedRole.equals(npc.getRoleName())) continue;
+            try {
+                store.removeEntity(ref, RemoveReason.REMOVE);
+                ghostsRemoved++;
+            } catch (Exception ignored) {}
+        }
+        if (ghostsRemoved > 0) {
+            LOGGER.atInfo().log("Ghost-revival sweep: removed %d naked %s entities near %s",
+                    ghostsRemoved, expectedRole, record.getGroupKey());
+        }
+
+        // Primary member-scan: map component-tagged entities by slot.
         for (Ref<EntityStore> ref : nearby) {
             if (!ref.isValid()) continue;
             Nat20MobGroupMemberComponent member =
@@ -135,7 +166,7 @@ public class MobGroupChunkListener {
 
         int respawned = 0;
         int matched = 0;
-        int sweptDuplicates = 0;
+        int sweptDuplicates = ghostsRemoved;
 
         for (SlotRecord slot : record.getSlots()) {
             if (slot.isDead()) continue;
