@@ -10,11 +10,11 @@
   "TargetStat": "InteractionSpeed",
   "ModifierType": "MULTIPLICATIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 0.03, "Max": 0.06 },
-    "Uncommon":  { "Min": 0.05, "Max": 0.10 },
-    "Rare":      { "Min": 0.08, "Max": 0.15 },
-    "Epic":      { "Min": 0.12, "Max": 0.22 },
-    "Legendary": { "Min": 0.18, "Max": 0.30 }
+    "Common":    { "Min": 0.01, "Max": 0.02 },
+    "Uncommon":  { "Min": 0.02, "Max": 0.03 },
+    "Rare":      { "Min": 0.03, "Max": 0.05 },
+    "Epic":      { "Min": 0.04, "Max": 0.07 },
+    "Legendary": { "Min": 0.06, "Max": 0.10 }
   },
   "Description": "Increases attack speed based on DEX, applied as a periodic stat modifier to wielder.",
   "Cooldown": null,
