@@ -3,6 +3,7 @@ package com.chonbosmods.combat;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
+import com.hypixel.hytale.server.core.asset.type.entityeffect.config.OverlapBehavior;
 import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -31,5 +32,21 @@ public final class Nat20EntityEffectUtil {
         if (effectCtrl == null || effect == null) return false;
         if (effectCtrl.hasEffect(effect)) return false;
         return effectCtrl.addEffect(targetRef, effect, accessor);
+    }
+
+    /**
+     * Variant that applies the effect with an explicit duration (OVERWRITE) for
+     * variable-duration DOTs. Still gated on {@link EffectControllerComponent#hasEffect}
+     * so repeat procs while the effect is active are no-ops and don't restart the
+     * client-side particle lifespan.
+     */
+    public static boolean applyOnce(EffectControllerComponent effectCtrl,
+                                    Ref<EntityStore> targetRef,
+                                    EntityEffect effect,
+                                    float duration,
+                                    ComponentAccessor<EntityStore> accessor) {
+        if (effectCtrl == null || effect == null) return false;
+        if (effectCtrl.hasEffect(effect)) return false;
+        return effectCtrl.addEffect(targetRef, effect, duration, OverlapBehavior.OVERWRITE, accessor);
     }
 }

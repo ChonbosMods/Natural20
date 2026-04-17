@@ -51,8 +51,10 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
     private static final String CORRUPT_EFFECT = "Nat20CorruptEffect";
 
     private static final float TICK_INTERVAL = 2.0f;
-    private static final float EFFECT_DURATION = 20.0f;
-    private static final float TICKS_PER_DURATION = EFFECT_DURATION / TICK_INTERVAL; // 10
+    // Affix value represents per-tick damage at MAX duration (15s). Shorter rolls
+    // preserve total damage (affix × BASE_TICKS), so per-tick scales up as duration
+    // shrinks — shorter duration = higher DPS = more valuable roll.
+    private static final float BASE_TICKS = Nat20DotTickSystem.MAX_DURATION / TICK_INTERVAL;
 
     private final Nat20LootSystem lootSystem;
     private final Nat20DotTickSystem dotTickSystem;
@@ -153,18 +155,23 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                         store.getComponent(targetRef, EffectControllerComponent.getComponentType());
                 if (effectCtrl == null) continue;
 
+                ThreadLocalRandom rng = ThreadLocalRandom.current();
+                float duration = (float) (Nat20DotTickSystem.MIN_DURATION
+                        + rng.nextDouble() * (Nat20DotTickSystem.MAX_DURATION - Nat20DotTickSystem.MIN_DURATION));
+                float actualTicks = duration / TICK_INTERVAL;
+
                 com.chonbosmods.loot.def.AffixValueRange range = def.getValuesForRarity(src.rarity());
-                float damagePerTick = 0.5f;
+                float damagePerTick = 1.0f;
                 if (range != null) {
-                    double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
-                    double perTick = range.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
+                    double rolledLevel = rolledAffix.rollLevel(rng);
+                    double perTickAtBase = range.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
                     PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                     if (dotStats != null && def.statScaling() != null) {
                         int mod = dotStats.getModifier(def.statScaling().primary());
-                        perTick *= (1.0 + mod * def.statScaling().factor());
+                        perTickAtBase *= (1.0 + mod * def.statScaling().factor());
                     }
-                    double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
-                    damagePerTick = (float) (total / TICKS_PER_DURATION);
+                    double totalDamage = perTickAtBase * BASE_TICKS;
+                    damagePerTick = (float) (totalDamage / actualTicks);
                 }
 
                 Nat20DotTickSystem.DotType dotType = switch (id) {
@@ -175,14 +182,15 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                     default -> null;
                 };
                 boolean isNew = dotType != null
-                        && dotTickSystem.registerDot(targetRef, dotType, attackerRef, damagePerTick);
+                        && dotTickSystem.registerDot(targetRef, dotType, attackerRef, damagePerTick, duration);
 
                 if (isNew) {
-                    Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, commandBuffer);
+                    Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, duration, commandBuffer);
                 }
 
                 if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
-                    LOGGER.atInfo().log("[ElemDot] %s new=%s target=%s", id, isNew, targetRef);
+                    LOGGER.atInfo().log("[ElemDot] %s new=%s target=%s duration=%.1fs perTick=%.2f",
+                            id, isNew, targetRef, duration, damagePerTick);
                 }
             }
         }

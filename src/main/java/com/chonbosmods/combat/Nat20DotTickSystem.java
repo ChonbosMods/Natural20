@@ -59,17 +59,20 @@ public class Nat20DotTickSystem extends EntityTickingSystem<EntityStore> {
         BLEED, IGNITE, COLD, INFECT, CORRUPT
     }
 
-    private static final float DOT_DURATION = 20.0f;
+    public static final float MIN_DURATION = 5.0f;
+    public static final float MAX_DURATION = 15.0f;
 
     private static class DotEntry {
         final Ref<EntityStore> attackerRef;
         final float damagePerTick;
+        final float initialDuration;
         float remainingDuration;
 
-        DotEntry(Ref<EntityStore> attackerRef, float damagePerTick) {
+        DotEntry(Ref<EntityStore> attackerRef, float damagePerTick, float duration) {
             this.attackerRef = attackerRef;
             this.damagePerTick = damagePerTick;
-            this.remainingDuration = DOT_DURATION;
+            this.initialDuration = duration;
+            this.remainingDuration = duration;
         }
     }
 
@@ -107,15 +110,16 @@ public class Nat20DotTickSystem extends EntityTickingSystem<EntityStore> {
      *         (caller should skip addEffect to prevent particle stacking)
      */
     public boolean registerDot(Ref<EntityStore> targetRef, DotType type,
-                               Ref<EntityStore> attackerRef, float damagePerTick) {
+                               Ref<EntityStore> attackerRef, float damagePerTick, float duration) {
         EntityDotState state = trackedEntities.get(targetRef);
         if (state == null) {
             state = new EntityDotState(TICK_INTERVAL_S);
             EntityDotState existing = trackedEntities.putIfAbsent(targetRef, state);
             if (existing != null) state = existing;
         }
-        DotEntry previous = state.dots.put(type,
-                new DotEntry(attackerRef, Math.max(damagePerTick, MIN_DAMAGE_PER_TICK)));
+        DotEntry newEntry = new DotEntry(attackerRef,
+                Math.max(damagePerTick, MIN_DAMAGE_PER_TICK), duration);
+        DotEntry previous = state.dots.putIfAbsent(type, newEntry);
         return previous == null;
     }
 
@@ -173,8 +177,8 @@ public class Nat20DotTickSystem extends EntityTickingSystem<EntityStore> {
             dot.remainingDuration -= dt;
             if (dot.remainingDuration <= 0) return true;
 
-            // After 3s, also check if the EntityEffect expired early
-            if (dot.remainingDuration < (DOT_DURATION - 3.0f) && effectCtrl != null) {
+            // After 3s of running, also check if the EntityEffect expired early
+            if (dot.remainingDuration < (dot.initialDuration - 3.0f) && effectCtrl != null) {
                 EntityEffect ef = effectObjects[e.getKey().ordinal()];
                 if (ef != null && !effectCtrl.hasEffect(ef)) return true;
             }

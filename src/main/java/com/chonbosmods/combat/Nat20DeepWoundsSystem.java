@@ -44,8 +44,10 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
     private static final String EFFECT_ID = "Nat20BleedEffect";
 
     private static final float TICK_INTERVAL = 2.0f;
-    private static final float EFFECT_DURATION = 20.0f;
-    private static final float TICKS_PER_DURATION = EFFECT_DURATION / TICK_INTERVAL;
+    // Affix value = per-tick damage at MAX duration; shorter rolls keep total
+    // damage constant (= affix × BASE_TICKS), so per-tick scales up. Shorter
+    // duration = higher DPS = more valuable roll.
+    private static final float BASE_TICKS = Nat20DotTickSystem.MAX_DURATION / TICK_INTERVAL;
 
     private final Nat20LootSystem lootSystem;
     private final Nat20DotTickSystem dotTickSystem;
@@ -118,31 +120,36 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                     return;
                 }
 
+                ThreadLocalRandom rng = ThreadLocalRandom.current();
+                float duration = (float) (Nat20DotTickSystem.MIN_DURATION
+                        + rng.nextDouble() * (Nat20DotTickSystem.MAX_DURATION - Nat20DotTickSystem.MIN_DURATION));
+                float actualTicks = duration / TICK_INTERVAL;
+
                 AffixValueRange dotRange = def.getValuesForRarity(src.rarity());
-                float damagePerTick = 0.5f;
+                float damagePerTick = 1.0f;
                 if (dotRange != null) {
-                    double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
-                    double perTick = dotRange.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
+                    double rolledLevel = rolledAffix.rollLevel(rng);
+                    double perTickAtBase = dotRange.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
                     PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                     if (dotStats != null && def.statScaling() != null) {
                         Stat primary = def.statScaling().primary();
                         int mod = dotStats.getModifier(primary);
-                        perTick *= (1.0 + mod * def.statScaling().factor());
+                        perTickAtBase *= (1.0 + mod * def.statScaling().factor());
                     }
-                    double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
-                    damagePerTick = (float) (total / TICKS_PER_DURATION);
+                    double totalDamage = perTickAtBase * BASE_TICKS;
+                    damagePerTick = (float) (totalDamage / actualTicks);
                 }
 
                 boolean isNew = dotTickSystem.registerDot(targetRef,
-                        Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick);
+                        Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick, duration);
 
                 if (isNew) {
-                    Nat20EntityEffectUtil.applyOnce(effectController, targetRef, bleedEffect, commandBuffer);
+                    Nat20EntityEffectUtil.applyOnce(effectController, targetRef, bleedEffect, duration, commandBuffer);
                 }
 
                 if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
-                    LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s dmg/tick=%.2f new=%s",
-                            attackerUuid.toString().substring(0, 8), damagePerTick, isNew);
+                    LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s dmg/tick=%.2f duration=%.1fs new=%s",
+                            attackerUuid.toString().substring(0, 8), damagePerTick, duration, isNew);
                 }
                 return;
             }

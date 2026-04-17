@@ -143,7 +143,7 @@ public class Nat20WeaknessApplySystem extends DamageEventSystem {
             EnumMap<Element, WeaknessState> elementMap = weaknessMap.computeIfAbsent(
                     targetRef, k -> new EnumMap<>(Element.class));
             WeaknessState previous = elementMap.put(element,
-                    new WeaknessState(effectiveValue, System.currentTimeMillis() + 10000));
+                    new WeaknessState(effectiveValue, System.currentTimeMillis() + 5000));
             boolean isNew = previous == null || System.currentTimeMillis() > previous.expiryMs;
             if (isNew) {
                 EffectControllerComponent effectCtrl =

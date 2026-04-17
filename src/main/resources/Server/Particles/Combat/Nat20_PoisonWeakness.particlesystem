@@ -2,7 +2,7 @@
   "Spawners": [
     { "SpawnerId": "Nat20_PoisonWeakness", "PositionOffset": { "Y": 2.2 } }
   ],
-  "LifeSpan": 10.0,
+  "LifeSpan": 5.0,
   "BoundingRadius": 50,
   "CullDistance": 100
 }
