@@ -29,6 +29,7 @@ public final class Nat20AffixDisplay {
     public static final String ABILITY_GOLD = "#bb8a2c";
     public static final String MANA_BLUE = "#4488FF";
     public static final String CRIT_YELLOW = "#FFDD44";
+    public static final String WHITE = "#FFFFFF";
 
     // DoT constants — all DoTs share the same tick cadence for now.
     public static final int DOT_TICK_COUNT = 10;
@@ -91,12 +92,11 @@ public final class Nat20AffixDisplay {
             Map.entry("CorruptDamage", new Entry("Corrupts", Format.DOT_TOTAL_RANGE, VOID,   null)),
             Map.entry("BleedDamage",   new Entry("Bleeds",   Format.DOT_TOTAL_RANGE, BLEED,  null)),
 
-            // Resistances (element-colored)
+            // Resistances (element-colored; physical lives in the utility block below)
             Map.entry("FireResistance",     Entry.percentEl("Fire Resistance",   FIRE)),
             Map.entry("FrostResistance",    Entry.percentEl("Frost Resistance",  FROST)),
             Map.entry("PoisonResistance",   Entry.percentEl("Poison Resistance", POISON)),
             Map.entry("VoidResistance",     Entry.percentEl("Void Resistance",   VOID)),
-            Map.entry("PhysicalResistance", Entry.percent("Physical Resistance")),
 
             // Elemental vulnerabilities (positive value; display name per D&D 5e terminology)
             Map.entry("FireWeakness",   Entry.percentEl("Fire Vulnerability",   FIRE)),
@@ -105,29 +105,30 @@ public final class Nat20AffixDisplay {
             Map.entry("VoidWeakness",   Entry.percentEl("Void Vulnerability",   VOID)),
 
             // Combat modifiers (fixed %)
-            Map.entry("Nat20CritChance",   Entry.percentEl("Crit Chance", CRIT_YELLOW)),
-            Map.entry("Nat20CritDamage",   Entry.percentEl("Crit Damage", CRIT_YELLOW)),
-            Map.entry("ArmorPenetration",  Entry.percentEl("Precision",        CRIT_YELLOW)),
+            Map.entry("Nat20CritChance",   Entry.percentEl("Crit Chance",      CRIT_YELLOW)),
+            Map.entry("Nat20CritDamage",   Entry.percentEl("Crit Damage",      CRIT_YELLOW)),
+            Map.entry("ArmorPenetration",  Entry.percentEl("Precision",        WHITE)),
             Map.entry("Backstab",          Entry.percentEl("Backstab",         BLEED)),
-            Map.entry("Evasion",           Entry.percentEl("Evasion",          CRIT_YELLOW)),
+            Map.entry("Evasion",           Entry.percentEl("Evasion",          Stat.DEX.color())),
             Map.entry("Gallant",           Entry.percentEl("Gallant",          VOID)),
             Map.entry("CrushingBlow",      Entry.percentEl("Crushing Blow",    BLEED)),
             Map.entry("LifeLeech",         Entry.percentEl("Life Leech",       BLEED)),
             Map.entry("ManaLeech",         Entry.percentEl("Mana Leech",       MANA_BLUE)),
-            Map.entry("BlockProficiency",  Entry.percentEl("Block Proficiency", CRIT_YELLOW)),
+            Map.entry("BlockProficiency",  Entry.percentEl("Block Proficiency", WHITE)),
 
             // Utility (fixed %)
-            Map.entry("DamageAbsorption", Entry.percentEl("Absorption",       MANA_BLUE)),
-            Map.entry("ManaRegen",        Entry.percentEl("Focused Mind",     MANA_BLUE)),
-            Map.entry("WaterBreathing",   Entry.percentEl("Water Breathing",  MANA_BLUE)),
-            Map.entry("Rally",            Entry.percentEl("Rally",            CRIT_YELLOW)),
-            Map.entry("HexDamage",        Entry.percentEl("Hex",              VOID)),
-            Map.entry("LightFoot",        Entry.percentEl("Lightweight",      CRIT_YELLOW)),
-            Map.entry("Resilience",       Entry.percent("Resilience")),
-            Map.entry("ViciousMockery",   Entry.percentEl("Vicious Mockery",  BLEED)),
+            Map.entry("DamageAbsorption", Entry.percentEl("Absorption",        MANA_BLUE)),
+            Map.entry("ManaRegen",        Entry.percentEl("Focused Mind",      MANA_BLUE)),
+            Map.entry("WaterBreathing",   Entry.percentEl("Water Breathing",   MANA_BLUE)),
+            Map.entry("Rally",            Entry.percentEl("Rally",             CRIT_YELLOW)),
+            Map.entry("HexDamage",        Entry.percentEl("Hex",               VOID)),
+            Map.entry("LightFoot",        Entry.percentEl("Lightweight",       Stat.DEX.color())),
+            Map.entry("Resilience",       Entry.percentEl("Resilience",        WHITE)),
+            Map.entry("ViciousMockery",   Entry.percentEl("Vicious Mockery",   BLEED)),
+            Map.entry("PhysicalResistance", Entry.percentEl("Physical Resistance", WHITE)),
 
             // Attack speed — Hytale's internal stat name is InteractionSpeed.
-            Map.entry("InteractionSpeed", Entry.percent("Attack Speed"))
+            Map.entry("InteractionSpeed", Entry.percentEl("Attack Speed",      WHITE))
     );
 
     /** Lookup a display entry for a given targetStat. Returns {@code null} for ABILITY affixes
