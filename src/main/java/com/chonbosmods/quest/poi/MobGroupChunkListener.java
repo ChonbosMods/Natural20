@@ -78,6 +78,18 @@ public class MobGroupChunkListener {
     private void reconcile(World world, MobGroupRecord record) {
         String groupKey = record.getGroupKey();
 
+        // Anchor-chunk-loaded gate. Mirrors SettlementWorldGenListener: reconciliation
+        // must not run before the anchor's chunk has finished loading, or the sphere-scan
+        // will miss natively-reviving entities and we'll spawn duplicates on top of them.
+        // The listener fires on every chunk in the vicinity; we wait for the one that
+        // contains the anchor itself to be fully loaded.
+        int anchorChunkX = (int) Math.floor(record.getAnchorX() / CHUNK_BLOCK_SIZE);
+        int anchorChunkZ = (int) Math.floor(record.getAnchorZ() / CHUNK_BLOCK_SIZE);
+        long anchorChunkKey = ((long) anchorChunkX << 32) | (anchorChunkZ & 0xFFFFFFFFL);
+        if (world.getChunkIfLoaded(anchorChunkKey) == null) {
+            return;
+        }
+
         // Debounce
         long now = System.currentTimeMillis();
         Long last = lastCheck.get(groupKey);
