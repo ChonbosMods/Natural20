@@ -183,7 +183,8 @@ public class DialogueActionRegistry {
             if (firstObj != null) {
                 tryResolveObjective(quest, firstObj);
                 ObjectiveType firstType = firstObj.getType();
-                if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.FETCH_ITEM) {
+                if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.KILL_BOSS
+                        || firstType == ObjectiveType.FETCH_ITEM) {
                     resolveAndPlacePoi(quest, firstObj, ctx.store(), ctx.playerRef());
                 } else if (firstType == ObjectiveType.PEACEFUL_FETCH) {
                     setupPeacefulFetchPoi(quest, ctx.store(), ctx.playerRef());
@@ -368,7 +369,8 @@ public class DialogueActionRegistry {
                 bindings.remove("poi_detached_uuids");
                 bindings.remove("poi_chest_placed");
 
-                if (newType == ObjectiveType.KILL_MOBS || newType == ObjectiveType.FETCH_ITEM) {
+                if (newType == ObjectiveType.KILL_MOBS || newType == ObjectiveType.KILL_BOSS
+                        || newType == ObjectiveType.FETCH_ITEM) {
                     resolveAndPlacePoi(quest, newObj, ctx.store(), ctx.playerRef());
                 } else {
                     bindings.put("poi_available", "false");
@@ -381,6 +383,7 @@ public class DialogueActionRegistry {
                     case KILL_MOBS -> newObj.isSingletonBossKill()
                         ? "kill " + newObj.getTargetLabel()
                         : "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case KILL_BOSS -> "kill " + newObj.getTargetLabel();
                     case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
                     case FETCH_ITEM -> "retrieve " + newObj.getTargetLabel();
                     case PEACEFUL_FETCH -> "pick up " + newObj.getTargetLabel();
@@ -552,7 +555,7 @@ public class DialogueActionRegistry {
 
         return switch (type) {
             case COLLECT_RESOURCES -> true;
-            case KILL_MOBS, FETCH_ITEM -> true; // resolveAndPlacePoi handles void + surface fallback
+            case KILL_MOBS, KILL_BOSS, FETCH_ITEM -> true; // resolveAndPlacePoi handles void + surface fallback
             case PEACEFUL_FETCH -> true;
             case TALK_TO_NPC -> tryResolveDeferredTalkToNpc(quest, objective);
         };
@@ -699,7 +702,8 @@ public class DialogueActionRegistry {
             if (void_ != null) {
                 voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
                 String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
-                int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
+                int spawnCount = (objective.getType() == ObjectiveType.KILL_MOBS
+                || objective.getType() == ObjectiveType.KILL_BOSS) ? 4 : 3;
                 String difficultyId = quest.getDifficultyId();
                 if (difficultyId == null) {
                     throw new IllegalStateException("resolveAndPlacePoi: quest " + quest.getQuestId()
@@ -779,7 +783,8 @@ public class DialogueActionRegistry {
         // resolve it, throw rather than silently fall back to default values.
         if (objective.getPopulationSpec() == null) {
             String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
-            int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
+            int spawnCount = (objective.getType() == ObjectiveType.KILL_MOBS
+                || objective.getType() == ObjectiveType.KILL_BOSS) ? 4 : 3;
             String difficultyId = quest.getDifficultyId();
             if (difficultyId == null) {
                 throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()

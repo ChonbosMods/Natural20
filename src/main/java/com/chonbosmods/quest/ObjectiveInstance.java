@@ -96,10 +96,12 @@ public class ObjectiveInstance {
         this.forcedPoiDirection = forcedPoiDirection;
     }
 
-    /** True when UI summaries should render as "kill &lt;boss&gt;" without a numeric count,
-     *  because the template forced a single-boss direction at quest generation. */
+    /** True when UI summaries should render as "kill &lt;boss&gt;" without a numeric count.
+     *  The KILL_BOSS branch covers first-class boss objectives; the KILL_MOBS+forced
+     *  branch keeps legacy templates (pre-Phase-1 migration) rendering correctly. */
     public boolean isSingletonBossKill() {
-        return type == ObjectiveType.KILL_MOBS
-            && forcedPoiDirection == PoiGroupDirection.KILL_BOSS;
+        return type == ObjectiveType.KILL_BOSS
+            || (type == ObjectiveType.KILL_MOBS
+                && forcedPoiDirection == PoiGroupDirection.KILL_BOSS);
     }
 }

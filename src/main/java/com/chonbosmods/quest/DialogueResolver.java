@@ -122,6 +122,12 @@ public class DialogueResolver {
                     bindings.put("enemy_type_plural", objective.getTargetLabelPlural());
                 }
             }
+            case KILL_BOSS -> {
+                // KILL_BOSS does not overlay a kill_count (count is always 1 and not
+                // referenced in boss dialogue) or enemy_type (which would overwrite
+                // the underlying mob type with the boss name). {boss_name} is bound
+                // at quest generation via applyBossPreRoll and stays stable.
+            }
             case FETCH_ITEM, PEACEFUL_FETCH -> {
                 if (objective.getEffectiveLabel() != null) {
                     bindings.put("quest_item", objective.getEffectiveLabel());
