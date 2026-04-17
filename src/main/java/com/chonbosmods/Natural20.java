@@ -35,6 +35,7 @@ import com.chonbosmods.combat.Nat20WeaknessAmplifySystem;
 import com.chonbosmods.combat.Nat20WeaknessApplySystem;
 import com.chonbosmods.combat.Nat20ResistanceSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
+import com.chonbosmods.combat.Nat20MobDmgScaleSystem;
 import com.chonbosmods.combat.Nat20MovementSpeedSystem;
 import com.chonbosmods.combat.Nat20ScoreBonusSystem;
 import com.chonbosmods.combat.Nat20ScoreDamageSystem;
@@ -48,6 +49,8 @@ import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
+import com.chonbosmods.loot.mob.Nat20MobAffixes;
+import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.MobScalingConfig;
@@ -114,6 +117,7 @@ public class Natural20 extends JavaPlugin {
     private static ComponentType<EntityStore, Nat20NpcData> npcDataType;
     private static ComponentType<EntityStore, Nat20PlayerData> playerDataType;
     private static ComponentType<EntityStore, Nat20MobLevel> mobLevelType;
+    private static ComponentType<EntityStore, Nat20MobAffixes> mobAffixesType;
 
     private final SettlementPlacer placer = new SettlementPlacer();
     private final Nat20NpcManager npcManager = new Nat20NpcManager();
@@ -346,6 +350,10 @@ public class Natural20 extends JavaPlugin {
         return mobLevelType;
     }
 
+    public static ComponentType<EntityStore, Nat20MobAffixes> getMobAffixesType() {
+        return mobAffixesType;
+    }
+
     public Nat20MobScaleSystem getMobScaleSystem() {
         return mobScaleSystem;
     }
@@ -377,6 +385,8 @@ public class Natural20 extends JavaPlugin {
                 Nat20PlayerData.class, "nat20_player_data", Nat20PlayerData.CODEC, true);
         mobLevelType = getEntityStoreRegistry().registerComponent(
                 Nat20MobLevel.class, "nat20_mob_level", Nat20MobLevel.CODEC, true);
+        mobAffixesType = getEntityStoreRegistry().registerComponent(
+                Nat20MobAffixes.class, "nat20_mob_affixes", Nat20MobAffixes.CODEC, true);
         // Register custom NPC instruction list action for dialogue
         // Requires Hytale:NPC dependency in manifest.json so NPCPlugin loads first
         NPCPlugin.get().registerCoreComponentType(
@@ -406,10 +416,12 @@ public class Natural20 extends JavaPlugin {
         scalingConfig = MobScalingConfig.load();
         mobScaleSystem = new Nat20MobScaleSystem(scalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
+        getEntityStoreRegistry().registerSystem(new Nat20MobDmgScaleSystem(scalingConfig));
         mobGroupSpawner = new Nat20MobGroupSpawner(scalingConfig);
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
         getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService));
+        getEntityStoreRegistry().registerSystem(new Nat20MobLootDropSystem(lootSystem));
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());

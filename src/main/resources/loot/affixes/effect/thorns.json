@@ -4,16 +4,38 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.thorns",
   "NamePosition": "SUFFIX",
-  "Categories": ["armor"],
-  "StatScaling": { "Primary": "CON", "Factor": 0.18 },
+  "Categories": [
+    "armor"
+  ],
+  "StatScaling": {
+    "Primary": "CON",
+    "Factor": 0.18
+  },
   "TargetStat": "ThornsDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 1.0, "Max": 3.0 },
-    "Uncommon":  { "Min": 2.0, "Max": 5.0 },
-    "Rare":      { "Min": 4.0, "Max": 8.0 },
-    "Epic":      { "Min": 6.0, "Max": 11.0 },
-    "Legendary": { "Min": 8.0, "Max": 14.0 }
+    "Common": {
+      "Min": 1.0,
+      "Max": 3.0
+    },
+    "Uncommon": {
+      "Min": 2.0,
+      "Max": 5.0
+    },
+    "Rare": {
+      "Min": 4.0,
+      "Max": 8.0
+    },
+    "Epic": {
+      "Min": 6.0,
+      "Max": 11.0
+    },
+    "Legendary": {
+      "Min": 8.0,
+      "Max": 14.0
+    }
   },
-  "Description": "Returns flat damage to melee attackers."
+  "Description": "Returns flat damage to melee attackers.",
+  "MobEligible": true,
+  "AffixSlotCost": 2
 }

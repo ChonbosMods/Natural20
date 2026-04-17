@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.Nat20AffixDef;
@@ -20,14 +19,13 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
 import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -92,14 +90,11 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
+        if (sources.isEmpty()) return;
+
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
-        if (attackerPlayer == null) return;
-
-        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
 
         if (!effectsResolved) {
             igniteEffect = EntityEffect.getAssetMap().getAsset(IGNITE_EFFECT);
@@ -111,96 +106,84 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                     igniteEffect != null, coldEffect != null, infectEffect != null, corruptEffect != null);
         }
 
-        UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
+        UUID attackerUuid = attackerPlayer != null ? attackerPlayer.getPlayerRef().getUuid() : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
-        for (RolledAffix rolledAffix : lootData.getAffixes()) {
-            String id = rolledAffix.id();
-            EntityEffect effect;
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
+                String id = rolledAffix.id();
+                EntityEffect effect;
 
-            if (IGNITE_ID.equals(id)) {
-                effect = igniteEffect;
-            } else if (COLD_ID.equals(id)) {
-                effect = coldEffect;
-            } else if (INFECT_ID.equals(id)) {
-                effect = infectEffect;
-            } else if (CORRUPT_ID.equals(id)) {
-                effect = corruptEffect;
-            } else {
-                continue;
-            }
-
-            if (effect == null) {
-                LOGGER.atWarning().log("[ElemDot] effect unavailable for %s", id);
-                continue;
-            }
-
-            Nat20AffixDef def = affixRegistry.get(id);
-            if (def == null) continue;
-
-            double procChance = parseProcChance(def.procChance());
-            if (procChance <= 0) continue;
-
-            // WIS scaling on proc chance
-            PlayerStats stats = resolvePlayerStats(attackerRef, store);
-            if (stats != null && def.statScaling() != null) {
-                Stat primary = def.statScaling().primary();
-                int modifier = stats.getModifier(primary);
-                procChance *= (1.0 + modifier * def.statScaling().factor());
-            }
-            procChance = Math.min(procChance, 1.0);
-
-            double roll = ThreadLocalRandom.current().nextDouble();
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[ElemDot] %s: chance=%.1f%% roll=%.3f proc=%s",
-                        id, procChance * 100, roll, roll <= procChance);
-            }
-            if (roll > procChance) continue;
-
-            Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-            EffectControllerComponent effectCtrl =
-                    store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-            if (effectCtrl == null) {
-                LOGGER.atWarning().log("[ElemDot] target has no EffectControllerComponent");
-                continue;
-            }
-
-            // Per-hit RNG: each proc rolls fresh within the item's range. Value interpolated
-            // here is the per-tick damage (display multiplies by TICKS_PER_DURATION for totals).
-            com.chonbosmods.loot.def.AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            float damagePerTick = 0.5f; // fallback
-            if (range != null) {
-                double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
-                double perTick = Nat20AffixScaling.interpolate(range, rolledLevel, lootData, lootSystem.getRarityRegistry());
-                // Stat scaling (WIS) amplifies per-tick damage.
-                PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
-                if (dotStats != null && def.statScaling() != null) {
-                    int mod = dotStats.getModifier(def.statScaling().primary());
-                    perTick *= (1.0 + mod * def.statScaling().factor());
+                if (IGNITE_ID.equals(id)) {
+                    effect = igniteEffect;
+                } else if (COLD_ID.equals(id)) {
+                    effect = coldEffect;
+                } else if (INFECT_ID.equals(id)) {
+                    effect = infectEffect;
+                } else if (CORRUPT_ID.equals(id)) {
+                    effect = corruptEffect;
+                } else {
+                    continue;
                 }
-                // Softcap applied on the total payload, then divided back out per tick.
-                double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
-                damagePerTick = (float) (total / TICKS_PER_DURATION);
-            }
 
-            // Register with unified tick system so all DOTs on this entity tick in sync
-            Nat20DotTickSystem.DotType dotType = switch (id) {
-                case IGNITE_ID -> Nat20DotTickSystem.DotType.IGNITE;
-                case COLD_ID -> Nat20DotTickSystem.DotType.COLD;
-                case INFECT_ID -> Nat20DotTickSystem.DotType.INFECT;
-                case CORRUPT_ID -> Nat20DotTickSystem.DotType.CORRUPT;
-                default -> null;
-            };
-            boolean isNew = dotType != null
-                    && dotTickSystem.registerDot(targetRef, dotType, attackerRef, damagePerTick);
+                if (effect == null) {
+                    LOGGER.atWarning().log("[ElemDot] effect unavailable for %s", id);
+                    continue;
+                }
 
-            // Only apply visual EntityEffect on first application to prevent particle stacking
-            if (isNew) {
-                effectCtrl.addEffect(targetRef, effect, commandBuffer);
-            }
+                Nat20AffixDef def = affixRegistry.get(id);
+                if (def == null) continue;
 
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[ElemDot] %s new=%s target=%s", id, isNew, targetRef);
+                double procChance = parseProcChance(def.procChance());
+                if (procChance <= 0) continue;
+
+                PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                if (stats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int modifier = stats.getModifier(primary);
+                    procChance *= (1.0 + modifier * def.statScaling().factor());
+                }
+                procChance = Math.min(procChance, 1.0);
+
+                double roll = ThreadLocalRandom.current().nextDouble();
+                if (roll > procChance) continue;
+
+                Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
+                EffectControllerComponent effectCtrl =
+                        store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+                if (effectCtrl == null) continue;
+
+                com.chonbosmods.loot.def.AffixValueRange range = def.getValuesForRarity(src.rarity());
+                float damagePerTick = 0.5f;
+                if (range != null) {
+                    double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
+                    double perTick = range.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
+                    PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                    if (dotStats != null && def.statScaling() != null) {
+                        int mod = dotStats.getModifier(def.statScaling().primary());
+                        perTick *= (1.0 + mod * def.statScaling().factor());
+                    }
+                    double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
+                    damagePerTick = (float) (total / TICKS_PER_DURATION);
+                }
+
+                Nat20DotTickSystem.DotType dotType = switch (id) {
+                    case IGNITE_ID -> Nat20DotTickSystem.DotType.IGNITE;
+                    case COLD_ID -> Nat20DotTickSystem.DotType.COLD;
+                    case INFECT_ID -> Nat20DotTickSystem.DotType.INFECT;
+                    case CORRUPT_ID -> Nat20DotTickSystem.DotType.CORRUPT;
+                    default -> null;
+                };
+                boolean isNew = dotType != null
+                        && dotTickSystem.registerDot(targetRef, dotType, attackerRef, damagePerTick);
+
+                if (isNew) {
+                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                }
+
+                if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
+                    LOGGER.atInfo().log("[ElemDot] %s new=%s target=%s", id, isNew, targetRef);
+                }
             }
         }
     }

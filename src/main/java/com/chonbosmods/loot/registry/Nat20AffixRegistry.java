@@ -28,7 +28,8 @@ public class Nat20AffixRegistry {
     private static final Map<String, String[]> BUILTIN_FILES = Map.of(
         "stat", new String[]{
             "score_cha.json", "score_con.json", "score_dex.json",
-            "score_int.json", "score_str.json", "score_wis.json"
+            "score_int.json", "score_str.json", "score_wis.json",
+            "hp.json"
         },
         "effect", new String[]{"absorption.json", "attack_speed.json", "crit_chance.json", "crit_damage.json", "deep_wounds.json", "focused_mind.json", "fire.json", "frost.json", "poison.json", "void.json", "ignite.json", "cold.json", "infect.json", "corrupt.json", "life_leech.json", "mana_leech.json", "vicious_mockery.json", "hex.json", "gallant.json", "fire_weakness.json", "frost_weakness.json", "void_weakness.json", "poison_weakness.json", "fire_resistance.json", "frost_resistance.json", "void_resistance.json", "poison_resistance.json", "physical_resistance.json", "crushing_blow.json", "backstab.json", "block_proficiency.json", "thorns.json", "evasion.json", "resilience.json", "water_breathing.json", "light_foot.json", "rally.json", "precision.json"},
         "ability", new String[]{"quake.json", "delve.json", "rend.json", "fissure.json", "resonance.json", "telekinesis.json", "haste.json", "fortified.json", "indestructible.json"}
@@ -136,6 +137,8 @@ public class Nat20AffixRegistry {
         }
 
         int frequency = obj.has("Frequency") ? obj.get("Frequency").getAsInt() : 10;
+        boolean mobEligible = obj.has("MobEligible") && obj.get("MobEligible").getAsBoolean();
+        int affixSlotCost = obj.has("AffixSlotCost") ? obj.get("AffixSlotCost").getAsInt() : 1;
 
         return new Nat20AffixDef(
             id,
@@ -152,7 +155,9 @@ public class Nat20AffixRegistry {
             cooldown,
             procChance,
             exclusiveWith,
-            frequency
+            frequency,
+            mobEligible,
+            affixSlotCost
         );
     }
 
@@ -175,5 +180,10 @@ public class Nat20AffixRegistry {
 
     public int getLoadedCount() {
         return affixesById.size();
+    }
+
+    /** All loaded affix defs (unordered). Callers that need a filtered view should copy + filter. */
+    public java.util.Collection<Nat20AffixDef> getAll() {
+        return affixesById.values();
     }
 }

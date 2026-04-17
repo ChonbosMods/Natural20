@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -20,8 +19,6 @@ import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
@@ -32,6 +29,7 @@ import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -80,70 +78,69 @@ public class Nat20LifeLeechSystem extends DamageEventSystem {
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
+        if (sources.isEmpty()) return;
+
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
-        if (attackerPlayer == null) return;
-
-        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
-
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
-        for (RolledAffix rolledAffix : lootData.getAffixes()) {
-            if (!AFFIX_ID.equals(rolledAffix.id())) continue;
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
+                if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
-            Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
-            if (def == null) return;
+                Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
+                if (def == null) return;
 
-            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            if (range == null) return;
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
+                if (range == null) return;
 
-            double basePercent = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
-            double effectivePercent = basePercent;
+                double basePercent = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
+                double effectivePercent = basePercent;
 
-            PlayerStats stats = resolvePlayerStats(attackerRef, store);
-            if (stats != null && def.statScaling() != null) {
-                Stat primary = def.statScaling().primary();
-                int modifier = stats.getModifier(primary);
-                effectivePercent = basePercent * (1.0 + modifier * def.statScaling().factor());
-            }
-            effectivePercent = Nat20Softcap.softcap(effectivePercent, SOFTCAP_K);
-
-            float healAmount = (float) (damage.getAmount() * effectivePercent);
-            if (healAmount <= 0f) return;
-
-            if (!statResolved) {
-                healthIdx = EntityStatType.getAssetMap().getIndex("Health");
-                statResolved = true;
-            }
-            if (healthIdx < 0) return;
-
-            EntityStatMap statMap = store.getComponent(attackerRef, EntityStatMap.getComponentType());
-            if (statMap == null) return;
-
-            statMap.addStatValue(healthIdx, healAmount);
-
-            // Particle on attacker
-            TransformComponent transform = store.getComponent(attackerRef, TransformComponent.getComponentType());
-            if (transform != null) {
-                Vector3d pos = transform.getPosition();
-                try {
-                    ParticleUtil.spawnParticleEffect(PARTICLE,
-                            new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
-                } catch (Exception e) {
-                    LOGGER.atSevere().withCause(e).log("[LifeLeech] particle failed");
+                PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                if (stats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int modifier = stats.getModifier(primary);
+                    effectivePercent = basePercent * (1.0 + modifier * def.statScaling().factor());
                 }
-            }
+                effectivePercent = Nat20Softcap.softcap(effectivePercent, SOFTCAP_K);
 
-            UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[LifeLeech] player=%s leech=%.1f%% dmg=%.1f heal=%.2f",
-                        attackerUuid.toString().substring(0, 8),
-                        effectivePercent * 100, damage.getAmount(), healAmount);
+                float healAmount = (float) (damage.getAmount() * effectivePercent);
+                if (healAmount <= 0f) return;
+
+                if (!statResolved) {
+                    healthIdx = EntityStatType.getAssetMap().getIndex("Health");
+                    statResolved = true;
+                }
+                if (healthIdx < 0) return;
+
+                EntityStatMap statMap = store.getComponent(attackerRef, EntityStatMap.getComponentType());
+                if (statMap == null) return;
+
+                statMap.addStatValue(healthIdx, healAmount);
+
+                TransformComponent transform = store.getComponent(attackerRef, TransformComponent.getComponentType());
+                if (transform != null) {
+                    Vector3d pos = transform.getPosition();
+                    try {
+                        ParticleUtil.spawnParticleEffect(PARTICLE,
+                                new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
+                    } catch (Exception e) {
+                        LOGGER.atSevere().withCause(e).log("[LifeLeech] particle failed");
+                    }
+                }
+
+                if (attackerPlayer != null) {
+                    UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
+                    if (CombatDebugSystem.isEnabled(attackerUuid)) {
+                        LOGGER.atInfo().log("[LifeLeech] player=%s leech=%.1f%% dmg=%.1f heal=%.2f",
+                                attackerUuid.toString().substring(0, 8),
+                                effectivePercent * 100, damage.getAmount(), healAmount);
+                    }
+                }
+                return;
             }
-            return;
         }
     }
 

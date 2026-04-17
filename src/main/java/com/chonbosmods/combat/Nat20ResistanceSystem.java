@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -14,15 +13,11 @@ import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
-import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
@@ -30,6 +25,7 @@ import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -83,8 +79,6 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
         if (damage.isCancelled() || damage.getAmount() <= 0f) return;
 
         Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-        Player targetPlayer = store.getComponent(targetRef, Player.getComponentType());
-        if (targetPlayer == null) return;
 
         if (!causesResolved) {
             var assetMap = DamageCause.getAssetMap();
@@ -119,34 +113,27 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
             return;
         }
 
-        // Scan armor for resistance affix
-        @SuppressWarnings("unchecked")
-        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
-                store, targetRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
-        if (armorContainer == null) return;
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveDefenderSources(
+                targetRef, store, lootSystem);
+        if (sources.isEmpty()) return;
 
+        Player targetPlayer = store.getComponent(targetRef, Player.getComponentType());
+        PlayerStats stats = targetPlayer != null ? resolvePlayerStats(targetRef, store) : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         double totalResistance = 0;
 
-        for (short slot = 0; slot < armorContainer.getCapacity(); slot++) {
-            ItemStack item = armorContainer.getItemStack(slot);
-            if (item == null || item.isEmpty()) continue;
-
-            Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (lootData == null) continue;
-
-            for (RolledAffix rolledAffix : lootData.getAffixes()) {
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
                 if (!resistAffixId.equals(rolledAffix.id())) continue;
 
                 Nat20AffixDef def = affixRegistry.get(resistAffixId);
                 if (def == null) continue;
 
-                AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
                 if (range == null) continue;
 
-                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+                double baseValue = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
                 double effectiveValue = baseValue;
-                PlayerStats stats = resolvePlayerStats(targetRef, store);
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
                     int modifier = stats.getModifier(primary);
@@ -165,10 +152,12 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
         if (reduced < 0f) reduced = 0f;
         damage.setAmount(reduced);
 
-        UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
-        if (CombatDebugSystem.isEnabled(targetUuid)) {
-            LOGGER.atInfo().log("[Resistance] %s: resist=%.1f%% damage=%.1f->%.1f",
-                    resistAffixId, totalResistance * 100, original, reduced);
+        if (targetPlayer != null) {
+            UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
+            if (CombatDebugSystem.isEnabled(targetUuid)) {
+                LOGGER.atInfo().log("[Resistance] %s: resist=%.1f%% damage=%.1f->%.1f",
+                        resistAffixId, totalResistance * 100, original, reduced);
+            }
         }
     }
 

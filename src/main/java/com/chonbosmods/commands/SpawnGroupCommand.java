@@ -22,9 +22,9 @@ import java.util.Map;
 public class SpawnGroupCommand extends AbstractPlayerCommand {
 
     private static final Map<String, String> MOB_ALIASES = Map.of(
-        "goblin",   "Goblin",
-        "trork",    "Trork",
-        "skeleton", "Skeleton"
+        "goblin",   "Goblin_Scrapper",
+        "trork",    "Trork_Warrior",
+        "skeleton", "Skeleton_Sand_Soldier"
     );
 
     private final RequiredArg<String> mobArg =

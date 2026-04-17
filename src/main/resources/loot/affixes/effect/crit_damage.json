@@ -4,19 +4,41 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.crit_damage",
   "NamePosition": "SUFFIX",
-  "Categories": ["melee_weapon"],
+  "Categories": [
+    "melee_weapon"
+  ],
   "StatRequirement": null,
-  "StatScaling": { "Primary": "STR", "Factor": 0.10 },
+  "StatScaling": {
+    "Primary": "STR",
+    "Factor": 0.10
+  },
   "TargetStat": "Nat20CritDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 0.10, "Max": 0.20 },
-    "Uncommon":  { "Min": 0.15, "Max": 0.30 },
-    "Rare":      { "Min": 0.25, "Max": 0.50 },
-    "Epic":      { "Min": 0.40, "Max": 0.75 },
-    "Legendary": { "Min": 0.60, "Max": 1.00 }
+    "Common": {
+      "Min": 0.10,
+      "Max": 0.20
+    },
+    "Uncommon": {
+      "Min": 0.15,
+      "Max": 0.30
+    },
+    "Rare": {
+      "Min": 0.25,
+      "Max": 0.50
+    },
+    "Epic": {
+      "Min": 0.40,
+      "Max": 0.75
+    },
+    "Legendary": {
+      "Min": 0.60,
+      "Max": 1.00
+    }
   },
   "Description": "Increases critical hit damage multiplier.",
   "Cooldown": null,
-  "ProcChance": null
+  "ProcChance": null,
+  "MobEligible": true,
+  "AffixSlotCost": 1
 }

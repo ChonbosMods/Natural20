@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -14,16 +13,12 @@ import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
-import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
@@ -33,7 +28,9 @@ import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Thorns: returns flat damage to melee attackers. Ignores Nat20Thorns cause
@@ -80,48 +77,36 @@ public class Nat20ThornsSystem extends DamageEventSystem {
         // Prevent infinite thorns ping-pong
         if (thornsCauseIdx >= 0 && damage.getDamageCauseIndex() == thornsCauseIdx) return;
 
-        // The defender (player with thorns armor) is the target of incoming damage
         Ref<EntityStore> defenderRef = chunk.getReferenceTo(entityIndex);
-        Player defenderPlayer = store.getComponent(defenderRef, Player.getComponentType());
-        if (defenderPlayer == null) return;
 
-        // Need an attacker to reflect damage to
         Damage.Source source = damage.getSource();
         if (!(source instanceof Damage.EntitySource entitySource)) return;
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
-        // Scan defender's armor for thorns affix
-        @SuppressWarnings("unchecked")
-        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
-                store, defenderRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
-        if (armorContainer == null) return;
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveDefenderSources(
+                defenderRef, store, lootSystem);
+        if (sources.isEmpty()) return;
 
+        Player defenderPlayer = store.getComponent(defenderRef, Player.getComponentType());
+        PlayerStats stats = defenderPlayer != null ? resolvePlayerStats(defenderRef, store) : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         double totalThornsDamage = 0;
 
-        for (short slot = 0; slot < armorContainer.getCapacity(); slot++) {
-            ItemStack item = armorContainer.getItemStack(slot);
-            if (item == null || item.isEmpty()) continue;
-
-            Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (lootData == null) continue;
-
-            for (RolledAffix rolledAffix : lootData.getAffixes()) {
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
                 if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
                 Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
                 if (def == null) continue;
 
-                AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
                 if (range == null) continue;
 
-                // Per-hit RNG: thorns damage rolls fresh for each reflected attack.
-                double baseValue = Nat20AffixScaling.interpolate(range,
-                        rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current()),
-                        lootData, lootSystem.getRarityRegistry());
+                double baseValue = range.interpolate(
+                        rolledAffix.rollLevel(ThreadLocalRandom.current()),
+                        src.ilvl(), src.qualityValue());
                 double effectiveValue = baseValue;
-                PlayerStats stats = resolvePlayerStats(defenderRef, store);
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
                     int modifier = stats.getModifier(primary);
@@ -136,11 +121,9 @@ public class Nat20ThornsSystem extends DamageEventSystem {
 
         if (thornsCauseIdx < 0) return;
 
-        // Fire reverse damage at attacker
         commandBuffer.invoke(attackerRef,
                 new Damage(new Damage.EntitySource(defenderRef), thornsCauseIdx, (float) totalThornsDamage));
 
-        // Particle on attacker
         TransformComponent transform = store.getComponent(attackerRef, TransformComponent.getComponentType());
         if (transform != null) {
             Vector3d pos = transform.getPosition();
@@ -152,10 +135,12 @@ public class Nat20ThornsSystem extends DamageEventSystem {
             }
         }
 
-        UUID defenderUuid = defenderPlayer.getPlayerRef().getUuid();
-        if (CombatDebugSystem.isEnabled(defenderUuid)) {
-            LOGGER.atInfo().log("[Thorns] reflected %.1f damage to attacker=%s",
-                    totalThornsDamage, attackerRef);
+        if (defenderPlayer != null) {
+            UUID defenderUuid = defenderPlayer.getPlayerRef().getUuid();
+            if (CombatDebugSystem.isEnabled(defenderUuid)) {
+                LOGGER.atInfo().log("[Thorns] reflected %.1f damage to attacker=%s",
+                        totalThornsDamage, attackerRef);
+            }
         }
     }
 

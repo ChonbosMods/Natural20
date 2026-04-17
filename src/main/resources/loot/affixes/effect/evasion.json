@@ -4,16 +4,38 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.evasion",
   "NamePosition": "SUFFIX",
-  "Categories": ["armor"],
-  "StatScaling": { "Primary": "DEX", "Factor": 0.10 },
+  "Categories": [
+    "armor"
+  ],
+  "StatScaling": {
+    "Primary": "DEX",
+    "Factor": 0.10
+  },
   "TargetStat": "Evasion",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 1.0, "Max": 1.0 },
-    "Uncommon":  { "Min": 1.0, "Max": 1.0 },
-    "Rare":      { "Min": 1.0, "Max": 1.0 },
-    "Epic":      { "Min": 1.0, "Max": 1.0 },
-    "Legendary": { "Min": 1.0, "Max": 1.0 }
+    "Common": {
+      "Min": 1.0,
+      "Max": 1.0
+    },
+    "Uncommon": {
+      "Min": 1.0,
+      "Max": 1.0
+    },
+    "Rare": {
+      "Min": 1.0,
+      "Max": 1.0
+    },
+    "Epic": {
+      "Min": 1.0,
+      "Max": 1.0
+    },
+    "Legendary": {
+      "Min": 1.0,
+      "Max": 1.0
+    }
   },
-  "Description": "Chance to completely dodge melee attacks."
+  "Description": "Chance to completely dodge melee attacks.",
+  "MobEligible": true,
+  "AffixSlotCost": 2
 }

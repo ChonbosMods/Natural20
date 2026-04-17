@@ -8,16 +8,10 @@ import com.chonbosmods.loot.effects.Nat20AffixEventListener;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
-import com.chonbosmods.loot.mob.abilities.BerserkerAbility;
-import com.chonbosmods.loot.mob.abilities.FieryAbility;
-import com.chonbosmods.loot.mob.abilities.FrostbornAbility;
-import com.chonbosmods.loot.mob.abilities.RegeneratingAbility;
-import com.chonbosmods.loot.mob.abilities.TeleportingAbility;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
-import com.chonbosmods.loot.registry.Nat20MobAffixRegistry;
 import com.chonbosmods.loot.registry.Nat20NamePoolRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
 import com.google.common.flogger.FluentLogger;
@@ -35,7 +29,6 @@ public class Nat20LootSystem {
     private final Nat20AffixRegistry affixRegistry = new Nat20AffixRegistry();
     private final Nat20GemRegistry gemRegistry = new Nat20GemRegistry();
     private final Nat20LootEntryRegistry lootEntryRegistry = new Nat20LootEntryRegistry();
-    private final Nat20MobAffixRegistry mobAffixRegistry = new Nat20MobAffixRegistry();
     private final Nat20NamePoolRegistry namePoolRegistry = new Nat20NamePoolRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
     private final Nat20MobNameGenerator mobNameGenerator = new Nat20MobNameGenerator();
@@ -49,7 +42,7 @@ public class Nat20LootSystem {
     private final Nat20ItemGarbageCollector garbageCollector;
 
     public Nat20LootSystem() {
-        this.mobAffixManager = new Nat20MobAffixManager(mobAffixRegistry, mobNameGenerator);
+        this.mobAffixManager = new Nat20MobAffixManager(affixRegistry, mobNameGenerator);
         this.mobLootListener = new Nat20MobLootListener(this);
         this.affixEventListener = new Nat20AffixEventListener(this);
         this.modifierManager = new Nat20ModifierManager(rarityRegistry, affixRegistry, gemRegistry);
@@ -58,16 +51,6 @@ public class Nat20LootSystem {
         this.garbageCollector = new Nat20ItemGarbageCollector(itemRegistry);
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry, itemRegistry, namePoolRegistry);
         registerEffectHandlers();
-        registerMobAbilityHandlers();
-    }
-
-    private void registerMobAbilityHandlers() {
-        Nat20MobAffixManager manager = mobAffixManager;
-        manager.registerAbilityHandler("fiery", new FieryAbility());
-        manager.registerAbilityHandler("frostborn", new FrostbornAbility());
-        manager.registerAbilityHandler("regenerating", new RegeneratingAbility());
-        manager.registerAbilityHandler("teleporting", new TeleportingAbility());
-        manager.registerAbilityHandler("berserker", new BerserkerAbility());
     }
 
     private void registerEffectHandlers() {
@@ -89,23 +72,20 @@ public class Nat20LootSystem {
         Path affixesDir = lootDataDir != null ? lootDataDir.resolve("affixes") : null;
         Path gemsDir = lootDataDir != null ? lootDataDir.resolve("gems") : null;
         Path entriesDir = lootDataDir != null ? lootDataDir.resolve("entries") : null;
-        Path mobAffixesDir = lootDataDir != null ? lootDataDir.resolve("mob_affixes") : null;
 
         rarityRegistry.loadAll(raritiesDir);
         affixRegistry.loadAll(affixesDir);
         gemRegistry.loadAll(gemsDir);
         lootEntryRegistry.loadAll(entriesDir);
-        mobAffixRegistry.loadAll(mobAffixesDir);
         namePoolRegistry.loadAll();
         mobNameGenerator.load();
         itemRegistry.init(lootDataDir != null ? lootDataDir.getParent() : null);
 
-        LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d mob affixes, %d name pools",
+        LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d name pools",
             rarityRegistry.getLoadedCount(),
             affixRegistry.getLoadedCount(),
             gemRegistry.getLoadedCount(),
             lootEntryRegistry.getLoadedCount(),
-            mobAffixRegistry.getLoadedCount(),
             namePoolRegistry.getLoadedCount()
         );
     }
@@ -114,7 +94,6 @@ public class Nat20LootSystem {
     public Nat20AffixRegistry getAffixRegistry() { return affixRegistry; }
     public Nat20GemRegistry getGemRegistry() { return gemRegistry; }
     public Nat20LootEntryRegistry getLootEntryRegistry() { return lootEntryRegistry; }
-    public Nat20MobAffixRegistry getMobAffixRegistry() { return mobAffixRegistry; }
     public Nat20NamePoolRegistry getNamePoolRegistry() { return namePoolRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }

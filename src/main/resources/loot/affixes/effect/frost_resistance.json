@@ -4,16 +4,38 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.frost_resistance",
   "NamePosition": "SUFFIX",
-  "Categories": ["armor"],
-  "StatScaling": { "Primary": "INT", "Factor": 0.12 },
+  "Categories": [
+    "armor"
+  ],
+  "StatScaling": {
+    "Primary": "INT",
+    "Factor": 0.12
+  },
   "TargetStat": "FrostResistance",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 0.05, "Max": 0.08 },
-    "Uncommon":  { "Min": 0.07, "Max": 0.12 },
-    "Rare":      { "Min": 0.10, "Max": 0.18 },
-    "Epic":      { "Min": 0.15, "Max": 0.24 },
-    "Legendary": { "Min": 0.20, "Max": 0.30 }
+    "Common": {
+      "Min": 0.05,
+      "Max": 0.08
+    },
+    "Uncommon": {
+      "Min": 0.07,
+      "Max": 0.12
+    },
+    "Rare": {
+      "Min": 0.10,
+      "Max": 0.18
+    },
+    "Epic": {
+      "Min": 0.15,
+      "Max": 0.24
+    },
+    "Legendary": {
+      "Min": 0.20,
+      "Max": 0.30
+    }
   },
-  "Description": "Reduces incoming frost damage."
+  "Description": "Reduces incoming frost damage.",
+  "MobEligible": true,
+  "AffixSlotCost": 1
 }

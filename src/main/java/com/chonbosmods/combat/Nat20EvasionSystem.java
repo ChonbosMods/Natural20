@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -14,16 +13,12 @@ import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
-import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
@@ -35,6 +30,7 @@ import com.hypixel.hytale.protocol.SoundCategory;
 import com.hypixel.hytale.server.core.asset.type.soundevent.config.SoundEvent;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -79,36 +75,28 @@ public class Nat20EvasionSystem extends DamageEventSystem {
         if (!(damage.getSource() instanceof Damage.EntitySource)) return;
 
         Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
+
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveDefenderSources(
+                targetRef, store, lootSystem);
+        if (sources.isEmpty()) return;
+
         Player targetPlayer = store.getComponent(targetRef, Player.getComponentType());
-        if (targetPlayer == null) return;
-
-        @SuppressWarnings("unchecked")
-        CombinedItemContainer armorContainer = InventoryComponent.getCombined(
-                store, targetRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});
-        if (armorContainer == null) return;
-
+        PlayerStats stats = targetPlayer != null ? resolvePlayerStats(targetRef, store) : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         double totalChance = 0;
 
-        for (short slot = 0; slot < armorContainer.getCapacity(); slot++) {
-            ItemStack item = armorContainer.getItemStack(slot);
-            if (item == null || item.isEmpty()) continue;
-
-            Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (lootData == null) continue;
-
-            for (RolledAffix rolledAffix : lootData.getAffixes()) {
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
                 if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
                 Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
                 if (def == null) continue;
 
-                AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
                 if (range == null) continue;
 
-                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+                double baseValue = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
                 double effectiveValue = baseValue;
-                PlayerStats stats = resolvePlayerStats(targetRef, store);
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
                     int modifier = stats.getModifier(primary);
@@ -122,17 +110,10 @@ public class Nat20EvasionSystem extends DamageEventSystem {
         if (totalChance < 1.0) {
             totalChance = Nat20Softcap.softcap(totalChance, SOFTCAP_K);
         } else {
-            totalChance = 1.0; // Force 100% for testing
+            totalChance = 1.0;
         }
 
         double roll = ThreadLocalRandom.current().nextDouble();
-        UUID targetUuid = targetPlayer.getPlayerRef().getUuid();
-
-        if (CombatDebugSystem.isEnabled(targetUuid)) {
-            LOGGER.atInfo().log("[Evasion] chance=%.1f%% roll=%.3f dodge=%s",
-                    totalChance * 100, roll, roll <= totalChance);
-        }
-
         if (roll > totalChance) return;
 
         // Dodge! Cancel the entire damage event to prevent flinch, hit particles, and knockback

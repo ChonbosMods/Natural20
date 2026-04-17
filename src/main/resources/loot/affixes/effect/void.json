@@ -4,16 +4,36 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.void",
   "NamePosition": "PREFIX",
-  "Categories": ["melee_weapon", "ranged_weapon"],
+  "Categories": [
+    "melee_weapon",
+    "ranged_weapon"
+  ],
   "StatScaling": null,
   "TargetStat": "VoidDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 1.0, "Max": 2.0 },
-    "Uncommon":  { "Min": 2.0, "Max": 4.0 },
-    "Rare":      { "Min": 4.0, "Max": 7.0 },
-    "Epic":      { "Min": 7.0, "Max": 11.0 },
-    "Legendary": { "Min": 11.0, "Max": 16.0 }
+    "Common": {
+      "Min": 1.0,
+      "Max": 2.0
+    },
+    "Uncommon": {
+      "Min": 2.0,
+      "Max": 4.0
+    },
+    "Rare": {
+      "Min": 4.0,
+      "Max": 7.0
+    },
+    "Epic": {
+      "Min": 7.0,
+      "Max": 11.0
+    },
+    "Legendary": {
+      "Min": 11.0,
+      "Max": 16.0
+    }
   },
-  "Description": "Adds flat void damage to every hit."
+  "Description": "Adds flat void damage to every hit.",
+  "MobEligible": true,
+  "AffixSlotCost": 1
 }

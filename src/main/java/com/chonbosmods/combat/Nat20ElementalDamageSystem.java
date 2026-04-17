@@ -1,9 +1,6 @@
 package com.chonbosmods.combat;
 
-import com.chonbosmods.Natural20;
-import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -18,8 +15,6 @@ import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
@@ -28,6 +23,7 @@ import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -90,14 +86,9 @@ public class Nat20ElementalDamageSystem extends DamageEventSystem {
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
-        Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
-        if (attackerPlayer == null) return;
-
-        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
+        if (sources.isEmpty()) return;
 
         if (!causesResolved) {
             fireCauseIdx = DamageCause.getAssetMap().getIndex("Nat20Fire");
@@ -110,7 +101,8 @@ public class Nat20ElementalDamageSystem extends DamageEventSystem {
         }
 
         Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-        UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
+        Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
+        UUID attackerUuid = attackerPlayer != null ? attackerPlayer.getPlayerRef().getUuid() : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
         // Check if the incoming damage is already one of our elemental causes to avoid
@@ -121,58 +113,57 @@ public class Nat20ElementalDamageSystem extends DamageEventSystem {
             return;
         }
 
-        for (RolledAffix rolledAffix : lootData.getAffixes()) {
-            String id = rolledAffix.id();
-            int causeIdx;
-            String particleId;
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
+                String id = rolledAffix.id();
+                int causeIdx;
+                String particleId;
 
-            if (FIRE_ID.equals(id) && fireCauseIdx >= 0) {
-                causeIdx = fireCauseIdx;
-                particleId = PARTICLE_FIRE;
-            } else if (FROST_ID.equals(id) && iceCauseIdx >= 0) {
-                causeIdx = iceCauseIdx;
-                particleId = PARTICLE_FROST;
-            } else if (POISON_ID.equals(id) && poisonCauseIdx >= 0) {
-                causeIdx = poisonCauseIdx;
-                particleId = PARTICLE_POISON;
-            } else if (VOID_ID.equals(id) && voidCauseIdx >= 0) {
-                causeIdx = voidCauseIdx;
-                particleId = PARTICLE_VOID;
-            } else {
-                continue;
-            }
-
-            Nat20AffixDef def = affixRegistry.get(id);
-            if (def == null) continue;
-
-            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            if (range == null) continue;
-
-            // Per-hit RNG: each swing rolls a fresh value uniformly within the item's range.
-            float flatDamage = (float) Nat20AffixScaling.interpolate(range,
-                    rolledAffix.rollLevel(ThreadLocalRandom.current()),
-                    lootData, lootSystem.getRarityRegistry());
-            if (flatDamage <= 0f) continue;
-
-            // Fire secondary damage event with elemental cause
-            commandBuffer.invoke(targetRef,
-                    new Damage(new Damage.EntitySource(attackerRef), causeIdx, flatDamage));
-
-            // Spawn elemental hit particle at target
-            TransformComponent transform = store.getComponent(targetRef, TransformComponent.getComponentType());
-            if (transform != null) {
-                Vector3d pos = transform.getPosition();
-                try {
-                    ParticleUtil.spawnParticleEffect(particleId,
-                            new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
-                } catch (Exception e) {
-                    LOGGER.atSevere().withCause(e).log("[ElemDmg] particle spawn failed: %s", particleId);
+                if (FIRE_ID.equals(id) && fireCauseIdx >= 0) {
+                    causeIdx = fireCauseIdx;
+                    particleId = PARTICLE_FIRE;
+                } else if (FROST_ID.equals(id) && iceCauseIdx >= 0) {
+                    causeIdx = iceCauseIdx;
+                    particleId = PARTICLE_FROST;
+                } else if (POISON_ID.equals(id) && poisonCauseIdx >= 0) {
+                    causeIdx = poisonCauseIdx;
+                    particleId = PARTICLE_POISON;
+                } else if (VOID_ID.equals(id) && voidCauseIdx >= 0) {
+                    causeIdx = voidCauseIdx;
+                    particleId = PARTICLE_VOID;
+                } else {
+                    continue;
                 }
-            }
 
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[ElemDmg] %s: player=%s flat=%.1f cause=%s",
-                        id, attackerUuid.toString().substring(0, 8), flatDamage, id);
+                Nat20AffixDef def = affixRegistry.get(id);
+                if (def == null) continue;
+
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
+                if (range == null) continue;
+
+                float flatDamage = (float) range.interpolate(
+                        rolledAffix.rollLevel(ThreadLocalRandom.current()),
+                        src.ilvl(), src.qualityValue());
+                if (flatDamage <= 0f) continue;
+
+                commandBuffer.invoke(targetRef,
+                        new Damage(new Damage.EntitySource(attackerRef), causeIdx, flatDamage));
+
+                TransformComponent transform = store.getComponent(targetRef, TransformComponent.getComponentType());
+                if (transform != null) {
+                    Vector3d pos = transform.getPosition();
+                    try {
+                        ParticleUtil.spawnParticleEffect(particleId,
+                                new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
+                    } catch (Exception e) {
+                        LOGGER.atSevere().withCause(e).log("[ElemDmg] particle spawn failed: %s", particleId);
+                    }
+                }
+
+                if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
+                    LOGGER.atInfo().log("[ElemDmg] %s: player=%s flat=%.1f cause=%s",
+                            id, attackerUuid.toString().substring(0, 8), flatDamage, id);
+                }
             }
         }
     }

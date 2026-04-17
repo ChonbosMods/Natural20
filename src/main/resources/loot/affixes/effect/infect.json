@@ -4,17 +4,40 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.infect",
   "NamePosition": "PREFIX",
-  "Categories": ["melee_weapon", "ranged_weapon"],
-  "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
+  "Categories": [
+    "melee_weapon",
+    "ranged_weapon"
+  ],
+  "StatScaling": {
+    "Primary": "WIS",
+    "Factor": 0.15
+  },
   "TargetStat": "InfectDamage",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
-    "Common":    { "Min": 1.0, "Max": 2.0 },
-    "Uncommon":  { "Min": 1.5, "Max": 3.0 },
-    "Rare":      { "Min": 2.0, "Max": 4.5 },
-    "Epic":      { "Min": 3.5, "Max": 7.0 },
-    "Legendary": { "Min": 5.0, "Max": 10.0 }
+    "Common": {
+      "Min": 1.0,
+      "Max": 2.0
+    },
+    "Uncommon": {
+      "Min": 1.5,
+      "Max": 3.0
+    },
+    "Rare": {
+      "Min": 2.0,
+      "Max": 4.5
+    },
+    "Epic": {
+      "Min": 3.5,
+      "Max": 7.0
+    },
+    "Legendary": {
+      "Min": 5.0,
+      "Max": 10.0
+    }
   },
   "Description": "On melee hit, chance to infect the target, dealing poison damage over time.",
-  "ProcChance": "100%"
+  "ProcChance": "100%",
+  "MobEligible": true,
+  "AffixSlotCost": 1
 }

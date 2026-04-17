@@ -1,0 +1,21 @@
+{
+  "Id": "nat20:hp",
+  "Frequency": 20,
+  "Type": "STAT",
+  "DisplayName": "server.nat20.affix.hp",
+  "NamePosition": "NONE",
+  "Categories": [],
+  "StatRequirement": null,
+  "StatScaling": null,
+  "TargetStat": "Health",
+  "ModifierType": "MULTIPLICATIVE",
+  "ValuesPerRarity": {
+    "Uncommon":  { "Min": 1.15, "Max": 1.15 },
+    "Rare":      { "Min": 1.30, "Max": 1.30 },
+    "Epic":      { "Min": 1.50, "Max": 1.50 },
+    "Legendary": { "Min": 1.80, "Max": 1.80 }
+  },
+  "MobEligible": true,
+  "AffixSlotCost": 1,
+  "Description": "Multiplies the mob's max HP."
+}

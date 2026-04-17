@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -21,14 +20,13 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
 import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -90,58 +88,57 @@ public class Nat20HexSystem extends DamageEventSystem {
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
+        if (sources.isEmpty()) return;
+
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
-        if (attackerPlayer == null) return;
-
-        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
-
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
-        for (RolledAffix rolledAffix : lootData.getAffixes()) {
-            if (!AFFIX_ID.equals(rolledAffix.id())) continue;
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
+                if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
-            if (!resolveEffect()) return;
+                if (!resolveEffect()) return;
 
-            Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-            UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
+                Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
 
-            Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
-            if (def == null) return;
+                Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
+                if (def == null) return;
 
-            AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-            if (range == null) return;
+                AffixValueRange range = def.getValuesForRarity(src.rarity());
+                if (range == null) return;
 
-            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
-            double effectiveValue = baseValue;
-            PlayerStats stats = resolvePlayerStats(attackerRef, store);
-            if (stats != null && def.statScaling() != null) {
-                Stat primary = def.statScaling().primary();
-                int modifier = stats.getModifier(primary);
-                effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
-            }
-            effectiveValue = Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
-
-            // Apply hex visual. Only on first application to prevent particle stacking.
-            HexState previous = hexedTargets.put(targetRef,
-                    new HexState(effectiveValue, System.currentTimeMillis() + 15000));
-            if (previous == null || System.currentTimeMillis() > previous.expiryMs) {
-                EffectControllerComponent effectCtrl =
-                        store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-                if (effectCtrl != null) {
-                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                double baseValue = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
+                double effectiveValue = baseValue;
+                PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                if (stats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int modifier = stats.getModifier(primary);
+                    effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
                 }
-            }
+                effectiveValue = Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);
 
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                LOGGER.atInfo().log("[Hex] %s: target=%s bonus=%.1f%%",
-                        previous == null ? "applied" : "refreshed",
-                        targetRef, effectiveValue * 100);
+                HexState previous = hexedTargets.put(targetRef,
+                        new HexState(effectiveValue, System.currentTimeMillis() + 15000));
+                if (previous == null || System.currentTimeMillis() > previous.expiryMs) {
+                    EffectControllerComponent effectCtrl =
+                            store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+                    if (effectCtrl != null) {
+                        effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                    }
+                }
+
+                if (attackerPlayer != null) {
+                    UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
+                    if (CombatDebugSystem.isEnabled(attackerUuid)) {
+                        LOGGER.atInfo().log("[Hex] %s: target=%s bonus=%.1f%%",
+                                previous == null ? "applied" : "refreshed",
+                                targetRef, effectiveValue * 100);
+                    }
+                }
+                return;
             }
-            return;
         }
     }
 

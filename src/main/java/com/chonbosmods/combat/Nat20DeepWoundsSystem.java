@@ -2,8 +2,7 @@ package com.chonbosmods.combat;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.loot.Nat20AffixScaling;
+import com.chonbosmods.loot.EffectAffixSource;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -21,14 +20,13 @@ import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.server.core.asset.type.entityeffect.config.EntityEffect;
 import com.hypixel.hytale.server.core.entity.effect.EffectControllerComponent;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.inventory.InventoryComponent;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -84,95 +82,70 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
+        if (sources.isEmpty()) return;
+
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
-        if (attackerPlayer == null) return;
-
-        UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
-
-        ItemStack weapon = InventoryComponent.getItemInHand(store, attackerRef);
-        if (weapon == null || weapon.isEmpty()) return;
-
-        Nat20LootData lootData = weapon.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) return;
+        UUID attackerUuid = attackerPlayer != null ? attackerPlayer.getPlayerRef().getUuid() : null;
 
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
-        for (RolledAffix rolledAffix : lootData.getAffixes()) {
-            if (!AFFIX_ID.equals(rolledAffix.id())) continue;
+        for (EffectAffixSource.Source src : sources) {
+            for (RolledAffix rolledAffix : src.affixes()) {
+                if (!AFFIX_ID.equals(rolledAffix.id())) continue;
 
-            Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
-            if (def == null) {
-                LOGGER.atWarning().log("[DeepWounds] affix def missing for %s", AFFIX_ID);
-                return;
-            }
-
-            double procChance = parseProcChance(def.procChance());
-            double roll = ThreadLocalRandom.current().nextDouble();
-            LOGGER.atInfo().log("[DeepWounds] roll: attacker=%s chance=%.2f roll=%.3f proc=%s",
-                    attackerUuid.toString().substring(0, 8),
-                    procChance, roll, (roll <= procChance));
-            if (procChance <= 0) return;
-            if (roll > procChance) return;
-
-            if (!resolveEffect()) {
-                LOGGER.atWarning().log("[DeepWounds] effect '%s' unavailable; skipping proc", EFFECT_ID);
-                return;
-            }
-
-            Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
-            EffectControllerComponent effectController =
-                    store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-            if (effectController == null) {
-                LOGGER.atWarning().log("[DeepWounds] target has no EffectControllerComponent; skipping");
-                return;
-            }
-
-            // Per-hit RNG: each proc rolls fresh within the item's range. Value interpolated
-            // here is the per-tick damage (display multiplies by TICKS_PER_DURATION for totals).
-            AffixValueRange dotRange = def.getValuesForRarity(lootData.getRarity());
-            float damagePerTick = 0.5f;
-            if (dotRange != null) {
-                double rolledLevel = rolledAffix.rollLevel(java.util.concurrent.ThreadLocalRandom.current());
-                double perTick = Nat20AffixScaling.interpolate(dotRange, rolledLevel, lootData, lootSystem.getRarityRegistry());
-                PlayerStats dotStats = resolvePlayerStats(attackerRef, store);
-                if (dotStats != null && def.statScaling() != null) {
-                    Stat primary = def.statScaling().primary();
-                    int mod = dotStats.getModifier(primary);
-                    perTick *= (1.0 + mod * def.statScaling().factor());
+                Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
+                if (def == null) {
+                    LOGGER.atWarning().log("[DeepWounds] affix def missing for %s", AFFIX_ID);
+                    return;
                 }
-                double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
-                damagePerTick = (float) (total / TICKS_PER_DURATION);
-            }
 
-            // Register with unified tick system so bleed syncs with other DOTs
-            boolean isNew = dotTickSystem.registerDot(targetRef,
-                    Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick);
+                double procChance = parseProcChance(def.procChance());
+                double roll = ThreadLocalRandom.current().nextDouble();
+                if (procChance <= 0) return;
+                if (roll > procChance) return;
 
-            // Only apply visual EntityEffect on first application to prevent particle stacking
-            if (isNew) {
-                effectController.addEffect(targetRef, bleedEffect, commandBuffer);
-            }
-
-            LOGGER.atInfo().log("[DeepWounds] new=%s effect=%s target=%s",
-                    isNew, EFFECT_ID, targetRef);
-
-            if (CombatDebugSystem.isEnabled(attackerUuid)) {
-                AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
-                double baseValue = range != null
-                        ? Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry())
-                        : 0;
-                double effectiveValue = baseValue;
-                PlayerStats playerStats = resolvePlayerStats(attackerRef, store);
-                if (playerStats != null && def.statScaling() != null) {
-                    Stat primary = def.statScaling().primary();
-                    int modifier = playerStats.getModifier(primary);
-                    effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+                if (!resolveEffect()) {
+                    LOGGER.atWarning().log("[DeepWounds] effect '%s' unavailable; skipping proc", EFFECT_ID);
+                    return;
                 }
-                double bleedTotal = Nat20Softcap.softcap(effectiveValue, 12.0);
-                LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s base=%.2f effective=%.2f softcapped=%.2f effect=%s",
-                        attackerUuid.toString().substring(0, 8),
-                        baseValue, effectiveValue, bleedTotal, EFFECT_ID);
+
+                Ref<EntityStore> targetRef = chunk.getReferenceTo(entityIndex);
+                EffectControllerComponent effectController =
+                        store.getComponent(targetRef, EffectControllerComponent.getComponentType());
+                if (effectController == null) {
+                    LOGGER.atWarning().log("[DeepWounds] target has no EffectControllerComponent; skipping");
+                    return;
+                }
+
+                AffixValueRange dotRange = def.getValuesForRarity(src.rarity());
+                float damagePerTick = 0.5f;
+                if (dotRange != null) {
+                    double rolledLevel = rolledAffix.rollLevel(ThreadLocalRandom.current());
+                    double perTick = dotRange.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
+                    PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                    if (dotStats != null && def.statScaling() != null) {
+                        Stat primary = def.statScaling().primary();
+                        int mod = dotStats.getModifier(primary);
+                        perTick *= (1.0 + mod * def.statScaling().factor());
+                    }
+                    double total = Nat20Softcap.softcap(perTick * TICKS_PER_DURATION, 12.0);
+                    damagePerTick = (float) (total / TICKS_PER_DURATION);
+                }
+
+                boolean isNew = dotTickSystem.registerDot(targetRef,
+                        Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick);
+
+                if (isNew) {
+                    effectController.addEffect(targetRef, bleedEffect, commandBuffer);
+                }
+
+                if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
+                    LOGGER.atInfo().log("[DeepWounds] proc: attacker=%s dmg/tick=%.2f new=%s",
+                            attackerUuid.toString().substring(0, 8), damagePerTick, isNew);
+                }
+                return;
             }
-            return;
         }
     }
 

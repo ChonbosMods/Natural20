@@ -33,10 +33,12 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|MobScale");
     private static final Query<EntityStore> QUERY = Query.any();
 
-    private static final String MOD_KEY_HP  = "nat20:mob:mlvl-tier-hp";
-    private static final String MOD_KEY_DMG = "nat20:mob:mlvl-tier-dmg";
+    private static final String MOD_KEY_HP = "nat20:mob:mlvl-tier-hp";
 
     private final MobScalingConfig config;
+
+    private int hpStatIdx = -1;
+    private boolean hpStatResolved = false;
 
     public Nat20MobScaleSystem(MobScalingConfig config) {
         this.config = config;
@@ -62,14 +64,14 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
 
         if (level == null) {
             level = new Nat20MobLevel();
-            store.putComponent(ref, Natural20.getMobLevelType(), level);
+            cb.putComponent(ref, Natural20.getMobLevelType(), level);
         }
         level.setAreaLevel(areaLevel);
         level.setTier(Tier.REGULAR);
         applyStats(ref, store, level);
         level.setScaled(true);
 
-        LOGGER.atInfo().log("Tagged %s areaLevel=%d tier=REGULAR (distance=%.1f)",
+        LOGGER.atFine().log("Tagged %s areaLevel=%d tier=REGULAR (distance=%.1f)",
                 npc.getRoleName(), areaLevel, distance);
     }
 
@@ -88,7 +90,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         }
         level.setTier(newTier);
         applyStats(ref, store, level);
-        LOGGER.atInfo().log("Retier ref=%s areaLevel=%d tier=%s",
+        LOGGER.atFine().log("Retier ref=%s areaLevel=%d tier=%s",
                 ref, level.getAreaLevel(), newTier);
     }
 
@@ -127,7 +129,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         level.setDifficultyTier(difficulty);
         applyStats(ref, store, level);
         applyTint(ref, store, accessor, difficulty);
-        LOGGER.atInfo().log("Applied difficulty ref=%s tier=%s areaLevel=%d",
+        LOGGER.atFine().log("Applied difficulty ref=%s tier=%s areaLevel=%d",
                 ref, difficulty, level.getAreaLevel());
     }
 
@@ -162,17 +164,16 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         int mlvl = Math.max(1, Math.min(45, baseMlvl + diffMod));
         MobScalingConfig.TierMult mult = config.multipliersFor(level.getTier());
 
-        double hpMult  = config.hpScale(mlvl)  * mult.hpMult();
-        double dmgMult = config.dmgScale(mlvl) * mult.dmgMult();
+        double hpMult = config.hpScale(mlvl) * mult.hpMult();
 
-        int hpStat  = EntityStatType.getAssetMap().getIndex("Health");
-        int dmgStat = EntityStatType.getAssetMap().getIndex("AttackDamage");
+        if (!hpStatResolved) {
+            hpStatIdx = EntityStatType.getAssetMap().getIndex("Health");
+            hpStatResolved = true;
+        }
+        if (hpStatIdx < 0) return;
 
-        statMap.putModifier(hpStat,  MOD_KEY_HP,
+        statMap.putModifier(hpStatIdx, MOD_KEY_HP,
                 new StaticModifier(Modifier.ModifierTarget.MAX,
                         StaticModifier.CalculationType.MULTIPLICATIVE, (float) hpMult));
-        statMap.putModifier(dmgStat, MOD_KEY_DMG,
-                new StaticModifier(Modifier.ModifierTarget.MAX,
-                        StaticModifier.CalculationType.MULTIPLICATIVE, (float) dmgMult));
     }
 }
