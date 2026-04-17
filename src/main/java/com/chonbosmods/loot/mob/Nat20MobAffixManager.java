@@ -18,7 +18,6 @@ import com.hypixel.hytale.server.core.modules.entitystats.modifier.StaticModifie
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -46,12 +45,37 @@ public class Nat20MobAffixManager {
     }
 
     /**
-     * Roll and apply mob affixes. Writes the rolled list to Nat20MobAffixes,
-     * applies STAT-type modifiers via EntityStatMap, and sets a nameplate for
-     * BOSS / DUNGEON_BOSS roles (independent of whether any affixes rolled).
+     * Roll a fresh affix set for a mob based on role + difficulty, then apply it.
+     * Used by spawn paths that want an independent roll per mob (e.g., the boss
+     * of a group, or future out-in-the-wild single-mob spawns).
      */
     public void rollAndApply(Ref<EntityStore> mobRef, Store<EntityStore> store,
                              Tier role, DifficultyTier difficulty) {
+        List<RolledAffix> rolled = rollAffixes(role, difficulty);
+        applyAffixes(mobRef, store, role, difficulty, rolled);
+    }
+
+    /**
+     * Roll an affix set ONCE for shared use across multiple mobs (e.g., every
+     * champion in a Nat20 spawn group gets the same set; the boss rolls its own
+     * via {@link #rollAndApply}). Returns empty list if the pool is empty or the
+     * slot budget is zero.
+     */
+    public List<RolledAffix> rollAffixes(Tier role, DifficultyTier difficulty) {
+        int slotBudget = Natural20.getInstance().getScalingConfig().affixCountFor(role, difficulty);
+        if (slotBudget <= 0) return List.of();
+        return roller.roll(slotBudget, difficulty, ThreadLocalRandom.current());
+    }
+
+    /**
+     * Apply a pre-rolled affix set to a mob. Writes {@link Nat20MobAffixes},
+     * applies STAT-type modifiers via EntityStatMap, and sets a nameplate for
+     * BOSS / DUNGEON_BOSS roles (independent of whether any affixes rolled).
+     * The nameplate is generated per-call so each boss in a group still gets
+     * a unique rarity-colored name.
+     */
+    public void applyAffixes(Ref<EntityStore> mobRef, Store<EntityStore> store,
+                             Tier role, DifficultyTier difficulty, List<RolledAffix> rolled) {
         // Nameplate is tier-gated but independent of affix pool state.
         if (role == Tier.BOSS || role == Tier.DUNGEON_BOSS) {
             String eliteName = nameGenerator.generate(difficulty);
@@ -64,13 +88,9 @@ public class Nat20MobAffixManager {
             }
         }
 
-        int slotBudget = Natural20.getInstance().getScalingConfig().affixCountFor(role, difficulty);
-        if (slotBudget <= 0) return;
-
-        Random rng = ThreadLocalRandom.current();
-        List<RolledAffix> rolled = roller.roll(slotBudget, difficulty, rng);
-        if (rolled.isEmpty()) {
-            LOGGER.atWarning().log("No mob-eligible affixes available for role=%s difficulty=%s", role, difficulty);
+        if (rolled == null || rolled.isEmpty()) {
+            LOGGER.atFine().log("No affixes to apply on mob %s (role=%s difficulty=%s)",
+                    mobRef, role, difficulty);
             return;
         }
 
@@ -94,7 +114,7 @@ public class Nat20MobAffixManager {
             }
         }
 
-        LOGGER.atInfo().log("Applied %d affix(es) role=%s difficulty=%s: %s",
+        LOGGER.atFine().log("Applied %d affix(es) role=%s difficulty=%s: %s",
                 rolled.size(), role, difficulty,
                 rolled.stream().map(RolledAffix::id).toList());
     }

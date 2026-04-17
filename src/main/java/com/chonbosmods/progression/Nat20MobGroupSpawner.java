@@ -1,6 +1,7 @@
 package com.chonbosmods.progression;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -79,12 +80,19 @@ public class Nat20MobGroupSpawner {
         DifficultyTier championDiff = (groupDiff == DifficultyTier.LEGENDARY)
                 ? DifficultyTier.EPIC : groupDiff;
 
+        // All champions in a group share one affix set (the group's "champion roll");
+        // the boss rolls independently. Fewer rolls + visually-coherent minion packs.
+        Nat20MobAffixManager affixMgr =
+                Natural20.getInstance().getLootSystem().getMobAffixManager();
+        List<RolledAffix> sharedChampionAffixes =
+                affixMgr.rollAffixes(Tier.CHAMPION, championDiff);
+
         List<Ref<EntityStore>> champs = new ArrayList<>(clampedCount);
         for (int i = 0; i < clampedCount; i++) {
             Vector3d pos = spreadAround(anchor, 3.0);
             Ref<EntityStore> ref = spawnOne(world, roleIndex, pos);
             if (ref == null) continue;
-            applyFullStack(store, ref, Tier.CHAMPION, championDiff);
+            applySharedChampionStack(store, ref, championDiff, sharedChampionAffixes, affixMgr);
             champs.add(ref);
         }
 
@@ -95,8 +103,9 @@ public class Nat20MobGroupSpawner {
         }
 
         LOGGER.atInfo().log(
-                "Spawned group role=%s champions=%d groupDiff=%s bossDiff=%s dungeonBoss=%s",
-                mobRole, champs.size(), groupDiff, bossDiff, isDungeonBoss);
+                "Spawned group role=%s champions=%d groupDiff=%s bossDiff=%s dungeonBoss=%s sharedChampionAffixes=%s",
+                mobRole, champs.size(), groupDiff, bossDiff, isDungeonBoss,
+                sharedChampionAffixes.stream().map(RolledAffix::id).toList());
 
         return new SpawnResult(groupDiff, bossDiff, champs, bossRef);
     }
@@ -110,7 +119,7 @@ public class Nat20MobGroupSpawner {
         return (result != null) ? result.first() : null;
     }
 
-    /** Scale system tag + difficulty + affix roll + nameplate for a single mob. */
+    /** Scale system tag + difficulty + fresh affix roll (boss path). */
     private void applyFullStack(Store<EntityStore> store,
                                 Ref<EntityStore> ref, Tier role, DifficultyTier difficulty) {
         var scaleSystem = Natural20.getInstance().getMobScaleSystem();
@@ -120,6 +129,17 @@ public class Nat20MobGroupSpawner {
         Nat20MobAffixManager affixMgr =
                 Natural20.getInstance().getLootSystem().getMobAffixManager();
         affixMgr.rollAndApply(ref, store, role, difficulty);
+    }
+
+    /** Scale system tag + difficulty + shared pre-rolled affix set (champion group path). */
+    private void applySharedChampionStack(Store<EntityStore> store, Ref<EntityStore> ref,
+                                          DifficultyTier difficulty,
+                                          List<RolledAffix> sharedAffixes,
+                                          Nat20MobAffixManager affixMgr) {
+        var scaleSystem = Natural20.getInstance().getMobScaleSystem();
+        scaleSystem.setTier(ref, store, Tier.CHAMPION);
+        scaleSystem.applyDifficulty(ref, store, store, difficulty);
+        affixMgr.applyAffixes(ref, store, Tier.CHAMPION, difficulty, sharedAffixes);
     }
 
     private Vector3d spreadAround(Vector3d anchor, double radius) {
