@@ -4,7 +4,12 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
+import com.chonbosmods.progression.DifficultyTier;
+import com.chonbosmods.progression.MobScalingConfig;
+import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.quest.model.*;
+import com.chonbosmods.quest.poi.PoiGroupDirection;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
@@ -313,7 +318,10 @@ public class QuestGenerator {
     private void buildObjectiveSummary(ObjectiveInstance obj, Map<String, String> bindings) {
         if (obj == null) return;
         String summary = switch (obj.getType()) {
-            case KILL_MOBS -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case KILL_MOBS -> obj.isSingletonBossKill()
+                ? "kill " + obj.getTargetLabel()
+                : "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case KILL_BOSS -> "kill " + obj.getTargetLabel();
             case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
             case FETCH_ITEM -> "retrieve " + obj.getTargetLabel();
             case PEACEFUL_FETCH -> "pick up " + obj.getTargetLabel();
@@ -374,6 +382,21 @@ public class QuestGenerator {
                     killObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
                 }
                 yield killObj;
+            }
+            case KILL_BOSS -> {
+                // Singular named-boss quest: claim a POI like KILL_MOBS and stamp the
+                // objective with forcedPoiDirection=KILL_BOSS + requiredCount=1 + the
+                // pre-rolled boss name. Pre-roll always runs (even on the deferred path)
+                // so {boss_name} is bound for exposition text before the player travels.
+                ObjectiveInstance bossObj = createPOIObjective(type, bindings, config, random, difficulty);
+                if (bossObj == null) {
+                    LOGGER.atInfo().log("KILL_BOSS for %s: no void at generation, deferring POI to runtime", npcId);
+                    bossObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
+                        1, null, null);
+                    bossObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
+                }
+                applyBossPreRoll(bossObj, bindings, random);
+                yield bossObj;
             }
             case FETCH_ITEM -> {
                 // Draw a keepsake or evidence item. Template may pin a specific item type
@@ -468,35 +491,40 @@ public class QuestGenerator {
         String hint = DirectionUtil.computeHint(npcX, npcZ, cx, cz);
 
         // Required count: KILL_MOBS reads countMin/countMax from the template (with a
-        // default if omitted); FETCH_ITEM is always 1 because the chest contains the item.
+        // default if omitted); FETCH_ITEM is always 1 because the chest contains the item;
+        // KILL_BOSS is always 1 because the boss is singular (champions don't count).
         int requiredCount = switch (type) {
             case KILL_MOBS -> rollKillCount(config, random, difficulty.mobCountMultiplier());
+            case KILL_BOSS -> 1;
             default -> 1; // FETCH_ITEM
         };
 
         // Spawn count: KILL_MOBS spawns required + buffer so the player always finds
         // enough live targets at the POI even after wandering wildlife eats them.
+        // KILL_BOSS matches KILL_MOBS sizing so the boss has champions to fight alongside.
         int spawnCount = switch (type) {
-            case KILL_MOBS -> requiredCount + KILL_MOB_SPAWN_BUFFER;
+            case KILL_MOBS, KILL_BOSS -> requiredCount + KILL_MOB_SPAWN_BUFFER;
             default -> 3; // FETCH_ITEM guards
         };
         // populationSpec format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
         // The trailing three fields propagate difficulty so the spawn-side can apply
         // iLvl scaling and boss promotion when the player arrives at the POI.
         // Downstream spawn code does not yet read those fields (Task D-future).
+        // The KILL_MOBS prefix is retained for KILL_BOSS: POIProximitySystem.extractMobRole
+        // reads parts[1] only, so the prefix is inert. Kept uniform to avoid a parser branch.
         String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount
             + ":" + difficulty.mobIlvl()
             + ":" + difficulty.mobBoss()
             + ":" + difficulty.bossIlvlOffset();
 
-        if (type == ObjectiveType.KILL_MOBS) {
+        if (type == ObjectiveType.KILL_MOBS || type == ObjectiveType.KILL_BOSS) {
             bindings.put("kill_count", String.valueOf(requiredCount));
         } else {
             bindings.put("gather_count", String.valueOf(requiredCount));
         }
 
         String targetLabel = switch (type) {
-            case KILL_MOBS -> bindings.get("enemy_type");
+            case KILL_MOBS, KILL_BOSS -> bindings.get("enemy_type");
             case FETCH_ITEM -> bindings.get("quest_item");
             default -> "a cave dungeon";
         };
@@ -504,7 +532,7 @@ public class QuestGenerator {
         ObjectiveInstance poiObj = new ObjectiveInstance(type, poiLocationId, targetLabel,
                 requiredCount, hint, poiLocationId);
         poiObj.setPoi(cx, cy, cz, populationSpec);
-        if (type == ObjectiveType.KILL_MOBS) {
+        if (type == ObjectiveType.KILL_MOBS || type == ObjectiveType.KILL_BOSS) {
             poiObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
         } else if (type == ObjectiveType.FETCH_ITEM) {
             poiObj.setTargetLabelPlural(bindings.get("quest_item"));
@@ -527,6 +555,55 @@ public class QuestGenerator {
         if (max < min) max = min;
         int rolled = min + random.nextInt(max - min + 1);
         return Math.max(1, (int) Math.round(rolled * difficultyMultiplier));
+    }
+
+    /**
+     * Pre-roll boss direction + difficulties + name for a KILL_BOSS objective.
+     * Stamps the objective with {@link PoiGroupDirection#KILL_BOSS} and writes
+     * {@code boss_name}, {@code group_difficulty}, and pre-rolled tier bindings
+     * so {@link com.chonbosmods.quest.poi.POIGroupSpawnCoordinator#firstSpawn}
+     * reuses them verbatim at POI approach instead of rolling fresh values.
+     *
+     * <p>Also sets the objective's {@code requiredCount=1} and
+     * {@code targetLabel=bossName} so the quest tracker UI and waypoint label
+     * render the boss's name from quest-accept onward.
+     *
+     * <p>Runs even for deferred (no-POI-at-gen) objectives so {@code {boss_name}}
+     * is bound for exposition text before the player travels. {@code firstSpawn}
+     * reads the pre-bound name from the quest's variable bindings and reuses it.
+     */
+    private void applyBossPreRoll(ObjectiveInstance target,
+                                  Map<String, String> bindings, Random random) {
+        Natural20 plugin = Natural20.getInstance();
+        MobScalingConfig scalingConfig = plugin.getScalingConfig();
+        Nat20MobScaleSystem scaleSystem = plugin.getMobScaleSystem();
+        Nat20MobNameGenerator nameGen = plugin.getLootSystem().getMobNameGenerator();
+
+        DifficultyTier groupDiff = scaleSystem.rollDifficultyWeighted(random);
+        DifficultyTier bossDiff = groupDiff;
+        if (groupDiff == DifficultyTier.EPIC
+                && random.nextInt(100) < scalingConfig.bossLegendaryChance()) {
+            bossDiff = DifficultyTier.LEGENDARY;
+        }
+
+        String bossName = nameGen.generate(bossDiff, random);
+        if (bossName == null || bossName.isEmpty()) bossName = "Unnamed";
+
+        bindings.put("boss_name", bossName);
+        bindings.put("group_difficulty", groupDiff.namePoolKey());
+        bindings.put("group_difficulty_prerolled", groupDiff.name());
+        bindings.put("boss_difficulty_prerolled", bossDiff.name());
+        bindings.put("mob_type", bindings.getOrDefault("enemy_type", ""));
+        bindings.put("mob_type_plural", bindings.getOrDefault("enemy_type_plural", ""));
+        bindings.put("kill_count", "1");
+
+        target.setForcedPoiDirection(PoiGroupDirection.KILL_BOSS);
+        target.setRequiredCount(1);
+        target.setTargetLabel(bossName);
+        target.setTargetLabelPlural(bossName);
+
+        LOGGER.atInfo().log("Pre-rolled boss: name=%s groupDiff=%s bossDiff=%s",
+            bossName, groupDiff, bossDiff);
     }
 
 }

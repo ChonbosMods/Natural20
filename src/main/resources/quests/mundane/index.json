@@ -398,6 +398,576 @@
       "roleAffinity": [],
       "targetNpcOpener": "Oh no, the {quest_item}. I kept telling myself I'd bring it back. I'm terrible. Here, please take it.",
       "targetNpcCloser": "I feel awful. Tell them I'm sorry. Really."
+    },
+    {
+      "id": "mundane_bounty_01",
+      "topicHeader": "A Posted Bounty",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "There's a bounty out on {boss_name}. They've been making the road south of {settlement_name} a bad place to walk. Anyone who puts them down gets the purse we put together.",
+      "acceptText": "Good. The notice has been up two weeks and nobody's even taken it down to read it twice.",
+      "declineText": "Can't blame you. It's a serious ask and the bounty's not what it ought to be.",
+      "expositionTurnInText": "You're sure? You got {boss_name}? I'll pull the notice down myself. That's a weight off this whole place.",
+      "resolutionText": "Take {reward_item} with our thanks. There's {reward_flavor} on top, since you actually went and did it.",
+      "rewardFlavor": "what we scraped together past the posted purse",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_02",
+      "topicHeader": "They Burned My Barn",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "{boss_name} and their crew came through last month. Burned my barn down to the studs and laughed about it. I don't have it in me to chase them, but I've got coin set aside if you do.",
+      "acceptText": "Good. I want them dead. I'm tired of pretending I'm above saying it.",
+      "declineText": "Then I keep waiting. Maybe someone with less to lose comes through next.",
+      "expositionTurnInText": "It's done? Truly? I think I might sleep tonight without my hand on the door.",
+      "resolutionText": "Here. {reward_item}, and {reward_flavor}. I had it set aside for the rebuild but I'd rather it went to you.",
+      "rewardFlavor": "coin meant for new lumber",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_03",
+      "topicHeader": "Someone Has to Do It",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "{boss_name} has been working the area for half a year and we've lost three carts to them already. {settlement_npc} took an arrow last time. We're past the point of warnings.",
+      "acceptText": "Thank you. I was starting to think we'd have to send our own people, and I don't want that on me.",
+      "declineText": "I understand. I'd rather not ask, but the alternative is worse.",
+      "expositionTurnInText": "That's a clean end to a long problem. {settlement_npc} will hear about it before sundown.",
+      "resolutionText": "Take {reward_item}. And {reward_flavor}, with the gratitude of {settlement_name}.",
+      "rewardFlavor": "a token from the hall's strongbox",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_04",
+      "topicHeader": "Long Overdue",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "I've been hearing the name {boss_name} for so long I'd half forgotten they were a real person and not just a story we tell to scare each other. Then they hit the next valley over last week. So. They're real, and they're close.",
+      "acceptText": "All right. All right. Maybe this gets to be the year someone settles it.",
+      "declineText": "Yeah, I figured. They're a name for a reason. I'll keep my head down.",
+      "expositionTurnInText": "You're telling me {boss_name} is gone. Just like that. After all these years. I don't know what to do with my hands.",
+      "resolutionText": "Take {reward_item}. {reward_flavor}, too, because I never thought I'd be paying this out and it feels right to be generous.",
+      "rewardFlavor": "an old coin I'd been saving for spite",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_05",
+      "topicHeader": "I Couldn't Sleep",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Ever since {boss_name} started raiding nearby, I haven't slept right. Every shadow is them. Every noise outside is them. I can't keep living like this.",
+      "acceptText": "Oh, thank you. Even hearing you say yes, my shoulders just dropped. I didn't realize how high they'd been.",
+      "declineText": "No, of course. It's a lot to ask. I'll keep my door barred and hope.",
+      "expositionTurnInText": "They're really gone? You're sure? I need a moment. I haven't been allowed to feel this in months.",
+      "resolutionText": "Take {reward_item}, please. And {reward_flavor}. I want you to have it. I want anything that says this is really over.",
+      "rewardFlavor": "the bracelet I'd hidden in case I had to run",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_06",
+      "topicHeader": "You Look the Part",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "You look like someone who could handle {boss_name}. There's a head price on them and most of the locals here are farmers. Interested?",
+      "acceptText": "Excellent. Drinks are on me when you come back. If you come back.",
+      "declineText": "Fair enough. Some heads aren't worth the trip. I won't push.",
+      "expositionTurnInText": "Well, I'll be. You actually did it. I owe you the drinks I promised, on top of everything else.",
+      "resolutionText": "{reward_item} for the work, {reward_flavor} for the trouble. Pleasure doing business.",
+      "rewardFlavor": "the round I owe you at the bar",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_07",
+      "topicHeader": "The Board Went Up",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Notice went up yesterday. A fair purse for {boss_name}, no questions how. Folk have been drinking slower and looking at it sideways all afternoon.",
+      "acceptText": "Good. I was tired of pretending that notice wasn't spoiling the mood in here.",
+      "declineText": "Understood. It'll sit there a while longer.",
+      "expositionTurnInText": "You came back. I'll get word to the collectors and take the notice down.",
+      "resolutionText": "Take {reward_item} and {reward_flavor}. The purse is smaller by half after today, and rightfully so.",
+      "rewardFlavor": "a coin from the collection jar",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_08",
+      "topicHeader": "The Writ From the Hall",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "The hall issued a writ on {boss_name} a fortnight back. It's not my writ, but I can point you at who's paying. You'd save us a lot of letters.",
+      "acceptText": "Very well. I'll send word ahead that it's being handled.",
+      "declineText": "No offense taken. Writs don't pay themselves down in an afternoon.",
+      "expositionTurnInText": "The writ can be closed, then. I'll see the seal broken before the week is out.",
+      "resolutionText": "{reward_item} from the paying purse. And {reward_flavor}. Signed and settled.",
+      "rewardFlavor": "the small brass pin that comes with a completed writ",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_09",
+      "topicHeader": "Coin on a Nail",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "We put coin on a nail for whoever takes {boss_name}. It's not much, but it's honest, and it's in my hand when you come back.",
+      "acceptText": "Good. Nail's been waiting for someone willing to take what's on it.",
+      "declineText": "That's your right. Coin'll stay nailed.",
+      "expositionTurnInText": "You're back. Hand's yours. The nail comes down tonight.",
+      "resolutionText": "Here's {reward_item}, and {reward_flavor}. You earned every bit.",
+      "rewardFlavor": "the three spare coppers I rounded up",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_10",
+      "topicHeader": "A Standing Offer",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "I keep a standing offer on {boss_name}. Had it up since before I took this shop over, if you'd believe it. Whoever clears the name gets paid, no questions.",
+      "acceptText": "At last. I'd just about given up on ever paying that purse out.",
+      "declineText": "Understandable. Standing offers don't have a deadline for a reason.",
+      "expositionTurnInText": "Years it took, and you did it. Doesn't feel real, honestly.",
+      "resolutionText": "{reward_item}, as promised. And {reward_flavor}. Never thought I'd see the day.",
+      "rewardFlavor": "the purse, older than half the folk in here",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_11",
+      "topicHeader": "What They Took",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "My brother was on the cart {boss_name}'s crew hit in autumn. He didn't come home. Coin's not what I'm paying you for, but it's what I have.",
+      "acceptText": "Good. That's the closest I'll get to an answer.",
+      "declineText": "Then I'll keep waiting. Somebody, someday.",
+      "expositionTurnInText": "It's done. I don't feel what I thought I'd feel. But it's done.",
+      "resolutionText": "Take {reward_item}. And {reward_flavor}. My brother would've said it was too much. I'm glad it isn't.",
+      "rewardFlavor": "the ring he was bringing home",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_12",
+      "topicHeader": "The Field They Salted",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "{boss_name} and their lot salted my west field on purpose. On purpose. Just to watch me kneel and cry. I've got coin set aside and I want to spend it on this.",
+      "acceptText": "Finally. I've been carrying this in my teeth for a year.",
+      "declineText": "Then I keep carrying it. I've done worse.",
+      "expositionTurnInText": "Gone. Good. Let them plow dirt in whatever's next.",
+      "resolutionText": "{reward_item}, and {reward_flavor}. Take it and go eat somewhere well lit.",
+      "rewardFlavor": "the silver my wife was saving for a better year",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_13",
+      "topicHeader": "A Debt in Blood",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "I don't talk about what {boss_name} did to my family and I won't start now. I have coin, and I have a name, and I'm asking if you'll finish this for us.",
+      "acceptText": "Yes. That's the right answer and the only one I could stand to hear.",
+      "declineText": "Then I go looking for the next person who walks through.",
+      "expositionTurnInText": "You did what I couldn't. There's no clean way to say thanks for that.",
+      "resolutionText": "{reward_item}. And {reward_flavor}. Both of them mine, given freely.",
+      "rewardFlavor": "the pendant I'd sworn to bury with them",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_14",
+      "topicHeader": "They Laughed Doing It",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "{boss_name} stood over my son with the same smile the whole time. He lived. They laughed. I want that smile gone from the world, and I'll pay whatever I have to.",
+      "acceptText": "Good. I don't care how it gets done, only that it does.",
+      "declineText": "Then I'll look at someone else until they say yes.",
+      "expositionTurnInText": "It's off the world, then. That's all I wanted.",
+      "resolutionText": "Here. {reward_item}, {reward_flavor}, everything I promised. Worth every piece.",
+      "rewardFlavor": "my grandfather's knife and a bottle I was saving",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_15",
+      "topicHeader": "We Agreed at the Council",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "The council voted this morning. {boss_name} has to go, or we board up the eastern road for winter. Neither option is free. Yours is the one we're hoping to pay for.",
+      "acceptText": "Thank you. I'll tell the council we have someone.",
+      "declineText": "Then we'll take the vote again. We know the answer, I just hate hearing it.",
+      "expositionTurnInText": "Word's already traveled. Two families took their boards down off the windows.",
+      "resolutionText": "{reward_item} from the common purse, and {reward_flavor}. A whole town's share.",
+      "rewardFlavor": "a wheel of cheese and silver besides",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_16",
+      "topicHeader": "The Road That Feeds Us",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "We lose {boss_name} or we lose the road. We've been rationing flour for two weeks because carters won't come past the bend anymore. I need someone to fix this before we start running thin.",
+      "acceptText": "Good. I'll get word to the mill that relief is coming.",
+      "declineText": "Fair. But the flour doesn't care what's fair.",
+      "expositionTurnInText": "The first cart rolled in this afternoon. The baker nearly cried.",
+      "resolutionText": "Take {reward_item}, with {reward_flavor}. The mill is open again because of you.",
+      "rewardFlavor": "the first fresh loaf since autumn",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_17",
+      "topicHeader": "What the Warden Couldn't",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "I've been warden of {settlement_name} fourteen years and I cannot put {boss_name} down by myself. I hate the words as I say them. The coin we pooled says them for me.",
+      "acceptText": "Thank you. I'd rather admit it once than keep pretending.",
+      "declineText": "I understand. I'll keep pretending a while longer.",
+      "expositionTurnInText": "I'll put it in the ledger tonight. With your name, not mine.",
+      "resolutionText": "{reward_item} from the pool. {reward_flavor} from my own purse, because I owe it.",
+      "rewardFlavor": "a warden's pin I've been wanting to retire",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_18",
+      "topicHeader": "Before the Next One Gets Hurt",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "We've been lucky so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking before it does, not after.",
+      "acceptText": "Good. Luck is a terrible thing to plan around.",
+      "declineText": "I understand. I'll try to get the patrols doubled in the meantime.",
+      "expositionTurnInText": "One fewer thing to lose sleep over. I'll post the relief at the gate.",
+      "resolutionText": "{reward_item} and {reward_flavor}. Every coin the families chipped in.",
+      "rewardFlavor": "a pouch passed hand to hand around the square",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_19",
+      "topicHeader": "Back When I Was Young",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "My father used to tell me to stay off the north road because of {boss_name}. I thought he was being dramatic. Now I'm the age he was and I tell my children the same thing.",
+      "acceptText": "So it gets to end with you. All right. Good.",
+      "declineText": "Then it gets told to one more generation. That's all right too.",
+      "expositionTurnInText": "My children won't have to learn the name. That's a gift I didn't think I'd give.",
+      "resolutionText": "Take {reward_item}. {reward_flavor} came out of a jar my father put aside for this very thing. He'd have approved.",
+      "rewardFlavor": "old coin my father set aside against this day",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_20",
+      "topicHeader": "I Stopped Counting",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Somewhere around the fourth missing neighbor I stopped counting and started drinking more. That's {boss_name}'s doing. If you can put them down, I can start counting something better.",
+      "acceptText": "Right. Good. That's an answer I can work with.",
+      "declineText": "Fair. I wasn't expecting it to be you anyway.",
+      "expositionTurnInText": "Huh. I thought I'd feel more. Maybe the feeling shows up in a week.",
+      "resolutionText": "{reward_item} and {reward_flavor}. I'm going to count something better now, I think.",
+      "rewardFlavor": "the wine I'd been saving to drink alone",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_21",
+      "topicHeader": "Nobody Remembers a Face",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Nobody alive in {settlement_name} can tell you what {boss_name} looks like. Just the name, and what gets done under it. I've always assumed it was more than one person wearing the same mask.",
+      "acceptText": "Works for me. Whatever face you find under the name.",
+      "declineText": "All right. Maybe the next traveler has a better look in their eye.",
+      "expositionTurnInText": "You saw a face. That alone is news.",
+      "resolutionText": "Here's {reward_item}, and {reward_flavor}. For whoever you had to look in the eye.",
+      "rewardFlavor": "the faceless sketch we've had nailed up for years",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_22",
+      "topicHeader": "A Story We Tell",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Children here grow up on stories of {boss_name}. The ones told so you'll believe in locking the door. I'm tired of being a story. Make us something else.",
+      "acceptText": "Good. The children can have a different story tonight.",
+      "declineText": "Fair. Stories keep, even the bad ones.",
+      "expositionTurnInText": "You're in the story now. That might be worse, for you.",
+      "resolutionText": "Take {reward_item} with {reward_flavor}. You're welcome in the telling, whatever version wins out.",
+      "rewardFlavor": "a lockbox key we haven't needed in a week",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_23",
+      "topicHeader": "I've Lost Weight",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "I've lost weight since {boss_name} started turning up nearby. Eating feels like something you do when you're safe. Could you make it safe?",
+      "acceptText": "You mean it? Oh. Oh, good.",
+      "declineText": "No, I hear you, I do. I'll keep eating what I can.",
+      "expositionTurnInText": "Gone. Truly gone. I'm going to sit down and eat until I can't.",
+      "resolutionText": "{reward_item}, and {reward_flavor}. Take whatever you want, I'm not hoarding anymore.",
+      "rewardFlavor": "the stew I finally made",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_24",
+      "topicHeader": "My Kids Stopped Going Out",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "My kids haven't played outside in a month because of {boss_name}. They're quieter than children should be. If you can make it so they can run around again, you'll have a friend in this house forever.",
+      "acceptText": "I could kiss you. I'll tell them they can go out tomorrow.",
+      "declineText": "I understand. I'll keep them in a little longer.",
+      "expositionTurnInText": "They're outside right now. Shrieking, I might add. It's the best sound I've ever heard.",
+      "resolutionText": "Take {reward_item}. And {reward_flavor} from the kids. They insisted.",
+      "rewardFlavor": "a pair of painted rocks wrapped in cloth",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_25",
+      "topicHeader": "I Hear Them in the Walls",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Every creak is them. Every wind is them. I know it's in my head, mostly. But {boss_name} put it there, and I don't know how to get it out on my own.",
+      "acceptText": "Oh. Thank you. Thank you. Please.",
+      "declineText": "All right. I'll try breathing slower.",
+      "expositionTurnInText": "The house sounds like a house again. I didn't know houses were supposed to sound like anything.",
+      "resolutionText": "{reward_item}, please. And {reward_flavor}. I want you to have something from the quiet I couldn't hear before.",
+      "rewardFlavor": "the charm I'd been clutching at night",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_26",
+      "topicHeader": "My Wife Won't Answer the Door",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "My wife won't answer the door anymore. Not since {boss_name} started being in the area. I don't know if it's fear or pride or both. Either way, she deserves to open her own door again.",
+      "acceptText": "Thank you. I'll tell her there's hope, though I'll say it gently.",
+      "declineText": "That's fine. I'll get the door myself for a while longer.",
+      "expositionTurnInText": "She opened it this morning. Just the morning air, but she opened it.",
+      "resolutionText": "Take {reward_item}, with {reward_flavor}. From her, mostly. She insisted.",
+      "rewardFlavor": "the bread she baked for the first time in weeks",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_27",
+      "topicHeader": "Easy Money if You're Any Good",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Coin's on {boss_name}'s head and most of the folk who come through here aren't going to collect it. You might. If I'm wrong, I'm out nothing.",
+      "acceptText": "Excellent. Come back thirsty, we'll settle up over drinks.",
+      "declineText": "Fair. I'll ask the next armed boot that walks in.",
+      "expositionTurnInText": "Would you look at that. The betting book was wrong for once.",
+      "resolutionText": "{reward_item}, then. {reward_flavor}, because I'm in a good mood.",
+      "rewardFlavor": "the coin I won off the bookie across the road",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_28",
+      "topicHeader": "Between You and Me",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Listen, keep this between us. There's private coin on {boss_name} nobody's supposed to know about. Doesn't ask questions, doesn't leave a paper trail. Interested?",
+      "acceptText": "Smart. You'll make more this way than through the hall.",
+      "declineText": "Walk it off then. Never heard of me.",
+      "expositionTurnInText": "Told you. The folk who know about this don't shout it.",
+      "resolutionText": "{reward_item}, quiet as it came. {reward_flavor} on top for keeping your mouth shut.",
+      "rewardFlavor": "coin that doesn't match the local stamp",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_29",
+      "topicHeader": "We Need a Fresh Face",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Local bounty hunters have all had a crack at {boss_name}. None of them came back with the right result. You look new enough that it might surprise them.",
+      "acceptText": "Good. Surprise is half the work, the other half is not dying.",
+      "declineText": "Suit yourself. The local lot will keep trying and keep failing.",
+      "expositionTurnInText": "Well, I was right about you and wrong about them. Both feel good.",
+      "resolutionText": "{reward_item} for the job. {reward_flavor} for embarrassing the professionals.",
+      "rewardFlavor": "the bet I won against the local hunters' guild",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
+    },
+    {
+      "id": "mundane_bounty_30",
+      "topicHeader": "A Purse That Rolls Over",
+      "situation": "mundane_bounty",
+      "objectives": [
+        {
+          "type": "KILL_MOBS"
+        }
+      ],
+      "expositionText": "Purse on {boss_name} rolls over every month someone doesn't claim it. It's at an embarrassing number now. I want to see it claimed before I have to sell a cart to fund the next round.",
+      "acceptText": "Thank you, truly. The ledger's been a headache for too long.",
+      "declineText": "Worth a shot. I'll add another cart to the list I'm pretending to own.",
+      "expositionTurnInText": "Finally. I'll close this page of the ledger and never open it again.",
+      "resolutionText": "Take {reward_item}, and {reward_flavor}. All of it, before it grows again.",
+      "rewardFlavor": "the ledger page itself, with my mark on it",
+      "valence": "positive",
+      "roleAffinity": [],
+      "forceBossDirection": true
     }
   ]
 }

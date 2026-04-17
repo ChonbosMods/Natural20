@@ -46,6 +46,8 @@ public class DialogueResolver {
         // Combat target
         "enemy_type",
         "enemy_type_plural",
+        // Boss (quest-level, populated when template forces KILL_BOSS direction)
+        "boss_name",
         // NPCs
         "target_npc",
         "settlement_npc",

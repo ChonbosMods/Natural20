@@ -1,29 +1,61 @@
 package com.chonbosmods.quest;
 
+// WAYPOINT_REFRESH: requires com.chonbosmods.waypoint.QuestMarkerProvider.refreshMarkers(UUID, Nat20PlayerData)
+// (see Task 0.1 investigation). The coordinator below calls refreshMarkers internally after
+// rewriting the objective, so this system does not need to invoke it directly.
+
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.quest.poi.MobGroupRecord;
+import com.chonbosmods.quest.poi.Nat20MobGroupRegistry;
+import com.chonbosmods.quest.poi.POIGroupSpawnCoordinator;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Periodic proximity check for active POI quests. Two responsibilities:
+ *
+ * <ol>
+ *   <li>KILL_MOBS POIs: on first approach, delegate to {@link POIGroupSpawnCoordinator}
+ *       which rolls direction/difficulty, rewrites the objective, and spawns the group.
+ *       Once a {@link MobGroupRecord} exists, chunk reconciliation ({@code MobGroupChunkListener})
+ *       owns respawn; this system is done.</li>
+ *   <li>FETCH_ITEM / PEACEFUL_FETCH POIs: on first approach, place the quest chest.
+ *       This path has no group-spawn equivalent.</li>
+ * </ol>
+ *
+ * <p>The legacy per-mob state machine (PENDING/ACTIVE/DETACHED) and its bindings
+ * ({@code poi_mob_uuids}, {@code poi_detached_uuids}, {@code poi_mob_state},
+ * {@code poi_spawn_descriptor}) are retired: the registry-backed group path supersedes them.
+ */
 public class POIProximitySystem {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|POIProx");
-    private static final double ENTER_RADIUS = 48.0;
-    private static final double ENTER_RADIUS_SQ = ENTER_RADIUS * ENTER_RADIUS;
-    private static final double EXIT_RADIUS = 64.0;
-    private static final double EXIT_RADIUS_SQ = EXIT_RADIUS * EXIT_RADIUS;
-    private static final double LEASH_RADIUS = 32.0;
-    private static final double LEASH_RADIUS_SQ = LEASH_RADIUS * LEASH_RADIUS;
+    private static final double SPAWN_RADIUS = 48.0;
+    private static final double SPAWN_RADIUS_SQ = SPAWN_RADIUS * SPAWN_RADIUS;
 
     /** Tracked online player UUIDs: populated by PlayerReadyEvent, removed by PlayerDisconnectEvent. */
     private final Set<UUID> trackedPlayers = ConcurrentHashMap.newKeySet();
+
+    private final POIGroupSpawnCoordinator coordinator;
+    private final Nat20MobGroupRegistry mobGroupRegistry;
+
+    public POIProximitySystem(POIGroupSpawnCoordinator coordinator,
+                              Nat20MobGroupRegistry mobGroupRegistry) {
+        this.coordinator = coordinator;
+        this.mobGroupRegistry = mobGroupRegistry;
+    }
 
     public void addPlayer(UUID uuid) {
         trackedPlayers.add(uuid);
@@ -37,10 +69,7 @@ public class POIProximitySystem {
         return Collections.unmodifiableSet(trackedPlayers);
     }
 
-    /**
-     * Called every second from a scheduled executor, dispatched to world.execute().
-     * Checks all online players with active POI quests and drives state transitions.
-     */
+    /** Called every second from a scheduled executor, dispatched to {@code world.execute()}. */
     public void tick(World world) {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
         if (questSystem == null) return;
@@ -63,41 +92,34 @@ public class POIProximitySystem {
             boolean dirty = false;
 
             for (QuestInstance quest : quests.values()) {
-                Map<String, String> b = quest.getVariableBindings();
-                String state = b.get("poi_mob_state");
-                if (state == null) continue;
+                ObjectiveInstance currentObj = quest.getCurrentObjective();
+                if (currentObj == null) continue;
+                if (!currentObj.hasPoi()) continue;
 
-                String rawPoiX = b.get("poi_x");
-                String rawPoiZ = b.get("poi_z");
-                if (rawPoiX == null || rawPoiZ == null) continue;
+                // Anchor from bindings. finalizePlacement writes these for every POI
+                // placement path; for cave-void POIs, objective.poiCenter is the void
+                // center (underground) while poi_x/y/z is the surface entrance.
+                Vector3d anchor = resolvePoiAnchor(quest.getVariableBindings(), currentObj);
 
-                double poiX, poiZ;
-                try {
-                    poiX = Double.parseDouble(rawPoiX);
-                    poiZ = Double.parseDouble(rawPoiZ);
-                } catch (NumberFormatException e) { continue; }
-
-                double dx = px - poiX;
-                double dz = pz - poiZ;
+                double dx = px - anchor.getX();
+                double dz = pz - anchor.getZ();
                 double distSq = dx * dx + dz * dz;
+                if (distSq > SPAWN_RADIUS_SQ) continue;
 
-                switch (state) {
-                    case "PENDING" -> {
-                        if (distSq <= ENTER_RADIUS_SQ) {
-                            dirty |= transitionToActive(world, store, quest, b);
-                        }
+                switch (currentObj.getType()) {
+                    case KILL_MOBS -> dirty |= maybeFirstSpawnGroup(
+                            world, playerUuid, playerData, quest, currentObj, anchor);
+                    case FETCH_ITEM -> {
+                        // FETCH_ITEM POIs get both a chest AND guard mobs. The mob group
+                        // doesn't credit the FETCH objective (kill tracking requires
+                        // KILL_MOBS type), but killing guards is still rewarding.
+                        dirty |= maybePlaceQuestChest(world, quest, currentObj, anchor);
+                        dirty |= maybeFirstSpawnGroup(
+                                world, playerUuid, playerData, quest, currentObj, anchor);
                     }
-                    case "ACTIVE" -> {
-                        if (distSq > EXIT_RADIUS_SQ) {
-                            transitionToDetached(b);
-                            dirty = true;
-                        }
-                    }
-                    case "DETACHED" -> {
-                        if (distSq <= ENTER_RADIUS_SQ) {
-                            dirty |= transitionFromDetached(world, store, quest, b);
-                        }
-                    }
+                    case PEACEFUL_FETCH -> dirty |= maybePlaceQuestChest(
+                            world, quest, currentObj, anchor);
+                    default -> {} // no POI behavior for other types
                 }
             }
 
@@ -107,128 +129,91 @@ public class POIProximitySystem {
         }
     }
 
-    private boolean transitionToActive(World world, Store<EntityStore> store,
-                                        QuestInstance quest, Map<String, String> b) {
-        boolean anySpawned = false;
-
-        // Spawn quest chest only when the current objective is actually FETCH_ITEM.
-        // fetch_item_type lives in global bindings so it persists across phases:
-        // without the type guard a KILL_MOBS phase would incorrectly place a chest.
-        ObjectiveInstance currentObj = quest.getCurrentObjective();
-        String fetchItemType = b.get("fetch_item_type");
-        if (fetchItemType != null
-                && currentObj != null
-                && (currentObj.getType() == ObjectiveType.FETCH_ITEM
-                    || currentObj.getType() == ObjectiveType.PEACEFUL_FETCH)
-                && !"true".equals(b.get("poi_chest_placed"))) {
-            try {
-                int poiX = (int) Double.parseDouble(b.get("poi_x"));
-                int poiY = (int) Double.parseDouble(b.get("poi_y"));
-                int poiZ = (int) Double.parseDouble(b.get("poi_z"));
-                boolean placed = QuestChestPlacer.placeQuestChest(world, poiX, poiY, poiZ,
-                    fetchItemType, b.getOrDefault("fetch_item_label", "quest item"));
-                if (placed) {
-                    b.put("poi_chest_placed", "true");
-                    anySpawned = true;
-                }
-            } catch (NumberFormatException e) {
-                LOGGER.atWarning().log("Bad POI coordinates for FETCH_ITEM quest %s", quest.getQuestId());
-            }
+    /**
+     * First-spawn trigger for a POI quest. No-op if a record already exists or the
+     * objective has no usable populationSpec (e.g. PEACEFUL_FETCH).
+     * Returns true iff the coordinator ran and mutated quest state (caller should save).
+     */
+    private boolean maybeFirstSpawnGroup(World world, UUID playerUuid, Nat20PlayerData playerData,
+                                         QuestInstance quest, ObjectiveInstance objective,
+                                         Vector3d anchor) {
+        int poiSlotIdx = 0; // one group per POI for now (design §2 out-of-scope)
+        String groupKey = MobGroupRecord.keyFor(playerUuid, quest.getQuestId(), poiSlotIdx);
+        if (mobGroupRegistry.get(groupKey) != null) {
+            return false; // reconciliation handles respawn; nothing to do here
         }
 
-        // Spawn hostile mobs (KILL_MOBS or hostile FETCH_ITEM variant)
-        POIPopulationListener.SpawnDescriptor desc =
-            POIPopulationListener.SpawnDescriptor.parse(b.get("poi_spawn_descriptor"));
-        if (desc != null) {
-            int credited = getKillProgress(quest);
-            int toSpawn = Math.max(0, desc.totalCount() - credited);
-            if (toSpawn > 0) {
-                List<String> uuids = Natural20.getInstance().getPOIPopulationListener()
-                    .spawnMobs(world, desc.mobRole(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
-                b.put("poi_mob_uuids", String.join(",", uuids));
-                anySpawned = true;
-                LOGGER.atInfo().log("PENDING->ACTIVE: quest %s, spawned %d/%d mobs | /tp %d %d %d",
-                    quest.getQuestId(), uuids.size(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
-            }
+        String mobRole = extractMobRole(objective);
+        if (mobRole == null) {
+            LOGGER.atFine().log("quest %s objective %s has no usable populationSpec; skipping first-spawn",
+                    quest.getQuestId(), objective.getType());
+            return false;
         }
 
-        if (anySpawned) {
-            b.put("poi_mob_state", "ACTIVE");
-            b.remove("poi_detached_uuids");
-        }
+        LOGGER.atInfo().log("First-spawn trigger: quest=%s objective=%s anchor=(%d,%d,%d) mobRole=%s",
+                quest.getQuestId(), objective.getType(),
+                (int) anchor.getX(), (int) anchor.getY(), (int) anchor.getZ(), mobRole);
 
-        return anySpawned;
-    }
-
-    private void transitionToDetached(Map<String, String> b) {
-        String uuids = b.getOrDefault("poi_mob_uuids", "");
-        b.put("poi_detached_uuids", uuids);
-        b.put("poi_mob_uuids", "");
-        b.put("poi_mob_state", "DETACHED");
-        LOGGER.atFine().log("ACTIVE->DETACHED");
-    }
-
-    private boolean transitionFromDetached(World world, Store<EntityStore> store,
-                                            QuestInstance quest, Map<String, String> b) {
-        POIPopulationListener.SpawnDescriptor desc =
-            POIPopulationListener.SpawnDescriptor.parse(b.get("poi_spawn_descriptor"));
-        if (desc == null) return false;
-
-        String detachedRaw = b.getOrDefault("poi_detached_uuids", "");
-        List<String> rebound = new ArrayList<>();
-
-        if (!detachedRaw.isEmpty()) {
-            for (String uuid : detachedRaw.split(",")) {
-                if (uuid.isEmpty()) continue;
-                try {
-                    Ref<EntityStore> mobRef = world.getEntityRef(UUID.fromString(uuid));
-                    if (mobRef != null) {
-                        TransformComponent mobTransform = store.getComponent(mobRef,
-                            TransformComponent.getComponentType());
-                        if (mobTransform != null) {
-                            double mx = mobTransform.getPosition().getX();
-                            double mz = mobTransform.getPosition().getZ();
-                            double ddx = mx - desc.poiX();
-                            double ddz = mz - desc.poiZ();
-                            if (ddx * ddx + ddz * ddz <= LEASH_RADIUS_SQ) {
-                                rebound.add(uuid);
-                                continue;
-                            }
-                        }
-                    }
-                } catch (Exception ignored) {}
-            }
-        }
-
-        int credited = getKillProgress(quest);
-        int expected = desc.totalCount() - credited;
-        int toSpawn = Math.max(0, expected - rebound.size());
-
-        List<String> spawned = Collections.emptyList();
-        if (toSpawn > 0) {
-            spawned = Natural20.getInstance().getPOIPopulationListener()
-                .spawnMobs(world, desc.mobRole(), toSpawn, desc.poiX(), desc.poiY(), desc.poiZ());
-        }
-
-        List<String> allUuids = new ArrayList<>(rebound);
-        allUuids.addAll(spawned);
-
-        b.put("poi_mob_uuids", String.join(",", allUuids));
-        b.put("poi_mob_state", "ACTIVE");
-        b.remove("poi_detached_uuids");
-
-        LOGGER.atInfo().log("DETACHED->ACTIVE: quest %s, rebound %d + spawned %d | /tp %d %d %d",
-            quest.getQuestId(), rebound.size(), spawned.size(),
-            desc.poiX(), desc.poiY(), desc.poiZ());
+        coordinator.firstSpawn(world, anchor, mobRole, playerUuid,
+                quest.getQuestId(), poiSlotIdx, quest, objective, playerData);
         return true;
     }
 
-    private int getKillProgress(QuestInstance quest) {
-        ObjectiveInstance obj = quest.getCurrentObjective();
-        if (obj != null && obj.getType() == ObjectiveType.KILL_MOBS
-                && obj.getLocationId() != null && obj.getLocationId().startsWith("poi:")) {
-            return obj.getCurrentCount();
+    /**
+     * Extract the mob role id from the objective's populationSpec. The authored binding
+     * {@code mob_type} has already been resolved into the objective's targetLabel; the
+     * role id (what NPCPlugin.getIndex reads) lives in the second field of populationSpec.
+     */
+    private static String extractMobRole(ObjectiveInstance objective) {
+        String spec = objective.getPopulationSpec();
+        if (spec == null || spec.isEmpty() || "NONE".equals(spec)) return null;
+        String[] parts = spec.split(":");
+        if (parts.length < 2) return null;
+        String role = parts[1];
+        return role.isEmpty() ? null : role;
+    }
+
+    /**
+     * Place the quest chest for a FETCH_ITEM / PEACEFUL_FETCH POI. Idempotent via the
+     * {@code poi_chest_placed} binding flag. Uses the entrance anchor (surface-level),
+     * not the objective's poiCenter (which is the void center for cave-dungeon POIs).
+     */
+    private boolean maybePlaceQuestChest(World world, QuestInstance quest,
+                                         ObjectiveInstance objective, Vector3d anchor) {
+        Map<String, String> b = quest.getVariableBindings();
+        if ("true".equals(b.get("poi_chest_placed"))) return false;
+
+        String fetchItemType = b.get("fetch_item_type");
+        if (fetchItemType == null) return false;
+
+        int ax = (int) anchor.getX();
+        int ay = (int) anchor.getY();
+        int az = (int) anchor.getZ();
+        boolean placed = QuestChestPlacer.placeQuestChest(world, ax, ay, az,
+                fetchItemType, b.getOrDefault("fetch_item_label", "quest item"));
+        if (!placed) return false;
+
+        b.put("poi_chest_placed", "true");
+        LOGGER.atInfo().log("Placed quest chest for %s at %d %d %d",
+                quest.getQuestId(), ax, ay, az);
+        return true;
+    }
+
+    /**
+     * Resolve the POI anchor position. Prefers {@code bindings.poi_x/y/z} (written by
+     * {@code DialogueActionRegistry.finalizePlacement} — always surface-entrance level)
+     * over {@link ObjectiveInstance#getPoiCenterX()} et al. (the void center for
+     * cave-dungeon POIs, which is deep underground and not where players can reach).
+     */
+    private static Vector3d resolvePoiAnchor(Map<String, String> bindings, ObjectiveInstance objective) {
+        String bx = bindings.get("poi_x");
+        String by = bindings.get("poi_y");
+        String bz = bindings.get("poi_z");
+        if (bx != null && by != null && bz != null) {
+            try {
+                return new Vector3d(Double.parseDouble(bx), Double.parseDouble(by), Double.parseDouble(bz));
+            } catch (NumberFormatException ignored) {}
         }
-        return 0;
+        return new Vector3d(objective.getPoiCenterX(), objective.getPoiCenterY(), objective.getPoiCenterZ());
     }
 }

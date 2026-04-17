@@ -50,6 +50,7 @@ import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.loot.mob.Nat20MobAffixes;
+import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
@@ -68,6 +69,7 @@ import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.POIProximitySystem;
+import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -76,6 +78,9 @@ import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementDiscoverySystem;
+import com.chonbosmods.quest.poi.MobGroupChunkListener;
+import com.chonbosmods.quest.poi.Nat20MobGroupRegistry;
+import com.chonbosmods.quest.poi.POIGroupSpawnCoordinator;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
@@ -118,6 +123,7 @@ public class Natural20 extends JavaPlugin {
     private static ComponentType<EntityStore, Nat20PlayerData> playerDataType;
     private static ComponentType<EntityStore, Nat20MobLevel> mobLevelType;
     private static ComponentType<EntityStore, Nat20MobAffixes> mobAffixesType;
+    private static ComponentType<EntityStore, Nat20MobGroupMemberComponent> mobGroupMemberType;
 
     private final SettlementPlacer placer = new SettlementPlacer();
     private final Nat20NpcManager npcManager = new Nat20NpcManager();
@@ -128,6 +134,8 @@ public class Natural20 extends JavaPlugin {
     private QuestSystem questSystem;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
+    private Nat20MobGroupRegistry mobGroupRegistry;
+    private POIGroupSpawnCoordinator poiGroupSpawnCoordinator;
     private CaveVoidRegistry caveVoidRegistry;
     private CaveVoidScanner caveVoidScanner;
     private UndergroundStructurePlacer structurePlacer;
@@ -201,6 +209,14 @@ public class Natural20 extends JavaPlugin {
 
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
+    }
+
+    public Nat20MobGroupRegistry getMobGroupRegistry() {
+        return mobGroupRegistry;
+    }
+
+    public POIGroupSpawnCoordinator getPOIGroupSpawnCoordinator() {
+        return poiGroupSpawnCoordinator;
     }
 
     public CaveVoidRegistry getCaveVoidRegistry() { return caveVoidRegistry; }
@@ -354,6 +370,10 @@ public class Natural20 extends JavaPlugin {
         return mobAffixesType;
     }
 
+    public static ComponentType<EntityStore, Nat20MobGroupMemberComponent> getMobGroupMemberType() {
+        return mobGroupMemberType;
+    }
+
     public Nat20MobScaleSystem getMobScaleSystem() {
         return mobScaleSystem;
     }
@@ -387,6 +407,9 @@ public class Natural20 extends JavaPlugin {
                 Nat20MobLevel.class, "nat20_mob_level", Nat20MobLevel.CODEC, true);
         mobAffixesType = getEntityStoreRegistry().registerComponent(
                 Nat20MobAffixes.class, "nat20_mob_affixes", Nat20MobAffixes.CODEC, true);
+        mobGroupMemberType = getEntityStoreRegistry().registerComponent(
+                Nat20MobGroupMemberComponent.class, "nat20_mob_group_member",
+                Nat20MobGroupMemberComponent.CODEC, true);
         // Register custom NPC instruction list action for dialogue
         // Requires Hytale:NPC dependency in manifest.json so NPCPlugin loads first
         NPCPlugin.get().registerCoreComponentType(
@@ -561,6 +584,10 @@ public class Natural20 extends JavaPlugin {
                     .getComponent(event.getPlayerRef(), getPlayerDataType());
             if (data != null) {
                 QuestMarkerProvider.refreshMarkers(uuid, data);
+                // Stale-sweep POI mob-group records: remove any whose quest is no longer active.
+                // Runs here instead of plugin init because Nat20PlayerData is only readable once
+                // the player's entity is in the store.
+                sweepStaleMobGroupRecords(uuid, data);
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
@@ -595,6 +622,11 @@ public class Natural20 extends JavaPlugin {
         settlementRegistry = new SettlementRegistry(getDataDirectory());
         settlementRegistry.load();
 
+        // Load POI mob-group registry + spawn coordinator
+        mobGroupRegistry = new Nat20MobGroupRegistry(getDataDirectory());
+        mobGroupRegistry.load();
+        poiGroupSpawnCoordinator = new POIGroupSpawnCoordinator(mobGroupRegistry, mobGroupSpawner);
+
         // Load cave void registry and scanner
         Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");
         caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
@@ -604,6 +636,8 @@ public class Natural20 extends JavaPlugin {
 
         // Register worldgen settlement listener
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
+        MobGroupChunkListener mobGroupChunkListener =
+                new MobGroupChunkListener(mobGroupRegistry, mobGroupSpawner);
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
             var chunk = event.getChunk();
             if (defaultWorld == null) {
@@ -613,13 +647,14 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+            mobGroupChunkListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
 
         // POI population listener (writes spawn descriptors, provides spawnMobs for proximity system)
         poiPopulationListener = new POIPopulationListener();
 
         // POI proximity system: checks player distance to quest POIs every second
-        poiProximitySystem = new POIProximitySystem();
+        poiProximitySystem = new POIProximitySystem(poiGroupSpawnCoordinator, mobGroupRegistry);
         settlementDiscoverySystem = new SettlementDiscoverySystem();
         poiProximityExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
             Thread t = new Thread(r, "nat20-poi-proximity");
@@ -721,6 +756,29 @@ public class Natural20 extends JavaPlugin {
      * Uses TargetUtil.getAllEntitiesInSphere to find entities near each settlement,
      * then removes any whose UUID doesn't match a registry entry.
      */
+    /**
+     * Remove POI mob-group records whose quest is no longer active for the given player.
+     * Runs on {@code PlayerReadyEvent} since {@link Nat20PlayerData} is only accessible
+     * once the player's entity is loaded into the store.
+     *
+     * <p>No world cleanup: any orphan mobs still in the world decay into ordinary hostiles.
+     */
+    private void sweepStaleMobGroupRecords(UUID playerUuid, Nat20PlayerData data) {
+        if (mobGroupRegistry == null || questSystem == null) return;
+        Map<String, QuestInstance> active = questSystem.getStateManager().getActiveQuests(data);
+        int removed = 0;
+        for (com.chonbosmods.quest.poi.MobGroupRecord record : mobGroupRegistry.forOwner(playerUuid)) {
+            if (!active.containsKey(record.getQuestId())) {
+                mobGroupRegistry.remove(record.getGroupKey());
+                removed++;
+            }
+        }
+        if (removed > 0) {
+            getLogger().atInfo().log("Swept %d stale POI mob-group record(s) for player %s",
+                    removed, playerUuid);
+        }
+    }
+
     private void cleanupGhostNpcs() {
         SettlementRegistry registry = getSettlementRegistry();
         if (registry == null) return;

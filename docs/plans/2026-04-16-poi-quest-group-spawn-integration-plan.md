@@ -2,7 +2,9 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Replace the legacy per-mob POI populator with group-spawn integration. Groups spawn via `Nat20MobGroupSpawner`, objective rewrites 50/50 between `KILL_COUNT` and `KILL_BOSS` at first spawn, and the group survives chunk unload + server restart via a persistent registry + 3-tier reconciliation (mirrors `SettlementRegistry` / `SettlementWorldGenListener`).
+**Goal:** Replace the legacy per-mob POI populator with group-spawn integration. Groups spawn via `Nat20MobGroupSpawner`, the objective rewrites to `KILL_COUNT` on first spawn (or to `KILL_BOSS` when the template opts in via `forceBossDirection`), and the group survives chunk unload + server restart via a persistent registry + 3-tier reconciliation (mirrors `SettlementRegistry` / `SettlementWorldGenListener`).
+
+> **Update 2026-04-17:** The original design specified a 50/50 random direction roll at first spawn. That was removed after the flag-based `forceBossDirection` opt-in landed: existing v2 dramatic templates author `{kill_count}` and `{enemy_type_plural}` directly and would read incoherently if randomly promoted to a single-boss fight. Non-opt-in KILL_MOBS objectives now always resolve to `KILL_COUNT`. See `docs/plans/2026-04-17-kill-boss-objective-handoff.md` for the successor design that promotes KILL_BOSS to a first-class ObjectiveType.
 
 **Design doc:** `docs/plans/2026-04-16-poi-quest-group-spawn-integration-design.md`
 
@@ -167,8 +169,10 @@ public SpawnOutcome firstSpawn(
 7. Build + persist `MobGroupRecord` with all rolled state and `SlotRecord` skeletons (all `isDead=false, currentUuid=null`).
 8. Call extended `Nat20MobGroupSpawner.spawnFromRecord(world, record)` (Step 3 below). Receive `SpawnOutcome` with each slot's fresh UUID.
 9. Update `record.slots[i].currentUuid` from the outcome. Flush registry.
-10. Rewrite the objective per design §3.4. Populate quest bindings per design §3.5.
-11. Return `SpawnOutcome`.
+10. Rewrite the objective per design §3.4 (set `requiredCount`, `targetLabel`). Populate quest bindings per design §3.5.
+11. **Rebuild `quest_objective_summary`** in `quest.getVariableBindings()` using the same formula as `QuestGenerator.buildObjectiveSummary` (KILL_MOBS branch). This binding is baked, not live (see Task 0 investigation note), and is what the waypoint reads.
+12. Call `com.chonbosmods.waypoint.QuestMarkerProvider.refreshMarkers(ownerPlayerUuid, playerData)` to rebuild the marker cache with the new label.
+13. Return `SpawnOutcome`.
 
 **Step 3:** Extend `Nat20MobGroupSpawner` with a new entrypoint `spawnFromRecord(World world, MobGroupRecord record)`:
 - Resolve `roleIndex` from `record.mobRole`.

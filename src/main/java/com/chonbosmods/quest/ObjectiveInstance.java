@@ -1,5 +1,7 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.quest.poi.PoiGroupDirection;
+
 public class ObjectiveInstance {
     private ObjectiveType type;
     private String targetId;
@@ -18,6 +20,10 @@ public class ObjectiveInstance {
     private int poiCenterY;
     private int poiCenterZ;
     private String populationSpec;
+
+    // When set, POIGroupSpawnCoordinator.firstSpawn skips its 50/50 direction roll
+    // and uses this value. Set by QuestGenerator when the template has forceBossDirection=true.
+    private PoiGroupDirection forcedPoiDirection;
 
     public ObjectiveInstance() {}
 
@@ -46,6 +52,7 @@ public class ObjectiveInstance {
     public void setLocationId(String locationId) { this.locationId = locationId; }
     public String getEffectiveLabel() { return requiredCount != 1 && targetLabelPlural != null ? targetLabelPlural : targetLabel; }
     public int getRequiredCount() { return requiredCount; }
+    public void setRequiredCount(int requiredCount) { this.requiredCount = requiredCount; }
     public int getCurrentCount() { return currentCount; }
     public boolean isComplete() { return complete; }
     public String getDirectionHint() { return directionHint; }
@@ -82,5 +89,17 @@ public class ObjectiveInstance {
         this.poiCenterY = cy;
         this.poiCenterZ = cz;
         this.populationSpec = populationSpec;
+    }
+
+    public PoiGroupDirection getForcedPoiDirection() { return forcedPoiDirection; }
+    public void setForcedPoiDirection(PoiGroupDirection forcedPoiDirection) {
+        this.forcedPoiDirection = forcedPoiDirection;
+    }
+
+    /** True when UI summaries should render as "kill &lt;boss&gt;" without a numeric count,
+     *  because the template forced a single-boss direction at quest generation. */
+    public boolean isSingletonBossKill() {
+        return type == ObjectiveType.KILL_MOBS
+            && forcedPoiDirection == PoiGroupDirection.KILL_BOSS;
     }
 }

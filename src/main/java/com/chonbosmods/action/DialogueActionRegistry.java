@@ -378,7 +378,9 @@ public class DialogueActionRegistry {
                 }
 
                 String summary = switch (newType) {
-                    case KILL_MOBS -> "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case KILL_MOBS -> newObj.isSingletonBossKill()
+                        ? "kill " + newObj.getTargetLabel()
+                        : "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
                     case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
                     case FETCH_ITEM -> "retrieve " + newObj.getTargetLabel();
                     case PEACEFUL_FETCH -> "pick up " + newObj.getTargetLabel();
@@ -394,6 +396,18 @@ public class DialogueActionRegistry {
                 quest.setState(com.chonbosmods.quest.QuestState.COMPLETED);
                 ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
+                // Purge POI mob-group records for this quest. Alive mobs decay into
+                // ordinary world hostiles once their record is gone.
+                com.chonbosmods.quest.poi.Nat20MobGroupRegistry groupRegistry =
+                        Natural20.getInstance().getMobGroupRegistry();
+                if (groupRegistry != null) {
+                    java.util.UUID ownerUuid = ctx.player().getPlayerRef().getUuid();
+                    for (var record : groupRegistry.forOwner(ownerUuid)) {
+                        if (quest.getQuestId().equals(record.getQuestId())) {
+                            groupRegistry.remove(record.getGroupKey());
+                        }
+                    }
+                }
                 ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
                 LOGGER.atInfo().log("CONTINUE_QUEST: quest %s completed", quest.getQuestId());
             }
@@ -686,8 +700,23 @@ public class DialogueActionRegistry {
                 voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
                 String enemyTypeId = bindings.getOrDefault("enemy_type_id", "Skeleton");
                 int spawnCount = objective.getType() == ObjectiveType.KILL_MOBS ? 4 : 3;
+                String difficultyId = quest.getDifficultyId();
+                if (difficultyId == null) {
+                    throw new IllegalStateException("resolveAndPlacePoi: quest " + quest.getQuestId()
+                        + " has no difficultyId; cannot build populationSpec");
+                }
+                com.chonbosmods.quest.model.DifficultyConfig difficulty =
+                    Natural20.getInstance().getQuestSystem().getDifficultyRegistry().get(difficultyId);
+                if (difficulty == null) {
+                    throw new IllegalStateException("resolveAndPlacePoi: quest " + quest.getQuestId()
+                        + " references unknown difficultyId '" + difficultyId + "'");
+                }
+                String populationSpec = "KILL_MOBS:" + enemyTypeId + ":" + spawnCount
+                    + ":" + difficulty.mobIlvl()
+                    + ":" + difficulty.mobBoss()
+                    + ":" + difficulty.bossIlvlOffset();
                 objective.setPoi(void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(),
-                    "KILL_MOBS:" + enemyTypeId + ":" + spawnCount);
+                    populationSpec);
                 LOGGER.atInfo().log("resolveAndPlacePoi: runtime void at (%d,%d,%d) for quest %s",
                     void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(), quest.getQuestId());
             }
@@ -835,12 +864,11 @@ public class DialogueActionRegistry {
         bindings.put("marker_offset_x", String.valueOf(dist * Math.cos(angle)));
         bindings.put("marker_offset_z", String.valueOf(dist * Math.sin(angle)));
 
-        // Parse population spec and write spawn descriptor.
-        // Format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
-        // The trailing iLvl/boss/bossOffset fields are not yet applied by the spawn
-        // path; they ride along here so the future spawn-side wiring can pick them up
-        // without changing the format again. Malformed specs throw rather than fall
-        // back to defaults.
+        // Validate population spec format at placement time so a malformed spec fails
+        // fast rather than at spawn. Format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>.
+        // The group-spawn coordinator (POIGroupSpawnCoordinator) reads enemyId + spawnCount
+        // straight from the objective at first-approach time; the legacy poi_spawn_descriptor
+        // binding is no longer written.
         String popSpec = objective.getPopulationSpec();
         if (popSpec != null && !popSpec.equals("NONE")) {
             String[] parts = popSpec.split(":");
@@ -850,28 +878,13 @@ public class DialogueActionRegistry {
                     + ": expected 6 colon-delimited fields, got " + parts.length
                     + " (spec='" + popSpec + "')");
             }
-            // Prefer the quest's mob_type binding (set by dialogue text resolution
-            // on whichever side ran first) so the spawned mob matches the role the
-            // player was just told to kill. Fall back to the population spec's
-            // mobRole field when no binding exists (e.g., legacy saves).
-            String boundMob = quest.getVariableBindings().get("mob_type");
-            String mobRole = (boundMob != null) ? boundMob : parts[1];
-            int mobCount;
             try {
-                mobCount = Integer.parseInt(parts[2]);
-            } catch (NumberFormatException e) {
-                throw new IllegalStateException(
-                    "Malformed populationSpec spawnCount for quest " + quest.getQuestId()
-                    + " (spec='" + popSpec + "')", e);
-            }
-            // Parse + validate iLvl / boss / bossOffset so a malformed spec fails
-            // at placement rather than silently dropping the difficulty data on the
-            // floor at spawn time. Values are not yet consumed (separate task).
-            try {
+                Integer.parseInt(parts[2]);
                 Integer.parseInt(parts[3]);
+                Integer.parseInt(parts[5]);
             } catch (NumberFormatException e) {
                 throw new IllegalStateException(
-                    "Malformed populationSpec mobIlvl for quest " + quest.getQuestId()
+                    "Malformed populationSpec numeric field for quest " + quest.getQuestId()
                     + " (spec='" + popSpec + "')", e);
             }
             if (!"true".equals(parts[4]) && !"false".equals(parts[4])) {
@@ -879,18 +892,6 @@ public class DialogueActionRegistry {
                     "Malformed populationSpec mobBoss for quest " + quest.getQuestId()
                     + ": expected 'true' or 'false', got '" + parts[4]
                     + "' (spec='" + popSpec + "')");
-            }
-            try {
-                Integer.parseInt(parts[5]);
-            } catch (NumberFormatException e) {
-                throw new IllegalStateException(
-                    "Malformed populationSpec bossIlvlOffset for quest " + quest.getQuestId()
-                    + " (spec='" + popSpec + "')", e);
-            }
-            if (mobCount > 0) {
-                Natural20.getInstance().getPOIPopulationListener().writeSpawnDescriptor(
-                    quest, entrance.getX(), entrance.getY(), entrance.getZ(),
-                    mobRole, mobCount);
             }
         }
 

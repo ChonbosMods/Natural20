@@ -56,7 +56,8 @@ public record QuestTemplateV2(
     @Nullable String targetNpcOpener,
     @Nullable String targetNpcCloser,
     @Nullable String targetNpcOpener2,
-    @Nullable String targetNpcCloser2
+    @Nullable String targetNpcCloser2,
+    boolean forceBossDirection
 ) {
     /**
      * Optional skill check at the accept/decline phase. The skill type must be

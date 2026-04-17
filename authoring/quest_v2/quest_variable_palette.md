@@ -54,7 +54,18 @@ These variables are overlaid by `DialogueResolver.resolveQuestText()` based on w
 | `{enemy_type}` | yes | KILL_MOBS |
 | `{enemy_type_plural}` | yes | KILL_MOBS (use when count > 1) |
 
-### 1.5 Text-field → objective binding
+### 1.5 Boss bindings (quest-level, forceBossDirection only)
+
+Available **only when the template sets `"forceBossDirection": true`** on its KILL_MOBS objective. In that case `QuestGenerator` pre-rolls the boss identity at quest-generation time and the coordinator reuses those values when spawning at the POI, so both variables are safe to reference in any text field (including `expositionText`, `acceptText`, `declineText`).
+
+| Variable | Highlighted | Notes |
+|---|---|---|
+| `{boss_name}` | **yes** | The named boss the player must kill (e.g. `"Grishka the Bonebreaker"`). The actual spawned entity's nameplate matches. |
+| `{group_difficulty}` | no | The group's rarity tier label (`"uncommon"` / `"rare"` / `"epic"` / `"legendary"`). Use sparingly as flavor. |
+
+**Without `forceBossDirection: true`**, KILL_MOBS objectives roll a 50/50 between KILL_COUNT (kill N of a type) and KILL_BOSS (kill one named boss) only at POI-approach time. In that case `{boss_name}` is not bound until the player reaches the POI, so it must not appear in pre-POI text fields.
+
+### 1.6 Text-field → objective binding
 
 Quest chains support 2-5 objectives (exposition + 1-4 conflicts). All conflict phases are structurally interchangeable.
 
@@ -76,7 +87,7 @@ Quest chains support 2-5 objectives (exposition + 1-4 conflicts). All conflict p
 | `conflict4TurnInText` | `objectives[4]` |
 | `resolutionText` | current (just-completed) objective |
 
-### 1.6 Reward flavor
+### 1.7 Reward flavor
 
 | Variable | Highlighted | Notes |
 |---|---|---|
@@ -96,6 +107,7 @@ Quick reference for what's available where:
 | `{target_npc}`, `{target_npc_role}`, `{target_npc_settlement}` | Any text field | **Only when a TALK_TO_NPC objective exists in the chain** |
 | `{kill_count}`, `{enemy_type}`, `{enemy_type_plural}` | Text fields bound to a KILL_MOBS objective | Only in the matching field |
 | `{quest_item}`, `{gather_count}` | Text fields bound to COLLECT_RESOURCES or FETCH_ITEM | Only in the matching field |
+| `{boss_name}`, `{group_difficulty}` | Any text field | Only when template sets `forceBossDirection: true` |
 | `{quest_reward}` | Any text field (typically resolutionText) | Always |
 
 ---

@@ -3,11 +3,15 @@ package com.chonbosmods.progression;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
+import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
+import com.chonbosmods.quest.poi.MobGroupRecord;
+import com.chonbosmods.quest.poi.SlotRecord;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
+import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -16,8 +20,11 @@ import it.unimi.dsi.fastutil.Pair;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Spawns a Nat20-style monster group: N champions + 1 boss, all sharing a
@@ -146,5 +153,98 @@ public class Nat20MobGroupSpawner {
         double dx = (rng.nextDouble() - 0.5) * radius * 2;
         double dz = (rng.nextDouble() - 0.5) * radius * 2;
         return new Vector3d(anchor.getX() + dx, anchor.getY(), anchor.getZ() + dz);
+    }
+
+    // ── Record-driven spawn paths (persistent group registry + reconciliation) ────
+
+    /**
+     * Spawn every {@code !isDead} slot in the record that does not already have a live entity.
+     * Applies stored tier, difficulty, affixes, and nameplate from the record: no re-rolls.
+     * Attaches {@link Nat20MobGroupMemberComponent} to each spawn so reconciliation can
+     * match by {@code (groupKey, slotIndex)} instead of UUID.
+     *
+     * @return map of {@code slotIndex -> spawned UUID} for every slot successfully spawned.
+     */
+    public Map<Integer, UUID> spawnFromRecord(World world, MobGroupRecord record) {
+        Map<Integer, UUID> out = new HashMap<>();
+        for (SlotRecord slot : record.getSlots()) {
+            if (slot.isDead()) continue;
+            if (slot.getCurrentUuid() != null) continue;
+            UUID uuid = respawnSlotInternal(world, record, slot);
+            if (uuid != null) out.put(slot.getSlotIndex(), uuid);
+        }
+        return out;
+    }
+
+    /**
+     * Spawn a single slot from its record state. Used by {@code MobGroupChunkListener} when
+     * reconciliation finds an individual slot missing on chunk load. Does NOT roll anything.
+     *
+     * @return the spawned UUID, or null if spawn failed.
+     */
+    public @Nullable UUID respawnSlot(World world, MobGroupRecord record, SlotRecord slot) {
+        if (slot.isDead()) return null;
+        return respawnSlotInternal(world, record, slot);
+    }
+
+    private @Nullable UUID respawnSlotInternal(World world, MobGroupRecord record, SlotRecord slot) {
+        int roleIndex = NPCPlugin.get().getIndex(record.getMobRole());
+        if (roleIndex < 0) {
+            LOGGER.atWarning().log("respawnSlot: unknown role '%s' for groupKey=%s",
+                    record.getMobRole(), record.getGroupKey());
+            return null;
+        }
+
+        Store<EntityStore> store = world.getEntityStore().getStore();
+        Vector3d anchor = new Vector3d(record.getAnchorX(), record.getAnchorY(), record.getAnchorZ());
+        Vector3d pos = spreadAround(anchor, slot.isBoss() ? 1.5 : 3.0);
+        Vector3f rotation = new Vector3f(0, (float) (rng.nextDouble() * 360), 0);
+
+        Pair<Ref<EntityStore>, NPCEntity> result =
+                NPCPlugin.get().spawnEntity(store, roleIndex, pos, rotation, null, null);
+        if (result == null) return null;
+
+        Ref<EntityStore> ref = result.first();
+        UUID uuid = result.second().getUuid();
+
+        // Stable identity: member component written before anything else so reconciliation
+        // sees it even if a later apply throws.
+        try {
+            store.putComponent(ref, Natural20.getMobGroupMemberType(),
+                    new Nat20MobGroupMemberComponent(record.getGroupKey(), slot.getSlotIndex()));
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log("Failed to attach member component to slot %d of %s",
+                    slot.getSlotIndex(), record.getGroupKey());
+        }
+
+        var scaleSystem = Natural20.getInstance().getMobScaleSystem();
+        Nat20MobAffixManager affixMgr =
+                Natural20.getInstance().getLootSystem().getMobAffixManager();
+
+        if (slot.isBoss()) {
+            scaleSystem.setTier(ref, store, Tier.BOSS);
+            scaleSystem.applyDifficulty(ref, store, store, record.getBossDifficulty());
+            affixMgr.applyAffixes(ref, store, Tier.BOSS, record.getBossDifficulty(), record.getBossAffixes());
+            // Overwrite the fresh nameplate applyAffixes generated with the stored deterministic name.
+            String bossName = record.getBossName();
+            if (bossName != null && !bossName.isEmpty()) {
+                try {
+                    store.putComponent(ref, Nameplate.getComponentType(), new Nameplate(bossName));
+                } catch (Exception e) {
+                    LOGGER.atWarning().withCause(e)
+                            .log("Failed to apply stored boss nameplate for %s", record.getGroupKey());
+                }
+            }
+        } else {
+            DifficultyTier championDiff = (record.getGroupDifficulty() == DifficultyTier.LEGENDARY)
+                    ? DifficultyTier.EPIC : record.getGroupDifficulty();
+            scaleSystem.setTier(ref, store, Tier.CHAMPION);
+            scaleSystem.applyDifficulty(ref, store, store, championDiff);
+            affixMgr.applyAffixes(ref, store, Tier.CHAMPION, championDiff,
+                    record.getSharedChampionAffixes());
+        }
+
+        slot.setCurrentUuid(uuid.toString());
+        return uuid;
     }
 }
