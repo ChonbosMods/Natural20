@@ -1,26 +1,1404 @@
 {
   "Items": {
-    "Weapon_Sword_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Sword" },
-    "Weapon_Sword_Crude": { "Category": "melee_weapon", "DisplayName": "Crude Sword" },
-    "Weapon_Axe_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Axe" },
-    "Weapon_Axe_Crude": { "Category": "melee_weapon", "DisplayName": "Crude Axe" },
-    "Weapon_Longsword_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Longsword" },
-    "Weapon_Mace_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Mace" },
-    "Weapon_Daggers_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Daggers" },
-    "Weapon_Spear_Iron": { "Category": "melee_weapon", "DisplayName": "Iron Spear" },
-    "Weapon_Shortbow_Iron": { "Category": "ranged_weapon", "DisplayName": "Iron Shortbow" },
-    "Weapon_Shortbow_Crude": { "Category": "ranged_weapon", "DisplayName": "Crude Shortbow" },
-    "Weapon_Crossbow_Iron": { "Category": "ranged_weapon", "DisplayName": "Iron Crossbow" },
-    "Tool_Pickaxe_Iron": { "Category": "tool", "DisplayName": "Iron Pickaxe" },
-    "Tool_Pickaxe_Crude": { "Category": "tool", "DisplayName": "Crude Pickaxe" },
-    "Tool_Shovel_Iron": { "Category": "tool", "DisplayName": "Iron Shovel" },
-    "Tool_Hatchet_Iron": { "Category": "tool", "DisplayName": "Iron Hatchet" },
-    "Tool_Hammer_Iron": { "Category": "tool", "DisplayName": "Iron Hammer" },
-    "Tool_Hoe_Iron": { "Category": "tool", "DisplayName": "Iron Hoe" },
-    "Armor_Iron_Head": { "Category": "armor", "DisplayName": "Iron Helm" },
-    "Armor_Iron_Chest": { "Category": "armor", "DisplayName": "Iron Chestplate" },
-    "Armor_Iron_Legs": { "Category": "armor", "DisplayName": "Iron Greaves" },
-    "Armor_Iron_Hands": { "Category": "armor", "DisplayName": "Iron Gauntlets" },
-    "Weapon_Shield_Iron": { "Category": "utility", "DisplayName": "Iron Shield" }
+    "Armor_Adamantite_Chest": {
+      "Category": "armor",
+      "DisplayName": "Adamantite Chestplate"
+    },
+    "Armor_Adamantite_Hands": {
+      "Category": "armor",
+      "DisplayName": "Adamantite Gauntlets"
+    },
+    "Armor_Adamantite_Head": {
+      "Category": "armor",
+      "DisplayName": "Adamantite Helm"
+    },
+    "Armor_Adamantite_Legs": {
+      "Category": "armor",
+      "DisplayName": "Adamantite Greaves"
+    },
+    "Armor_Bronze_Chest": {
+      "Category": "armor",
+      "DisplayName": "Bronze Chestplate"
+    },
+    "Armor_Bronze_Hands": {
+      "Category": "armor",
+      "DisplayName": "Bronze Gauntlets"
+    },
+    "Armor_Bronze_Head": {
+      "Category": "armor",
+      "DisplayName": "Bronze Helm"
+    },
+    "Armor_Bronze_Legs": {
+      "Category": "armor",
+      "DisplayName": "Bronze Greaves"
+    },
+    "Armor_Bronze_Ornate_Chest": {
+      "Category": "armor",
+      "DisplayName": "Ornate Bronze Chestplate"
+    },
+    "Armor_Bronze_Ornate_Hands": {
+      "Category": "armor",
+      "DisplayName": "Ornate Bronze Gauntlets"
+    },
+    "Armor_Bronze_Ornate_Head": {
+      "Category": "armor",
+      "DisplayName": "Ornate Bronze Helm"
+    },
+    "Armor_Cloth_Cindercloth_Chest": {
+      "Category": "armor",
+      "DisplayName": "Cindercloth Cloth Chestplate"
+    },
+    "Armor_Cloth_Cindercloth_Hands": {
+      "Category": "armor",
+      "DisplayName": "Cindercloth Cloth Gauntlets"
+    },
+    "Armor_Cloth_Cindercloth_Head": {
+      "Category": "armor",
+      "DisplayName": "Cindercloth Cloth Helm"
+    },
+    "Armor_Cloth_Cindercloth_Legs": {
+      "Category": "armor",
+      "DisplayName": "Cindercloth Cloth Greaves"
+    },
+    "Armor_Cloth_Cotton_Chest": {
+      "Category": "armor",
+      "DisplayName": "Cotton Cloth Chestplate"
+    },
+    "Armor_Cloth_Cotton_Hands": {
+      "Category": "armor",
+      "DisplayName": "Cotton Cloth Gauntlets"
+    },
+    "Armor_Cloth_Cotton_Head": {
+      "Category": "armor",
+      "DisplayName": "Cotton Cloth Helm"
+    },
+    "Armor_Cloth_Cotton_Legs": {
+      "Category": "armor",
+      "DisplayName": "Cotton Cloth Greaves"
+    },
+    "Armor_Cloth_Linen_Chest": {
+      "Category": "armor",
+      "DisplayName": "Linen Cloth Chestplate"
+    },
+    "Armor_Cloth_Linen_Hands": {
+      "Category": "armor",
+      "DisplayName": "Linen Cloth Gauntlets"
+    },
+    "Armor_Cloth_Linen_Head": {
+      "Category": "armor",
+      "DisplayName": "Linen Cloth Helm"
+    },
+    "Armor_Cloth_Linen_Legs": {
+      "Category": "armor",
+      "DisplayName": "Linen Cloth Greaves"
+    },
+    "Armor_Cloth_Silk_Chest": {
+      "Category": "armor",
+      "DisplayName": "Silk Cloth Chestplate"
+    },
+    "Armor_Cloth_Silk_Hands": {
+      "Category": "armor",
+      "DisplayName": "Silk Cloth Gauntlets"
+    },
+    "Armor_Cloth_Silk_Head": {
+      "Category": "armor",
+      "DisplayName": "Silk Cloth Helm"
+    },
+    "Armor_Cloth_Silk_Legs": {
+      "Category": "armor",
+      "DisplayName": "Silk Cloth Greaves"
+    },
+    "Armor_Cloth_Wool_Chest": {
+      "Category": "armor",
+      "DisplayName": "Wool Cloth Chestplate"
+    },
+    "Armor_Cloth_Wool_Hands": {
+      "Category": "armor",
+      "DisplayName": "Wool Cloth Gauntlets"
+    },
+    "Armor_Cloth_Wool_Head": {
+      "Category": "armor",
+      "DisplayName": "Wool Cloth Helm"
+    },
+    "Armor_Cloth_Wool_Legs": {
+      "Category": "armor",
+      "DisplayName": "Wool Cloth Greaves"
+    },
+    "Armor_Cobalt_Chest": {
+      "Category": "armor",
+      "DisplayName": "Cobalt Chestplate"
+    },
+    "Armor_Cobalt_Hands": {
+      "Category": "armor",
+      "DisplayName": "Cobalt Gauntlets"
+    },
+    "Armor_Cobalt_Head": {
+      "Category": "armor",
+      "DisplayName": "Cobalt Helm"
+    },
+    "Armor_Cobalt_Legs": {
+      "Category": "armor",
+      "DisplayName": "Cobalt Greaves"
+    },
+    "Armor_Copper_Chest": {
+      "Category": "armor",
+      "DisplayName": "Copper Chestplate"
+    },
+    "Armor_Copper_Hands": {
+      "Category": "armor",
+      "DisplayName": "Copper Gauntlets"
+    },
+    "Armor_Copper_Head": {
+      "Category": "armor",
+      "DisplayName": "Copper Helm"
+    },
+    "Armor_Copper_Legs": {
+      "Category": "armor",
+      "DisplayName": "Copper Greaves"
+    },
+    "Armor_Iron_Chest": {
+      "Category": "armor",
+      "DisplayName": "Iron Chestplate"
+    },
+    "Armor_Iron_Hands": {
+      "Category": "armor",
+      "DisplayName": "Iron Gauntlets"
+    },
+    "Armor_Iron_Head": {
+      "Category": "armor",
+      "DisplayName": "Iron Helm"
+    },
+    "Armor_Iron_Legs": {
+      "Category": "armor",
+      "DisplayName": "Iron Greaves"
+    },
+    "Armor_Kweebec_Chest": {
+      "Category": "armor",
+      "DisplayName": "Kweebec Chestplate"
+    },
+    "Armor_Kweebec_Head": {
+      "Category": "armor",
+      "DisplayName": "Kweebec Helm"
+    },
+    "Armor_Leather_Heavy_Chest": {
+      "Category": "armor",
+      "DisplayName": "Heavy Leather Chestplate"
+    },
+    "Armor_Leather_Heavy_Hands": {
+      "Category": "armor",
+      "DisplayName": "Heavy Leather Gauntlets"
+    },
+    "Armor_Leather_Heavy_Head": {
+      "Category": "armor",
+      "DisplayName": "Heavy Leather Helm"
+    },
+    "Armor_Leather_Heavy_Legs": {
+      "Category": "armor",
+      "DisplayName": "Heavy Leather Greaves"
+    },
+    "Armor_Leather_Light_Chest": {
+      "Category": "armor",
+      "DisplayName": "Light Leather Chestplate"
+    },
+    "Armor_Leather_Light_Hands": {
+      "Category": "armor",
+      "DisplayName": "Light Leather Gauntlets"
+    },
+    "Armor_Leather_Light_Head": {
+      "Category": "armor",
+      "DisplayName": "Light Leather Helm"
+    },
+    "Armor_Leather_Light_Legs": {
+      "Category": "armor",
+      "DisplayName": "Light Leather Greaves"
+    },
+    "Armor_Leather_Medium_Chest": {
+      "Category": "armor",
+      "DisplayName": "Medium Leather Chestplate"
+    },
+    "Armor_Leather_Medium_Hands": {
+      "Category": "armor",
+      "DisplayName": "Medium Leather Gauntlets"
+    },
+    "Armor_Leather_Medium_Head": {
+      "Category": "armor",
+      "DisplayName": "Medium Leather Helm"
+    },
+    "Armor_Leather_Medium_Legs": {
+      "Category": "armor",
+      "DisplayName": "Medium Leather Greaves"
+    },
+    "Armor_Leather_Raven_Chest": {
+      "Category": "armor",
+      "DisplayName": "Raven Leather Chestplate"
+    },
+    "Armor_Leather_Raven_Hands": {
+      "Category": "armor",
+      "DisplayName": "Raven Leather Gauntlets"
+    },
+    "Armor_Leather_Raven_Head": {
+      "Category": "armor",
+      "DisplayName": "Raven Leather Helm"
+    },
+    "Armor_Leather_Raven_Legs": {
+      "Category": "armor",
+      "DisplayName": "Raven Leather Greaves"
+    },
+    "Armor_Leather_Soft_Chest": {
+      "Category": "armor",
+      "DisplayName": "Soft Leather Chestplate"
+    },
+    "Armor_Leather_Soft_Hands": {
+      "Category": "armor",
+      "DisplayName": "Soft Leather Gauntlets"
+    },
+    "Armor_Leather_Soft_Head": {
+      "Category": "armor",
+      "DisplayName": "Soft Leather Helm"
+    },
+    "Armor_Leather_Soft_Legs": {
+      "Category": "armor",
+      "DisplayName": "Soft Leather Greaves"
+    },
+    "Armor_Mithril_Chest": {
+      "Category": "armor",
+      "DisplayName": "Mithril Chestplate"
+    },
+    "Armor_Mithril_Hands": {
+      "Category": "armor",
+      "DisplayName": "Mithril Gauntlets"
+    },
+    "Armor_Mithril_Head": {
+      "Category": "armor",
+      "DisplayName": "Mithril Helm"
+    },
+    "Armor_Mithril_Legs": {
+      "Category": "armor",
+      "DisplayName": "Mithril Greaves"
+    },
+    "Armor_Onyxium_Chest": {
+      "Category": "armor",
+      "DisplayName": "Onyxium Chestplate"
+    },
+    "Armor_Onyxium_Hands": {
+      "Category": "armor",
+      "DisplayName": "Onyxium Gauntlets"
+    },
+    "Armor_Onyxium_Head": {
+      "Category": "armor",
+      "DisplayName": "Onyxium Helm"
+    },
+    "Armor_Onyxium_Legs": {
+      "Category": "armor",
+      "DisplayName": "Onyxium Greaves"
+    },
+    "Armor_Prisma_Chest": {
+      "Category": "armor",
+      "DisplayName": "Prisma Chestplate"
+    },
+    "Armor_Prisma_Hands": {
+      "Category": "armor",
+      "DisplayName": "Prisma Gauntlets"
+    },
+    "Armor_Prisma_Head": {
+      "Category": "armor",
+      "DisplayName": "Prisma Helm"
+    },
+    "Armor_Prisma_Legs": {
+      "Category": "armor",
+      "DisplayName": "Prisma Greaves"
+    },
+    "Armor_Steel_Ancient_Chest": {
+      "Category": "armor",
+      "DisplayName": "Ancient Steel Chestplate"
+    },
+    "Armor_Steel_Ancient_Hands": {
+      "Category": "armor",
+      "DisplayName": "Ancient Steel Gauntlets"
+    },
+    "Armor_Steel_Ancient_Head": {
+      "Category": "armor",
+      "DisplayName": "Ancient Steel Helm"
+    },
+    "Armor_Steel_Ancient_Legs": {
+      "Category": "armor",
+      "DisplayName": "Ancient Steel Greaves"
+    },
+    "Armor_Steel_Chest": {
+      "Category": "armor",
+      "DisplayName": "Steel Chestplate"
+    },
+    "Armor_Steel_Hands": {
+      "Category": "armor",
+      "DisplayName": "Steel Gauntlets"
+    },
+    "Armor_Steel_Head": {
+      "Category": "armor",
+      "DisplayName": "Steel Helm"
+    },
+    "Armor_Steel_Legs": {
+      "Category": "armor",
+      "DisplayName": "Steel Greaves"
+    },
+    "Armor_Thorium_Chest": {
+      "Category": "armor",
+      "DisplayName": "Thorium Chestplate"
+    },
+    "Armor_Thorium_Hands": {
+      "Category": "armor",
+      "DisplayName": "Thorium Gauntlets"
+    },
+    "Armor_Thorium_Head": {
+      "Category": "armor",
+      "DisplayName": "Thorium Helm"
+    },
+    "Armor_Thorium_Legs": {
+      "Category": "armor",
+      "DisplayName": "Thorium Greaves"
+    },
+    "Armor_Trooper_Chest": {
+      "Category": "armor",
+      "DisplayName": "Trooper Chestplate"
+    },
+    "Armor_Trooper_Head": {
+      "Category": "armor",
+      "DisplayName": "Trooper Helm"
+    },
+    "Armor_Trooper_Legs": {
+      "Category": "armor",
+      "DisplayName": "Trooper Greaves"
+    },
+    "Armor_Trork_Chest": {
+      "Category": "armor",
+      "DisplayName": "Trork Chestplate"
+    },
+    "Armor_Trork_Hands": {
+      "Category": "armor",
+      "DisplayName": "Trork Gauntlets"
+    },
+    "Armor_Trork_Head": {
+      "Category": "armor",
+      "DisplayName": "Trork Helm"
+    },
+    "Armor_Trork_Legs": {
+      "Category": "armor",
+      "DisplayName": "Trork Greaves"
+    },
+    "Armor_Wood_Chest": {
+      "Category": "armor",
+      "DisplayName": "Wood Chestplate"
+    },
+    "Armor_Wood_Hands": {
+      "Category": "armor",
+      "DisplayName": "Wood Gauntlets"
+    },
+    "Armor_Wood_Head": {
+      "Category": "armor",
+      "DisplayName": "Wood Helm"
+    },
+    "Armor_Wood_Legs": {
+      "Category": "armor",
+      "DisplayName": "Wood Greaves"
+    },
+    "Armor_Wool_Chest": {
+      "Category": "armor",
+      "DisplayName": "Wool Chestplate"
+    },
+    "Armor_Wool_Hands": {
+      "Category": "armor",
+      "DisplayName": "Wool Gauntlets"
+    },
+    "Armor_Wool_Head": {
+      "Category": "armor",
+      "DisplayName": "Wool Helm"
+    },
+    "Armor_Wool_Legs": {
+      "Category": "armor",
+      "DisplayName": "Wool Greaves"
+    },
+    "Weapon_Shield_Adamantite": {
+      "Category": "armor",
+      "DisplayName": "Adamantite Shield"
+    },
+    "Weapon_Shield_Cobalt": {
+      "Category": "armor",
+      "DisplayName": "Cobalt Shield"
+    },
+    "Weapon_Shield_Copper": {
+      "Category": "armor",
+      "DisplayName": "Copper Shield"
+    },
+    "Weapon_Shield_Doomed": {
+      "Category": "armor",
+      "DisplayName": "Doomed Shield"
+    },
+    "Weapon_Shield_Iron": {
+      "Category": "armor",
+      "DisplayName": "Iron Shield"
+    },
+    "Weapon_Shield_Mithril": {
+      "Category": "armor",
+      "DisplayName": "Mithril Shield"
+    },
+    "Weapon_Shield_Onyxium": {
+      "Category": "armor",
+      "DisplayName": "Onyxium Shield"
+    },
+    "Weapon_Shield_Orbis_Incandescent": {
+      "Category": "armor",
+      "DisplayName": "Incandescent Orbis Shield"
+    },
+    "Weapon_Shield_Orbis_Knight": {
+      "Category": "armor",
+      "DisplayName": "Knight Orbis Shield"
+    },
+    "Weapon_Shield_Praetorian": {
+      "Category": "armor",
+      "DisplayName": "Praetorian Shield"
+    },
+    "Weapon_Shield_Rusty": {
+      "Category": "armor",
+      "DisplayName": "Rusty Shield"
+    },
+    "Weapon_Shield_Scrap": {
+      "Category": "armor",
+      "DisplayName": "Scrap Shield"
+    },
+    "Weapon_Shield_Scrap_Spiked": {
+      "Category": "armor",
+      "DisplayName": "Spiked Scrap Shield"
+    },
+    "Weapon_Shield_Thorium": {
+      "Category": "armor",
+      "DisplayName": "Thorium Shield"
+    },
+    "Weapon_Shield_Wood": {
+      "Category": "armor",
+      "DisplayName": "Wood Shield"
+    },
+    "Weapon_Axe_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Axe"
+    },
+    "Weapon_Axe_Bone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bone Axe"
+    },
+    "Weapon_Axe_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Axe"
+    },
+    "Weapon_Axe_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Axe"
+    },
+    "Weapon_Axe_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Axe"
+    },
+    "Weapon_Axe_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Axe"
+    },
+    "Weapon_Axe_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Axe"
+    },
+    "Weapon_Axe_Iron_Rusty": {
+      "Category": "melee_weapon",
+      "DisplayName": "Rusty Iron Axe"
+    },
+    "Weapon_Axe_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Axe"
+    },
+    "Weapon_Axe_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Axe"
+    },
+    "Weapon_Axe_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Axe"
+    },
+    "Weapon_Axe_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Axe"
+    },
+    "Weapon_Axe_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Axe"
+    },
+    "Weapon_Battleaxe_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Battleaxe"
+    },
+    "Weapon_Battleaxe_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Battleaxe"
+    },
+    "Weapon_Battleaxe_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Battleaxe"
+    },
+    "Weapon_Battleaxe_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Battleaxe"
+    },
+    "Weapon_Battleaxe_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Battleaxe"
+    },
+    "Weapon_Battleaxe_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Battleaxe"
+    },
+    "Weapon_Battleaxe_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Battleaxe"
+    },
+    "Weapon_Battleaxe_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Battleaxe"
+    },
+    "Weapon_Battleaxe_Scarab": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scarab Battleaxe"
+    },
+    "Weapon_Battleaxe_Scythe_Void": {
+      "Category": "melee_weapon",
+      "DisplayName": "Void Scythe Battleaxe"
+    },
+    "Weapon_Battleaxe_Steel_Rusty": {
+      "Category": "melee_weapon",
+      "DisplayName": "Rusty Steel Battleaxe"
+    },
+    "Weapon_Battleaxe_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Battleaxe"
+    },
+    "Weapon_Battleaxe_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Battleaxe"
+    },
+    "Weapon_Battleaxe_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Battleaxe"
+    },
+    "Weapon_Battleaxe_Wood_Fence": {
+      "Category": "melee_weapon",
+      "DisplayName": "Fence Wood Battleaxe"
+    },
+    "Weapon_Claws_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Claws"
+    },
+    "Weapon_Club_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Club"
+    },
+    "Weapon_Club_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Club"
+    },
+    "Weapon_Club_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Club"
+    },
+    "Weapon_Club_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Club"
+    },
+    "Weapon_Club_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Club"
+    },
+    "Weapon_Club_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Club"
+    },
+    "Weapon_Club_Iron_Rusty": {
+      "Category": "melee_weapon",
+      "DisplayName": "Rusty Iron Club"
+    },
+    "Weapon_Club_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Club"
+    },
+    "Weapon_Club_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Club"
+    },
+    "Weapon_Club_Scrap": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scrap Club"
+    },
+    "Weapon_Club_Steel_Flail_Rusty": {
+      "Category": "melee_weapon",
+      "DisplayName": "Rusty Flail Steel Club"
+    },
+    "Weapon_Club_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Club"
+    },
+    "Weapon_Club_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Club"
+    },
+    "Weapon_Club_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Club"
+    },
+    "Weapon_Club_Zombie_Arm": {
+      "Category": "melee_weapon",
+      "DisplayName": "Arm Zombie Club"
+    },
+    "Weapon_Club_Zombie_Burnt_Arm": {
+      "Category": "melee_weapon",
+      "DisplayName": "Arm Burnt Zombie Club"
+    },
+    "Weapon_Club_Zombie_Burnt_Leg": {
+      "Category": "melee_weapon",
+      "DisplayName": "Leg Burnt Zombie Club"
+    },
+    "Weapon_Club_Zombie_Frost_Arm": {
+      "Category": "melee_weapon",
+      "DisplayName": "Arm Frost Zombie Club"
+    },
+    "Weapon_Club_Zombie_Frost_Leg": {
+      "Category": "melee_weapon",
+      "DisplayName": "Leg Frost Zombie Club"
+    },
+    "Weapon_Club_Zombie_Leg": {
+      "Category": "melee_weapon",
+      "DisplayName": "Leg Zombie Club"
+    },
+    "Weapon_Club_Zombie_Sand_Arm": {
+      "Category": "melee_weapon",
+      "DisplayName": "Arm Sand Zombie Club"
+    },
+    "Weapon_Club_Zombie_Sand_Leg": {
+      "Category": "melee_weapon",
+      "DisplayName": "Leg Sand Zombie Club"
+    },
+    "Weapon_Daggers_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Daggers"
+    },
+    "Weapon_Daggers_Adamantite_Saurian": {
+      "Category": "melee_weapon",
+      "DisplayName": "Saurian Adamantite Daggers"
+    },
+    "Weapon_Daggers_Bone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bone Daggers"
+    },
+    "Weapon_Daggers_Bronze": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bronze Daggers"
+    },
+    "Weapon_Daggers_Bronze_Ancient": {
+      "Category": "melee_weapon",
+      "DisplayName": "Ancient Bronze Daggers"
+    },
+    "Weapon_Daggers_Claw_Bone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bone Claw Daggers"
+    },
+    "Weapon_Daggers_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Daggers"
+    },
+    "Weapon_Daggers_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Daggers"
+    },
+    "Weapon_Daggers_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Daggers"
+    },
+    "Weapon_Daggers_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Daggers"
+    },
+    "Weapon_Daggers_Fang_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Fang Daggers"
+    },
+    "Weapon_Daggers_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Daggers"
+    },
+    "Weapon_Daggers_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Daggers"
+    },
+    "Weapon_Daggers_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Daggers"
+    },
+    "Weapon_Daggers_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Daggers"
+    },
+    "Weapon_Daggers_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Daggers"
+    },
+    "Weapon_Longsword_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Longsword"
+    },
+    "Weapon_Longsword_Adamantite_Saurian": {
+      "Category": "melee_weapon",
+      "DisplayName": "Saurian Adamantite Longsword"
+    },
+    "Weapon_Longsword_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Longsword"
+    },
+    "Weapon_Longsword_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Longsword"
+    },
+    "Weapon_Longsword_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Longsword"
+    },
+    "Weapon_Longsword_Flame": {
+      "Category": "melee_weapon",
+      "DisplayName": "Flame Longsword"
+    },
+    "Weapon_Longsword_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Longsword"
+    },
+    "Weapon_Longsword_Katana": {
+      "Category": "melee_weapon",
+      "DisplayName": "Katana Longsword"
+    },
+    "Weapon_Longsword_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Longsword"
+    },
+    "Weapon_Longsword_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Longsword"
+    },
+    "Weapon_Longsword_Praetorian": {
+      "Category": "melee_weapon",
+      "DisplayName": "Praetorian Longsword"
+    },
+    "Weapon_Longsword_Praetorian_NPC": {
+      "Category": "melee_weapon",
+      "DisplayName": "NPC Praetorian Longsword"
+    },
+    "Weapon_Longsword_Scarab": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scarab Longsword"
+    },
+    "Weapon_Longsword_Spectral": {
+      "Category": "melee_weapon",
+      "DisplayName": "Spectral Longsword"
+    },
+    "Weapon_Longsword_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Longsword"
+    },
+    "Weapon_Longsword_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Longsword"
+    },
+    "Weapon_Longsword_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Longsword"
+    },
+    "Weapon_Longsword_Void": {
+      "Category": "melee_weapon",
+      "DisplayName": "Void Longsword"
+    },
+    "Weapon_Mace_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Mace"
+    },
+    "Weapon_Mace_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Mace"
+    },
+    "Weapon_Mace_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Mace"
+    },
+    "Weapon_Mace_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Mace"
+    },
+    "Weapon_Mace_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Mace"
+    },
+    "Weapon_Mace_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Mace"
+    },
+    "Weapon_Mace_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Mace"
+    },
+    "Weapon_Mace_Prisma": {
+      "Category": "melee_weapon",
+      "DisplayName": "Prisma Mace"
+    },
+    "Weapon_Mace_Scrap": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scrap Mace"
+    },
+    "Weapon_Mace_Scrap_NPC": {
+      "Category": "melee_weapon",
+      "DisplayName": "NPC Scrap Mace"
+    },
+    "Weapon_Mace_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Mace"
+    },
+    "Weapon_Mace_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Mace"
+    },
+    "Weapon_Spear_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Spear"
+    },
+    "Weapon_Spear_Adamantite_Saurian": {
+      "Category": "melee_weapon",
+      "DisplayName": "Saurian Adamantite Spear"
+    },
+    "Weapon_Spear_Bone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bone Spear"
+    },
+    "Weapon_Spear_Bronze": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bronze Spear"
+    },
+    "Weapon_Spear_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Spear"
+    },
+    "Weapon_Spear_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Spear"
+    },
+    "Weapon_Spear_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Spear"
+    },
+    "Weapon_Spear_Double_Incandescent": {
+      "Category": "melee_weapon",
+      "DisplayName": "Incandescent Double Spear"
+    },
+    "Weapon_Spear_Fishbone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Fishbone Spear"
+    },
+    "Weapon_Spear_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Spear"
+    },
+    "Weapon_Spear_Leaf": {
+      "Category": "melee_weapon",
+      "DisplayName": "Leaf Spear"
+    },
+    "Weapon_Spear_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Spear"
+    },
+    "Weapon_Spear_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Spear"
+    },
+    "Weapon_Spear_Scrap": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scrap Spear"
+    },
+    "Weapon_Spear_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Spear"
+    },
+    "Weapon_Spear_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Spear"
+    },
+    "Weapon_Spear_Tribal": {
+      "Category": "melee_weapon",
+      "DisplayName": "Tribal Spear"
+    },
+    "Weapon_Sword_Adamantite": {
+      "Category": "melee_weapon",
+      "DisplayName": "Adamantite Sword"
+    },
+    "Weapon_Sword_Bone": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bone Sword"
+    },
+    "Weapon_Sword_Bronze": {
+      "Category": "melee_weapon",
+      "DisplayName": "Bronze Sword"
+    },
+    "Weapon_Sword_Bronze_Ancient": {
+      "Category": "melee_weapon",
+      "DisplayName": "Ancient Bronze Sword"
+    },
+    "Weapon_Sword_Cobalt": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cobalt Sword"
+    },
+    "Weapon_Sword_Copper": {
+      "Category": "melee_weapon",
+      "DisplayName": "Copper Sword"
+    },
+    "Weapon_Sword_Crude": {
+      "Category": "melee_weapon",
+      "DisplayName": "Crude Sword"
+    },
+    "Weapon_Sword_Cutlass": {
+      "Category": "melee_weapon",
+      "DisplayName": "Cutlass Sword"
+    },
+    "Weapon_Sword_Doomed": {
+      "Category": "melee_weapon",
+      "DisplayName": "Doomed Sword"
+    },
+    "Weapon_Sword_Frost": {
+      "Category": "melee_weapon",
+      "DisplayName": "Frost Sword"
+    },
+    "Weapon_Sword_Iron": {
+      "Category": "melee_weapon",
+      "DisplayName": "Iron Sword"
+    },
+    "Weapon_Sword_Mithril": {
+      "Category": "melee_weapon",
+      "DisplayName": "Mithril Sword"
+    },
+    "Weapon_Sword_Nexus": {
+      "Category": "melee_weapon",
+      "DisplayName": "Nexus Sword"
+    },
+    "Weapon_Sword_Onyxium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Onyxium Sword"
+    },
+    "Weapon_Sword_Runic": {
+      "Category": "melee_weapon",
+      "DisplayName": "Runic Sword"
+    },
+    "Weapon_Sword_Scrap": {
+      "Category": "melee_weapon",
+      "DisplayName": "Scrap Sword"
+    },
+    "Weapon_Sword_Silversteel": {
+      "Category": "melee_weapon",
+      "DisplayName": "Silversteel Sword"
+    },
+    "Weapon_Sword_Steel": {
+      "Category": "melee_weapon",
+      "DisplayName": "Steel Sword"
+    },
+    "Weapon_Sword_Steel_Incandescent": {
+      "Category": "melee_weapon",
+      "DisplayName": "Incandescent Steel Sword"
+    },
+    "Weapon_Sword_Steel_Rusty": {
+      "Category": "melee_weapon",
+      "DisplayName": "Rusty Steel Sword"
+    },
+    "Weapon_Sword_Stone_Trork": {
+      "Category": "melee_weapon",
+      "DisplayName": "Trork Stone Sword"
+    },
+    "Weapon_Sword_Thorium": {
+      "Category": "melee_weapon",
+      "DisplayName": "Thorium Sword"
+    },
+    "Weapon_Sword_Wood": {
+      "Category": "melee_weapon",
+      "DisplayName": "Wood Sword"
+    },
+    "Weapon_Assault_Rifle": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Rifle Assault Rifle"
+    },
+    "Weapon_Blowgun_Tribal": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Tribal Blowgun"
+    },
+    "Weapon_Crossbow_Ancient_Steel": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Steel Ancient Crossbow"
+    },
+    "Weapon_Crossbow_Iron": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Iron Crossbow"
+    },
+    "Weapon_Gun_Blunderbuss": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Blunderbuss Gun"
+    },
+    "Weapon_Gun_Blunderbuss_Rusty": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Rusty Blunderbuss Gun"
+    },
+    "Weapon_Shortbow_Adamantite": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Adamantite Shortbow"
+    },
+    "Weapon_Shortbow_Bomb": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Bomb Shortbow"
+    },
+    "Weapon_Shortbow_Bronze": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Bronze Shortbow"
+    },
+    "Weapon_Shortbow_Cobalt": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Cobalt Shortbow"
+    },
+    "Weapon_Shortbow_Combat": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Combat Shortbow"
+    },
+    "Weapon_Shortbow_Copper": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Copper Shortbow"
+    },
+    "Weapon_Shortbow_Crude": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Crude Shortbow"
+    },
+    "Weapon_Shortbow_Doomed": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Doomed Shortbow"
+    },
+    "Weapon_Shortbow_Flame": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Flame Shortbow"
+    },
+    "Weapon_Shortbow_Frost": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Frost Shortbow"
+    },
+    "Weapon_Shortbow_Iron": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Iron Shortbow"
+    },
+    "Weapon_Shortbow_Iron_Rusty": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Rusty Iron Shortbow"
+    },
+    "Weapon_Shortbow_Mithril": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Mithril Shortbow"
+    },
+    "Weapon_Shortbow_Onyxium": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Onyxium Shortbow"
+    },
+    "Weapon_Shortbow_Pull": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Pull Shortbow"
+    },
+    "Weapon_Shortbow_Ricochet": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Ricochet Shortbow"
+    },
+    "Weapon_Shortbow_Thorium": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Thorium Shortbow"
+    },
+    "Weapon_Shortbow_Vampire": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Vampire Shortbow"
+    },
+    "Weapon_Spellbook_Demon": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Demon Spellbook"
+    },
+    "Weapon_Spellbook_Fire": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Fire Spellbook"
+    },
+    "Weapon_Spellbook_Frost": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Frost Spellbook"
+    },
+    "Weapon_Spellbook_Grimoire_Brown": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Brown Grimoire Spellbook"
+    },
+    "Weapon_Spellbook_Grimoire_Purple": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Purple Grimoire Spellbook"
+    },
+    "Weapon_Spellbook_Rekindle_Embers": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Embers Rekindle Spellbook"
+    },
+    "Weapon_Staff_Adamantite": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Adamantite Staff"
+    },
+    "Weapon_Staff_Bo_Bamboo": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Bamboo Bo Staff"
+    },
+    "Weapon_Staff_Bo_Wood": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Wood Bo Staff"
+    },
+    "Weapon_Staff_Bone": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Bone Staff"
+    },
+    "Weapon_Staff_Bronze": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Bronze Staff"
+    },
+    "Weapon_Staff_Cane": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Cane Staff"
+    },
+    "Weapon_Staff_Cobalt": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Cobalt Staff"
+    },
+    "Weapon_Staff_Copper": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Copper Staff"
+    },
+    "Weapon_Staff_Crystal_Fire_Trork": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Trork Fire Crystal Staff"
+    },
+    "Weapon_Staff_Crystal_Flame": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Flame Crystal Staff"
+    },
+    "Weapon_Staff_Crystal_Ice": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Ice Crystal Staff"
+    },
+    "Weapon_Staff_Crystal_Purple": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Purple Crystal Staff"
+    },
+    "Weapon_Staff_Crystal_Red": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Red Crystal Staff"
+    },
+    "Weapon_Staff_Doomed": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Doomed Staff"
+    },
+    "Weapon_Staff_Frost": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Frost Staff"
+    },
+    "Weapon_Staff_Iron": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Iron Staff"
+    },
+    "Weapon_Staff_Mithril": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Mithril Staff"
+    },
+    "Weapon_Staff_Onion": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Onion Staff"
+    },
+    "Weapon_Staff_Onyxium": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Onyxium Staff"
+    },
+    "Weapon_Staff_Thorium": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Thorium Staff"
+    },
+    "Weapon_Staff_Wizard": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Wizard Staff"
+    },
+    "Weapon_Staff_Wood": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Wood Staff"
+    },
+    "Weapon_Staff_Wood_Kweebec": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Kweebec Wood Staff"
+    },
+    "Weapon_Staff_Wood_Rotten": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Rotten Wood Staff"
+    },
+    "Weapon_Wand_Root": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Root Wand"
+    },
+    "Weapon_Wand_Stoneskin": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Stoneskin Wand"
+    },
+    "Weapon_Wand_Tribal": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Tribal Wand"
+    },
+    "Weapon_Wand_Wood": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Wood Wand"
+    },
+    "Weapon_Wand_Wood_Rotten": {
+      "Category": "ranged_weapon",
+      "DisplayName": "Rotten Wood Wand"
+    },
+    "Tool_Hammer_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Hammer"
+    },
+    "Tool_Hammer_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Hammer"
+    },
+    "Tool_Hatchet_Adamantite": {
+      "Category": "tool",
+      "DisplayName": "Adamantite Hatchet"
+    },
+    "Tool_Hatchet_Cobalt": {
+      "Category": "tool",
+      "DisplayName": "Cobalt Hatchet"
+    },
+    "Tool_Hatchet_Copper": {
+      "Category": "tool",
+      "DisplayName": "Copper Hatchet"
+    },
+    "Tool_Hatchet_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Hatchet"
+    },
+    "Tool_Hatchet_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Hatchet"
+    },
+    "Tool_Hatchet_Mithril": {
+      "Category": "tool",
+      "DisplayName": "Mithril Hatchet"
+    },
+    "Tool_Hatchet_Onyxium": {
+      "Category": "tool",
+      "DisplayName": "Onyxium Hatchet"
+    },
+    "Tool_Hatchet_Thorium": {
+      "Category": "tool",
+      "DisplayName": "Thorium Hatchet"
+    },
+    "Tool_Hatchet_Wood": {
+      "Category": "tool",
+      "DisplayName": "Wood Hatchet"
+    },
+    "Tool_Hoe_Copper": {
+      "Category": "tool",
+      "DisplayName": "Copper Hoe"
+    },
+    "Tool_Hoe_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Hoe"
+    },
+    "Tool_Hoe_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Hoe"
+    },
+    "Tool_Hoe_Thorium": {
+      "Category": "tool",
+      "DisplayName": "Thorium Hoe"
+    },
+    "Tool_Pickaxe_Adamantite": {
+      "Category": "tool",
+      "DisplayName": "Adamantite Pickaxe"
+    },
+    "Tool_Pickaxe_Cobalt": {
+      "Category": "tool",
+      "DisplayName": "Cobalt Pickaxe"
+    },
+    "Tool_Pickaxe_Copper": {
+      "Category": "tool",
+      "DisplayName": "Copper Pickaxe"
+    },
+    "Tool_Pickaxe_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Pickaxe"
+    },
+    "Tool_Pickaxe_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Pickaxe"
+    },
+    "Tool_Pickaxe_Mithril": {
+      "Category": "tool",
+      "DisplayName": "Mithril Pickaxe"
+    },
+    "Tool_Pickaxe_Onyxium": {
+      "Category": "tool",
+      "DisplayName": "Onyxium Pickaxe"
+    },
+    "Tool_Pickaxe_Scrap": {
+      "Category": "tool",
+      "DisplayName": "Scrap Pickaxe"
+    },
+    "Tool_Pickaxe_Thorium": {
+      "Category": "tool",
+      "DisplayName": "Thorium Pickaxe"
+    },
+    "Tool_Pickaxe_Wood": {
+      "Category": "tool",
+      "DisplayName": "Wood Pickaxe"
+    },
+    "Tool_Shears_Basic": {
+      "Category": "tool",
+      "DisplayName": "Basic Shears"
+    },
+    "Tool_Shovel_Cobalt": {
+      "Category": "tool",
+      "DisplayName": "Cobalt Shovel"
+    },
+    "Tool_Shovel_Copper": {
+      "Category": "tool",
+      "DisplayName": "Copper Shovel"
+    },
+    "Tool_Shovel_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Shovel"
+    },
+    "Tool_Shovel_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Shovel"
+    },
+    "Tool_Shovel_Thorium": {
+      "Category": "tool",
+      "DisplayName": "Thorium Shovel"
+    },
+    "Tool_Sickle_Copper": {
+      "Category": "tool",
+      "DisplayName": "Copper Sickle"
+    },
+    "Tool_Sickle_Crude": {
+      "Category": "tool",
+      "DisplayName": "Crude Sickle"
+    },
+    "Tool_Sickle_Iron": {
+      "Category": "tool",
+      "DisplayName": "Iron Sickle"
+    },
+    "Tool_Sickle_Steel_Rusty": {
+      "Category": "tool",
+      "DisplayName": "Rusty Steel Sickle"
+    }
   }
 }
