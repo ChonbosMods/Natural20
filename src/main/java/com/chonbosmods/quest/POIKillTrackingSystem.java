@@ -38,10 +38,10 @@ import java.util.UUID;
  * Dispatch direction is read from {@link MobGroupRecord#getDirection()}: frozen at
  * first-spawn by {@code POIGroupSpawnCoordinator}.
  *
- * <p>Environmental kills (lava, fall, suffocation, AI-on-AI) do not credit the
- * objective and do not mark the slot dead: the group-spawn coordinator re-spawns
- * the slot on the next world tick so the dungeon stays populated and kill quests
- * stay winnable even when mobs die to terrain.
+ * <p>Environmental kills (lava, fall, suffocation, AI-on-AI) mark the slot dead
+ * but do not credit the objective. If enough mobs die to terrain a KILL_COUNT
+ * quest can become unwinnable; the fix belongs in POI prefab authoring (safe
+ * spawn volumes, no exposed lava at the anchor) rather than runtime respawn.
  */
 public class POIKillTrackingSystem extends DamageEventSystem {
 
@@ -83,9 +83,13 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         if (slot == null) return;
         if (slot.isDead()) return; // double-credit guard
 
-        // Distinguish a player-attributable kill from environmental damage (lava, fall,
-        // AI-on-AI). Only player kills credit the objective and permanently mark the
-        // slot dead; environmental deaths clear the UUID and trigger a deferred respawn.
+        // Every death marks the slot dead (reconciliation will not respawn it).
+        // Only player-attributable kills credit the objective; environmental or
+        // AI-on-AI kills are silently logged with no progress toward the objective.
+        // The damage source exposes an EntitySource when an entity landed the blow;
+        // it's a player kill when that entity carries Nat20PlayerData.
+        registry.markSlotDead(record.getGroupKey(), slot.getSlotIndex());
+
         boolean playerKill = false;
         Damage.Source source = damage.getSource();
         if (source instanceof Damage.EntitySource entitySource) {
@@ -97,35 +101,11 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         }
 
         if (playerKill) {
-            registry.markSlotDead(record.getGroupKey(), slot.getSlotIndex());
             creditOwner(store, record, slot);
         } else {
-            registry.updateCurrentUuid(record.getGroupKey(), slot.getSlotIndex(), null);
-            scheduleEnvDeathRespawn(record, slot);
-            LOGGER.atInfo().log("Env death (no credit, respawn scheduled): quest=%s slot=%d",
+            LOGGER.atFine().log("Env death (no credit): quest=%s slot=%d",
                     record.getQuestId(), slot.getSlotIndex());
         }
-    }
-
-    /**
-     * Queue a deferred respawn of a slot whose entity just died to non-player damage.
-     * Deferred because {@link NPCPlugin#spawnEntity} can't be called from inside a
-     * {@link DamageEventSystem} handler while the store is processing.
-     */
-    private static void scheduleEnvDeathRespawn(MobGroupRecord record, SlotRecord slot) {
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
-        var spawner = Natural20.getInstance().getMobGroupSpawner();
-        if (spawner == null) return;
-        world.execute(() -> {
-            try {
-                spawner.respawnSlot(world, record, slot);
-            } catch (Exception e) {
-                LOGGER.atWarning().withCause(e).log(
-                        "Env-death respawn failed: quest=%s slot=%d",
-                        record.getQuestId(), slot.getSlotIndex());
-            }
-        });
     }
 
     /**
