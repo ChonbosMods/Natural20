@@ -145,6 +145,17 @@ public class POIProximitySystem {
             return false; // reconciliation handles respawn; nothing to do here
         }
 
+        // Anchor-chunk-loaded gate. If the player just teleported into the chunk, the
+        // chunk may still be loading when the proximity tick fires. Spawning into an
+        // unloaded chunk reports success but the entities get clobbered when the chunk
+        // later loads from disk. Defer until the chunk is ready; the next tick will retry.
+        int anchorChunkX = (int) Math.floor(anchor.getX() / 32.0);
+        int anchorChunkZ = (int) Math.floor(anchor.getZ() / 32.0);
+        long anchorChunkKey = ((long) anchorChunkX << 32) | (anchorChunkZ & 0xFFFFFFFFL);
+        if (world.getChunkIfLoaded(anchorChunkKey) == null) {
+            return false;
+        }
+
         String mobRole = extractMobRole(objective);
         if (mobRole == null) {
             LOGGER.atFine().log("quest %s objective %s has no usable populationSpec; skipping first-spawn",
