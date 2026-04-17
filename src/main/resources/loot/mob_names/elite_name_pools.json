@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "description": "Elite mob name pools for Natural 20. D2 base + Hytale extensions. 70 prefixes, 85 suffixes (9 with max_rarity caps), 60 appellations.",
+  "version": "1.2.0",
+  "description": "Elite mob name pools for Natural 20. D2 base + Hytale extensions. 85 prefixes, 99 suffixes (9 with max_rarity caps), 60 appellations.",
   "config": {
     "title_rules": {
       "common": "none",
@@ -93,7 +93,22 @@
     { "word": "Ruin",    "category": "abstract_menace", "min_rarity": "rare",      "source": "hytale_ext", "faction_bias": [] },
     { "word": "Spite",   "category": "abstract_menace", "min_rarity": "rare",      "source": "hytale_ext", "faction_bias": [] },
     { "word": "Scorn",   "category": "abstract_menace", "min_rarity": "rare",      "source": "hytale_ext", "faction_bias": ["outlanders", "goblins"] },
-    { "word": "Dusk",    "category": "darkness",        "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["void_spawn", "undead"] }
+    { "word": "Dusk",    "category": "darkness",        "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["void_spawn", "undead"] },
+    { "word": "Devil",      "category": "abstract_menace", "min_rarity": "legendary", "source": "d2",         "faction_bias": [] },
+    { "word": "Sin",        "category": "abstract_menace", "min_rarity": "legendary", "source": "d2",         "faction_bias": [] },
+    { "word": "Abyss",      "category": "void",            "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["void_spawn"] },
+    { "word": "Inferno",    "category": "elements",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["elementals"] },
+    { "word": "Apocalypse", "category": "abstract_menace", "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "Oblivion",   "category": "void",            "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["void_spawn"] },
+    { "word": "Cataclysm",  "category": "abstract_menace", "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "Leviathan",  "category": "creature",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic", "reptiles"] },
+    { "word": "Kraken",     "category": "creature",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic"] },
+    { "word": "Primordial", "category": "abstract_menace", "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic"] },
+    { "word": "Eclipse",    "category": "darkness",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["undead", "void_spawn"] },
+    { "word": "Tyrant",     "category": "abstract_menace", "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "Behemoth",   "category": "creature",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic"] },
+    { "word": "Hydra",      "category": "creature",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic", "reptiles"] },
+    { "word": "Colossus",   "category": "creature",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic"] }
   ],
   "suffixes": [
     { "word": "touch",   "category": "violence",     "min_rarity": "uncommon",  "source": "d2",         "faction_bias": [] },
@@ -180,7 +195,21 @@
     { "word": "digger",  "category": "agent",        "min_rarity": "uncommon",  "source": "hytale_ext", "faction_bias": ["goblins", "scarak"] },
     { "word": "bolt",    "category": "magic",        "min_rarity": "rare",      "source": "hytale_ext", "faction_bias": ["elementals", "outlanders"] },
     { "word": "rune",    "category": "magic",        "min_rarity": "epic",      "source": "hytale_ext", "faction_bias": ["outlanders", "undead"] },
-    { "word": "tide",    "category": "environment",  "min_rarity": "epic",      "source": "hytale_ext", "faction_bias": ["void_spawn", "elementals"] }
+    { "word": "tide",    "category": "environment",  "min_rarity": "epic",      "source": "hytale_ext", "faction_bias": ["void_spawn", "elementals"] },
+    { "word": "ripper",   "category": "agent",        "min_rarity": "legendary", "source": "d2",         "faction_bias": [] },
+    { "word": "slayer",   "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "sunder",   "category": "violence",     "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "crusher",  "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "render",   "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "scourge",  "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "reaver",   "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "breaker",  "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "harrower", "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": [] },
+    { "word": "drake",    "category": "creature",     "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["mythic", "reptiles"] },
+    { "word": "reaper",   "category": "agent",        "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["undead"] },
+    { "word": "pyre",     "category": "environment",  "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["elementals", "undead"] },
+    { "word": "tomb",     "category": "environment",  "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["undead"] },
+    { "word": "grave",    "category": "environment",  "min_rarity": "legendary", "source": "hytale_ext", "faction_bias": ["undead"] }
   ],
   "appellations": [
     { "title": "the Hammer",     "category": "weapon",     "min_rarity": "rare",      "source": "d2"         },
