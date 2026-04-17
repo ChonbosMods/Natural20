@@ -13,6 +13,8 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new BlockNamesCommand());
         addSubCommand(new ModelsCommand());
         addSubCommand(new RolesCommand());
+        addSubCommand(new HostileDumpCommand());
+        addSubCommand(new ThemeHereCommand());
         addSubCommand(new ProbeCommand());
         addSubCommand(new LootCommand());
         addSubCommand(new LootInspectCommand());

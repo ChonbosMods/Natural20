@@ -1,5 +1,6 @@
 package com.chonbosmods.loot.mob;
 
+import com.chonbosmods.loot.Nat20DotAffix;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
 import com.chonbosmods.loot.def.Nat20AffixDef;
@@ -53,7 +54,9 @@ public final class Nat20MobAffixRoller {
             int cost = Math.max(1, def.affixSlotCost());
             if (cost > budget) continue;
             AffixValueRange range = def.getValuesForRarity(rarityKey);
-            rolled.add(new RolledAffix(def.id(), range.min(), range.max()));
+            double duration = Nat20DotAffix.isDotAffix(def.id())
+                    ? Nat20DotAffix.rollDuration(rng) : 0.0;
+            rolled.add(new RolledAffix(def.id(), range.min(), range.max(), duration));
             budget -= cost;
             if (budget == 0) break;
         }

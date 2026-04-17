@@ -49,6 +49,7 @@ public class Nat20MobAffixes implements Component<EntityStore> {
             if (!sb.isEmpty()) sb.append(",");
             sb.append(a.id()).append("=").append(a.minLevel());
             if (!a.isFixed()) sb.append("-").append(a.maxLevel());
+            if (a.hasDuration()) sb.append("@").append(a.duration());
         }
         return sb.toString();
     }
@@ -62,6 +63,12 @@ public class Nat20MobAffixes implements Component<EntityStore> {
             try {
                 String id = pair.substring(0, eq).trim();
                 String value = pair.substring(eq + 1).trim();
+                double duration = 0.0;
+                int at = value.indexOf('@');
+                if (at > 0) {
+                    duration = Double.parseDouble(value.substring(at + 1));
+                    value = value.substring(0, at);
+                }
                 int dash = value.indexOf('-');
                 double minLevel;
                 double maxLevel;
@@ -71,7 +78,7 @@ public class Nat20MobAffixes implements Component<EntityStore> {
                 } else {
                     minLevel = maxLevel = Double.parseDouble(value);
                 }
-                affixes.add(new RolledAffix(id, minLevel, maxLevel));
+                affixes.add(new RolledAffix(id, minLevel, maxLevel, duration));
             } catch (NumberFormatException e) {
                 // Skip malformed entries
             }

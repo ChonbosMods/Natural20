@@ -121,8 +121,9 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                 }
 
                 ThreadLocalRandom rng = ThreadLocalRandom.current();
-                float duration = (float) (Nat20DotTickSystem.MIN_DURATION
-                        + rng.nextDouble() * (Nat20DotTickSystem.MAX_DURATION - Nat20DotTickSystem.MIN_DURATION));
+                float duration = rolledAffix.hasDuration()
+                        ? (float) rolledAffix.duration()
+                        : Nat20DotTickSystem.MAX_DURATION;
                 float actualTicks = duration / TICK_INTERVAL;
 
                 AffixValueRange dotRange = def.getValuesForRarity(src.rarity());

@@ -232,7 +232,9 @@ public class Nat20LootPipeline {
                 usedAffixIds.add(chosen.id());
                 double lo = random.nextDouble();
                 double hi = random.nextDouble();
-                result.add(new RolledAffix(chosen.id(), Math.min(lo, hi), Math.max(lo, hi)));
+                double duration = Nat20DotAffix.isDotAffix(chosen.id())
+                        ? Nat20DotAffix.rollDuration(random) : 0.0;
+                result.add(new RolledAffix(chosen.id(), Math.min(lo, hi), Math.max(lo, hi), duration));
                 // Exclusion is symmetric: choosing A blocks B if either side declares the relationship
                 pool.removeIf(a -> {
                     if (chosen.exclusiveWith() != null && chosen.exclusiveWith().contains(a.id())) return true;

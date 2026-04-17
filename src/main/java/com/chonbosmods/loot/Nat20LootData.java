@@ -115,6 +115,9 @@ public class Nat20LootData {
             if (!affix.isFixed()) {
                 sb.append("-").append(affix.maxLevel());
             }
+            if (affix.hasDuration()) {
+                sb.append("@").append(affix.duration());
+            }
         }
         return sb.toString();
     }
@@ -128,6 +131,12 @@ public class Nat20LootData {
             try {
                 String id = pair.substring(0, eq).trim();
                 String value = pair.substring(eq + 1).trim();
+                double duration = 0.0;
+                int at = value.indexOf('@');
+                if (at > 0) {
+                    duration = Double.parseDouble(value.substring(at + 1));
+                    value = value.substring(0, at);
+                }
                 int dash = value.indexOf('-');
                 double minLevel;
                 double maxLevel;
@@ -137,7 +146,7 @@ public class Nat20LootData {
                 } else {
                     minLevel = maxLevel = Double.parseDouble(value);
                 }
-                affixes.add(new RolledAffix(id, minLevel, maxLevel));
+                affixes.add(new RolledAffix(id, minLevel, maxLevel, duration));
             } catch (NumberFormatException e) {
                 // Skip malformed entries
             }

@@ -156,8 +156,12 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                 if (effectCtrl == null) continue;
 
                 ThreadLocalRandom rng = ThreadLocalRandom.current();
-                float duration = (float) (Nat20DotTickSystem.MIN_DURATION
-                        + rng.nextDouble() * (Nat20DotTickSystem.MAX_DURATION - Nat20DotTickSystem.MIN_DURATION));
+                // Duration is rolled at item craft time and stored on RolledAffix.
+                // Fall back to MAX_DURATION for mob-applied procs that pre-date
+                // the durable duration field (duration == 0).
+                float duration = rolledAffix.hasDuration()
+                        ? (float) rolledAffix.duration()
+                        : Nat20DotTickSystem.MAX_DURATION;
                 float actualTicks = duration / TICK_INTERVAL;
 
                 com.chonbosmods.loot.def.AffixValueRange range = def.getValuesForRarity(src.rarity());

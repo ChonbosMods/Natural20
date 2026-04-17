@@ -31,9 +31,12 @@ public final class Nat20AffixDisplay {
     public static final String CRIT_YELLOW = "#FFDD44";
     public static final String WHITE = "#FFFFFF";
 
-    // DoT constants — all DoTs share the same tick cadence for now.
-    public static final int DOT_TICK_COUNT = 10;
-    public static final int DOT_DURATION_SECONDS = 20;
+    // DoT tooltip constants. Affix Min/Max values are authored as "per-tick at
+    // the max duration". Total damage displayed = affix × DOT_BASE_TICKS, which
+    // is the same regardless of the rolled duration (shorter rolls just fit the
+    // same total into fewer ticks, raising per-tick).
+    public static final double DOT_BASE_TICKS = 7.5;              // 15s / 2s tick
+    public static final int DOT_DEFAULT_DURATION_SECONDS = 15;    // shown when no rolled duration is stored
 
     public enum Format {
         /** {@code "5-8 Fire Damage"} — no {@code +}, element colored, range. */

@@ -202,7 +202,7 @@ public class Nat20ItemRenderer {
 
         return switch (entry.format()) {
             case FLAT_DAMAGE_RANGE -> renderFlatDamageRange(entry, minValue, maxValue);
-            case DOT_TOTAL_RANGE -> renderDotTotalRange(entry, minValue, maxValue);
+            case DOT_TOTAL_RANGE -> renderDotTotalRange(entry, minValue, maxValue, roll.duration());
             case PERCENT_BUFF -> renderPercentBuff(entry, midValue, rarityColor);
             case SCORE -> renderScore(entry, midValue, rarityColor);
             case ABILITY -> color(Nat20AffixDisplay.ABILITY_GOLD,
@@ -216,10 +216,14 @@ public class Nat20ItemRenderer {
                 "Adds " + formatRange(minValue, maxValue, false) + " " + entry.displayName());
     }
 
-    private String renderDotTotalRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
-        // Total = per-tick value × tick count. Bleed omits the element word (bleed is physical).
-        double minTotal = minValue * Nat20AffixDisplay.DOT_TICK_COUNT;
-        double maxTotal = maxValue * Nat20AffixDisplay.DOT_TICK_COUNT;
+    private String renderDotTotalRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue,
+                                       double rolledDurationSeconds) {
+        // Total damage is fixed per rolled affix (per-tick × BASE_TICKS). Shorter
+        // rolled durations fit the same total into fewer ticks, so per-tick is
+        // higher — shorter rolls are more valuable. BASE_TICKS comes from the
+        // DOT system (currently MAX_DURATION / 2s = 7.5).
+        double minTotal = minValue * Nat20AffixDisplay.DOT_BASE_TICKS;
+        double maxTotal = maxValue * Nat20AffixDisplay.DOT_BASE_TICKS;
         boolean isBleed = Nat20AffixDisplay.BLEED.equals(entry.elementColor());
         StringBuilder sb = new StringBuilder()
                 .append(entry.displayName()).append(": ")
@@ -228,8 +232,17 @@ public class Nat20ItemRenderer {
             String element = elementForDotColor(entry.elementColor());
             if (!element.isEmpty()) sb.append(" ").append(element);
         }
-        sb.append(" over ").append(Nat20AffixDisplay.DOT_DURATION_SECONDS).append("s");
+        double duration = rolledDurationSeconds > 0
+                ? rolledDurationSeconds : Nat20AffixDisplay.DOT_DEFAULT_DURATION_SECONDS;
+        sb.append(" over ").append(formatSeconds(duration)).append("s");
         return color(entry.elementColor(), sb.toString());
+    }
+
+    private static String formatSeconds(double seconds) {
+        if (Math.abs(seconds - Math.round(seconds)) < 0.05) {
+            return String.valueOf((int) Math.round(seconds));
+        }
+        return String.format("%.1f", seconds);
     }
 
     private String renderPercentBuff(Nat20AffixDisplay.Entry entry, double midValue, String rarityColor) {
