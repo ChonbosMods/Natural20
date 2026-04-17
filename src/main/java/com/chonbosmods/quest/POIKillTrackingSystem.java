@@ -121,6 +121,15 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         if (obj == null || obj.isComplete()) return;
         if (obj.getType() != ObjectiveType.KILL_MOBS && obj.getType() != ObjectiveType.KILL_BOSS) return;
 
+        // Phase-match guard. Records are keyed by (player, quest, conflictCount). Once
+        // the quest advances, older-phase guard mobs stay in the world but must not
+        // credit the new phase's kill objective.
+        if (record.getPoiSlotIdx() != quest.getConflictCount()) {
+            LOGGER.atFine().log("stale-phase kill ignored: quest=%s recordPhase=%d currentPhase=%d",
+                    quest.getQuestId(), record.getPoiSlotIdx(), quest.getConflictCount());
+            return;
+        }
+
         boolean credit = (record.getDirection() == PoiGroupDirection.KILL_COUNT) || slot.isBoss();
         if (!credit) {
             LOGGER.atFine().log("KILL_BOSS champion kill (no credit): quest=%s slot=%d",

@@ -137,7 +137,9 @@ public class POIProximitySystem {
     private boolean maybeFirstSpawnGroup(World world, UUID playerUuid, Nat20PlayerData playerData,
                                          QuestInstance quest, ObjectiveInstance objective,
                                          Vector3d anchor) {
-        int poiSlotIdx = 0; // one group per POI for now (design §2 out-of-scope)
+        // Key the record per quest phase (conflictCount). A multi-phase quest with POIs
+        // in more than one phase would otherwise hit the phase-0 record and short-circuit.
+        int poiSlotIdx = quest.getConflictCount();
         String groupKey = MobGroupRecord.keyFor(playerUuid, quest.getQuestId(), poiSlotIdx);
         if (mobGroupRegistry.get(groupKey) != null) {
             return false; // reconciliation handles respawn; nothing to do here
