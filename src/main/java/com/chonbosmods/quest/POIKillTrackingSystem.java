@@ -119,7 +119,7 @@ public class POIKillTrackingSystem extends DamageEventSystem {
 
         ObjectiveInstance obj = quest.getCurrentObjective();
         if (obj == null || obj.isComplete()) return;
-        if (obj.getType() != ObjectiveType.KILL_MOBS) return;
+        if (obj.getType() != ObjectiveType.KILL_MOBS && obj.getType() != ObjectiveType.KILL_BOSS) return;
 
         boolean credit = (record.getDirection() == PoiGroupDirection.KILL_COUNT) || slot.isBoss();
         if (!credit) {

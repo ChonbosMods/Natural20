@@ -107,7 +107,7 @@ public class POIProximitySystem {
                 if (distSq > SPAWN_RADIUS_SQ) continue;
 
                 switch (currentObj.getType()) {
-                    case KILL_MOBS -> dirty |= maybeFirstSpawnGroup(
+                    case KILL_MOBS, KILL_BOSS -> dirty |= maybeFirstSpawnGroup(
                             world, playerUuid, playerData, quest, currentObj, anchor);
                     case FETCH_ITEM -> {
                         // FETCH_ITEM POIs get both a chest AND guard mobs. The mob group

@@ -156,10 +156,12 @@ public class POIGroupSpawnCoordinator {
         Map<Integer, UUID> spawnedByIndex = spawner.spawnFromRecord(world, record);
         registry.saveAsync();
 
-        // 10-11. KILL_MOBS only: rewrite objective fields + rebuild objective summary.
+        // 10-11. KILL_MOBS/KILL_BOSS only: rewrite objective fields + rebuild summary.
         // FETCH_ITEM quests also spawn groups (as chest guards), but the objective is
         // "retrieve the {item}" — kill count and targetLabel must stay as-authored.
-        if (objective.getType() == com.chonbosmods.quest.ObjectiveType.KILL_MOBS) {
+        com.chonbosmods.quest.ObjectiveType objType = objective.getType();
+        if (objType == com.chonbosmods.quest.ObjectiveType.KILL_MOBS
+                || objType == com.chonbosmods.quest.ObjectiveType.KILL_BOSS) {
             rewriteObjective(quest, objective, record);
             rebuildObjectiveSummary(quest, objective, record);
         } else {
