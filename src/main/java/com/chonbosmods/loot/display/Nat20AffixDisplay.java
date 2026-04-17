@@ -83,7 +83,7 @@ public final class Nat20AffixDisplay {
             Map.entry("FrostDamage",  Entry.flatDamage("Frost Damage",  FROST)),
             Map.entry("PoisonDamage", Entry.flatDamage("Poison Damage", POISON)),
             Map.entry("VoidDamage",   Entry.flatDamage("Void Damage",   VOID)),
-            Map.entry("ThornsDamage", Entry.flatDamage("Thorns Damage", BLEED)),
+            Map.entry("ThornsDamage", Entry.flatDamage("Thorns Damage", WHITE)),
 
             // DoT totals — display name is the conjugated verb the weapon performs on the target.
             Map.entry("IgniteDamage",  new Entry("Ignites",  Format.DOT_TOTAL_RANGE, FIRE,   null)),
