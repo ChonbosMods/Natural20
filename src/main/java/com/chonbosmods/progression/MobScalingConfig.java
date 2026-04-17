@@ -34,7 +34,6 @@ public final class MobScalingConfig {
     private final double hpGrowth;
     private final double dmgGrowth;
 
-    private final double awardRadiusBlocks;
     private final Map<Tier, Double> tierXpWeights;
     private final double questPhaseWeight;
     private final double d20SuccessWeight;
@@ -53,7 +52,7 @@ public final class MobScalingConfig {
     private MobScalingConfig(List<Band> bands, int defaultAreaLevel,
                              Map<Tier, Integer> mlvlOffsets, Map<Tier, TierMult> tierMultipliers,
                              int baseHp, int baseDmg, double hpGrowth, double dmgGrowth,
-                             double awardRadiusBlocks, Map<Tier, Double> tierXpWeights,
+                             Map<Tier, Double> tierXpWeights,
                              double questPhaseWeight, double d20SuccessWeight,
                              int playerBaseHp, int playerHpPerLevel,
                              Map<DifficultyTier, Integer> difficultyWeights,
@@ -67,7 +66,6 @@ public final class MobScalingConfig {
         this.tierMultipliers = Map.copyOf(tierMultipliers);
         this.baseHp = baseHp; this.baseDmg = baseDmg;
         this.hpGrowth = hpGrowth; this.dmgGrowth = dmgGrowth;
-        this.awardRadiusBlocks = awardRadiusBlocks;
         this.tierXpWeights = Map.copyOf(tierXpWeights);
         this.questPhaseWeight = questPhaseWeight;
         this.d20SuccessWeight = d20SuccessWeight;
@@ -123,7 +121,6 @@ public final class MobScalingConfig {
             double dmgGrowth = ms.get("dmg_growth").getAsDouble();
 
             JsonObject xp = root.getAsJsonObject("xp_economy");
-            double awardRadius = xp.get("award_radius_blocks").getAsDouble();
             JsonObject weights = xp.getAsJsonObject("source_weights");
             Map<Tier, Double> tierWeights = new EnumMap<>(Tier.class);
             tierWeights.put(Tier.REGULAR, weights.get("regular_kill").getAsDouble());
@@ -175,7 +172,7 @@ public final class MobScalingConfig {
                     bands.size(), defaultAreaLevel);
             return new MobScalingConfig(bands, defaultAreaLevel, offsets, mults,
                     baseHp, baseDmg, hpGrowth, dmgGrowth,
-                    awardRadius, tierWeights, questWeight, d20Weight,
+                    tierWeights, questWeight, d20Weight,
                     pBaseHp, pHpPerLevel,
                     weightsMap, mlvlMods, bossLegendary, affixes, gMin, gMax, gDefault);
         } catch (Exception e) {
@@ -208,7 +205,6 @@ public final class MobScalingConfig {
     public int baseDmg() { return baseDmg; }
     public double hpGrowth() { return hpGrowth; }
     public double dmgGrowth() { return dmgGrowth; }
-    public double awardRadiusBlocks() { return awardRadiusBlocks; }
     public double killXpWeight(Tier tier) { return tierXpWeights.getOrDefault(tier, 1.0); }
     public double questPhaseWeight() { return questPhaseWeight; }
     public double d20SuccessWeight() { return d20SuccessWeight; }

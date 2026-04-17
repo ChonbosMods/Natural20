@@ -48,6 +48,8 @@ import com.chonbosmods.commands.Nat20Command;
 import com.chonbosmods.data.Nat20GlobalData;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.progression.Nat20ContributorTrackingSystem;
+import com.chonbosmods.progression.Nat20DamageContributorTracker;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.loot.mob.Nat20MobAffixes;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
@@ -168,6 +170,7 @@ public class Natural20 extends JavaPlugin {
     private PlayerLevelHpSystem playerLevelHpSystem;
     private Nat20XpService xpService;
     private MobScalingConfig scalingConfig;
+    private final Nat20DamageContributorTracker contributorTracker = new Nat20DamageContributorTracker();
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -394,6 +397,10 @@ public class Natural20 extends JavaPlugin {
         return scalingConfig;
     }
 
+    public Nat20DamageContributorTracker getContributorTracker() {
+        return contributorTracker;
+    }
+
     @Override
     protected void setup() {
         getLogger().atInfo().log("Natural 20 setting up...");
@@ -443,8 +450,11 @@ public class Natural20 extends JavaPlugin {
         mobGroupSpawner = new Nat20MobGroupSpawner(scalingConfig);
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
-        getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService));
-        getEntityStoreRegistry().registerSystem(new Nat20MobLootDropSystem(lootSystem));
+        // Contributor tracking must register BEFORE XP/loot systems so the lethal
+        // damage event sees a fresh write first.
+        getEntityStoreRegistry().registerSystem(new Nat20ContributorTrackingSystem(contributorTracker));
+        getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService, contributorTracker));
+        getEntityStoreRegistry().registerSystem(new Nat20MobLootDropSystem(lootSystem, contributorTracker));
 
         // Register settlement NPC death/respawn system
         getEntityStoreRegistry().registerSystem(new SettlementNpcDeathSystem());

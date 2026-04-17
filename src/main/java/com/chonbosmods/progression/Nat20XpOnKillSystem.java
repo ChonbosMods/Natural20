@@ -9,19 +9,22 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.entity.entities.Player;
-import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.TargetUtil;
 
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Awards XP to all players within {@code awardRadiusBlocks} when an NPCEntity
- * dies (lethal damage). Filters non-mob entities by Nat20MobLevel presence.
+ * Awards XP to every player who dealt damage to an NPCEntity within the last
+ * {@link Nat20DamageContributorTracker#WINDOW_MS} when it dies. Each contributor
+ * receives the full XP amount (no proportional split). Mobs that die without a
+ * living player contributor award nothing: e.g. a bear killing a chicken.
  */
 public class Nat20XpOnKillSystem extends DamageEventSystem {
 
@@ -30,13 +33,22 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
 
     private final MobScalingConfig config;
     private final Nat20XpService xpService;
+    private final Nat20DamageContributorTracker contributorTracker;
 
     private int healthIdx = Integer.MIN_VALUE;
     private boolean statResolved;
 
-    public Nat20XpOnKillSystem(MobScalingConfig config, Nat20XpService xpService) {
+    // Dedup: one XP award per mob death, even if multiple damage events fire on a
+    // corpse in the same tick (affix procs, DOTs, splash). Entries age out after
+    // 60s so long-lived servers don't accumulate ghosts.
+    private static final long DEATH_DEDUP_TTL_MS = 60_000L;
+    private final Map<UUID, Long> processedDeaths = new ConcurrentHashMap<>();
+
+    public Nat20XpOnKillSystem(MobScalingConfig config, Nat20XpService xpService,
+                               Nat20DamageContributorTracker contributorTracker) {
         this.config = config;
         this.xpService = xpService;
+        this.contributorTracker = contributorTracker;
     }
 
     @Override
@@ -48,11 +60,10 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
     public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
                        Store<EntityStore> store, CommandBuffer<EntityStore> cb,
                        Damage damage) {
-        if (damage.isCancelled() || damage.getAmount() <= 0f) return;
+        if (damage.isCancelled()) return;
 
         Ref<EntityStore> victimRef = chunk.getReferenceTo(entityIndex);
 
-        // Lethal-damage check (Rally pattern: HP <= incoming damage means this swing kills).
         if (!statResolved) {
             healthIdx = EntityStatType.getAssetMap().getIndex("Health");
             statResolved = true;
@@ -62,7 +73,11 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
         EntityStatMap statMap = store.getComponent(victimRef, EntityStatMap.getComponentType());
         if (statMap == null) return;
         float currentHp = statMap.get(healthIdx).get();
-        if (currentHp > damage.getAmount()) return;
+        // Fire only after HP has actually reached 0: robust to Evasion cancellation
+        // and other pre-damage mitigators. Matches POIKillTrackingSystem's pattern
+        // (Rally pre-damage prediction was causing double-awards when Evasion
+        // cancelled the lethal hit after our handler ran).
+        if (currentHp > 0f) return;
 
         // Filter to scaled mobs (non-mob entities don't carry Nat20MobLevel).
         Nat20MobLevel level = store.getComponent(victimRef, Natural20.getMobLevelType());
@@ -77,18 +92,32 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
         int xp = Nat20XpMath.mobKillXp(mlvl, weight);
         if (xp <= 0) return;
 
-        TransformComponent transform = store.getComponent(victimRef, TransformComponent.getComponentType());
-        if (transform == null) return;
+        long now = System.currentTimeMillis();
+        UUID mobUuid = Nat20DamageContributorTracker.uuidOf(victimRef, store);
+        if (mobUuid == null) return;
 
-        List<Ref<EntityStore>> nearby = TargetUtil.getAllEntitiesInSphere(
-                transform.getPosition(), config.awardRadiusBlocks(), store);
+        // One award per mob death. HP can stay at 0 across multiple damage events
+        // (DOT ticks, splash) before the entity is removed; without this dedup
+        // each event would re-award XP.
+        if (!markProcessed(mobUuid, now)) return;
+
+        List<Ref<EntityStore>> contributors = contributorTracker.getContributors(mobUuid, now);
+        if (contributors.isEmpty()) {
+            LOGGER.atFine().log("Mob %s died with no player contributors; no XP awarded", victimRef);
+            return;
+        }
 
         String reason = "kill:" + level.getTier() + "@mlvl" + mlvl;
-        for (Ref<EntityStore> ref : nearby) {
+        for (Ref<EntityStore> ref : contributors) {
             if (!ref.isValid()) continue;
             Player player = store.getComponent(ref, Player.getComponentType());
             if (player == null) continue;
             xpService.award(player, ref, store, xp, reason);
         }
+    }
+
+    private boolean markProcessed(UUID mobUuid, long nowMs) {
+        processedDeaths.entrySet().removeIf(e -> e.getValue() < nowMs - DEATH_DEDUP_TTL_MS);
+        return processedDeaths.putIfAbsent(mobUuid, nowMs) == null;
     }
 }

@@ -6,13 +6,13 @@ import com.chonbosmods.loot.Nat20LootPipeline;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.progression.DifficultyTier;
 import com.chonbosmods.progression.Nat20MobLevel;
-import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.asset.type.item.config.ItemDrop;
 import com.hypixel.hytale.server.core.asset.type.item.config.ItemDropList;
-import com.hypixel.hytale.server.core.event.events.ecs.DropItemEvent;
+import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.entities.NPCEntity;
@@ -32,11 +32,11 @@ import java.util.concurrent.ThreadLocalRandom;
  * whose material tier matches the mob's ilvl (see {@link Nat20ItemTierResolver}).
  * Each drop slot picks uniformly from the filtered pool, runs through the
  * Nat20 loot pipeline (rarity + affixes + name), and spawns as a world-entity
- * via {@link DropItemEvent.Drop} fired through the CommandBuffer.
+ * via {@link ItemUtils#throwItem} on the CommandBuffer.
  */
 public class Nat20MobLootListener {
 
-    private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
+    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|MobLootListener");
     private static final float DROP_THROW_SPEED = 0.0f;
 
     private final Nat20LootSystem lootSystem;
@@ -56,29 +56,35 @@ public class Nat20MobLootListener {
 
         DifficultyTier difficulty = level.getDifficultyTier();
         int dropCount = dropCountFor(difficulty);
+        LOGGER.atInfo().log("onMobDeath called for mob %s: tier=%s ilvl=%d dropCount=%d",
+                mobRef, difficulty, level.getAreaLevel(), dropCount);
         if (dropCount <= 0) return List.of();
 
         int ilvl = level.getAreaLevel();
         List<String> eligibleItemIds = resolveEligibleGearItems(mobRef, store, ilvl);
         if (eligibleItemIds.isEmpty()) {
-            LOGGER.atFine().log("No gear-eligible items in mob %s drop list at ilvl=%d; skipping Nat20 drops",
+            LOGGER.atInfo().log("No gear-eligible items in mob %s drop list at ilvl=%d; skipping Nat20 drops",
                     mobRef, ilvl);
             return List.of();
         }
 
-        List<Nat20LootData> drops = generateDrops(eligibleItemIds, dropCount, ilvl);
-        if (drops.isEmpty()) return drops;
+        List<GeneratedDrop> drops = generateDrops(eligibleItemIds, dropCount, ilvl);
+        if (drops.isEmpty()) return List.of();
 
-        for (Nat20LootData data : drops) {
-            ItemStack stack = buildItemStack(data);
+        for (GeneratedDrop drop : drops) {
+            ItemStack stack = buildItemStack(drop.baseItemId(), drop.data());
             if (stack == null) continue;
-            commandBuffer.invoke(mobRef, new DropItemEvent.Drop(stack, DROP_THROW_SPEED));
+            ItemUtils.throwItem(mobRef, stack, DROP_THROW_SPEED, commandBuffer);
         }
 
         LOGGER.atInfo().log("Mob %s death drops: count=%d tier=%s ilvl=%d",
                 mobRef, drops.size(), difficulty, ilvl);
-        return drops;
+        List<Nat20LootData> result = new ArrayList<>(drops.size());
+        for (GeneratedDrop drop : drops) result.add(drop.data());
+        return result;
     }
+
+    private record GeneratedDrop(String baseItemId, Nat20LootData data) {}
 
     /**
      * Look up the mob's NPC role, resolve its ItemDropList, and return the list of
@@ -92,19 +98,29 @@ public class Nat20MobLootListener {
         if (role == null) return List.of();
 
         String dropListId = role.getDropListId();
-        if (dropListId == null || dropListId.isEmpty()) return List.of();
+        if (dropListId == null || dropListId.isEmpty()) {
+            LOGGER.atInfo().log("Mob %s has no drop list id (role=%s)", mobRef, role.getClass().getSimpleName());
+            return List.of();
+        }
 
         ItemDropList dropList = ItemDropList.getAssetMap().getAsset(dropListId);
-        if (dropList == null || dropList.getContainer() == null) return List.of();
+        if (dropList == null || dropList.getContainer() == null) {
+            LOGGER.atInfo().log("Mob %s drop list %s missing or empty", mobRef, dropListId);
+            return List.of();
+        }
 
         List<ItemDrop> allDrops = dropList.getContainer().getAllDrops(new ArrayList<>());
         List<String> eligible = new ArrayList<>();
+        List<String> allItemIds = new ArrayList<>(allDrops.size());
         for (ItemDrop drop : allDrops) {
             String itemId = drop.getItemId();
+            allItemIds.add(itemId);
             if (!Nat20ItemTierResolver.isGearItem(itemId)) continue;
             if (!Nat20ItemTierResolver.allowsIlvl(itemId, ilvl)) continue;
             eligible.add(itemId);
         }
+        LOGGER.atInfo().log("Mob %s dropList=%s total=%d eligible=%d (all=%s)",
+                mobRef, dropListId, allItemIds.size(), eligible.size(), allItemIds);
         return eligible;
     }
 
@@ -122,10 +138,10 @@ public class Nat20MobLootListener {
     /**
      * Pick random items from the eligible pool and generate Nat20 loot data for each.
      */
-    private List<Nat20LootData> generateDrops(List<String> eligibleItemIds, int dropCount, int ilvl) {
+    private List<GeneratedDrop> generateDrops(List<String> eligibleItemIds, int dropCount, int ilvl) {
         Nat20LootPipeline pipeline = lootSystem.getPipeline();
         Random random = ThreadLocalRandom.current();
-        List<Nat20LootData> results = new ArrayList<>(dropCount);
+        List<GeneratedDrop> results = new ArrayList<>(dropCount);
 
         int[] gate = Nat20LootPipeline.rarityGateForIlvl(ilvl);
         int effectiveMin = gate[0];
@@ -143,7 +159,7 @@ public class Nat20MobLootListener {
                     random, ilvl);
 
             if (data != null) {
-                results.add(data);
+                results.add(new GeneratedDrop(itemId, data));
                 LOGGER.atInfo().log("Generated mob drop %d/%d: %s [%s] from %s",
                         i + 1, dropCount, data.getGeneratedName(), data.getRarity(), itemId);
             } else {
@@ -162,15 +178,22 @@ public class Nat20MobLootListener {
         return name != null ? name : itemId;
     }
 
-    /** Build an ItemStack with Nat20LootData metadata attached. */
+    /**
+     * Build an ItemStack with Nat20LootData metadata attached. Prefers the dynamically
+     * registered {@code uniqueItemId} (set by {@link Nat20LootPipeline} via
+     * {@code Nat20ItemRegistry.registerItem}) and falls back to the base Hytale item id
+     * if registration didn't happen, matching {@code AffixRewardRoller#buildItemStack}.
+     */
     @Nullable
-    private ItemStack buildItemStack(Nat20LootData data) {
-        String variant = data.getVariantItemId();
-        if (variant == null || variant.isEmpty()) return null;
+    private ItemStack buildItemStack(String baseItemId, Nat20LootData data) {
+        String stackItemId = data.getUniqueItemId() != null && !data.getUniqueItemId().isEmpty()
+                ? data.getUniqueItemId()
+                : baseItemId;
+        if (stackItemId == null || stackItemId.isEmpty()) return null;
         try {
-            return new ItemStack(variant, 1).withMetadata(Nat20LootData.METADATA_KEY, data);
+            return new ItemStack(stackItemId, 1).withMetadata(Nat20LootData.METADATA_KEY, data);
         } catch (Exception e) {
-            LOGGER.atSevere().withCause(e).log("Failed to build ItemStack for drop: itemId=%s", variant);
+            LOGGER.atSevere().withCause(e).log("Failed to build ItemStack for drop: itemId=%s", stackItemId);
             return null;
         }
     }
