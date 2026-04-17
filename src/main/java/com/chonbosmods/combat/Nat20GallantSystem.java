@@ -46,7 +46,7 @@ public class Nat20GallantSystem extends DamageEventSystem {
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:gallant";
     private static final String EFFECT_ID = "Nat20GallantEffect";
-    private static final double SOFTCAP_K = 0.30;
+    private static final double SOFTCAP_K = 0.60;
 
     private final Nat20LootSystem lootSystem;
     private EntityEffect effect;

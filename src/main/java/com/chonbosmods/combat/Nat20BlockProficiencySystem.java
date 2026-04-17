@@ -44,7 +44,7 @@ public class Nat20BlockProficiencySystem extends DamageEventSystem {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:block_proficiency";
-    private static final double SOFTCAP_K = 0.50;
+    private static final double SOFTCAP_K = 0.80;
 
     private final Nat20LootSystem lootSystem;
 

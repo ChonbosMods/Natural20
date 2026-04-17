@@ -108,8 +108,8 @@ public class Nat20AbsorptionSystem extends DamageEventSystem {
 
         if (totalRaw <= 0.0) return;
 
-        // Apply softcap (k=0.50, caps around 35-40%)
-        double effectiveAbsorption = Nat20Softcap.softcap(totalRaw, 0.50);
+        // Softcap k=0.70: full-armor stacking caps ~65% absorption
+        double effectiveAbsorption = Nat20Softcap.softcap(totalRaw, 0.70);
 
         // Compute absorbed damage
         float incomingDamage = damage.getAmount();

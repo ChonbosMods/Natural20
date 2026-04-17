@@ -46,7 +46,7 @@ public class Nat20LightFootSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:light_foot";
-    private static final double SOFTCAP_K = 0.50;
+    private static final double SOFTCAP_K = 0.80;
     private static final float SPRINT_DRAIN_PER_SEC = 1.0f;
     // Sprint speed threshold (squared distance per tick for ~5.5 m/s sprint)
     private static final double SPRINT_THRESHOLD_SQ = 0.02;

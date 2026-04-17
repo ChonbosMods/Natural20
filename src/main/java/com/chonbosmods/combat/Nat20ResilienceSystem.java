@@ -45,7 +45,7 @@ public class Nat20ResilienceSystem extends EntityTickingSystem<EntityStore> {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:resilience";
-    private static final double SOFTCAP_K = 0.60;
+    private static final double SOFTCAP_K = 0.80;
     private static final int LOG_INTERVAL_TICKS = 20;
 
     private final Nat20LootSystem lootSystem;

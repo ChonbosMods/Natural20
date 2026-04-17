@@ -48,7 +48,7 @@ public class Nat20FocusedMindSystem extends EntityTickingSystem<EntityStore> {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:focused_mind";
     private static final double IDLE_THRESHOLD_SQ = 0.01;
-    private static final double SOFTCAP_K = 2.0;
+    private static final double SOFTCAP_K = 3.0;
 
     /** Log at most once per second (20 ticks) to avoid spamming. */
     private static final int LOG_INTERVAL_TICKS = 20;

@@ -42,7 +42,8 @@ public class Nat20ThornsSystem extends DamageEventSystem {
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:thorns";
     private static final String PARTICLE = "Nat20_Thorns";
-    private static final double SOFTCAP_K = 20.0;
+    private static final double SOFTCAP_K = 50.0;
+    private static final double PROC_CHANCE = 0.50;
     private static final float TORSO_OFFSET_Y = 0.9f;
 
     private final Nat20LootSystem lootSystem;
@@ -117,6 +118,7 @@ public class Nat20ThornsSystem extends DamageEventSystem {
         }
 
         if (totalThornsDamage <= 0) return;
+        if (ThreadLocalRandom.current().nextDouble() >= PROC_CHANCE) return;
         totalThornsDamage = Nat20Softcap.softcap(totalThornsDamage, SOFTCAP_K);
 
         if (thornsCauseIdx < 0) return;

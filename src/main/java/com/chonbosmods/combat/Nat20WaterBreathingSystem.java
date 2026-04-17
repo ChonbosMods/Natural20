@@ -45,7 +45,7 @@ public class Nat20WaterBreathingSystem extends EntityTickingSystem<EntityStore> 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final String AFFIX_ID = "nat20:water_breathing";
     private static final String MODIFIER_KEY = "nat20:water_breathing";
-    private static final double SOFTCAP_K = 2.0;
+    private static final double SOFTCAP_K = 5.0;
     private static final int CHECK_INTERVAL_TICKS = 20; // Only recheck every ~1 second
 
     private final Nat20LootSystem lootSystem;
