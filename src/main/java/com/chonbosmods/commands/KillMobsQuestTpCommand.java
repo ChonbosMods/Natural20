@@ -103,13 +103,15 @@ public class KillMobsQuestTpCommand extends AbstractPlayerCommand {
                         + " (" + (int) closestDist + " blocks)"));
     }
 
-    /** Return the objective index of the first KILL_MOBS phase, or -1 if none. */
+    /** Return the objective index of the first KILL_MOBS or KILL_BOSS phase, or -1 if none. */
     private static int findKillMobsPhase(QuestInstance quest) {
         var objs = quest.getObjectives();
         if (objs == null) return -1;
         for (int i = 0; i < objs.size(); i++) {
             ObjectiveInstance obj = objs.get(i);
-            if (obj != null && obj.getType() == ObjectiveType.KILL_MOBS) return i;
+            if (obj == null) continue;
+            ObjectiveType t = obj.getType();
+            if (t == ObjectiveType.KILL_MOBS || t == ObjectiveType.KILL_BOSS) return i;
         }
         return -1;
     }
