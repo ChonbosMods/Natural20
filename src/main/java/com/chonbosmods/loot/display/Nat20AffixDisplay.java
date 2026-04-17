@@ -124,12 +124,14 @@ public final class Nat20AffixDisplay {
             Map.entry("HexDamage",        Entry.percent("Hex")),
             Map.entry("LightFoot",        Entry.percent("Lightweight")),
             Map.entry("Resilience",       Entry.percent("Resilience")),
-            Map.entry("ViciousMockery",   Entry.percent("Vicious Mockery"))
-            // InteractionSpeed (attack_speed) intentionally omitted pending resolution.
+            Map.entry("ViciousMockery",   Entry.percent("Vicious Mockery")),
+
+            // Attack speed — Hytale's internal stat name is InteractionSpeed.
+            Map.entry("InteractionSpeed", Entry.percent("Attack Speed"))
     );
 
     /** Lookup a display entry for a given targetStat. Returns {@code null} for ABILITY affixes
-     *  and unknown stats (e.g., InteractionSpeed). */
+     *  and unmapped stats. */
     @Nullable
     public static Entry forTargetStat(@Nullable String targetStat) {
         if (targetStat == null) return null;

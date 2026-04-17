@@ -208,10 +208,9 @@ public class Nat20ItemRenderer {
     }
 
     private String renderFlatDamageRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
-        // e.g. "Adds 5-8 Fire Damage" — "Adds " inherits default text colour; the rest is element-coloured.
-        String coloured = color(entry.elementColor(),
-                formatRange(minValue, maxValue, false) + " " + entry.displayName());
-        return "Adds " + coloured;
+        // e.g. "Adds 5-8 Fire Damage" — entire line in element colour.
+        return color(entry.elementColor(),
+                "Adds " + formatRange(minValue, maxValue, false) + " " + entry.displayName());
     }
 
     private String renderDotTotalRange(Nat20AffixDisplay.Entry entry, double minValue, double maxValue) {
@@ -239,10 +238,9 @@ public class Nat20ItemRenderer {
     }
 
     private String renderScore(Nat20AffixDisplay.Entry entry, double midValue, String rarityColor) {
-        // e.g. "+3 STR" — plus + int in rarity colour, stat short-name in stat colour.
+        // e.g. "+3 STR" — whole line white, unaffected by rarity or stat colour.
         int val = (int) Math.round(midValue);
-        String statColor = entry.statColor() != null ? entry.statColor().color() : rarityColor;
-        return color(rarityColor, "+" + val) + " " + color(statColor, entry.displayName());
+        return color("#FFFFFF", "+" + val + " " + entry.displayName());
     }
 
     /** Format a {@code min-max} range, collapsing to a single value when they match. */
