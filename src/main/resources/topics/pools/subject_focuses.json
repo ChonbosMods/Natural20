@@ -8,7 +8,11 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship", "danger"]
+      "categories": [
+        "trade",
+        "craftsmanship",
+        "danger"
+      ]
     },
     {
       "value": "the old farm",
@@ -18,7 +22,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "nostalgia"]
+      "categories": [
+        "community",
+        "nostalgia"
+      ]
     },
     {
       "value": "the market",
@@ -28,7 +35,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
     {
       "value": "the well",
@@ -38,7 +48,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "nature"]
+      "categories": [
+        "community",
+        "nature"
+      ]
     },
     {
       "value": "the shrine",
@@ -48,7 +61,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the tavern",
@@ -58,7 +74,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
     {
       "value": "the smithy",
@@ -68,7 +87,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the mill",
@@ -78,7 +100,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the watchtower",
@@ -88,7 +113,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["danger", "community"]
+      "categories": [
+        "danger",
+        "community"
+      ]
     },
     {
       "value": "the quarry",
@@ -98,7 +126,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the bakery",
@@ -108,7 +139,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
     {
       "value": "the tannery",
@@ -118,7 +152,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the docks",
@@ -128,7 +165,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "danger"]
+      "categories": [
+        "trade",
+        "danger"
+      ]
     },
     {
       "value": "the granary",
@@ -138,7 +178,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
     {
       "value": "the brewery",
@@ -148,7 +191,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the chapel",
@@ -158,9 +204,11 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "nostalgia"]
+      "categories": [
+        "community",
+        "nostalgia"
+      ]
     },
-
     {
       "value": "the road south",
       "plural": false,
@@ -169,7 +217,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["danger", "sighting"]
+      "categories": [
+        "danger",
+        "sighting"
+      ]
     },
     {
       "value": "the edge of town",
@@ -179,7 +230,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "danger"]
+      "categories": [
+        "community",
+        "danger"
+      ]
     },
     {
       "value": "the main road",
@@ -189,7 +243,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "danger"]
+      "categories": [
+        "trade",
+        "danger"
+      ]
     },
     {
       "value": "past the last house",
@@ -199,7 +256,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["sighting", "nature"]
+      "categories": [
+        "sighting",
+        "nature"
+      ]
     },
     {
       "value": "the hill outside town",
@@ -209,7 +269,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["nature", "sighting"]
+      "categories": [
+        "nature",
+        "sighting"
+      ]
     },
     {
       "value": "the old path",
@@ -219,7 +282,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["danger", "nostalgia"]
+      "categories": [
+        "danger",
+        "nostalgia"
+      ]
     },
     {
       "value": "the creek",
@@ -229,7 +295,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["nature", "community"]
+      "categories": [
+        "nature",
+        "community"
+      ]
     },
     {
       "value": "the bridge",
@@ -239,7 +308,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "danger"]
+      "categories": [
+        "trade",
+        "danger"
+      ]
     },
     {
       "value": "the town square",
@@ -249,7 +321,10 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "festival"]
+      "categories": [
+        "community",
+        "festival"
+      ]
     },
     {
       "value": "the back lanes",
@@ -259,9 +334,11 @@
       "concrete": true,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "danger"]
+      "categories": [
+        "community",
+        "danger"
+      ]
     },
-
     {
       "value": "the harvest",
       "plural": false,
@@ -270,7 +347,11 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community", "weather"]
+      "categories": [
+        "trade",
+        "community",
+        "weather"
+      ]
     },
     {
       "value": "market day",
@@ -280,7 +361,11 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community", "festival"]
+      "categories": [
+        "trade",
+        "community",
+        "festival"
+      ]
     },
     {
       "value": "the new season",
@@ -290,7 +375,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["weather", "nature"]
+      "categories": [
+        "weather",
+        "nature"
+      ]
     },
     {
       "value": "the fence dispute",
@@ -300,7 +388,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["conflict", "community"]
+      "categories": [
+        "conflict",
+        "community"
+      ]
     },
     {
       "value": "the well water",
@@ -310,7 +401,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "nature"]
+      "categories": [
+        "community",
+        "nature"
+      ]
     },
     {
       "value": "last week's rain",
@@ -320,7 +414,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["weather", "nature"]
+      "categories": [
+        "weather",
+        "nature"
+      ]
     },
     {
       "value": "the cold snap",
@@ -330,7 +427,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["weather", "community"]
+      "categories": [
+        "weather",
+        "community"
+      ]
     },
     {
       "value": "the new neighbors",
@@ -340,7 +440,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the old stories",
@@ -350,7 +453,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["nostalgia", "curiosity"]
+      "categories": [
+        "nostalgia",
+        "curiosity"
+      ]
     },
     {
       "value": "the food lately",
@@ -360,7 +466,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
     {
       "value": "the work this season",
@@ -370,7 +479,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "craftsmanship"]
+      "categories": [
+        "trade",
+        "craftsmanship"
+      ]
     },
     {
       "value": "the long nights",
@@ -380,7 +492,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["weather", "nostalgia"]
+      "categories": [
+        "weather",
+        "nostalgia"
+      ]
     },
     {
       "value": "the mud",
@@ -390,7 +505,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["weather", "nature"]
+      "categories": [
+        "weather",
+        "nature"
+      ]
     },
     {
       "value": "the noise last night",
@@ -400,7 +518,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["sighting", "curiosity"]
+      "categories": [
+        "sighting",
+        "curiosity"
+      ]
     },
     {
       "value": "the price of grain",
@@ -410,9 +531,11 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["trade", "community"]
+      "categories": [
+        "trade",
+        "community"
+      ]
     },
-
     {
       "value": "the neighbors",
       "plural": true,
@@ -421,7 +544,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the new family",
@@ -431,7 +557,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the old-timers",
@@ -441,7 +570,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "nostalgia"]
+      "categories": [
+        "community",
+        "nostalgia"
+      ]
     },
     {
       "value": "that business with the council",
@@ -451,7 +583,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["conflict", "community"]
+      "categories": [
+        "conflict",
+        "community"
+      ]
     },
     {
       "value": "the gossip going around",
@@ -461,7 +596,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the folk down the road",
@@ -471,7 +609,10 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "curiosity"]
+      "categories": [
+        "community",
+        "curiosity"
+      ]
     },
     {
       "value": "the couple next door",
@@ -481,47 +622,418 @@
       "concrete": false,
       "poiType": "narrative_only",
       "questAffinities": [],
-      "categories": ["community", "conflict"]
+      "categories": [
+        "community",
+        "conflict"
+      ]
     },
-
-    {"value": "the morning routine", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "the weather lately", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "the daily grind", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "passing time", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "getting by", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "another day", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "small comforts", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-    {"value": "aches and pains", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["mundane_daily_life"]},
-
-    {"value": "a neighbor", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-    {"value": "the folks around here", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-    {"value": "someone I know", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-    {"value": "people in town", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-    {"value": "the locals", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-    {"value": "a certain someone", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["npc_opinions"]},
-
-    {"value": "this place", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
-    {"value": "home", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
-    {"value": "where I live", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
-    {"value": "the settlement", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
-    {"value": "our little corner", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["settlement_pride"]},
-
-    {"value": "the local trade", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
-    {"value": "the worksite", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
-    {"value": "the facilities", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
-    {"value": "what keeps us busy", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
-    {"value": "the operation", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["poi_awareness"]},
-
-    {"value": "the local wildlife", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
-    {"value": "pests", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
-    {"value": "critters", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
-    {"value": "things in the dark", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
-    {"value": "what lurks outside", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["creature_complaints"]},
-
-    {"value": "news from elsewhere", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
-    {"value": "word from outside", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
-    {"value": "travelers' tales", "plural": true, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
-    {"value": "what I heard", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]},
-    {"value": "the road", "plural": false, "proper": false, "questEligible": false, "concrete": false, "poiType": "narrative_only", "questAffinities": [], "categories": ["distant_rumors"]}
+    {
+      "value": "the morning routine",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "the weather lately",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "the daily grind",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "passing time",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "getting by",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "another day",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "small comforts",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "aches and pains",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "mundane_daily_life"
+      ]
+    },
+    {
+      "value": "a neighbor",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "the folks around here",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "someone I know",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "people in town",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "the locals",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "a certain someone",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "npc_opinions"
+      ]
+    },
+    {
+      "value": "this place",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "settlement_pride"
+      ]
+    },
+    {
+      "value": "home",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "settlement_pride"
+      ]
+    },
+    {
+      "value": "where I live",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "settlement_pride"
+      ]
+    },
+    {
+      "value": "the settlement",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "settlement_pride"
+      ]
+    },
+    {
+      "value": "our little corner",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "settlement_pride"
+      ]
+    },
+    {
+      "value": "the local trade",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "poi_awareness"
+      ]
+    },
+    {
+      "value": "the worksite",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "poi_awareness"
+      ]
+    },
+    {
+      "value": "the facilities",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "poi_awareness"
+      ]
+    },
+    {
+      "value": "what keeps us busy",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "poi_awareness"
+      ]
+    },
+    {
+      "value": "the operation",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "poi_awareness"
+      ]
+    },
+    {
+      "value": "the local wildlife",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "creature_complaints"
+      ]
+    },
+    {
+      "value": "pests",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "creature_complaints"
+      ]
+    },
+    {
+      "value": "critters",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "creature_complaints"
+      ]
+    },
+    {
+      "value": "things in the dark",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "creature_complaints"
+      ]
+    },
+    {
+      "value": "what lurks outside",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "creature_complaints"
+      ]
+    },
+    {
+      "value": "news from elsewhere",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "distant_rumors"
+      ]
+    },
+    {
+      "value": "word from outside",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "distant_rumors"
+      ]
+    },
+    {
+      "value": "travelers' tales",
+      "plural": true,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "distant_rumors"
+      ]
+    },
+    {
+      "value": "what I heard",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "distant_rumors"
+      ]
+    },
+    {
+      "value": "the road",
+      "plural": false,
+      "proper": false,
+      "questEligible": false,
+      "concrete": false,
+      "poiType": "narrative_only",
+      "questAffinities": [],
+      "categories": [
+        "distant_rumors"
+      ]
+    }
   ]
 }
