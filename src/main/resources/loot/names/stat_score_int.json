@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "INT",
   "tiers": {
-    "common":    ["the Student", "Wit", "Knowing"],
-    "uncommon":  ["the Scholar", "Acuity", "the Learned"],
-    "rare":      ["the Sage", "the Arcanist", "Brilliance"],
-    "epic":      ["the Oracle", "the Spellbinder", "Omniscience"],
-    "legendary": ["the Archmage", "Starfire", "the Logos"]
+    "common": [
+      "the Student",
+      "Wit",
+      "Knowing",
+      "the Apprentice",
+      "Shrewdness",
+      "the Reader",
+      "Cleverness",
+      "the Journeyman",
+      "Quick Wits",
+      "the Inkhand",
+      "Keenmind",
+      "the Scribe"
+    ],
+    "uncommon": [
+      "the Scholar",
+      "Acuity",
+      "the Learned",
+      "the Adept",
+      "Keen Thought",
+      "the Lorekeeper",
+      "Sharp Reason",
+      "the Philosopher",
+      "the Runereader",
+      "Bright Mind",
+      "the Magister",
+      "Studied Arts"
+    ],
+    "rare": [
+      "the Sage",
+      "the Arcanist",
+      "Brilliance",
+      "the Thaumaturge",
+      "the Magus",
+      "Deep Reason",
+      "the Codex-Keeper",
+      "the Wizard",
+      "Starminded",
+      "the Loremaster",
+      "Sharpened Arts",
+      "the Mentalist"
+    ],
+    "epic": [
+      "the Oracle",
+      "the Spellbinder",
+      "Omniscience",
+      "the Archivist",
+      "Abyssal Wit",
+      "the Conjurer",
+      "Starborn Mind",
+      "the Grand Sage",
+      "Ley-Reader",
+      "the Chronicler",
+      "Primalthought",
+      "the Runebound"
+    ],
+    "legendary": [
+      "the Archmage",
+      "Starfire",
+      "the Logos",
+      "the Astromancer",
+      "the Mindspire",
+      "Infinite Reason",
+      "the All-Knower",
+      "the Aethermaster",
+      "the Cosmic Sage",
+      "Starmind",
+      "the Eternal Codex",
+      "the Firstmage"
+    ]
   }
 }

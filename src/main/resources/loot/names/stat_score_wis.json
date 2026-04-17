@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "WIS",
   "tiers": {
-    "common":    ["the Owl", "Awareness", "the Watcher"],
-    "uncommon":  ["the Seer", "Clarity", "the Sentinel"],
-    "rare":      ["the Prophet", "Foresight", "Vigilance"],
-    "epic":      ["the Diviner", "Truesight", "the Third Eye"],
-    "legendary": ["the All-Seeing", "Revelation", "the Omniscient"]
+    "common": [
+      "the Owl",
+      "Awareness",
+      "the Watcher",
+      "the Elder",
+      "Keen Sense",
+      "the Sentry",
+      "Attentiveness",
+      "the Warden",
+      "Still Mind",
+      "the Listener",
+      "Plain Sight",
+      "the Crow"
+    ],
+    "uncommon": [
+      "the Seer",
+      "Clarity",
+      "the Sentinel",
+      "the Hierophant",
+      "Insight",
+      "the Graybeard",
+      "the Augur",
+      "Waking Eye",
+      "the Reverend",
+      "Deep Calm",
+      "the Wakeful",
+      "Open Eye"
+    ],
+    "rare": [
+      "the Prophet",
+      "Foresight",
+      "Vigilance",
+      "the Visionary",
+      "the Far-Seer",
+      "Sacred Calm",
+      "the Hermit",
+      "the Scryer",
+      "Deep Vision",
+      "the Skywatcher",
+      "Guarded Thought",
+      "the Patient One"
+    ],
+    "epic": [
+      "the Diviner",
+      "Truesight",
+      "the Third Eye",
+      "the Seer-King",
+      "Deathless Gaze",
+      "the Moon-Watcher",
+      "the Kindled Mind",
+      "the Starkeeper",
+      "Clear Judgment",
+      "the Ancient One",
+      "the Farsighted",
+      "the Still Flame"
+    ],
+    "legendary": [
+      "the All-Seeing",
+      "Revelation",
+      "the Omniscient",
+      "the Eye of Ages",
+      "the Godseer",
+      "Aeon-Sight",
+      "the Final Prophet",
+      "the Soul-Reader",
+      "Starwake",
+      "the Dreaming Crown",
+      "the Endless Eye",
+      "the World-Witness"
+    ]
   }
 }

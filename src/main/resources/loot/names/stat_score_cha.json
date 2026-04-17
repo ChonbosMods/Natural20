@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "CHA",
   "tiers": {
-    "common":    ["the Herald", "Charm", "the Speaker"],
-    "uncommon":  ["the Noble", "Authority", "the Diplomat"],
-    "rare":      ["the Sovereign", "Majesty", "the Commander"],
-    "epic":      ["the Idol", "Eminence", "the Exalted"],
-    "legendary": ["the Paragon", "Apotheosis", "the Undeniable"]
+    "common": [
+      "the Herald",
+      "Charm",
+      "the Speaker",
+      "the Envoy",
+      "Presence",
+      "the Orator",
+      "Golden Tongue",
+      "the Mummer",
+      "Bright Smile",
+      "the Crier",
+      "Winning Word",
+      "the Troubadour"
+    ],
+    "uncommon": [
+      "the Noble",
+      "Authority",
+      "the Diplomat",
+      "the Silvertongue",
+      "the Courtier",
+      "Eloquence",
+      "the Emissary",
+      "Magnetic Grace",
+      "the Bard",
+      "the Lady",
+      "Poised Word",
+      "the Gallant"
+    ],
+    "rare": [
+      "the Sovereign",
+      "Majesty",
+      "the Commander",
+      "the Monarch",
+      "the Duchess",
+      "Golden Presence",
+      "the Rally-Lord",
+      "Regal Air",
+      "the Ambassador",
+      "the Champion",
+      "Commanding Voice",
+      "the High Bard"
+    ],
+    "epic": [
+      "the Idol",
+      "Eminence",
+      "the Exalted",
+      "the Star-Tongue",
+      "Radiant Presence",
+      "the Coronated",
+      "Undimmed Grace",
+      "the Glorybound",
+      "the Arch-Bard",
+      "Sunspeech",
+      "the Hero-King",
+      "Brilliant Aura"
+    ],
+    "legendary": [
+      "the Paragon",
+      "Apotheosis",
+      "the Undeniable",
+      "the God-Tongue",
+      "the Immortal Voice",
+      "the Star-Crowned",
+      "the World's Herald",
+      "Everlight Grace",
+      "the Songshaper",
+      "the Heart-Taker",
+      "the Heaven-Faced",
+      "the Worldspeaker"
+    ]
   }
 }

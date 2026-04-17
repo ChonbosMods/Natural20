@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "STR",
   "tiers": {
-    "common":    ["the Ox", "Brawn", "the Bull"],
-    "uncommon":  ["the Bear", "the Brute", "Vigor"],
-    "rare":      ["the Giant", "the Warhorse", "Fortitude"],
-    "epic":      ["the Titan", "the Colossus", "Dominion"],
-    "legendary": ["the Juggernaut", "Earthshatter", "the Primordial"]
+    "common": [
+      "the Ox",
+      "Brawn",
+      "the Bull",
+      "the Mule",
+      "Heft",
+      "the Ram",
+      "Iron Grip",
+      "the Stonehand",
+      "Heavy Arm",
+      "the Packhorse",
+      "Thick Sinew",
+      "the Oakfist"
+    ],
+    "uncommon": [
+      "the Bear",
+      "the Brute",
+      "Vigor",
+      "the Aurochs",
+      "the Bison",
+      "Stalwart Grip",
+      "the Stonebreaker",
+      "Iron Sinew",
+      "the Warbear",
+      "Crushing Hand",
+      "the Quarryman",
+      "the Destrier"
+    ],
+    "rare": [
+      "the Giant",
+      "the Warhorse",
+      "Fortitude",
+      "the Ogre",
+      "the Hillbreaker",
+      "Might",
+      "the Cyclops",
+      "the Anvil",
+      "the Warboar",
+      "Crushing Grip",
+      "the Mastodon",
+      "the Berserker"
+    ],
+    "epic": [
+      "the Titan",
+      "the Colossus",
+      "Dominion",
+      "the Behemoth",
+      "Overwhelming Might",
+      "the Worldhorn",
+      "the Cliff-Breaker",
+      "the Citadel",
+      "Stormhaft",
+      "the Warbeast",
+      "the Leviathan",
+      "Thunderfist"
+    ],
+    "legendary": [
+      "the Juggernaut",
+      "Earthshatter",
+      "the Primordial",
+      "the Mountainkiller",
+      "the World-Bull",
+      "Atlas-Kind",
+      "the Doomhand",
+      "the Worldbreaker",
+      "the God-Ox",
+      "the Final Titan",
+      "the Hammer of Worlds",
+      "Aeon-Might"
+    ]
   }
 }

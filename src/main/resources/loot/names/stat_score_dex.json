@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "DEX",
   "tiers": {
-    "common":    ["the Cat", "Nimbleness", "the Hare"],
-    "uncommon":  ["the Hawk", "the Viper", "Reflexes"],
-    "rare":      ["the Falcon", "Precision", "the Acrobat"],
-    "epic":      ["the Phantom", "Swiftwind", "the Blur"],
-    "legendary": ["the Tempest", "Flickerstep", "the Unseen"]
+    "common": [
+      "the Cat",
+      "Nimbleness",
+      "the Hare",
+      "the Squirrel",
+      "Quick Step",
+      "the Swift",
+      "the Weasel",
+      "Light Foot",
+      "the Minnow",
+      "Nimble Hand",
+      "the Fox-Kit",
+      "Deft Grip"
+    ],
+    "uncommon": [
+      "the Hawk",
+      "the Viper",
+      "Reflexes",
+      "the Panther",
+      "the Swallow",
+      "Quick Eye",
+      "the Adder",
+      "Fleet Step",
+      "the Lynx",
+      "the Harrier",
+      "Sure Hand",
+      "the Foxstride"
+    ],
+    "rare": [
+      "the Falcon",
+      "Precision",
+      "the Acrobat",
+      "the Peregrine",
+      "Sureshot",
+      "the Stalker",
+      "the Sparrowhawk",
+      "Swiftblade",
+      "the Duelist",
+      "Keen Strike",
+      "the Sable",
+      "Lightstep"
+    ],
+    "epic": [
+      "the Phantom",
+      "Swiftwind",
+      "the Blur",
+      "the Shadow",
+      "Blinkstep",
+      "the Wraithhawk",
+      "Deadly Grace",
+      "the Whirlwind",
+      "Quicksilver",
+      "the Assassin",
+      "Moonstride",
+      "the Nightfalcon"
+    ],
+    "legendary": [
+      "the Tempest",
+      "Flickerstep",
+      "the Unseen",
+      "the Stormwing",
+      "the Breathless",
+      "the Thousand Cuts",
+      "the Windkind",
+      "Lightleap",
+      "the Sky-Taken",
+      "the Arrow-Saint",
+      "Ghoststride",
+      "the Windblade"
+    ]
   }
 }

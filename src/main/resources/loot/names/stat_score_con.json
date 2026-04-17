@@ -8,10 +8,75 @@
   "mechanic": "add_ability_score",
   "stat": "CON",
   "tiers": {
-    "common":    ["Iron", "the Oak", "Grit"],
-    "uncommon":  ["Stone", "the Boar", "Resilience"],
-    "rare":      ["the Anvil", "Ironbark", "Tenacity"],
-    "epic":      ["the Mountain", "Adamant", "the Unbroken"],
-    "legendary": ["the Monolith", "the Eternal", "Worldbone"]
+    "common": [
+      "Iron",
+      "the Oak",
+      "Grit",
+      "Tough Hide",
+      "the Badger",
+      "Hardwood",
+      "Stone-Skin",
+      "the Rootwood",
+      "Stout Heart",
+      "Hardy Stock",
+      "the Tortoise",
+      "Thick Bark"
+    ],
+    "uncommon": [
+      "Stone",
+      "the Boar",
+      "Resilience",
+      "Weathered Hide",
+      "the Basalt",
+      "Firm Marrow",
+      "the Wolverine",
+      "the Armadillo",
+      "Tempered Will",
+      "Rooted Stock",
+      "the Stonehide",
+      "Granite-Skin"
+    ],
+    "rare": [
+      "the Anvil",
+      "Ironbark",
+      "Tenacity",
+      "the Granite",
+      "Unshakeable",
+      "the Ironwood",
+      "Dogged Vigor",
+      "Stonebone",
+      "the Bedrock",
+      "Hardened Marrow",
+      "the Stone-Rooted",
+      "Unyielding Stock"
+    ],
+    "epic": [
+      "the Mountain",
+      "Adamant",
+      "the Unbroken",
+      "Iron Constitution",
+      "the Earthheart",
+      "Titan Endurance",
+      "Enduring Grit",
+      "the Deepstone",
+      "Undying Vigor",
+      "the Rootfast",
+      "the Living Basalt",
+      "Tempered Marrow"
+    ],
+    "legendary": [
+      "the Monolith",
+      "the Eternal",
+      "Worldbone",
+      "the Earthblood",
+      "the Ancient Oak",
+      "the Living Stone",
+      "the Heartwood",
+      "the Ironheart",
+      "the Everstone",
+      "the Rootheart",
+      "the Stone Undying",
+      "the Marrow Throne"
+    ]
   }
 }
