@@ -178,7 +178,7 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                         && dotTickSystem.registerDot(targetRef, dotType, attackerRef, damagePerTick);
 
                 if (isNew) {
-                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                    Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, commandBuffer);
                 }
 
                 if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {

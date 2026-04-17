@@ -154,7 +154,7 @@ public class Nat20GallantSystem extends DamageEventSystem {
                 new GallantState(totalReduction, System.currentTimeMillis() + 7000));
         boolean isNew = previous == null || System.currentTimeMillis() > previous.expiryMs;
         if (isNew) {
-            effectCtrl.addEffect(attackerRef, effect, commandBuffer);
+            Nat20EntityEffectUtil.applyOnce(effectCtrl, attackerRef, effect, commandBuffer);
         }
 
         if (CombatDebugSystem.isEnabled(defenderUuid)) {

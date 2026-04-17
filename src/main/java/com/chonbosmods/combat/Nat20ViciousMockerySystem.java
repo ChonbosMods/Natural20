@@ -119,7 +119,7 @@ public class Nat20ViciousMockerySystem extends DamageEventSystem {
                         new ViciousState(effectiveValue, System.currentTimeMillis() + 8000));
                 boolean isNew = previous == null || System.currentTimeMillis() > previous.expiryMs;
                 if (isNew) {
-                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
+                    Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, commandBuffer);
                 }
 
                 if (attackerPlayer != null) {

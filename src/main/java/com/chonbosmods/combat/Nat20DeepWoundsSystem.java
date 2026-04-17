@@ -137,7 +137,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                         Nat20DotTickSystem.DotType.BLEED, attackerRef, damagePerTick);
 
                 if (isNew) {
-                    effectController.addEffect(targetRef, bleedEffect, commandBuffer);
+                    Nat20EntityEffectUtil.applyOnce(effectController, targetRef, bleedEffect, commandBuffer);
                 }
 
                 if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {

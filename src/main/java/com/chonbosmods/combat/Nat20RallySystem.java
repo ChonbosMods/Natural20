@@ -168,9 +168,7 @@ public class Nat20RallySystem extends DamageEventSystem {
                 if (isNew) {
                     EffectControllerComponent effectCtrl =
                             store.getComponent(allyRef, EffectControllerComponent.getComponentType());
-                    if (effectCtrl != null) {
-                        effectCtrl.addEffect(allyRef, rallyEffect, commandBuffer);
-                    }
+                    Nat20EntityEffectUtil.applyOnce(effectCtrl, allyRef, rallyEffect, commandBuffer);
                 }
                 buffed++;
             }

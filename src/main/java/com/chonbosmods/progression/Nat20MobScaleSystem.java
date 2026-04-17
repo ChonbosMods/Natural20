@@ -147,7 +147,7 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
                 LOGGER.atWarning().log("No EffectControllerComponent on ref=%s", ref);
                 return;
             }
-            controller.addEffect(ref, effect, accessor);
+            com.chonbosmods.combat.Nat20EntityEffectUtil.applyOnce(controller, ref, effect, accessor);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to apply tint effect for %s", difficulty);
         }

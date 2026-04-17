@@ -124,9 +124,7 @@ public class Nat20HexSystem extends DamageEventSystem {
                 if (previous == null || System.currentTimeMillis() > previous.expiryMs) {
                     EffectControllerComponent effectCtrl =
                             store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-                    if (effectCtrl != null) {
-                        effectCtrl.addEffect(targetRef, effect, commandBuffer);
-                    }
+                    Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, commandBuffer);
                 }
 
                 if (attackerPlayer != null) {

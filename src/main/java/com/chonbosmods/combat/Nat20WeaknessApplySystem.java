@@ -148,9 +148,7 @@ public class Nat20WeaknessApplySystem extends DamageEventSystem {
             if (isNew) {
                 EffectControllerComponent effectCtrl =
                         store.getComponent(targetRef, EffectControllerComponent.getComponentType());
-                if (effectCtrl != null) {
-                    effectCtrl.addEffect(targetRef, effect, commandBuffer);
-                }
+                Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, commandBuffer);
             }
 
             if (CombatDebugSystem.isEnabled(attackerUuid)) {
