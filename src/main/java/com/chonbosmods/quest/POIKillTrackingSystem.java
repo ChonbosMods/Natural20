@@ -7,6 +7,7 @@ package com.chonbosmods.quest;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
+import com.chonbosmods.progression.Nat20DamageContributorTracker;
 import com.chonbosmods.quest.poi.MobGroupRecord;
 import com.chonbosmods.quest.poi.Nat20MobGroupRegistry;
 import com.chonbosmods.quest.poi.PoiGroupDirection;
@@ -26,6 +27,7 @@ import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -38,10 +40,13 @@ import java.util.UUID;
  * Dispatch direction is read from {@link MobGroupRecord#getDirection()}: frozen at
  * first-spawn by {@code POIGroupSpawnCoordinator}.
  *
- * <p>Environmental kills (lava, fall, suffocation, AI-on-AI) mark the slot dead
- * but do not credit the objective. If enough mobs die to terrain a KILL_COUNT
- * quest can become unwinnable; the fix belongs in POI prefab authoring (safe
- * spawn volumes, no exposed lava at the anchor) rather than runtime respawn.
+ * <p>Credit rule: a kill credits the objective if the quest owner contributed
+ * any damage against the mob within {@link Nat20DamageContributorTracker#WINDOW_MS}
+ * of death, regardless of who or what landed the killing blow. This covers
+ * env deaths (lava, fall) on mobs the player had engaged, AI-on-AI kills on
+ * kited mobs, and direct player kills. A mob that dies without any recent
+ * owner damage (e.g. wanders off, falls uncontested) is marked dead with no
+ * credit; the kill is effectively lost.
  */
 public class POIKillTrackingSystem extends DamageEventSystem {
 
@@ -84,28 +89,52 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         if (slot.isDead()) return; // double-credit guard
 
         // Every death marks the slot dead (reconciliation will not respawn it).
-        // Only player-attributable kills credit the objective; environmental or
-        // AI-on-AI kills are silently logged with no progress toward the objective.
-        // The damage source exposes an EntitySource when an entity landed the blow;
-        // it's a player kill when that entity carries Nat20PlayerData.
         registry.markSlotDead(record.getGroupKey(), slot.getSlotIndex());
 
-        boolean playerKill = false;
-        Damage.Source source = damage.getSource();
-        if (source instanceof Damage.EntitySource entitySource) {
-            Ref<EntityStore> killerRef = entitySource.getRef();
-            if (killerRef != null
-                    && store.getComponent(killerRef, Natural20.getPlayerDataType()) != null) {
-                playerKill = true;
-            }
-        }
-
-        if (playerKill) {
+        // Credit if the quest owner contributed damage to this mob within the
+        // contributor tracker's 30s window. Covers direct kills (lethal blow from
+        // owner) and indirect kills (mob wandered off and died to lava or another
+        // mob after the owner softened it up).
+        if (ownerContributedRecently(store, victimRef, damage, record)) {
             creditOwner(store, record, slot);
         } else {
-            LOGGER.atFine().log("Env death (no credit): quest=%s slot=%d",
+            LOGGER.atFine().log("No owner-damage contribution in window: quest=%s slot=%d",
                     record.getQuestId(), slot.getSlotIndex());
         }
+    }
+
+    /**
+     * True when the record's owner appears in the contributor tracker for this mob
+     * within {@link Nat20DamageContributorTracker#WINDOW_MS}. The lethal damage is
+     * also recorded defensively so a one-shot kill still registers.
+     */
+    private static boolean ownerContributedRecently(Store<EntityStore> store,
+                                                    Ref<EntityStore> victimRef,
+                                                    Damage damage,
+                                                    MobGroupRecord record) {
+        Nat20DamageContributorTracker tracker = Natural20.getInstance().getContributorTracker();
+        if (tracker == null) return false;
+
+        long now = System.currentTimeMillis();
+        tracker.recordFromDamage(victimRef, damage, store, now);
+
+        UUID mobUuid = Nat20DamageContributorTracker.uuidOf(victimRef, store);
+        if (mobUuid == null) return false;
+
+        UUID ownerUuid;
+        try {
+            ownerUuid = UUID.fromString(record.getOwnerPlayerUuid());
+        } catch (Exception e) {
+            return false;
+        }
+
+        List<Ref<EntityStore>> contributors = tracker.getContributors(mobUuid, now);
+        for (Ref<EntityStore> ref : contributors) {
+            if (ownerUuid.equals(Nat20DamageContributorTracker.uuidOf(ref, store))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
