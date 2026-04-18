@@ -132,13 +132,17 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
     @Override
     public void handleDataEvent(Ref<EntityStore> playerRef, Store<EntityStore> store, DiceEventData data) {
         String type = data.getType();
+        LOGGER.atInfo().log("handleDataEvent fired: type=%s state=%s", type, state);
         if (type == null) return;
 
         if ("roll".equals(type) && state == State.PRE_ROLL) {
             state = State.ROLLING;
             startAnimation();
         } else if ("continue".equals(type) && state == State.RESULT) {
+            LOGGER.atInfo().log("Continue accepted, invoking onContinue");
             onContinue.accept(result);
+        } else {
+            LOGGER.atWarning().log("Event ignored: type=%s state=%s (no matching branch)", type, state);
         }
     }
 

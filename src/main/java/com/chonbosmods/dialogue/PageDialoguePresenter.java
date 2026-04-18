@@ -94,6 +94,10 @@ public class PageDialoguePresenter implements DialoguePresenter {
     @Override
     public void refreshTopics(List<ResolvedTopic> visibleTopics) {
         currentTopics = visibleTopics;
+        LOGGER.atInfo().log("refreshTopics: topics=%d dialoguePage=%s diceRollPage=%s",
+                visibleTopics.size(),
+                dialoguePage != null ? "open" : "null",
+                diceRollPage != null ? "open" : "null");
         if (dialoguePage != null) {
             dialoguePage.updateTopics(visibleTopics, isSessionTopicsLocked());
             dirty = true;
@@ -118,6 +122,8 @@ public class PageDialoguePresenter implements DialoguePresenter {
      * an event handler.
      */
     public void flushUpdates() {
+        LOGGER.atInfo().log("flushUpdates: dirty=%s dialoguePage=%s needsReopen=%s",
+                dirty, dialoguePage != null ? "open" : "null", needsReopen);
         if (dirty && dialoguePage != null) {
             dialoguePage.commitUpdates();
             dirty = false;
@@ -126,7 +132,14 @@ public class PageDialoguePresenter implements DialoguePresenter {
             needsReopen = false;
             SCHEDULER.schedule(() -> {
                 synchronized (PageDialoguePresenter.this) {
-                    openDialoguePage();
+                    LOGGER.atInfo().log("reopen task: opening dialogue page after dice");
+                    try {
+                        openDialoguePage();
+                        LOGGER.atInfo().log("openDialoguePage done: topics=%d followUps=%d",
+                                currentTopics.size(), currentFollowUps.size());
+                    } catch (Throwable t) {
+                        LOGGER.atSevere().withCause(t).log("openDialoguePage threw");
+                    }
                 }
             }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
         }
@@ -140,6 +153,9 @@ public class PageDialoguePresenter implements DialoguePresenter {
         SkillCheckResult result = Nat20DiceRoller.roll(stats, request);
 
         int dcModifier = effectiveDC - node.baseDC();
+        LOGGER.atInfo().log("showSkillCheck: skill=%s DC=%d roll=%d passed=%s pass->%s fail->%s",
+                node.skill(), effectiveDC, result.naturalRoll(), result.passed(),
+                node.passNodeId(), node.failNodeId());
 
         // Detach dialogue page handler to prevent goodbye on dismiss
         if (dialoguePage != null) {
@@ -227,6 +243,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
     }
 
     private void onDiceRollContinue(SkillCheckResult result, DialogueNode.SkillCheckNode checkNode) {
+        LOGGER.atInfo().log("onDiceRollContinue: scheduling handleSkillCheckResult (passed=%s)", result.passed());
         // Null out the dice page ref (don't call closePage inside event handler)
         diceRollPage = null;
 
@@ -235,9 +252,18 @@ public class PageDialoguePresenter implements DialoguePresenter {
             synchronized (PageDialoguePresenter.this) {
                 UUID uuid = playerRef.getUuid();
                 ConversationSession session = manager.getSession(uuid);
+                LOGGER.atInfo().log("post-dice SCHEDULER task running: session=%s", session != null ? "present" : "null");
                 if (session != null) {
                     // This triggers refreshLog + refreshTopics on this presenter, which reopens dialogue page
-                    session.handleSkillCheckResult(result, checkNode);
+                    try {
+                        session.handleSkillCheckResult(result, checkNode);
+                        LOGGER.atInfo().log("handleSkillCheckResult returned: dialoguePage=%s diceRollPage=%s needsReopen=%s",
+                                dialoguePage != null ? "open" : "null",
+                                diceRollPage != null ? "open" : "null",
+                                needsReopen);
+                    } catch (Throwable t) {
+                        LOGGER.atSevere().withCause(t).log("handleSkillCheckResult threw");
+                    }
                 } else {
                     LOGGER.atWarning().log("No session found after dice roll for player %s", uuid);
                     close();
