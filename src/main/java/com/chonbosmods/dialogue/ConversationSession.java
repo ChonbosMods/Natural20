@@ -470,8 +470,11 @@ public class ConversationSession {
 
             if (result.passed() && playerData != null) {
                 int xp = com.chonbosmods.progression.Nat20XpMath.d20SuccessXp(playerData.getLevel());
-                com.chonbosmods.Natural20.getInstance().getXpService()
-                        .award(player, playerRef, store, xp, "d20:" + stat.name());
+                // XpService.award calls store.getComponent, which asserts the world thread.
+                // handleSkillCheckResult runs on Nat20-PageTransition, so dispatch to world.execute.
+                com.chonbosmods.Natural20 plugin = com.chonbosmods.Natural20.getInstance();
+                plugin.getDefaultWorld().execute(() ->
+                        plugin.getXpService().award(player, playerRef, store, xp, "d20:" + stat.name()));
             }
 
             String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
