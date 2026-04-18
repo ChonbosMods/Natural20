@@ -75,7 +75,7 @@ public final class Nat20XpMath {
 
     /** XP for a successful D20 skill check, with the player's current level. */
     public static int d20SuccessXp(int level) {
-        return (int) Math.floor(5.0 * XP_UNIT * smoothScale(level));
+        return (int) Math.floor(10.0 * XP_UNIT * smoothScale(level));
     }
 
     /**

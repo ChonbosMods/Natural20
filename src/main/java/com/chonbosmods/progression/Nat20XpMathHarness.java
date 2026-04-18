@@ -52,9 +52,9 @@ public final class Nat20XpMathHarness {
         assertEq("questPhaseXp(1)",  105, Nat20XpMath.questPhaseXp(1));
         assertEq("questPhaseXp(20)", 944, Nat20XpMath.questPhaseXp(20));
 
-        // d20SuccessXp: spec §3.1 parity with boss kill (both 5U).
-        assertEq("d20SuccessXp(1)",  75, Nat20XpMath.d20SuccessXp(1));
-        assertEq("d20SuccessXp(11)", 232, Nat20XpMath.d20SuccessXp(11));
+        // d20SuccessXp: doubled to 10U (was 5U) to make skill checks competitive with kill XP.
+        assertEq("d20SuccessXp(1)",  150, Nat20XpMath.d20SuccessXp(1));
+        assertEq("d20SuccessXp(11)", 465, Nat20XpMath.d20SuccessXp(11));
 
         // ilvlScale: ilvl spec §3.2 table. Legendary at ilvl 40 ~= 2.44.
         assertNear("ilvlScale(1, 1)",   1.0,  Nat20XpMath.ilvlScale(1, 1),  0.001);
