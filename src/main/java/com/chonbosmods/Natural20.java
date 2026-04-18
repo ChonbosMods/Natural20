@@ -97,6 +97,7 @@ import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
+import com.hypixel.hytale.server.core.universe.world.meta.state.BlockMapMarkersResource;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -105,6 +106,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.math.vector.Vector3d;
+import com.hypixel.hytale.math.vector.Vector3i;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
@@ -615,9 +617,11 @@ public class Natural20 extends JavaPlugin {
 
         // Register quest POI marker provider on every world
         getEventRegistry().registerGlobal(AddWorldEvent.class, event -> {
-                event.getWorld().getWorldMapManager()
+                World world = event.getWorld();
+                world.getWorldMapManager()
                         .addMarkerProvider("nat20_quests", QuestMarkerProvider.INSTANCE);
-                event.getWorld().getWorldConfig().setPvpEnabled(true);
+                world.getWorldConfig().setPvpEnabled(true);
+                stripForgottenTempleGatewayMarkers(world);
         });
     }
 
@@ -747,6 +751,42 @@ public class Natural20 extends JavaPlugin {
         if (caveVoidRegistry != null) {
             caveVoidRegistry.saveAsync().join();
         }
+    }
+
+    /**
+     * Strip stale Forgotten Temple gateway waypoints from a world's persistent
+     * BlockMapMarkers resource. The portal is not placed in Natural 20 worlds,
+     * but the vanilla block's map marker can survive in save files created
+     * before its removal.
+     */
+    private void stripForgottenTempleGatewayMarkers(World world) {
+        world.execute(() -> {
+            try {
+                var store = world.getChunkStore().getStore();
+                BlockMapMarkersResource resource = store.getResource(
+                        BlockMapMarkersResource.getResourceType());
+                if (resource == null) return;
+                List<Vector3i> toRemove = new ArrayList<>();
+                for (var data : resource.getMarkers().values()) {
+                    if ("Temple_Gateway.png".equals(data.getIcon())
+                            || "server.items.Forgotten_Temple_Portal_Enter.name"
+                                    .equals(data.getName())) {
+                        toRemove.add(data.getPosition());
+                    }
+                }
+                for (Vector3i pos : toRemove) {
+                    resource.removeMarker(pos);
+                }
+                if (!toRemove.isEmpty()) {
+                    getLogger().atInfo().log(
+                            "Stripped %d Forgotten Temple gateway marker(s) from world %s",
+                            toRemove.size(), world.getName());
+                }
+            } catch (Exception e) {
+                getLogger().atWarning().withCause(e).log(
+                        "Failed to strip Forgotten Temple gateway markers");
+            }
+        });
     }
 
     private List<String> deriveNearbyNames(SettlementRecord settlement) {
