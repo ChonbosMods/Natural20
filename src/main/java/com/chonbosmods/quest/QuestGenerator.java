@@ -362,13 +362,13 @@ public class QuestGenerator {
         if (obj == null) return;
         String summary = switch (obj.getType()) {
             case KILL_MOBS -> obj.isSingletonBossKill()
-                ? "kill " + obj.getTargetLabel()
-                : "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-            case KILL_BOSS -> "kill " + obj.getTargetLabel();
-            case COLLECT_RESOURCES -> "collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-            case FETCH_ITEM -> "retrieve " + obj.getTargetLabel();
-            case PEACEFUL_FETCH -> "pick up " + obj.getTargetLabel();
-            case TALK_TO_NPC -> "speak with " + obj.getTargetLabel();
+                ? "Kill " + obj.getTargetLabel()
+                : "Kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case KILL_BOSS -> "Kill " + obj.getTargetLabel();
+            case COLLECT_RESOURCES -> "Collect " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case FETCH_ITEM -> "Retrieve " + obj.getTargetLabel();
+            case PEACEFUL_FETCH -> "Pick up " + obj.getTargetLabel();
+            case TALK_TO_NPC -> "Speak with " + obj.getTargetLabel();
         };
         bindings.put("quest_objective_summary", summary);
     }

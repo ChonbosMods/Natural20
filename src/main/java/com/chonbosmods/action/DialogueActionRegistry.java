@@ -384,13 +384,13 @@ public class DialogueActionRegistry {
 
                 String summary = switch (newType) {
                     case KILL_MOBS -> newObj.isSingletonBossKill()
-                        ? "kill " + newObj.getTargetLabel()
-                        : "kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
-                    case KILL_BOSS -> "kill " + newObj.getTargetLabel();
-                    case COLLECT_RESOURCES -> "collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
-                    case FETCH_ITEM -> "retrieve " + newObj.getTargetLabel();
-                    case PEACEFUL_FETCH -> "pick up " + newObj.getTargetLabel();
-                    case TALK_TO_NPC -> "speak with " + newObj.getTargetLabel();
+                        ? "Kill " + newObj.getTargetLabel()
+                        : "Kill " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case KILL_BOSS -> "Kill " + newObj.getTargetLabel();
+                    case COLLECT_RESOURCES -> "Collect " + newObj.getRequiredCount() + " " + newObj.getEffectiveLabel();
+                    case FETCH_ITEM -> "Retrieve " + newObj.getTargetLabel();
+                    case PEACEFUL_FETCH -> "Pick up " + newObj.getTargetLabel();
+                    case TALK_TO_NPC -> "Speak with " + newObj.getTargetLabel();
                 };
                 bindings.put("quest_objective_summary", summary);
                 ctx.systemLogger().accept("New objective: " + summary);

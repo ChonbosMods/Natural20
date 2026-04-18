@@ -218,8 +218,8 @@ public class POIGroupSpawnCoordinator {
     private void rebuildObjectiveSummary(QuestInstance quest, ObjectiveInstance obj,
                                          MobGroupRecord record) {
         String summary = switch (record.getDirection()) {
-            case KILL_COUNT -> "kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
-            case KILL_BOSS -> "kill " + record.getBossName();
+            case KILL_COUNT -> "Kill " + obj.getRequiredCount() + " " + obj.getEffectiveLabel();
+            case KILL_BOSS -> "Kill " + record.getBossName();
         };
         quest.getVariableBindings().put("quest_objective_summary", summary);
     }
