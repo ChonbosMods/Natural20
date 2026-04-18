@@ -21,26 +21,19 @@ public class QuestInstance {
     private Set<Integer> rewardsClaimed = new HashSet<>();
     private boolean skillcheckPassed;
 
-    /** XP awarded on final turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
-     *  Stored even when no XP system is wired so the value survives until one lands. */
+    /** XP awarded on EVERY phase turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
+     *  By design each phase of a multi-phase quest grants full XP ("each phase is its own quest"),
+     *  so this is the per-phase amount, not a quest-level total. */
     private int rewardXp;
-    /** Unique item id of the rolled reward, produced by {@link AffixRewardRoller}.
-     *  Used at turn-in to construct the dispensed {@link com.hypixel.hytale.server.core.inventory.ItemStack}.
-     *  Primitive storage only: the full {@link com.chonbosmods.loot.Nat20LootData} payload lives in
-     *  {@link #rewardItemDataJson} so affix metadata round-trips cleanly through Gson. */
-    private String rewardItemId;
-    /** Reward stack quantity (always 1 for quest rewards today; field exists so future tunables don't
-     *  require another schema bump). */
-    private int rewardItemCount;
-    /** Cached display name of the rolled reward. The dialogue {reward_item} binding reads this directly
-     *  so no item lookup is needed at render time. */
-    private String rewardItemDisplayName;
-    /** Gson-serialized {@link com.chonbosmods.loot.Nat20LootData} for the rolled reward. Stored as a
-     *  primitive String because Nat20LootData's BSON metadata format does not round-trip cleanly through
-     *  the QuestInstance Gson serializer; the codec serializes affixes/gems to raw strings, so the entire
-     *  object is Gson-friendly when stored as a JSON string. Reconstructed and reattached to the
-     *  ItemStack at dispense time so combat systems see the affix payload. */
-    private String rewardItemDataJson;
+
+    /** Per-phase rolled rewards, indexed by conflictCount. A 1-phase quest holds 1 entry;
+     *  a 3-phase quest holds 3 entries. Rolled at generation by
+     *  {@link com.chonbosmods.quest.QuestGenerator} and dispensed one at a time at each
+     *  phase turn-in. Non-final phases roll at {@code rewardTierMin} only
+     *  (tier-floor dampener), with a 5% bypass to the full {@code rewardTierMin..rewardTierMax}
+     *  range; the final phase always rolls the full range unless dampened by objective type
+     *  (TALK_TO_NPC / COLLECT_RESOURCES, same 5% bypass). */
+    private List<PhaseReward> phaseRewards = new ArrayList<>();
 
     /** True once the completion banner has fired for the current phase.
      *  Reset to false on phase advance (incrementConflictCount).
@@ -118,15 +111,44 @@ public class QuestInstance {
     public int getRewardXp() { return rewardXp; }
     public void setRewardXp(int rewardXp) { this.rewardXp = rewardXp; }
 
-    public String getRewardItemId() { return rewardItemId; }
-    public void setRewardItemId(String rewardItemId) { this.rewardItemId = rewardItemId; }
+    public List<PhaseReward> getPhaseRewards() { return phaseRewards; }
+    public void setPhaseRewards(List<PhaseReward> phaseRewards) { this.phaseRewards = phaseRewards; }
 
-    public int getRewardItemCount() { return rewardItemCount; }
-    public void setRewardItemCount(int rewardItemCount) { this.rewardItemCount = rewardItemCount; }
+    /** Reward for the given phase index (0 = exposition, 1 = conflict 1, ...). Returns null if out of range. */
+    public PhaseReward getPhaseReward(int index) {
+        if (index < 0 || index >= phaseRewards.size()) return null;
+        return phaseRewards.get(index);
+    }
 
-    public String getRewardItemDisplayName() { return rewardItemDisplayName; }
-    public void setRewardItemDisplayName(String rewardItemDisplayName) { this.rewardItemDisplayName = rewardItemDisplayName; }
+    /**
+     * Per-phase rolled reward. Captured at quest generation and dispensed when
+     * the player turns in the matching phase. The Gson-serialized
+     * {@link com.chonbosmods.loot.Nat20LootData} in {@link #rewardItemDataJson} is
+     * rehydrated at dispense so affix metadata round-trips onto the ItemStack.
+     */
+    public static class PhaseReward {
+        private String rewardItemId;
+        private int rewardItemCount;
+        private String rewardItemDisplayName;
+        private String rewardItemDataJson;
 
-    public String getRewardItemDataJson() { return rewardItemDataJson; }
-    public void setRewardItemDataJson(String rewardItemDataJson) { this.rewardItemDataJson = rewardItemDataJson; }
+        public PhaseReward() {}
+
+        public PhaseReward(String rewardItemId, int rewardItemCount,
+                           String rewardItemDisplayName, String rewardItemDataJson) {
+            this.rewardItemId = rewardItemId;
+            this.rewardItemCount = rewardItemCount;
+            this.rewardItemDisplayName = rewardItemDisplayName;
+            this.rewardItemDataJson = rewardItemDataJson;
+        }
+
+        public String getRewardItemId() { return rewardItemId; }
+        public void setRewardItemId(String rewardItemId) { this.rewardItemId = rewardItemId; }
+        public int getRewardItemCount() { return rewardItemCount; }
+        public void setRewardItemCount(int rewardItemCount) { this.rewardItemCount = rewardItemCount; }
+        public String getRewardItemDisplayName() { return rewardItemDisplayName; }
+        public void setRewardItemDisplayName(String rewardItemDisplayName) { this.rewardItemDisplayName = rewardItemDisplayName; }
+        public String getRewardItemDataJson() { return rewardItemDataJson; }
+        public void setRewardItemDataJson(String rewardItemDataJson) { this.rewardItemDataJson = rewardItemDataJson; }
+    }
 }

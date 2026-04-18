@@ -69,31 +69,12 @@ public class QuestGenerator {
         // should block quest generation, not silently degrade.
         DifficultyConfig difficulty = difficultyRegistry.random(random);
 
-        // Roll the actual reward item from the affix loot system. The display name
-        // overrides whatever {reward_item} the template hand-pinned, since the
-        // difficulty-driven roll is now the source of truth for what the player
-        // gets at turn-in. The full Nat20LootData is captured below for dispense.
-        // Exceptions propagate: a misconfigured loot system should fail loud.
-        String rolledTier = rollTierInRange(difficulty.rewardTierMin(), difficulty.rewardTierMax(), random);
-        ItemStack rewardStack = AffixRewardRoller.roll(rolledTier, difficulty.rewardIlvl(), random);
-        Nat20LootData rewardLootData = rewardStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (rewardLootData == null) {
-            throw new IllegalStateException(
-                "AffixRewardRoller produced a stack without Nat20LootData metadata "
-                    + "(itemId=" + rewardStack.getItemId() + ", tier=" + rolledTier
-                    + ", ilvl=" + difficulty.rewardIlvl() + ")");
-        }
-        String rewardItemId = rewardStack.getItemId();
-        int rewardItemCount = rewardStack.getQuantity();
-        String rewardDisplayName = rewardLootData.getGeneratedName();
-
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
 
-        // Structured reward bindings. {reward_item} is the rolled affix item's
-        // display name so dialogue lines like "Take this {reward_item}" highlight
-        // the real reward; {reward_flavor} stays template-driven.
-        bindings.put("reward_item", rewardDisplayName != null ? rewardDisplayName : "");
+        // {reward_item} is bound below after per-phase rolls (resolves to the final
+        // phase's rolled item since that's the phase whose resolution dialogue
+        // references the reward). {reward_flavor} stays template-driven.
         bindings.put("reward_flavor",
             template.rewardFlavor() != null ? template.rewardFlavor() : "");
 
@@ -173,21 +154,83 @@ public class QuestGenerator {
         quest.setMaxConflicts(maxConflicts);
         quest.setDifficultyId(difficulty.id());
 
-        // Persist the rolled reward on the QuestInstance so TURN_IN_V2 can dispense it
-        // verbatim. The Nat20LootData JSON round-trips cleanly because every field on the
-        // class is a primitive (affixes/gems serialize to '=' delimited strings).
+        // Per-phase reward rolls. Each phase rolls independently via AffixRewardRoller
+        // at the quest's ilvl. A phase is "dampened" if it is non-final OR its objective
+        // type is TALK_TO_NPC / COLLECT_RESOURCES (talking and gathering quests are
+        // slightly lower-reward by design). Dampened phases roll at rewardTierMin only
+        // (collapsed range), with a 5% chance to bypass the dampener and roll the full
+        // rewardTierMin..rewardTierMax range anyway. Non-dampened phases (final + combat/
+        // fetch objective) always roll the full range.
+        List<QuestInstance.PhaseReward> phaseRewards = new ArrayList<>(objectives.size());
+        String finalPhaseDisplayName = "";
+        for (int i = 0; i < objectives.size(); i++) {
+            boolean isFinal = (i == objectives.size() - 1);
+            ObjectiveType objType = objectives.get(i).getType();
+            boolean dampened = isPhaseDampened(isFinal, objType);
+            boolean bypass = dampened && random.nextFloat() < DAMPENER_BYPASS_CHANCE;
+
+            String tierMin = difficulty.rewardTierMin();
+            String tierMax = (!dampened || bypass) ? difficulty.rewardTierMax() : tierMin;
+            String phaseTier = rollTierInRange(tierMin, tierMax, random);
+
+            ItemStack phaseStack = AffixRewardRoller.roll(phaseTier, difficulty.rewardIlvl(), random);
+            Nat20LootData phaseLootData = phaseStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+            if (phaseLootData == null) {
+                throw new IllegalStateException(
+                    "AffixRewardRoller produced a stack without Nat20LootData metadata "
+                        + "(phase=" + i + ", itemId=" + phaseStack.getItemId()
+                        + ", tier=" + phaseTier + ", ilvl=" + difficulty.rewardIlvl() + ")");
+            }
+            String phaseDisplayName = phaseLootData.getGeneratedName();
+            phaseRewards.add(new QuestInstance.PhaseReward(
+                phaseStack.getItemId(),
+                phaseStack.getQuantity(),
+                phaseDisplayName,
+                REWARD_DATA_GSON.toJson(phaseLootData)));
+
+            if (isFinal) finalPhaseDisplayName = phaseDisplayName != null ? phaseDisplayName : "";
+
+            LOGGER.atInfo().log(
+                "Quest %s phase %d roll: type=%s dampened=%s bypass=%s tier=%s[%s..%s] item=%s",
+                questId, i, objType, dampened, bypass, phaseTier, tierMin, tierMax,
+                phaseStack.getItemId());
+        }
+
+        // {reward_item} resolves to the final phase's rolled item since that's the phase
+        // whose resolutionText references the reward by name. Intermediate phase turn-in
+        // texts (authored to not mention {reward_item}) would otherwise point at a stale
+        // value if this bound something other than the final roll.
+        bindings.put("reward_item", finalPhaseDisplayName);
+
+        // Persist the rolled rewards on the QuestInstance so TURN_IN_V2 can dispense each
+        // phase's item at its own turn-in. The Nat20LootData JSON round-trips cleanly because
+        // every field on the class is a primitive (affixes/gems serialize to '=' delimited strings).
+        // rewardXp is the per-phase amount (full XP at every turn-in by design).
         quest.setRewardXp(difficulty.xpAmount());
-        quest.setRewardItemId(rewardItemId);
-        quest.setRewardItemCount(rewardItemCount);
-        quest.setRewardItemDisplayName(rewardDisplayName);
-        quest.setRewardItemDataJson(REWARD_DATA_GSON.toJson(rewardLootData));
+        quest.setPhaseRewards(phaseRewards);
 
         LOGGER.atInfo().log(
             "Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, "
-                + "rewardTier=%s, rewardItem=%s (id=%s), rewardXp=%d, for NPC %s",
+                + "tierRange=%s..%s, phaseRewards=%d, rewardXpPerPhase=%d, for NPC %s",
             questId, template.situation(), difficulty.id(), objectives.size(),
-            rolledTier, rewardDisplayName, rewardItemId, difficulty.xpAmount(), npcId);
+            difficulty.rewardTierMin(), difficulty.rewardTierMax(),
+            phaseRewards.size(), difficulty.xpAmount(), npcId);
         return quest;
+    }
+
+    /** 5% chance to bypass the tier-floor dampener and roll the full range anyway. */
+    private static final float DAMPENER_BYPASS_CHANCE = 0.05f;
+
+    /**
+     * A phase is dampened (rolls at rewardTierMin only unless bypass hits) when it is
+     * either not the final phase OR its objective type is TALK_TO_NPC / COLLECT_RESOURCES.
+     * The final combat/fetch phase is the "big roll" of the quest; everything else is
+     * smaller by construction.
+     */
+    private static boolean isPhaseDampened(boolean isFinalPhase, @Nullable ObjectiveType type) {
+        if (!isFinalPhase) return true;
+        if (type == null) return false;
+        return type == ObjectiveType.TALK_TO_NPC || type == ObjectiveType.COLLECT_RESOURCES;
     }
 
     /**

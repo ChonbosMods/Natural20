@@ -80,11 +80,6 @@ public class DialogueActionRegistry {
      *  Fired from the pass branch of a quest's accept-phase skill check. */
     public static final String MARK_SKILLCHECK_PASSED = "MARK_SKILLCHECK_PASSED";
 
-    // v2 quest flow constants
-    private static final double BASE_REWARD_MULTIPLIER = 1.0;
-    private static final double CONFLICT_REWARD_BONUS = 0.5;
-    private static final double SKILLCHECK_PASS_REWARD_BONUS = 0.25;
-
     private final Map<String, DialogueAction> actions = new HashMap<>();
 
     public DialogueActionRegistry() {
@@ -276,31 +271,23 @@ public class DialogueActionRegistry {
                 }
             }
 
-            // Reward bookkeeping: gold/flavor stay in template fields (no dispense yet);
-            // the rolled affix item is dispensed only on the final turn-in. Per-phase
-            // multiplier is logged for visibility but does not yet scale anything.
-            double multiplier = BASE_REWARD_MULTIPLIER + (quest.getConflictCount() * CONFLICT_REWARD_BONUS);
-            if (quest.isSkillcheckPassed()) multiplier += SKILLCHECK_PASS_REWARD_BONUS;
-            quest.claimReward(quest.getConflictCount());
+            // Each phase dispenses its own rolled reward (tier-floored if dampened at
+            // generation, full-range if final + non-talk/gather). Full XP per phase by
+            // design: a 3-phase hard quest awards 3 x difficulty.xpAmount. Skillcheck
+            // pass is preserved on the quest for future hooks but no longer multiplies.
+            int phaseIndex = quest.getConflictCount();
+            quest.claimReward(phaseIndex);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
 
-            // Final turn-in: dispense the rolled affix reward into the player's inventory.
-            // hasMoreConflicts() is true while later conflict phases remain; on the last
-            // phase it flips false and this branch fires exactly once. Failure is logged
-            // SEVERE and the item is dropped (not silently retried) so a full inventory
-            // surfaces immediately. XP dispense is intentionally absent: no XP system
-            // exists in this project yet (rewardXp is stored on QuestInstance for when
-            // one lands).
-            if (!quest.hasMoreConflicts()) {
-                dispenseRewardItem(ctx, quest);
-            }
+            dispensePhaseReward(ctx, quest, phaseIndex);
+            dispensePhaseXp(ctx, quest);
 
             // Park in AWAITING_CONTINUATION. Marker stays on the source NPC and the
             // return waypoint stays on the map until CONTINUE_QUEST runs.
             quest.setState(com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION);
             saveQuest(questSystem, ctx.playerData(), quest);
-            LOGGER.atInfo().log("TURN_IN_V2: quest %s phase %d turned in (multiplier=%.2f), awaiting continuation",
-                quest.getQuestId(), quest.getConflictCount(), multiplier);
+            LOGGER.atInfo().log("TURN_IN_V2: quest %s phase %d turned in, awaiting continuation",
+                quest.getQuestId(), phaseIndex);
         });
 
         register(CONTINUE_QUEST, (ctx, params) -> {
@@ -520,8 +507,8 @@ public class DialogueActionRegistry {
             // Look up the NPC's pre-generated quest and stamp the passed flag.
             // Fired from the pass branch of an accept-phase skill check, before
             // GIVE_QUEST adds the quest to the player's active list. The flag rides
-            // along on the same QuestInstance reference, so TURN_IN_V2's reward
-            // multiplier applies SKILLCHECK_PASS_REWARD_BONUS automatically.
+            // along on the same QuestInstance reference for future skillcheck-pass
+            // hooks; the per-phase reward model no longer multiplies on it directly.
             String cellKey = ctx.npcData() != null ? ctx.npcData().getSettlementCellKey() : "";
             SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
             if (settlements == null || cellKey == null || cellKey.isEmpty()) {
@@ -979,27 +966,36 @@ public class DialogueActionRegistry {
     private static final Gson REWARD_DATA_GSON = new Gson();
 
     /**
-     * Reconstruct the rolled reward {@link ItemStack} from the primitives stored on the
-     * {@link QuestInstance} and put it in the player's inventory using {@code Player.giveItem}
-     * (the same call the {@code /loot} debug command uses). The {@link Nat20LootData} JSON
-     * is rehydrated and reattached so combat systems see the affix payload.
+     * Dispense the {@link QuestInstance.PhaseReward} for the given phase index. Each phase
+     * of a multi-phase quest holds its own rolled reward; this is called once per
+     * phase turn-in (not just the final one). Rehydrates the stored Nat20LootData
+     * JSON and reattaches it so affix metadata round-trips onto the ItemStack.
      *
-     * <p>Failure modes (missing reward fields, JSON parse failure, full inventory) are
-     * logged at SEVERE with quest id, item id, and player UUID so the gap is loud. The
-     * item is NOT silently dropped or retried: the player's reward is on the floor of
-     * the next session if they want to ask an admin to grant it manually.
+     * <p>Failure modes (missing reward, JSON parse failure, full inventory) are
+     * logged at SEVERE with quest id, phase index, item id, and player UUID so
+     * gaps are loud. Not silently dropped or retried.
      */
-    private static void dispenseRewardItem(ActionContext ctx, QuestInstance quest) {
-        String itemId = quest.getRewardItemId();
-        int count = quest.getRewardItemCount();
-        String dataJson = quest.getRewardItemDataJson();
+    private static void dispensePhaseReward(ActionContext ctx, QuestInstance quest, int phaseIndex) {
+        QuestInstance.PhaseReward reward = quest.getPhaseReward(phaseIndex);
         java.util.UUID playerUuid = ctx.player().getPlayerRef().getUuid();
+
+        if (reward == null) {
+            LOGGER.atSevere().log(
+                "TURN_IN_V2 dispense skipped for quest %s phase %d, player %s: no phase reward at index",
+                quest.getQuestId(), phaseIndex, playerUuid);
+            return;
+        }
+
+        String itemId = reward.getRewardItemId();
+        int count = reward.getRewardItemCount();
+        String dataJson = reward.getRewardItemDataJson();
 
         if (itemId == null || itemId.isEmpty() || count <= 0 || dataJson == null || dataJson.isEmpty()) {
             LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense skipped for quest %s, player %s: missing reward fields "
+                "TURN_IN_V2 dispense skipped for quest %s phase %d, player %s: missing reward fields "
                     + "(itemId=%s, count=%d, hasJson=%s)",
-                quest.getQuestId(), playerUuid, itemId, count, dataJson != null && !dataJson.isEmpty());
+                quest.getQuestId(), phaseIndex, playerUuid, itemId, count,
+                dataJson != null && !dataJson.isEmpty());
             return;
         }
 
@@ -1008,16 +1004,16 @@ public class DialogueActionRegistry {
             lootData = REWARD_DATA_GSON.fromJson(dataJson, Nat20LootData.class);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log(
-                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: "
                     + "could not parse stored Nat20LootData JSON",
-                quest.getQuestId(), itemId, playerUuid);
+                quest.getQuestId(), phaseIndex, itemId, playerUuid);
             return;
         }
         if (lootData == null) {
             LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: "
+                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: "
                     + "Nat20LootData JSON deserialized to null",
-                quest.getQuestId(), itemId, playerUuid);
+                quest.getQuestId(), phaseIndex, itemId, playerUuid);
             return;
         }
 
@@ -1029,8 +1025,8 @@ public class DialogueActionRegistry {
             tx = ctx.player().giveItem(stack, ctx.playerRef(), ctx.store());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log(
-                "TURN_IN_V2 dispense failed for quest %s, item %s, player %s: giveItem threw",
-                quest.getQuestId(), itemId, playerUuid);
+                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: giveItem threw",
+                quest.getQuestId(), phaseIndex, itemId, playerUuid);
             return;
         }
 
@@ -1038,15 +1034,29 @@ public class DialogueActionRegistry {
             ItemStack remainder = tx != null ? tx.getRemainder() : null;
             int remainderQty = remainder != null ? remainder.getQuantity() : count;
             LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense REFUSED for quest %s, item %s, player %s: giveItem "
+                "TURN_IN_V2 dispense REFUSED for quest %s phase %d, item %s, player %s: giveItem "
                     + "returned !succeeded (remainder=%d). Inventory likely full; reward NOT delivered.",
-                quest.getQuestId(), itemId, playerUuid, remainderQty);
+                quest.getQuestId(), phaseIndex, itemId, playerUuid, remainderQty);
             return;
         }
 
         LOGGER.atInfo().log(
-            "TURN_IN_V2 dispensed reward for quest %s, item %s x%d, to player %s",
-            quest.getQuestId(), itemId, count, playerUuid);
+            "TURN_IN_V2 dispensed phase %d reward for quest %s: %s x%d to player %s",
+            phaseIndex, quest.getQuestId(), itemId, count, playerUuid);
+    }
+
+    /**
+     * Award the per-phase XP amount via {@link com.chonbosmods.progression.Nat20XpService}.
+     * Each phase of a multi-phase quest grants full {@code DifficultyConfig.xpAmount()} by
+     * design: a 3-phase hard quest awards 3x the amount across its turn-ins.
+     */
+    private static void dispensePhaseXp(ActionContext ctx, QuestInstance quest) {
+        int amount = quest.getRewardXp();
+        if (amount <= 0) return;
+        com.chonbosmods.Natural20.getInstance().getXpService().award(
+            ctx.player(), ctx.playerRef(), ctx.store(),
+            amount,
+            "quest:" + quest.getQuestId() + ":phase" + quest.getConflictCount());
     }
 
     /**
