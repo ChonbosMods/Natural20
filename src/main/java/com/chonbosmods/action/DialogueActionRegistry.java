@@ -276,11 +276,27 @@ public class DialogueActionRegistry {
             // design: a 3-phase hard quest awards 3 x difficulty.xpAmount. Skillcheck
             // pass is preserved on the quest for future hooks but no longer multiplies.
             int phaseIndex = quest.getConflictCount();
+            QuestInstance.PhaseReward phaseReward = quest.getPhaseReward(phaseIndex);
             quest.claimReward(phaseIndex);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
 
             dispensePhaseReward(ctx, quest, phaseIndex);
             dispensePhaseXp(ctx, quest);
+
+            // Dialogue-UI feedback. Uses the authored flavor title (quest_topic_header,
+            // e.g. "A Posted Bounty"), which is the standard for turn-in messages per
+            // project convention: turn-in summarizes WHAT WAS DONE, while "Quest
+            // accepted" / "New objective" messages use quest_objective_summary to explain
+            // WHAT TO DO. A 1-phase quest's only message is the "Quest completed" form.
+            String turnInLabel = quest.getVariableBindings()
+                .getOrDefault("quest_topic_header", quest.getSituationId());
+            String itemDisplay = phaseReward != null && phaseReward.getRewardItemDisplayName() != null
+                ? phaseReward.getRewardItemDisplayName()
+                : (phaseReward != null ? phaseReward.getRewardItemId() : "nothing");
+            int phaseXp = quest.getRewardXp();
+            String prefix = quest.hasMoreConflicts() ? "Phase complete" : "Quest completed";
+            ctx.systemLogger().accept(
+                prefix + ": " + turnInLabel + ". Received " + itemDisplay + " and " + phaseXp + " XP");
 
             // Park in AWAITING_CONTINUATION. Marker stays on the source NPC and the
             // return waypoint stays on the map until CONTINUE_QUEST runs.
@@ -398,7 +414,10 @@ public class DialogueActionRegistry {
                         }
                     }
                 }
-                ctx.systemLogger().accept("Quest completed: " + quest.getSituationId());
+                // User-facing "Quest completed" line fires from TURN_IN_V2 (with
+                // item + XP context), not here: by this point the player has already
+                // clicked CONTINUE past the dialogue and the message would be
+                // duplicative. Server log retained for traceability.
                 LOGGER.atInfo().log("CONTINUE_QUEST: quest %s completed", quest.getQuestId());
             }
 
