@@ -222,4 +222,11 @@ public class QuestPoolRegistry {
         ItemEntry entry = findKeepsakeById(id);
         return entry != null ? entry : findEvidenceById(id);
     }
+
+    public @Nullable ItemEntry findHostileMob(String id) {
+        for (ItemEntry entry : hostileMobs) {
+            if (entry.id().equals(id)) return entry;
+        }
+        return null;
+    }
 }

@@ -50,7 +50,9 @@ import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20ContributorTrackingSystem;
 import com.chonbosmods.progression.Nat20DamageContributorTracker;
+import com.chonbosmods.progression.Nat20HostilePool;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
+import com.chonbosmods.progression.Nat20MobThemeRegistry;
 import com.chonbosmods.loot.mob.Nat20MobAffixes;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
@@ -139,6 +141,9 @@ public class Natural20 extends JavaPlugin {
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
+    private final Nat20HostilePool hostilePool = new Nat20HostilePool();
+    private final com.chonbosmods.world.Nat20ZoneRegistry zoneRegistry = new com.chonbosmods.world.Nat20ZoneRegistry();
+    private final Nat20MobThemeRegistry mobThemeRegistry = new Nat20MobThemeRegistry();
     private POIGroupSpawnCoordinator poiGroupSpawnCoordinator;
     private CaveVoidRegistry caveVoidRegistry;
     private CaveVoidScanner caveVoidScanner;
@@ -218,6 +223,18 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20MobGroupRegistry getMobGroupRegistry() {
         return mobGroupRegistry;
+    }
+
+    public Nat20HostilePool getHostilePool() {
+        return hostilePool;
+    }
+
+    public com.chonbosmods.world.Nat20ZoneRegistry getZoneRegistry() {
+        return zoneRegistry;
+    }
+
+    public Nat20MobThemeRegistry getMobThemeRegistry() {
+        return mobThemeRegistry;
     }
 
     public POIGroupSpawnCoordinator getPOIGroupSpawnCoordinator() {
@@ -453,7 +470,8 @@ public class Natural20 extends JavaPlugin {
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
         // Contributor tracking must register BEFORE XP/loot systems so the lethal
-        // damage event sees a fresh write first.
+        // damage event sees a fresh write first. XP and loot systems also record
+        // defensively in case ECS ordering is not strictly guaranteed.
         getEntityStoreRegistry().registerSystem(new Nat20ContributorTrackingSystem(contributorTracker));
         getEntityStoreRegistry().registerSystem(new Nat20XpOnKillSystem(scalingConfig, xpService, contributorTracker));
         getEntityStoreRegistry().registerSystem(new Nat20MobLootDropSystem(lootSystem, contributorTracker));
@@ -640,6 +658,12 @@ public class Natural20 extends JavaPlugin {
         mobGroupRegistry = new Nat20MobGroupRegistry(getDataDirectory());
         mobGroupRegistry.load();
         poiGroupSpawnCoordinator = new POIGroupSpawnCoordinator(mobGroupRegistry, mobGroupSpawner);
+
+        // Enumerate native hostile mob pool by scanning NPCPlugin roles
+        hostilePool.initialize();
+
+        // Load biome/zone theme tables (loads mob_themes.json from resources)
+        mobThemeRegistry.initialize();
 
         // Load cave void registry and scanner
         Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");

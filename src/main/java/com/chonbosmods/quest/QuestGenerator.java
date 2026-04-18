@@ -487,6 +487,35 @@ public class QuestGenerator {
         voidRegistry.claimVoid(void_, settlementKey);
 
         int cx = void_.getCenterX(), cy = void_.getCenterY(), cz = void_.getCenterZ();
+
+        // Zone-aware mob pick for KILL_* objectives: overrides the uniform fallback
+        // picked in resolveWorldBindings() once we know the POI's actual zone. The fallback
+        // pick stays in place for any non-POI code path and for null-return edge cases.
+        if (type == ObjectiveType.KILL_MOBS || type == ObjectiveType.KILL_BOSS) {
+            com.hypixel.hytale.server.core.universe.world.World world =
+                Natural20.getInstance().getDefaultWorld();
+            if (world != null) {
+                String zoneName = com.chonbosmods.world.Nat20BiomeLookup.getZoneName(world, cx, cz);
+                com.chonbosmods.progression.Nat20MobThemeRegistry themeReg =
+                    Natural20.getInstance().getMobThemeRegistry();
+                String themed = themeReg.pickMob(zoneName, random);
+                if (themed != null) {
+                    QuestPoolRegistry.ItemEntry match = poolRegistry.findHostileMob(themed);
+                    bindings.put("enemy_type_id", themed);
+                    if (match != null) {
+                        bindings.put("enemy_type", match.label());
+                        bindings.put("enemy_type_plural", match.labelPlural());
+                    } else {
+                        // Themed mob not in authored label pool: synthesize a readable label
+                        String readable = themed.replace('_', ' ');
+                        bindings.put("enemy_type", readable);
+                        bindings.put("enemy_type_plural", readable + "s");
+                    }
+                    LOGGER.atInfo().log("createPOIObjective: zone=%s themed mob=%s for %s",
+                        zoneName, themed, type);
+                }
+            }
+        }
         String poiLocationId = "poi:" + cx + "," + cy + "," + cz;
         String hint = DirectionUtil.computeHint(npcX, npcZ, cx, cz);
 
