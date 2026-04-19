@@ -272,7 +272,8 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
      * </ul>
      * On success: write new stats, decrement pool, mark the score-bonus dirty
      * flag (mirrors {@code /nat20 setstats}), zero the preview, and rebuild.
-     * On validation failure: rebuild to re-sync the client to authoritative state.
+     * On validation failure: zero the preview and rebuild to re-sync the client
+     * to authoritative state (forged events must not leave stale deltas in view).
      */
     private void handleApplyClicked(Ref<EntityStore> ref, Store<EntityStore> store) {
         if (!hasPendingSpend()) return;
@@ -288,6 +289,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             if (d < 0) {
                 LOGGER.atWarning().log("Apply validation failed (negative delta) player=%s",
                         this.playerRef.getUuid());
+                java.util.Arrays.fill(pendingDelta, 0);
                 rebuild();
                 return;
             }
@@ -297,6 +299,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         if (totalSpend > pool) {
             LOGGER.atWarning().log("Apply validation failed player=%s totalSpend=%d pool=%d",
                     this.playerRef.getUuid(), totalSpend, pool);
+            java.util.Arrays.fill(pendingDelta, 0);
             rebuild();
             return;
         }
@@ -304,6 +307,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             if (currentStats[i] + pendingDelta[i] > MAX_ABILITY_SCORE) {
                 LOGGER.atWarning().log("Apply validation failed (score>cap) player=%s i=%d",
                         this.playerRef.getUuid(), i);
+                java.util.Arrays.fill(pendingDelta, 0);
                 rebuild();
                 return;
             }
