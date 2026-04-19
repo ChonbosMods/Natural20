@@ -69,8 +69,8 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     /** Quest log: max pre-baked row slots in the .ui template. */
     private static final int MAX_QUEST_ROWS = 20;
-    /** Active tab text color (gold). */
-    private static final String COLOR_TAB_ACTIVE = "#ffd700";
+    /** Selected tab text color (white). */
+    private static final String COLOR_TAB_ACTIVE = "#ffffff";
     /** Inactive tab text color (muted grey). */
     private static final String COLOR_TAB_INACTIVE = "#888888";
     /** Active quest row name color. */

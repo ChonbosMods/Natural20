@@ -258,8 +258,7 @@ $C.@Container {
         // somewhere. Task 14 wires the OnClick handler.
         $C.@SmallSecondaryTextButton #CSApplyBtn {
           Text: "Apply";
-          Anchor: (Height: 28, Width: 120);
-          Padding: (Top: 10);
+          Anchor: (Height: 28, Width: 120, Top: 10);
           Disabled: true;
         }
       }
@@ -296,7 +295,7 @@ $C.@Container {
           }
           $C.@SmallSecondaryTextButton #CSTabCompleted {
             Text: "Completed";
-            Anchor: (Width: 100, Height: 24, Left: 4);
+            Anchor: (Width: 140, Height: 24, Left: 4);
           }
         }
 
