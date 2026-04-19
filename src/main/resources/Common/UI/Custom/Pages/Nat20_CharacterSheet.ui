@@ -45,6 +45,7 @@ $C.@Container {
         }
 
         // XP bar: dark track + bright fill (width set from Java each rebuild)
+        // Track width must match CharacterSheetPage.XP_BAR_TRACK_WIDTH.
         Group #CSXpBarTrack {
           Anchor: (Height: 12, Width: 500);
           Padding: (Top: 2, Bottom: 2);
