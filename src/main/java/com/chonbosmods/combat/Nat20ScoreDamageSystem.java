@@ -109,6 +109,14 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
      */
     private void handleMeleeDamage(Damage.EntitySource entitySource, Store<EntityStore> store,
                                    Damage damage) {
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
+
+        // Elemental hits route to the INT handler instead; STR must not double-dip.
+        resolveElementalIndices();
+        DamageCause cause = damage.getCause();
+        int causeIdx = cause != null ? DamageCause.getAssetMap().getIndex(cause.getId()) : -1;
+        if (elementalCauses.contains(causeIdx)) return;
+
         Ref<EntityStore> attackerRef = entitySource.getRef();
         if (attackerRef == null || !attackerRef.isValid()) return;
 
@@ -119,9 +127,9 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         if (stats == null) return;
 
         int strMod = stats.getPowerModifier(Stat.STR);
-        if (strMod <= 0) return;
+        float bonus = attackerBonus(strMod, 0, false);
+        if (bonus == 0f) return;
 
-        float bonus = strMod * BONUS_MULTIPLIER;
         float original = damage.getAmount();
         damage.setAmount(original + bonus);
 
@@ -139,6 +147,8 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
      */
     private void handleElementalDamage(Damage.EntitySource entitySource,
                                        Store<EntityStore> store, Damage damage) {
+        if (Nat20DotTickSystem.isDotTickDamage(damage)) return;
+
         resolveElementalIndices();
 
         DamageCause cause = damage.getCause();
@@ -157,9 +167,9 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         if (stats == null) return;
 
         int intMod = stats.getPowerModifier(Stat.INT);
-        if (intMod <= 0) return;
+        float bonus = attackerBonus(0, intMod, true);
+        if (bonus == 0f) return;
 
-        float bonus = intMod * BONUS_MULTIPLIER;
         float original = damage.getAmount();
         damage.setAmount(original + bonus);
 
@@ -170,6 +180,17 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
                     intMod, bonus, original, original + bonus,
                     cause.getId());
         }
+    }
+
+    /**
+     * Attacker-side Score bonus rule: elemental hits use INT, everything else uses
+     * STR. Never both. Non-positive mods contribute nothing. DoT ticks must be
+     * filtered by the caller (they receive no Score bonus at all).
+     */
+    static float attackerBonus(int strMod, int intMod, boolean isElemental) {
+        int mod = isElemental ? intMod : strMod;
+        if (mod <= 0) return 0f;
+        return mod * BONUS_MULTIPLIER;
     }
 
     /**
