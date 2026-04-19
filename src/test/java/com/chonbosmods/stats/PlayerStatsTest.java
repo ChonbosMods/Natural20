@@ -80,9 +80,28 @@ class PlayerStatsTest {
         assertEquals(2, p.getPowerModifier(Stat.WIS));
     }
 
+    @Test
+    void proficiencyBonus_atTierBoundaries() {
+        assertEquals(2, withLevel(1).getProficiencyBonus());
+        assertEquals(2, withLevel(8).getProficiencyBonus());
+        assertEquals(3, withLevel(9).getProficiencyBonus());
+        assertEquals(3, withLevel(16).getProficiencyBonus());
+        assertEquals(4, withLevel(17).getProficiencyBonus());
+        assertEquals(4, withLevel(24).getProficiencyBonus());
+        assertEquals(5, withLevel(25).getProficiencyBonus());
+        assertEquals(5, withLevel(32).getProficiencyBonus());
+        assertEquals(6, withLevel(33).getProficiencyBonus());
+        assertEquals(6, withLevel(40).getProficiencyBonus());
+    }
+
     private static PlayerStats withScore(Stat stat, int score) {
         int[] stats = new int[Stat.values().length];
         stats[stat.index()] = score;
         return new PlayerStats(stats, 1, Set.of());
+    }
+
+    private static PlayerStats withLevel(int level) {
+        int[] stats = new int[Stat.values().length];
+        return new PlayerStats(stats, level, Set.of());
     }
 }

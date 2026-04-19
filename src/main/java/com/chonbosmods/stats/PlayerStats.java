@@ -37,7 +37,12 @@ public record PlayerStats(int[] stats, int level, Set<String> proficiencies) {
         return proficiencies.contains(skill.name());
     }
 
+    /**
+     * Proficiency bonus scaled for Natural 20's 40-level progression: 8-level
+     * tiers stretch D&D's 20-level curve so the bonus only ticks every 8
+     * character levels. Levels 1-8→+2, 9-16→+3, 17-24→+4, 25-32→+5, 33-40→+6.
+     */
     public int getProficiencyBonus() {
-        return 2 + (level - 1) / 4;
+        return 2 + (level - 1) / 8;
     }
 }
