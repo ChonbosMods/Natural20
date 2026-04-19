@@ -107,7 +107,7 @@ public final class CharacterSheetHotkeyFilter implements PlayerPacketFilter {
         final UUID uuid = playerRef.getUuid();
 
         long now = System.currentTimeMillis();
-        Long prev = lastOpen.put(uuid, now);
+        Long prev = lastOpen.get(uuid);
         boolean debounced = prev != null && (now - prev) < DEBOUNCE_MS;
 
         // Always repair client prediction, even on debounce: the client has
@@ -116,6 +116,10 @@ public final class CharacterSheetHotkeyFilter implements PlayerPacketFilter {
         repairClientPrediction(playerRef, originalSlot, chainId, forkedId);
 
         if (!debounced) {
+            // Only refresh the debounce window on dispatched opens. If we wrote
+            // `now` on every press (including debounced ones), held keys or
+            // rapid taps would keep resetting the window and starve real opens.
+            lastOpen.put(uuid, now);
             dispatchToggle(playerRef);
         } else {
             LOGGER.atFine().log("Debounced character sheet hotkey for %s", uuid);
