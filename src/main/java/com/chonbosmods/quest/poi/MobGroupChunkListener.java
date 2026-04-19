@@ -129,6 +129,15 @@ public class MobGroupChunkListener {
     }
 
     private void runReconcilePass(World world, MobGroupRecord record) {
+        // Race-tolerance: the ambient decay sweep may have removed this record between
+        // the lock-grab in reconcile() and this deferred execute(). If so, don't respawn
+        // slots on a record that's already despawned and deleted.
+        if (registry.get(record.getGroupKey()) == null) {
+            LOGGER.atFine().log("runReconcilePass: record %s no longer in registry, skipping",
+                    record.getGroupKey());
+            return;
+        }
+
         Store<EntityStore> store = world.getEntityStore().getStore();
 
         // Member-scan: build a (groupKey, slotIndex) → Ref map from live entities around the anchor.

@@ -79,9 +79,90 @@ public final class AmbientSpawnSystem {
         world.execute(() -> doChunkLoadOnWorldThread(world, chunkBlockX, chunkBlockZ));
     }
 
-    /** Prune ambient groups no player has visited in {@code cfg.decayWindowMillis()}. Task 11 implements. */
+    /**
+     * Prune ambient groups no player has visited in {@code cfg.decayWindowMillis()}. Runs on
+     * the world thread (scheduled via Natural20's poiProximityExecutor then {@code world.execute}).
+     * Holds the per-group lock on {@link MobGroupChunkListener} during each despawn +
+     * registry.remove pair so chunk-load reconcile can't race.
+     */
     public void tickDecay(World world) {
-        // Implemented in Task 11.
+        long now = System.currentTimeMillis();
+        List<PlayerXZ> players = collectPlayerPositions(world);
+        DecayPolicy policy = new DecayPolicy(cfg);
+        List<String> expired = policy.selectExpired(registry.ambientRecords(), players, now);
+        for (String groupKey : expired) {
+            chunkListener.withGroupLock(groupKey, () -> {
+                MobGroupRecord rec = registry.get(groupKey);
+                if (rec == null) return;
+                spawner.despawnRecord(world, rec);
+                registry.remove(groupKey);
+                LOGGER.atInfo().log("Ambient decay removed %s", groupKey);
+            });
+        }
+    }
+
+    /**
+     * Enumerate live players' XZ positions using the same ECS pattern as
+     * {@link #doChunkLoadOnWorldThread}: iterate {@code world.getPlayerRefs()}, resolve each
+     * to a {@link TransformComponent} and read {@code getPosition()}. Must be called on the
+     * world thread.
+     */
+    private List<PlayerXZ> collectPlayerPositions(World world) {
+        List<PlayerXZ> out = new ArrayList<>();
+        Store<EntityStore> store = world.getEntityStore().getStore();
+        for (PlayerRef playerRef : world.getPlayerRefs()) {
+            UUID playerUuid = playerRef.getUuid();
+            if (playerUuid == null) continue;
+            Ref<EntityStore> entityRef = world.getEntityRef(playerUuid);
+            if (entityRef == null) continue;
+            TransformComponent transform = store.getComponent(entityRef, TransformComponent.getComponentType());
+            if (transform == null) continue;
+            Vector3d pos = transform.getPosition();
+            if (pos == null) continue;
+            out.add(new PlayerXZ(pos.getX(), pos.getZ()));
+        }
+        return out;
+    }
+
+    /** Record of a player's XZ position. Decay sweep only needs XZ. */
+    public static final class PlayerXZ {
+        public final double x, z;
+        public PlayerXZ(double x, double z) { this.x = x; this.z = z; }
+    }
+
+    /** Pure decay math. Separated from world-facing concerns for testability. */
+    public static final class DecayPolicy {
+        private final AmbientSpawnConfig cfg;
+        public DecayPolicy(AmbientSpawnConfig cfg) { this.cfg = cfg; }
+
+        /** Mutates records in-place: sets lastSeenMillis=now for any with a player within radius. */
+        public void refreshLastSeen(java.util.Collection<MobGroupRecord> records,
+                                    List<PlayerXZ> players, long now) {
+            long r2 = (long) cfg.decayPlayerNearRadius() * cfg.decayPlayerNearRadius();
+            for (MobGroupRecord rec : records) {
+                for (PlayerXZ p : players) {
+                    double dx = rec.getAnchorX() - p.x;
+                    double dz = rec.getAnchorZ() - p.z;
+                    if (dx * dx + dz * dz <= r2) {
+                        rec.setLastSeenMillis(now);
+                        break;
+                    }
+                }
+            }
+        }
+
+        /** @return groupKeys of ambient records past the decay window. Calls refreshLastSeen internally. */
+        public List<String> selectExpired(java.util.Collection<MobGroupRecord> records,
+                                          List<PlayerXZ> players, long now) {
+            refreshLastSeen(records, players, now);
+            List<String> out = new ArrayList<>();
+            for (MobGroupRecord rec : records) {
+                if (now - rec.getLastSeenMillis() > cfg.decayWindowMillis()) {
+                    out.add(rec.getGroupKey());
+                }
+            }
+            return out;
+        }
     }
 
     private void doChunkLoadOnWorldThread(World world, int chunkBlockX, int chunkBlockZ) {
