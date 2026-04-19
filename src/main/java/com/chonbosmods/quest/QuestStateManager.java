@@ -57,25 +57,23 @@ public class QuestStateManager {
         // Completed tab in the Quest Log keeps rendering the right strings even
         // after the procedural QuestInstance is dropped from the active map.
         //
-        // Naming mirrors QuestMarkerProvider's waypoint-label fallback chain
-        // (subject_name -> quest_objective_summary -> quest_title -> situationId)
-        // so the snapshot matches what the player saw on the map / in dialogue.
-        // The final-objective string reuses quest_objective_summary, which the
-        // dialogue actions (GIVE_QUEST / CONTINUE_QUEST) keep in sync with the
-        // current ObjectiveInstance via the same switch the HUD uses.
+        // Name source mirrors CharacterSheetPage.resolveQuestName: prefer the
+        // authored flavor topic label (quest_topic_header) so the Completed
+        // tab's title row doesn't just duplicate the objective text shown
+        // underneath it. quest_objective_summary stays the dedicated objective
+        // source.
         QuestInstance instance = getQuest(data, questId);
         String questName = questId;
         String finalObjectiveText = "";
         if (instance != null) {
             Map<String, String> bindings = instance.getVariableBindings();
+            String sitFallback = instance.getSituationId() != null ? instance.getSituationId() : questId;
             if (bindings != null) {
-                questName = bindings.getOrDefault("subject_name",
-                    bindings.getOrDefault("quest_objective_summary",
-                        bindings.getOrDefault("quest_title",
-                            instance.getSituationId() != null ? instance.getSituationId() : questId)));
+                questName = bindings.getOrDefault("quest_topic_header",
+                    bindings.getOrDefault("subject_name", sitFallback));
                 finalObjectiveText = bindings.getOrDefault("quest_objective_summary", "");
-            } else if (instance.getSituationId() != null) {
-                questName = instance.getSituationId();
+            } else {
+                questName = sitFallback;
             }
         }
 
