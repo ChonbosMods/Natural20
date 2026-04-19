@@ -91,15 +91,12 @@ import com.chonbosmods.quest.poi.POIGroupSpawnCoordinator;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
-import com.chonbosmods.ui.CharacterSheetHotkeyFilter;
 import com.chonbosmods.ui.CharacterSheetManager;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.HytaleServer;
-import com.hypixel.hytale.server.core.io.adapter.PacketAdapters;
-import com.hypixel.hytale.server.core.io.adapter.PacketFilter;
 import com.hypixel.hytale.server.core.util.TargetUtil;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
@@ -187,7 +184,6 @@ public class Natural20 extends JavaPlugin {
     private AmbientSpawnConfig ambientSpawnConfig;
     private AmbientSpawnSystem ambientSpawnSystem;
     private final Nat20DamageContributorTracker contributorTracker = new Nat20DamageContributorTracker();
-    private PacketFilter characterSheetHotkeyFilter;
 
     public Natural20(@Nonnull JavaPluginInit init) {
         super(init);
@@ -456,15 +452,9 @@ public class Natural20 extends JavaPlugin {
         // Initialize Character Sheet UI manager singleton (Task 6 stub: Task 7 wires the page)
         CharacterSheetManager.init();
 
-        // Bind the keyboard "9" key (hotbar slot index 8) to the character sheet
-        // by hijacking inbound SyncInteractionChains packets. Hytale exposes no
-        // plugin-facing keybind API: see CharacterSheetHotkeyFilter for the full
-        // SwapFrom-hijack rationale + client-prediction repair.
-        characterSheetHotkeyFilter =
-                PacketAdapters.registerInbound(new CharacterSheetHotkeyFilter());
-
         // Register commands
         getCommandRegistry().registerCommand(new Nat20Command());
+        getCommandRegistry().registerCommand(new com.chonbosmods.commands.SheetCommand());
 
         // Register equipment change listener for loot stat modifiers (ECS event system)
         getEntityStoreRegistry().registerSystem(equipmentListener.createSystem());
@@ -797,10 +787,6 @@ public class Natural20 extends JavaPlugin {
     @Override
     protected void shutdown() {
         getLogger().atInfo().log("Natural 20 shutting down...");
-        if (characterSheetHotkeyFilter != null) {
-            PacketAdapters.deregisterInbound(characterSheetHotkeyFilter);
-            characterSheetHotkeyFilter = null;
-        }
         if (poiProximityExecutor != null) {
             poiProximityExecutor.shutdownNow();
         }

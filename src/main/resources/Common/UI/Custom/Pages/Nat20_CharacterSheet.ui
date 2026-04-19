@@ -334,6 +334,7 @@ $C.@Container {
           Anchor: (Height: 28);
           Padding: (Bottom: 4);
 
+          Label { FlexWeight: 1; }
           $C.@SmallSecondaryTextButton #CSTabActive {
             Text: "Active";
             Anchor: (Width: 80, Height: 24);
@@ -342,6 +343,7 @@ $C.@Container {
             Text: "Completed";
             Anchor: (Width: 140, Height: 24, Left: 4);
           }
+          Label { FlexWeight: 1; }
         }
 
         // Empty-state hint shown when the current tab has zero quests. Task 16.
