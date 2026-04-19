@@ -38,9 +38,9 @@ public enum DispositionBracket {
     // --- Roll-mode band thresholds (used in rollMode) ---
 
     /** Disposition at or above this value rolls at NORMAL (below = DISADVANTAGE). */
-    private static final int NEUTRAL_MIN = 25;
+    private static final int ROLL_NORMAL_MIN = 25;
     /** Disposition at or above this value rolls at ADVANTAGE. */
-    private static final int FRIENDLY_MIN = 75;
+    private static final int ROLL_ADVANTAGE_MIN = 75;
 
     private final int minDisposition;
     private final int maxDisposition;
@@ -89,8 +89,8 @@ public enum DispositionBracket {
      */
     public static RollMode rollMode(int disposition) {
         int clamped = Math.clamp(disposition, 0, 100);
-        if (clamped < NEUTRAL_MIN) return RollMode.DISADVANTAGE;
-        if (clamped < FRIENDLY_MIN) return RollMode.NORMAL;
+        if (clamped < ROLL_NORMAL_MIN) return RollMode.DISADVANTAGE;
+        if (clamped < ROLL_ADVANTAGE_MIN) return RollMode.NORMAL;
         return RollMode.ADVANTAGE;
     }
 
