@@ -414,6 +414,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     @Override
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
+        LOGGER.atInfo().log("handleDataEvent type=%s id=%s", type, data.getId());
         if (type == null || type.isEmpty()) return;
         if ("plus".equals(type)) {
             handlePlusClicked(data.getId());
@@ -450,6 +451,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
      * <p>Completed-tab clicks are ignored: those rows are non-interactive.
      */
     private void handleQuestRowClicked(Ref<EntityStore> ref, Store<EntityStore> store, String slotStr) {
+        LOGGER.atInfo().log("handleQuestRowClicked slot=%s tab=%s slotMap=%s", slotStr, currentTab, slotToQuestId);
         if (currentTab != QuestTab.ACTIVE) return;
         int slot;
         try {
@@ -460,6 +462,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         if (slot < 0 || slot >= MAX_QUEST_ROWS) return;
 
         String questId = slotToQuestId.get(slot);
+        LOGGER.atInfo().log("handleQuestRowClicked resolved questId=%s for slot=%d", questId, slot);
         if (questId == null) return;
 
         Nat20PlayerData pdata = store.getComponent(ref, Natural20.getPlayerDataType());
