@@ -171,9 +171,46 @@ public class QuestPoolRegistry {
         }
     }
 
+    /** Zone-unaware draw. Kept for callers that don't know a biome zone;
+     *  prefer {@link #randomCollectResource(int, Random)}. */
     public ItemEntry randomCollectResource(Random random) {
         if (collectResources.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
         return collectResources.get(random.nextInt(collectResources.size()));
+    }
+
+    /** Zone-aware draw keyed on the NPC's biome zone (1..4), not the accepting player's level zone.
+     *  Filter to the band {@code [worldZone-1, worldZone+1]} clamped
+     *  to {@code [1, 4]}, with entries matching {@code worldZone} receiving double
+     *  weight. If the band is empty (malformed catalog), fall back to any tier <= 4.
+     *  If the full catalog is empty, return the stone sentinel. */
+    public ItemEntry randomCollectResource(int worldZone, Random random) {
+        if (collectResources.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
+        int z = Math.max(1, Math.min(4, worldZone));
+        int low = Math.max(1, z - 1);
+        int high = Math.min(4, z + 1);
+
+        List<ItemEntry> pool = new ArrayList<>();
+        List<Integer> weights = new ArrayList<>();
+        int totalWeight = 0;
+        for (ItemEntry e : collectResources) {
+            if (e.tier() < low || e.tier() > high) continue;
+            int w = (e.tier() == z) ? 2 : 1;
+            pool.add(e);
+            weights.add(w);
+            totalWeight += w;
+        }
+        if (pool.isEmpty()) {
+            LOGGER.atWarning().log("randomCollectResource: band [%d,%d] empty for zone %d (catalog size=%d); falling back to full catalog",
+                low, high, z, collectResources.size());
+            return collectResources.get(random.nextInt(collectResources.size()));
+        }
+        int roll = random.nextInt(totalWeight);
+        int acc = 0;
+        for (int i = 0; i < pool.size(); i++) {
+            acc += weights.get(i);
+            if (roll < acc) return pool.get(i);
+        }
+        return pool.getLast();
     }
 
     public ItemEntry randomKeepsakeItem(Random random) {
