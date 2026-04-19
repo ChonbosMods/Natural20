@@ -437,7 +437,7 @@ public class DialogueDryRun {
             String statPrefix = resp.statPrefix() != null ? resp.statPrefix() : "";
 
             md.append(indent).append("- **[").append(statPrefix).append("] ")
-                .append(skillDisplay).append(" Check** (DC ").append(check.baseDC()).append(") →\n");
+                .append(skillDisplay).append(" Check** (DC ").append(check.tier().dc()).append(") →\n");
 
             // Pass
             if (!visited.contains(check.passNodeId())) {
@@ -471,7 +471,7 @@ public class DialogueDryRun {
         String skillDisplay = check.skill() != null ? check.skill().displayName() : "Unknown";
 
         md.append(indent).append("**Skill Check:** ").append(skillDisplay)
-            .append(" (DC ").append(check.baseDC()).append(")\n");
+            .append(" (DC ").append(check.tier().dc()).append(")\n");
 
         if (!visited.contains(check.passNodeId())) {
             visited.add(check.passNodeId());

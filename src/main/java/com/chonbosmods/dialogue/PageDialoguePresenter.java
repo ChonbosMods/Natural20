@@ -140,7 +140,8 @@ public class PageDialoguePresenter implements DialoguePresenter {
         SkillCheckRequest request = new SkillCheckRequest(node.skill(), node.stat(), effectiveDC, RollMode.NORMAL);
         SkillCheckResult result = Nat20DiceRoller.roll(stats, request);
 
-        int dcModifier = effectiveDC - node.baseDC();
+        // Phase G wires RollMode from disposition; DC itself no longer shifts.
+        int dcModifier = 0;
 
         // Detach dialogue page handler to prevent goodbye on dismiss
         if (dialoguePage != null) {

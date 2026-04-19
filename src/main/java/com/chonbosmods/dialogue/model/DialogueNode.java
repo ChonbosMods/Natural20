@@ -1,5 +1,6 @@
 package com.chonbosmods.dialogue.model;
 
+import com.chonbosmods.dialogue.DifficultyTier;
 import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.stats.Skill;
 import com.chonbosmods.stats.Stat;
@@ -25,8 +26,8 @@ public sealed interface DialogueNode {
     record SkillCheckNode(
         Skill skill,
         @Nullable Stat stat,
-        int baseDC,
-        boolean dispositionScaling,
+        DifficultyTier tier,
+        boolean affectedByDisposition,
         String passNodeId,
         String failNodeId,
         List<Map<String, String>> onEnter

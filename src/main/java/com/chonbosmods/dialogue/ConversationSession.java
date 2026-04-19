@@ -432,10 +432,9 @@ public class ConversationSession {
             }
 
             case DialogueNode.SkillCheckNode checkNode -> {
-                int effectiveDC = DispositionBracket.effectiveDC(
-                    checkNode.baseDC(), disposition, checkNode.dispositionScaling());
+                int dc = checkNode.tier().dc();  // Phase G wires RollMode from disposition
                 PlayerStats stats = PlayerStats.from(playerData);
-                presenter.showSkillCheck(checkNode, effectiveDC, stats);
+                presenter.showSkillCheck(checkNode, dc, stats);
             }
 
             case DialogueNode.ActionNode actionNode -> {

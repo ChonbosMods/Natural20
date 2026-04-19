@@ -460,11 +460,9 @@ public class DialogueManager {
 
         ResponseOption checkOption = null;
         String skillName = b.get("quest_skillcheck_skill");
-        String dcRaw = b.get("quest_skillcheck_dc");
-        if (skillName != null && dcRaw != null) {
+        if (skillName != null) {
             try {
                 com.chonbosmods.stats.Skill skill = com.chonbosmods.stats.Skill.valueOf(skillName);
-                int dc = Integer.parseInt(dcRaw);
                 String passText = DialogueResolver.resolveQuestText(
                     b.getOrDefault("quest_skillcheck_pass_text", ""), b, expositionObj);
                 String failText = DialogueResolver.resolveQuestText(
@@ -508,7 +506,7 @@ public class DialogueManager {
 
                 // Skill check node: routes pass/fail.
                 graph.nodes().put(checkNodeId, new DialogueNode.SkillCheckNode(
-                    skill, null, dc, false, passNodeId, failNodeId, List.of()
+                    skill, null, DifficultyTier.MEDIUM, true, passNodeId, failNodeId, List.of()
                 ));
 
                 // Skill check option: triggers the check. Uses skillCheckRef instead
@@ -525,8 +523,8 @@ public class DialogueManager {
                     checkNodeId, skill.getStat().name(), null
                 );
             } catch (IllegalArgumentException e) {
-                LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s' or dc='%s', skipping check option",
-                    questId, skillName, dcRaw);
+                LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s', skipping check option",
+                    questId, skillName);
             }
         }
 

@@ -203,8 +203,8 @@ public class DialogueLoader {
         return new DialogueNode.SkillCheckNode(
             Skill.valueOf(obj.get("skill").getAsString()),
             obj.has("stat") ? Stat.valueOf(obj.get("stat").getAsString()) : null,
-            obj.get("baseDC").getAsInt(),
-            obj.has("dispositionScaling") && obj.get("dispositionScaling").getAsBoolean(),
+            DifficultyTier.valueOf(obj.get("tier").getAsString()),
+            !obj.has("affectedByDisposition") || obj.get("affectedByDisposition").getAsBoolean(),
             obj.get("passNodeId").getAsString(),
             obj.get("failNodeId").getAsString(),
             onEnter
