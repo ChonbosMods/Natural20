@@ -203,13 +203,16 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 EventData.of("Type", "tab").append("Id", "completed"),
                 false);
 
-        // Quest row click: tap an active row to toggle its waypoint marker. Task 18.
-        // Bindings install unconditionally for all 20 row slots regardless of which
-        // tab is currently visible; the handler no-ops on hidden / Completed rows.
+        // Per-row waypoint toggle button on the right side of each active-tab row.
+        // Plain Groups have no Activating event, so waypoint toggling is attached
+        // to a dedicated button aligned on the right instead of the whole row.
+        // Task 18. Bindings install unconditionally for all 20 slots; the handler
+        // no-ops on hidden / Completed rows, and the button itself is hidden on
+        // the Completed tab.
         for (int i = 0; i < MAX_QUEST_ROWS; i++) {
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
-                    "#CSQuestRow" + i,
+                    "#CSQuestToggle" + i,
                     EventData.of("Type", "questrow").append("Id", String.valueOf(i)),
                     false);
         }
@@ -306,8 +309,11 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 cmd.set("#CSQuestObj" + i + ".Text", resolveObjectiveText(q));
                 cmd.set("#CSQuestObj" + i + ".Style.TextColor",
                         enabled ? COLOR_OBJ_ACTIVE : COLOR_OBJ_DIMMED);
+                cmd.set("#CSQuestToggle" + i + ".Visible", true);
+                cmd.set("#CSQuestToggle" + i + ".Text", enabled ? "Tracking" : "Track");
             } else {
                 cmd.set("#CSQuestRow" + i + ".Visible", false);
+                cmd.set("#CSQuestToggle" + i + ".Visible", false);
             }
         }
 
@@ -339,6 +345,8 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             } else {
                 cmd.set("#CSQuestRow" + i + ".Visible", false);
             }
+            // Toggle button is Active-tab-only; hide unconditionally on this tab.
+            cmd.set("#CSQuestToggle" + i + ".Visible", false);
         }
         cmd.set("#CSEmptyState.Text", "No completed quests yet");
         cmd.set("#CSEmptyState.Visible", n == 0);

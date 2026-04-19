@@ -285,344 +285,564 @@ $C.@Container {
           FlexWeight: 1;
           ScrollbarStyle: $C.@DefaultScrollbarStyle;
 
-          Button #CSQuestRow0 {
-            LayoutMode: Top;
+          Group #CSQuestRow0 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName0 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName0 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj0 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj0 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle0 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow1 {
-            LayoutMode: Top;
+          Group #CSQuestRow1 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName1 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName1 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj1 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj1 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle1 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow2 {
-            LayoutMode: Top;
+          Group #CSQuestRow2 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName2 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName2 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj2 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj2 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle2 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow3 {
-            LayoutMode: Top;
+          Group #CSQuestRow3 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName3 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName3 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj3 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj3 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle3 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow4 {
-            LayoutMode: Top;
+          Group #CSQuestRow4 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName4 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName4 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj4 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj4 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle4 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow5 {
-            LayoutMode: Top;
+          Group #CSQuestRow5 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName5 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName5 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj5 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj5 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle5 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow6 {
-            LayoutMode: Top;
+          Group #CSQuestRow6 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName6 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName6 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj6 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj6 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle6 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow7 {
-            LayoutMode: Top;
+          Group #CSQuestRow7 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName7 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName7 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj7 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj7 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle7 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow8 {
-            LayoutMode: Top;
+          Group #CSQuestRow8 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName8 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName8 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj8 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj8 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle8 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow9 {
-            LayoutMode: Top;
+          Group #CSQuestRow9 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName9 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName9 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj9 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj9 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle9 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow10 {
-            LayoutMode: Top;
+          Group #CSQuestRow10 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName10 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName10 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj10 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj10 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle10 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow11 {
-            LayoutMode: Top;
+          Group #CSQuestRow11 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName11 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName11 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj11 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj11 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle11 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow12 {
-            LayoutMode: Top;
+          Group #CSQuestRow12 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName12 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName12 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj12 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj12 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle12 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow13 {
-            LayoutMode: Top;
+          Group #CSQuestRow13 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName13 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName13 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj13 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj13 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle13 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow14 {
-            LayoutMode: Top;
+          Group #CSQuestRow14 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName14 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName14 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj14 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj14 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle14 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow15 {
-            LayoutMode: Top;
+          Group #CSQuestRow15 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName15 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName15 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj15 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj15 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle15 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow16 {
-            LayoutMode: Top;
+          Group #CSQuestRow16 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName16 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName16 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj16 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj16 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle16 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow17 {
-            LayoutMode: Top;
+          Group #CSQuestRow17 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName17 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName17 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj17 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj17 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle17 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow18 {
-            LayoutMode: Top;
+          Group #CSQuestRow18 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName18 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName18 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj18 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj18 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle18 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
-          Button #CSQuestRow19 {
-            LayoutMode: Top;
+          Group #CSQuestRow19 {
+            LayoutMode: Left;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName19 {
-              Anchor: (Height: 16);
-              Text: "";
-              Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+
+            Group {
+              FlexWeight: 1;
+              LayoutMode: Top;
+              Label #CSQuestName19 {
+                Anchor: (Height: 16);
+                Text: "";
+                Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
+              }
+              Label #CSQuestObj19 {
+                Anchor: (Height: 14);
+                Text: "";
+                Padding: (Top: 2);
+                Style: (TextColor: #cccccc(1), FontSize: 11);
+              }
             }
-            Label #CSQuestObj19 {
-              Anchor: (Height: 14);
+
+            $C.@SmallSecondaryTextButton #CSQuestToggle19 {
               Text: "";
-              Padding: (Top: 2);
-              Style: (TextColor: #cccccc(1), FontSize: 11);
+              Anchor: (Width: 80, Height: 28, Left: 4);
+              Visible: false;
             }
           }
         }
