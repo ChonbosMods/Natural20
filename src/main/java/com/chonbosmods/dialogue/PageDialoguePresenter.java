@@ -2,6 +2,7 @@ package com.chonbosmods.dialogue;
 
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.dice.Nat20DiceRoller;
+import com.chonbosmods.dice.RollMode;
 import com.chonbosmods.dice.SkillCheckRequest;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
@@ -136,7 +137,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
     public void showSkillCheck(DialogueNode.SkillCheckNode node, int effectiveDC, PlayerStats stats) {
         // Pre-determine the roll result
         Stat stat = node.stat() != null ? node.stat() : node.skill().getAssociatedStat();
-        SkillCheckRequest request = new SkillCheckRequest(node.skill(), node.stat(), effectiveDC);
+        SkillCheckRequest request = new SkillCheckRequest(node.skill(), node.stat(), effectiveDC, RollMode.NORMAL);
         SkillCheckResult result = Nat20DiceRoller.roll(stats, request);
 
         int dcModifier = effectiveDC - node.baseDC();
