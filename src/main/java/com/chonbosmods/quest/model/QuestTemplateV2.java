@@ -1,5 +1,6 @@
 package com.chonbosmods.quest.model;
 
+import com.chonbosmods.dialogue.DifficultyTier;
 import com.chonbosmods.stats.Skill;
 
 import javax.annotation.Nullable;
@@ -61,6 +62,19 @@ public record QuestTemplateV2(
     /**
      * Optional skill check at the accept/decline phase. The skill type must be
      * coherent with the pass/fail text content (see authoring rules).
+     *
+     * <p>Two variants: {@link Authored} pins an explicit {@link DifficultyTier},
+     * {@link Procedural} has no tier and lets {@code DialogueManager} roll one
+     * from the NPC's zone-mlvl via {@link com.chonbosmods.quest.QuestProceduralWeights}.
+     * The codec discriminator is tier-presence in JSON: see
+     * {@code SkillCheckAdapter}.
      */
-    public record SkillCheck(Skill skill, int dc, String passText, String failText) {}
+    public sealed interface SkillCheck {
+        Skill skill();
+        String passText();
+        String failText();
+
+        record Authored(Skill skill, DifficultyTier tier, String passText, String failText) implements SkillCheck {}
+        record Procedural(Skill skill, String passText, String failText) implements SkillCheck {}
+    }
 }
