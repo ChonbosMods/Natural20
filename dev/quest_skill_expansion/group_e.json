@@ -22,7 +22,6 @@
     "resolutionText": "The council reversed the ruling this morning, and {settlement_npc} gets their stall back. I told them to their face what I'd done, and they didn't forgive me. Take {quest_reward}. You helped me stop a wrong from becoming permanent.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You're circling around the thing I'm not saying, so I'll just say it. I knew the evidence was thin when I filed the complaint. I didn't like {settlement_npc} personally, and I let that feeling dress itself up as righteousness. The council trusted me and I spent that trust on a grudge.",
       "failText": "I made a mistake. That's the beginning and end of it."
     },
@@ -53,7 +52,6 @@
     "resolutionText": "The elders reviewed everything and cleared the child publicly. Their mother cried, and I nearly did too, because I should have fought harder from the start. Take {quest_reward}. You did what I was too slow to do.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're asking the right questions, so let me stop dancing around it. I stayed quiet because the storehouse manager is a friend of mine, and I didn't want to be the one suggesting his security failed. I let a child take the fall to protect a grown man's reputation.",
       "failText": "I should have spoken up earlier. That's all I know for certain."
     },
@@ -84,7 +82,6 @@
     "resolutionText": "The well is repaired, the word is out, and a few people in {settlement_name} are finally willing to admit we were wrong. Not all of them, but enough. Take {quest_reward}. You helped me make right what I could, even if I can't undo all of it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine, you want the truth? I was one of the loudest voices calling for the traveler to be thrown out. I saw a stranger near the well and chose the easiest explanation because it felt good to have someone to blame. I cared about feeling certain more than being right.",
       "failText": "Mistakes were made. I'm trying to fix them now."
     },
@@ -115,7 +112,6 @@
     "resolutionText": "I stood in the square and told everyone what I'd learned, and I handed {settlement_npc} the {quest_item} in front of all of them. {settlement_npc} was gracious about it, more gracious than I deserved. Take {quest_reward}. You gave me the proof I needed to make things right.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "Let me be blunt with you since you're being blunt with me. I went public because I wanted to look sharp in front of the council. Catching someone skimming surplus would have made me look like the responsible one, the watchful neighbor. I put my own ambition ahead of someone's reputation and I'll regret it for a long time.",
       "failText": "I jumped to conclusions. That's all there is to say."
     },
@@ -146,7 +142,6 @@
     "resolutionText": "I brought {target_npc}'s assessment to the settlement and read it aloud. The healer was there, standing at the back, and when I finished they nodded once and left without a word. Take {quest_reward}. You helped restore something I nearly destroyed with ignorance.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "I'll admit something, since you carry yourself like someone who knows how people work. I didn't just repeat the rumor. I started it. I saw the patient getting worse and I was the first to say it out loud, and everyone else followed my lead.",
       "failText": "I made assumptions I shouldn't have. I'm correcting them now."
     },
@@ -177,7 +172,6 @@
     "resolutionText": "The {quest_item} reached the family along with my letter, and they sent back a reply, short and dignified and kinder than I had any right to expect. I read it to the settlement square. Take {quest_reward}. You helped me fix a story I should never have told.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 12,
       "passText": "You noticed something odd about the timing, didn't you. The middleman used a preservation charm on the grain so it would look freshly harvested when it arrived, hiding the fact that it had traveled from much farther away. That's how he made the story believable. Without the charm, everyone would have known the grain came from outside.",
       "failText": "There's more to it than I've said, but the facts are enough for now."
     },
@@ -208,7 +202,6 @@
     "resolutionText": "I brought the {quest_item} to {settlement_npc} and didn't say anything about the argument. They looked at it for a long time and then set it on the shelf next to a drawing their child made, where the important things go. Take {quest_reward}. You helped me take a step I'd been too ashamed to take alone.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're good at reading what people leave out, aren't you. The thing I said wasn't something I blurted out in the heat of the moment. I chose those words because I knew they would cut. I wanted to win the argument, and I did, and the cost of winning has been sitting on my chest ever since.",
       "failText": "I said something I regret. Beyond that, I'd rather not go into details."
     },
@@ -239,7 +232,6 @@
     "resolutionText": "I went to them with the {quest_item} and the truth. I told them I stayed quiet because I was afraid, and they said they already knew that, and that the fear was the part they needed to hear me admit. Take {quest_reward}. You helped me face the thing I'd been running from.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 14,
       "passText": "You see right through the version I'm telling, don't you. I didn't just stay quiet out of fear. One of those traders offered me a cut of the goods afterward if I kept my mouth shut, and I didn't take it, but I didn't refuse it outright either. I let them think I might, and that bought my silence almost as effectively as if I had.",
       "failText": "I was a coward. That's the shape of it."
     },
@@ -270,7 +262,6 @@
     "resolutionText": "I gave {settlement_npc} the new {quest_item} and told them everything. They were quiet for a while, and then they said the hardest part wasn't the broken tool, it was the months of thinking they'd done it to themselves. Take {quest_reward}. You helped me stop hiding behind silence.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Alright, you've made your point. The reason I hid the damage isn't just embarrassment. I was afraid {settlement_npc} would stop trusting me, and that trust is the foundation of our whole working arrangement. I chose the lie because I thought the truth would cost me the relationship, but instead the lie is costing it slowly.",
       "failText": "I made a mistake and I'm correcting it. That's the whole story."
     },
@@ -301,7 +292,6 @@
     "resolutionText": "I went to the family and confessed everything. They listened, took the {quest_item}, and said they'd need time, which is more than I was given any right to ask for. Take {quest_reward}. You helped me take responsibility for the worst thing I've ever done to another person.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "You're not going to let me wrap this in soft language, are you. I didn't just start the rumor out of jealousy, I kept feeding it. Every time it started to die down, I'd mention something new, something invented, to keep it alive. I was deliberate, and that's the part that keeps me up at night.",
       "failText": "I did something wrong and I'm trying to fix it. That's where I'll leave it."
     },
@@ -332,7 +322,6 @@
     "resolutionText": "I left the {quest_item} at {settlement_npc}'s door with a note that said only what I was sorry for, no explanations and no excuses. The next morning they knocked on my door and stood there for a moment before saying thank you, and that felt like a start. Take {quest_reward}. You helped me find the only honest way back.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "You have a way of making people feel like they're in good company, and that's dangerous for me right now because I want to be honest. I didn't stumble on that letter. I went looking through {settlement_npc}'s things because I was curious, and the gossip afterward wasn't carelessness, it was the second violation after the first.",
       "failText": "I read something I shouldn't have and shared it. That's the extent of what I want to say."
     },
@@ -363,7 +352,6 @@
     "resolutionText": "I brought the {quest_item} to the apprentice myself and told them I was sorry, plainly and without dressing it up. They took the tool, tested the weight of it, and said they could use a good one, and the way they said it told me the door wasn't closed. Take {quest_reward}. You helped me stop being the lesson that taught a good person not to trust.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 12,
       "passText": "You understand something about obligations, I can tell. In the old traditions, a promise to teach is considered sacred, the passing of knowledge from one hand to the next. I grew up hearing those stories and believed them, and then when it was my turn to honor that chain I let it fall. The weight of that isn't just personal, it's something larger that I failed.",
       "failText": "I made a promise and didn't keep it. I'd like to fix that now."
     },
@@ -394,7 +382,6 @@
     "resolutionText": "I brought the {quest_item} and the ledgers and set them both on my sibling's table. They opened the books, found two mistakes, corrected them on the spot, and said we were even. Take {quest_reward}. You helped me see that protecting someone and respecting them aren't always the same thing.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You're seeing through the version where I'm the concerned sibling, aren't you. The truth is I enjoyed being in charge of someone else's affairs because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back, and when they recovered I kept finding reasons to hold on. The help was real, but so was the selfishness underneath it.",
       "failText": "I overstepped. That's the heart of it."
     },
@@ -425,7 +412,6 @@
     "resolutionText": "I gave my daughter the {quest_item} and told her the apprenticeship was open. She didn't say much, just took the materials and started packing, and she paused at the door to thank me in a voice that said she'd been waiting a long time. Take {quest_reward}. You helped me stop standing between my child and her life.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You've found the thread I was trying to keep hidden. It was never really about danger, I was afraid she'd succeed somewhere else and stop needing me. A parent isn't supposed to feel that way, but there it is. I dressed up my own fear as concern for her safety, and she's the one who paid for it.",
       "failText": "I made a decision that wasn't mine to make. I'm correcting it now."
     },
@@ -456,7 +442,6 @@
     "resolutionText": "I told my friend everything, the mistake, the confusion, all of it, and they listened without interrupting before taking the {quest_item} and saying they needed time. A week later they told me they'd delivered it and had a long conversation, and the truth is finally out. Take {quest_reward}. You helped me face a mistake I was too ashamed to name.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "Stop letting me soften this, you're right to press. I didn't confuse the two people by accident, I was careless because part of me didn't want my friend's attention going elsewhere. We've been close for years and I wasn't ready for that to change, so when I heard a rumor about someone with a similar name I didn't bother checking. I wanted it to be true.",
       "failText": "I mixed up two people and spoke too soon. It's a simple mistake with bad consequences."
     },
@@ -487,7 +472,6 @@
     "resolutionText": "I gave my brother the supplies and the news together, and the look on his face when I said they were willing to meet again was worth more than any word. He left the next morning with the right map this time. Take {quest_reward}. You gave my brother a second chance that my carelessness nearly took from him.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Alright, you want to know why I was careless, and the honest answer is that I didn't take his trip seriously. He's my younger brother, and I treated his plans like they were less important than mine. I scribbled the route from memory instead of checking it because I was in the middle of something I thought mattered more, and it didn't.",
       "failText": "I gave bad directions and someone I love paid for it. That's all."
     },
@@ -518,7 +502,6 @@
     "resolutionText": "I brought the {quest_item} to my friend and told them I was sorry for the push. They said they knew I meant well, but that meaning well isn't the same as being right, and they took the {quest_item} and went to the market the next day. Take {quest_reward}. You helped me understand that good intentions don't protect the people who have to live with the results.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "You have an ease about you that makes me want to drop the pretense, so I will. I didn't just misread the situation, I wanted to be the person who brought two people together because I liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement.",
       "failText": "I read the signals wrong and someone I care about got hurt. That's the simple version."
     },
@@ -549,7 +532,6 @@
     "resolutionText": "I went to our aunt first with the {quest_item} and my apology, and she listened, then I went to my cousin and told them the same thing without softening it. Neither conversation was easy, but both ended with the door still open. Take {quest_reward}. You helped me stop trying to manage my family and start being honest with them instead.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 14,
       "passText": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
       "failText": "I shared something I shouldn't have. The details beyond that are family business."
     },
@@ -580,7 +562,6 @@
     "resolutionText": "The gift reached the other family, and when they learned it came from me, there was silence, then a long conversation, then a message back saying they'd be willing to talk. Not a truce, not yet, but a conversation, and that's more than either family has managed in a generation. Take {quest_reward}. You helped me stop waiting for permission and start building something instead.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You can see I'm not telling you the whole shape of this, can't you. The feud isn't the only obstacle, my own family warned me directly to stay away from that side and I told them I had. I've been lying to the people I live with to protect something they'd tear apart if they knew. Every time I come home from a meeting I carry the weight of the deception alongside the joy of the visit.",
       "failText": "It's a family matter with complications. I'd rather focus on what comes next."
     },
@@ -611,7 +592,6 @@
     "resolutionText": "The offering was accepted, {target_npc} spoke beautifully, and the family welcomed me in a way I didn't dare expect. The person I love stood next to me the whole time, steady as stone, and when it was done they squeezed my hand and said it was about time. Take {quest_reward}. You helped me clear the last obstacle between me and the rest of my life.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You've guessed that I'm holding something back, haven't you. I had the money once and I spent it helping a friend in trouble, and I'd do it again, but I haven't told the family that. I let them think I'm simply poor rather than admit I chose someone else's crisis over this offering. I'm afraid they'd see it as proof that I don't prioritize their traditions.",
       "failText": "The money is short. That's the obstacle and I'm working to clear it."
     },
@@ -642,7 +622,6 @@
     "resolutionText": "I presented the {quest_item} to my family with {target_npc}'s precedent behind it, and my father held it in his hands for a long time before nodding. The person I love was waiting outside, and when I came to tell them they smiled like they'd known all along. Take {quest_reward}. You helped me prove that tradition and love don't have to be opposites.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You're pushing me to say the hard part, so here it is. I almost gave in last month when my family introduced me to someone within the circle, someone perfectly suitable, and I nearly said yes because it would have been so much easier. I was standing at the door ready to surrender everything I actually wanted just to avoid the fight. I walked away, but barely.",
       "failText": "It's a matter of family and tradition. I'd rather keep it at that."
     },
@@ -673,7 +652,6 @@
     "resolutionText": "I sent the {quest_item} with a short note, honest but careful, and the reply came within the week. They said they'd been hoping to hear from me, and we're writing properly now with a visit planned for next month. Take {quest_reward}. You helped me stop being paralyzed by what I might lose and start moving toward what I might gain.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 10,
       "passText": "Fine, you've made the cost of silence plain enough. The last time I told someone how I felt, they didn't feel the same and the friendship ended entirely. I'm terrified of losing this person from my life by asking for more than friendship offers. But you're right that doing nothing is its own kind of loss.",
       "failText": "The distance makes it hard. That's the whole of it."
     },
@@ -704,7 +682,6 @@
     "resolutionText": "I brought the {quest_item} and placed it on their windowsill, and they put their hand on mine and said they'd been wanting something of mine to keep there. We talked all evening about what a life between two hearths could look like, and for the first time it felt possible. Take {quest_reward}. You helped me see that the distance doesn't have to be the end of the story.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 11,
       "passText": "You know how to put people at ease, and I need that right now because I'm about to admit something I haven't told anyone. The real obstacle is that I'm afraid I'm not enough to justify the effort. Why would someone rearrange their life for me? I've been hiding that question behind logistics because logistics are easier to talk about than worth.",
       "failText": "It's a question of distance and roots. That's the puzzle I'm trying to solve."
     },
@@ -735,7 +712,6 @@
     "resolutionText": "I sent the letter with the {quest_item}, and the reply came three days later, four lines that each mattered more than anything I'd written in all my drafts. They said they'd been hoping I'd say something, and that the waiting had been its own kind of answer until now. Take {quest_reward}. You helped me stop revising my feelings and start living them.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 11,
       "passText": "You understand something about devotion, I think. In the old ways, a declaration of the heart was treated like a vow, spoken once and witnessed, and I grew up with that weight on every word. Once I say it, it becomes binding, permanent, real in a way that can't be taken back. That's why every draft feels like too much, because to me it is.",
       "failText": "I just want to get the words right. That's all I'm after."
     },

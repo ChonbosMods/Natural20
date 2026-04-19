@@ -20,7 +20,6 @@
     "resolutionText": "I sent the {quest_item} back with a note, short, nothing grand, just an honest few words. They sent one back this morning. Take {quest_reward}. We're talking again, and that's further than I've been in a long time.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "All right, you caught that. The property line wasn't really what started it. I said something about their mother at a gathering, something I knew would cut, and I said it on purpose. The land was just the excuse we both grabbed onto so we wouldn't have to talk about the real wound.",
       "failText": "It was about the property. That's the version I'm sticking with."
     },
@@ -55,7 +54,6 @@
     "resolutionText": "The place looks like a place again, instead of a ruin someone walked away from. Take {quest_reward}. I'm still angry at him, but at least now I'm angry from a position of having walls that stand up.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You're right to push on that. He didn't just leave over a disagreement about the farm. I told him our father would have been ashamed of him. I said it in front of his children.",
       "failText": "He left. That's all there is to it. People leave."
     },
@@ -84,7 +82,6 @@
     "resolutionText": "We sat down yesterday. Didn't yell, didn't accuse, just talked like two people who remember being children together. Take {quest_reward}. You gave me a way to stop losing my sister over a thing that should never have mattered this much.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine, I'll say it plainly. She's not wrong about the claim. Our grandmother told her she could have it, and I know that because I was standing in the doorway when she said it. I took it anyway after the funeral because I was grieving and I wanted something to hold.",
       "failText": "The claim is complicated. I'd rather not go into the details."
     },
@@ -119,7 +116,6 @@
     "resolutionText": "The storehouse is standing, the vermin are gone, and my uncle left a sack of grain by my door this morning without a note. Take {quest_reward}. I think we're done fighting about it. Neither of us will say so, but we both know.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "Look, the real problem is that we're the last two members of this family in {settlement_name}, and neither of us knows how to say that out loud. The storehouse is just the thing we fight about so we don't have to talk about how alone we both are. He knows it and I know it.",
       "failText": "It's a disagreement about responsibility. That's all it is."
     },
@@ -155,7 +151,6 @@
     "resolutionText": "He wrote back, one line, but a real one. We'll see where it goes. Take {quest_reward}. You helped me stop a feud from becoming permanent, and that's worth more than I can properly say.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You have a way of putting people at ease, you know that? All right. The truth is I was hard on him when he was younger. I raised him the way my father raised me, which I've come to understand was not gently.",
       "failText": "He's young. Young people hold grudges differently."
     },
@@ -195,7 +190,6 @@
     "resolutionText": "I don't think we'll ever be close. But she dropped off a jar of preserves yesterday without a word, and I left a bundle of firewood by her gate this morning. Take {quest_reward}. That's the language we speak now, and it's enough.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 12,
       "passText": "You noticed the charm on the gate, didn't you. She hung it there the week he left. It's a warding sign, old tradition. Means she considers my home a source of harm to her family.",
       "failText": "We have our disagreements. That's the polite way to describe it."
     },
@@ -226,7 +220,6 @@
     "resolutionText": "They're not cured, but they're present again. They asked about the weather and meant it. Take {quest_reward}. You gave me back a person I was watching disappear, and I don't have words large enough for that.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're careful with your questions, and I appreciate that. The part I haven't told anyone is that it runs in their family. Their mother went the same way when I was young enough to watch. I've been dreading this for years, telling myself the signs meant something else every time one appeared.",
       "failText": "It came on suddenly. That's all I know for certain."
     },
@@ -257,7 +250,6 @@
     "resolutionText": "{settlement_npc} sat with {target_npc} for an hour this afternoon and laughed twice. I'd forgotten what their laugh sounded like. Take {quest_reward}. The road ahead is still long, but the person walking it is someone I recognize again.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. The truth is I saw them try to walk into the fire three nights ago, and I barely caught them. I haven't slept since.",
       "failText": "They've been unwell. I'm handling it the best I can."
     },
@@ -288,7 +280,6 @@
     "resolutionText": "The walls are clean now and so is their mind, or close enough. They still pause sometimes and stare at their hands, but then they shake it off and carry on. Take {quest_reward}. I was watching them lose themselves one symbol at a time, and you stopped it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right, since you're not going to let me dodge this. I tried to stop them last week by grabbing their hands. They looked at me like I was the stranger, not them. Like I was the one who didn't belong in this house.",
       "failText": "It's been difficult. I'd rather focus on solutions than details."
     },
@@ -319,7 +310,6 @@
     "resolutionText": "She had four good days in a row. She made soup and told me I looked tired, which means she's well enough to worry about someone other than herself. Take {quest_reward}. You didn't fix everything, but you gave me a way to keep going, and that's what I needed most.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine. You're direct, so I'll be direct. Last week she didn't recognize me for an entire day. Twenty hours of being a stranger in my own mother's house.",
       "failText": "The episodes come and go. I'm coping."
     },
@@ -350,7 +340,6 @@
     "resolutionText": "Three nights running and he hasn't walked once. He's even starting to remember the dreams, which {target_npc} said is a good sign. Take {quest_reward}. You pulled us back from something I couldn't name and couldn't fight alone.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "You have a calm about you that makes hard things easier to say. He talks to his dead sister during the walks. I recognized her name the second night. She died when they were children, and he's never once mentioned her while awake.",
       "failText": "He walks and he talks. I just want it to stop."
     },
@@ -381,7 +370,6 @@
     "resolutionText": "He opened his curtains this morning, and then he opened the door. He still checks the locks, but only twice now instead of ten times. Take {quest_reward}. He's finding his way back, and I have you to thank for the first steps.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 13,
       "passText": "You understand this kind of thing, don't you. The old traditions talk about the soul being shaken loose by what it witnesses. I grew up hearing those stories, and I dismissed them until I watched my own son come home with something missing from behind his eyes. Now I understand what the elders were describing.",
       "failText": "Something scared him badly. That's all I've been able to piece together."
     },
@@ -414,7 +402,6 @@
     "resolutionText": "The water runs clean and the channels are strong. Nobody will notice, and that's the mark of the job done right. Take {quest_reward}. The work continues regardless, but it's lighter knowing someone saw it.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You ask questions like someone who already knows the answer. Fine. I'm not doing this purely out of civic duty. My daughter died in a flood three years ago, upstream, because the channels there weren't maintained.",
       "failText": "Somebody has to tend them. I've got the time and the back for it."
     },
@@ -447,7 +434,6 @@
     "resolutionText": "The perimeter is secure, my gear is sound, and {settlement_name} sleeps a little safer because of it. Take {quest_reward}. I set it aside for this kind of help, and I'm glad it went to someone who understood the purpose.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but It the whole reason.",
       "failText": "I believe in the work. That's enough to keep me walking."
     },
@@ -478,7 +464,6 @@
     "resolutionText": "The doors will keep getting their packages and nobody will know who put them there. That's exactly how it should work. Take {quest_reward}. You helped me help people who would refuse it if they knew where it came from, and that's the cleanest kind of good there is.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You're pushing on this because you can see I'm thinner than I should be. All right. I've been giving away more than I can afford because the alternative is watching children go to bed hungry and doing nothing. I know the math doesn't work.",
       "failText": "The stores run a little lean sometimes. It's nothing unusual."
     },
@@ -516,7 +501,6 @@
     "resolutionText": "The bridge is open, and I walked across it this morning without a creak. People will use it and never think about who rebuilt it, and that's fine. Take {quest_reward}. You deserve something tangible for the work.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "You want to know why I really care about a bridge nobody asked me to fix. My brother drowned in the river below it, trying to ford the crossing after the bridge collapsed. If it had been standing, he'd have walked across it and come home for dinner. I can't bring him back, but I can make sure the next person doesn't have to choose between the crossing and their life.",
       "failText": "It needs fixing. That's reason enough for me."
     },
@@ -551,7 +535,6 @@
     "resolutionText": "The orchard is taking shape. In five years it will feed families who never met me, and in ten it will look like it's always been there. Take {quest_reward}. The trees are the real payment, but you deserve something you can hold today.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "I like how you carry yourself. Open, genuine. It makes me want to be honest in return. I don't have children.",
       "failText": "It's good land going to waste. Someone should use it."
     },
@@ -587,7 +570,6 @@
     "resolutionText": "The path connects two places that needed connecting, and it costs nothing to use. That's the point of the whole exercise. Take {quest_reward}. I keep doing this because I believe everyone deserves a safe road, and today you helped me prove it.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 13,
       "passText": "You noticed the glyphs on the marker posts, didn't you. They're not decoration. An old friend taught me a simple warding pattern that discourages predators from crossing the path. I don't fully understand why it works, but it does, and I carve it into every post I place.",
       "failText": "It's just a path. I mark it and I keep it clear."
     },
@@ -620,7 +602,6 @@
     "resolutionText": "He patted my hand this morning and said I looked rested. First time in months that's been true. Take {quest_reward}. You gave me back the part of the day that was disappearing, the part where I get to be a person instead of just a caretaker.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You led me right into that, didn't you. All right. I resent him sometimes. There, I said it.",
       "failText": "He needs me. That's the beginning and end of it."
     },
@@ -656,7 +637,6 @@
     "resolutionText": "She's calm for the first time since her husband left, truly calm. {target_npc} is nearby, the house is quiet, and she told me I could stop hovering. Take {quest_reward}. You helped me take care of the person I'd do anything for.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You asked just the right question to make me drop the brave face. Her husband isn't away on business. He left. Packed a bag and left without saying when or if he'd come back.",
       "failText": "He's traveling for work. She's managing. I'm helping where I can."
     },
@@ -689,7 +669,6 @@
     "resolutionText": "She stood up this morning, just for a moment, holding the chair, but she stood. I turned away so she wouldn't see my face. Take {quest_reward}. You gave her a chance and me a reason to believe in more good days.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You're not going to let me pretend I'm handling this well, are you. Fine. I sold my workshop tools last month to pay for remedies that didn't work. I have no trade left and no savings.",
       "failText": "We're getting by. That's the important thing."
     },
@@ -718,7 +697,6 @@
     "resolutionText": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. Take {quest_reward}. You helped me reach a person I couldn't reach alone, and that's a debt I'll carry gladly.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "All right, you're right to press me on this. I'm not just worried about his career. I'm worried he'll leave again, this time not for work but because he doesn't think he belongs anywhere. Our parents are gone.",
       "failText": "He's had a setback. People recover from setbacks."
     },
@@ -756,7 +734,6 @@
     "resolutionText": "She walked to the gate this morning and stood there for five minutes before coming back inside. She smiled when she closed the door, and that was the first real smile in six weeks. Take {quest_reward}. The road back is long, but she's on it now.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "You have a warmth about you that makes difficult things feel possible. I need that right now. The thing I haven't been able to tell anyone is that I'm angry. Not at her.",
       "failText": "She's recovering. I'm doing what I can for her."
     },
@@ -787,7 +764,6 @@
     "resolutionText": "They ate a full meal today and complained about being bored. Complaining about boredom is the most hopeful thing I've heard in weeks. Take {quest_reward}. You helped me believe I was doing the right things, and sometimes that's the help a parent needs most.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 12,
       "passText": "You understand, don't you. In our family, there's a belief that injury to the head is injury to the spirit as well as the body. My grandmother taught me that healing requires attention to both, and I've been terrified that I'm only treating the part I can see. Your understanding tells me I'm not imagining the deeper concern.",
       "failText": "They took a hit and they need to heal. That's where things stand."
     },
