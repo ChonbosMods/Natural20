@@ -113,6 +113,17 @@ public class Nat20MobGroupRegistry {
         return groups.values();
     }
 
+    /** All records tagged {@link com.chonbosmods.progression.GroupSource#AMBIENT}. Snapshot: safe to iterate without locking. */
+    public List<MobGroupRecord> ambientRecords() {
+        List<MobGroupRecord> out = new ArrayList<>();
+        for (MobGroupRecord r : all()) {
+            if (r.getSource() == com.chonbosmods.progression.GroupSource.AMBIENT) {
+                out.add(r);
+            }
+        }
+        return out;
+    }
+
     /** Records owned by a specific player. */
     public List<MobGroupRecord> forOwner(UUID playerUuid) {
         String target = playerUuid.toString();

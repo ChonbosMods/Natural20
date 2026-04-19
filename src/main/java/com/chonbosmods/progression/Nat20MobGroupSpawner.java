@@ -7,6 +7,7 @@ import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.quest.poi.MobGroupRecord;
 import com.chonbosmods.quest.poi.SlotRecord;
 import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -174,6 +175,37 @@ public class Nat20MobGroupSpawner {
             if (uuid != null) out.put(slot.getSlotIndex(), uuid);
         }
         return out;
+    }
+
+    /**
+     * Remove every live entity currently occupying a slot of {@code record}. Does NOT touch
+     * the registry: caller removes the record after, under the group lock. Safe to call on
+     * a world-thread tick.
+     *
+     * <p>Slots whose currentUuid is null (never spawned, or already collected) are skipped.
+     * Slots whose UUID no longer resolves to a live Ref are also skipped: nothing to remove.
+     */
+    public void despawnRecord(World world, MobGroupRecord record) {
+        Store<EntityStore> store = world.getEntityStore().getStore();
+        for (SlotRecord slot : record.getSlots()) {
+            String uuidStr = slot.getCurrentUuid();
+            if (uuidStr == null || uuidStr.isEmpty()) continue;
+            UUID uuid;
+            try {
+                uuid = UUID.fromString(uuidStr);
+            } catch (IllegalArgumentException e) {
+                continue;
+            }
+            Ref<EntityStore> ref = world.getEntityRef(uuid);
+            if (ref == null || !ref.isValid()) continue;
+            try {
+                store.removeEntity(ref, RemoveReason.REMOVE);
+            } catch (Exception e) {
+                LOGGER.atWarning().withCause(e).log(
+                        "despawnRecord: failed to remove entity %s for group %s",
+                        uuid, record.getGroupKey());
+            }
+        }
     }
 
     /**

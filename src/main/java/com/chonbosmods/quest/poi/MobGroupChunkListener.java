@@ -76,6 +76,22 @@ public class MobGroupChunkListener {
         }
     }
 
+    /**
+     * Run {@code task} while holding the per-group lock. Used by ambient decay sweep to
+     * serialize despawn + registry.remove against chunk-load reconciliation. Skips the
+     * task entirely if the lock is already held: caller must tolerate being no-op'd
+     * (decay sweep retries next tick).
+     */
+    public void withGroupLock(String groupKey, Runnable task) {
+        AtomicBoolean lock = inFlight.computeIfAbsent(groupKey, k -> new AtomicBoolean(false));
+        if (!lock.compareAndSet(false, true)) return;
+        try {
+            task.run();
+        } finally {
+            lock.set(false);
+        }
+    }
+
     private void reconcile(World world, MobGroupRecord record) {
         String groupKey = record.getGroupKey();
 

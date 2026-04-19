@@ -8,6 +8,17 @@ repositories {
 
 dependencies {
     // Any external dependency you also want to include
+    testImplementation(platform("org.junit:junit-bom:5.10.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+    // HytaleLogger refuses to initialize unless java.util.logging uses its custom
+    // log manager. Set the property at JVM startup so tests that load plugin classes
+    // with a `HytaleLogger.get(...)` static field don't fail on class init.
+    systemProperty("java.util.logging.manager", "com.hypixel.hytale.logger.backend.HytaleLogManager")
 }
 
 // Add --accept-early-plugins to the dev server launch args
