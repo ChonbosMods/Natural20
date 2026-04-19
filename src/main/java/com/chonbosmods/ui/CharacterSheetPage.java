@@ -312,7 +312,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         for (int i = 0; i < MAX_QUEST_ROWS; i++) {
             cmd.set("#CSQuestRow_" + i + ".Visible", false);
         }
-        cmd.set("#CSEmptyState.Text", "(Completed tab coming in Task 19)");
+        cmd.set("#CSEmptyState.Text", "No completed quests yet");
         cmd.set("#CSEmptyState.Visible", true);
     }
 
