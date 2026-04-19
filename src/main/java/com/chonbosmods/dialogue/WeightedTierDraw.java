@@ -17,12 +17,18 @@ public final class WeightedTierDraw {
      *                (or at least be non-negative with positive total).
      */
     public static DifficultyTier pick(double[] weights, Random rng) {
+        DifficultyTier[] all = DifficultyTier.values();
+        if (weights.length != all.length) {
+            throw new IllegalArgumentException(
+                    "weights length " + weights.length + " != DifficultyTier count " + all.length);
+        }
         double total = 0;
         for (double w : weights) total += w;
-        if (total <= 0) return DifficultyTier.MEDIUM;  // defensive fallback
+        if (total <= 0) {
+            throw new IllegalArgumentException("weights must have a positive total; got " + total);
+        }
         double roll = rng.nextDouble() * total;
         double cum = 0;
-        DifficultyTier[] all = DifficultyTier.values();
         for (int i = 0; i < all.length; i++) {
             cum += weights[i];
             if (roll < cum) return all[i];

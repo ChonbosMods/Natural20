@@ -743,7 +743,7 @@ public class Natural20 extends JavaPlugin {
         lootSystem.getItemRegistry().rehydrateAll();
 
         // Initialize quest system
-        questSystem = new QuestSystem(settlementRegistry);
+        questSystem = new QuestSystem(settlementRegistry, scalingConfig);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
         // Generate procedural topics for all existing settlements. Iterate in
         // chronological placedAt order (tiebreak on cellKey) so the shared

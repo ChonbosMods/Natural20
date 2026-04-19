@@ -188,8 +188,11 @@ public class DialogueDryRun {
             String greeting = topicPool.randomGreeting(random);
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
+            // Dry-run has no world position: default to zoneMlvl=1 (starter-zone
+            // weight distribution) for a defensible authoring preview.
+            int zoneMlvl = 1;
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, npc.getDisposition(), greeting, returnGreeting,
+                npcName, npc.getDisposition(), zoneMlvl, greeting, returnGreeting,
                 assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
