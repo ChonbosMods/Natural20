@@ -174,12 +174,12 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             String key = stat.name();
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
-                    "#CSPlus_" + key,
+                    "#CSPlus" + key,
                     EventData.of("Type", "plus").append("Id", key),
                     false);
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
-                    "#CSMinus_" + key,
+                    "#CSMinus" + key,
                     EventData.of("Type", "minus").append("Id", key),
                     false);
         }
@@ -209,7 +209,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         for (int i = 0; i < MAX_QUEST_ROWS; i++) {
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
-                    "#CSQuestRow_" + i,
+                    "#CSQuestRow" + i,
                     EventData.of("Type", "questrow").append("Id", String.valueOf(i)),
                     false);
         }
@@ -236,13 +236,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             int displayed = displayedScore(i);
             boolean hasDelta = pendingDelta[i] > 0;
 
-            cmd.set("#CSAbilityScore_" + key + ".Text", String.valueOf(displayed));
-            cmd.set("#CSAbilityScore_" + key + ".Style.TextColor",
+            cmd.set("#CSAbilityScore" + key + ".Text", String.valueOf(displayed));
+            cmd.set("#CSAbilityScore" + key + ".Style.TextColor",
                     hasDelta ? COLOR_SCORE_PENDING : COLOR_SCORE_APPLIED);
-            cmd.set("#CSPlus_" + key + ".Disabled",
+            cmd.set("#CSPlus" + key + ".Disabled",
                     unspent <= 0 || displayed >= MAX_ABILITY_SCORE);
             // Minus enables as soon as pending delta > 0 for this row.
-            cmd.set("#CSMinus_" + key + ".Disabled", !hasDelta);
+            cmd.set("#CSMinus" + key + ".Disabled", !hasDelta);
         }
 
         // Apply button enables the moment any pendingDelta > 0. Task 14 wires
@@ -299,15 +299,15 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             if (i < n) {
                 QuestInstance q = list.get(i);
                 boolean enabled = q.isWaypointEnabled();
-                cmd.set("#CSQuestRow_" + i + ".Visible", true);
-                cmd.set("#CSQuestName_" + i + ".Text", resolveQuestName(q));
-                cmd.set("#CSQuestName_" + i + ".Style.TextColor",
+                cmd.set("#CSQuestRow" + i + ".Visible", true);
+                cmd.set("#CSQuestName" + i + ".Text", resolveQuestName(q));
+                cmd.set("#CSQuestName" + i + ".Style.TextColor",
                         enabled ? COLOR_QUEST_ACTIVE : COLOR_QUEST_DIMMED);
-                cmd.set("#CSQuestObj_" + i + ".Text", resolveObjectiveText(q));
-                cmd.set("#CSQuestObj_" + i + ".Style.TextColor",
+                cmd.set("#CSQuestObj" + i + ".Text", resolveObjectiveText(q));
+                cmd.set("#CSQuestObj" + i + ".Style.TextColor",
                         enabled ? COLOR_OBJ_ACTIVE : COLOR_OBJ_DIMMED);
             } else {
-                cmd.set("#CSQuestRow_" + i + ".Visible", false);
+                cmd.set("#CSQuestRow" + i + ".Visible", false);
             }
         }
 
@@ -331,13 +331,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         for (int i = 0; i < MAX_QUEST_ROWS; i++) {
             if (i < n) {
                 CompletedQuestRecord record = completed.get(i);
-                cmd.set("#CSQuestRow_" + i + ".Visible", true);
-                cmd.set("#CSQuestName_" + i + ".Text", record.getQuestName());
-                cmd.set("#CSQuestName_" + i + ".Style.TextColor", COLOR_QUEST_DIMMED);
-                cmd.set("#CSQuestObj_" + i + ".Text", record.getFinalObjectiveText());
-                cmd.set("#CSQuestObj_" + i + ".Style.TextColor", COLOR_OBJ_DIMMED);
+                cmd.set("#CSQuestRow" + i + ".Visible", true);
+                cmd.set("#CSQuestName" + i + ".Text", record.getQuestName());
+                cmd.set("#CSQuestName" + i + ".Style.TextColor", COLOR_QUEST_DIMMED);
+                cmd.set("#CSQuestObj" + i + ".Text", record.getFinalObjectiveText());
+                cmd.set("#CSQuestObj" + i + ".Style.TextColor", COLOR_OBJ_DIMMED);
             } else {
-                cmd.set("#CSQuestRow_" + i + ".Visible", false);
+                cmd.set("#CSQuestRow" + i + ".Visible", false);
             }
         }
         cmd.set("#CSEmptyState.Text", "No completed quests yet");

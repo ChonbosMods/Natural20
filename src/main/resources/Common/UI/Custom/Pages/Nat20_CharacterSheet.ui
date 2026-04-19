@@ -72,162 +72,162 @@ $C.@Container {
           LayoutMode: Top;
           Padding: (Top: 4);
 
-          Group #CSAbilityRow_STR {
+          Group #CSAbilityRowSTR {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_STR {
+            Label #CSAbilityNameSTR {
               Text: "STR";
               Anchor: (Width: 60);
               Style: (TextColor: #ff4444(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_STR {
+            Label #CSAbilityScoreSTR {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_STR {
+            $C.@SmallSecondaryTextButton #CSMinusSTR {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_STR {
+            $C.@SmallSecondaryTextButton #CSPlusSTR {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
             }
           }
 
-          Group #CSAbilityRow_DEX {
+          Group #CSAbilityRowDEX {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_DEX {
+            Label #CSAbilityNameDEX {
               Text: "DEX";
               Anchor: (Width: 60);
               Style: (TextColor: #44dd66(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_DEX {
+            Label #CSAbilityScoreDEX {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_DEX {
+            $C.@SmallSecondaryTextButton #CSMinusDEX {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_DEX {
+            $C.@SmallSecondaryTextButton #CSPlusDEX {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
             }
           }
 
-          Group #CSAbilityRow_CON {
+          Group #CSAbilityRowCON {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_CON {
+            Label #CSAbilityNameCON {
               Text: "CON";
               Anchor: (Width: 60);
               Style: (TextColor: #dd8833(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_CON {
+            Label #CSAbilityScoreCON {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_CON {
+            $C.@SmallSecondaryTextButton #CSMinusCON {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_CON {
+            $C.@SmallSecondaryTextButton #CSPlusCON {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
             }
           }
 
-          Group #CSAbilityRow_INT {
+          Group #CSAbilityRowINT {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_INT {
+            Label #CSAbilityNameINT {
               Text: "INT";
               Anchor: (Width: 60);
               Style: (TextColor: #4488ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_INT {
+            Label #CSAbilityScoreINT {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_INT {
+            $C.@SmallSecondaryTextButton #CSMinusINT {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_INT {
+            $C.@SmallSecondaryTextButton #CSPlusINT {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
             }
           }
 
-          Group #CSAbilityRow_WIS {
+          Group #CSAbilityRowWIS {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_WIS {
+            Label #CSAbilityNameWIS {
               Text: "WIS";
               Anchor: (Width: 60);
               Style: (TextColor: #ccccdd(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_WIS {
+            Label #CSAbilityScoreWIS {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_WIS {
+            $C.@SmallSecondaryTextButton #CSMinusWIS {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_WIS {
+            $C.@SmallSecondaryTextButton #CSPlusWIS {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
             }
           }
 
-          Group #CSAbilityRow_CHA {
+          Group #CSAbilityRowCHA {
             LayoutMode: Left;
             Anchor: (Height: 24);
             Padding: (Top: 2, Bottom: 2);
 
-            Label #CSAbilityName_CHA {
+            Label #CSAbilityNameCHA {
               Text: "CHA";
               Anchor: (Width: 60);
               Style: (TextColor: #bb66ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
             }
-            Label #CSAbilityScore_CHA {
+            Label #CSAbilityScoreCHA {
               Text: "";
               FlexWeight: 1;
               Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
-            $C.@SmallSecondaryTextButton #CSMinus_CHA {
+            $C.@SmallSecondaryTextButton #CSMinusCHA {
               Text: "-";
               Anchor: (Width: 28, Height: 20);
               Disabled: true;
             }
-            $C.@SmallSecondaryTextButton #CSPlus_CHA {
+            $C.@SmallSecondaryTextButton #CSPlusCHA {
               Text: "+";
               Anchor: (Width: 28, Height: 20, Left: 4);
               Disabled: true;
@@ -285,340 +285,340 @@ $C.@Container {
           FlexWeight: 1;
           ScrollbarStyle: $C.@DefaultScrollbarStyle;
 
-          Group #CSQuestRow_0 {
+          Group #CSQuestRow0 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_0 {
+            Label #CSQuestName0 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_0 {
+            Label #CSQuestObj0 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_1 {
+          Group #CSQuestRow1 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_1 {
+            Label #CSQuestName1 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_1 {
+            Label #CSQuestObj1 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_2 {
+          Group #CSQuestRow2 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_2 {
+            Label #CSQuestName2 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_2 {
+            Label #CSQuestObj2 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_3 {
+          Group #CSQuestRow3 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_3 {
+            Label #CSQuestName3 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_3 {
+            Label #CSQuestObj3 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_4 {
+          Group #CSQuestRow4 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_4 {
+            Label #CSQuestName4 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_4 {
+            Label #CSQuestObj4 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_5 {
+          Group #CSQuestRow5 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_5 {
+            Label #CSQuestName5 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_5 {
+            Label #CSQuestObj5 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_6 {
+          Group #CSQuestRow6 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_6 {
+            Label #CSQuestName6 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_6 {
+            Label #CSQuestObj6 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_7 {
+          Group #CSQuestRow7 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_7 {
+            Label #CSQuestName7 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_7 {
+            Label #CSQuestObj7 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_8 {
+          Group #CSQuestRow8 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_8 {
+            Label #CSQuestName8 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_8 {
+            Label #CSQuestObj8 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_9 {
+          Group #CSQuestRow9 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_9 {
+            Label #CSQuestName9 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_9 {
+            Label #CSQuestObj9 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_10 {
+          Group #CSQuestRow10 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_10 {
+            Label #CSQuestName10 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_10 {
+            Label #CSQuestObj10 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_11 {
+          Group #CSQuestRow11 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_11 {
+            Label #CSQuestName11 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_11 {
+            Label #CSQuestObj11 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_12 {
+          Group #CSQuestRow12 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_12 {
+            Label #CSQuestName12 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_12 {
+            Label #CSQuestObj12 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_13 {
+          Group #CSQuestRow13 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_13 {
+            Label #CSQuestName13 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_13 {
+            Label #CSQuestObj13 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_14 {
+          Group #CSQuestRow14 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_14 {
+            Label #CSQuestName14 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_14 {
+            Label #CSQuestObj14 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_15 {
+          Group #CSQuestRow15 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_15 {
+            Label #CSQuestName15 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_15 {
+            Label #CSQuestObj15 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_16 {
+          Group #CSQuestRow16 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_16 {
+            Label #CSQuestName16 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_16 {
+            Label #CSQuestObj16 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_17 {
+          Group #CSQuestRow17 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_17 {
+            Label #CSQuestName17 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_17 {
+            Label #CSQuestObj17 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_18 {
+          Group #CSQuestRow18 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_18 {
+            Label #CSQuestName18 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_18 {
+            Label #CSQuestObj18 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
               Style: (TextColor: #cccccc(1), FontSize: 11);
             }
           }
-          Group #CSQuestRow_19 {
+          Group #CSQuestRow19 {
             LayoutMode: Top;
             Anchor: (Height: 44);
             Padding: (Top: 3, Bottom: 3);
             Visible: false;
-            Label #CSQuestName_19 {
+            Label #CSQuestName19 {
               Anchor: (Height: 16);
               Text: "";
               Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true);
             }
-            Label #CSQuestObj_19 {
+            Label #CSQuestObj19 {
               Anchor: (Height: 14);
               Text: "";
               Padding: (Top: 2);
