@@ -53,15 +53,41 @@ public class QuestStateManager {
     }
 
     public void markQuestCompleted(Nat20PlayerData data, String questId) {
-        // Task 4 will populate questName + finalObjectiveText from the live quest snapshot.
-        // For now, append an id-only record so call sites and the codec round-trip work.
-        for (CompletedQuestRecord existing : data.getCompletedQuests()) {
-            if (questId.equals(existing.getQuestId())) {
-                removeQuest(data, questId);
-                return;
+        // Snapshot the live quest's display name + final objective text so the
+        // Completed tab in the Quest Log keeps rendering the right strings even
+        // after the procedural QuestInstance is dropped from the active map.
+        //
+        // Naming mirrors QuestMarkerProvider's waypoint-label fallback chain
+        // (subject_name -> quest_objective_summary -> quest_title -> situationId)
+        // so the snapshot matches what the player saw on the map / in dialogue.
+        // The final-objective string reuses quest_objective_summary, which the
+        // dialogue actions (GIVE_QUEST / CONTINUE_QUEST) keep in sync with the
+        // current ObjectiveInstance via the same switch the HUD uses.
+        QuestInstance instance = getQuest(data, questId);
+        String questName = questId;
+        String finalObjectiveText = "";
+        if (instance != null) {
+            Map<String, String> bindings = instance.getVariableBindings();
+            if (bindings != null) {
+                questName = bindings.getOrDefault("subject_name",
+                    bindings.getOrDefault("quest_objective_summary",
+                        bindings.getOrDefault("quest_title",
+                            instance.getSituationId() != null ? instance.getSituationId() : questId)));
+                finalObjectiveText = bindings.getOrDefault("quest_objective_summary", "");
+            } else if (instance.getSituationId() != null) {
+                questName = instance.getSituationId();
             }
         }
-        data.getCompletedQuests().add(new CompletedQuestRecord(questId, "", ""));
+
+        // Drop any prior record for this questId so re-completion (e.g. a quest
+        // that gets re-issued and re-finished) refreshes the snapshot rather
+        // than freezing the first one forever (Task 2 review I-1).
+        data.getCompletedQuests().removeIf(r -> questId.equals(r.getQuestId()));
+
+        // Prepend so the Completed tab renders most-recent-first (Task 19
+        // expects index 0 to be newest; Task 2 review I-2).
+        data.getCompletedQuests().add(0, new CompletedQuestRecord(questId, questName, finalObjectiveText));
+
         removeQuest(data, questId);
     }
 
