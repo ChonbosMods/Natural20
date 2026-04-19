@@ -2,6 +2,7 @@ package com.chonbosmods.quest.poi;
 
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.progression.DifficultyTier;
+import com.chonbosmods.progression.GroupSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,15 @@ public class MobGroupRecord {
     private List<SlotRecord> slots = new ArrayList<>();
 
     private long createdAtMillis;
+
+    /** Origin of this group. Null on legacy records from before the ambient system. */
+    private GroupSource source;
+
+    /**
+     * Last wall-clock ms any player was within the decay-near radius. Zero on legacy records
+     * and on fresh records that haven't been touched yet: getter falls back to createdAtMillis.
+     */
+    private long lastSeenMillis;
 
     /** No-arg constructor for Gson. */
     public MobGroupRecord() {}
@@ -106,4 +116,13 @@ public class MobGroupRecord {
 
     public long getCreatedAtMillis() { return createdAtMillis; }
     public void setCreatedAtMillis(long createdAtMillis) { this.createdAtMillis = createdAtMillis; }
+
+    public GroupSource getSource() { return source; }
+    public void setSource(GroupSource source) { this.source = source; }
+
+    /** Falls back to createdAtMillis when lastSeenMillis is zero (legacy / freshly-created). */
+    public long getLastSeenMillis() {
+        return lastSeenMillis > 0 ? lastSeenMillis : createdAtMillis;
+    }
+    public void setLastSeenMillis(long lastSeenMillis) { this.lastSeenMillis = lastSeenMillis; }
 }
