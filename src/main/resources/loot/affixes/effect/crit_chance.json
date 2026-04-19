@@ -8,10 +8,7 @@
     "melee_weapon"
   ],
   "StatRequirement": null,
-  "StatScaling": {
-    "Primary": "DEX",
-    "Factor": 0.12
-  },
+  "StatScaling": null,
   "TargetStat": "Nat20CritChance",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {

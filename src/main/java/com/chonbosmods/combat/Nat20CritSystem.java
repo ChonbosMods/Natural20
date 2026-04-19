@@ -46,6 +46,8 @@ public class Nat20CritSystem extends DamageEventSystem {
     private static final double BASE_CRIT_MULTIPLIER = 1.5;
     private static final double SOFTCAP_K_CHANCE = 0.30;
     private static final double SOFTCAP_K_DAMAGE = 2.0;
+    private static final double DEX_BASELINE_PER_MOD = 0.015;
+    private static final double STR_BASELINE_PER_MOD = 0.15;
 
     private final Nat20LootSystem lootSystem;
     private int critCauseIdx = -1;
@@ -89,28 +91,32 @@ public class Nat20CritSystem extends DamageEventSystem {
         }
         if (critCauseIdx < 0) return;
 
-        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
-                attackerRef, store, lootSystem);
-        if (sources.isEmpty()) return;
-
         Player attackerPlayer = store.getComponent(attackerRef, Player.getComponentType());
         UUID playerUuid = attackerPlayer != null ? attackerPlayer.getPlayerRef().getUuid() : null;
         PlayerStats playerStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+
+        double dexBaseline = playerStats != null
+                ? playerStats.getPowerModifier(Stat.DEX) * DEX_BASELINE_PER_MOD : 0;
+        double strBaseline = playerStats != null
+                ? playerStats.getPowerModifier(Stat.STR) * STR_BASELINE_PER_MOD : 0;
+
+        List<EffectAffixSource.Source> sources = EffectAffixSource.resolveAttackerSources(
+                attackerRef, store, lootSystem);
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
         boolean forcedCrit = hasAffix(FORCE_CRIT_ID, sources);
-        double critChance;
-        if (forcedCrit) {
-            critChance = 1.0;
-        } else {
-            critChance = computeAffixValue(CRIT_CHANCE_ID, sources, affixRegistry, playerStats, SOFTCAP_K_CHANCE);
-            if (critChance <= 0) return;
-        }
+        double rawAffixChance = sources.isEmpty() ? 0
+                : rawAffixValue(CRIT_CHANCE_ID, sources, affixRegistry);
+        double affixChance = Nat20Softcap.softcap(rawAffixChance, SOFTCAP_K_CHANCE);
+        double critChance = forcedCrit ? 1.0 : Math.min(1.0, dexBaseline + affixChance);
 
+        if (critChance <= 0) return;
         if (!forcedCrit && ThreadLocalRandom.current().nextDouble() >= critChance) return;
 
-        double critDmgBonus = computeAffixValue(CRIT_DAMAGE_ID, sources, affixRegistry, playerStats, SOFTCAP_K_DAMAGE);
-        double critMultiplier = BASE_CRIT_MULTIPLIER + critDmgBonus;
+        double rawAffixDamage = sources.isEmpty() ? 0
+                : rawAffixValue(CRIT_DAMAGE_ID, sources, affixRegistry);
+        double affixDamage = Nat20Softcap.softcap(rawAffixDamage, SOFTCAP_K_DAMAGE);
+        double critMultiplier = BASE_CRIT_MULTIPLIER + strBaseline + affixDamage;
 
         float original = damage.getAmount();
         float critted = (float) (original * critMultiplier);
@@ -118,9 +124,11 @@ public class Nat20CritSystem extends DamageEventSystem {
         damage.setDamageCauseIndex(critCauseIdx);
 
         if (playerUuid != null && CombatDebugSystem.isEnabled(playerUuid)) {
-            LOGGER.atInfo().log("[Crit] player=%s chance=%.1f%% mult=%.2fx damage=%.1f->%.1f",
+            LOGGER.atInfo().log(
+                    "[Crit] player=%s dexBase=%.1f%% affix=%.1f%% chance=%.1f%% strBase=%.2f affix=%.2f mult=%.2fx damage=%.1f->%.1f",
                     playerUuid.toString().substring(0, 8),
-                    critChance * 100, critMultiplier, original, critted);
+                    dexBaseline * 100, affixChance * 100, critChance * 100,
+                    strBaseline, affixDamage, critMultiplier, original, critted);
         }
     }
 
@@ -133,9 +141,8 @@ public class Nat20CritSystem extends DamageEventSystem {
         return false;
     }
 
-    private double computeAffixValue(String affixId, List<EffectAffixSource.Source> sources,
-                                      Nat20AffixRegistry affixRegistry,
-                                      @Nullable PlayerStats playerStats, double softcapK) {
+    private static double rawAffixValue(String affixId, List<EffectAffixSource.Source> sources,
+                                        Nat20AffixRegistry affixRegistry) {
         for (EffectAffixSource.Source src : sources) {
             for (RolledAffix rolledAffix : src.affixes()) {
                 if (!affixId.equals(rolledAffix.id())) continue;
@@ -146,16 +153,7 @@ public class Nat20CritSystem extends DamageEventSystem {
                 AffixValueRange range = def.getValuesForRarity(src.rarity());
                 if (range == null) return 0;
 
-                double baseValue = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
-                double effectiveValue = baseValue;
-
-                if (playerStats != null && def.statScaling() != null) {
-                    Stat primary = def.statScaling().primary();
-                    int modifier = playerStats.getModifier(primary);
-                    effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
-                }
-
-                return Nat20Softcap.softcap(effectiveValue, softcapK);
+                return range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
             }
         }
         return 0;
