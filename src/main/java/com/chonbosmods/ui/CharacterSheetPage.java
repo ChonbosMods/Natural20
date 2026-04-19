@@ -3,6 +3,7 @@ package com.chonbosmods.ui;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20XpMath;
+import com.chonbosmods.stats.Stat;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
@@ -36,6 +37,14 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     /** XP track width in pixels: keep in sync with #CSXpBarTrack.Anchor.Width in the .ui template. */
     private static final int XP_BAR_TRACK_WIDTH = 500;
+
+    /** Hard cap per ability score (design Q5). */
+    private static final int MAX_ABILITY_SCORE = 30;
+
+    /** Gold accent for active banner (matches #CSName / #CSXpBarFill). */
+    private static final String COLOR_BANNER_ACTIVE = "#ffd700";
+    /** Muted grey for the zero-points banner. */
+    private static final String COLOR_BANNER_MUTED = "#888888";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
@@ -77,6 +86,27 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             int fillPx = (int) ((XP_BAR_TRACK_WIDTH * clampedXp) / safeThreshold);
             cmd.set("#CSXpText.Text", xpIntoLevel + " / " + threshold);
             setXpBarFillPixels(cmd, fillPx);
+        }
+
+        // Unspent ability points banner. Gold + glow when > 0, muted when = 0.
+        int pendingPoints = data.getPendingAbilityPoints();
+        cmd.set("#CSUnspentBanner.Text", "Unspent Points: " + pendingPoints);
+        cmd.set("#CSUnspentBanner.Style.TextColor",
+                pendingPoints > 0 ? COLOR_BANNER_ACTIVE : COLOR_BANNER_MUTED);
+
+        // Six ability rows. Render-only: scores from applied state, both buttons
+        // disabled at open. Tasks 12-13 enable + / - once preview state lands.
+        int[] scores = data.getStats();
+        for (Stat stat : Stat.values()) {
+            String key = stat.name();
+            int score = (scores != null && stat.index() < scores.length) ? scores[stat.index()] : 0;
+            cmd.set("#CSAbilityScore_" + key + ".Text", String.valueOf(score));
+            // Plus is disabled when no points to spend or already at the per-ability cap.
+            // Even when enabled here, no event binding exists yet (Task 12).
+            cmd.set("#CSPlus_" + key + ".Disabled", pendingPoints <= 0 || score >= MAX_ABILITY_SCORE);
+            // Minus is always disabled on first open: preview hasn't diverged from
+            // applied state yet. Task 13 enables it after a + click.
+            cmd.set("#CSMinus_" + key + ".Disabled", true);
         }
     }
 

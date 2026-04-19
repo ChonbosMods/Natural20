@@ -56,6 +56,184 @@ $C.@Container {
             Background: (Color: #ffd700(1));
           }
         }
+
+        // Unspent ability points banner. Gold when > 0, muted when = 0.
+        // Text + color set from CharacterSheetPage.build().
+        Label #CSUnspentBanner {
+          Anchor: (Height: 20);
+          Padding: (Top: 6, Bottom: 4);
+          Text: "";
+          Style: (TextColor: #888888(1), FontSize: 13, RenderBold: true, HorizontalAlignment: Center);
+        }
+
+        // Six ability rows (Task 11: render only). Plus / minus buttons start
+        // disabled; Tasks 12-13 will wire their handlers.
+        Group #CSAbilityList {
+          LayoutMode: Top;
+          Padding: (Top: 4);
+
+          Group #CSAbilityRow_STR {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_STR {
+              Text: "STR";
+              Anchor: (Width: 60);
+              Style: (TextColor: #ff4444(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_STR {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_STR {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_STR {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+
+          Group #CSAbilityRow_DEX {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_DEX {
+              Text: "DEX";
+              Anchor: (Width: 60);
+              Style: (TextColor: #44dd66(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_DEX {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_DEX {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_DEX {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+
+          Group #CSAbilityRow_CON {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_CON {
+              Text: "CON";
+              Anchor: (Width: 60);
+              Style: (TextColor: #dd8833(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_CON {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_CON {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_CON {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+
+          Group #CSAbilityRow_INT {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_INT {
+              Text: "INT";
+              Anchor: (Width: 60);
+              Style: (TextColor: #4488ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_INT {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_INT {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_INT {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+
+          Group #CSAbilityRow_WIS {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_WIS {
+              Text: "WIS";
+              Anchor: (Width: 60);
+              Style: (TextColor: #ccccdd(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_WIS {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_WIS {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_WIS {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+
+          Group #CSAbilityRow_CHA {
+            LayoutMode: Left;
+            Anchor: (Height: 24);
+            Padding: (Top: 2, Bottom: 2);
+
+            Label #CSAbilityName_CHA {
+              Text: "CHA";
+              Anchor: (Width: 60);
+              Style: (TextColor: #bb66ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+            }
+            Label #CSAbilityScore_CHA {
+              Text: "";
+              FlexWeight: 1;
+              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            $C.@SmallSecondaryTextButton #CSMinus_CHA {
+              Text: "-";
+              Anchor: (Width: 28, Height: 20);
+              Disabled: true;
+            }
+            $C.@SmallSecondaryTextButton #CSPlus_CHA {
+              Text: "+";
+              Anchor: (Width: 28, Height: 20, Left: 4);
+              Disabled: true;
+            }
+          }
+        }
       }
 
       Group #CSRightPanel {
