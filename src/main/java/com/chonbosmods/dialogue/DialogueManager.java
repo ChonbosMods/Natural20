@@ -106,7 +106,7 @@ public class DialogueManager {
         graph.lateResolve(buildLateBindings(npcData));
 
         // Inject quest topics: available quests (from NPC's preGeneratedQuest) and turn-in topics
-        injectQuestAvailableTopics(graph, npcId, npcData);
+        injectQuestAvailableTopics(graph, npcId, npcData, playerData);
         injectQuestTurnInTopics(graph, npcId, playerData);
         // Inject talk-to-NPC topics for any quests targeting this NPC
         injectTalkToNpcTopics(graph, npcId, playerData);
@@ -373,7 +373,9 @@ public class DialogueManager {
      * Inject quest available topic for NPCs with a preGeneratedQuest.
      * Builds the exposition -> accept/decline/skillcheck chain.
      */
-    private void injectQuestAvailableTopics(DialogueGraph graph, String npcId, Nat20NpcData npcData) {
+    private void injectQuestAvailableTopics(DialogueGraph graph, String npcId,
+                                            Nat20NpcData npcData,
+                                            Nat20PlayerData playerData) {
         if (!hasPreGeneratedQuest(npcData)) return;
 
         SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
@@ -386,6 +388,7 @@ public class DialogueManager {
         QuestInstance quest = npcRecord.getPreGeneratedQuest();
         Map<String, String> b = quest.getVariableBindings();
         String questId = quest.getQuestId();
+        int playerLevel = playerData != null ? playerData.getLevel() : 1;
 
         // The exposition objective is index 0; its values back gather_count, kill_count,
         // quest_item, enemy_type, target_npc when those tokens appear in offer text.
@@ -410,7 +413,7 @@ public class DialogueManager {
         String topicHeader = DialogueResolver.resolve(
             b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
         String expositionTemplate = b.getOrDefault("quest_exposition_text", "I need your help with something.");
-        String expositionText = DialogueResolver.resolveQuestText(expositionTemplate, b, expositionObj);
+        String expositionText = DialogueResolver.resolveQuestText(expositionTemplate, b, expositionObj, playerLevel);
 
         // Diagnostic: trace highlight marker presence in exposition text
         boolean expoHasMarkers = expositionText != null && expositionText.indexOf(EntityHighlight.MARK_START) >= 0;
@@ -423,9 +426,9 @@ public class DialogueManager {
             expositionObj != null ? expositionObj.getType() + ":" + expositionObj.getTargetLabel() : "null");
 
         String acceptText = DialogueResolver.resolveQuestText(
-            b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b, expositionObj);
+            b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b, expositionObj, playerLevel);
         String declineText = DialogueResolver.resolveQuestText(
-            b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b, null);
+            b.getOrDefault("quest_decline_text", "I understand. Perhaps another time."), b, null, playerLevel);
 
         String topicId = "questoffer_" + questId;
         String entryNodeId = topicId + "_expo";
@@ -466,9 +469,9 @@ public class DialogueManager {
                 com.chonbosmods.stats.Skill skill = com.chonbosmods.stats.Skill.valueOf(skillName);
                 int dc = Integer.parseInt(dcRaw);
                 String passText = DialogueResolver.resolveQuestText(
-                    b.getOrDefault("quest_skillcheck_pass_text", ""), b, expositionObj);
+                    b.getOrDefault("quest_skillcheck_pass_text", ""), b, expositionObj, playerLevel);
                 String failText = DialogueResolver.resolveQuestText(
-                    b.getOrDefault("quest_skillcheck_fail_text", ""), b, expositionObj);
+                    b.getOrDefault("quest_skillcheck_fail_text", ""), b, expositionObj, playerLevel);
 
                 String checkNodeId = topicId + "_check";
                 String passNodeId  = topicId + "_check_pass";

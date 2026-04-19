@@ -167,6 +167,27 @@ public class DialogueActionRegistry {
 
             // Add quest to player's active quests
             questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+
+            // Rescale every COLLECT_RESOURCES objective now that we know the accepting
+            // player's zone. Walks all phases because multi-phase quests may have
+            // multiple collect objectives; each one was baked with its own baseRoll
+            // and bonusPerZone at pre-gen time.
+            int playerZone = com.chonbosmods.progression.Nat20XpMath
+                .zoneForLevel(ctx.playerData().getLevel());
+            for (ObjectiveInstance o : quest.getObjectives()) {
+                rescaleCollectObjective(o, playerZone);
+            }
+            // First objective is the one shown on accept; refresh the binding so the
+            // accept toast and any immediately-rendered objective summary read from
+            // the rescaled count, not the preview.
+            ObjectiveInstance firstForBinding = quest.getObjectives().isEmpty()
+                ? null : quest.getObjectives().getFirst();
+            if (firstForBinding != null
+                    && firstForBinding.getType() == ObjectiveType.COLLECT_RESOURCES) {
+                quest.getVariableBindings().put(
+                    "gather_count", String.valueOf(firstForBinding.getRequiredCount()));
+            }
+
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_ACCEPTED);
 
             // Set up first objective: late-bind a deferred TALK_TO_NPC target if
@@ -555,6 +576,18 @@ public class DialogueActionRegistry {
             npcRecord.getPreGeneratedQuest().setSkillcheckPassed(true);
             LOGGER.atInfo().log("MARK_SKILLCHECK_PASSED: stamped pass flag on pre-generated quest for NPC %s", ctx.npcId());
         });
+    }
+
+    /** Rescale a COLLECT_RESOURCES objective's {@code requiredCount} using the
+     *  accepting player's zone. Idempotent: a second call with the same player
+     *  zone produces the same result. No-op for other objective types and for
+     *  legacy objectives where {@code baseRoll == 0}. */
+    public static void rescaleCollectObjective(ObjectiveInstance obj, int playerZone) {
+        if (obj.getType() != ObjectiveType.COLLECT_RESOURCES) return;
+        if (obj.getBaseRoll() <= 0) return;
+        int z = Math.max(1, Math.min(4, playerZone));
+        int finalCount = obj.getBaseRoll() + obj.getBonusPerZone() * (z - 1);
+        obj.setRequiredCount(Math.max(1, finalCount));
     }
 
     /**

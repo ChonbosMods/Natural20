@@ -31,10 +31,10 @@ public class QuestPoolRegistry {
     public record ItemEntry(String id, String label, String labelPlural,
                              String noun, String nounPlural, @Nullable String epithet,
                              String category, int countMin, int countMax,
-                             @Nullable String fetchItemType) {
+                             @Nullable String fetchItemType, int tier) {
         public ItemEntry(String id, String label, String labelPlural) {
             this(id, label, labelPlural, stripArticle(label), stripArticle(labelPlural), null,
-                 null, 0, 0, null);
+                 null, 0, 0, null, 1);
         }
 
         /** Strip a leading "a ", "an ", or "the " from a label to produce a bare noun.
@@ -141,14 +141,76 @@ public class QuestPoolRegistry {
             int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
             int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
             String fetchItemType = obj.has("fetchItemType") ? obj.get("fetchItemType").getAsString() : null;
+
+            int tier;
+            if (obj.has("tier")) {
+                JsonElement tierEl = obj.get("tier");
+                if (tierEl.isJsonPrimitive() && tierEl.getAsJsonPrimitive().isNumber()) {
+                    int raw = tierEl.getAsInt();
+                    if (raw < 1 || raw > 4) {
+                        LOGGER.atWarning().log("Pool entry %s has tier=%d outside [1,4]; defaulting to 1", id, raw);
+                        tier = 1;
+                    } else {
+                        tier = raw;
+                    }
+                } else {
+                    LOGGER.atWarning().log("Pool entry %s has non-numeric tier; defaulting to 1", id);
+                    tier = 1;
+                }
+            } else {
+                // Only COLLECT_RESOURCES entries are expected to have tier. Other pools
+                // (mobs, keepsakes, evidence) do not use tier and must not spam warnings.
+                if ("items".equals(arrayKey)) {
+                    LOGGER.atWarning().log("Collect pool entry %s missing tier; defaulting to 1", id);
+                }
+                tier = 1;
+            }
+
             target.add(new ItemEntry(id, label, labelPlural, noun, nounPlural, epithet,
-                                     category, countMin, countMax, fetchItemType));
+                                     category, countMin, countMax, fetchItemType, tier));
         }
     }
 
+    /** Zone-unaware draw. Kept for callers that don't know a biome zone;
+     *  prefer {@link #randomCollectResource(int, Random)}. */
     public ItemEntry randomCollectResource(Random random) {
         if (collectResources.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
         return collectResources.get(random.nextInt(collectResources.size()));
+    }
+
+    /** Zone-aware draw keyed on the NPC's biome zone (1..4), not the accepting player's level zone.
+     *  Filter to the band {@code [worldZone-1, worldZone+1]} clamped
+     *  to {@code [1, 4]}, with entries matching {@code worldZone} receiving double
+     *  weight. If the band is empty (malformed catalog), fall back to any tier <= 4.
+     *  If the full catalog is empty, return the stone sentinel. */
+    public ItemEntry randomCollectResource(int worldZone, Random random) {
+        if (collectResources.isEmpty()) return new ItemEntry("Hytale:Stone", "stone", "stones");
+        int z = Math.max(1, Math.min(4, worldZone));
+        int low = Math.max(1, z - 1);
+        int high = Math.min(4, z + 1);
+
+        List<ItemEntry> pool = new ArrayList<>();
+        List<Integer> weights = new ArrayList<>();
+        int totalWeight = 0;
+        for (ItemEntry e : collectResources) {
+            if (e.tier() < low || e.tier() > high) continue;
+            int w = (e.tier() == z) ? 2 : 1;
+            pool.add(e);
+            weights.add(w);
+            totalWeight += w;
+        }
+        if (pool.isEmpty()) {
+            LOGGER.atWarning().log("randomCollectResource: band [%d,%d] empty for zone %d (catalog size=%d); falling back to full catalog",
+                low, high, z, collectResources.size());
+            return collectResources.get(random.nextInt(collectResources.size()));
+        }
+        int roll = random.nextInt(totalWeight);
+        int acc = 0;
+        for (int i = 0; i < pool.size(); i++) {
+            acc += weights.get(i);
+            if (roll < acc) return pool.get(i);
+        }
+        return pool.getLast();
     }
 
     public ItemEntry randomKeepsakeItem(Random random) {
@@ -225,6 +287,20 @@ public class QuestPoolRegistry {
 
     public @Nullable ItemEntry findHostileMob(String id) {
         for (ItemEntry entry : hostileMobs) {
+            if (entry.id().equals(id)) return entry;
+        }
+        return null;
+    }
+
+    /** Test-only: load the collect pool from an arbitrary JSON file. Not used by production. */
+    void loadTestCollectPool(Path file) {
+        collectResources.clear();
+        loadItemPool(file, "items", collectResources);
+    }
+
+    /** Find a collect-pool entry by its Hytale item id. {@code null} if not loaded. */
+    public @Nullable ItemEntry findCollectById(String id) {
+        for (ItemEntry entry : collectResources) {
             if (entry.id().equals(id)) return entry;
         }
         return null;

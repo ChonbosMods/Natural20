@@ -1,5 +1,6 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.progression.Nat20XpMath;
 import com.chonbosmods.ui.EntityHighlight;
 
 import javax.annotation.Nullable;
@@ -96,6 +97,29 @@ public class DialogueResolver {
         if (objective != null) {
             effective = new HashMap<>(bindings);
             overlayObjective(effective, objective);
+        }
+        return substituteAndClean(template, effective, true);
+    }
+
+    /** Variant of {@link #resolveQuestText(String, Map, ObjectiveInstance)} that
+     *  rescales COLLECT_RESOURCES {@code gather_count} using the viewing player's
+     *  level zone. For all other objective types this behaves identically to
+     *  the 3-arg variant. */
+    public static String resolveQuestText(String template, Map<String, String> bindings,
+                                          @Nullable ObjectiveInstance objective,
+                                          int playerLevel) {
+        if (template == null || template.isEmpty()) return template;
+        Map<String, String> effective = bindings;
+        if (objective != null) {
+            effective = new HashMap<>(bindings);
+            overlayObjective(effective, objective);
+            if (objective.getType() == ObjectiveType.COLLECT_RESOURCES
+                    && objective.getBaseRoll() > 0) {
+                int zone = Nat20XpMath.zoneForLevel(playerLevel);
+                int scaled = Math.max(1, objective.getBaseRoll()
+                    + objective.getBonusPerZone() * (zone - 1));
+                effective.put("gather_count", String.valueOf(scaled));
+            }
         }
         return substituteAndClean(template, effective, true);
     }

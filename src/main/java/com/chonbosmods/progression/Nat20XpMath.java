@@ -1,5 +1,7 @@
 package com.chonbosmods.progression;
 
+import java.util.Random;
+
 /**
  * Pure math helpers for the Natural 20 XP + mlvl system.
  * See docs/plans/2026-04-15-xp-mlvl-ilvl-system-design.md for derivation.
@@ -86,5 +88,34 @@ public final class Nat20XpMath {
     public static double ilvlScale(int ilvl, int qualityValue) {
         double perIlvl = 0.025 + (qualityValue - 1) * 0.003;
         return 1.0 + (ilvl - 1) * perIlvl;
+    }
+
+    /** Per-tier integer bonus range for COLLECT_RESOURCES count scaling.
+     *  Indexed by tier (1..4). Ranges are hand-tuned small integer intervals
+     *  straddling the scaled midpoint {@code (5 - tier) * 1.75}: ±1 for T1/T2/T4
+     *  (T4 clamps low at 1), and two adjacent integers {3, 4} for T3 because
+     *  its midpoint (3.5) is half-integer. See
+     *  {@code docs/plans/2026-04-19-collect-resources-tier-naming-design.md}
+     *  for the authoritative derivation. {@link #rollBonusPerZone} rolls a
+     *  uniform integer inside the tier's range, once per objective, for
+     *  {@code QuestGenerator} to persist on {@code ObjectiveInstance}. */
+    private static final int[][] BONUS_RANGE_PER_TIER = {
+        null,
+        {6, 8},
+        {4, 6},
+        {3, 4},
+        {1, 3},
+    };
+
+    /** Roll a per-zone additive bonus for a COLLECT_RESOURCES objective of the
+     *  given item tier. Tiers outside {@code [1, 4]} clamp to the nearest valid
+     *  bucket so a malformed JSON entry never NPEs at generation time.
+     *  @param tier the collect-resource item's tier (1..4), NOT a player zone.
+     *              The "BonusPerZone" name describes the unit of the returned
+     *              int: the bonus applied for each player zone above 1. */
+    public static int rollBonusPerZone(int tier, Random random) {
+        int t = Math.max(1, Math.min(4, tier));
+        int[] range = BONUS_RANGE_PER_TIER[t];
+        return range[0] + random.nextInt(range[1] - range[0] + 1);
     }
 }
