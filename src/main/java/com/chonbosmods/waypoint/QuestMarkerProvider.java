@@ -106,6 +106,8 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
         List<MarkerEntry> entries = new ArrayList<>();
 
         for (QuestInstance quest : quests.values()) {
+            // Honor per-quest waypoint toggle (flipped from the Quest Log UI).
+            if (!quest.isWaypointEnabled()) continue;
             Map<String, String> b = quest.getVariableBindings();
             // Return-to-NPC marker stays up through AWAITING_CONTINUATION so the player
             // can find their way back if they closed the dialog mid turn-in flow.
