@@ -76,6 +76,10 @@ public final class AmbientSpawnSystem {
      * of the chunk center. At most one spawn per chunk-load event (first eligible player wins).
      */
     public void onChunkLoad(World world, int chunkBlockX, int chunkBlockZ) {
+        world.execute(() -> doChunkLoadOnWorldThread(world, chunkBlockX, chunkBlockZ));
+    }
+
+    private void doChunkLoadOnWorldThread(World world, int chunkBlockX, int chunkBlockZ) {
         double cx = chunkBlockX + 16.0;
         double cz = chunkBlockZ + 16.0;
         long now = System.currentTimeMillis();
@@ -137,7 +141,7 @@ public final class AmbientSpawnSystem {
             return false;
         }
 
-        world.execute(() -> spawnAmbientGroup(world, playerUuid, anchor, mobRole, now));
+        spawnAmbientGroup(world, playerUuid, anchor, mobRole, now);
         return true;
     }
 
@@ -158,7 +162,7 @@ public final class AmbientSpawnSystem {
         int championCount = rng.nextInt(
                 scalingCfg.groupMinChampions(), scalingCfg.groupMaxChampions() + 1);
 
-        DifficultyTier groupDiff = scaleSystem.rollDifficultyWeighted(new Random(rng.nextLong()));
+        DifficultyTier groupDiff = scaleSystem.rollDifficultyWeighted(rng);
         DifficultyTier bossDiff = groupDiff;
         if (groupDiff == DifficultyTier.EPIC
                 && rng.nextInt(100) < scalingCfg.bossLegendaryChance()) {
@@ -173,12 +177,7 @@ public final class AmbientSpawnSystem {
         int anchorChunkX = (int) Math.floor(anchor.getX() / 32.0);
         int anchorChunkZ = (int) Math.floor(anchor.getZ() / 32.0);
         long generationId = now;
-        long worldSeed;
-        try {
-            worldSeed = world.getWorldConfig().getSeed();
-        } catch (Exception e) {
-            worldSeed = 0L;
-        }
+        long worldSeed = world.getWorldConfig().getSeed();
         String groupKey = "ambient:" + worldSeed + ":" + anchorChunkX + ":" + anchorChunkZ
                 + ":" + generationId;
 
@@ -196,6 +195,9 @@ public final class AmbientSpawnSystem {
         record.setSpawnGenerationId(generationId);
         record.setGroupDifficulty(groupDiff);
         record.setBossDifficulty(bossDiff);
+        // KILL_COUNT is a placeholder: MobGroupRecord.direction is a required field authored
+        // for POI quest kill tracking. Ambient records (ownerPlayerUuid=null) are never
+        // consulted by POIKillTrackingSystem, so the value is inert here.
         record.setDirection(PoiGroupDirection.KILL_COUNT);
         record.setChampionCount(championCount);
         record.setBossName(bossName);
@@ -245,7 +247,10 @@ public final class AmbientSpawnSystem {
                     // First non-air non-solid hit (fluid/foliage/partial/etc): reject.
                     return AmbientAnchorFinder.SurfaceProbe.INVALID;
                 }
-            } catch (Exception ignored) {}
+            } catch (Exception e) {
+                LOGGER.atFine().withCause(e).log("Ambient probe failed at (%d, %d)", x, z);
+                // fall through to return the conservative/reject value
+            }
             return AmbientAnchorFinder.SurfaceProbe.INVALID;
         };
     }
@@ -264,7 +269,9 @@ public final class AmbientSpawnSystem {
                     if (bt.getMaterial() == BlockMaterial.Solid) return false;
                 }
                 return true;
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                LOGGER.atFine().withCause(e).log("Ambient probe failed at (%d, %d)", x, z);
+                // fall through to return the conservative/reject value
                 return false;
             }
         };
