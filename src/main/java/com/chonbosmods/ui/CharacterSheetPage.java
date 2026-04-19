@@ -4,6 +4,9 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20XpMath;
+import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestStateManager;
+import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.stats.Stat;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
@@ -22,6 +25,11 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Character Sheet page (Tasks 7-14+).
@@ -56,6 +64,24 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     /** Gold flip for ability scores when previewed (pending delta > 0). */
     private static final String COLOR_SCORE_PENDING = "#ffd700";
 
+    /** Quest log: max pre-baked row slots in the .ui template. */
+    private static final int MAX_QUEST_ROWS = 20;
+    /** Active tab text color (gold). */
+    private static final String COLOR_TAB_ACTIVE = "#ffd700";
+    /** Inactive tab text color (muted grey). */
+    private static final String COLOR_TAB_INACTIVE = "#888888";
+    /** Active quest row name color. */
+    private static final String COLOR_QUEST_ACTIVE = "#ffffff";
+    /** Dimmed (waypoint disabled) quest row name color. */
+    private static final String COLOR_QUEST_DIMMED = "#888888";
+    /** Active quest row objective color. */
+    private static final String COLOR_OBJ_ACTIVE = "#cccccc";
+    /** Dimmed (waypoint disabled) quest row objective color. */
+    private static final String COLOR_OBJ_DIMMED = "#666666";
+
+    /** Quest Log tab selection. Resets to ACTIVE on every new page instance. */
+    private enum QuestTab { ACTIVE, COMPLETED }
+
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
             .addField(new KeyedCodec<>("Id", Codec.STRING), PageEventData::setId, PageEventData::getId)
@@ -68,6 +94,12 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     private int[] appliedScores = new int[6];
     private int appliedPendingPoints;
     private final int[] pendingDelta = new int[6];
+
+    /** Currently selected Quest Log tab. Defaults to ACTIVE on every new page. */
+    private QuestTab currentTab = QuestTab.ACTIVE;
+    /** Slot index -> questId mapping populated on each Active-tab render so that
+     *  Task 18's row-tap handler can resolve which quest a slot represents. */
+    private final Map<Integer, String> slotToQuestId = new HashMap<>();
 
     public CharacterSheetPage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -128,6 +160,10 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // after every + click rebuild.
         renderStatPanel(cmd);
 
+        // Quest Log right panel: Active / Completed tab + 20 quest row slots.
+        // Task 16 + 17.
+        renderQuestList(cmd, data);
+
         // Bind click handlers on each + and - button. Even when Disabled is
         // true the bindings must exist so the SDK can dispatch once they're
         // enabled by a subsequent rebuild.
@@ -150,6 +186,18 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 CustomUIEventBindingType.Activating,
                 "#CSApplyBtn",
                 EventData.of("Type", "apply"),
+                false);
+
+        // Quest Log tab buttons. Click toggles which list mode is rendered. Task 16.
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSTabActive",
+                EventData.of("Type", "tab").append("Id", "active"),
+                false);
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSTabCompleted",
+                EventData.of("Type", "tab").append("Id", "completed"),
                 false);
     }
 
@@ -186,6 +234,115 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // Apply button enables the moment any pendingDelta > 0. Task 14 wires
         // the OnClick handler that commits the preview to Nat20PlayerData.
         cmd.set("#CSApplyBtn.Disabled", !hasPendingSpend());
+    }
+
+    /**
+     * Render the Quest Log right panel: tab highlighting + quest rows for the
+     * currently selected tab. Task 16 + 17. Completed-tab rendering itself is
+     * stubbed: Task 19 fills it in.
+     */
+    private void renderQuestList(UICommandBuilder cmd, Nat20PlayerData data) {
+        // Tab highlighting: gold for the active tab, muted grey for the inactive.
+        cmd.set("#CSTabActive.Style.Default.LabelStyle.TextColor",
+                currentTab == QuestTab.ACTIVE ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
+        cmd.set("#CSTabCompleted.Style.Default.LabelStyle.TextColor",
+                currentTab == QuestTab.COMPLETED ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
+
+        if (currentTab == QuestTab.ACTIVE) {
+            renderActiveList(cmd, data);
+        } else {
+            renderCompletedList(cmd, data);
+        }
+    }
+
+    /**
+     * Render up to {@link #MAX_QUEST_ROWS} active quests with name + objective
+     * text. Rows past the active count are hidden. Empty state label appears
+     * when zero active quests. Quest rows whose {@code waypointEnabled} flag is
+     * false render in dimmed colors. Task 17.
+     *
+     * <p>{@link #slotToQuestId} is repopulated unconditionally so Task 18's
+     * row-tap handler can find which quest a slot represents.
+     */
+    private void renderActiveList(UICommandBuilder cmd, Nat20PlayerData data) {
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        List<QuestInstance> list;
+        if (questSystem == null) {
+            list = new ArrayList<>();
+        } else {
+            QuestStateManager sm = questSystem.getStateManager();
+            Map<String, QuestInstance> active = sm.getActiveQuests(data);
+            list = new ArrayList<>(active.values());
+        }
+        int n = Math.min(list.size(), MAX_QUEST_ROWS);
+
+        slotToQuestId.clear();
+        for (int i = 0; i < n; i++) {
+            slotToQuestId.put(i, list.get(i).getQuestId());
+        }
+
+        for (int i = 0; i < MAX_QUEST_ROWS; i++) {
+            if (i < n) {
+                QuestInstance q = list.get(i);
+                boolean enabled = q.isWaypointEnabled();
+                cmd.set("#CSQuestRow_" + i + ".Visible", true);
+                cmd.set("#CSQuestName_" + i + ".Text", resolveQuestName(q));
+                cmd.set("#CSQuestName_" + i + ".Style.TextColor",
+                        enabled ? COLOR_QUEST_ACTIVE : COLOR_QUEST_DIMMED);
+                cmd.set("#CSQuestObj_" + i + ".Text", resolveObjectiveText(q));
+                cmd.set("#CSQuestObj_" + i + ".Style.TextColor",
+                        enabled ? COLOR_OBJ_ACTIVE : COLOR_OBJ_DIMMED);
+            } else {
+                cmd.set("#CSQuestRow_" + i + ".Visible", false);
+            }
+        }
+
+        cmd.set("#CSEmptyState.Text", "No active quests");
+        cmd.set("#CSEmptyState.Visible", n == 0);
+    }
+
+    /**
+     * Stub: Task 19 will populate this with the {@code completed_quests} list
+     * from {@link Nat20PlayerData}. For Tasks 16+17 the panel just hides every
+     * row and surfaces a placeholder hint so the tab toggle still has a
+     * visible state change.
+     */
+    private void renderCompletedList(UICommandBuilder cmd, Nat20PlayerData data) {
+        slotToQuestId.clear();
+        for (int i = 0; i < MAX_QUEST_ROWS; i++) {
+            cmd.set("#CSQuestRow_" + i + ".Visible", false);
+        }
+        cmd.set("#CSEmptyState.Text", "(Completed tab coming in Task 19)");
+        cmd.set("#CSEmptyState.Visible", true);
+    }
+
+    /**
+     * Resolve the display name for a quest row using the SAME fallback chain as
+     * {@link com.chonbosmods.waypoint.QuestMarkerProvider#refreshMarkers} and
+     * {@link QuestStateManager#markQuestCompleted}: variableBindings'
+     * {@code subject_name} -> {@code quest_objective_summary} ->
+     * {@code quest_title} -> {@link QuestInstance#getSituationId()} -> questId.
+     * Keeps active-row text aligned with the map waypoint label and the
+     * Completed tab snapshot.
+     */
+    private static String resolveQuestName(QuestInstance q) {
+        Map<String, String> b = q.getVariableBindings();
+        if (b != null) {
+            String sit = q.getSituationId();
+            String fallback = sit != null ? sit : q.getQuestId();
+            return b.getOrDefault("subject_name",
+                    b.getOrDefault("quest_objective_summary",
+                            b.getOrDefault("quest_title", fallback)));
+        }
+        String sit = q.getSituationId();
+        return sit != null ? sit : q.getQuestId();
+    }
+
+    /** Objective text mirrors what dialogue actions write to {@code quest_objective_summary}. */
+    private static String resolveObjectiveText(QuestInstance q) {
+        Map<String, String> b = q.getVariableBindings();
+        if (b == null) return "";
+        return b.getOrDefault("quest_objective_summary", "");
     }
 
     /** True if any ability has a pending spend (preview delta > 0). */
@@ -232,6 +389,14 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         }
         if ("apply".equals(type)) {
             handleApplyClicked(ref, store);
+            return;
+        }
+        if ("tab".equals(type)) {
+            QuestTab target = "completed".equals(data.getId()) ? QuestTab.COMPLETED : QuestTab.ACTIVE;
+            if (currentTab != target) {
+                currentTab = target;
+                rebuild();
+            }
         }
     }
 
