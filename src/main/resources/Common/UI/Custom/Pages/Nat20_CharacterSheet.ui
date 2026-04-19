@@ -239,7 +239,7 @@ $C.@Container {
         // somewhere. Task 14 wires the OnClick handler.
         $C.@SmallSecondaryTextButton #CSApplyBtn {
           Text: "Apply";
-          Anchor: (Height: 28, Width: 120, CenterX: true);
+          Anchor: (Height: 28, Width: 120);
           Padding: (Top: 10);
           Disabled: true;
         }
