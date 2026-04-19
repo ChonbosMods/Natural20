@@ -165,7 +165,7 @@ public class Nat20WaterBreathingSystem extends EntityTickingSystem<EntityStore> 
                 PlayerStats stats = resolvePlayerStats(playerRef, store);
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
-                    int modifier = stats.getModifier(primary);
+                    int modifier = stats.getPowerModifier(primary);
                     effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
                 }
                 total += effectiveValue;

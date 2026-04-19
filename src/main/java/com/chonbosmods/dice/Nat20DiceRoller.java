@@ -19,7 +19,7 @@ public final class Nat20DiceRoller {
         int naturalRoll = rng.nextInt(20) + 1;
 
         Stat effectiveStat = request.stat() != null ? request.stat() : request.skill().getAssociatedStat();
-        int statModifier = stats.getModifier(effectiveStat);
+        int statModifier = stats.getSkillCheckModifier(effectiveStat);
         int proficiencyBonus = stats.isProficient(request.skill()) ? stats.getProficiencyBonus() : 0;
 
         int totalRoll = naturalRoll + statModifier + proficiencyBonus;

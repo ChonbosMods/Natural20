@@ -224,7 +224,7 @@ public class Nat20AffixEventListener {
 
         if (playerStats != null && def.statScaling() != null) {
             Stat primary = def.statScaling().primary();
-            int modifier = playerStats.getModifier(primary);
+            int modifier = playerStats.getPowerModifier(primary);
             effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
         }
 

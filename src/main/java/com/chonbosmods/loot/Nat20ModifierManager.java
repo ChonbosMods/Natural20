@@ -188,7 +188,7 @@ public class Nat20ModifierManager {
             double effectiveValue = baseValue;
             if (playerStats != null && affixDef.statScaling() != null) {
                 Stat primary = affixDef.statScaling().primary();
-                int modifier = playerStats.getModifier(primary);
+                int modifier = playerStats.getPowerModifier(primary);
                 effectiveValue = baseValue * (1.0 + modifier * affixDef.statScaling().factor());
             }
 
@@ -222,7 +222,7 @@ public class Nat20ModifierManager {
             // Apply stat affinity scaling if player stats are available
             double effectiveValue = baseValue;
             if (playerStats != null && gemDef.statAffinity() != null) {
-                int mod = playerStats.getModifier(gemDef.statAffinity());
+                int mod = playerStats.getPowerModifier(gemDef.statAffinity());
                 effectiveValue = baseValue * (1.0 + mod * gemDef.affinityScalingFactor());
             }
 

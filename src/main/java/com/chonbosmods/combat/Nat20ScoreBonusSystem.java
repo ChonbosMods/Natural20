@@ -106,9 +106,9 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
         resolveIndices();
 
         PlayerStats stats = PlayerStats.from(playerData);
-        int conMod = stats.getModifier(Stat.CON);
-        int intMod = stats.getModifier(Stat.INT);
-        int wisMod = stats.getModifier(Stat.WIS);
+        int conMod = stats.getPowerModifier(Stat.CON);
+        int intMod = stats.getPowerModifier(Stat.INT);
+        int wisMod = stats.getPowerModifier(Stat.WIS);
 
         // CON -> max Health
         applyModifier(statMap, healthIdx, KEY_CON_HEALTH, conMod);
@@ -205,7 +205,7 @@ public class Nat20ScoreBonusSystem extends EntityTickingSystem<EntityStore> {
 
                 if (affixDef.statScaling() != null) {
                     Stat primary = affixDef.statScaling().primary();
-                    int modifier = playerStats.getModifier(primary);
+                    int modifier = playerStats.getPowerModifier(primary);
                     effectiveValue = baseValue * (1.0 + modifier * affixDef.statScaling().factor());
                 }
 

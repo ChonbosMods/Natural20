@@ -102,8 +102,8 @@ public class Nat20ScoreRegenSystem extends EntityTickingSystem<EntityStore> {
         int wisMod = 0;
 
         if (stats != null) {
-            strMod = stats.getModifier(Stat.STR);
-            wisMod = stats.getModifier(Stat.WIS);
+            strMod = stats.getPowerModifier(Stat.STR);
+            wisMod = stats.getPowerModifier(Stat.WIS);
 
             // Stamina regen boost from STR
             float staminaDelta = currentStamina - prev.lastStamina;

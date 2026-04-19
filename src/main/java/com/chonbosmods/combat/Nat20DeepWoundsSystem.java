@@ -134,7 +134,7 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                     PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                     if (dotStats != null && def.statScaling() != null) {
                         Stat primary = def.statScaling().primary();
-                        int mod = dotStats.getModifier(primary);
+                        int mod = dotStats.getPowerModifier(primary);
                         perTickAtBase *= (1.0 + mod * def.statScaling().factor());
                     }
                     double totalDamage = perTickAtBase * BASE_TICKS;

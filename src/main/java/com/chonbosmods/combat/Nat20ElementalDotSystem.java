@@ -142,7 +142,7 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                 PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
-                    int modifier = stats.getModifier(primary);
+                    int modifier = stats.getPowerModifier(primary);
                     procChance *= (1.0 + modifier * def.statScaling().factor());
                 }
                 procChance = Math.min(procChance, 1.0);
@@ -171,7 +171,7 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                     double perTickAtBase = range.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
                     PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                     if (dotStats != null && def.statScaling() != null) {
-                        int mod = dotStats.getModifier(def.statScaling().primary());
+                        int mod = dotStats.getPowerModifier(def.statScaling().primary());
                         perTickAtBase *= (1.0 + mod * def.statScaling().factor());
                     }
                     double totalDamage = perTickAtBase * BASE_TICKS;

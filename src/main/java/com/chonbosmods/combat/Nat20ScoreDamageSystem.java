@@ -87,7 +87,7 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         PlayerStats stats = resolvePlayerStats(targetRef, store);
         if (stats == null) return;
 
-        int dexMod = stats.getModifier(Stat.DEX);
+        int dexMod = stats.getPowerModifier(Stat.DEX);
         if (dexMod <= 0) return;
 
         float reduction = dexMod * BONUS_MULTIPLIER;
@@ -118,7 +118,7 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         PlayerStats stats = resolvePlayerStats(attackerRef, store);
         if (stats == null) return;
 
-        int strMod = stats.getModifier(Stat.STR);
+        int strMod = stats.getPowerModifier(Stat.STR);
         if (strMod <= 0) return;
 
         float bonus = strMod * BONUS_MULTIPLIER;
@@ -156,7 +156,7 @@ public class Nat20ScoreDamageSystem extends DamageEventSystem {
         PlayerStats stats = resolvePlayerStats(attackerRef, store);
         if (stats == null) return;
 
-        int intMod = stats.getModifier(Stat.INT);
+        int intMod = stats.getPowerModifier(Stat.INT);
         if (intMod <= 0) return;
 
         float bonus = intMod * BONUS_MULTIPLIER;

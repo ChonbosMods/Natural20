@@ -81,7 +81,7 @@ public class Nat20MovementSpeedSystem extends EntityTickingSystem<EntityStore> {
         if (mm == null) return;
 
         PlayerStats stats = PlayerStats.from(playerData);
-        int dexMod = stats.getModifier(Stat.DEX);
+        int dexMod = stats.getPowerModifier(Stat.DEX);
 
         // Only positive DEX mod increases speed; negative does not reduce below base
         float multiplier = 1.0f + Math.max(0, dexMod) * SPEED_PER_MOD;
