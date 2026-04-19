@@ -1,6 +1,7 @@
 package com.chonbosmods.ui;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20XpMath;
 import com.chonbosmods.stats.Stat;
@@ -23,14 +24,16 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 /**
- * Character Sheet page (Tasks 7-13+).
+ * Character Sheet page (Tasks 7-14+).
  *
  * <p>Loads {@code Pages/Nat20_CharacterSheet.ui} and renders the header, XP bar,
  * unspent points banner, and six ability rows. Task 12 wired the {@code +}
- * button click handlers and added a client-local preview state. Task 13 wires
+ * button click handlers and added a client-local preview state. Task 13 wired
  * the {@code -} handler (decrements {@link #pendingDelta}, never below 0) and
- * surfaces the {@code #CSApplyBtn} enable state. {@link Nat20PlayerData} is
- * NOT mutated until Apply (Task 14).
+ * surfaces the {@code #CSApplyBtn} enable state. Task 14 commits the queued
+ * preview to {@link Nat20PlayerData} when the player clicks Apply, with
+ * server-side validation (no negatives, sum &le; pool, score &le; 30) and
+ * dirty-flagging for {@code Nat20ScoreBonusSystem}.
  */
 public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPage.PageEventData> {
 
@@ -141,6 +144,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                     EventData.of("Type", "minus").append("Id", key),
                     false);
         }
+
+        // Apply button commits the queued preview to Nat20PlayerData (Task 14).
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSApplyBtn",
+                EventData.of("Type", "apply"),
+                false);
     }
 
     /**
@@ -220,7 +230,9 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             handleMinusClicked(data.getId());
             return;
         }
-        // "apply" routed in Task 14.
+        if ("apply".equals(type)) {
+            handleApplyClicked(ref, store);
+        }
     }
 
     private void handlePlusClicked(String key) {
@@ -246,6 +258,70 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // out of scope for this task.
         if (pendingDelta[i] <= 0) return;
         pendingDelta[i]--;
+        rebuild();
+    }
+
+    /**
+     * Commit the queued {@link #pendingDelta} to {@link Nat20PlayerData}.
+     * Server-side validation (defense in depth: client already enforces caps,
+     * but a replayed / forged event could try to bypass them):
+     * <ul>
+     *   <li>no negative delta entries,</li>
+     *   <li>sum of delta &le; current pending pool,</li>
+     *   <li>no resulting score exceeds {@link #MAX_ABILITY_SCORE}.</li>
+     * </ul>
+     * On success: write new stats, decrement pool, mark the score-bonus dirty
+     * flag (mirrors {@code /nat20 setstats}), zero the preview, and rebuild.
+     * On validation failure: rebuild to re-sync the client to authoritative state.
+     */
+    private void handleApplyClicked(Ref<EntityStore> ref, Store<EntityStore> store) {
+        if (!hasPendingSpend()) return;
+
+        Nat20PlayerData data = store.getComponent(ref, Natural20.getPlayerDataType());
+        if (data == null) return;
+
+        int[] currentStats = data.getStats();
+        if (currentStats == null || currentStats.length != 6) return;
+
+        int totalSpend = 0;
+        for (int d : pendingDelta) {
+            if (d < 0) {
+                LOGGER.atWarning().log("Apply validation failed (negative delta) player=%s",
+                        this.playerRef.getUuid());
+                rebuild();
+                return;
+            }
+            totalSpend += d;
+        }
+        int pool = data.getPendingAbilityPoints();
+        if (totalSpend > pool) {
+            LOGGER.atWarning().log("Apply validation failed player=%s totalSpend=%d pool=%d",
+                    this.playerRef.getUuid(), totalSpend, pool);
+            rebuild();
+            return;
+        }
+        for (int i = 0; i < 6; i++) {
+            if (currentStats[i] + pendingDelta[i] > MAX_ABILITY_SCORE) {
+                LOGGER.atWarning().log("Apply validation failed (score>cap) player=%s i=%d",
+                        this.playerRef.getUuid(), i);
+                rebuild();
+                return;
+            }
+        }
+
+        // Commit: write new stats array, decrement pending pool, zero preview.
+        int[] newStats = currentStats.clone();
+        for (int i = 0; i < 6; i++) newStats[i] += pendingDelta[i];
+        data.setStats(newStats);
+        data.setPendingAbilityPoints(pool - totalSpend);
+
+        // Mirrors SetStatsCommand: tells Nat20ScoreBonusSystem to recompute
+        // stat-derived modifiers on the next tick.
+        Nat20ScoreDirtyFlag.markDirty(this.playerRef.getUuid());
+
+        java.util.Arrays.fill(pendingDelta, 0);
+
+        // Re-render: build() re-snapshots from the now-committed data.
         rebuild();
     }
 
