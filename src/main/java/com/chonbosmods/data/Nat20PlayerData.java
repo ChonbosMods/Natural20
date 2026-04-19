@@ -89,6 +89,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     // Persisted record of completed quests (for Quest Log UI). Replaces the legacy
     // comma-separated `completed_quest_ids` string flag.
+    // Most-recent-first; QuestStateManager.markQuestCompleted prepends.
     private List<CompletedQuestRecord> completedQuests = new ArrayList<>();
 
     public Nat20PlayerData() {
