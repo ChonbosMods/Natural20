@@ -11,23 +11,26 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
+import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.ui.Anchor;
 import com.hypixel.hytale.server.core.ui.Value;
+import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 /**
- * Empty Character Sheet page shell (Task 7).
+ * Character Sheet page (Tasks 7-12+).
  *
- * <p>Loads {@code Pages/Nat20_CharacterSheet.ui} and nothing else. Tasks 8-19
- * populate the left and right panels (XP bar, ability rows, stats, equipment,
- * quest log, etc.). Task 12 will route ability button events through the
- * {@link PageEventData#type} field, and later tasks will extend the codec with
- * additional fields (ability key, slot index, etc.) as those interactions land.
+ * <p>Loads {@code Pages/Nat20_CharacterSheet.ui} and renders the header, XP bar,
+ * unspent points banner, and six ability rows. Task 12 wires the {@code +}
+ * button click handlers and adds a client-local preview state: clicks
+ * increment {@link #pendingDelta} and decrement the displayed unspent counter,
+ * but {@link Nat20PlayerData} is NOT mutated until Apply (Task 14). Task 13
+ * adds the {@code -} handler.
  */
 public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPage.PageEventData> {
 
@@ -45,12 +48,23 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     private static final String COLOR_BANNER_ACTIVE = "#ffd700";
     /** Muted grey for the zero-points banner. */
     private static final String COLOR_BANNER_MUTED = "#888888";
+    /** White for ability scores at applied (snapshot) value. */
+    private static final String COLOR_SCORE_APPLIED = "#ffffff";
+    /** Gold flip for ability scores when previewed (pending delta > 0). */
+    private static final String COLOR_SCORE_PENDING = "#ffd700";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
+            .addField(new KeyedCodec<>("Id", Codec.STRING), PageEventData::setId, PageEventData::getId)
             .build();
 
     private boolean dismissed;
+
+    // Snapshot taken on open. Preview delta is maintained on the page; committed
+    // to Nat20PlayerData only when the player clicks Apply (Task 14).
+    private int[] appliedScores = new int[6];
+    private int appliedPendingPoints;
+    private final int[] pendingDelta = new int[6];
 
     public CharacterSheetPage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -66,6 +80,25 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             // Defensive: page chrome still renders, dynamic bindings just stay blank.
             return;
         }
+
+        // Snapshot applied state on every build. rebuild() also re-enters here, so
+        // the snapshot must reflect what's currently in Nat20PlayerData. The
+        // pendingDelta is preserved across rebuilds within the same session
+        // because it's a field, but on first open we zero it out below.
+        // First-open guard: detect that this is the initial open vs a + click
+        // rebuild by checking whether snapshot has ever been taken. We use a
+        // simple sentinel: appliedScores all-zero is unlikely in practice, but
+        // safer to always re-snapshot from data and ONLY clear pendingDelta
+        // when applied state actually changed (Apply commit). For Task 12, we
+        // re-snapshot every build but DO NOT clear pendingDelta on rebuilds:
+        // the rebuild() path needs the delta to keep its values so the user
+        // sees their preview. Tasks 14/15 will clear pendingDelta on Apply or
+        // page close.
+        int[] currentApplied = data.getStats();
+        if (currentApplied != null) {
+            System.arraycopy(currentApplied, 0, appliedScores, 0, Math.min(6, currentApplied.length));
+        }
+        appliedPendingPoints = data.getPendingAbilityPoints();
 
         // Header: name + level
         cmd.set("#CSName.Text", player.getDisplayName());
@@ -88,26 +121,65 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             setXpBarFillPixels(cmd, fillPx);
         }
 
-        // Unspent ability points banner. Gold + glow when > 0, muted when = 0.
-        int pendingPoints = data.getPendingAbilityPoints();
-        cmd.set("#CSUnspentBanner.Text", "Unspent Points: " + pendingPoints);
-        cmd.set("#CSUnspentBanner.Style.TextColor",
-                pendingPoints > 0 ? COLOR_BANNER_ACTIVE : COLOR_BANNER_MUTED);
+        // Banner + ability rows: unified renderer, used both on first open and
+        // after every + click rebuild.
+        renderStatPanel(cmd);
 
-        // Six ability rows. Render-only: scores from applied state, both buttons
-        // disabled at open. Tasks 12-13 enable + / - once preview state lands.
-        int[] scores = data.getStats();
+        // Bind a click handler on each + button. Even when Disabled is true the
+        // binding must exist so the SDK can dispatch once it's enabled by a
+        // subsequent rebuild. Task 13 will bind the - buttons here too.
         for (Stat stat : Stat.values()) {
             String key = stat.name();
-            int score = (scores != null && stat.index() < scores.length) ? scores[stat.index()] : 0;
-            cmd.set("#CSAbilityScore_" + key + ".Text", String.valueOf(score));
-            // Plus is disabled when no points to spend or already at the per-ability cap.
-            // Even when enabled here, no event binding exists yet (Task 12).
-            cmd.set("#CSPlus_" + key + ".Disabled", pendingPoints <= 0 || score >= MAX_ABILITY_SCORE);
-            // Minus is always disabled on first open: preview hasn't diverged from
-            // applied state yet. Task 13 enables it after a + click.
-            cmd.set("#CSMinus_" + key + ".Disabled", true);
+            events.addEventBinding(
+                    CustomUIEventBindingType.Activating,
+                    "#CSPlus_" + key,
+                    EventData.of("Type", "plus").append("Id", key),
+                    false);
         }
+    }
+
+    /**
+     * Render banner text/color and all six ability rows' score text, score color,
+     * and +/- button enable states from the current preview state. Called both
+     * on first open (from {@link #build}) and after every + click rebuild.
+     */
+    private void renderStatPanel(UICommandBuilder cmd) {
+        int unspent = displayedPendingPoints();
+
+        // Unspent ability points banner. Gold when > 0, muted when = 0.
+        cmd.set("#CSUnspentBanner.Text", "Unspent Points: " + unspent);
+        cmd.set("#CSUnspentBanner.Style.TextColor",
+                unspent > 0 ? COLOR_BANNER_ACTIVE : COLOR_BANNER_MUTED);
+
+        // Six ability rows.
+        for (Stat stat : Stat.values()) {
+            int i = stat.index();
+            if (i < 0 || i >= 6) continue;
+            String key = stat.name();
+            int displayed = displayedScore(i);
+            boolean hasDelta = pendingDelta[i] > 0;
+
+            cmd.set("#CSAbilityScore_" + key + ".Text", String.valueOf(displayed));
+            cmd.set("#CSAbilityScore_" + key + ".Style.TextColor",
+                    hasDelta ? COLOR_SCORE_PENDING : COLOR_SCORE_APPLIED);
+            cmd.set("#CSPlus_" + key + ".Disabled",
+                    unspent <= 0 || displayed >= MAX_ABILITY_SCORE);
+            // Minus enables as soon as pending delta > 0 for this row. Task 13
+            // will bind the actual handler.
+            cmd.set("#CSMinus_" + key + ".Disabled", !hasDelta);
+        }
+    }
+
+    /** Snapshot + preview combined for ability index {@code i}. */
+    private int displayedScore(int i) {
+        return appliedScores[i] + pendingDelta[i];
+    }
+
+    /** Snapshot pending pool minus everything spent in the preview. */
+    private int displayedPendingPoints() {
+        int spent = 0;
+        for (int d : pendingDelta) spent += d;
+        return appliedPendingPoints - spent;
     }
 
     /** Set the XP bar fill width in pixels. Track width is fixed in the template. */
@@ -122,7 +194,34 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     @Override
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
-        // No interactive elements yet. Task 12+ will route ability/equipment clicks here.
+        String type = data.getType();
+        if (type == null || type.isEmpty()) return;
+        if ("plus".equals(type)) {
+            handlePlusClicked(data.getId());
+            return;
+        }
+        // "minus" routed in Task 13, "apply" in Task 14.
+    }
+
+    private void handlePlusClicked(String key) {
+        Stat stat = findStat(key);
+        if (stat == null) return;
+        int i = stat.index();
+        if (i < 0 || i >= 6) return;
+        // Defensive: guard against stale clicks (e.g. spam-click before rebuild
+        // arrives at the client). Server is authoritative on cap + pool.
+        if (displayedPendingPoints() <= 0) return;
+        if (displayedScore(i) >= MAX_ABILITY_SCORE) return;
+        pendingDelta[i]++;
+        rebuild();
+    }
+
+    private static Stat findStat(String name) {
+        if (name == null) return null;
+        for (Stat s : Stat.values()) {
+            if (s.name().equals(name)) return s;
+        }
+        return null;
     }
 
     @Override
@@ -144,10 +243,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     public static class PageEventData {
         private String type = "";
+        private String id = "";
 
         public PageEventData() {}
 
         public String getType() { return type; }
         public void setType(String type) { this.type = type; }
+        public String getId() { return id; }
+        public void setId(String id) { this.id = id; }
     }
 }
