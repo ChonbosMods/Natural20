@@ -18,14 +18,21 @@ public class SkillCheckAdapter implements JsonDeserializer<QuestTemplateV2.Skill
     @Override
     public QuestTemplateV2.SkillCheck deserialize(JsonElement el, Type t, JsonDeserializationContext ctx) {
         JsonObject o = el.getAsJsonObject();
-        Skill skill = Skill.valueOf(o.get("skill").getAsString());
-        String pass = o.get("passText").getAsString();
-        String fail = o.get("failText").getAsString();
+        Skill skill = Skill.valueOf(requireString(o, "skill"));
+        String pass = requireString(o, "passText");
+        String fail = requireString(o, "failText");
         if (o.has("tier")) {
             DifficultyTier tier = DifficultyTier.valueOf(o.get("tier").getAsString());
             return new QuestTemplateV2.SkillCheck.Authored(skill, tier, pass, fail);
         }
         return new QuestTemplateV2.SkillCheck.Procedural(skill, pass, fail);
+    }
+
+    private static String requireString(JsonObject o, String field) {
+        if (!o.has(field) || o.get(field).isJsonNull()) {
+            throw new JsonParseException("skillCheck missing required field: " + field);
+        }
+        return o.get(field).getAsString();
     }
 
     @Override
