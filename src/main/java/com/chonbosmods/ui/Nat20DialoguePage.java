@@ -40,11 +40,14 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
     /** Max visible characters per line in the conversation log before forcing a
      *  word-boundary newline. Hytale's renderer character-wraps multi-span Messages
      *  (any line that contains an entity highlight), so we pre-wrap defensively.
-     *  Must stay at or below the #Log Label's actual capacity (empirically 70 in
-     *  this layout): if our wrap produces a line wider than the label can fit,
-     *  the renderer's own Wrap: true reflows it and stacks an extra word break on
-     *  top of ours, orphaning the trailing word. */
-    private static final int LOG_WRAP_CHARS = 70;
+     *  Must stay at or below the #Log Label's actual capacity: if our wrap produces
+     *  a line wider than the label can fit, the renderer's own Wrap: true reflows it
+     *  and stacks an extra word break on top of ours, orphaning the trailing word.
+     *  The label fits ~70 chars without the scrollbar but only ~66 once the
+     *  AutoScrollDown scrollbar (Size 6 + Spacing 6) reserves space, and the bar
+     *  appears as soon as the log overflows: budget for the scrollbar always
+     *  so the wrap point doesn't shift mid-conversation. */
+    private static final int LOG_WRAP_CHARS = 66;
 
     // Log rendering colors (per visual polish guide)
     private static final String COLOR_TOPIC_HEADER = "#666666";

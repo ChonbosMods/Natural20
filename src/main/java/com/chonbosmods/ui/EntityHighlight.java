@@ -53,8 +53,16 @@ public final class EntityHighlight {
      * visible characters, repeatedly, so the marked text wraps cleanly when rendered
      * via {@link #toMessage}. Necessary because Hytale's TextSpans renderer wraps
      * multi-{@code Message} chains at chain-element boundaries (character precision)
-     * instead of word boundaries — single-span text wraps fine, but anything containing
+     * instead of word boundaries: single-span text wraps fine, but anything containing
      * a highlighted span breaks mid-word.
+     *
+     * <p>If the wrap point falls on a space INSIDE a highlighted span, the space is
+     * replaced with {@code MARK_END + \n + MARK_START} so the resulting highlighted
+     * spans never contain a newline. Hytale's renderer collapses all sibling-span
+     * colors to the first child's color whenever any span contains {@code \n}, which
+     * shows up as either "all text becomes the highlight color" (when the first span
+     * is highlighted) or "no entity gets highlighted" (when the first span is plain
+     * text). Splitting the highlight around the newline avoids both failure modes.
      *
      * <p>Marker characters ({@link #MARK_START} / {@link #MARK_END}) are preserved
      * verbatim and don't count toward line width. Existing newlines reset the line
@@ -66,12 +74,20 @@ public final class EntityHighlight {
         int lineWidth = 0;
         int lastSpaceOut = -1;
         int lineWidthAtLastSpace = 0;
+        boolean insideHighlight = false;
+        boolean lastSpaceInsideHighlight = false;
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
 
-            if (c == MARK_START || c == MARK_END) {
+            if (c == MARK_START) {
                 out.append(c);
+                insideHighlight = true;
+                continue;
+            }
+            if (c == MARK_END) {
+                out.append(c);
+                insideHighlight = false;
                 continue;
             }
 
@@ -80,6 +96,7 @@ public final class EntityHighlight {
                 lineWidth = 0;
                 lastSpaceOut = -1;
                 lineWidthAtLastSpace = 0;
+                lastSpaceInsideHighlight = false;
                 continue;
             }
 
@@ -89,15 +106,22 @@ public final class EntityHighlight {
             if (c == ' ') {
                 lastSpaceOut = out.length() - 1;
                 lineWidthAtLastSpace = lineWidth;
+                lastSpaceInsideHighlight = insideHighlight;
             }
 
             if (lineWidth > maxLineWidth && lastSpaceOut >= 0) {
-                // Replace the most recent space with a newline; the chars after it
-                // become the start of the new line.
-                out.setCharAt(lastSpaceOut, '\n');
+                if (lastSpaceInsideHighlight) {
+                    // Close the highlight, insert the newline, reopen the highlight
+                    // so neither half of the wrapped span contains \n.
+                    String replacement = "" + MARK_END + '\n' + MARK_START;
+                    out.replace(lastSpaceOut, lastSpaceOut + 1, replacement);
+                } else {
+                    out.setCharAt(lastSpaceOut, '\n');
+                }
                 lineWidth = lineWidth - lineWidthAtLastSpace;
                 lastSpaceOut = -1;
                 lineWidthAtLastSpace = 0;
+                lastSpaceInsideHighlight = false;
             }
         }
         return out.toString();
