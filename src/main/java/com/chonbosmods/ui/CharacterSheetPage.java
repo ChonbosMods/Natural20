@@ -487,20 +487,22 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
         boolean prev = quest.isWaypointEnabled();
         quest.setWaypointEnabled(!prev);
-        LOGGER.atInfo().log("handleQuestRowClicked flipped waypointEnabled %s -> %s for quest=%s",
+
+        // CRITICAL: getActiveQuests returns a fresh Gson-deserialized map every
+        // call. The QuestInstance we just mutated is transient until we write
+        // the whole map back via saveActiveQuests. Without this persist step,
+        // the next getActiveQuests call (including the one refreshMarkers does
+        // internally) reads the old JSON and the flag flip is lost.
+        sm.saveActiveQuests(pdata, active);
+
+        LOGGER.atInfo().log("handleQuestRowClicked flipped+saved waypointEnabled %s -> %s for quest=%s",
                 prev, !prev, questId);
 
         // Marker cache rebuild: copies the same call shape used by
         // FetchItemTrackingSystem / DialogueActionRegistry. Task 5 added the
         // isWaypointEnabled() gate inside refreshMarkers, so the dropped /
         // restored marker shows up on the next map render.
-        java.util.List<QuestMarkerProvider.MarkerEntry> before =
-                QuestMarkerProvider.INSTANCE.getMarkersForPlayer(this.playerRef.getUuid());
         QuestMarkerProvider.refreshMarkers(this.playerRef.getUuid(), pdata);
-        java.util.List<QuestMarkerProvider.MarkerEntry> after =
-                QuestMarkerProvider.INSTANCE.getMarkersForPlayer(this.playerRef.getUuid());
-        LOGGER.atInfo().log("handleQuestRowClicked: marker cache %d -> %d entries after refresh",
-                before == null ? -1 : before.size(), after == null ? -1 : after.size());
 
         rebuild();
     }
