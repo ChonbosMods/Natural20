@@ -261,6 +261,51 @@ $C.@Container {
           Anchor: (Height: 28, Width: 120, Top: 10);
           Disabled: true;
         }
+
+        // "Equipped Affixes" section: lists the player's currently-applied
+        // affixes from equipped armor (hotbar weapon excluded). Values come
+        // from CharacterSheetAffixSummary.summarize, which mirrors each combat
+        // system's softcap math so the display matches actual combat effects.
+        Label #CSAffixHeader {
+          Text: "Equipped Affixes";
+          Anchor: (Height: 20, Top: 12);
+          Padding: (Bottom: 4);
+          Style: (TextColor: #cccccc(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center);
+        }
+
+        Label #CSAffixEmpty {
+          Text: "No affixes from equipped gear.";
+          Anchor: (Height: 18);
+          Visible: false;
+          Style: (TextColor: #888888(1), FontSize: 12, RenderItalics: true, HorizontalAlignment: Center);
+        }
+
+        Group #CSAffixList {
+          LayoutMode: TopScrolling;
+          FlexWeight: 1;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+          Label #CSAffix0 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix1 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix2 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix3 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix4 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix5 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix6 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix7 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix8 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix9 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix10 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix11 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix12 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix13 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix14 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix15 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix16 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix17 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix18 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+          Label #CSAffix19 { Text: ""; Anchor: (Height: 18, Top: 2); Visible: false; Style: (FontSize: 13, RenderBold: true); }
+        }
       }
 
       // Vertical divider between the two panels.
