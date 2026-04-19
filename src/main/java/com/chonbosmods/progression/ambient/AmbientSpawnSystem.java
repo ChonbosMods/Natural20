@@ -79,6 +79,11 @@ public final class AmbientSpawnSystem {
         world.execute(() -> doChunkLoadOnWorldThread(world, chunkBlockX, chunkBlockZ));
     }
 
+    /** Prune ambient groups no player has visited in {@code cfg.decayWindowMillis()}. Task 11 implements. */
+    public void tickDecay(World world) {
+        // Implemented in Task 11.
+    }
+
     private void doChunkLoadOnWorldThread(World world, int chunkBlockX, int chunkBlockZ) {
         double cx = chunkBlockX + 16.0;
         double cz = chunkBlockZ + 16.0;

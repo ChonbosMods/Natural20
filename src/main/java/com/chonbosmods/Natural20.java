@@ -62,6 +62,9 @@ import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.progression.Nat20XpOnKillSystem;
 import com.chonbosmods.progression.Nat20XpService;
 import com.chonbosmods.progression.PlayerLevelHpSystem;
+import com.chonbosmods.progression.ambient.AmbientAnchorFinder;
+import com.chonbosmods.progression.ambient.AmbientSpawnConfig;
+import com.chonbosmods.progression.ambient.AmbientSpawnSystem;
 import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.dialogue.DialogueLoader;
@@ -177,6 +180,8 @@ public class Natural20 extends JavaPlugin {
     private PlayerLevelHpSystem playerLevelHpSystem;
     private Nat20XpService xpService;
     private MobScalingConfig scalingConfig;
+    private AmbientSpawnConfig ambientSpawnConfig;
+    private AmbientSpawnSystem ambientSpawnSystem;
     private final Nat20DamageContributorTracker contributorTracker = new Nat20DamageContributorTracker();
 
     public Natural20(@Nonnull JavaPluginInit init) {
@@ -463,6 +468,7 @@ public class Natural20 extends JavaPlugin {
 
         // XP/mlvl/ilvl: load config + register scale system
         scalingConfig = MobScalingConfig.load();
+        ambientSpawnConfig = AmbientSpawnConfig.load();
         mobScaleSystem = new Nat20MobScaleSystem(scalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
         getEntityStoreRegistry().registerSystem(new Nat20MobDmgScaleSystem(scalingConfig));
@@ -676,6 +682,12 @@ public class Natural20 extends JavaPlugin {
         SettlementWorldGenListener worldGenListener = new SettlementWorldGenListener(settlementRegistry, placer);
         MobGroupChunkListener mobGroupChunkListener =
                 new MobGroupChunkListener(mobGroupRegistry, mobGroupSpawner);
+        AmbientAnchorFinder ambientAnchorFinder = new AmbientAnchorFinder(
+                caveVoidRegistry, settlementRegistry, mobGroupRegistry, ambientSpawnConfig);
+        ambientSpawnSystem = new AmbientSpawnSystem(
+                ambientSpawnConfig, ambientAnchorFinder, mobGroupRegistry,
+                mobGroupSpawner, mobGroupChunkListener);
+
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
             var chunk = event.getChunk();
             if (defaultWorld == null) {
@@ -686,6 +698,7 @@ public class Natural20 extends JavaPlugin {
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             mobGroupChunkListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+            ambientSpawnSystem.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
         });
 
         // POI population listener (writes spawn descriptors, provides spawnMobs for proximity system)
@@ -709,6 +722,16 @@ public class Natural20 extends JavaPlugin {
                 });
             }
         }, 5, 1, TimeUnit.SECONDS);
+
+        // Ambient decay sweep: prune ambient groups no player has visited in decayWindowMillis.
+        poiProximityExecutor.scheduleAtFixedRate(() -> {
+            World w = getDefaultWorld();
+            if (w != null) {
+                w.execute(() -> ambientSpawnSystem.tickDecay(w));
+            }
+        }, ambientSpawnConfig.decaySweepIntervalMillis(),
+           ambientSpawnConfig.decaySweepIntervalMillis(),
+           TimeUnit.MILLISECONDS);
 
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
