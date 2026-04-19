@@ -234,6 +234,15 @@ $C.@Container {
             }
           }
         }
+
+        // Apply queued ability point spend. Enabled only when pendingDelta > 0
+        // somewhere. Task 14 wires the OnClick handler.
+        $C.@SmallSecondaryTextButton #CSApplyBtn {
+          Text: "Apply";
+          Anchor: (Height: 28, Width: 120, CenterX: true);
+          Padding: (Top: 10);
+          Disabled: true;
+        }
       }
 
       Group #CSRightPanel {

@@ -23,14 +23,14 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 /**
- * Character Sheet page (Tasks 7-12+).
+ * Character Sheet page (Tasks 7-13+).
  *
  * <p>Loads {@code Pages/Nat20_CharacterSheet.ui} and renders the header, XP bar,
- * unspent points banner, and six ability rows. Task 12 wires the {@code +}
- * button click handlers and adds a client-local preview state: clicks
- * increment {@link #pendingDelta} and decrement the displayed unspent counter,
- * but {@link Nat20PlayerData} is NOT mutated until Apply (Task 14). Task 13
- * adds the {@code -} handler.
+ * unspent points banner, and six ability rows. Task 12 wired the {@code +}
+ * button click handlers and added a client-local preview state. Task 13 wires
+ * the {@code -} handler (decrements {@link #pendingDelta}, never below 0) and
+ * surfaces the {@code #CSApplyBtn} enable state. {@link Nat20PlayerData} is
+ * NOT mutated until Apply (Task 14).
  */
 public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPage.PageEventData> {
 
@@ -125,15 +125,20 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // after every + click rebuild.
         renderStatPanel(cmd);
 
-        // Bind a click handler on each + button. Even when Disabled is true the
-        // binding must exist so the SDK can dispatch once it's enabled by a
-        // subsequent rebuild. Task 13 will bind the - buttons here too.
+        // Bind click handlers on each + and - button. Even when Disabled is
+        // true the bindings must exist so the SDK can dispatch once they're
+        // enabled by a subsequent rebuild.
         for (Stat stat : Stat.values()) {
             String key = stat.name();
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
                     "#CSPlus_" + key,
                     EventData.of("Type", "plus").append("Id", key),
+                    false);
+            events.addEventBinding(
+                    CustomUIEventBindingType.Activating,
+                    "#CSMinus_" + key,
+                    EventData.of("Type", "minus").append("Id", key),
                     false);
         }
     }
@@ -164,10 +169,21 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                     hasDelta ? COLOR_SCORE_PENDING : COLOR_SCORE_APPLIED);
             cmd.set("#CSPlus_" + key + ".Disabled",
                     unspent <= 0 || displayed >= MAX_ABILITY_SCORE);
-            // Minus enables as soon as pending delta > 0 for this row. Task 13
-            // will bind the actual handler.
+            // Minus enables as soon as pending delta > 0 for this row.
             cmd.set("#CSMinus_" + key + ".Disabled", !hasDelta);
         }
+
+        // Apply button enables the moment any pendingDelta > 0. Task 14 wires
+        // the OnClick handler that commits the preview to Nat20PlayerData.
+        cmd.set("#CSApplyBtn.Disabled", !hasPendingSpend());
+    }
+
+    /** True if any ability has a pending spend (preview delta > 0). */
+    private boolean hasPendingSpend() {
+        for (int d : pendingDelta) {
+            if (d > 0) return true;
+        }
+        return false;
     }
 
     /** Snapshot + preview combined for ability index {@code i}. */
@@ -200,7 +216,11 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             handlePlusClicked(data.getId());
             return;
         }
-        // "minus" routed in Task 13, "apply" in Task 14.
+        if ("minus".equals(type)) {
+            handleMinusClicked(data.getId());
+            return;
+        }
+        // "apply" routed in Task 14.
     }
 
     private void handlePlusClicked(String key) {
@@ -213,6 +233,19 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         if (displayedPendingPoints() <= 0) return;
         if (displayedScore(i) >= MAX_ABILITY_SCORE) return;
         pendingDelta[i]++;
+        rebuild();
+    }
+
+    private void handleMinusClicked(String key) {
+        Stat stat = findStat(key);
+        if (stat == null) return;
+        int i = stat.index();
+        if (i < 0 || i >= 6) return;
+        // Minus only walks back previewed increments: never below 0. The
+        // applied snapshot is unchanged; reversing an already-applied spend is
+        // out of scope for this task.
+        if (pendingDelta[i] <= 0) return;
+        pendingDelta[i]--;
         rebuild();
     }
 
