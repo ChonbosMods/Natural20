@@ -32,8 +32,29 @@ $C.@Container {
       FlexWeight: 1;
 
       Group #CSLeftPanel {
+        LayoutMode: Top;
         FlexWeight: 1;
         Padding: (Right: 6);
+
+        // XP readout (text)
+        Label #CSXpText {
+          Anchor: (Height: 18);
+          Padding: (Top: 4, Bottom: 2);
+          Text: "";
+          Style: (TextColor: #ffffff(1), FontSize: 13, RenderBold: true, HorizontalAlignment: Center);
+        }
+
+        // XP bar: dark track + bright fill (width set from Java each rebuild)
+        Group #CSXpBarTrack {
+          Anchor: (Height: 12, Width: 500);
+          Padding: (Top: 2, Bottom: 2);
+          Background: (Color: #1c2430(1));
+
+          Group #CSXpBarFill {
+            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+            Background: (Color: #ffd700(1));
+          }
+        }
       }
 
       Group #CSRightPanel {
