@@ -10,23 +10,37 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PlayerStatsTest {
 
     @Test
-    void skillCheckModifier_matchesDnd5eFormula() {
+    void skillCheckModifier_matchesFloorDivByThree() {
         for (int score = 0; score <= 30; score++) {
-            int expected = Math.floorDiv(score - 10, 2);
+            int expected = Math.floorDiv(score, 3);
             assertEquals(expected, withScore(Stat.STR, score).getSkillCheckModifier(Stat.STR),
                     "score=" + score);
         }
     }
 
     @Test
-    void skillCheckModifier_signedAtKeyScores() {
-        assertEquals(-5, withScore(Stat.DEX, 1).getSkillCheckModifier(Stat.DEX));
-        assertEquals(-4, withScore(Stat.DEX, 3).getSkillCheckModifier(Stat.DEX));
-        assertEquals(-1, withScore(Stat.DEX, 8).getSkillCheckModifier(Stat.DEX));
-        assertEquals(0, withScore(Stat.DEX, 10).getSkillCheckModifier(Stat.DEX));
-        assertEquals(0, withScore(Stat.DEX, 11).getSkillCheckModifier(Stat.DEX));
-        assertEquals(2, withScore(Stat.DEX, 14).getSkillCheckModifier(Stat.DEX));
-        assertEquals(5, withScore(Stat.DEX, 20).getSkillCheckModifier(Stat.DEX));
+    void skillCheckModifier_matchesPowerModifier() {
+        for (int score = 0; score <= 30; score++) {
+            PlayerStats p = withScore(Stat.DEX, score);
+            assertEquals(p.getPowerModifier(Stat.DEX), p.getSkillCheckModifier(Stat.DEX),
+                    "score=" + score);
+        }
+    }
+
+    @Test
+    void skillCheckModifier_neverNegative() {
+        for (int score = 0; score <= 30; score++) {
+            int mod = withScore(Stat.CHA, score).getSkillCheckModifier(Stat.CHA);
+            assertTrue(mod >= 0, "score=" + score + " mod=" + mod);
+        }
+    }
+
+    @Test
+    void skillCheckModifier_atKeyScores() {
+        assertEquals(0, withScore(Stat.DEX, 0).getSkillCheckModifier(Stat.DEX));
+        assertEquals(1, withScore(Stat.DEX, 3).getSkillCheckModifier(Stat.DEX));
+        assertEquals(3, withScore(Stat.DEX, 9).getSkillCheckModifier(Stat.DEX));
+        assertEquals(5, withScore(Stat.DEX, 15).getSkillCheckModifier(Stat.DEX));
         assertEquals(10, withScore(Stat.DEX, 30).getSkillCheckModifier(Stat.DEX));
     }
 
@@ -60,9 +74,9 @@ class PlayerStatsTest {
     }
 
     @Test
-    void twoModifiersDivergeBelowTen() {
+    void twoModifiersAgreeAtLowScores() {
         PlayerStats p = withScore(Stat.WIS, 6);
-        assertEquals(-2, p.getSkillCheckModifier(Stat.WIS));
+        assertEquals(2, p.getSkillCheckModifier(Stat.WIS));
         assertEquals(2, p.getPowerModifier(Stat.WIS));
     }
 
