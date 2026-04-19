@@ -27,6 +27,6 @@ public final class Nat20DiceRoller {
         boolean critical = naturalRoll == 20 || naturalRoll == 1;
         boolean passed = naturalRoll == 20 || (naturalRoll != 1 && totalRoll >= request.dc());
 
-        return new SkillCheckResult(naturalRoll, statModifier, proficiencyBonus, totalRoll, request.dc(), passed, critical);
+        return new SkillCheckResult(naturalRoll, -1, RollMode.NORMAL, statModifier, proficiencyBonus, totalRoll, request.dc(), passed, critical);
     }
 }

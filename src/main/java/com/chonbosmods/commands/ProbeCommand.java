@@ -6,6 +6,7 @@ import com.chonbosmods.dialogue.model.ResolvedTopic;
 import com.chonbosmods.dialogue.model.TopicDefinition;
 import com.chonbosmods.dialogue.model.TopicScope;
 import com.chonbosmods.dialogue.model.TopicState;
+import com.chonbosmods.dice.RollMode;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.Skill;
 import com.chonbosmods.stats.Stat;
@@ -159,7 +160,7 @@ public class ProbeCommand extends AbstractPlayerCommand {
     private void probeDiceRoll(Player player, PlayerRef playerRef,
                                Ref<EntityStore> ref, Store<EntityStore> store,
                                CommandContext context) {
-        SkillCheckResult testResult = new SkillCheckResult(17, 3, 2, 22, 14, true, false);
+        SkillCheckResult testResult = new SkillCheckResult(17, -1, RollMode.NORMAL, 3, 2, 22, 14, true, false);
         Nat20DiceRollPage page = new Nat20DiceRollPage(playerRef, Skill.PERSUASION, Stat.CHA,
             testResult, 2,
             r -> {
