@@ -31,10 +31,10 @@ public class QuestPoolRegistry {
     public record ItemEntry(String id, String label, String labelPlural,
                              String noun, String nounPlural, @Nullable String epithet,
                              String category, int countMin, int countMax,
-                             @Nullable String fetchItemType) {
+                             @Nullable String fetchItemType, int tier) {
         public ItemEntry(String id, String label, String labelPlural) {
             this(id, label, labelPlural, stripArticle(label), stripArticle(labelPlural), null,
-                 null, 0, 0, null);
+                 null, 0, 0, null, 1);
         }
 
         /** Strip a leading "a ", "an ", or "the " from a label to produce a bare noun.
@@ -141,8 +141,33 @@ public class QuestPoolRegistry {
             int countMin = obj.has("countMin") ? obj.get("countMin").getAsInt() : 0;
             int countMax = obj.has("countMax") ? obj.get("countMax").getAsInt() : 0;
             String fetchItemType = obj.has("fetchItemType") ? obj.get("fetchItemType").getAsString() : null;
+
+            int tier;
+            if (obj.has("tier")) {
+                JsonElement tierEl = obj.get("tier");
+                if (tierEl.isJsonPrimitive() && tierEl.getAsJsonPrimitive().isNumber()) {
+                    int raw = tierEl.getAsInt();
+                    if (raw < 1 || raw > 4) {
+                        LOGGER.atWarning().log("Pool entry %s has tier=%d outside [1,4]; defaulting to 1", id, raw);
+                        tier = 1;
+                    } else {
+                        tier = raw;
+                    }
+                } else {
+                    LOGGER.atWarning().log("Pool entry %s has non-numeric tier; defaulting to 1", id);
+                    tier = 1;
+                }
+            } else {
+                // Only COLLECT_RESOURCES entries are expected to have tier. Other pools
+                // (mobs, keepsakes, evidence) do not use tier and must not spam warnings.
+                if ("items".equals(arrayKey)) {
+                    LOGGER.atWarning().log("Collect pool entry %s missing tier; defaulting to 1", id);
+                }
+                tier = 1;
+            }
+
             target.add(new ItemEntry(id, label, labelPlural, noun, nounPlural, epithet,
-                                     category, countMin, countMax, fetchItemType));
+                                     category, countMin, countMax, fetchItemType, tier));
         }
     }
 
@@ -225,6 +250,20 @@ public class QuestPoolRegistry {
 
     public @Nullable ItemEntry findHostileMob(String id) {
         for (ItemEntry entry : hostileMobs) {
+            if (entry.id().equals(id)) return entry;
+        }
+        return null;
+    }
+
+    /** Test-only: load the collect pool from an arbitrary JSON file. Not used by production. */
+    void loadTestCollectPool(Path file) {
+        collectResources.clear();
+        loadItemPool(file, "items", collectResources);
+    }
+
+    /** Find a collect-pool entry by its Hytale item id. {@code null} if not loaded. */
+    public @Nullable ItemEntry findCollectById(String id) {
+        for (ItemEntry entry : collectResources) {
             if (entry.id().equals(id)) return entry;
         }
         return null;

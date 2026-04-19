@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "id": "Tier1_Item", "label": "tier-one item", "labelPlural": "tier-one items", "countMin": 1, "countMax": 2, "tier": 1 },
+    { "id": "Tier2_Item", "label": "tier-two item", "labelPlural": "tier-two items", "countMin": 1, "countMax": 2, "tier": 2 },
+    { "id": "Tier3_Item", "label": "tier-three item", "labelPlural": "tier-three items", "countMin": 1, "countMax": 2, "tier": 3 },
+    { "id": "Tier4_Item", "label": "tier-four item", "labelPlural": "tier-four items", "countMin": 1, "countMax": 2, "tier": 4 },
+    { "id": "NoTier_Item", "label": "no-tier item", "labelPlural": "no-tier items", "countMin": 1, "countMax": 2 },
+    { "id": "TierZero_Item", "label": "tier-zero item", "labelPlural": "tier-zero items", "countMin": 1, "countMax": 2, "tier": 0 },
+    { "id": "TierFive_Item", "label": "tier-five item", "labelPlural": "tier-five items", "countMin": 1, "countMax": 2, "tier": 5 },
+    { "id": "TierString_Item", "label": "tier-string item", "labelPlural": "tier-string items", "countMin": 1, "countMax": 2, "tier": "two" }
+  ]
+}
