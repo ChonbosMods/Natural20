@@ -414,7 +414,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     @Override
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
-        LOGGER.atInfo().log("handleDataEvent type=%s id=%s", type, data.getId());
+        LOGGER.atFine().log("handleDataEvent type=%s id=%s", type, data.getId());
         if (type == null || type.isEmpty()) return;
         if ("plus".equals(type)) {
             handlePlusClicked(data.getId());
@@ -451,7 +451,6 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
      * <p>Completed-tab clicks are ignored: those rows are non-interactive.
      */
     private void handleQuestRowClicked(Ref<EntityStore> ref, Store<EntityStore> store, String slotStr) {
-        LOGGER.atInfo().log("handleQuestRowClicked slot=%s tab=%s slotMap=%s", slotStr, currentTab, slotToQuestId);
         if (currentTab != QuestTab.ACTIVE) return;
         int slot;
         try {
@@ -462,31 +461,19 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         if (slot < 0 || slot >= MAX_QUEST_ROWS) return;
 
         String questId = slotToQuestId.get(slot);
-        LOGGER.atInfo().log("handleQuestRowClicked resolved questId=%s for slot=%d", questId, slot);
         if (questId == null) return;
 
         Nat20PlayerData pdata = store.getComponent(ref, Natural20.getPlayerDataType());
-        if (pdata == null) {
-            LOGGER.atWarning().log("handleQuestRowClicked: pdata null");
-            return;
-        }
+        if (pdata == null) return;
 
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
-        if (questSystem == null) {
-            LOGGER.atWarning().log("handleQuestRowClicked: questSystem null");
-            return;
-        }
+        if (questSystem == null) return;
         QuestStateManager sm = questSystem.getStateManager();
         Map<String, QuestInstance> active = sm.getActiveQuests(pdata);
         QuestInstance quest = active.get(questId);
-        if (quest == null) {
-            LOGGER.atWarning().log("handleQuestRowClicked: quest missing from active map for id=%s activeKeys=%s",
-                    questId, active.keySet());
-            return;
-        }
+        if (quest == null) return;
 
-        boolean prev = quest.isWaypointEnabled();
-        quest.setWaypointEnabled(!prev);
+        quest.setWaypointEnabled(!quest.isWaypointEnabled());
 
         // CRITICAL: getActiveQuests returns a fresh Gson-deserialized map every
         // call. The QuestInstance we just mutated is transient until we write
@@ -494,9 +481,6 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // the next getActiveQuests call (including the one refreshMarkers does
         // internally) reads the old JSON and the flag flip is lost.
         sm.saveActiveQuests(pdata, active);
-
-        LOGGER.atInfo().log("handleQuestRowClicked flipped+saved waypointEnabled %s -> %s for quest=%s",
-                prev, !prev, questId);
 
         // Marker cache rebuild: copies the same call shape used by
         // FetchItemTrackingSystem / DialogueActionRegistry. Task 5 added the
