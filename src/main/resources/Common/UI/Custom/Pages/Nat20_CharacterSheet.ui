@@ -28,6 +28,16 @@ $C.@Container {
       Label { FlexWeight: 1; }
     }
 
+    // Character background placeholder (system WIP). Renders a fixed
+    // "Background" string under the header; will become a bound field once
+    // authored background data lands.
+    Label #CSBackground {
+      Text: "Background";
+      Anchor: (Height: 18);
+      Padding: (Bottom: 8);
+      Style: (TextColor: #aaaaaa(1), FontSize: 14, RenderItalics: true);
+    }
+
     // Two-panel body: empty placeholder groups, filled in Tasks 8-19
     Group #CSBody {
       LayoutMode: Left;
@@ -83,162 +93,162 @@ $C.@Container {
 
           Group #CSAbilityRowSTR {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameSTR {
               Text: "STR";
-              Anchor: (Width: 60);
-              Style: (TextColor: #ff4444(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #ff4444(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreSTR {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusSTR {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusSTR {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
 
           Group #CSAbilityRowDEX {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameDEX {
               Text: "DEX";
-              Anchor: (Width: 60);
-              Style: (TextColor: #44dd66(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #44dd66(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreDEX {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusDEX {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusDEX {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
 
           Group #CSAbilityRowCON {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameCON {
               Text: "CON";
-              Anchor: (Width: 60);
-              Style: (TextColor: #dd8833(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #dd8833(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreCON {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusCON {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusCON {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
 
           Group #CSAbilityRowINT {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameINT {
               Text: "INT";
-              Anchor: (Width: 60);
-              Style: (TextColor: #4488ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #4488ff(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreINT {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusINT {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusINT {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
 
           Group #CSAbilityRowWIS {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameWIS {
               Text: "WIS";
-              Anchor: (Width: 60);
-              Style: (TextColor: #ccccdd(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #ccccdd(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreWIS {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusWIS {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusWIS {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
 
           Group #CSAbilityRowCHA {
             LayoutMode: Left;
-            Anchor: (Height: 24);
+            Anchor: (Height: 34);
             Padding: (Top: 2, Bottom: 2);
 
             Label #CSAbilityNameCHA {
               Text: "CHA";
-              Anchor: (Width: 60);
-              Style: (TextColor: #bb66ff(1), FontSize: 14, RenderBold: true, VerticalAlignment: Center);
+              Anchor: (Width: 80);
+              Style: (TextColor: #bb66ff(1), FontSize: 20, RenderBold: true, VerticalAlignment: Center);
             }
             Label #CSAbilityScoreCHA {
               Text: "";
               FlexWeight: 1;
-              Style: (TextColor: #ffffff(1), FontSize: 14, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+              Style: (TextColor: #ffffff(1), FontSize: 20, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
             }
             $C.@SmallSecondaryTextButton #CSMinusCHA {
               Text: "-";
-              Anchor: (Width: 28, Height: 20);
+              Anchor: (Width: 36, Height: 28);
               Disabled: true;
             }
             $C.@SmallSecondaryTextButton #CSPlusCHA {
               Text: "+";
-              Anchor: (Width: 28, Height: 20, Left: 4);
+              Anchor: (Width: 36, Height: 28, Left: 4);
               Disabled: true;
             }
           }
