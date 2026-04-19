@@ -9,7 +9,8 @@ $C.@Container {
     LayoutMode: Top;
     Padding: (Left: 16, Right: 16, Top: 14, Bottom: 14);
 
-    // Header bar: name on left, level on right (filled in Task 8)
+    // Header bar: "Name Lvl N" inline on the left, remaining space absorbed
+    // by a trailing FlexWeight spacer (labels size to text width).
     Group #CSHeader {
       LayoutMode: Left;
       Anchor: (Height: 40);
@@ -17,13 +18,14 @@ $C.@Container {
 
       Label #CSName {
         Text: "";
-        FlexWeight: 1;
-        Style: (TextColor: #ffd700(1), FontSize: 22, RenderBold: true);
+        Style: (TextColor: #ffd700(1), FontSize: 22, RenderBold: true, VerticalAlignment: Center);
       }
       Label #CSLevel {
         Text: "";
+        Padding: (Left: 12);
         Style: (TextColor: #ffffff(1), FontSize: 18, RenderBold: true, VerticalAlignment: Center);
       }
+      Label { FlexWeight: 1; }
     }
 
     // Two-panel body: empty placeholder groups, filled in Tasks 8-19
@@ -34,7 +36,14 @@ $C.@Container {
       Group #CSLeftPanel {
         LayoutMode: Top;
         FlexWeight: 1;
-        Padding: (Right: 6);
+        Padding: (Right: 12);
+
+        Label #CSLeftHeader {
+          Text: "Character Stats";
+          Anchor: (Height: 24);
+          Padding: (Bottom: 4);
+          Style: (TextColor: #ffd700(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
+        }
 
         // XP readout (text)
         Label #CSXpText {
@@ -245,10 +254,23 @@ $C.@Container {
         }
       }
 
+      // Vertical divider between the two panels.
+      Group {
+        Anchor: (Width: 1);
+        Background: (Color: #3a4a5a(1));
+      }
+
       Group #CSRightPanel {
         LayoutMode: Top;
         FlexWeight: 1;
-        Padding: (Left: 6);
+        Padding: (Left: 12);
+
+        Label #CSRightHeader {
+          Text: "Quest Log";
+          Anchor: (Height: 24);
+          Padding: (Bottom: 4);
+          Style: (TextColor: #ffd700(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
+        }
 
         // Active / Completed tab buttons. Click toggles list mode. Task 16.
         // Tab text color is recolored from Java each rebuild: gold for the

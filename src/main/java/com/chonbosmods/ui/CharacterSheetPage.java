@@ -353,25 +353,20 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     }
 
     /**
-     * Resolve the display name for a quest row using the SAME fallback chain as
-     * {@link com.chonbosmods.waypoint.QuestMarkerProvider#refreshMarkers} and
-     * {@link QuestStateManager#markQuestCompleted}: variableBindings'
-     * {@code subject_name} -> {@code quest_objective_summary} ->
-     * {@code quest_title} -> {@link QuestInstance#getSituationId()} -> questId.
-     * Keeps active-row text aligned with the map waypoint label and the
-     * Completed tab snapshot.
+     * Resolve the display name for a quest row. Prefers {@code quest_topic_header}
+     * (the authored flavor topic label, also used by QuestCompletionBanner and the
+     * dialogue topic list) so it doesn't duplicate the objective text below it.
+     * Falls back to {@code subject_name}, then {@link QuestInstance#getSituationId()},
+     * then questId. Does NOT fall back to {@code quest_objective_summary}, which is
+     * reserved for the objective row.
      */
     private static String resolveQuestName(QuestInstance q) {
         Map<String, String> b = q.getVariableBindings();
-        if (b != null) {
-            String sit = q.getSituationId();
-            String fallback = sit != null ? sit : q.getQuestId();
-            return b.getOrDefault("subject_name",
-                    b.getOrDefault("quest_objective_summary",
-                            b.getOrDefault("quest_title", fallback)));
-        }
         String sit = q.getSituationId();
-        return sit != null ? sit : q.getQuestId();
+        String fallback = sit != null ? sit : q.getQuestId();
+        if (b == null) return fallback;
+        return b.getOrDefault("quest_topic_header",
+                b.getOrDefault("subject_name", fallback));
     }
 
     /** Objective text mirrors what dialogue actions write to {@code quest_objective_summary}. */
