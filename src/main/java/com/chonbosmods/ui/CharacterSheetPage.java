@@ -594,6 +594,22 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         close();
     }
 
+    /**
+     * External refresh trigger for {@link CharacterSheetManager} hooks (Tasks 20+21).
+     * Re-runs {@link #build} via the inherited protected {@code rebuild()} so that
+     * the snapshot fields (applied scores, pending pool, level/XP) and the quest
+     * lists re-read from {@link Nat20PlayerData}.
+     *
+     * <p>The {@link #pendingDelta} preview state is intentionally preserved across
+     * refresh: it is a page field, not recomputed in {@code build()}, so a queued
+     * preview the player has not yet Applied survives a level-up or quest
+     * completion that arrives mid-edit.
+     */
+    public void refresh() {
+        if (dismissed) return;
+        rebuild();
+    }
+
     public static class PageEventData {
         private String type = "";
         private String id = "";

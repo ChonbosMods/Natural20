@@ -81,4 +81,29 @@ public final class CharacterSheetManager {
     public boolean isOpen(UUID uuid) {
         return openPages.containsKey(uuid);
     }
+
+    /**
+     * Called by {@link com.chonbosmods.progression.Nat20XpService#award} after a
+     * level cross. Re-renders the character sheet if open for that player so the
+     * XP bar, level label, Unspent Points banner, and ability +/- enable states
+     * pick up the new applied snapshot. The page's {@code pendingDelta} preview
+     * is preserved across rebuild by design (Task 20).
+     */
+    public void onLevelUp(UUID playerUuid) {
+        CharacterSheetPage page = openPages.get(playerUuid);
+        if (page == null) return;
+        page.refresh();
+    }
+
+    /**
+     * Called by {@link com.chonbosmods.quest.QuestStateManager#markQuestCompleted}
+     * after the persist. Re-renders the quest list so the just-completed quest
+     * leaves the Active tab and is rendered at index 0 of the Completed tab on
+     * the next render of that tab (Task 21).
+     */
+    public void onQuestCompleted(UUID playerUuid) {
+        CharacterSheetPage page = openPages.get(playerUuid);
+        if (page == null) return;
+        page.refresh();
+    }
 }

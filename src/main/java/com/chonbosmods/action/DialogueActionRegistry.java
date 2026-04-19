@@ -402,6 +402,14 @@ public class DialogueActionRegistry {
                 quest.setState(com.chonbosmods.quest.QuestState.COMPLETED);
                 ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
                 questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
+                // Refresh the Character Sheet's Quest Log if open (Task 21).
+                // Dispatched after markQuestCompleted persists so the rebuild
+                // reads the snapshot post-prepend (newest record at index 0).
+                com.chonbosmods.ui.CharacterSheetManager csMgr =
+                        com.chonbosmods.ui.CharacterSheetManager.get();
+                if (csMgr != null) {
+                    csMgr.onQuestCompleted(ctx.player().getPlayerRef().getUuid());
+                }
                 // Purge POI mob-group records for this quest. Alive mobs decay into
                 // ordinary world hostiles once their record is gone.
                 com.chonbosmods.quest.poi.Nat20MobGroupRegistry groupRegistry =

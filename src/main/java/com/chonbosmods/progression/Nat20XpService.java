@@ -2,6 +2,7 @@ package com.chonbosmods.progression;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.ui.CharacterSheetManager;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -42,6 +43,13 @@ public final class Nat20XpService {
         if (levelDelta > 0) {
             hpSystem.updatePlayerMaxHp(playerRef, store);
             LevelUpBanner.show(player.getPlayerRef(), player.getDisplayName(), data.getLevel());
+            // Re-render the Character Sheet if open (Task 20). Fires once per
+            // level cross, not per XP grant, because addXp returned a positive
+            // delta. Same world-thread context as the rest of award().
+            CharacterSheetManager mgr = CharacterSheetManager.get();
+            if (mgr != null) {
+                mgr.onLevelUp(player.getPlayerRef().getUuid());
+            }
         }
     }
 }
