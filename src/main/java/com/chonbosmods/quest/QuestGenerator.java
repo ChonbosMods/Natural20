@@ -380,33 +380,61 @@ public class QuestGenerator {
 
         return switch (type) {
             case COLLECT_RESOURCES -> {
-                // Each COLLECT objective draws its OWN gather item so a multi-collect quest
-                // doesn't show the same item label across phases.
-                QuestPoolRegistry.ItemEntry collectItem = poolRegistry.randomCollectResource(random);
+                // Resolve NPC world zone for zone-aware item pick. If the biome lookup
+                // can't resolve a zone (unmapped biome or no world), default to 1 so a
+                // starter player in a degraded state never gets end-game items.
+                int worldZone = 1;
+                double npcX = 0, npcZ = 0;
+                try {
+                    npcX = Double.parseDouble(bindings.getOrDefault("npc_x", "0"));
+                    npcZ = Double.parseDouble(bindings.getOrDefault("npc_z", "0"));
+                } catch (NumberFormatException ignored) {}
+                com.hypixel.hytale.server.core.universe.world.World world =
+                    Natural20.getInstance().getDefaultWorld();
+                if (world != null) {
+                    String zoneName = com.chonbosmods.world.Nat20BiomeLookup.getZoneName(
+                        world, (int) npcX, (int) npcZ);
+                    worldZone = parseZoneNumber(zoneName, 1);
+                }
 
-                // Use per-item count range from the pool if available, otherwise the variant config.
-                int count;
+                QuestPoolRegistry.ItemEntry collectItem =
+                    poolRegistry.randomCollectResource(worldZone, random);
+
+                // Base roll: uniform in the pool entry's count range, with difficulty
+                // multiplier pre-applied so accept-time scaling only needs to add the
+                // zone bonus. Clamp to 1 so a low-end roll × easy-difficulty never zeros.
+                int baseRoll;
                 if (collectItem.countMin() > 0 && collectItem.countMax() > 0) {
                     int min = collectItem.countMin();
                     int max = collectItem.countMax();
-                    count = min + random.nextInt(max - min + 1);
+                    baseRoll = min + random.nextInt(max - min + 1);
                 } else {
-                    count = config.rollCount(random);
+                    baseRoll = config.rollCount(random);
                 }
+                baseRoll = Math.max(1,
+                    (int) Math.round(baseRoll * difficulty.gatherCountMultiplier()));
 
-                // Difficulty multiplier: clamp to 1 so easy + small base count never zeros out.
-                count = Math.max(1, (int) Math.round(count * difficulty.gatherCountMultiplier()));
+                int rolledBonus = com.chonbosmods.progression.Nat20XpMath
+                    .rollBonusPerZone(collectItem.tier(), random);
+
+                // Preview count for exposition text: reflects a hypothetical player in
+                // worldZone. DialogueResolver.resolveQuestText recomputes this from
+                // baseRoll + bonusPerZone when a playerLevel is in scope (Task 8), so the
+                // number the NPC speaks aloud tracks the viewing player's own level.
+                int previewCount = baseRoll + rolledBonus * Math.max(0, worldZone - 1);
 
                 bindings.put("quest_item", collectItem.noun());
                 bindings.put("quest_item_full", collectItem.fullForm());
-                bindings.put("gather_count", String.valueOf(count));
+                bindings.put("gather_count", String.valueOf(previewCount));
 
                 ObjectiveInstance collectObj = new ObjectiveInstance(
                     type, collectItem.id(), collectItem.noun(),
-                    count, null, null
+                    previewCount, null, null
                 );
                 collectObj.setTargetLabelPlural(collectItem.nounPlural());
                 collectObj.setTargetEpithet(collectItem.epithet());
+                collectObj.setBaseRoll(baseRoll);
+                collectObj.setBonusPerZone(rolledBonus);
                 yield collectObj;
             }
             case KILL_MOBS -> {
@@ -676,6 +704,21 @@ public class QuestGenerator {
 
         LOGGER.atInfo().log("Pre-rolled boss: name=%s groupDiff=%s bossDiff=%s",
             bossName, groupDiff, bossDiff);
+    }
+
+    /** Extract a zone number from a Nat20BiomeLookup zone name like {@code "Zone3"}
+     *  or {@code "Zone1_Tier2"}. Returns {@code fallback} if the string is null,
+     *  empty, or doesn't start with the expected "Zone" prefix. */
+    private static int parseZoneNumber(@Nullable String zoneName, int fallback) {
+        if (zoneName == null || !zoneName.startsWith("Zone")) return fallback;
+        try {
+            int end = 4;
+            while (end < zoneName.length() && Character.isDigit(zoneName.charAt(end))) end++;
+            if (end == 4) return fallback;
+            return Integer.parseInt(zoneName.substring(4, end));
+        } catch (NumberFormatException e) {
+            return fallback;
+        }
     }
 
 }
