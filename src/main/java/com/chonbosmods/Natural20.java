@@ -88,6 +88,7 @@ import com.chonbosmods.quest.poi.POIGroupSpawnCoordinator;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
+import com.chonbosmods.ui.CharacterSheetManager;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
@@ -442,6 +443,9 @@ public class Natural20 extends JavaPlugin {
                 "Nat20StartDialogue",
                 () -> new BuilderActionNat20StartDialogue(dialogueManager)
         );
+
+        // Initialize Character Sheet UI manager singleton (Task 6 stub: Task 7 wires the page)
+        CharacterSheetManager.init();
 
         // Register commands
         getCommandRegistry().registerCommand(new Nat20Command());
