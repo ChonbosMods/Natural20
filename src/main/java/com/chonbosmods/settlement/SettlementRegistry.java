@@ -121,6 +121,20 @@ public class SettlementRegistry {
     }
 
     /**
+     * @return true if any settlement center is within {@code radius} blocks of {@code (x, z)}
+     *         in the XZ plane. Used by ambient spawn anchor validation.
+     */
+    public boolean isNearAnySettlement(double x, double z, int radius) {
+        long r2 = (long) radius * radius;
+        for (SettlementRecord s : getAll().values()) {
+            double dx = s.getPosX() - x;
+            double dz = s.getPosZ() - z;
+            if (dx * dx + dz * dz <= r2) return true;
+        }
+        return false;
+    }
+
+    /**
      * Collect all settlement names currently in use across all settlements.
      */
     public java.util.Set<String> getUsedNames() {

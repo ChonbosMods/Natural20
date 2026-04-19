@@ -137,6 +137,24 @@ public class CaveVoidRegistry {
     }
 
     /**
+     * @return true if any void (claimed or unclaimed) lies within {@code radius} blocks
+     *         of {@code (x, z)} in the XZ plane. Used by ambient spawn anchor validation
+     *         to keep ambient groups clear of POI quest anchors.
+     */
+    public boolean isNearAnyVoid(double x, double z, int radius) {
+        int px = (int) x;
+        int pz = (int) z;
+        for (List<CaveVoidRecord> cell : voidsByCell.values()) {
+            synchronized (cell) {
+                for (CaveVoidRecord v : cell) {
+                    if (v.distanceTo(px, pz) <= radius) return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Find a void by its exact center coordinates, regardless of claim status.
      * Used to look up pre-claimed voids at placement time.
      */
