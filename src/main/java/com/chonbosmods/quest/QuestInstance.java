@@ -41,6 +41,12 @@ public class QuestInstance {
      *  oscillate between ACTIVE_OBJECTIVE and READY_FOR_TURN_IN. */
     private boolean bannerShownForCurrentPhase;
 
+    /** Per-quest waypoint toggle. When true (default), the quest contributes a map
+     *  marker via {@code QuestMarkerProvider} and renders normally in the quest log.
+     *  When false, the marker is suppressed and the quest-log row is dimmed.
+     *  Defaults to true so legacy saves without this field deserialize as enabled. */
+    private boolean waypointEnabled = true;
+
     public QuestInstance() {}
 
     public QuestInstance(String questId, String situationId, String sourceNpcId,
@@ -93,6 +99,9 @@ public class QuestInstance {
     public Set<Integer> getRewardsClaimed() { return rewardsClaimed; }
     public boolean isSkillcheckPassed() { return skillcheckPassed; }
     public void setSkillcheckPassed(boolean passed) { this.skillcheckPassed = passed; }
+
+    public boolean isWaypointEnabled() { return waypointEnabled; }
+    public void setWaypointEnabled(boolean v) { this.waypointEnabled = v; }
 
     /** Current objective based on conflictCount: index 0 = exposition, 1 = conflict 1, 2 = conflict 2 */
     public ObjectiveInstance getCurrentObjective() {
