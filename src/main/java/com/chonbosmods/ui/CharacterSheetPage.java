@@ -32,6 +32,8 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
             .build();
 
+    private boolean dismissed;
+
     public CharacterSheetPage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
     }
@@ -49,6 +51,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     @Override
     public void onDismiss(Ref<EntityStore> ref, Store<EntityStore> store) {
+        dismissed = true;
         LOGGER.atFine().log("CharacterSheetPage.onDismiss");
         CharacterSheetManager mgr = CharacterSheetManager.get();
         if (mgr != null) {
@@ -57,8 +60,9 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         }
     }
 
-    /** Manager-initiated close: dismisses the page on the client. */
+    /** Manager-initiated close: dismisses the page on the client. Idempotent. */
     public void closePage() {
+        if (dismissed) return;
         close();
     }
 
