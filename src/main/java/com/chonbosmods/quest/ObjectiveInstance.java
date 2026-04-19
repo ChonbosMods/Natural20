@@ -21,6 +21,16 @@ public class ObjectiveInstance {
     private int poiCenterZ;
     private String populationSpec;
 
+    // COLLECT_RESOURCES scaling (Option B from the tier-naming design):
+    // baseRoll is the uniform roll in [countMin, countMax] taken at pre-gen time.
+    // bonusPerZone is the per-tier additive rolled from Nat20XpMath.BONUS_RANGE_PER_TIER.
+    // requiredCount is recomputed at GIVE_QUEST acceptance as:
+    //   baseRoll + bonusPerZone * (playerZone - 1)
+    // Both default to 0 for non-COLLECT objectives and for legacy saves; a zero baseRoll
+    // means "no scaling data" and downstream code falls back to requiredCount.
+    private int baseRoll;
+    private int bonusPerZone;
+
     // When set, POIGroupSpawnCoordinator.firstSpawn uses this direction instead of
     // defaulting to KILL_COUNT. Set by QuestGenerator.applyBossPreRoll for KILL_BOSS
     // objectives so the coordinator reuses the pre-rolled boss metadata verbatim.
@@ -54,6 +64,10 @@ public class ObjectiveInstance {
     public String getEffectiveLabel() { return requiredCount != 1 && targetLabelPlural != null ? targetLabelPlural : targetLabel; }
     public int getRequiredCount() { return requiredCount; }
     public void setRequiredCount(int requiredCount) { this.requiredCount = requiredCount; }
+    public int getBaseRoll() { return baseRoll; }
+    public void setBaseRoll(int baseRoll) { this.baseRoll = baseRoll; }
+    public int getBonusPerZone() { return bonusPerZone; }
+    public void setBonusPerZone(int bonusPerZone) { this.bonusPerZone = bonusPerZone; }
     public int getCurrentCount() { return currentCount; }
     public boolean isComplete() { return complete; }
     public String getDirectionHint() { return directionHint; }
