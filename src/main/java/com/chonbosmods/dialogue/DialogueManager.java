@@ -692,7 +692,8 @@ public class DialogueManager {
                 turnInText, null,
                 List.of(new ResponseOption(
                     topicId + "_continue_resp", "[CONTINUE]", null, continueNodeId,
-                    ResponseMode.DECISIVE, null, null, null, null
+                    ResponseMode.DECISIVE, null, null, null, null,
+                    ResponseType.CONTINUE
                 )),
                 List.of(Map.of("type", DialogueActionRegistry.TURN_IN_V2, "questId", questId)),
                 false, false, ValenceType.NEUTRAL
@@ -769,7 +770,8 @@ public class DialogueManager {
                     openerText, null,
                     List.of(new ResponseOption(
                         topicId + "_continue", "[CONTINUE]", null, actionNodeId,
-                        ResponseMode.DECISIVE, null, null, null, null
+                        ResponseMode.DECISIVE, null, null, null, null,
+                        ResponseType.CONTINUE
                     )),
                     List.of(), false, false, ValenceType.NEUTRAL
                 ));

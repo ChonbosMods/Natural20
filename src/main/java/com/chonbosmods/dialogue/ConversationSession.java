@@ -411,9 +411,12 @@ public class ConversationSession {
                 topicsLocked = textNode.locksConversation();
 
                 if (pendingFollowUpIds.isEmpty()) {
-                    // CONTINUE chain: apply completion delta at last beat
+                    // CONTINUE chain: apply completion delta at last beat.
+                    // Quest-injected topics reuse the CONTINUE mechanism for turn-in /
+                    // TALK_TO_NPC beats but must not tick the mundane disposition bonus.
                     if (continueChainNodeIds != null
-                            && continueChainIndex >= continueChainNodeIds.size() - 1) {
+                            && continueChainIndex >= continueChainNodeIds.size() - 1
+                            && !isActiveTopicQuestTopic()) {
                         modifyDisposition(MundaneDispositionConstants.TOPIC_COMPLETED);
                     }
                     // Skip returnCheck for stat check side-beats: handleSkillCheckResult
@@ -691,6 +694,15 @@ public class ConversationSession {
                 break;
             }
         }
+    }
+
+    private boolean isActiveTopicQuestTopic() {
+        if (activeTopicId == null) return false;
+        return graph.topics().stream()
+            .filter(t -> t.id().equals(activeTopicId))
+            .findFirst()
+            .map(TopicDefinition::questTopic)
+            .orElse(false);
     }
 
     private String resolveEntryNodeId(TopicDefinition topic) {
