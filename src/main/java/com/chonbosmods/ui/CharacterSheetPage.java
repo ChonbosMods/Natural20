@@ -466,22 +466,36 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         if (questId == null) return;
 
         Nat20PlayerData pdata = store.getComponent(ref, Natural20.getPlayerDataType());
-        if (pdata == null) return;
+        if (pdata == null) {
+            LOGGER.atWarning().log("handleQuestRowClicked: pdata null");
+            return;
+        }
 
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
-        if (questSystem == null) return;
+        if (questSystem == null) {
+            LOGGER.atWarning().log("handleQuestRowClicked: questSystem null");
+            return;
+        }
         QuestStateManager sm = questSystem.getStateManager();
         Map<String, QuestInstance> active = sm.getActiveQuests(pdata);
         QuestInstance quest = active.get(questId);
-        if (quest == null) return;
+        if (quest == null) {
+            LOGGER.atWarning().log("handleQuestRowClicked: quest missing from active map for id=%s activeKeys=%s",
+                    questId, active.keySet());
+            return;
+        }
 
-        quest.setWaypointEnabled(!quest.isWaypointEnabled());
+        boolean prev = quest.isWaypointEnabled();
+        quest.setWaypointEnabled(!prev);
+        LOGGER.atInfo().log("handleQuestRowClicked flipped waypointEnabled %s -> %s for quest=%s",
+                prev, !prev, questId);
 
         // Marker cache rebuild: copies the same call shape used by
         // FetchItemTrackingSystem / DialogueActionRegistry. Task 5 added the
         // isWaypointEnabled() gate inside refreshMarkers, so the dropped /
         // restored marker shows up on the next map render.
         QuestMarkerProvider.refreshMarkers(this.playerRef.getUuid(), pdata);
+        LOGGER.atInfo().log("handleQuestRowClicked: called refreshMarkers + about to rebuild");
 
         rebuild();
     }
