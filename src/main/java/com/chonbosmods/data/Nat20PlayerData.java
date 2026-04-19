@@ -2,17 +2,21 @@ package com.chonbosmods.data;
 
 import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.model.ExhaustionState;
+import com.chonbosmods.quest.CompletedQuestRecord;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
+import com.hypixel.hytale.codec.codecs.array.ArrayCodec;
 import com.hypixel.hytale.codec.codecs.map.MapCodec;
 import com.hypixel.hytale.codec.codecs.set.SetCodec;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,6 +30,9 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     private static final SetCodec<String, Set<String>> STRING_SET_CODEC =
             new SetCodec<>(Codec.STRING, HashSet::new, false);
+
+    private static final ArrayCodec<CompletedQuestRecord> COMPLETED_QUESTS_CODEC =
+            ArrayCodec.ofBuilderCodec(CompletedQuestRecord.CODEC, CompletedQuestRecord[]::new);
 
     public static final BuilderCodec<Nat20PlayerData> CODEC = BuilderCodec.builder(Nat20PlayerData.class, Nat20PlayerData::new)
             .addField(new KeyedCodec<>("Stats", Codec.INT_ARRAY), Nat20PlayerData::setStats, Nat20PlayerData::getStats)
@@ -47,6 +54,8 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("NpcClosingValences", STRING_MAP_CODEC), Nat20PlayerData::setNpcClosingValencesRaw, Nat20PlayerData::getNpcClosingValencesRaw)
             .addField(new KeyedCodec<>("DiscoveredSettlements", STRING_SET_CODEC), Nat20PlayerData::setDiscoveredSettlements, Nat20PlayerData::getDiscoveredSettlements)
             .addField(new KeyedCodec<>("Perception", Codec.FLOAT), Nat20PlayerData::setPerception, Nat20PlayerData::getPerception)
+            .addField(new KeyedCodec<>("CompletedQuests", COMPLETED_QUESTS_CODEC),
+                    Nat20PlayerData::setCompletedQuestsRaw, Nat20PlayerData::getCompletedQuestsRaw)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -77,6 +86,10 @@ public class Nat20PlayerData implements Component<EntityStore> {
     private Set<String> discoveredSettlements = new HashSet<>();
 
     private float perception = 0.0f;
+
+    // Persisted record of completed quests (for Quest Log UI). Replaces the legacy
+    // comma-separated `completed_quest_ids` string flag.
+    private List<CompletedQuestRecord> completedQuests = new ArrayList<>();
 
     public Nat20PlayerData() {
     }
@@ -507,6 +520,26 @@ public class Nat20PlayerData implements Component<EntityStore> {
         discoveredSettlements.add(cellKey);
     }
 
+    // --- Completed Quests ---
+
+    public List<CompletedQuestRecord> getCompletedQuests() {
+        return completedQuests;
+    }
+
+    public void setCompletedQuests(List<CompletedQuestRecord> completedQuests) {
+        this.completedQuests = completedQuests != null ? new ArrayList<>(completedQuests) : new ArrayList<>();
+    }
+
+    /** Codec adapter: expose the list as an array for {@link ArrayCodec}. */
+    CompletedQuestRecord[] getCompletedQuestsRaw() {
+        return completedQuests.toArray(new CompletedQuestRecord[0]);
+    }
+
+    /** Codec adapter: rebuild the list from the decoded array. */
+    void setCompletedQuestsRaw(CompletedQuestRecord[] raw) {
+        completedQuests = raw != null ? new ArrayList<>(Arrays.asList(raw)) : new ArrayList<>();
+    }
+
     @Override
     public Nat20PlayerData clone() {
         Nat20PlayerData copy = new Nat20PlayerData();
@@ -544,6 +577,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
         copy.discoveredSettlements = new HashSet<>(this.discoveredSettlements);
         copy.perception = this.perception;
+        copy.completedQuests = new ArrayList<>(this.completedQuests);
         return copy;
     }
 }

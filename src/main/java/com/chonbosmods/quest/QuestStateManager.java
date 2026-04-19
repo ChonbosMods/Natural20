@@ -12,7 +12,6 @@ public class QuestStateManager {
 
     private static final Gson GSON = new GsonBuilder().create();
     private static final String KEY_ACTIVE_QUESTS = "active_quests";
-    private static final String KEY_COMPLETED_IDS = "completed_quest_ids";
     private static final String KEY_ACTIVE_REFS = "active_references";
 
     private static final Type QUEST_MAP_TYPE = new TypeToken<Map<String, QuestInstance>>() {}.getType();
@@ -46,15 +45,23 @@ public class QuestStateManager {
     }
 
     public Set<String> getCompletedQuestIds(Nat20PlayerData data) {
-        String raw = data.getQuestData(KEY_COMPLETED_IDS);
-        if (raw == null || raw.isEmpty()) return new HashSet<>();
-        return new HashSet<>(Arrays.asList(raw.split(",")));
+        Set<String> ids = new HashSet<>();
+        for (CompletedQuestRecord record : data.getCompletedQuests()) {
+            ids.add(record.getQuestId());
+        }
+        return ids;
     }
 
     public void markQuestCompleted(Nat20PlayerData data, String questId) {
-        Set<String> completed = getCompletedQuestIds(data);
-        completed.add(questId);
-        data.setQuestData(KEY_COMPLETED_IDS, String.join(",", completed));
+        // Task 4 will populate questName + finalObjectiveText from the live quest snapshot.
+        // For now, append an id-only record so call sites and the codec round-trip work.
+        for (CompletedQuestRecord existing : data.getCompletedQuests()) {
+            if (questId.equals(existing.getQuestId())) {
+                removeQuest(data, questId);
+                return;
+            }
+        }
+        data.getCompletedQuests().add(new CompletedQuestRecord(questId, "", ""));
         removeQuest(data, questId);
     }
 
