@@ -8,6 +8,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.stats.Stat;
+import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
@@ -41,7 +42,8 @@ import java.util.Map;
  * surfaces the {@code #CSApplyBtn} enable state. Task 14 commits the queued
  * preview to {@link Nat20PlayerData} when the player clicks Apply, with
  * server-side validation (no negatives, sum &le; pool, score &le; 30) and
- * dirty-flagging for {@code Nat20ScoreBonusSystem}.
+ * dirty-flagging for {@code Nat20ScoreBonusSystem}. Task 18 adds row-tap
+ * waypoint toggling on the Active tab: dim/bright color flip indicates state.
  */
 public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPage.PageEventData> {
 
@@ -199,6 +201,17 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 "#CSTabCompleted",
                 EventData.of("Type", "tab").append("Id", "completed"),
                 false);
+
+        // Quest row click: tap an active row to toggle its waypoint marker. Task 18.
+        // Bindings install unconditionally for all 20 row slots regardless of which
+        // tab is currently visible; the handler no-ops on hidden / Completed rows.
+        for (int i = 0; i < MAX_QUEST_ROWS; i++) {
+            events.addEventBinding(
+                    CustomUIEventBindingType.Activating,
+                    "#CSQuestRow_" + i,
+                    EventData.of("Type", "questrow").append("Id", String.valueOf(i)),
+                    false);
+        }
     }
 
     /**
@@ -397,7 +410,54 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 currentTab = target;
                 rebuild();
             }
+            return;
         }
+        if ("questrow".equals(type)) {
+            handleQuestRowClicked(ref, store, data.getId());
+        }
+    }
+
+    /**
+     * Tap on an active-tab quest row flips that quest's {@code waypointEnabled}
+     * flag, refreshes the on-map marker cache so the change is visible
+     * immediately (otherwise it would only show after the next quest-state
+     * mutation triggers refreshMarkers), and rebuilds the page so the row's
+     * dimmed/bright color reflects the new state.
+     *
+     * <p>Completed-tab clicks are ignored: those rows are non-interactive.
+     */
+    private void handleQuestRowClicked(Ref<EntityStore> ref, Store<EntityStore> store, String slotStr) {
+        if (currentTab != QuestTab.ACTIVE) return;
+        int slot;
+        try {
+            slot = Integer.parseInt(slotStr);
+        } catch (NumberFormatException e) {
+            return;
+        }
+        if (slot < 0 || slot >= MAX_QUEST_ROWS) return;
+
+        String questId = slotToQuestId.get(slot);
+        if (questId == null) return;
+
+        Nat20PlayerData pdata = store.getComponent(ref, Natural20.getPlayerDataType());
+        if (pdata == null) return;
+
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+        QuestStateManager sm = questSystem.getStateManager();
+        Map<String, QuestInstance> active = sm.getActiveQuests(pdata);
+        QuestInstance quest = active.get(questId);
+        if (quest == null) return;
+
+        quest.setWaypointEnabled(!quest.isWaypointEnabled());
+
+        // Marker cache rebuild: copies the same call shape used by
+        // FetchItemTrackingSystem / DialogueActionRegistry. Task 5 added the
+        // isWaypointEnabled() gate inside refreshMarkers, so the dropped /
+        // restored marker shows up on the next map render.
+        QuestMarkerProvider.refreshMarkers(this.playerRef.getUuid(), pdata);
+
+        rebuild();
     }
 
     private void handlePlusClicked(String key) {
