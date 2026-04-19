@@ -494,8 +494,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // FetchItemTrackingSystem / DialogueActionRegistry. Task 5 added the
         // isWaypointEnabled() gate inside refreshMarkers, so the dropped /
         // restored marker shows up on the next map render.
+        java.util.List<QuestMarkerProvider.MarkerEntry> before =
+                QuestMarkerProvider.INSTANCE.getMarkersForPlayer(this.playerRef.getUuid());
         QuestMarkerProvider.refreshMarkers(this.playerRef.getUuid(), pdata);
-        LOGGER.atInfo().log("handleQuestRowClicked: called refreshMarkers + about to rebuild");
+        java.util.List<QuestMarkerProvider.MarkerEntry> after =
+                QuestMarkerProvider.INSTANCE.getMarkersForPlayer(this.playerRef.getUuid());
+        LOGGER.atInfo().log("handleQuestRowClicked: marker cache %d -> %d entries after refresh",
+                before == null ? -1 : before.size(), after == null ? -1 : after.size());
 
         rebuild();
     }

@@ -82,6 +82,11 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
         }
     }
 
+    /** Diagnostic: return the currently cached marker list for a player (nullable). */
+    public List<MarkerEntry> getMarkersForPlayer(UUID playerUuid) {
+        return playerMarkers.get(playerUuid);
+    }
+
     public void updatePlayer(UUID playerUuid, List<MarkerEntry> markers) {
         if (markers == null || markers.isEmpty()) {
             playerMarkers.remove(playerUuid);
