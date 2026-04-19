@@ -57,7 +57,6 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
     private final Skill skill;
     private final Stat stat;
     private final SkillCheckResult result;
-    private final int dcModifier;
     private final Consumer<SkillCheckResult> onContinue;
     private final Random random = new Random();
 
@@ -67,13 +66,12 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
     private ScheduledFuture<?> animationTask;
 
     public Nat20DiceRollPage(PlayerRef playerRef, Skill skill, Stat stat,
-                             SkillCheckResult result, int dcModifier,
+                             SkillCheckResult result,
                              Consumer<SkillCheckResult> onContinue) {
         super(playerRef, CustomPageLifetime.CantClose, EVENT_CODEC);
         this.skill = skill;
         this.stat = stat;
         this.result = result;
-        this.dcModifier = dcModifier;
         this.onContinue = onContinue;
     }
 
@@ -82,11 +80,7 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
         cmd.append(PAGE_LAYOUT);
 
         // DC: "Difficulty Class 14" (under title, above dice)
-        String dcText = "Difficulty Class " + result.dc();
-        if (dcModifier != 0) {
-            dcText += " (" + formatBonus(dcModifier) + ")";
-        }
-        cmd.set("#DCInfo.Text", dcText);
+        cmd.set("#DCInfo.Text", "Difficulty Class " + result.dc());
 
         // Skill name: bold, prominent
         cmd.set("#SkillName.Text", skill.name());

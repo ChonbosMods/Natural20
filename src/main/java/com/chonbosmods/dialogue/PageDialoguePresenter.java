@@ -134,14 +134,11 @@ public class PageDialoguePresenter implements DialoguePresenter {
     }
 
     @Override
-    public void showSkillCheck(DialogueNode.SkillCheckNode node, int effectiveDC, PlayerStats stats) {
+    public void showSkillCheck(DialogueNode.SkillCheckNode node, int dc, RollMode mode, PlayerStats stats) {
         // Pre-determine the roll result
         Stat stat = node.stat() != null ? node.stat() : node.skill().getAssociatedStat();
-        SkillCheckRequest request = new SkillCheckRequest(node.skill(), node.stat(), effectiveDC, RollMode.NORMAL);
+        SkillCheckRequest request = new SkillCheckRequest(node.skill(), stat, dc, mode);
         SkillCheckResult result = Nat20DiceRoller.roll(stats, request);
-
-        // Phase G wires RollMode from disposition; DC itself no longer shifts.
-        int dcModifier = 0;
 
         // Detach dialogue page handler to prevent goodbye on dismiss
         if (dialoguePage != null) {
@@ -152,7 +149,7 @@ public class PageDialoguePresenter implements DialoguePresenter {
         // Defer dice page open: opening a page inside another page's event handler
         // causes the page manager to immediately dismiss the new page
         diceRollPage = new Nat20DiceRollPage(
-                playerRef, node.skill(), stat, result, dcModifier,
+                playerRef, node.skill(), stat, result,
                 r -> onDiceRollContinue(r, node));
         SCHEDULER.schedule(() -> {
             synchronized (PageDialoguePresenter.this) {

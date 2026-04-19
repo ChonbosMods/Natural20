@@ -7,6 +7,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.dialogue.model.ActiveFollowUp;
 import com.chonbosmods.topic.MundaneDispositionConstants;
+import com.chonbosmods.dice.RollMode;
 import com.chonbosmods.dice.SkillCheckResult;
 import com.chonbosmods.stats.PlayerStats;
 import com.google.common.flogger.FluentLogger;
@@ -432,9 +433,12 @@ public class ConversationSession {
             }
 
             case DialogueNode.SkillCheckNode checkNode -> {
-                int dc = checkNode.tier().dc();  // Phase G wires RollMode from disposition
+                int dc = checkNode.tier().dc();
+                RollMode mode = checkNode.affectedByDisposition()
+                        ? DispositionBracket.rollMode(disposition)
+                        : RollMode.NORMAL;
                 PlayerStats stats = PlayerStats.from(playerData);
-                presenter.showSkillCheck(checkNode, dc, stats);
+                presenter.showSkillCheck(checkNode, dc, mode, stats);
             }
 
             case DialogueNode.ActionNode actionNode -> {

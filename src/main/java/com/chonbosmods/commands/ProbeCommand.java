@@ -162,7 +162,7 @@ public class ProbeCommand extends AbstractPlayerCommand {
                                CommandContext context) {
         SkillCheckResult testResult = new SkillCheckResult(17, -1, RollMode.NORMAL, 3, 2, 22, 14, true, false);
         Nat20DiceRollPage page = new Nat20DiceRollPage(playerRef, Skill.PERSUASION, Stat.CHA,
-            testResult, 2,
+            testResult,
             r -> {
                 player.sendMessage(Message.raw("Dice probe continue: passed=" + r.passed()));
                 player.getHudManager().showHudComponents(playerRef, HudComponent.Hotbar, HudComponent.Reticle);
