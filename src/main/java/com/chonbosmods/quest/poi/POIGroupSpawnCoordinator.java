@@ -6,6 +6,7 @@ import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.progression.DifficultyTier;
+import com.chonbosmods.progression.GroupSource;
 import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
@@ -149,6 +150,7 @@ public class POIGroupSpawnCoordinator {
         record.setSlots(slots);
 
         record.setCreatedAtMillis(System.currentTimeMillis());
+        record.setSource(GroupSource.POI_QUEST);
         registry.put(record);
 
         // 8. Spawn all slots via the shared spawn path. respawnSlotInternal updates each
