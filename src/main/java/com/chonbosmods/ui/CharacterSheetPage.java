@@ -4,6 +4,7 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.progression.Nat20XpMath;
+import com.chonbosmods.quest.CompletedQuestRecord;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
@@ -315,18 +316,32 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     }
 
     /**
-     * Stub: Task 19 will populate this with the {@code completed_quests} list
-     * from {@link Nat20PlayerData}. For Tasks 16+17 the panel just hides every
-     * row and surfaces a placeholder hint so the tab toggle still has a
-     * visible state change.
+     * Render up to {@link #MAX_QUEST_ROWS} completed quest snapshots in
+     * most-recent-first order (the ordering invariant maintained by
+     * {@link QuestStateManager#markQuestCompleted}). Rows are non-interactive on
+     * this tab (Task 18 enforces) and styled with the dimmed name/objective
+     * colors to visually distinguish history from active work.
      */
     private void renderCompletedList(UICommandBuilder cmd, Nat20PlayerData data) {
-        slotToQuestId.clear();
+        slotToQuestId.clear(); // Completed rows are non-interactive; clear for safety.
+
+        List<CompletedQuestRecord> completed = data.getCompletedQuests();
+        int n = Math.min(completed.size(), MAX_QUEST_ROWS);
+
         for (int i = 0; i < MAX_QUEST_ROWS; i++) {
-            cmd.set("#CSQuestRow_" + i + ".Visible", false);
+            if (i < n) {
+                CompletedQuestRecord record = completed.get(i);
+                cmd.set("#CSQuestRow_" + i + ".Visible", true);
+                cmd.set("#CSQuestName_" + i + ".Text", record.getQuestName());
+                cmd.set("#CSQuestName_" + i + ".Style.TextColor", COLOR_QUEST_DIMMED);
+                cmd.set("#CSQuestObj_" + i + ".Text", record.getFinalObjectiveText());
+                cmd.set("#CSQuestObj_" + i + ".Style.TextColor", COLOR_OBJ_DIMMED);
+            } else {
+                cmd.set("#CSQuestRow_" + i + ".Visible", false);
+            }
         }
         cmd.set("#CSEmptyState.Text", "No completed quests yet");
-        cmd.set("#CSEmptyState.Visible", true);
+        cmd.set("#CSEmptyState.Visible", n == 0);
     }
 
     /**
