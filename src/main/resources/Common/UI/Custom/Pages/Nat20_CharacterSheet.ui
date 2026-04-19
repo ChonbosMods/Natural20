@@ -42,7 +42,7 @@ $C.@Container {
           Text: "Character Stats";
           Anchor: (Height: 24);
           Padding: (Bottom: 4);
-          Style: (TextColor: #ffd700(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
+          Style: (TextColor: #cccccc(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
         }
 
         // XP readout (text)
@@ -269,7 +269,7 @@ $C.@Container {
           Text: "Quest Log";
           Anchor: (Height: 24);
           Padding: (Bottom: 4);
-          Style: (TextColor: #ffd700(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
+          Style: (TextColor: #cccccc(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
         }
 
         // Active / Completed tab buttons. Click toggles list mode. Task 16.
