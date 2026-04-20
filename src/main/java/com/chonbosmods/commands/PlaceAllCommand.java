@@ -22,8 +22,6 @@ import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
-import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
-import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
@@ -33,52 +31,30 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
 /**
- * Paste a Nat20 prefab at the player's feet AND exercise all three
- * marker-driven spawn paths in one call:
- * <ul>
- *   <li>NPCs at each {@code Nat20_Npc_Spawn} marker via {@link SettlementType#TOWN}'s
- *       {@link NpcSpawnRole} declarations (Villager / Guard / Artisan mix).</li>
- *   <li>Hostile mob group at each {@code Nat20_Mob_Group_Spawn} marker via
- *       {@link Nat20MobGroupSpawner}.</li>
- *   <li>Loot chest at each {@code Nat20_Chest_Spawn} marker via {@link QuestChestPlacer}.</li>
- * </ul>
- *
- * <p>This is a diagnostic tool: it bypasses the settlement worldgen trigger
- * and the fetch-quest proximity trigger so the same marker wiring can be
- * verified without a quest flow or a 512-block walk.
+ * Paste {@code Nat20/testStructure} at the player's feet and exercise all
+ * marker-driven spawn paths (NPCs, mob group, chest) in one call. Default
+ * entry point: no rotation. See {@link PlaceNorthCommand}, {@link PlaceSouthCommand},
+ * {@link PlaceEastCommand}, {@link PlaceWestCommand} for rotated variants.
  */
 public class PlaceAllCommand extends AbstractPlayerCommand {
 
-    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PlaceAll");
-    private static final String DEFAULT_PREFAB_KEY = "Nat20/testStructure";
-    private static final String DEFAULT_CHEST_ITEM = "Quest_Treasure";
-    private static final int CHAMPION_COUNT = 3;
-
-    private static final Map<String, String> MOB_ALIASES = Map.of(
-        "goblin",   "Goblin_Scrapper",
-        "trork",    "Trork_Warrior",
-        "skeleton", "Skeleton_Sand_Soldier"
-    );
-
-    private final OptionalArg<String> mobArg =
-        withOptionalArg("mob", "mob alias: goblin | trork | skeleton (default: goblin)", ArgTypes.STRING);
-    private final OptionalArg<String> prefabArg =
-        withOptionalArg("prefab", "prefab key (default: " + DEFAULT_PREFAB_KEY + ")", ArgTypes.STRING);
-    private final OptionalArg<String> wallDirArg =
-        withOptionalArg("wallDir", "simulated wall direction: -X | +X | -Z | +Z "
-            + "(entrance rotates to face away from it)", ArgTypes.STRING);
+    static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PlaceAll");
+    static final String PREFAB_KEY = "Nat20/testStructure";
+    static final String DEFAULT_CHEST_ITEM = "Quest_Treasure";
+    static final String DEFAULT_MOB_ROLE = "Goblin_Scrapper";
+    static final int CHAMPION_COUNT = 3;
 
     public PlaceAllCommand() {
-        super("placeall", "Paste a marker prefab and spawn NPCs/mob group/chest from its markers");
+        super("placeall", "Paste Nat20/testStructure and spawn NPCs/mob group/chest from its markers");
     }
 
     @Override
@@ -87,17 +63,20 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
                            @Nonnull Ref<EntityStore> ref,
                            @Nonnull PlayerRef playerRef,
                            @Nonnull World world) {
-        String key = ctx.provided(prefabArg) ? prefabArg.get(ctx) : DEFAULT_PREFAB_KEY;
-        String mobAlias = (ctx.provided(mobArg) ? mobArg.get(ctx) : "goblin").toLowerCase();
-        String mobRole = MOB_ALIASES.get(mobAlias);
-        if (mobRole == null) {
-            ctx.sendMessage(Message.raw("Unknown mob alias '" + mobAlias + "'. Use: goblin | trork | skeleton"));
-            return;
-        }
+        placeAndSpawn(ctx, store, ref, world, null);
+    }
 
-        Path path = Nat20PrefabPath.resolve(key);
+    /**
+     * Shared fan-out used by {@link PlaceAllCommand} and its rotation-test siblings.
+     *
+     * @param wantedWorldDir if non-null, the prefab is rotated so its direction
+     *                       marker points this direction; if null, no rotation.
+     */
+    static void placeAndSpawn(CommandContext ctx, Store<EntityStore> store, Ref<EntityStore> ref,
+                              World world, @Nullable Vector3i wantedWorldDir) {
+        Path path = Nat20PrefabPath.resolve(PREFAB_KEY);
         if (path == null) {
-            ctx.sendMessage(Message.raw("Prefab not found: " + key));
+            ctx.sendMessage(Message.raw("Prefab not found: " + PREFAB_KEY));
             return;
         }
 
@@ -106,7 +85,7 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
             buffer = PrefabBufferUtil.getCached(path);
         } catch (Exception e) {
             ctx.sendMessage(Message.raw("Failed to load buffer: " + e.getMessage()));
-            LOGGER.atWarning().withCause(e).log("Buffer load failed for %s", key);
+            LOGGER.atWarning().withCause(e).log("Buffer load failed for %s", PREFAB_KEY);
             return;
         }
 
@@ -118,22 +97,9 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
         Vector3d pos = tf.getPosition();
         Vector3i anchorPos = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
 
-        // Derive rotation from optional wallDir: entrance should face AWAY from the wall.
         Rotation yaw = Rotation.None;
-        String rotationDesc = "None (no wallDir)";
-        if (ctx.provided(wallDirArg)) {
-            String wallDir = wallDirArg.get(ctx);
-            Vector3i wantedWorldDir = switch (wallDir) {
-                case "-X" -> new Vector3i( 1, 0,  0);
-                case "+X" -> new Vector3i(-1, 0,  0);
-                case "+Z" -> new Vector3i( 0, 0, -1);
-                case "-Z" -> new Vector3i( 0, 0,  1);
-                default -> null;
-            };
-            if (wantedWorldDir == null) {
-                ctx.sendMessage(Message.raw("Unknown wallDir '" + wallDir + "'. Use: -X | +X | -Z | +Z"));
-                return;
-            }
+        String rotationDesc = "None";
+        if (wantedWorldDir != null) {
             MarkerScan scan;
             try {
                 scan = Nat20PrefabMarkerScanner.scan(buffer);
@@ -142,13 +108,13 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
                 return;
             }
             yaw = YawAlignment.computeYawToAlign(scan.directionVector(), wantedWorldDir);
-            rotationDesc = String.format("%s (prefabDir=%s, wantedWorldDir=%s)",
+            rotationDesc = String.format("%s (prefabDir=%s -> worldDir=%s)",
                 yaw, scan.directionVector(), wantedWorldDir);
         }
 
-        ctx.sendMessage(Message.raw("Pasting " + key + " at ("
+        ctx.sendMessage(Message.raw("Pasting " + PREFAB_KEY + " at ("
             + anchorPos.getX() + ", " + anchorPos.getY() + ", " + anchorPos.getZ()
-            + ") with mob=" + mobRole + " rotation=" + rotationDesc));
+            + ") rotation=" + rotationDesc));
 
         long seed = System.currentTimeMillis();
         Nat20PrefabPaster.paste(buffer, world, anchorPos, yaw, new Random(seed), store)
@@ -158,14 +124,14 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
                         + (error != null ? ": " + error.getMessage() : "")));
                     return;
                 }
-                world.execute(() -> fanOut(ctx, world, store, placed, mobRole, seed));
+                world.execute(() -> fanOut(ctx, world, store, placed, seed));
             });
     }
 
     private static void fanOut(CommandContext ctx, World world, Store<EntityStore> store,
-                                PlacedMarkers placed, String mobRole, long seed) {
+                                PlacedMarkers placed, long seed) {
         int npcs = spawnNpcs(world, store, placed, seed);
-        int groups = spawnMobGroups(world, placed, mobRole);
+        int groups = spawnMobGroups(world, placed);
         int chests = placeChests(world, placed);
 
         ctx.sendMessage(Message.raw(String.format(
@@ -184,8 +150,8 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
         Collections.shuffle(markers, new Random(seed));
 
         String cellKey = "placeall_"
-            + placed.anchorWorld().getX() + "_" + placed.anchorWorld().getZ();
-        long nameSalt = seed;
+            + placed.anchorWorld().getX() + "_" + placed.anchorWorld().getZ()
+            + "_" + seed;
 
         List<NpcRecord> spawned = new ArrayList<>();
         int markerIdx = 0;
@@ -193,12 +159,11 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
             for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
                 NpcRecord rec = Natural20.getInstance().getNpcManager()
                     .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
-                                        cellKey, nameSalt);
+                                        cellKey, seed);
                 if (rec != null) spawned.add(rec);
             }
         }
 
-        // Register the settlement so the NPCs don't get GC'd by the respawn system.
         SettlementRecord record = new SettlementRecord(
             cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
             placed.anchorWorld().getX(), placed.anchorWorld().getY(), placed.anchorWorld().getZ(),
@@ -210,13 +175,13 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
         return spawned.size();
     }
 
-    private static int spawnMobGroups(World world, PlacedMarkers placed, String mobRole) {
+    private static int spawnMobGroups(World world, PlacedMarkers placed) {
         if (placed.mobGroupSpawnsWorld().isEmpty()) return 0;
         Nat20MobGroupSpawner spawner = Natural20.getInstance().getMobGroupSpawner();
         int spawned = 0;
         for (Vector3d mgsPos : placed.mobGroupSpawnsWorld()) {
             Nat20MobGroupSpawner.SpawnResult r = spawner.spawnGroup(
-                world, mobRole, CHAMPION_COUNT, mgsPos, null, false);
+                world, DEFAULT_MOB_ROLE, CHAMPION_COUNT, mgsPos, null, false);
             if (r != null) spawned++;
         }
         return spawned;
