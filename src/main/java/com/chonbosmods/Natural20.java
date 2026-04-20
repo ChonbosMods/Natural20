@@ -689,13 +689,17 @@ public class Natural20 extends JavaPlugin {
                 stripForgottenTempleGatewayMarkers(world);
         });
 
-        // Resolve Nat20 prefab marker block IDs (fails fast if asset pack didn't register them)
-        Nat20PrefabConstants.resolve();
     }
 
     @Override
     protected void start() {
         getLogger().atInfo().log("Natural 20 loading prefabs...");
+
+        // Resolve Nat20 prefab marker block IDs. Deferred to start() because
+        // BlockType.getAssetMap() isn't populated until after every plugin's
+        // setup() has run (vanilla asset modules load their maps during setup,
+        // and we set up before them).
+        Nat20PrefabConstants.resolve();
 
         // Load prefabs: assets are available by start()
         placer.init();
