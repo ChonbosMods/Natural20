@@ -2,7 +2,9 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Replace hardcoded offsets and code-chosen anchors in the settlement/POI/fetch-chest pipelines with six author-painted marker blocks (`Nat20/Anchor`, `Nat20/Direction`, `Nat20/Npc_Spawn`, `Nat20/Mob_Group_Spawn`, `Nat20/Chest_Spawn`, `Nat20/Force_Empty`), and flip the semantics of plain `Empty` from force-carve to passthrough.
+**Goal:** Replace hardcoded offsets and code-chosen anchors in the settlement/POI/fetch-chest pipelines with six author-painted marker blocks (`Nat20_Anchor`, `Nat20_Direction`, `Nat20_Npc_Spawn`, `Nat20_Mob_Group_Spawn`, `Nat20_Chest_Spawn`, `Nat20_Force_Empty`), and flip the semantics of plain `Empty` from force-carve to passthrough.
+
+**POST-R&D UPDATE (Task 1.1 output):** asset IDs use underscores (flat keys), **not** slashes : see Schema notes below. All references to `Nat20/X` in the original plan have been superseded by `Nat20_X`. Block registration happens via **Item JSONs** with embedded `BlockType`, not standalone `.blockType.json` files. Tasks 1.2 : 1.4 were rewritten in place; tasks 1.5 onward reference the revised key format.
 
 **Architecture:** Custom BlockType assets register six marker blocks inside the Natural20 asset pack. A new `prefab/` package adds a scanner (single-pass buffer walk that records marker positions), a filter buffer wrapper (intercepts vanilla `PrefabUtil.paste`'s block callback to drop markers + plain Empty, and rewrites `Force_Empty` → `Empty`), and a paster (composes scanner + filter + vanilla paste, returns `PlacedMarkers` in world coords). Settlements, cave POIs, and fetch-quest chests consume marker positions instead of hardcoded offsets / random scatter / shared anchors.
 
@@ -14,6 +16,131 @@
 - Devserver cannot run from git worktrees : work on a branch directly, not a worktree.
 - `System.getLogger()` only writes to log files. Use `HytaleLogger.get("Name")` for console-visible logs.
 - `.ui` element IDs cannot contain underscores : doesn't apply here (no UI) but kept in mind.
+
+---
+
+## Schema notes (Task 1.1)
+
+### 1. Verdict
+
+**PIVOT.** The `.blockType.json` file format **does not exist** in Hytale's asset system. There are zero files matching that extension in `Assets.zip`, and the SDK does not register a standalone store for it.
+
+From `com/hypixel/hytale/server/core/asset/type/blocktype/config/BlockType.java` line 96, the `BlockType` codec is explicitly documented as:
+> "The definition for a block in the game. Can only be defined within an **Item** and not standalone."
+
+And from `com/hypixel/hytale/server/core/asset/type/item/config/Item.java` line 393:
+```java
+new KeyedCodec<>("BlockType", new ContainedAssetCodec<>(
+    BlockType.class, BlockType.CODEC, ContainedAssetCodec.Mode.INHERIT_ID_AND_PARENT))
+```
+
+BlockType is a **contained sub-asset** nested inside an Item JSON. The Item's file path and filename stem become the asset ID for both the Item AND the BlockType (`INHERIT_ID_AND_PARENT` mode). `AssetRegistryLoader` registers BlockType under `Item/Block/Blocks` with `setIdProvider(Item.class)` : meaning BlockType IDs are issued by the Item registry, not by block files on disk.
+
+The correct mechanism: **author six Item JSONs under `src/main/resources/Server/Item/Items/Nat20/`, each containing an embedded `"BlockType": { ... }` object.** This is how the vanilla `Editor_Anchor`, `Editor_Block`, and `Editor_Empty` markers are defined, and how Nat20's existing `Quest_Book`/`Quest_Scroll`/etc. items are already shipping block-placeable items.
+
+### 2. Concrete template (based on vanilla `Editor_Empty.json`)
+
+Minimal working marker item. Save as e.g. `src/main/resources/Server/Item/Items/Nat20/Anchor.json` (filename stem = asset ID = `Anchor`):
+
+```json
+{
+  "TranslationProperties": {
+    "Name": "server.items.Nat20_Anchor.name",
+    "Description": "server.items.Nat20_Anchor.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Editor_Empty.png",
+  "Quality": "Technical",
+  "Categories": [
+    "Tool.PrefabEditing"
+  ],
+  "SubCategory": "PrefabBlocks",
+  "BlockType": {
+    "DrawType": "Cube",
+    "Material": "Empty",
+    "RequiresAlphaBlending": true,
+    "Opacity": "Transparent",
+    "Group": "@Tech",
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "CubeShadingMode": "Flat",
+    "Textures": [
+      {
+        "All": "BlockTextures/Nat20/editor_marker.png"
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Block",
+  "Tags": {
+    "Type": [
+      "Editor"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}
+```
+
+Repeat per marker, changing filename + `TranslationProperties` keys. All six markers should be identical except for name/description strings (optionally, unique icons/textures to distinguish them in PrefabMaker).
+
+### 3. Texture reference format
+
+Textures are plain-string paths **relative to `Common/`** (client-side texture root). In-JSON value:
+```json
+"All": "BlockTextures/Nat20/editor_marker.png"
+```
+…resolves to the PNG at `assets/Common/BlockTextures/Nat20/editor_marker.png` (or in `Assets.zip` at `Common/BlockTextures/...`).
+
+**IMPORTANT:** the original plan's assumption that textures live at `assets/Client/Textures/Nat20/editor_marker.png` is **incorrect**. Block textures go under `Common/BlockTextures/` (no `Client/` prefix, no `Textures/` subfolder). Task 1.2 must be revised to:
+```
+mkdir -p assets/Common/BlockTextures/Nat20
+# extract Editor_Empty.png from Assets.zip
+unzip -j Assets.zip "Common/BlockTextures/Editor_Empty.png" \
+    -d assets/Common/BlockTextures/Nat20/
+mv assets/Common/BlockTextures/Nat20/Editor_Empty.png \
+   assets/Common/BlockTextures/Nat20/editor_marker.png
+```
+
+### 4. Collision / material values
+
+`BlockMaterial` enum has exactly two values (`com.hypixel.hytale.protocol.BlockMaterial`):
+- `"Empty"` : pass-through, no collision. What we want for markers.
+- `"Solid"` : full collision.
+
+For "no collision, still paintable and rendered," use **`"Material": "Empty"`** combined with **`"DrawType": "Cube"`** and **`"Opacity": "Transparent"`** (matches vanilla `Editor_Empty`). This is exactly what the vanilla `Editor_Empty` does, and verifies empirically by the fact that players walk through it in PrefabMaker while it remains visible and paint-clickable.
+
+There is **no separate `Collision` field**. Collision is derived from `Material` plus any `InteractionType.Collision` / `InteractionType.CollisionEnter` entries in `RootInteraction` (which we leave unset, so there are none). Walk-through is the default for `Material: Empty` blocks with no collision interactions.
+
+`DrawType` enum values (`com.hypixel.hytale.protocol.DrawType`): `Empty`, `GizmoCube`, `Cube`, `Model`, `CubeWithModel`. Use `Cube` for textured box markers.
+
+### 5. Palette discoverability
+
+**Automatic.** Once the Item JSONs load, the blocks appear in the PrefabMaker block-paint palette via the `Categories: ["Tool.PrefabEditing"]` + `SubCategory: "PrefabBlocks"` tags (these are the tags vanilla `Editor_*` items use to surface in the prefab tool). They also become accessible to any code doing `BlockType.getAssetMap().getAsset("Anchor")`.
+
+For `/setblock` tab-completion, block keys come from the same asset map and tab-complete automatically (proven by vanilla blocks like `Rock_Stone`).
+
+The `Group: "@Tech"` declaration is **load-bearing** : it prevents physics/gathering from being automatically applied to the block (per BlockType.java line 104 documentation: "A group of `@Tech` will prevent physics from being automatically applied").
+
+### 6. Gotchas
+
+1. **Filename stem IS the asset ID.** A file at `Server/Item/Items/Nat20/Anchor.json` registers asset key `Anchor`. There is no `Key` or `Id` field inside the JSON : it's inherited from the filename via `ContainedAssetCodec.Mode.INHERIT_ID_AND_PARENT`. This means the plan's six markers will be registered as flat IDs (`Anchor`, `Direction`, `Npc_Spawn`, `Mob_Group_Spawn`, `Chest_Spawn`, `Force_Empty`) : **not** namespaced as `Nat20/Anchor`. If namespace-style IDs are needed for collision safety with vanilla blocks, prefix the filenames themselves (`Nat20_Anchor.json`, `Nat20_Direction.json`, …). **Recommend renaming markers to `Nat20_*` stems** to avoid colliding with any future vanilla `Anchor` / `Direction` / etc. block.
+2. **Asset IDs are case-insensitive in `DefaultAssetMap`** but Linux filesystems are case-sensitive : stick to one casing (PascalCase_With_Underscores matches vanilla convention).
+3. **`Flags: {}` is required, not optional.** Omitting it may fail codec validation. Vanilla Editor blocks all include the empty object.
+4. **No `.block.json` or sibling files needed.** The Item JSON is fully self-contained.
+5. **Texture path is `Common/BlockTextures/...`, NOT `Client/Textures/...`.** The plan's Task 1.2 path is wrong and must be corrected before proceeding.
+6. **Nat20 asset pack already ships block-bearing items** (`src/main/resources/Server/Item/Items/nat20/Quest_Book.json` contains an embedded `BlockType`). We follow the same pattern, not invent a new one. Existing items use lowercase dir `nat20/` : consider whether to match (`nat20/`) or use `Nat20/` for visual distinction. Case-insensitivity means either works, but consistency with existing `nat20/` directory is probably safer.
+7. **`SubCategory: "PrefabBlocks"` is the magic tag** that puts a block into the PrefabMaker prefab-editing palette (alongside `Categories: ["Tool.PrefabEditing"]`). Without both, the block loads but isn't discoverable in the authoring tool.
+8. **Icon path** (`Icons/ItemsGenerated/...`) resolves to `Common/Icons/ItemsGenerated/...`. We can reuse vanilla `Editor_Empty.png` for all six markers (they don't need unique icons : the in-world color/texture can differ via separate `BlockTextures/Nat20/*.png` files per marker, or they can all share one texture distinguished only by tooltip).
+9. **The `ServerVersion` pinning in manifest may differ from the live server.** Natural20's manifest pins `2026.02.19-1a311a592` while the dev server runs `2026.02.18-f3b8fff95`. Asset loading itself is tolerant of this, but block-codec breaking changes between those two builds would be a concern. Low risk given both are from the same week.
+
+### Decision
+
+**PIVOT.** The `.blockType.json` path in the existing plan (Tasks 1.1 : 1.3) is not a valid asset format. The revised approach:
+
+- **Revised Task 1.2:** copy the marker texture to `assets/Common/BlockTextures/Nat20/editor_marker.png` (not `assets/Client/Textures/Nat20/`).
+- **Revised Task 1.3:** write six **Item JSONs** at `src/main/resources/Server/Item/Items/Nat20/` (or `nat20/` to match existing convention), each containing an embedded `BlockType` block per the template in section 2 above. Rename files to `Nat20_Anchor.json`, `Nat20_Direction.json`, `Nat20_Npc_Spawn.json`, `Nat20_Mob_Group_Spawn.json`, `Nat20_Chest_Spawn.json`, `Nat20_Force_Empty.json` so the resulting asset IDs are `Nat20_Anchor`, `Nat20_Direction`, etc. (no vanilla-collision risk, clear namespace).
+- **Revised Task 1.4 (runtime resolution):** lookup uses `BlockType.getAssetMap().getAsset("Nat20_Anchor")` (flat key, no slash). The scanner/filter code compares block names against this flat-string identifier; there is no `"Nat20/Anchor"` prefixed key.
+- Every downstream reference to a marker ID in the plan (including the Goal paragraph) should be updated to the `Nat20_X` form (underscore, not slash), and the design doc's marker-ID strings should be sanity-checked against this new convention before Task 1.3 is executed.
+
+All later phases (scanner, filter buffer, paster, settlement/POI/fetch integration) are unaffected : they only need the six block-name constants to resolve correctly at runtime, which they will once Items are loaded.
 
 ---
 
@@ -104,85 +231,147 @@ unzip -l ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/packa
 
 ---
 
-### Task 1.2: Copy the editor-marker texture into our asset pack
+### Task 1.2: Copy the editor-marker texture into our asset pack (REVISED)
 
 **Files:**
-- Create: `assets/Client/Textures/Nat20/editor_marker.png`
+- Create: `assets/Common/BlockTextures/Nat20/editor_marker.png`
 
 **Step 1:** Locate the vanilla `Editor_Empty` texture.
 
 ```bash
-unzip -l ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip | grep -iE "editor.*empty.*png"
+unzip -l ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip | grep -iE "BlockTextures/Editor_Empty"
 ```
+Expected path: `Common/BlockTextures/Editor_Empty.png` (texture lives in Common, not Client).
 
-**Step 2:** Extract it.
+**Step 2:** Extract into our asset pack.
 
 ```bash
-mkdir -p /home/keroppi/Development/Hytale/Natural20/assets/Client/Textures/Nat20
+mkdir -p /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20
 unzip -j ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip \
-    "<path-from-step-1>" -d /home/keroppi/Development/Hytale/Natural20/assets/Client/Textures/Nat20/
-mv /home/keroppi/Development/Hytale/Natural20/assets/Client/Textures/Nat20/Editor_Empty.png \
-   /home/keroppi/Development/Hytale/Natural20/assets/Client/Textures/Nat20/editor_marker.png
+    "Common/BlockTextures/Editor_Empty.png" \
+    -d /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/
+mv /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/Editor_Empty.png \
+   /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/editor_marker.png
 ```
 
 **Step 3:** Verify file is a valid PNG.
 
 ```bash
-file /home/keroppi/Development/Hytale/Natural20/assets/Client/Textures/Nat20/editor_marker.png
+file /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/editor_marker.png
 ```
-Expected: `PNG image data, 16 x 16, ...` (or whatever the native size is).
+Expected: `PNG image data, ...`.
 
 **Step 4:** Commit.
 
 ```bash
-git add assets/Client/Textures/Nat20/editor_marker.png
+git add assets/Common/BlockTextures/Nat20/editor_marker.png
 git commit -m "chore(assets): copy Editor_Empty texture for Nat20 markers"
 ```
 
 ---
 
-### Task 1.3: Write the six BlockType JSON files
+### Task 1.3: Write the six marker Item JSONs (REVISED)
 
 **Files:**
-- Create: `assets/Server/BlockTypes/Nat20/Anchor.blockType.json`
-- Create: `assets/Server/BlockTypes/Nat20/Direction.blockType.json`
-- Create: `assets/Server/BlockTypes/Nat20/Npc_Spawn.blockType.json`
-- Create: `assets/Server/BlockTypes/Nat20/Mob_Group_Spawn.blockType.json`
-- Create: `assets/Server/BlockTypes/Nat20/Chest_Spawn.blockType.json`
-- Create: `assets/Server/BlockTypes/Nat20/Force_Empty.blockType.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Anchor.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Direction.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Npc_Spawn.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Mob_Group_Spawn.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Chest_Spawn.json`
+- Create: `src/main/resources/Server/Item/Items/nat20/Nat20_Force_Empty.json`
 
-**Step 1:** Using the schema discovered in Task 1.1, author `Anchor.blockType.json`:
+**Important:** BlockType is **not** a standalone asset in Hytale. Per Task 1.1's investigation, it is a contained sub-asset inside an Item JSON (`ContainedAssetCodec.Mode.INHERIT_ID_AND_PARENT`). The filename stem becomes the asset ID for both the Item and the embedded BlockType. Vanilla `Editor_Anchor`, `Editor_Block`, `Editor_Empty` use this same pattern; so does Natural20's existing `Quest_Book.json`.
+
+**Step 1:** Read an existing Natural20 item that ships a BlockType for reference (use its exact field set as the template to follow):
+
+```bash
+cat /home/keroppi/Development/Hytale/Natural20/src/main/resources/Server/Item/Items/nat20/Quest_Book.json
+```
+
+**Step 2:** Author `Nat20_Anchor.json` at `src/main/resources/Server/Item/Items/nat20/Nat20_Anchor.json`:
 
 ```json
 {
-  "Key": "Nat20/Anchor",
-  "Material": "Solid",
-  "Collision": "None",
-  "Rendering": {
-    "Texture": "Nat20/editor_marker"
-  }
+  "TranslationProperties": {
+    "Name": "server.items.Nat20_Anchor.name",
+    "Description": "server.items.Nat20_Anchor.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Editor_Empty.png",
+  "Quality": "Technical",
+  "Categories": [
+    "Tool.PrefabEditing"
+  ],
+  "SubCategory": "PrefabBlocks",
+  "BlockType": {
+    "DrawType": "Cube",
+    "Material": "Empty",
+    "RequiresAlphaBlending": true,
+    "Opacity": "Transparent",
+    "Group": "@Tech",
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "CubeShadingMode": "Flat",
+    "Textures": [
+      {
+        "All": "BlockTextures/Nat20/editor_marker.png"
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Block",
+  "Tags": {
+    "Type": [
+      "Editor"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
 }
 ```
-(The exact field names come from Task 1.1's findings. The snippet above is a placeholder shape.)
 
-**Step 2:** Repeat for the other five keys with identical fields except the `Key`.
+Key details per Task 1.1 notes:
+- `Material: "Empty"` + `DrawType: "Cube"` + `Opacity: "Transparent"` = walk-through, textured, paintable marker (mirrors vanilla `Editor_Empty`).
+- `Group: "@Tech"` suppresses automatic physics/gathering.
+- `Flags: {}` is required (codec validation), not optional.
+- `Categories + SubCategory` drop the block into the PrefabMaker paint palette automatically.
+- The texture reference `BlockTextures/Nat20/editor_marker.png` is resolved relative to `Common/`.
 
-**Step 3:** Verify the devserver can load the pack.
+**Step 3:** Repeat for the other five markers, changing only the filename and the two `TranslationProperties` keys (`server.items.<Filename>.name` / `.description`):
+
+- `Nat20_Direction.json`
+- `Nat20_Npc_Spawn.json`
+- `Nat20_Mob_Group_Spawn.json`
+- `Nat20_Chest_Spawn.json`
+- `Nat20_Force_Empty.json`
+
+All six share the same `BlockType` body : same texture, same material, same everything. Distinguishing them in the editor is done via the filename/translation key; runtime distinction is by asset ID.
+
+**Step 4:** Verify the devserver loads the asset pack without errors.
 
 ```bash
 ./gradlew compileJava
-./gradlew devServer 2>&1 | head -100 | grep -iE "Nat20/(Anchor|Direction|Npc_Spawn|Mob_Group_Spawn|Chest_Spawn|Force_Empty)|ERROR"
+./gradlew devServer 2>&1 | head -200 | grep -iE "Nat20_(Anchor|Direction|Npc_Spawn|Mob_Group_Spawn|Chest_Spawn|Force_Empty)|Failed to load|Unknown key"
 ```
-(Kill with Ctrl+C after the pack is loaded; we're only watching startup logs.)
+(Kill after plugin load.)
 
-Expected: one log line per block registration or no error. Any `Failed to load block` is a blocker : revisit schema.
+Expected: no `Failed to load` / `Unknown key` errors for the six IDs. Their Item registration log lines (if logged) contain `Nat20_Anchor` etc. as the asset key.
 
-**Step 4:** Commit.
+**Step 5:** In-game sanity: connect to the devserver and test `/setblock Nat20_Anchor` to verify the ID resolves.
+
+**Step 6:** Commit.
 
 ```bash
-git add assets/Server/BlockTypes/Nat20/
-git commit -m "feat(prefab): register six Nat20 marker block types"
+git add src/main/resources/Server/Item/Items/nat20/Nat20_*.json
+git commit -m "feat(prefab): register six Nat20 marker items + embedded block types"
 ```
+
+**Note on asset IDs:** after this task, downstream code references these six keys as flat strings:
+- `Nat20_Anchor`
+- `Nat20_Direction`
+- `Nat20_Npc_Spawn`
+- `Nat20_Mob_Group_Spawn`
+- `Nat20_Chest_Spawn`
+- `Nat20_Force_Empty`
+
+The rest of this plan (Task 1.4 onwards) uses these exact strings.
 
 ---
 
@@ -209,8 +398,8 @@ class Nat20PrefabConstantsTest {
         // assert the static strip key list is exactly what the design mandates.
         assertEquals(
             java.util.Set.of(
-                "Nat20/Anchor", "Nat20/Direction", "Nat20/Npc_Spawn",
-                "Nat20/Mob_Group_Spawn", "Nat20/Chest_Spawn", "Nat20/Force_Empty",
+                "Nat20_Anchor", "Nat20_Direction", "Nat20_Npc_Spawn",
+                "Nat20_Mob_Group_Spawn", "Nat20_Chest_Spawn", "Nat20_Force_Empty",
                 "Editor_Anchor", "Editor_Block", "Editor_Empty",
                 "Prefab_Spawner_Block", "Spawner_Rat",
                 "Block_Spawner_Block", "Block_Spawner_Block_Large",
@@ -245,8 +434,8 @@ public final class Nat20PrefabConstants {
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PrefabMarkers");
 
     public static final Set<String> STRIP_KEYS = Set.of(
-        "Nat20/Anchor", "Nat20/Direction", "Nat20/Npc_Spawn",
-        "Nat20/Mob_Group_Spawn", "Nat20/Chest_Spawn", "Nat20/Force_Empty",
+        "Nat20_Anchor", "Nat20_Direction", "Nat20_Npc_Spawn",
+        "Nat20_Mob_Group_Spawn", "Nat20_Chest_Spawn", "Nat20_Force_Empty",
         "Editor_Anchor", "Editor_Block", "Editor_Empty",
         "Prefab_Spawner_Block", "Spawner_Rat",
         "Block_Spawner_Block", "Block_Spawner_Block_Large",
@@ -268,12 +457,12 @@ public final class Nat20PrefabConstants {
     /** Call from Natural20.setup() after the asset pack has loaded. */
     public static void resolve() {
         var map = BlockType.getAssetMap();
-        anchorId         = requireId(map, "Nat20/Anchor");
-        directionId      = requireId(map, "Nat20/Direction");
-        npcSpawnId       = requireId(map, "Nat20/Npc_Spawn");
-        mobGroupSpawnId  = requireId(map, "Nat20/Mob_Group_Spawn");
-        chestSpawnId     = requireId(map, "Nat20/Chest_Spawn");
-        forceEmptyId     = requireId(map, "Nat20/Force_Empty");
+        anchorId         = requireId(map, "Nat20_Anchor");
+        directionId      = requireId(map, "Nat20_Direction");
+        npcSpawnId       = requireId(map, "Nat20_Npc_Spawn");
+        mobGroupSpawnId  = requireId(map, "Nat20_Mob_Group_Spawn");
+        chestSpawnId     = requireId(map, "Nat20_Chest_Spawn");
+        forceEmptyId     = requireId(map, "Nat20_Force_Empty");
 
         stripIds = new IntOpenHashSet();
         for (String key : STRIP_KEYS) {
@@ -677,10 +866,10 @@ public final class Nat20PrefabMarkerScanner {
         );
 
         if (anchors.size() != 1) {
-            throw new IllegalArgumentException("Prefab must have exactly one Nat20/Anchor block; found " + anchors.size());
+            throw new IllegalArgumentException("Prefab must have exactly one Nat20_Anchor block; found " + anchors.size());
         }
         if (directions.size() != 1) {
-            throw new IllegalArgumentException("Prefab must have exactly one Nat20/Direction block; found " + directions.size());
+            throw new IllegalArgumentException("Prefab must have exactly one Nat20_Direction block; found " + directions.size());
         }
 
         Vector3i anchor = anchors.get(0);
@@ -1724,16 +1913,16 @@ git commit -m "chore(prefabs): delete legacy prefabs ahead of marker re-authorin
 **Manual procedure, no code changes:**
 
 1. Re-author `tree1` inside PrefabMaker:
-   - Place **one** `Nat20/Anchor` block.
-   - Place **one** `Nat20/Direction` block exactly one cell away from Anchor on +X (or any cardinal).
-   - Place 2-3 `Nat20/Npc_Spawn` blocks at reasonable NPC spawn spots.
-   - Place 1 `Nat20/Mob_Group_Spawn` block (optional).
-   - Place 1 `Nat20/Chest_Spawn` block (optional).
-   - Paint `Nat20/Force_Empty` where you want terrain carved.
+   - Place **one** `Nat20_Anchor` block.
+   - Place **one** `Nat20_Direction` block exactly one cell away from Anchor on +X (or any cardinal).
+   - Place 2-3 `Nat20_Npc_Spawn` blocks at reasonable NPC spawn spots.
+   - Place 1 `Nat20_Mob_Group_Spawn` block (optional).
+   - Place 1 `Nat20_Chest_Spawn` block (optional).
+   - Paint `Nat20_Force_Empty` where you want terrain carved.
    - `/prefab save tree1`.
 2. Verify the saved `tree1.prefab.json` contains all six Nat20 keys:
    ```bash
-   grep -o '"name": "Nat20/[^"]*"' ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/UserData/Mods/nat20.nat20/Server/Prefabs/tree1.prefab.json | sort -u
+   grep -o '"name": "Nat20_[^"]*"' ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/UserData/Mods/nat20.nat20/Server/Prefabs/tree1.prefab.json | sort -u
    ```
    Expected: six unique `Nat20/...` keys.
 3. Copy `tree1.prefab.json` into `assets/Server/Prefabs/Nat20/`.

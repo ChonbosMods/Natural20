@@ -3,6 +3,8 @@
 **Status:** locked, ready for implementation plan
 **Date:** 2026-04-20
 
+**POST-R&D UPDATE:** Marker asset IDs use underscores (flat keys `Nat20_Anchor`, `Nat20_Direction`, ...), **not** slashes (`Nat20/Anchor`). Block registration happens via Item JSONs with embedded `BlockType` sub-assets, authored under `src/main/resources/Server/Item/Items/nat20/Nat20_*.json`. The `.blockType.json` file format referenced in the original design does not exist in Hytale. See `docs/plans/2026-04-20-nat20-prefab-markers-plan.md` Schema notes section for full details. The design's architecture, semantics, and wire-up are unchanged : only the asset-registration mechanism and ID format were updated.
+
 ## Problem
 
 Natural20 places prefabs for settlements and hostile POIs via `PrefabUtil.paste`. The placement pipeline today has three gaps:
