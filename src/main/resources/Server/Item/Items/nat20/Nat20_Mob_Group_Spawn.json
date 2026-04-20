@@ -1,0 +1,34 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Nat20_Mob_Group_Spawn.name",
+    "Description": "server.items.Nat20_Mob_Group_Spawn.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Editor_Empty.png",
+  "Quality": "Technical",
+  "Categories": [
+    "Tool.PrefabEditing"
+  ],
+  "SubCategory": "PrefabBlocks",
+  "BlockType": {
+    "DrawType": "Cube",
+    "Material": "Empty",
+    "RequiresAlphaBlending": true,
+    "Opacity": "Transparent",
+    "Group": "@Tech",
+    "Flags": {},
+    "BlockParticleSetId": "Stone",
+    "CubeShadingMode": "Flat",
+    "Textures": [
+      {
+        "All": "BlockTextures/Nat20/editor_marker.png"
+      }
+    ]
+  },
+  "PlayerAnimationsId": "Block",
+  "Tags": {
+    "Type": [
+      "Editor"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone"
+}
