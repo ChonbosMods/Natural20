@@ -24,11 +24,11 @@
       "expositionTurnInText": "I slept last night. First time in days. But the trouble isn't just the {enemy_type_plural} themselves. There's the mess they made of everything I'd put aside.",
       "conflict1Text": "They tore through my stores and I've got nothing left to work with. I need {gather_count} {quest_item} just to get back on my feet. I hate having to ask for more, but I'm out of options.",
       "conflict1TurnInText": "That's enough to start over with. I can feel my hands not shaking when I count it out. It's been a long time since I could say that.",
-      "resolutionText": "I'll be all right now. Truly. Take {reward_item}, with every coin I'd been hiding under the floorboards folded into it. It isn't what your time was worth, but it's offered and meant. You gave me back my own home.",
+      "resolutionText": "I'll be all right now. Truly. Take {reward_item}, with every coin I'd been hiding under the floorboards folded into it. I'm offering it with everything I have. You gave me back my own home.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "The truth is I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
+        "passText": "I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
         "failText": "It's been a hard stretch. I'd rather not get into the details."
       },
       "valence": "negative",
@@ -65,7 +65,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
-        "passText": "All right. The truth is the order isn't just an order. It's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
+        "passText": "All right. That order's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
         "failText": "It's just an order. A late one is bad enough. Let's leave it there."
       },
       "valence": "negative",
@@ -106,7 +106,7 @@
       "conflict1TurnInText": "I can't believe I'm standing here saying it's over. Or near to it. Even {settlement_npc} stopped looking over their shoulder this morning.",
       "conflict2Text": "There's one last thing, and I promise it's the last. They wrecked our food stores when they were prowling around. I need {gather_count} {quest_item} put aside or we won't see spring. It's not glory work, I know.",
       "conflict2TurnInText": "That'll get us through. I keep wanting to cry and I keep not letting myself, because I'm afraid if I start I won't stop.",
-      "resolutionText": "You saved this place. I'm not exaggerating and I'm not being dramatic, I'm just saying the thing as it is. Take {reward_item}. I'd been hoarding it against a worse winter than this one, and I can't think of a better use for it than your hand. We'll remember you here.",
+      "resolutionText": "You saved this place. I mean that plainly. Take {reward_item}. I'd been hoarding it against a worse winter than this one, and I can't think of a better use for it than your hand. We'll remember you here.",
       "valence": "negative",
       "roleAffinity": []
     },
@@ -128,11 +128,11 @@
       "expositionTurnInText": "You spoke to {target_npc}? And she's holding on? I can breathe a little. But if she's still that weak, there's something I need you to bring her.",
       "conflict1Text": "She used to swear by a particular {quest_item_full} when our mother was sick. It always brought her around. I don't have any here. Bring it back to me and I'll get it to her tonight, I swear I will.",
       "conflict1TurnInText": "Oh, thank everything. I'll have this in her hands by sundown if I have to walk through snow to do it.",
-      "resolutionText": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It isn't enough, but it's what I have, and there's a debt here I won't forget. You gave me back my sister.",
+      "resolutionText": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It's what I have to give, and there's a debt here I won't forget. You gave me back my sister.",
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. I'm not asking you to save my sister from the illness, I'm asking you to save me from losing her the same way I lost everyone else.",
+        "passText": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. Just don't let me lose my sister the same way I lost everyone else.",
         "failText": "She just needs help. That's all there is to it. I can't think past that right now."
       },
       "valence": "negative",
@@ -189,7 +189,7 @@
       ],
       "expositionText": "{settlement_npc} took a bad fall hauling water and they've been getting worse, not better. There's a {quest_item} that would help. I know it would, I've seen it work before, but I haven't been able to leave their side long enough to find one. Please.",
       "acceptText": "Thank you. I'll stay with them until you're back. Just hurry, all right? Hurry.",
-      "declineText": "You're really going to walk away? Look at me. They could die. I'm not exaggerating to move you, I'm telling you what I'm watching happen.",
+      "declineText": "You're really going to walk away? Look at me. They could die. I'm telling you what I'm watching happen.",
       "expositionTurnInText": "You found one. Oh, you found one. I'll get this into them right now. But I'm worried about something else, and I have to say it before I lose my nerve.",
       "conflict1Text": "The {enemy_type_plural} that have been circling have us pinned. I can't even get to the next house to ask for help without one of them at the gate. {kill_count} of them cleared and we'd have a way to bring more hands in. I can't keep doing this alone.",
       "conflict1TurnInText": "I heard the road get quiet. That's a sound I haven't heard in days. I'm not unclenching yet, but I'm closer to it.",
@@ -225,7 +225,7 @@
       "expositionText": "The storm took half our roofs and most of what we'd dried for winter. Nobody died, which is the part I keep telling myself. We need {gather_count} {quest_item} to start patching things up before the next bad night, and I've got nobody left to spare from the cleanup.",
       "acceptText": "All right. Thank you. I won't pretend that doesn't take a weight off, because it does.",
       "declineText": "I understand. We'll do what we can. We always do. It's just going to take longer this way, and longer is the part I'm afraid of.",
-      "expositionTurnInText": "That's a real start. We'll have something over our heads tonight that isn't a tarp. But the food stores are the part that's keeping me up.",
+      "expositionTurnInText": "That's a real start. We'll have a real roof over our heads tonight instead of a tarp. The food stores are the part that's keeping me up.",
       "conflict1Text": "We lost most of what was in the larders when the rain got in. We need {gather_count} {quest_item} laid in if anyone's eating come midwinter. Plain work, but it's what keeps us fed.",
       "conflict1TurnInText": "That's a meal a day for everyone here, give or take. I can look {settlement_npc} in the eye now without flinching. That matters more than I can say.",
       "conflict2Text": "There's one last thing. The storm pushed {enemy_type_plural} out of wherever they were, and they've been creeping in to take what we've put aside. {kill_count} of them cleared and we can finish rebuilding without losing it twice.",
@@ -339,7 +339,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. I'm not asking you for an herb. I'm asking you to make sure I don't lose another one.",
+        "passText": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. Make sure I don't lose another one.",
         "failText": "She's just sick. Children get sick. That's all there is to say about it right now."
       },
       "valence": "negative",
@@ -374,7 +374,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 14,
-        "passText": "All right. The truth is I haven't slept more than two hours at a stretch since spring. I'm not managing as well as I look like I am, and some mornings I don't know if I have it in me to keep going. I'd never tell him that, but I'm telling you, because I need someone to know.",
+        "passText": "All right. I haven't slept more than two hours at a stretch since spring. I'm not managing as well as I look like I am, and some mornings I don't know if I have it in me to keep going. I'd never tell him that, but I'm telling you, because I need someone to know.",
         "failText": "I'm managing. I always manage. That's what you do for family."
       },
       "valence": "negative",
@@ -422,7 +422,7 @@
       "acceptText": "Good. I was hoping you'd say that. Let's get it handled.",
       "declineText": "Then I'll keep waiting for someone with a spine. Don't be surprised when the problem gets worse.",
       "expositionTurnInText": "That's the kind of work I wanted to see. The pressure on us has eased already. I can feel it. But I don't think we're done yet.",
-      "conflict1Text": "I want to be sure they don't come back. There's a {quest_item} I need. It'll let me know we've actually pulled the source out, not just trimmed the edges. Bring me that and I'll sleep easy for the first time in weeks.",
+      "conflict1Text": "I want to be sure they don't come back. There's a {quest_item} I need. It'll let me know we've actually pulled the source out this time, roots and all. Bring me that and I'll sleep easy for the first time in weeks.",
       "conflict1TurnInText": "That's it. That's exactly what I needed to see. It's really over now.",
       "resolutionText": "I can hear myself think again. Take {reward_item}. I set the silver aside for this job the day I admitted to myself I wasn't going to do it, and I'm glad it's in the hand of someone who actually did. Go on, you've earned it.",
       "skillCheck": {
@@ -491,7 +491,7 @@
       "expositionTurnInText": "Good work. They'll feel that. But knocking them back isn't the same as ending it. I want to know who else has been seeing what we're seeing.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} has been losing more than we have. They're a {target_npc_role}, and they've been keeping count. Go hear them out, then come back. We'll decide the next step together.",
       "conflict1TurnInText": "So {target_npc} has been bleeding even worse than us. That's it then. We're not the only target, and that means the source is bigger than I thought.",
-      "conflict2Text": "We finish this together. There's a stronger group of {enemy_type_plural} out there, the ones actually driving the rest, and I want {kill_count} of them dealt with. End the pattern, not just the symptoms.",
+      "conflict2Text": "We finish this together. There's a stronger group of {enemy_type_plural} out there, the ones actually driving the rest, and I want {kill_count} of them dealt with. Finish it properly this time.",
       "conflict2TurnInText": "That's done, then. Feels strange to say it out loud. The pattern is broken.",
       "resolutionText": "Three weeks ago I'd given up on seeing this resolved in my lifetime. Take {reward_item}. It's the cleanest thing I've handed anyone in a long time, and I mean that. Whatever happens next, this part is over.",
       "skillCheck": {
@@ -561,7 +561,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 14,
-        "passText": "You see right through me, don't you. The truth is I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
+        "passText": "You see right through me, don't you. I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
         "failText": "I've said what I'm going to say. The rest is mine."
       },
       "valence": "negative",
@@ -628,7 +628,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "All right, here's the truth. This isn't really about the project. It's about proving to myself that I can still chase a thing and catch it. I haven't felt that way in a long time, and I'm not letting it slip past me.",
+        "passText": "All right. The project isn't really the point. I want to prove to myself I can still chase a thing and catch it, and I haven't felt that way in a long time. I'm not letting it slip past me.",
         "failText": "It's a project. A good one. That's enough reason on its own."
       },
       "valence": "positive",
@@ -729,7 +729,7 @@
           "type": "FETCH_ITEM"
         }
       ],
-      "expositionText": "I've been dreaming about this for ages and I'm finally putting it into motion. I want to make something the people here will actually remember, not just useful, but special. I need {gather_count} {quest_item} to even start, and I want to start today.",
+      "expositionText": "I've been dreaming about this for ages and I'm finally putting it into motion. I want to make something the people here will actually remember. Something special. I need {gather_count} {quest_item} to even start, and I want to start today.",
       "acceptText": "Yes! Oh, this is going to be so good. I can already see it coming together in my head.",
       "declineText": "Oh. Well, the dream isn't going anywhere. I'll get there eventually, even if it takes me twice as long alone.",
       "expositionTurnInText": "Look at all this. This is real now. I'm not just talking about it anymore. We're actually building toward something.",
@@ -759,7 +759,7 @@
           "countMax": 10
         }
       ],
-      "expositionText": "I want to be the best at what I do. Not just decent. The best. I need to learn from someone who's already there. {target_npc} in {target_npc_settlement} is a {target_npc_role}, and from what I've heard, they're the one I should be talking to. Go ask them if they'd share what they know.",
+      "expositionText": "I want to be the best at what I do. I need to learn from someone who's already there. {target_npc} in {target_npc_settlement} is a {target_npc_role}, and from what I've heard, they're the one I should be talking to. Go ask them if they'd share what they know.",
       "acceptText": "Yes! Thank you for taking me seriously. I know it sounds grand, but I mean it.",
       "declineText": "That's a shame. I'll keep working at it the slow way, then. I won't stop, even if it takes years longer.",
       "expositionTurnInText": "{target_npc} actually agreed to share their knowledge? I could cry. That's exactly what I needed to hear today. Validation that this isn't a foolish dream after all.",
@@ -796,7 +796,7 @@
           "type": "FETCH_ITEM"
         }
       ],
-      "expositionText": "I've got a vision and I'm tired of keeping it inside my own head. I want to make {settlement_name} better than it was when I got here, not just patched up, actually better. To begin I need {gather_count} {quest_item}. That's the seed of the whole idea.",
+      "expositionText": "I've got a vision and I'm tired of keeping it inside my own head. I want to make {settlement_name} actually better than it was when I got here. To begin I need {gather_count} {quest_item}. That's the seed of the whole idea.",
       "acceptText": "You don't know what this means to me. I've been waiting for someone willing to start this with me, and here you are.",
       "declineText": "Ah. Well, dreams keep, and so do I. I'll find another way. I always do.",
       "expositionTurnInText": "Look at that. The first piece of something I've been picturing for months. I can see it now. The rest of it, I mean. It's all going to come together.",
@@ -833,12 +833,12 @@
       "declineText": "Ah well. I'll dig around tomorrow and see what I can turn up.",
       "expositionTurnInText": "There it is. Exactly what I needed. You've got a good eye for the right thing. There's one more piece to this, though, if you've still got the patience.",
       "conflict1Text": "The reason I couldn't fetch it myself is the {enemy_type_plural} that have settled in around here. I don't dare cross the area until someone thins them out. Could you handle {kill_count} of them for me?",
-      "conflict1TurnInText": "Good. That should make the walk safer for the rest of us, too. I owe you for both pieces of this, not just the one.",
+      "conflict1TurnInText": "Good. That should make the walk safer for the rest of us, too. I owe you for both pieces of this.",
       "resolutionText": "That's me set for the season, thanks to you. Take {reward_item}, and know there's a chair by my fire for you whenever you come back through. You've made my work possible again.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
-        "passText": "Truth is, I've been making do with scraps for nearly a month and pretending I wasn't. Pride's a stubborn thing in folks my age. You're the first person I've actually told.",
+        "passText": "I've been making do with scraps for nearly a month and pretending I wasn't. Pride's a stubborn thing in folks my age. You're the first person I've actually told.",
         "failText": "Oh, it's nothing dire. Just a bit of an inconvenience, you know how it is."
       },
       "valence": "neutral",
@@ -1009,7 +1009,7 @@
       "acceptText": "Then I'm not entirely on my own with this. Good.",
       "declineText": "Of course you'd say no. Why would today be any different.",
       "expositionTurnInText": "That's most of what I'd lost. Looking at it stacked up again, I almost feel like myself. Almost. There's still the matter of what caused all this.",
-      "conflict1Text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. Not for revenge. For the simple fact that I shouldn't have to live with the worry.",
+      "conflict1Text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. This isn't about revenge. I just shouldn't have to live with the worry.",
       "conflict1TurnInText": "There. Now I can sleep without expecting to wake up to another mess. I won't forget this.",
       "resolutionText": "I'm whole again. Took longer than I'd have liked, but here we are. Take {reward_item}, pulled from a stash I'd been holding for better days that finally came. You got me back what I'd already mourned, and that's worth more than what I'm handing over.",
       "valence": "negative",
@@ -1049,7 +1049,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 14,
-        "passText": "I haven't slept properly in months. Not because I'm afraid. Because I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
+        "passText": "I haven't slept properly in months. It isn't fear, exactly. I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
         "failText": "I'm doing what needs doing. There's not much more to say about it."
       },
       "valence": "neutral",
@@ -1256,7 +1256,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "The truth is I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
+        "passText": "I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
         "failText": "He's stubborn and I'm stubborn. That's all there is to say about it."
       },
       "valence": "negative",
@@ -1289,7 +1289,7 @@
       "expositionTurnInText": "{target_npc} says he's been struggling? That's not what I expected to hear, and it changes things. I was ready to keep being angry forever, and now I find out he's been quietly losing ground while I sulked.",
       "conflict1Text": "{target_npc} mentioned that {enemy_type_plural} have been making the area between us dangerous for both of us. If I go to him and ask his help with it, he'll think it's a trap. But if you handle {kill_count} of them first, I can show up with proof that I cleared the way to see him.",
       "conflict1TurnInText": "It's safer than it's been all season. I can't believe it took {enemy_type_plural} to make me consider walking that road again. I'm starting to wonder if I should have gone to him a long time ago.",
-      "conflict2Text": "I want to bring him something useful, not just words. Could you gather {gather_count} {quest_item}? It's the kind of thing he always needed and could never get enough of. If I show up with that on top of clearing the way, he'll know I mean it.",
+      "conflict2Text": "I want to bring him something useful this time. Could you gather {gather_count} {quest_item}? It's the kind of thing he always needed and could never get enough of. If I show up with that on top of clearing the way, he'll know I mean it.",
       "conflict2TurnInText": "That's perfect. I'm going to pack tonight and walk over in the morning. Whatever happens between us, I'll know I tried, and that's more than I could have said yesterday.",
       "resolutionText": "We didn't fix everything. We're not going back to the way it was, and I think we both knew that the moment we sat down. But we shook hands, and we'll share the road, and that's enough. Take {reward_item}. It's most of what I've put aside these last months, and there's no one I'd rather see it go to. You gave me back something I didn't think I could get back.",
       "skillCheck": {
@@ -1408,7 +1408,7 @@
         }
       ],
       "expositionText": "{settlement_npc} has been getting praise lately for work I'm fairly sure I taught them, and I don't like the way it's making me feel. I think they're letting people believe they came up with my methods on their own. Go talk to {target_npc} in {target_npc_settlement}. They were here when I was teaching {settlement_npc}, and they'll remember whose hands shaped what.",
-      "acceptText": "Good. I'm not asking to be petty, I just want to know whether I've been forgotten on purpose or by accident. Either is bad, but one is worse.",
+      "acceptText": "Good. I just want to know whether I've been forgotten on purpose or by accident. Either is bad, but one is worse.",
       "declineText": "Of course. Why would you care about whose work is whose, when nobody else seems to either. I'll keep my mouth shut about it like a good little teacher.",
       "expositionTurnInText": "{target_npc} said that? So {settlement_npc} has been giving me credit, just not in earshot of me. That's not what I was expecting, and now I feel a little ill about how I've been thinking of them.",
       "conflict1Text": "I want to be sure before I let myself off the hook. Could you bring me a {quest_item}, the kind {settlement_npc} has been making lately? If I see it for myself, I'll know whether they're using my methods or something they figured out on their own. Either way I want to stop guessing.",
@@ -1510,7 +1510,7 @@
       "expositionTurnInText": "{target_npc} told you about the marks on the wood? I knew there was something off about how the damage looked, and now I have a name for what made it. This was never something a person could have done.",
       "conflict1Text": "I need to show people, not just tell them. Bring me a {quest_item}. It's the kind of thing that would have been left behind if my version of events is right. If we can put it in front of the accusers, the story falls apart on its own.",
       "conflict1TurnInText": "This is exactly what I was hoping for. Anyone who looks at this and still wants to blame my friend is choosing to be wrong, and I can work with that.",
-      "conflict2Text": "I need one more piece. There should also be a {quest_item} that points to how the damage actually happened. That'll prove the cause, not just that my friend wasn't there. I want this airtight before I bring it to the people who matter.",
+      "conflict2Text": "I need one more piece. There should also be a {quest_item} that points to how the damage actually happened. That'll prove why it happened, so my friend's absence stops being the story. I want this airtight before I bring it to the people who matter.",
       "conflict2TurnInText": "Now I have the whole picture. The damage, the cause, the timeline. It all fits, and none of it points at the person they've been blaming. I'm almost looking forward to the conversation I get to have next.",
       "conflict3Text": "Last thing. I need {target_npc} to come back to {settlement_name} with me and say what they saw, in person, in front of everyone who's been spreading the wrong story. Could you ask them once more? With everything we've gathered, they'll know it's worth the trip.",
       "conflict3TurnInText": "{target_npc} is on their way. Between their testimony and what we've gathered, this is going to be the cleanest exoneration anyone in {settlement_name} has ever seen. My friend deserves nothing less.",
@@ -1598,7 +1598,7 @@
       "expositionText": "I broke something that wasn't mine to break. It belonged to my father, and I let my temper get the better of me, and now there's a hole in my home where it used to sit. He's gone, so I can't apologize to him. The least I can do is replace it. Bring me a {quest_item} and I'll start there.",
       "acceptText": "You're being kinder than I've earned. I'll try to make this matter.",
       "declineText": "I don't blame you. It's my mess. I'll get to it eventually, or I won't.",
-      "expositionTurnInText": "That's a fine {quest_item}. He would have approved of the craftsmanship, at least. Holding it makes the empty spot on the shelf feel like something I'm filling, not just hiding.",
+      "expositionTurnInText": "That's a fine {quest_item}. He would have approved of the craftsmanship, at least. Holding it makes the empty spot on the shelf feel like something I'm filling.",
       "conflict1Text": "There's one more thing I need. He always kept a {quest_item} alongside it. Said the two belonged together. If you can find one of those too, then the set will be whole again, the way he had it.",
       "conflict1TurnInText": "Both pieces, side by side. That's how he kept them. That's how I'll keep them. Thank you for not asking me why this mattered so much.",
       "resolutionText": "I put them up tonight, in the same spot. It's not the same. They're not his. But the hole is gone, and that's something. {reward_item} is yours, offered with a quiet thanks I don't quite know how to voice. It's the kind of thing he would have given you, if he were the one standing here.",
@@ -1633,7 +1633,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "The honest part is, I was trying to protect her from her family, because I'd seen them be cruel to her before. I wasn't being a busybody. I was being scared for her, and I overstepped because of it.",
+        "passText": "The honest part is, I was trying to protect her from her family, because I'd seen them be cruel to her before. I was scared for her, and I overstepped because of it.",
         "failText": "I'd rather not pick at it any more than I already have. It hurts enough."
       },
       "valence": "negative",
@@ -1751,8 +1751,8 @@
       "acceptText": "Thank you. I've been bracing myself for this for a year. It helps to have someone else in my corner.",
       "declineText": "I see. Well, I appreciate you hearing me out, even if you can't help. Maybe I just need to find the courage on my own.",
       "expositionTurnInText": "{target_npc} said she once turned away a suitor over a slight nobody else even noticed? That tracks. But it also tells me she pays attention to gestures, even small ones, and that's something I can work with.",
-      "conflict1Text": "If she values gestures, then I need a real one. Find me a {quest_item}, the kind of thing you bring when you want someone to know you've thought about them, not just shown up. I'll present it when I make my case.",
-      "conflict1TurnInText": "That's just right. Not flashy, not cheap, just considered. Holding this, I almost feel like I might survive the conversation.",
+      "conflict1Text": "If she values gestures, then I need a real one. Find me a {quest_item}, the kind of thing you bring when you want someone to see you've put thought into it. I'll present it when I make my case.",
+      "conflict1TurnInText": "That's just right. Considered, which is what she'll notice. Holding this, I almost feel like I might survive the conversation.",
       "conflict2Text": "Last thing. Could you let {target_npc} know I'm coming to ask her properly next week? I'd rather she hear it from a friend first than be ambushed by me on her doorstep. It might soften the ground a little.",
       "conflict2TurnInText": "{target_npc} agreed to put in a word? That's a kindness I won't forget. Now all I have to do is the actual asking, which somehow feels easier knowing the door isn't shut.",
       "resolutionText": "She didn't say yes. She didn't say no, either. She said 'we'll see how you carry yourself this season,' and that's the most generous thing she's ever offered me. I'll take it. Take {reward_item}, please, with my hands. You helped me get to a 'we'll see,' and that's a whole new horizon.",
@@ -1878,7 +1878,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 13,
-        "passText": "The truth is, I've been thinking I caused this. I pushed him to come to family gatherings he wasn't ready for, and after the last one he just went quiet. I'm afraid I'm the reason he stopped trying.",
+        "passText": "I've been thinking I caused this. I pushed him to come to family gatherings he wasn't ready for, and after the last one he just went quiet. I'm afraid I'm the reason he stopped trying.",
         "failText": "He's family. That's the long and short of it."
       },
       "valence": "negative",
@@ -1943,7 +1943,7 @@
       "expositionTurnInText": "Word came back that the way is clearer. I almost wish it weren't. There's still one more piece I can't manage from here, and it's the part I've been dreading most.",
       "conflict1Text": "I can't be the one to arrange it. {target_npc}, the {target_npc_role} in {target_npc_settlement}, agreed years ago to take her in if it ever came to this. I need you to go and tell {target_npc} the time has come. They'll understand what to prepare.",
       "conflict1TurnInText": "Then it's real. I've been pretending this day was theoretical for so long, and now it's just a date on a calendar. I'd ask you to leave me a moment if you didn't already know I needed it.",
-      "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}. It isn't much against what you helped me face, but my hands have nothing else to give, and yours did the work.",
+      "resolutionText": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}. My hands have nothing else to give, and yours did the work.",
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 14,
@@ -2033,7 +2033,7 @@
           "type": "TALK_TO_NPC"
         }
       ],
-      "expositionText": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me. Not for him. For me.",
+      "expositionText": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down so I can breathe again.",
       "acceptText": "Thank you. I knew when I asked that this wouldn't bring him back. That isn't what I'm looking for anymore.",
       "declineText": "I understand. I shouldn't have made my grief into someone else's task. I'll keep trying to look the other way when I see them.",
       "expositionTurnInText": "It's a different quiet now. Not better, exactly, but different. I caught myself thinking about something other than him for a whole afternoon, and that felt like a small mercy. There's something else I'd like to ask, while I still have the courage.",
@@ -2098,7 +2098,7 @@
           "countMax": 6
         }
       ],
-      "expositionText": "Something is wrong this season and I can't tell you what. The {enemy_type_plural} are showing up in numbers we haven't seen in years, in places they shouldn't even be. I'm not asking anyone to figure out why. I'm past that. I just need {kill_count} of them dealt with so we have a little room to breathe in {settlement_name}.",
+      "expositionText": "Something is wrong this season and I can't tell you what. The {enemy_type_plural} are showing up in numbers we haven't seen in years, in places they shouldn't even be. I'm past trying to figure out why. I just need {kill_count} of them dealt with so we have a little room to breathe in {settlement_name}.",
       "acceptText": "All right. I won't pretend I think it'll fix the bigger thing. But it's something, and something is more than I had this morning.",
       "declineText": "I figured. Nobody knows what to make of any of this, and I can't blame you for not wanting to wade into it. We'll keep doing what we can on our own.",
       "expositionTurnInText": "That's a real difference. I almost forgot what it felt like to walk to the well without watching the treeline. But the strangeness hasn't lifted, and we're running short on what we need to keep going.",
@@ -2287,7 +2287,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 12,
-        "passText": "The truth is I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
+        "passText": "I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
         "failText": "They're a friend. I'd like to see them through this stretch."
       },
       "targetNpcOpener": "Someone sent you from {settlement_name}? That's kind of them. Things have been difficult here, but I'm managing. It helps to know people remember.",
@@ -2640,7 +2640,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 11,
-        "passText": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
+        "passText": "You can see it, can't you. I'm not busy. I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
         "failText": "It's just one of those chores that stacks up. You know how it goes."
       },
       "valence": "neutral",
@@ -2801,12 +2801,12 @@
           "type": "FETCH_ITEM"
         }
       ],
-      "expositionText": "It's been that kind of season. The well went brackish, then the fence came down, and now I can't find enough {quest_item} to keep the workshop running. I'm not looking for explanations. I just need {gather_count} of it so I can get back to work.",
+      "expositionText": "It's been that kind of season. The well went brackish, then the fence came down, and now I can't find enough {quest_item} to keep the workshop running. I just need {gather_count} of it so I can get back to work.",
       "acceptText": "That helps. One fewer thing to chase down.",
       "declineText": "Understood. I'll add it to the list and work through it the way I have been.",
       "expositionTurnInText": "That gets me through the week. Whatever's been going sideways this season, at least the bench is stocked again. But there's another problem that won't wait.",
       "conflict1Text": "{enemy_type_plural} have been more active than usual, and I don't have a theory for why. I just know {kill_count} fewer of them would make my mornings a lot quieter. Could you handle it?",
-      "conflict1TurnInText": "Better. The road feels passable again. I'm not going to wonder why they were here in the first place. I'm just going to be glad they're not.",
+      "conflict1TurnInText": "Better. The road feels passable again. I could sit here asking why they were here in the first place, but I'd rather just be glad they're not.",
       "conflict2Text": "One last thing. I've been trying to get my hands on a {quest_item} for two weeks and it keeps not working out. If you find one, bring it back. I'd like to end this stretch of bad luck with at least one thing going right.",
       "conflict2TurnInText": "There it is. First thing that's landed in my hands without a fight all season.",
       "resolutionText": "I won't say things are back to normal, because I'm not sure what normal looks like anymore. But they're workable, and that's enough for now. Take {reward_item}, with my thanks stitched into it. You helped me stop falling behind.",
@@ -2885,7 +2885,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
-        "passText": "The truth is, I honestly don't remember whether I damaged it or not. It's possible I did and didn't notice. But by the time he accused me, I was too proud to admit that, and then pride took over for both of us.",
+        "passText": "Honestly, I don't even remember whether I damaged it or not. It's possible I did and didn't notice. But by the time he accused me, I was too proud to admit that, and then pride took over for both of us.",
         "failText": "It's a family thing. Not very interesting from the outside."
       },
       "valence": "negative",
@@ -2977,7 +2977,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
-        "passText": "I suppose the honest part is that I've thought about stopping more than once. Not because I don't believe in it. Because it gets quiet doing something nobody thanks you for. But then the winter comes and the stores are there, and that's answer enough.",
+        "passText": "I suppose the honest part is that I've thought about stopping more than once. It gets quiet doing something nobody thanks you for. Then the winter comes and the stores are there, and that's answer enough.",
         "failText": "It's steady work. That's about the size of it."
       },
       "valence": "neutral",
@@ -3244,7 +3244,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 10,
-        "passText": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. Not because I need anyone to remember my name, but because I'd like to know the work continues after I'm done with it.",
+        "passText": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. It isn't about my name. I'd just like to know the work continues after I'm done with it.",
         "failText": "It's a good project. That's reason enough."
       },
       "valence": "positive",
@@ -3373,7 +3373,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
+        "passText": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. I stopped sleeping the week it started, lying awake listening for footsteps, for any sign a neighbor was coming to ask if it was true before deciding it was. Years of them, and not one came.",
         "failText": "I appreciate the concern, but I'm handling it. Some things you just work through on your own."
       },
       "valence": "negative",
@@ -3433,7 +3433,7 @@
       "skillCheck": {
         "skill": "PERSUASION",
         "dc": 11,
-        "passText": "The truth is I wasn't just busy. I was tired of being the person everyone comes to, and I chose the wrong moment to draw that line. It's one thing to set boundaries and another thing entirely to abandon someone.",
+        "passText": "Busy was the excuse. I was tired of being the person everyone comes to, and I chose the wrong moment to draw that line. It's one thing to set boundaries and another thing entirely to abandon someone.",
         "failText": "I'd rather not get into the reasons. The result is what matters."
       },
       "valence": "negative",
@@ -3463,7 +3463,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "The real weight of it isn't the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
+        "passText": "The real weight of it has nothing to do with the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
         "failText": "It's just time I dealt with it. Nothing more to say about it."
       },
       "valence": "negative",
@@ -3679,7 +3679,7 @@
       "expositionText": "I used to be able to charm my way through anything, a good word here, a smile there. That stopped working about a month ago when the real trouble started. I need a {quest_item}, and I can't talk my way into one. I've tried.",
       "acceptText": "Genuinely, thank you. I was running out of performances and starting to run out of hope.",
       "declineText": "I suppose I'll find another audience. I always do. It's just getting harder to find one that hasn't already heard the act.",
-      "expositionTurnInText": "You actually brought it. I'm not going to pretend I'm not emotional about that. I've asked six people this week and you're the first one who came through.",
+      "expositionTurnInText": "You actually brought it. I'm a little emotional about that. I've asked six people this week and you're the first one who came through.",
       "conflict1Text": "While I'm being honest with you, I'm also short on {quest_item}. {gather_count} would get me back to something resembling stable. I know I'm stacking favors, and I know what that looks like. But I'm asking anyway.",
       "conflict1TurnInText": "That's enough. That's actually enough. I keep counting it over because I'm not used to having enough of anything.",
       "resolutionText": "I can stand on my own feet again, at least for a while. Take {reward_item}, every last coin I earned on the stage before my luck went dry. I'd write you a song about all this if I thought you'd want one, but what's in your hand is probably more useful.",
@@ -3973,7 +3973,7 @@
       "acceptText": "Good. I was getting tired of being angry about it without doing anything. This feels like progress.",
       "declineText": "Then I'll board up the windows and keep losing things one night at a time. That's been working beautifully so far.",
       "expositionTurnInText": "That's a start. A real one. But the stores are still half empty and I can't trade what I don't have. The damage they did set me back weeks.",
-      "conflict1Text": "I need {gather_count} {quest_item} to replace what they destroyed. Not what they ate. What they destroyed, purely out of spite, as far as I can tell. There was food they didn't even want scattered across the floor and trampled.",
+      "conflict1Text": "I need {gather_count} {quest_item} to replace what they destroyed, purely out of spite, as far as I can tell. They didn't even eat most of it. There was food scattered across the floor and trampled.",
       "conflict1TurnInText": "Shelves are full again. The room doesn't look like a battlefield anymore. I can walk in there without my stomach dropping.",
       "resolutionText": "I'm back where I was before they came through, and this time the doors are reinforced and the windows are boarded properly. Carry {reward_item} home, paid out of what I cleared on the last run before everything went sideways. You helped me reclaim something that felt like it had been taken permanently, and I needed that feeling more than the supplies themselves.",
       "skillCheck": {
@@ -4051,7 +4051,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
-        "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
+        "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I lost the closest thing I had left to her voice. I haven't told anyone that because I know how it sounds.",
         "failText": "It's a garden that fed my family. That should be reason enough."
       },
       "valence": "negative",
@@ -4130,7 +4130,7 @@
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
-        "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
+        "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation. I can't read it, but that wasn't just animals claiming empty space.",
         "failText": "They moved in because it was empty. That's what animals do."
       },
       "valence": "negative",
@@ -4266,7 +4266,7 @@
           "type": "TALK_TO_NPC"
         }
       ],
-      "expositionText": "I want to build a forge. Not inherit one, not borrow one, build my own from the ground up. There's a {quest_item} I need for the bellows mechanism. Everyone keeps telling me I should apprentice somewhere else, but I want to learn by doing, right here.",
+      "expositionText": "I want to build a forge. My own, from the ground up. There's a {quest_item} I need for the bellows mechanism. Everyone keeps telling me I should apprentice somewhere else, but I want to learn by doing, right here.",
       "acceptText": "You believe in me. That means more than you know, because right now I'm the only one who does.",
       "declineText": "I'll manage without help. I've managed without support this long, what's a little longer.",
       "expositionTurnInText": "The bellows work. I tested them this morning and the air flow is clean and steady. One step closer to proving everyone wrong.",
@@ -4439,7 +4439,7 @@
         }
       ],
       "expositionText": "I'm done trimming branches. Every month we clear a few {enemy_type_plural} and every month more show up, and there's a source I want found and cut off. Start by thinning {kill_count} of the ones closest to {settlement_name} to buy us room to work.",
-      "acceptText": "Now we're approaching this the right way. Not just reacting, but actually solving it.",
+      "acceptText": "Now we're approaching this the right way. Actually solving it, for once.",
       "declineText": "Fine. We'll keep trimming branches until we're buried under them. Some of us were born for half measures, I suppose.",
       "expositionTurnInText": "Breathing room. Good. Now let's find what's drawing them here in the first place.",
       "conflict1Text": "There's a {quest_item_full} out there that I think is acting as a lure. Something left behind by whoever was here before us, maybe on purpose, maybe by accident. Find it and bring it to me. If I'm right, removing it changes the equation entirely.",
@@ -4511,7 +4511,7 @@
       "acceptText": "Then let's keep the promise. I've been carrying it long enough.",
       "declineText": "I'll keep tracking, then. The trail doesn't go cold as long as I'm still walking it.",
       "expositionTurnInText": "That's the first payment on what they owe. But I want to make sure my friend knows it's been handled, and I want to know they're rebuilding.",
-      "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role} there, and they've been helping my friend since the fire. Tell them what we did. I want my friend to hear it from someone who was there, not just a letter.",
+      "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role} there, and they've been helping my friend since the fire. Tell them what we did. I want my friend to hear it from someone who was there.",
       "conflict1TurnInText": "{target_npc} said my friend smiled for the first time since the fire. That's worth more to me than anything I could hold in my hands.",
       "targetNpcOpener": "You're here about the homestead that burned? I've been helping the family rebuild, slowly, because they lost almost everything. When I told them what was done on their behalf, the look on their face was something I won't forget.",
       "targetNpcCloser": "Tell the one who sent you that the family is standing again. Shaky, but standing.",
@@ -4726,7 +4726,7 @@
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
-        "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
+        "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You treated me like someone who could handle it. I needed that more than the supplies.",
         "failText": "It's been a long couple of days. I'm managing the way anyone would."
       },
       "valence": "negative",
@@ -4858,7 +4858,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
-        "passText": "All right, you've made it clear I should be honest about why this has been dragging on. The truth is I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
+        "passText": "All right, you've made it clear I should be honest about why this has been dragging on. I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
         "failText": "The road was blocked. That's the whole of it."
       },
       "valence": "neutral",
@@ -4957,7 +4957,7 @@
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
-        "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning, not just practical advice. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
+        "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
         "failText": "I just got behind on a few things. It a crisis, just a backlog."
       },
       "valence": "neutral",
@@ -5012,7 +5012,7 @@
       "expositionText": "The ground near the old well has been humming, not loudly, just enough to feel it through your boots if you stand still. Nobody believes me because it stops when they come to listen. Bring me {gather_count} {quest_item} and I can set up a proper comparison between the well site and normal ground.",
       "acceptText": "Thank you. I was starting to think I'd imagined it, and that's worse than any answer would be.",
       "declineText": "I'll keep standing there with my boots on, then, waiting for someone to believe me.",
-      "expositionTurnInText": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. This isn't my imagination, but I need someone who understands this kind of thing.",
+      "expositionTurnInText": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. I'm not making this up. I need someone who actually understands this kind of thing.",
       "conflict1Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who has dealt with ground disturbances before. Take the samples to them and ask what they make of it. I need an answer I can bring to the council without sounding like I've lost my mind.",
       "conflict1TurnInText": "So {target_npc} says it's a mineral deposit shifting under pressure. Natural, nothing sinister, and it'll settle on its own within a season. I'm relieved, embarrassed, and grateful in roughly equal measure.",
       "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {reward_item}, offered by someone who is finally going to get a full night's sleep after weeks of lying awake listening to my own floorboards. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
@@ -5213,7 +5213,7 @@
       "acceptText": "Then we have a deal. I'm not in a hurry, but I'm not patient either. That distinction matters to me.",
       "declineText": "Walk away, then. I'll find another. There's always someone willing to do necessary work.",
       "expositionTurnInText": "I set it at the edge of where the oldest tree used to stand. Funny how marking what's gone makes you feel it more clearly, not less. Now comes the part I've been holding in my teeth for months.",
-      "conflict1Text": "I want {kill_count} of those {enemy_type_plural} put down. Not pushed back, not scared off, put down. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
+      "conflict1Text": "I want {kill_count} of those {enemy_type_plural} dead. Chasing them off isn't enough anymore. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
       "conflict1TurnInText": "That's the number. I counted them the way I counted the trees. It doesn't balance, because nothing would, but it's as close as the world is going to let me get.",
       "resolutionText": "The marker stands and the debt is as paid as it can be. Take {reward_item}. I had coin set aside to put saplings back in the ground, and I find I'd rather put it in the hand of the one who settled the account first. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
       "skillCheck": {
@@ -5241,7 +5241,7 @@
           "countMax": 7
         }
       ],
-      "expositionText": "My sister's grave was desecrated by {enemy_type_plural} two weeks ago, the cairn dug through and the stones I'd placed there scattered. I want {kill_count} of them killed. Not for safety, not for prevention. For her.",
+      "expositionText": "My sister's grave was desecrated by {enemy_type_plural} two weeks ago, the cairn dug through and the stones I'd placed there scattered. I want {kill_count} of them killed. For her. That's the whole of it.",
       "acceptText": "Thank you. I won't ask you to feel what I feel about this. I just need the work done.",
       "declineText": "I see. Then I'll rebuild the cairn and keep rebuilding it until they stop, or I stop. Either way.",
       "expositionTurnInText": "Good. I rebuilt the stones this morning and they're still standing. But the ones that scattered them aren't the only group in the area, and I want to be thorough.",
@@ -5251,7 +5251,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 14,
-        "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
+        "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I knew I'd broken my word to someone who can never hear me make it right.",
         "failText": "She was my sister. That's all the reason I need, and all the reason I'll give."
       },
       "valence": "negative",
@@ -5368,7 +5368,7 @@
           "countMax": 7
         }
       ],
-      "expositionText": "I've always been the person things go wrong for, not dramatically, just reliably. This season the pattern held with thin crops, a leaning shed, and now I can't get enough {quest_item} to keep the household running. I need {gather_count} of it, and I need someone whose luck runs better than mine to go looking.",
+      "expositionText": "I've always been the person things go wrong for, in the steady ordinary way, nothing anyone would tell stories about. This season the pattern held with thin crops, a leaning shed, and now I can't get enough {quest_item} to keep the household running. I need {gather_count} of it, and I need someone whose luck runs better than mine to go looking.",
       "acceptText": "Maybe your luck is changing. Someone showed up who said yes, and that hasn't happened in a while.",
       "declineText": "About what I expected. The pattern holds. I'll manage, the way I always manage, which is to say barely.",
       "expositionTurnInText": "You actually found enough. I counted it twice because I don't trust good outcomes on the first pass. Now there's the other shoe, and I know it's coming because it always does.",
@@ -5511,12 +5511,12 @@
       "declineText": "Then I add it to the pile. The pile is getting impressive, honestly. Not in a good way.",
       "expositionTurnInText": "Better. The outside threat is handled, which means I can turn my attention inward without feeling like I'm ignoring something with teeth. Now for the slow emergency.",
       "conflict1Text": "I need {gather_count} {quest_item} to replace the most critical things that have worn through. Not everything, just enough that the house holds together for another season while I catch up on the rest.",
-      "conflict1TurnInText": "That covers the worst of it. The doors close, the tools work, and I can get through a day without something falling apart in my hands. It isn't a victory, but it's stability, and stability has been in short supply.",
+      "conflict1TurnInText": "That covers the worst of it. The doors close, the tools work, and I can get through a day without something falling apart in my hands. It's stability, at least, and stability has been in short supply around here.",
       "resolutionText": "I'm holding steady. Not gaining, but not losing ground anymore, and after the month I've had, that feels like a triumph. Take {reward_item}, offered with every ounce of gratitude I've got left in me. You helped me stop the bleeding, and that's the thing that had to happen before anything else could.",
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
-        "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
+        "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
         "failText": "Things wear out. It's just happening all at once, which is my particular luck."
       },
       "valence": "negative",
@@ -5549,7 +5549,7 @@
       "conflict1TurnInText": "Stocked again. I can look at the shelves without doing mental arithmetic about how many days we have left. There's one last thing pressing on me.",
       "conflict2Text": "The {enemy_type_plural} have been taking advantage of my distraction. {kill_count} of them put down and I can stop treating every problem as urgent and start treating some of them as solved.",
       "conflict2TurnInText": "Solved. Actually solved, not patched, not postponed. The channel holds, the shelves are full, and the road is safe. I keep waiting for the next thing to fail and it hasn't.",
-      "resolutionText": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}, because I was setting that coin aside for the next repair that isn't coming, and it deserves a better fate than my patch-purse. You helped me believe that fixed could actually mean finished.",
+      "resolutionText": "For the first time in what feels like forever, I've got nothing to fix. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}, because I was setting that coin aside for the next repair that isn't coming, and it deserves a better fate than my patch-purse. You helped me believe that fixed could actually mean finished.",
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 13,
@@ -5712,7 +5712,7 @@
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 12,
-        "passText": "You have a way of putting people at ease, you know that? All right. The truth is I was hard on him when he was younger. I raised him the way my father raised me, which I've come to understand was not gently.",
+        "passText": "You have a way of putting people at ease, you know that? All right. I was hard on him when he was younger. I raised him the way my father raised me, which I've come to understand was not gently.",
         "failText": "He's young. Young people hold grudges differently."
       },
       "valence": "negative",
@@ -5812,7 +5812,7 @@
       "skillCheck": {
         "skill": "DECEPTION",
         "dc": 13,
-        "passText": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. The truth is I saw them try to walk into the fire three nights ago, and I barely caught them. I haven't slept since.",
+        "passText": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. Three nights ago I saw them try to walk into the fire, and I barely caught them. I haven't slept since.",
         "failText": "They've been unwell. I'm handling it the best I can."
       },
       "valence": "negative",
@@ -5998,7 +5998,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
+        "passText": "You saw through the practical explanation, didn't you. My wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
         "failText": "I believe in the work. That's enough to keep me walking."
       },
       "valence": "neutral",
@@ -6261,7 +6261,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 11,
-        "passText": "All right, you're right to press me on this. I'm not just worried about his career. I'm worried he'll leave again, this time not for work but because he doesn't think he belongs anywhere. Our parents are gone.",
+        "passText": "All right, you're right to press me on this. His career is the smallest part of it. I'm worried he'll leave again, this time not for work but because he doesn't think he belongs anywhere. Our parents are gone.",
         "failText": "He's had a setback. People recover from setbacks."
       },
       "valence": "negative",
@@ -6293,7 +6293,7 @@
       "conflict1Text": "Find {target_npc} in {target_npc_settlement}. They're a {target_npc_role} who knew her before this started. I think hearing from someone outside these walls might remind her that the world isn't only the thing that scared her.",
       "conflict1TurnInText": "{target_npc} sent a message back with you? She read it twice and put it under her pillow. That's the most she's engaged with anything from outside in weeks.",
       "conflict2Text": "There's a {quest_item_full} she used to keep with her on every trip. I think putting it back in her hands might help her remember who she was before fear took over. She won't ask for it herself.",
-      "conflict2TurnInText": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. Not with fear this time. More like someone considering a possibility.",
+      "conflict2TurnInText": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. There wasn't fear in it this time. More like someone considering a possibility.",
       "resolutionText": "She walked to the gate this morning and stood there for five minutes before coming back inside. She smiled when she closed the door, and that was the first real smile in six weeks. Take {reward_item}, from this whole household, and know that when I tell our children about the worst year of our lives, your name is the part where it starts getting better. The road back is long, but she's on it now.",
       "skillCheck": {
         "skill": "PERFORMANCE",
@@ -6648,7 +6648,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 13,
-        "passText": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
+        "passText": "All right, you pressed and I'll answer. I'm not really doing this for her. Going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
         "failText": "She left things in order, and I'm following it."
       },
       "valence": "negative",
@@ -6734,7 +6734,7 @@
       "acceptText": "Excellent. When this is over, nobody will be able to say I only talk. Let's move.",
       "declineText": "Fine. I'll find another way to prove my point. I always do.",
       "expositionTurnInText": "That's the kind of result people notice. Word is already getting around that the {enemy_type_plural} are handled. Now I want to build on it before the momentum fades.",
-      "conflict1Text": "I need {gather_count} {quest_item} to finish a project I've been planning. Something visible, something that shows I can follow through on the big ideas, not just the small ones. Help me stockpile and I'll do the rest.",
+      "conflict1Text": "I need {gather_count} {quest_item} to finish a project I've been planning. Something visible, something that shows I can follow through on the big ideas this time. Help me stockpile and I'll do the rest.",
       "conflict1TurnInText": "Look at this. I have everything I need to start building. This time next month, people will walk past and know who put it together.",
       "resolutionText": "It's happening. The project is underway, the {enemy_type_plural} are handled, and {settlement_name} is looking at me differently. Take {reward_item}, earned before any of this was a sure thing. When the history of what I'm building gets written down, your name goes on the first page, and I won't forget who was there at the beginning.",
       "skillCheck": {
@@ -6763,7 +6763,7 @@
           "countMax": 10
         }
       ],
-      "expositionText": "I want to expand, not just my shop but my whole operation. I've been running at capacity for months and turning away customers, and I refuse to keep doing that when the fix is sitting right in front of me. I need a {quest_item} to get the plans moving, something I can show to the people whose support I need.",
+      "expositionText": "I want to expand my whole operation. I've been running at capacity for months and turning away customers, and I refuse to keep doing that when the fix is sitting right in front of me. I need a {quest_item} to get the plans moving, something I can show to the people whose support I need.",
       "acceptText": "Good. I've been waiting for someone who moves at my pace. This is going to be worth it for both of us.",
       "declineText": "Your loss, honestly. This is going to happen with or without you. I'd just rather it happen faster.",
       "expositionTurnInText": "Perfect. I can already see the pitch coming together. But plans on paper don't mean anything without backing from the right people.",
@@ -6880,7 +6880,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You see right through the big talk, don't you. I'm not building this because I love {settlement_name}. I'm terrified of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
+        "passText": "You see right through the big talk, don't you. I love {settlement_name} well enough, but the thing driving me is fear of being forgotten. Not dying, that's just mechanics, but passing through and leaving nothing behind. That fear has kept me awake more nights than I'll ever admit to anyone, and this project is the only answer I've found for it.",
         "failText": "I want to build something. That's reason enough."
       },
       "valence": "positive",
@@ -6907,7 +6907,7 @@
       "acceptText": "Perfect. When I walk into that room, I want them to see someone who solves problems, not someone who asks permission.",
       "declineText": "I'll find another way. I didn't get this far by needing anyone's approval.",
       "expositionTurnInText": "That's the proof I needed. The council meets next week, and I'll have something in my hands instead of just words in my mouth. But I'm not going in half-prepared.",
-      "conflict1Text": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm not asking for the seat, I'm showing them I've already been sitting in it.",
+      "conflict1Text": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm showing them I've been sitting in that seat already, whether they gave it to me or not.",
       "conflict1TurnInText": "The resources are secured. The proposal is real. Now I need one more piece to make this airtight.",
       "conflict2Text": "{target_npc} in {target_npc_settlement} is a {target_npc_role} who's been through this kind of push before. Ask them to speak on my behalf at the meeting, or at least to send a letter of support. Their word carries weight I haven't earned yet.",
       "conflict2TurnInText": "{target_npc} agreed to write the letter. When they read that name at the council table, every head in the room will turn.",
@@ -7037,7 +7037,7 @@
       "skillCheck": {
         "skill": "INTIMIDATION",
         "dc": 12,
-        "passText": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
+        "passText": "Fine, you want the unvarnished version. I was past suspicious. I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
         "failText": "I'm probably overreacting. I just want to be sure."
       },
       "valence": "negative",
@@ -7058,7 +7058,7 @@
       "expositionText": "There's a new {settlement_npc_role} in {settlement_name} who does the same work I do, and everyone has been going to them instead of me. I found out they've been sourcing a {quest_item} I can't get, and I want to know where it comes from. Bring me one so I can see what I'm competing against.",
       "acceptText": "Thank you. I know it sounds petty. But watching your livelihood walk out the door smiling is a particular kind of pain.",
       "declineText": "Fine. I'll keep watching the traffic go past my door and pretending it doesn't bother me.",
-      "expositionTurnInText": "I've looked at it carefully, and it's good work, but it isn't the miracle I'd built it up to be in my head. The truth is they're doing the same quality I do, just with a fresher face and more enthusiasm. I stopped believing in my own work somewhere along the way, and I want to hear it from someone outside {settlement_name}.",
+      "expositionTurnInText": "I've looked at it carefully, and it's good work, but it isn't the miracle I'd built it up to be in my head. They're doing the same quality I do, just with a fresher face and more enthusiasm. I stopped believing in my own work somewhere along the way, and I want to hear it from someone outside {settlement_name}.",
       "conflict1Text": "Talk to {target_npc} in {target_npc_settlement}, a {target_npc_role} who's seen both our work. I want an honest assessment from someone who has no reason to spare my feelings. If they say I've fallen behind I'll accept it, and if they say I haven't I'll stop punishing myself.",
       "conflict1TurnInText": "{target_npc} said my work is excellent and always has been, and that losing customers to a newcomer is normal and temporary. They also said the new person has been sending people my way for jobs they can't handle. I didn't know that. I didn't know any of that.",
       "targetNpcOpener": "I know both operations, and I'll tell you straight. The work from {settlement_name} has always been reliable, and that hasn't changed. Newcomers draw attention because they're new, and it always settles down. Between you and me, the new one has been referring overflow work back to the original shop for weeks.",
@@ -7335,7 +7335,7 @@
       "declineText": "I see. I suppose I'll keep looking for another way.",
       "expositionTurnInText": "That's a good {quest_item}. It won't erase what happened, but it might open a conversation I've been avoiding. The harder part is next.",
       "conflict1Text": "The person I failed has a close friend, {target_npc} in {target_npc_settlement}, who knows the whole story. I need you to talk to them first. If I show up unannounced with a gift, it'll look like I'm trying to buy forgiveness. But if {target_npc} knows I'm coming and why, they can tell me whether I'd be welcome.",
-      "conflict1TurnInText": "{target_npc} said I'd be welcome, but that I should come with honesty, not just with a {quest_item}. That's fair. I owe the truth at minimum.",
+      "conflict1TurnInText": "{target_npc} said I'd be welcome, but that I should come with honesty in my hand along with the {quest_item}. That's fair. I owe the truth at minimum.",
       "targetNpcOpener": "I've heard about this. My friend handled those traders on their own, and they came out of it angry, not at the traders, but at the neighbor who watched and walked away. If that person wants to come forward now, the door is open, but only if they're willing to say what really happened and why they stayed quiet.",
       "targetNpcCloser": "Tell them to come honestly or not at all. My friend has had enough of people performing goodness without meaning it.",
       "resolutionText": "I went to them with the {quest_item} and the truth. I told them I stayed quiet because I was afraid, and they said they already knew that, and that the fear was the part they needed to hear me admit. Carry {reward_item} home, handed over by someone who's walking lighter than he has in months. You helped me face the thing I'd been running from.",
@@ -7364,7 +7364,7 @@
       "acceptText": "Thank you. The longer I wait, the harder this becomes, and it's already harder than I thought it would be.",
       "declineText": "I understand. This is my problem to own.",
       "expositionTurnInText": "{target_npc} says {settlement_npc} has been blaming themselves for the broken tool, thinking they were careless. That's worse than suspicion. They've been carrying guilt that belongs to me.",
-      "conflict1Text": "I need to replace what I broke. Find me a {quest_item}, the best quality you can get. I want {settlement_npc} to end up better off than before I ruined things, not just back to even.",
+      "conflict1Text": "I need to replace what I broke. Find me a {quest_item}, the best quality you can get. I want {settlement_npc} to end up better off than before I ruined things.",
       "conflict1TurnInText": "That's perfect. Better than the original by a good measure. Now I have to do the part that scares me, which is handing it over and telling the truth about why.",
       "targetNpcOpener": "I work alongside {settlement_npc} most days, and I've noticed the change. Their main tool broke and they've been making do with a poor substitute. They mentioned once that they must have knocked it wrong, and they seemed embarrassed about it. If someone else caused the damage, {settlement_npc} deserves to stop blaming themselves.",
       "targetNpcCloser": "A replacement would go a long way. The truth would go further.",
@@ -7393,7 +7393,7 @@
       "expositionText": "I spread a rumor about a family in {other_settlement} because I was jealous of their success. I told people their prosperity came from cheating the trade routes, and the rumor grew until merchants stopped dealing with them. Their business is half what it was, and it's my fault. I need a {quest_item}, something I can send as a peace offering before I try to talk to them.",
       "acceptText": "I appreciate it. I've watched the damage spread for months and I'm done pretending it has nothing to do with me.",
       "declineText": "That's fair. It's ugly business and I brought it on myself.",
-      "expositionTurnInText": "That's a good {quest_item}. It won't undo anything, but it shows I'm serious about making amends, not just feeling bad about it. The next step is harder.",
+      "expositionTurnInText": "That's a good {quest_item}. It won't undo anything, but it shows I'm serious about making amends instead of just carrying the guilt. The next step is harder.",
       "conflict1Text": "The family's closest ally is {target_npc} in {target_npc_settlement}. I need you to go to them and explain what I did, and that I want to make it right. If I show up without warning, they'll think I'm there to cause more trouble. {target_npc} can tell me whether the family is willing to hear me out.",
       "conflict1TurnInText": "{target_npc} said the family suspected it was me all along but couldn't prove it. The fact that I'm admitting it voluntarily is the only reason they're willing to talk. That's more mercy than I earned.",
       "targetNpcOpener": "I've been watching that family suffer for months, and I had my suspicions about where the rumor started. If the person responsible is finally willing to own it, that changes things. The family won't forget, but they might forgive, if the admission is real and not just another performance.",
@@ -7462,7 +7462,7 @@
       "skillCheck": {
         "skill": "RELIGION",
         "dc": 12,
-        "passText": "You understand something about obligations, I can tell. In the old traditions, a promise to teach is considered sacred, the passing of knowledge from one hand to the next. I grew up hearing those stories and believed them, and then when it was my turn to honor that chain I let it fall. The weight of that isn't just personal, it's something larger that I failed.",
+        "passText": "You understand something about obligations, I can tell. In the old traditions, a promise to teach is considered sacred, the passing of knowledge from one hand to the next. I grew up hearing those stories and believed them, and then when it was my turn to honor that chain I let it fall. The weight of it goes past me, and something larger is what I failed.",
         "failText": "I made a promise and didn't keep it. I'd like to fix that now."
       },
       "valence": "negative",
@@ -7492,7 +7492,7 @@
       "skillCheck": {
         "skill": "INVESTIGATION",
         "dc": 13,
-        "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
+        "passText": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
         "failText": "I overstepped and I'm correcting it. That's the whole of it."
       },
       "valence": "negative",
@@ -7552,7 +7552,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
+        "passText": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
         "failText": "I mixed up two people and spoke too soon. That's really all there is to it."
       },
       "valence": "negative",
@@ -7612,7 +7612,7 @@
       "skillCheck": {
         "skill": "PERFORMANCE",
         "dc": 13,
-        "passText": "You have an ease about you that makes me want to drop the pretense, so I will. I didn't just misread the situation, I wanted to be the person who brought two people together because I liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement.",
+        "passText": "You have an ease about you that makes me want to drop the pretense, so I will. I misread the situation on purpose, because I wanted to be the person who brought two people together and liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement.",
         "failText": "I read the signals wrong and someone I care about got hurt. That's the simple version."
       },
       "valence": "negative",
@@ -7642,7 +7642,7 @@
       "skillCheck": {
         "skill": "ARCANA",
         "dc": 14,
-        "passText": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
+        "passText": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
         "failText": "I shared something I shouldn't have. The details beyond that are family business."
       },
       "valence": "negative",
@@ -7665,7 +7665,7 @@
       "declineText": "I understand. It's a tangle, and stepping into someone else's feud is a lot to ask.",
       "expositionTurnInText": "{target_npc} says the feud is mostly kept alive by stubbornness at this point, not by any real grievance. The older generation holds the line out of habit, and the younger ones follow because nobody's given them permission to stop. That gives me hope, thin hope, but real.",
       "conflict1Text": "I want to send a gift through {target_npc}, something that reaches the other family without my name attached at first. A {quest_item}, the kind of thing that could come from anyone and would be welcomed regardless of the sender. Once they've accepted it, I'll let them know where it came from. Let the gesture arrive before the politics.",
-      "conflict1TurnInText": "Good. It isn't a grand gesture, and it isn't meant to be. It just says someone from my side thought of them kindly, and I want them to sit with that before they know it was me.",
+      "conflict1TurnInText": "Good. It's a small thing, and that's the point. Just something that says someone from my side thought of them kindly, and I want them to sit with that before they know it was me.",
       "targetNpcOpener": "I've known both families since before the feud hardened into what it is now. Honestly, most of the younger people on both sides barely remember what started it. The problem is that nobody wants to be the first to reach across, because the first one to bend gets accused of weakness. Someone from outside could change that.",
       "targetNpcCloser": "Send the gift through me. I'll make sure it arrives without baggage.",
       "resolutionText": "The gift reached the other family, and when they learned it came from me, there was silence, then a long conversation, then a message back saying they'd be willing to talk. Not a truce, not yet, but a conversation, and that's more than either family has managed in a generation. Take {reward_item}, pulled straight from our family stores with no one's permission but mine, because I'm done asking for permission about any of this. You helped me stop waiting for it and start building something instead.",
@@ -7723,7 +7723,7 @@
       "expositionText": "My family expects me to marry within our trade circle, but I've fallen for someone who works the land outside {settlement_name}, someone hardworking, honest, and kind who doesn't carry a trade name. I need to find out if there's any precedent for my family bending on this. Would you talk to {target_npc} in {target_npc_settlement}? They're an elder in our trade circle and they'd know the history.",
       "acceptText": "Thank you. I've been going back and forth between honoring my family and honoring what I feel, and I'm running out of road to walk both.",
       "declineText": "I see. I suppose I'll keep looking for an opening on my own.",
-      "expositionTurnInText": "{target_npc} says there have been exceptions before, rare ones, and in every case the outsider brought something to the circle that the circle needed. The door isn't sealed. It just takes the right key.",
+      "expositionTurnInText": "{target_npc} says there have been exceptions before, rare ones, and in every case the outsider brought something to the circle that the circle needed. There's a way through if you bring the right key.",
       "conflict1Text": "The person I love makes a particular kind of {quest_item} that nobody in the trade circle produces. If I can show my family that this person brings a skill we're missing, I can frame it as an addition to the circle, not a break from tradition. Bring me a {quest_item} they've made so I can present it.",
       "conflict1TurnInText": "The quality speaks for itself. My family values skill, and this shows skill plainly. If they can't see past the name to the work, then the tradition is smaller than I thought it was.",
       "targetNpcOpener": "I've led this trade circle long enough to know when the rules serve us and when we serve the rules. There have been outsiders welcomed before, three times in my memory, and each time the circle was stronger for it. The tradition exists to keep our standards high, not to keep good people out.",
@@ -7732,7 +7732,7 @@
       "skillCheck": {
         "skill": "HISTORY",
         "dc": 12,
-        "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
+        "passText": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
         "failText": "It's a tradition that goes back a long way. I don't think the history changes what I'm dealing with now."
       },
       "valence": "positive",
@@ -7814,7 +7814,7 @@
       "acceptText": "Thank you. I know this seems like a small thing, but it doesn't feel small from where I'm standing.",
       "declineText": "I see. I'll keep writing drafts and hoping one of them is brave enough to send.",
       "expositionTurnInText": "That's beautiful. Holding this, I think I can finally write the letter that goes with it. The {quest_item} says what I mean, and the letter just needs to explain why I'm saying it now. But I'd like one more thing before I send it.",
-      "conflict1Text": "I want someone to read the letter before it goes. Not for the writing, for the honesty. {target_npc} in {target_npc_settlement} knows me well enough to tell me if I'm being genuine or just performing courage. Would you ask them if they'd look it over?",
+      "conflict1Text": "I want someone to read the letter before it goes, to tell me if it's honest. The writing isn't the problem. {target_npc} in {target_npc_settlement} knows me well enough to say if I'm being genuine or just performing courage. Would you ask them if they'd look it over?",
       "conflict1TurnInText": "{target_npc} read it, made two small suggestions, and said it was the most honest thing I've ever written. They said to send it before I lose my nerve again, and they're right.",
       "targetNpcOpener": "I've been watching this person agonize over this for longer than they'd want me to say, writing and rewriting and throwing it away. The problem was never the words, it was the willingness to be seen. If they've finally reached the point of asking for help, that means they're ready. Let me see the letter.",
       "targetNpcCloser": "It's good, honest and unguarded. Send it today, before the doubt comes back.",
@@ -8007,7 +8007,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "I told myself I wasn't sure. I told myself the warning might be wrong and I didn't want to start a panic over nothing. The truth is I was scared of what {boss_name} would do to me if I was the one who spoke up, and I let somebody else pay for my quiet.",
+        "passText": "I told myself I wasn't sure. I told myself the warning might be wrong and I didn't want to start a panic over nothing. I was scared of what {boss_name} would do to me if I was the one who spoke up, and I let somebody else pay for my quiet.",
         "failText": "I had a chance to say something and I didn't. That's the short of it, and the long of it doesn't help anyone."
       },
       "valence": "negative",
@@ -8169,7 +8169,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 13,
-        "passText": "The truth is I stopped doing her work because finishing it felt like admitting she was really gone. I know how that sounds. I'm sixty-four years old and I have been hiding from a row of unfinished stitches like a child.",
+        "passText": "I stopped doing her work because finishing it felt like admitting she was really gone. I know how that sounds. I'm sixty-four years old and I have been hiding from a row of unfinished stitches like a child.",
         "failText": "It's been two winters. Some things don't mend on a schedule."
       },
       "valence": "negative",
@@ -8321,7 +8321,7 @@
       "skillCheck": {
         "skill": "INSIGHT",
         "dc": 12,
-        "passText": "The truth is I was relieved when he died. It came later, when I realized I didn't have to try to be him anymore. Then I felt so guilty about the relief that I spent six years trying to be him anyway. I'm done with that.",
+        "passText": "I was relieved when he died. It came later, when I realized I didn't have to try to be him anymore. Then I felt so guilty about the relief that I spent six years trying to be him anyway. I'm done with that.",
         "failText": "He was my father. Taking up his trade is the least I can do."
       },
       "valence": "negative",
@@ -8797,7 +8797,7 @@
       "expositionText": "My father spent the last years of his life on this, and I took up his post in {settlement_name} knowing his work wasn't finished. Before I say another word, I need you to go speak with {target_npc} over in {target_npc_settlement}. They were on this trail before I was old enough to hold a blade, and I want to hear my father's name come out of a {target_npc_role}'s mouth one more time.",
       "acceptText": "Thank you for taking this seriously. I've carried this long enough.",
       "declineText": "Alright. I'll find someone else, or I'll go myself when the season turns. One way or another it ends.",
-      "expositionTurnInText": "So you found {target_npc}. Good. I wanted you to hear it from someone who's been on this trail longer than I've been alive, not just from me. Now you know what I know.",
+      "expositionTurnInText": "So you found {target_npc}. Good. I wanted you to hear it from someone who's been on this trail longer than I've been alive, going back past me. Now you know what I know.",
       "conflict1Text": "Finish it. Find {boss_name} and put an end to this. I've been handed every scrap of my father's work and a {group_difficulty} threat's worth of warnings, and I want to be the one who finally closes the book.",
       "conflict1TurnInText": "You actually did it. I sat down when you told me. I haven't sat down in weeks.",
       "resolutionText": "My father would have liked you. Here, take {reward_item}, it belongs with whoever finished this. The name stops with us, and that's enough.",

@@ -1,0 +1,875 @@
+[
+  {
+    "template_id": "deliverance_03",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not better.",
+    "context": "ing water and they've been getting worse, not better. There's a {quest_item} that would help.",
+    "full_text": "{settlement_npc} took a bad fall hauling water and they've been getting worse, not better. There's a {quest_item} that would help. I know it would, I've seen it work before, but I haven't been able to leave their side long enough to find one. Please."
+  },
+  {
+    "template_id": "pursuit_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not delayed.",
+    "context": "ing this way again. I want this finished, not delayed.",
+    "full_text": "Now we put it down. {kill_count} of those {enemy_type_plural} should be enough to break their numbers and make them think twice about coming this way again. I want this finished, not delayed."
+  },
+  {
+    "template_id": "daring_enterprise_01",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not when I'm old and telling the story.",
+    "context": "something this big. I won't forget that, not when I'm old and telling the story.",
+    "full_text": "We did it. We actually did it, and it's better than I let myself imagine. Take {reward_item}, and know that you helped me believe I could finish something this big. I won't forget that, not when I'm old and telling the story."
+  },
+  {
+    "template_id": "ambition_02",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not in {other_settlement}, not anywhere I know of.",
+    "context": "at that level. Not in {settlement_name}, not in {other_settlement}, not anywhere I know of.",
+    "full_text": "You've heard of {target_npc}'s reputation, then? Good. Then you understand why I'm willing to send a stranger across the region just for a conversation. There's no one else within reach who's at that level. Not in {settlement_name}, not in {other_settlement}, not anywhere I know of."
+  },
+  {
+    "template_id": "ambition_03",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not alone, but I started it, and that counts.",
+    "context": "nd now and I see something I made happen, not alone, but I started it, and that counts. Take {reward_item}, with my real and la",
+    "full_text": "I look around now and I see something I made happen, not alone, but I started it, and that counts. Take {reward_item}, with my real and lasting thanks. When people ask me how this came together, your name comes up first, and I mean to tell that story every chance I get."
+  },
+  {
+    "template_id": "enigma_01",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "inverse_corrective",
+    "match": ", not a trap, and you watch.",
+    "context": "u set out bait that looks like a mistake, not a trap, and you watch.",
+    "full_text": "Stores going missing with nothing broken? I had the exact same problem two seasons ago. It drove me half mad until I figured out the trick. You set out bait that looks like a mistake, not a trap, and you watch."
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_03",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "pattern": "inverse_corrective",
+    "match": ", not keep it going.",
+    "context": "ell them both. The truth should end this, not keep it going.",
+    "full_text": "Tell them both. The truth should end this, not keep it going."
+  },
+  {
+    "template_id": "erroneous_judgment_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not the cause.",
+    "context": "and I think the accusation was the lever, not the cause. I haven't said it out loud because I do",
+    "full_text": "There's a piece I haven't told anyone yet. The person who first pointed at my friend had reasons of their own to want them gone, and I think the accusation was the lever, not the cause. I haven't said it out loud because I don't have proof, but I will by the time this is over."
+  },
+  {
+    "template_id": "erroneous_judgment_03",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not just tell them.",
+    "context": "I need to show people, not just tell them. Bring me a {quest_item}. It's the kind",
+    "full_text": "I need to show people, not just tell them. Bring me a {quest_item}. It's the kind of thing that would have been left behind if my version of events is right. If we can put it in front of the accusers, the story falls apart on its own."
+  },
+  {
+    "template_id": "remorse_01",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "not_fragment_sentence",
+    "match": "Not yet.",
+    "context": "I can't bring this to her myself. Not yet. I need you to find {target_npc} in {tar",
+    "full_text": "I can't bring this to her myself. Not yet. I need you to find {target_npc} in {target_npc_settlement}. They used to know us both, before all this. If anyone can tell her I'm trying, it's them."
+  },
+  {
+    "template_id": "remorse_03",
+    "source_file": "v2",
+    "field": "skillCheck.failText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not worth dragging through the mud again.",
+    "context": "It's an old story. Not worth dragging through the mud again.",
+    "full_text": "It's an old story. Not worth dragging through the mud again."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_01",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not even close.",
+    "context": "hat she heard. I never meant it that way, not even close. But I see now how it sounded, and I can",
+    "full_text": "{target_npc} actually told you? Oh. Oh, that's what she heard. I never meant it that way, not even close. But I see now how it sounded, and I can't unsay it."
+  },
+  {
+    "template_id": "madness_01",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not all the way through, but more than he has in weeks.",
+    "context": "He slept last night. Not all the way through, but more than he has in weeks. He's not back yet, and I don't know if",
+    "full_text": "He slept last night. Not all the way through, but more than he has in weeks. He's not back yet, and I don't know if he's going to be the same when he is, but he's reachable now, and that's everything. Please take {reward_item}, offered by a wife who had run out of hope and has some back, because you brought my husband one step closer to home."
+  },
+  {
+    "template_id": "madness_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not more emptiness.",
+    "context": "grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like",
+    "full_text": "If she's grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like a beginning, something a person uses when they're starting again, not finishing. I'll bring it to her and tell her it's from someone who cares about her."
+  },
+  {
+    "template_id": "madness_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not finishing.",
+    "context": "person uses when they're starting again, not finishing. I'll bring it to her and tell her it's",
+    "full_text": "If she's grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like a beginning, something a person uses when they're starting again, not finishing. I'll bring it to her and tell her it's from someone who cares about her."
+  },
+  {
+    "template_id": "madness_02",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not all the way, but it's not worse anymore.",
+    "context": "t with me for an hour. That's not better, not all the way, but it's not worse anymore. {reward_item} is yours, with the kind o",
+    "full_text": "She came over for tea this morning. She didn't talk about her partner, but she didn't talk about giving things away either, and she sat with me for an hour. That's not better, not all the way, but it's not worse anymore. {reward_item} is yours, with the kind of thanks I'll still mean a year from now when I'm remembering this week. You helped me reach her when I couldn't reach her on my own."
+  },
+  {
+    "template_id": "madness_02",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "pattern": "inverse_corrective",
+    "match": ", not more taken away.",
+    "context": "She needs something given back, not more taken away. Something small that says the world isn",
+    "full_text": "She needs something given back, not more taken away. Something small that says the world isn't done with her yet."
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_01",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not stuck in {settlement_name} listening to the wind.",
+    "context": "want to spend his last days at his side, not stuck in {settlement_name} listening to the wind.",
+    "full_text": "My brother is dying. I haven't been able to get to him because the {enemy_type_plural} have been thick around here and I'm not the fighter I used to be. I need {kill_count} of them dealt with. I want to spend his last days at his side, not stuck in {settlement_name} listening to the wind."
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_03",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "pattern": "inverse_corrective",
+    "match": ", not a letter that arrives too late.",
+    "context": "nyone's. He should hear it from a person, not a letter that arrives too late. Find {target_npc_role} and tell them pl",
+    "full_text": "Her brother {target_npc} lives in {target_npc_settlement}. They haven't spoken in years, my fault as much as anyone's. He should hear it from a person, not a letter that arrives too late. Find {target_npc_role} and tell them plainly."
+  },
+  {
+    "template_id": "loss_of_loved_ones_01",
+    "source_file": "v2",
+    "field": "declineText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not everyone wants to be tangled up in another person's grief.",
+    "context": "Of course. Not everyone wants to be tangled up in another person's grief. I'll be all right either way.",
+    "full_text": "Of course. Not everyone wants to be tangled up in another person's grief. I'll be all right either way."
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "can_verb_again",
+    "match": "I can breathe again",
+    "context": "t to. Take {kill_count} of them down so I can breathe again.",
+    "full_text": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down so I can breathe again."
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not better, exactly, but different.",
+    "context": "It's a different quiet now. Not better, exactly, but different. I caught myself thinking about somethin",
+    "full_text": "It's a different quiet now. Not better, exactly, but different. I caught myself thinking about something other than him for a whole afternoon, and that felt like a small mercy. There's something else I'd like to ask, while I still have the courage."
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "used_to_now",
+    "match": "I used to tell my son that story to make him careful. Now",
+    "context": "s were old enough to remember properly. I used to tell my son that story to make him careful. Now I wonder if I made him afraid of the wro",
+    "full_text": "His grandfather was killed by {enemy_type_plural} too, before any of us were old enough to remember properly. I used to tell my son that story to make him careful. Now I wonder if I made him afraid of the wrong things."
+  },
+  {
+    "template_id": "daring_enterprise_05",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not improvise.",
+    "context": ". It's the kind of thing you plan around, not improvise.",
+    "full_text": "I've got a project in mind that could benefit the whole settlement, and I'm ready to start. I need a {quest_item} first. It's the kind of thing you plan around, not improvise."
+  },
+  {
+    "template_id": "obtaining_05",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not just me.",
+    "context": "ed out would open things up for everyone, not just me.",
+    "full_text": "{enemy_type_plural} have been settled in along the route I'd normally take. {kill_count} of them cleared out would open things up for everyone, not just me."
+  },
+  {
+    "template_id": "enigma_05",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not my failing mind, just a creature with poor manners.",
+    "context": "ms, droppings in the corner. Not a ghost, not my failing mind, just a creature with poor manners. Now I need to seal the gap.",
+    "full_text": "There it is. Scratches on the beams, droppings in the corner. Not a ghost, not my failing mind, just a creature with poor manners. Now I need to seal the gap."
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_04",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "pattern": "inverse_corrective",
+    "match": ", not sentimental.",
+    "context": "est_item} as a gesture. Something useful, not sentimental. The kind of thing that says I'm done ar",
+    "full_text": "I'd like to bring a {quest_item} as a gesture. Something useful, not sentimental. The kind of thing that says I'm done arguing and I'd rather be neighbors again. Find me one, would you?"
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_05",
+    "source_file": "v2",
+    "field": "skillCheck.failText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not very interesting from the outside.",
+    "context": "It's a family thing. Not very interesting from the outside.",
+    "full_text": "It's a family thing. Not very interesting from the outside."
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_04",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "pattern": "inverse_corrective",
+    "match": ", not a courtesy.",
+    "context": "y will be looked after. That's a promise, not a courtesy.",
+    "full_text": "Tell them the boy will be looked after. That's a promise, not a courtesy."
+  },
+  {
+    "template_id": "erroneous_judgment_05",
+    "source_file": "v2",
+    "field": "skillCheck.failText",
+    "pattern": "inverse_corrective",
+    "match": ", not me.",
+    "context": "I'm fine. It's them I'm worried about, not me.",
+    "full_text": "I'm fine. It's them I'm worried about, not me."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_04",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not from in front.",
+    "context": "done the first time. Support from behind, not from in front.",
+    "full_text": "Perfect. I'll hand it to my cousin and step back. That's what I should have done the first time. Support from behind, not from in front."
+  },
+  {
+    "template_id": "obstacles_to_love_04",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not too little.",
+    "context": "That's exactly right. Not too much, not too little. They'll understand what it means, and i",
+    "full_text": "That's exactly right. Not too much, not too little. They'll understand what it means, and if they don't, it's still a nice thing to receive. Either way, I've said what I needed to say."
+  },
+  {
+    "template_id": "obstacles_to_love_04",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not too much, not too little.",
+    "context": "That's exactly right. Not too much, not too little. They'll understand what it means, and i",
+    "full_text": "That's exactly right. Not too much, not too little. They'll understand what it means, and if they don't, it's still a nice thing to receive. Either way, I've said what I needed to say."
+  },
+  {
+    "template_id": "supplication_07",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not with what I owe.",
+    "context": "work rotation, and I can't afford that. Not with what I owe.",
+    "full_text": "I need a {quest_item} and I need it soon. I hurt my back three days ago and I've been hiding it because if {settlement_npc} finds out they'll pull me from the work rotation, and I can't afford that. Not with what I owe."
+  },
+  {
+    "template_id": "supplication_08",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not the twine and prayer I've been using.",
+    "context": "_item} for the repairs. The real repairs, not the twine and prayer I've been using. If I can get the perimeter solid again",
+    "full_text": "I need {gather_count} {quest_item} for the repairs. The real repairs, not the twine and prayer I've been using. If I can get the perimeter solid again I might actually sleep tonight."
+  },
+  {
+    "template_id": "deliverance_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not much, but enough.",
+    "context": "e else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is",
+    "full_text": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer."
+  },
+  {
+    "template_id": "deliverance_07",
+    "source_file": "v2",
+    "field": "conflict2TurnInText",
+    "pattern": "can_verb_again",
+    "match": "I can breathe again",
+    "context": "nly, without hedging, and I trust them. I can breathe again.",
+    "full_text": "{target_npc} says the worst has passed. They said it plainly, without hedging, and I trust them. I can breathe again."
+  },
+  {
+    "template_id": "deliverance_09",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not the kind I've been doing with rope and optimism.",
+    "context": "e repairs. The kind of repair that lasts, not the kind I've been doing with rope and optimism. Bring me that and the road opens up aga",
+    "full_text": "I need a {quest_item} to make the repairs. The kind of repair that lasts, not the kind I've been doing with rope and optimism. Bring me that and the road opens up again."
+  },
+  {
+    "template_id": "deliverance_11",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not another temporary reprieve.",
+    "context": "p them from coming back. A permanent fix, not another temporary reprieve.",
+    "full_text": "Go see {target_npc} in {target_npc_settlement}. They're a {target_npc_role} who dealt with this exact problem in their own settlement last year. I want to know what they did to keep them from coming back. A permanent fix, not another temporary reprieve."
+  },
+  {
+    "template_id": "recovery_10",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "can_verb_again",
+    "match": "I can work again",
+    "context": "s rebuilt, the formulas are tested, and I can work again without second-guessing every measureme",
+    "full_text": "The archive is rebuilt, the formulas are tested, and I can work again without second-guessing every measurement. Take {reward_item}, the first thing I made with my hand steady and my formulas back where they belong. You helped me recover something that fire couldn't kill, only scatter."
+  },
+  {
+    "template_id": "daring_enterprise_07",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not the pit fire I've been using.",
+    "context": "I want to build a kiln. A proper one, not the pit fire I've been using. Every craftworker in {settlement_name}",
+    "full_text": "I want to build a kiln. A proper one, not the pit fire I've been using. Every craftworker in {settlement_name} has to send their glazework to {other_settlement} because we can't fire it here, and I'm tired of watching our coin leave with every shipment. I need {gather_count} {quest_item} for the foundation."
+  },
+  {
+    "template_id": "daring_enterprise_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not enough demand.",
+    "context": "l would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with",
+    "full_text": "You're wondering why I didn't mention this to the council first. Because {settlement_npc} told me the council would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with my own materials, and I'll present them with a working kiln instead of a proposal they can reject."
+  },
+  {
+    "template_id": "daring_enterprise_08",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "pattern": "inverse_corrective",
+    "match": ", not guesswork.",
+    "context": "the survey work itself. Proper equipment, not guesswork. If I'm going to claim I found something",
+    "full_text": "One last thing. I need a {quest_item} for the survey work itself. Proper equipment, not guesswork. If I'm going to claim I found something, I want the measurements to back it up."
+  },
+  {
+    "template_id": "daring_enterprise_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not the longing.",
+    "context": "because I wanted you to see the ambition, not the longing.",
+    "full_text": "You saw the drawings on the wall, didn't you. Those aren't just plans. They're dreams I've been sketching since I was twelve years old, sitting in the back of someone else's forge and wondering if I'd ever have my own. I didn't tell you that because I wanted you to see the ambition, not the longing."
+  },
+  {
+    "template_id": "pursuit_06",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not chased off to come back tomorrow.",
+    "context": "ll_count} of them put down at the source, not chased off to come back tomorrow.",
+    "full_text": "I know where they den. I've known for weeks. The {enemy_type_plural} that have been raiding us aren't scattered, they're organized, and they come from the same hollow every time. I want {kill_count} of them put down at the source, not chased off to come back tomorrow."
+  },
+  {
+    "template_id": "pursuit_06",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not hope.",
+    "context": "ference in the air. But I want certainty, not hope.",
+    "full_text": "The den is broken. I can feel the difference in the air. But I want certainty, not hope."
+  },
+  {
+    "template_id": "pursuit_07",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "inverse_corrective",
+    "match": ", not scavenging.",
+    "context": "rms? That's coordinated hunting behavior, not scavenging. From the bite patterns you're describin",
+    "full_text": "Livestock kills across multiple farms? That's coordinated hunting behavior, not scavenging. From the bite patterns you're describing, I'd say you have a pack that's shifted its territory. Hit them where they rest during the day and hit them together."
+  },
+  {
+    "template_id": "disaster_07",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not pretty, not finished, but standing.",
+    "context": "The workshop is standing, not pretty, not finished, but standing. Take {reward_item}. I found one jar in",
+    "full_text": "The workshop is standing, not pretty, not finished, but standing. Take {reward_item}. I found one jar in the rubble that came through without a crack, and I've been keeping it on the new shelf because it reminds me what you did. You showed up when the ground was still shaking, and that's the kind of thing a person remembers for a long time."
+  },
+  {
+    "template_id": "vengeance_06",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not less.",
+    "context": "at's gone makes you feel it more clearly, not less. Now comes the part I've been holding in",
+    "full_text": "I set it at the edge of where the oldest tree used to stand. Funny how marking what's gone makes you feel it more clearly, not less. Now comes the part I've been holding in my teeth for months."
+  },
+  {
+    "template_id": "vengeance_10",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "not_fragment_sentence",
+    "match": "Not with her garden.",
+    "context": "ld. I am not watching that happen twice. Not with her garden.",
+    "full_text": "I want {kill_count} of those {enemy_type_plural} gone. They'll come back otherwise, and they'll do to the new growth what they did to the old. I am not watching that happen twice. Not with her garden."
+  },
+  {
+    "template_id": "conflict_with_fate_05",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not rationally, but in that part of your mind that keeps count.",
+    "context": "s exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventu",
+    "full_text": "It's funny you put it that way, because that's exactly how it feels, like I cause it. Not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but there it is."
+  },
+  {
+    "template_id": "conflict_with_fate_08",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not poor yield.",
+    "context": "ars and nothing came up. Not thin growth, not poor yield. Nothing. I need a {quest_item} to test",
+    "full_text": "I planted in the same field I've used for twelve years and nothing came up. Not thin growth, not poor yield. Nothing. I need a {quest_item} to test the soil and find out whether the ground has given up on me or whether something else is at work."
+  },
+  {
+    "template_id": "conflict_with_fate_08",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not thin growth, not poor yield.",
+    "context": "ed for twelve years and nothing came up. Not thin growth, not poor yield. Nothing. I need a {quest_item} to test",
+    "full_text": "I planted in the same field I've used for twelve years and nothing came up. Not thin growth, not poor yield. Nothing. I need a {quest_item} to test the soil and find out whether the ground has given up on me or whether something else is at work."
+  },
+  {
+    "template_id": "conflict_with_fate_08",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not hostile.",
+    "context": "t me, and you showed me it was just sick, not hostile. That difference matters more than you k",
+    "full_text": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {reward_item}, and come back when the field bears again so I can show you what it was you saved. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know."
+  },
+  {
+    "template_id": "conflict_with_fate_09",
+    "source_file": "v2",
+    "field": "declineText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not in a good way.",
+    "context": "he pile is getting impressive, honestly. Not in a good way.",
+    "full_text": "Then I add it to the pile. The pile is getting impressive, honestly. Not in a good way."
+  },
+  {
+    "template_id": "conflict_with_fate_10",
+    "source_file": "v2",
+    "field": "conflict2TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not patched, not postponed.",
+    "context": "Solved. Actually solved, not patched, not postponed. The channel holds, the shelves are full",
+    "full_text": "Solved. Actually solved, not patched, not postponed. The channel holds, the shelves are full, and the road is safe. I keep waiting for the next thing to fail and it hasn't."
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_07",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not only the fence.",
+    "context": "t's broken. The whole operation needs it, not only the fence. He stripped the place on his way out, a",
+    "full_text": "I need {gather_count} {quest_item} to patch what's broken. The whole operation needs it, not only the fence. He stripped the place on his way out, and I've been pretending it doesn't matter."
+  },
+  {
+    "template_id": "madness_08",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not them.",
+    "context": "hey looked at me like I was the stranger, not them. Like I was the one who didn't belong in",
+    "full_text": "All right, since you're not going to let me dodge this. I tried to stop them last week by grabbing their hands. They looked at me like I was the stranger, not them. Like I was the one who didn't belong in this house."
+  },
+  {
+    "template_id": "madness_09",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not cured, I know.",
+    "context": "ost beautiful thing I've heard in weeks. Not cured, I know. But managed means she stays.",
+    "full_text": "{target_npc} said it can be managed? That word, managed, is the most beautiful thing I've heard in weeks. Not cured, I know. But managed means she stays."
+  },
+  {
+    "template_id": "madness_11",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not something his mind invented.",
+    "context": "eone to talk to. That confirms it's real, not something his mind invented. Knowing that changes everything.",
+    "full_text": "So {target_npc} saw something out there too, and they're managing it better because they had someone to talk to. That confirms it's real, not something his mind invented. Knowing that changes everything."
+  },
+  {
+    "template_id": "self_sacrifice_for_an_ideal_06",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "inverse_corrective",
+    "match": ", not twenty.",
+    "context": "nnels? I designed them to last ten years, not twenty. Whoever's been adapting them has a good",
+    "full_text": "Someone is still maintaining those channels? I designed them to last ten years, not twenty. Whoever's been adapting them has a good sense of how water moves. The adjustments are better than what I'd have suggested myself."
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_09",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not talking yet, but working, which is his way of talking.",
+    "context": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. {reward_item} is yours, handed over by",
+    "full_text": "He's at the workbench this morning. Not talking yet, but working, which is his way of talking. {reward_item} is yours, handed over by a brother who had nothing to offer his own brother for weeks and is finally able to offer something to someone. You helped me reach a person I couldn't reach alone, and that's a debt I'll carry gladly."
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_10",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not at her.",
+    "context": "n able to tell anyone is that I'm angry. Not at her.",
+    "full_text": "You have a warmth about you that makes difficult things feel possible. I need that right now. The thing I haven't been able to tell anyone is that I'm angry. Not at her."
+  },
+  {
+    "template_id": "loss_of_loved_ones_10",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not the same, but she'd have understood the gesture.",
+    "context": "That's close. Not the same, but she'd have understood the gesture. I put it where hers used to sit, and th",
+    "full_text": "That's close. Not the same, but she'd have understood the gesture. I put it where hers used to sit, and the room feels less empty now."
+  },
+  {
+    "template_id": "ambition_09",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not one of the best, the best.",
+    "context": "st {self_role} this region has ever seen, not one of the best, the best. That starts with materials, and I need",
+    "full_text": "I've decided I'm going to be the best {self_role} this region has ever seen, not one of the best, the best. That starts with materials, and I need {gather_count} {quest_item} of the finest quality I can get. No excuses, no substitutions."
+  },
+  {
+    "template_id": "ambition_09",
+    "source_file": "v2",
+    "field": "declineText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not everyone can see what I'm building.",
+    "context": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed u",
+    "full_text": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed up and who didn't."
+  },
+  {
+    "template_id": "ambition_11",
+    "source_file": "v2",
+    "field": "acceptText",
+    "pattern": "inverse_corrective",
+    "match": ", not someone who asks permission.",
+    "context": "them to see someone who solves problems, not someone who asks permission.",
+    "full_text": "Perfect. When I walk into that room, I want them to see someone who solves problems, not someone who asks permission."
+  },
+  {
+    "template_id": "ambition_11",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "not_fragment_sentence",
+    "match": "Not gifts, investments.",
+    "context": "item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've alr",
+    "full_text": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm showing them I've been sitting in that seat already, whether they gave it to me or not."
+  },
+  {
+    "template_id": "mistaken_jealousy_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not the road to {other_settlement}.",
+    "context": "it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see",
+    "full_text": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely."
+  },
+  {
+    "template_id": "erroneous_judgment_06",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not on facts.",
+    "context": "he council made its decision on my anger, not on facts.",
+    "full_text": "{target_npc} in {target_npc_settlement} handled the original inspection when the complaint went through. They'll remember what they saw. Ask them to look at the evidence again, because I think the council made its decision on my anger, not on facts."
+  },
+  {
+    "template_id": "erroneous_judgment_07",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "pattern": "inverse_corrective",
+    "match": ", not some child.",
+    "context": "That trader was the one moving goods out, not some child.",
+    "full_text": "I'd swear to it in front of anyone. That trader was the one moving goods out, not some child."
+  },
+  {
+    "template_id": "erroneous_judgment_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not deliberate.",
+    "context": "ks that the contamination was structural, not deliberate. But I still need to find the traveler,",
+    "full_text": "Good. With this I can show anyone who asks that the contamination was structural, not deliberate. But I still need to find the traveler, or at least send word that they were wrongly accused."
+  },
+  {
+    "template_id": "erroneous_judgment_08",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not all of them, but enough.",
+    "context": "finally willing to admit we were wrong. Not all of them, but enough. Take {reward_item}, and I hope it count",
+    "full_text": "The well is repaired, the word is out, and a few people in {settlement_name} are finally willing to admit we were wrong. Not all of them, but enough. Take {reward_item}, and I hope it counts for something on a day when nothing I give quite balances what we did. You helped me make right what I could, even if I can't undo all of it."
+  },
+  {
+    "template_id": "remorse_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not thrown.",
+    "context": "when I said it and the words were chosen, not thrown. That's the part that doesn't fit the ve",
+    "full_text": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_09",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not sentimental.",
+    "context": "That's good. Something useful, not sentimental. My friend doesn't need more feelings ri",
+    "full_text": "That's good. Something useful, not sentimental. My friend doesn't need more feelings right now, they need a reason to stop hiding. This gives them one."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "inverse_corrective",
+    "match": ", not encouragement.",
+    "context": "ting my own picture on it. That's vanity, not encouragement.",
+    "full_text": "You have an ease about you that makes me want to drop the pretense, so I will. I misread the situation on purpose, because I wanted to be the person who brought two people together and liked the idea of seeing what nobody else could see. My friend's heart was the canvas and I was painting my own picture on it. That's vanity, not encouragement."
+  },
+  {
+    "template_id": "obstacles_to_love_05",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not by any real grievance.",
+    "context": "kept alive by stubbornness at this point, not by any real grievance. The older generation holds the line out",
+    "full_text": "{target_npc} says the feud is mostly kept alive by stubbornness at this point, not by any real grievance. The older generation holds the line out of habit, and the younger ones follow because nobody's given them permission to stop. That gives me hope, thin hope, but real."
+  },
+  {
+    "template_id": "obstacles_to_love_06",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "not_fragment_sentence",
+    "match": "Not a formal endorsement, just an honest word.",
+    "context": "st speak on behalf of the one proposing. Not a formal endorsement, just an honest word. {target_npc} in {target_npc_settlement}",
+    "full_text": "The family has a tradition that someone outside the courtship must speak on behalf of the one proposing. Not a formal endorsement, just an honest word. {target_npc} in {target_npc_settlement} has known me since I was young. Ask them if they'd be willing to say a few words about my character when the time comes."
+  },
+  {
+    "template_id": "obstacles_to_love_06",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "pattern": "inverse_corrective",
+    "match": ", not the answer.",
+    "context": "t preparing. The hard part is the asking, not the answer.",
+    "full_text": "Tell them to stop worrying and start preparing. The hard part is the asking, not the answer."
+  },
+  {
+    "template_id": "obstacles_to_love_07",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not a break from tradition.",
+    "context": "an frame it as an addition to the circle, not a break from tradition. Bring me a {quest_item} they've made so",
+    "full_text": "The person I love makes a particular kind of {quest_item} that nobody in the trade circle produces. If I can show my family that this person brings a skill we're missing, I can frame it as an addition to the circle, not a break from tradition. Bring me a {quest_item} they've made so I can present it."
+  },
+  {
+    "template_id": "obstacles_to_love_07",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "inverse_corrective",
+    "match": ", not to keep good people out.",
+    "context": "dition exists to keep our standards high, not to keep good people out.",
+    "full_text": "I've led this trade circle long enough to know when the rules serve us and when we serve the rules. There have been outsiders welcomed before, three times in my memory, and each time the circle was stronger for it. The tradition exists to keep our standards high, not to keep good people out."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not too little.",
+    "context": "That's exactly right. Not too much, not too little. But I realize now I can't just send it",
+    "full_text": "That's exactly right. Not too much, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not too much, not too little.",
+    "context": "That's exactly right. Not too much, not too little. But I realize now I can't just send it",
+    "full_text": "That's exactly right. Not too much, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "pattern": "not_nothing",
+    "match": "That's not nothing",
+    "context": "en through {other_settlement} recently. That's not nothing. That's an opening, and I've been too s",
+    "full_text": "So {target_npc} says this person has mentioned me more than once, and always warmly. They asked about my work, my health, whether I'd been through {other_settlement} recently. That's not nothing. That's an opening, and I've been too scared to step through it."
+  },
+  {
+    "template_id": "obstacles_to_love_09",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "inverse_corrective",
+    "match": ", not the obstacle to one.",
+    "context": "t the traveling itself could be the life, not the obstacle to one. We built a routine around the road, and",
+    "full_text": "I know that problem well. I spent five years going back and forth between two places, and for the first two I was miserable because I kept thinking I had to pick one. What changed was realizing that the traveling itself could be the life, not the obstacle to one. We built a routine around the road, and the road became home in its own way."
+  },
+  {
+    "template_id": "loss_of_loved_ones_17",
+    "source_file": "v2",
+    "field": "declineText",
+    "pattern": "inverse_corrective",
+    "match": ", not yours.",
+    "context": "Aye, that's fair. It's my ghost, not yours. I'll carry it a while longer.",
+    "full_text": "Aye, that's fair. It's my ghost, not yours. I'll carry it a while longer."
+  },
+  {
+    "template_id": "loss_of_loved_ones_17",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not really.",
+    "context": "day he said I was ready, and I never was, not really. But I think he'd want it with someone w",
+    "full_text": "Here, take {reward_item}. He gave it to me the day he said I was ready, and I never was, not really. But I think he'd want it with someone who finished the thing he couldn't. I'll visit his marker this week and tell him about you."
+  },
+  {
+    "template_id": "loss_of_loved_ones_22",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not with old widows who stare at them.",
+    "context": "d things belong with people who use them, not with old widows who stare at them. The season is turning, and for the firs",
+    "full_text": "Take {reward_item}, please. It was his, and he always said good things belong with people who use them, not with old widows who stare at them. The season is turning, and for the first time in a year I'm not dreading it."
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_12",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not yet.",
+    "context": "ares. She doesn't need to know different, not yet. Just help me finish what I started, fri",
+    "full_text": "I've been fortifying the house for months now, and I'm close to having it done. I need {gather_count} {quest_item} to finish the last of it, and my hands are shaking too much lately to go gather it myself. My wife thinks I'm out checking snares. She doesn't need to know different, not yet. Just help me finish what I started, friend, and I'll tell you the rest after."
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_16",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not yet.",
+    "context": "can't show them a father who's breaking. Not yet.",
+    "full_text": "You see the way I'm holding my left arm. Dislocated it two weeks back and popped it back in myself, and I haven't let the children see me wince since. I can't show them a father who's breaking. Not yet."
+  },
+  {
+    "template_id": "pursuit_19",
+    "source_file": "v2",
+    "field": "skillCheck.failText",
+    "pattern": "inverse_corrective",
+    "match": ", not dressing it up with stories.",
+    "context": "d business. What matters is finishing it, not dressing it up with stories.",
+    "full_text": "It's old business. What matters is finishing it, not dressing it up with stories."
+  },
+  {
+    "template_id": "disaster_12",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "inverse_corrective",
+    "match": ", not after what we've been through.",
+    "context": "ce a {group_difficulty} threat like that, not after what we've been through. If you could end that for us, we could",
+    "full_text": "The ones who hit us didn't all leave. {boss_name} is still out there, the one who led them in, and every night we go to sleep wondering if they're coming back to finish what they started. None of us can face a {group_difficulty} threat like that, not after what we've been through. If you could end that for us, we could actually start calling this recovery."
+  },
+  {
+    "template_id": "supplication_15",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "pattern": "inverse_corrective",
+    "match": ", not just one.",
+    "context": "please. You gave two of us our days back, not just one.",
+    "full_text": "My partner asked about you this morning, which is the first thing they've asked about that wasn't water or pain. Take {reward_item}, please. You gave two of us our days back, not just one."
+  },
+  {
+    "template_id": "mundane_bounty_17",
+    "source_file": "mundane",
+    "field": "expositionTurnInText",
+    "pattern": "inverse_corrective",
+    "match": ", not mine.",
+    "context": "it in the ledger tonight. With your name, not mine.",
+    "full_text": "I'll put it in the ledger tonight. With your name, not mine."
+  },
+  {
+    "template_id": "mundane_bounty_18",
+    "source_file": "mundane",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not homes.",
+    "context": "so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking befo",
+    "full_text": "We've been lucky so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking before it does, not after."
+  },
+  {
+    "template_id": "mundane_bounty_18",
+    "source_file": "mundane",
+    "field": "expositionText",
+    "pattern": "inverse_corrective",
+    "match": ", not after.",
+    "context": "will run out. I'm asking before it does, not after.",
+    "full_text": "We've been lucky so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking before it does, not after."
+  },
+  {
+    "template_id": "mundane_bounty_26",
+    "source_file": "mundane",
+    "field": "expositionText",
+    "pattern": "not_fragment_sentence",
+    "match": "Not since {boss_name} started being in the area.",
+    "context": "My wife won't answer the door anymore. Not since {boss_name} started being in the area. I don't know if it's fear or pride or b",
+    "full_text": "My wife won't answer the door anymore. Not since {boss_name} started being in the area. I don't know if it's fear or pride or both. Either way, she deserves to open her own door again."
+  }
+]

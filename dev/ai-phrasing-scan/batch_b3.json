@@ -1,0 +1,578 @@
+[
+  {
+    "template_id": "pursuit_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not delayed.",
+    "context": "ing this way again. I want this finished, not delayed.",
+    "full_text": "Now we put it down. {kill_count} of those {enemy_type_plural} should be enough to break their numbers and make them think twice about coming this way again. I want this finished, not delayed.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken emphasis on urgency, not AI pre-emption"
+  },
+  {
+    "template_id": "ambition_01",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": ", not just useful, but special.",
+    "context": "g the people here will actually remember, not just useful, but special. I need {gather_count} {quest_item} to e",
+    "full_text": "I've been dreaming about this for ages and I'm finally putting it into motion. I want to make something the people here will actually remember, not just useful, but special. I need {gather_count} {quest_item} to even start, and I want to start today.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I've been dreaming about this for ages and I'm finally putting it into motion. I want to make something the people here will actually remember. Something special. I need {gather_count} {quest_item} to even start, and I want to start today.",
+    "note": "classic 'not just X, but Y' escalation; split into a plainer follow-up sentence"
+  },
+  {
+    "template_id": "ambition_03",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": ", not just patched up, actually better.",
+    "context": "name} better than it was when I got here, not just patched up, actually better. To begin I need {gather_count} {quest_i",
+    "full_text": "I've got a vision and I'm tired of keeping it inside my own head. I want to make {settlement_name} better than it was when I got here, not just patched up, actually better. To begin I need {gather_count} {quest_item}. That's the seed of the whole idea.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I've got a vision and I'm tired of keeping it inside my own head. I want to make {settlement_name} actually better than it was when I got here, not just hold it together. To begin I need {gather_count} {quest_item}. That's the seed of the whole idea.",
+    "note": "rewrote to drop the 'not just X, actually Y' rhetorical flourish while keeping the contrast"
+  },
+  {
+    "template_id": "recovery_03",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": "Not for revenge.",
+    "context": "e. I want {kill_count} of them put down. Not for revenge. For the simple fact that I shouldn't ha",
+    "full_text": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. Not for revenge. For the simple fact that I shouldn't have to live with the worry.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "rewrite",
+    "rewrite": "The {enemy_type_plural} that did this are still out there acting like they own the place. I want {kill_count} of them put down. This isn't about revenge. I just shouldn't have to live with the worry.",
+    "note": "dropped the 'Not X. For Y.' fragment pre-emption, said it directly"
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_02",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "match": ", not just words.",
+    "context": "I want to bring him something useful, not just words. Could you gather {gather_count} {quest_",
+    "full_text": "I want to bring him something useful, not just words. Could you gather {gather_count} {quest_item}? It's the kind of thing he always needed and could never get enough of. If I show up with that on top of clearing the way, he'll know I mean it.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural binary contrast, common spoken phrasing"
+  },
+  {
+    "template_id": "erroneous_judgment_03",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not just tell them.",
+    "context": "I need to show people, not just tell them. Bring me a {quest_item}. It's the kind",
+    "full_text": "I need to show people, not just tell them. Bring me a {quest_item}. It's the kind of thing that would have been left behind if my version of events is right. If we can put it in front of the accusers, the story falls apart on its own.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "show-vs-tell is a natural idiom in spoken English"
+  },
+  {
+    "template_id": "remorse_03",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "match": ", not just hiding.",
+    "context": "he shelf feel like something I'm filling, not just hiding.",
+    "full_text": "That's a fine {quest_item}. He would have approved of the craftsmanship, at least. Holding it makes the empty spot on the shelf feel like something I'm filling, not just hiding.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "genuine emotional contrast, reads as an honest spoken afterthought"
+  },
+  {
+    "template_id": "obstacles_to_love_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not just shown up.",
+    "context": "omeone to know you've thought about them, not just shown up. I'll present it when I make my case.",
+    "full_text": "If she values gestures, then I need a real one. Find me a {quest_item}, the kind of thing you bring when you want someone to know you've thought about them, not just shown up. I'll present it when I make my case.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken clarification of what a 'real gesture' means"
+  },
+  {
+    "template_id": "madness_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not more emptiness.",
+    "context": "grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like",
+    "full_text": "If she's grieving, then she needs something back, not more emptiness. Find me a {quest_item} that feels like a beginning, something a person uses when they're starting again, not finishing. I'll bring it to her and tell her it's from someone who cares about her.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "genuine emotional contrast about grief"
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_01",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": ", not stuck in {settlement_name} listening to the wind.",
+    "context": "want to spend his last days at his side, not stuck in {settlement_name} listening to the wind.",
+    "full_text": "My brother is dying. I haven't been able to get to him because the {enemy_type_plural} have been thick around here and I'm not the fighter I used to be. I need {kill_count} of them dealt with. I want to spend his last days at his side, not stuck in {settlement_name} listening to the wind.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken contrast with concrete specific detail"
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": "Not for him.",
+    "context": ". Take {kill_count} of them down for me. Not for him. For me.",
+    "full_text": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me. Not for him. For me.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down so I can breathe again.",
+    "note": "dropped the 'Not for him. For me.' fragment pre-emption closer; said the intent plainly"
+  },
+  {
+    "template_id": "daring_enterprise_05",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "match": ", not improvise.",
+    "context": ". It's the kind of thing you plan around, not improvise.",
+    "full_text": "I've got a project in mind that could benefit the whole settlement, and I'm ready to start. I need a {quest_item} first. It's the kind of thing you plan around, not improvise.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken contrast describing the item's importance"
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_04",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "match": ", not sentimental.",
+    "context": "est_item} as a gesture. Something useful, not sentimental. The kind of thing that says I'm done ar",
+    "full_text": "I'd like to bring a {quest_item} as a gesture. Something useful, not sentimental. The kind of thing that says I'm done arguing and I'd rather be neighbors again. Find me one, would you?",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken qualifier, genuine two-option contrast"
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_04",
+    "source_file": "v2",
+    "field": "targetNpcCloser",
+    "match": ", not a courtesy.",
+    "context": "y will be looked after. That's a promise, not a courtesy.",
+    "full_text": "Tell them the boy will be looked after. That's a promise, not a courtesy.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "short emphatic spoken line, natural weight on the word 'promise'"
+  },
+  {
+    "template_id": "obstacles_to_love_04",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": ", not too little.",
+    "context": "That's exactly right. Not too much, not too little. They'll understand what it means, and i",
+    "full_text": "That's exactly right. Not too much, not too little. They'll understand what it means, and if they don't, it's still a nice thing to receive. Either way, I've said what I needed to say.",
+    "patterns_flagged": [
+      "inverse_corrective",
+      "not_fragment_sentence"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "'not too much, not too little' is a fixed idiomatic phrase in spoken English"
+  },
+  {
+    "template_id": "deliverance_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ", not much, but enough.",
+    "context": "e else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is",
+    "full_text": "You saw the scrub marks on the trail stones, didn't you. I cleaned up what I found this morning before anyone else walked that path. There was blood, not much, but enough. I've been telling everyone my cousin is just delayed, and I need that to stay true for a little longer.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken qualifier, reads as real hesitation"
+  },
+  {
+    "template_id": "deliverance_11",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not another temporary reprieve.",
+    "context": "p them from coming back. A permanent fix, not another temporary reprieve.",
+    "full_text": "Go see {target_npc} in {target_npc_settlement}. They're a {target_npc_role} who dealt with this exact problem in their own settlement last year. I want to know what they did to keep them from coming back. A permanent fix, not another temporary reprieve.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken emphasis, genuine distinction the NPC cares about"
+  },
+  {
+    "template_id": "recovery_11",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I don't know what it means, but I know",
+    "context": "don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
+    "full_text": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
+    "patterns_flagged": [
+      "dont_know_but_know"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation. I can't read it, but that wasn't just animals claiming empty space.",
+    "note": "original text is garbled ('I know It just animals'), clearly a broken prior edit; rewrote to make the passText coherent and drop the 'don't know but I know' AI cadence"
+  },
+  {
+    "template_id": "daring_enterprise_08",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "match": ", not guesswork.",
+    "context": "the survey work itself. Proper equipment, not guesswork. If I'm going to claim I found something",
+    "full_text": "One last thing. I need a {quest_item} for the survey work itself. Proper equipment, not guesswork. If I'm going to claim I found something, I want the measurements to back it up.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken contrast, practical concern voiced plainly"
+  },
+  {
+    "template_id": "pursuit_06",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": ", not chased off to come back tomorrow.",
+    "context": "ll_count} of them put down at the source, not chased off to come back tomorrow.",
+    "full_text": "I know where they den. I've known for weeks. The {enemy_type_plural} that have been raiding us aren't scattered, they're organized, and they come from the same hollow every time. I want {kill_count} of them put down at the source, not chased off to come back tomorrow.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken frustration, specific concrete contrast"
+  },
+  {
+    "template_id": "pursuit_08",
+    "source_file": "v2",
+    "field": "acceptText",
+    "match": "Not just reacting, but actually solving it.",
+    "context": "ow we're approaching this the right way. Not just reacting, but actually solving it.",
+    "full_text": "Now we're approaching this the right way. Not just reacting, but actually solving it.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Now we're approaching this the right way. Actually solving it, for once.",
+    "note": "textbook 'not just X, but Y' escalation; said the point directly"
+  },
+  {
+    "template_id": "disaster_10",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ", not a person who is the problem.",
+    "context": "treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
+    "full_text": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You treated me like someone who could handle it. I needed that more than the supplies.",
+    "note": "rhetorical chiasmus reads as written, not spoken; replaced with a plainer restatement"
+  },
+  {
+    "template_id": "vengeance_06",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not scared off, put down.",
+    "context": "y_type_plural} put down. Not pushed back, not scared off, put down. Every one of them that falls is a year",
+    "full_text": "I want {kill_count} of those {enemy_type_plural} put down. Not pushed back, not scared off, put down. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
+    "patterns_flagged": [
+      "inverse_corrective",
+      "not_fragment_sentence"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I want {kill_count} of those {enemy_type_plural} dead. Chasing them off isn't enough anymore. Every one of them that falls is a year of work acknowledged. I planted those trees as a young person and I watched them grow, and something owes me for what I lost.",
+    "note": "dropped the tricolon 'Not pushed back, not scared off, put down' which the brief explicitly flags as AI escalation; restated the demand plainly"
+  },
+  {
+    "template_id": "conflict_with_fate_05",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": ", not dramatically, just reliably.",
+    "context": "ways been the person things go wrong for, not dramatically, just reliably. This season the pattern held with thin",
+    "full_text": "I've always been the person things go wrong for, not dramatically, just reliably. This season the pattern held with thin crops, a leaning shed, and now I can't get enough {quest_item} to keep the household running. I need {gather_count} of it, and I need someone whose luck runs better than mine to go looking.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I've always been the person things go wrong for, in the steady ordinary way, nothing anyone would tell stories about. This season the pattern held with thin crops, a leaning shed, and now I can't get enough {quest_item} to keep the household running. I need {gather_count} of it, and I need someone whose luck runs better than mine to go looking.",
+    "note": "'not dramatically, just reliably' is a writerly corrective aside; replaced with a plainer descriptive aside and kept sentence count at 3"
+  },
+  {
+    "template_id": "conflict_with_fate_08",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "match": ", not hostile.",
+    "context": "t me, and you showed me it was just sick, not hostile. That difference matters more than you k",
+    "full_text": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {reward_item}, and come back when the field bears again so I can show you what it was you saved. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken distinction the NPC is processing in real time"
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_07",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not only the fence.",
+    "context": "t's broken. The whole operation needs it, not only the fence. He stripped the place on his way out, a",
+    "full_text": "I need {gather_count} {quest_item} to patch what's broken. The whole operation needs it, not only the fence. He stripped the place on his way out, and I've been pretending it doesn't matter.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken clarification of scope"
+  },
+  {
+    "template_id": "madness_11",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": ", not something his mind invented.",
+    "context": "eone to talk to. That confirms it's real, not something his mind invented. Knowing that changes everything.",
+    "full_text": "So {target_npc} saw something out there too, and they're managing it better because they had someone to talk to. That confirms it's real, not something his mind invented. Knowing that changes everything.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken relief, genuine distinction that matters to the speaker"
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_10",
+    "source_file": "v2",
+    "field": "conflict2TurnInText",
+    "match": "Not with fear this time.",
+    "context": "she opened them, she looked at the door. Not with fear this time. More like someone considering a possibi",
+    "full_text": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. Not with fear this time. More like someone considering a possibility.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "rewrite",
+    "rewrite": "She held it to her chest and closed her eyes. When she opened them, she looked at the door. There wasn't fear in it this time. More like someone considering a possibility.",
+    "note": "the 'Not X. Y.' two-fragment pre-emption reads as written prose; folded into a plain sentence while keeping the beat"
+  },
+  {
+    "template_id": "ambition_06",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not just the small ones.",
+    "context": "ws I can follow through on the big ideas, not just the small ones. Help me stockpile and I'll do the rest.",
+    "full_text": "I need {gather_count} {quest_item} to finish a project I've been planning. Something visible, something that shows I can follow through on the big ideas, not just the small ones. Help me stockpile and I'll do the rest.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken big-vs-small contrast"
+  },
+  {
+    "template_id": "ambition_09",
+    "source_file": "v2",
+    "field": "declineText",
+    "match": "Not everyone can see what I'm building.",
+    "context": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed u",
+    "full_text": "I expected more, honestly. Not everyone can see what I'm building. That's fine. I'll remember who showed up and who didn't.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "not a fragment pre-emption; 'Not everyone' is a standalone subject phrase, fully grammatical spoken English"
+  },
+  {
+    "template_id": "mistaken_jealousy_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ", not the road to {other_settlement}.",
+    "context": "it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see",
+    "full_text": "You noticed the hole in what I'm asking you to do. I already have the answer. I checked the mud on their boots three days ago and it matched the clay near Margel's house, not the road to {other_settlement}. The excuses don't hold up and I can see that plainly. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural factual contrast between two specific places"
+  },
+  {
+    "template_id": "erroneous_judgment_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "match": ", not deliberate.",
+    "context": "ks that the contamination was structural, not deliberate. But I still need to find the traveler,",
+    "full_text": "Good. With this I can show anyone who asks that the contamination was structural, not deliberate. But I still need to find the traveler, or at least send word that they were wrongly accused.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken distinction that is the whole point of the exoneration"
+  },
+  {
+    "template_id": "remorse_07",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": ", not just with a {quest_item}.",
+    "context": "ome, but that I should come with honesty, not just with a {quest_item}. That's fair. I owe the truth at minimum",
+    "full_text": "{target_npc} said I'd be welcome, but that I should come with honesty, not just with a {quest_item}. That's fair. I owe the truth at minimum.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken contrast paraphrasing what the target NPC said"
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_09",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": ", not sentimental.",
+    "context": "That's good. Something useful, not sentimental. My friend doesn't need more feelings ri",
+    "full_text": "That's good. Something useful, not sentimental. My friend doesn't need more feelings right now, they need a reason to stop hiding. This gives them one.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural short approving line, genuine two-option contrast"
+  },
+  {
+    "template_id": "obstacles_to_love_06",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": "Not a formal endorsement, just an honest word.",
+    "context": "st speak on behalf of the one proposing. Not a formal endorsement, just an honest word. {target_npc} in {target_npc_settlement}",
+    "full_text": "The family has a tradition that someone outside the courtship must speak on behalf of the one proposing. Not a formal endorsement, just an honest word. {target_npc} in {target_npc_settlement} has known me since I was young. Ask them if they'd be willing to say a few words about my character when the time comes.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken clarification downgrading expectations; reads as real speech, not rhetorical pre-emption"
+  },
+  {
+    "template_id": "obstacles_to_love_07",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "match": ", not to keep good people out.",
+    "context": "dition exists to keep our standards high, not to keep good people out.",
+    "full_text": "I've led this trade circle long enough to know when the rules serve us and when we serve the rules. There have been outsiders welcomed before, three times in my memory, and each time the circle was stronger for it. The tradition exists to keep our standards high, not to keep good people out.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural purpose-contrast, reads as a thoughtful leader voicing their governing principle"
+  },
+  {
+    "template_id": "obstacles_to_love_09",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "match": ", not the obstacle to one.",
+    "context": "t the traveling itself could be the life, not the obstacle to one. We built a routine around the road, and",
+    "full_text": "I know that problem well. I spent five years going back and forth between two places, and for the first two I was miserable because I kept thinking I had to pick one. What changed was realizing that the traveling itself could be the life, not the obstacle to one. We built a routine around the road, and the road became home in its own way.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "genuine contrast central to the story the NPC is telling; natural spoken reflection"
+  },
+  {
+    "template_id": "loss_of_loved_ones_17",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "match": ", not really.",
+    "context": "day he said I was ready, and I never was, not really. But I think he'd want it with someone w",
+    "full_text": "Here, take {reward_item}. He gave it to me the day he said I was ready, and I never was, not really. But I think he'd want it with someone who finished the thing he couldn't. I'll visit his marker this week and tell him about you.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "'not really' is a natural spoken softening qualifier, very common in grief speech"
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_16",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "Not yet.",
+    "context": "can't show them a father who's breaking. Not yet.",
+    "full_text": "You see the way I'm holding my left arm. Dislocated it two weeks back and popped it back in myself, and I haven't let the children see me wince since. I can't show them a father who's breaking. Not yet.",
+    "patterns_flagged": [
+      "not_fragment_sentence"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "'Not yet.' is a natural spoken trailing fragment, not corrective reframing"
+  },
+  {
+    "template_id": "disaster_12",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": ", not after what we've been through.",
+    "context": "ce a {group_difficulty} threat like that, not after what we've been through. If you could end that for us, we could",
+    "full_text": "The ones who hit us didn't all leave. {boss_name} is still out there, the one who led them in, and every night we go to sleep wondering if they're coming back to finish what they started. None of us can face a {group_difficulty} threat like that, not after what we've been through. If you could end that for us, we could actually start calling this recovery.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "natural spoken qualifier of the 'can't' claim, conversational and grounded"
+  },
+  {
+    "template_id": "mundane_bounty_18",
+    "source_file": "mundane",
+    "field": "expositionText",
+    "match": ", not homes.",
+    "context": "so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking befo",
+    "full_text": "We've been lucky so far. {boss_name}'s been hitting carts, not homes. That luck will run out. I'm asking before it does, not after.",
+    "patterns_flagged": [
+      "inverse_corrective"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "both inverse correctives here are natural factual contrasts spoken in plain voice"
+  }
+]

@@ -1,0 +1,338 @@
+[
+  {
+    "template_id": "supplication_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "The truth is",
+    "context": "The truth is I haven't told anyone here how bad it g",
+    "full_text": "The truth is I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I haven't told anyone here how bad it got. Two nights ago I sat up with a kitchen knife and cried until the sun came up. I'm not built for this and I'm tired of pretending I am.",
+    "note": "Dropped the confession opener; the rest stands on its own."
+  },
+  {
+    "template_id": "deliverance_01",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "match": "It isn't enough, but",
+    "context": "she can come home. Take {reward_item}. It isn't enough, but it's what I have, and there's a debt he",
+    "full_text": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It isn't enough, but it's what I have, and there's a debt here I won't forget. You gave me back my sister.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "She's going to be all right. {target_npc} sent word this morning and she's already asking when she can come home. Take {reward_item}. It's what I have to give, and there's a debt here I won't forget. You gave me back my sister.",
+    "note": "Replaced the corrective 'it isn't enough, but' with a plainer offering."
+  },
+  {
+    "template_id": "disaster_01",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "match": "that isn't a tarp. But",
+    "context": "l have something over our heads tonight that isn't a tarp. But the food stores are the part that's kee",
+    "full_text": "That's a real start. We'll have something over our heads tonight that isn't a tarp. But the food stores are the part that's keeping me up.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "That's a real start. We'll have a real roof over our heads tonight instead of a tarp. The food stores are the part that's keeping me up.",
+    "note": "Removed the corrective 'isn't X. But Y' pivot; combined the contrast into a single plain line."
+  },
+  {
+    "template_id": "vengeance_02",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "You see right through me, don't you. The truth is I've been rehearsing this for almost a",
+    "full_text": "You see right through me, don't you. The truth is I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You see right through me, don't you. I've been rehearsing this for almost a year. Every morning I wake up and I think about what I'd do if I had the chance. Now I have it, and that scares me almost as much as the night they came.",
+    "note": "Dropped the confession opener; the admission comes straight out."
+  },
+  {
+    "template_id": "self_sacrifice_for_an_ideal_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "Not because",
+    "context": "I haven't slept properly in months. Not because I'm afraid. Because I keep thinking if",
+    "full_text": "I haven't slept properly in months. Not because I'm afraid. Because I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
+    "patterns_flagged": [
+      "not_because"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I haven't slept properly in months. It's not fear keeping me up. I keep thinking if I close my eyes too long, the whole effort will unravel. It's a foolish way to live, I know.",
+    "note": "Replaced the 'Not because X. Because Y.' causal flip with a plainer statement of what's really keeping him awake."
+  },
+  {
+    "template_id": "erroneous_judgment_01",
+    "source_file": "v2",
+    "field": "conflict2TurnInText",
+    "match": ". The truth is",
+    "context": "on of this where my friend stays accused. The truth is finally going to get its turn to speak.",
+    "full_text": "{target_npc} agreed to come. That's everything. With their testimony and the evidence you found, there's no version of this where my friend stays accused. The truth is finally going to get its turn to speak.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'The truth' here is the subject of the final sentence ('the truth is finally going to get its turn to speak'), not the 'the truth is...' confession opener."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": "can't just hand it over without help. I",
+    "context": "But I can't just hand it over without help. I need you to find {target_npc} in {targe",
+    "full_text": "But I can't just hand it over without help. I need you to find {target_npc} in {target_npc_settlement} first. They were there when I gave him the advice, and they know what really happened. If they can tell me what I missed, I'll know what to say when I see him.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. This is 'I can't just X. I need...' across two separate sentences, natural hedged speech, not the 'I didn't just X, I Y' corrective pattern."
+  },
+  {
+    "template_id": "necessity_of_sacrificing_loved_ones_02",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "match": "It isn't much against what you helped me face, but",
+    "context": "t has to be enough. Take {reward_item}. It isn't much against what you helped me face, but my hands have nothing else to give, and",
+    "full_text": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}. It isn't much against what you helped me face, but my hands have nothing else to give, and yours did the work.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "She leaves at the end of the week. I won't see her again for a long time, maybe ever, but she'll be safe and that has to be enough. Take {reward_item}. My hands have nothing else to give, and yours did the work.",
+    "note": "Removed the 'It isn't much, but' corrective clause; the plainer gesture stands on its own."
+  },
+  {
+    "template_id": "deliverance_04",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "The truth is",
+    "context": "The truth is I feel responsible for not going sooner",
+    "full_text": "The truth is I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I feel responsible for not going sooner. We grew up together, and I let the distance become an excuse. That's been sitting with me for a while now.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "conflict_with_fate_04",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": "I'm not going to wonder why they were here in the first place. I'm",
+    "context": "Better. The road feels passable again. I'm not going to wonder why they were here in the first place. I'm just going to be glad they're not.",
+    "full_text": "Better. The road feels passable again. I'm not going to wonder why they were here in the first place. I'm just going to be glad they're not.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Better. The road feels passable again. I could sit here asking why they were here in the first place, but I'd rather just be glad they're not.",
+    "note": "Collapsed the parallel 'I'm not X. I'm Y.' into one sentence with the same beat."
+  },
+  {
+    "template_id": "ambition_04",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "Not because",
+    "context": "nt to build something that outlasts me. Not because I need anyone to remember my name, but",
+    "full_text": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. Not because I need anyone to remember my name, but because I'd like to know the work continues after I'm done with it.",
+    "patterns_flagged": [
+      "not_because"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I'll tell you the part I don't say out loud. I want to build something that outlasts me. It isn't about my name. I'd just like to know the work continues after I'm done with it.",
+    "note": "Replaced the 'Not because X, but because Y' frame with a plainer statement of the real motivation."
+  },
+  {
+    "template_id": "remorse_05",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "match": "it wasn't worth a fight, so I let it go. But",
+    "context": "had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone fin",
+    "full_text": "I remember that {quest_item}. I noticed it was gone a long time ago, and I had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone finally came to make it right does mean something.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'it wasn't worth a fight, so I let it go. But I never forgot' is natural sequential contrast between two separate sentences, not the 'it's not X, it's Y' reframing pattern."
+  },
+  {
+    "template_id": "recovery_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "didn't just lose vegetables, I lost the closest thing I had to her voice. I",
+    "context": "n with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know",
+    "full_text": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I lost the closest thing I had left to her voice. I haven't told anyone that because I know how it sounds.",
+    "note": "Removed the 'didn't just X, I Y' escalation; the loss lands plainly."
+  },
+  {
+    "template_id": "enigma_07",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "match": "This isn't my imagination, but",
+    "context": "e something changed it from underneath. This isn't my imagination, but I need someone who understands this kin",
+    "full_text": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. This isn't my imagination, but I need someone who understands this kind of thing.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "The samples confirm it. The soil near the well has a different composition, almost like something changed it from underneath. I'm not making this up. I need someone who actually understands this kind of thing.",
+    "note": "Replaced the 'isn't X, but Y' pivot with two plain declarative sentences."
+  },
+  {
+    "template_id": "conflict_with_fate_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in",
+    "full_text": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "madness_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "ople they're just tired, just overworked. The truth is I saw them try to walk into the fire th",
+    "full_text": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. The truth is I saw them try to walk into the fire three nights ago, and I barely caught them. I haven't slept since.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "That was a gentle way to ask, and I'm grateful for it. I've been telling people they're just tired, just overworked. Three nights ago I saw them try to walk into the fire, and I barely caught them. I haven't slept since.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "loss_of_loved_ones_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "this isn't for her, it",
+    "context": "I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is t",
+    "full_text": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "All right, you pressed and I'll answer. I'm not really doing this for her. Going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
+    "note": "Replaced the 'isn't X, it's Y' pivot with two plain sentences that say the same thing."
+  },
+  {
+    "template_id": "ambition_11",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": "I'm not asking for the seat, I'm",
+    "context": "hat I've already started the work, that I'm not asking for the seat, I'm showing them I've already been sitting",
+    "full_text": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm not asking for the seat, I'm showing them I've already been sitting in it.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I need {gather_count} {quest_item} to fund the proposal I'm bringing. Not gifts, investments. I want the council to see that I've already started the work, that I'm showing them I've been sitting in that seat already, whether they gave it to me or not.",
+    "note": "Removed the 'I'm not asking for the seat, I'm showing' corrective; kept the punchline that he's already acting as if he has the seat."
+  },
+  {
+    "template_id": "erroneous_judgment_07",
+    "source_file": "v2",
+    "field": "declineText",
+    "match": "it isn't your problem. But",
+    "context": "I suppose it isn't your problem. But someone should be asking these question",
+    "full_text": "I suppose it isn't your problem. But someone should be asking these questions, and nobody here will.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'I suppose it isn't your problem. But someone should...' is natural concessive speech across two sentences, not a rhetorical 'isn't X, but Y' reframe."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_05",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "hold up if my motive was really concern. The truth is I enjoyed being in charge because it ma",
+    "full_text": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. The truth is I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You've found the gap in my story, haven't you. I said I took over when they were struggling, but they started recovering months before I let go, and the timeline doesn't hold up if my motive was really concern. I enjoyed being in charge because it made me feel competent and needed. My sibling's crisis gave me a role I didn't want to give back.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_10",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "didn't just betray trust, I",
+    "context": "intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to h",
+    "full_text": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I didn't just betray trust, I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You've noticed something I glossed over, haven't you. My aunt's confidence wasn't just personal, it involved an old binding agreement between our families, the kind sealed with intent. When I broke that confidence I disrupted something that was meant to hold quietly, and my cousin felt it even if they couldn't name it. That's why the reaction was so much bigger than the words alone would explain.",
+    "note": "Removed the 'didn't just betray trust, I disrupted' escalation; kept the underlying disruption. Left the earlier 'wasn't just personal, it involved...' line alone since the flagged match is specifically on the second instance."
+  },
+  {
+    "template_id": "obstacles_to_love_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "and hearing you say it changes something. The truth is I almost surrendered last month when my",
+    "full_text": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. The truth is I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You know about families bending the old rules? I stopped bringing it up because nobody here remembers a time when it actually happened, and hearing you say it changes something. I almost surrendered last month when my family introduced me to someone suitable, and I nearly said yes just to end the fight. I was ready to give up everything I wanted to avoid a battle nobody remembers anyone winning.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "remorse_13",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "idn't want to start a panic over nothing. The truth is I was scared of what {boss_name} would",
+    "full_text": "I told myself I wasn't sure. I told myself the warning might be wrong and I didn't want to start a panic over nothing. The truth is I was scared of what {boss_name} would do to me if I was the one who spoke up, and I let somebody else pay for my quiet.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I told myself I wasn't sure. I told myself the warning might be wrong and I didn't want to start a panic over nothing. I was scared of what {boss_name} would do to me if I was the one who spoke up, and I let somebody else pay for my quiet.",
+    "note": "Dropped the confession opener."
+  },
+  {
+    "template_id": "loss_of_loved_ones_21",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "The truth is",
+    "context": "The truth is I was relieved when he died. It came la",
+    "full_text": "The truth is I was relieved when he died. It came later, when I realized I didn't have to try to be him anymore. Then I felt so guilty about the relief that I spent six years trying to be him anyway. I'm done with that.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I was relieved when he died. It came later, when I realized I didn't have to try to be him anymore. Then I felt so guilty about the relief that I spent six years trying to be him anyway. I'm done with that.",
+    "note": "Dropped the confession opener; the admission hits harder without it."
+  }
+]

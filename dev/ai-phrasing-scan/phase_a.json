@@ -1,0 +1,137 @@
+[
+  {
+    "template_id": "erroneous_judgment_01",
+    "source_file": "v2",
+    "field": "conflict2TurnInText",
+    "pattern": "truth_is_opener",
+    "match": ". The truth is",
+    "context": "on of this where my friend stays accused. The truth is finally going to get its turn to speak.",
+    "full_text": "{target_npc} agreed to come. That's everything. With their testimony and the evidence you found, there's no version of this where my friend stays accused. The truth is finally going to get its turn to speak."
+  },
+  {
+    "template_id": "remorse_03",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "corrective_neg_but",
+    "match": "that wasn't mine to break. It",
+    "context": "I broke something that wasn't mine to break. It belonged to my father, and I let my tem",
+    "full_text": "I broke something that wasn't mine to break. It belonged to my father, and I let my temper get the better of me, and now there's a hole in my home where it used to sit. He's gone, so I can't apologize to him. The least I can do is replace it. Bring me a {quest_item} and I'll start there."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_02",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "didnt_just",
+    "match": "can't just hand it over without help. I",
+    "context": "But I can't just hand it over without help. I need you to find {target_npc} in {targe",
+    "full_text": "But I can't just hand it over without help. I need you to find {target_npc} in {target_npc_settlement} first. They were there when I gave him the advice, and they know what really happened. If they can tell me what I missed, I'll know what to say when I see him."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_03",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "pattern": "cross_sentence_neg_affirm",
+    "match": "it wasn't practical. That was",
+    "context": "for a long time, and I kept telling her it wasn't practical. That was wrong of me. Bring me one, and I'll giv",
+    "full_text": "I want to show her I see her differently than she thinks I do. There's a {quest_item} she's been wanting for a long time, and I kept telling her it wasn't practical. That was wrong of me. Bring me one, and I'll give it to her without a single condition attached."
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "expositionText",
+    "pattern": "first_person_neg_affirm",
+    "match": "I'm not asking for revenge. I'm",
+    "context": "on to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another",
+    "full_text": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down so I can breathe again."
+  },
+  {
+    "template_id": "obtaining_04",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "first_person_neg_affirm",
+    "match": "I'm not busy. I'm",
+    "context": "You can see it, can't you. I'm not busy. I'm slow. My knees have been getting worse",
+    "full_text": "You can see it, can't you. I'm not busy. I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice."
+  },
+  {
+    "template_id": "remorse_05",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "corrective_neg_but",
+    "match": "it wasn't worth a fight, so I let it go. But",
+    "context": "had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone fin",
+    "full_text": "I remember that {quest_item}. I noticed it was gone a long time ago, and I had a good idea who took it. I decided it wasn't worth a fight, so I let it go. But I never forgot, and knowing someone finally came to make it right does mean something."
+  },
+  {
+    "template_id": "pursuit_08",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "pattern": "didnt_just",
+    "match": "won't just wander off because the lure is gone. They",
+    "context": "ype_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_co",
+    "full_text": "One last push. The {enemy_type_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_count} more of them dealt with and the root and the branches are both cut."
+  },
+  {
+    "template_id": "ambition_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "first_person_neg_affirm",
+    "match": "I'm not as confident as I sound. I've",
+    "context": "t? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year",
+    "full_text": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do."
+  },
+  {
+    "template_id": "mistaken_jealousy_10",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "corrective_neg_but",
+    "match": "it isn't the miracle I'd built it up to be in my head. They're",
+    "context": "t it carefully, and it's good work, but it isn't the miracle I'd built it up to be in my head. They're doing the same quality I do, just with",
+    "full_text": "I've looked at it carefully, and it's good work, but it isn't the miracle I'd built it up to be in my head. They're doing the same quality I do, just with a fresher face and more enthusiasm. I stopped believing in my own work somewhere along the way, and I want to hear it from someone outside {settlement_name}."
+  },
+  {
+    "template_id": "erroneous_judgment_07",
+    "source_file": "v2",
+    "field": "declineText",
+    "pattern": "corrective_neg_but",
+    "match": "it isn't your problem. But",
+    "context": "I suppose it isn't your problem. But someone should be asking these question",
+    "full_text": "I suppose it isn't your problem. But someone should be asking these questions, and nobody here will."
+  },
+  {
+    "template_id": "remorse_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "past_tense_neg_affirm",
+    "match": "I wasn't angry. I was",
+    "context": "gument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were",
+    "full_text": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "pattern": "didnt_just",
+    "match": "can't just send it without any context. I",
+    "context": "ch, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground.",
+    "full_text": "That's exactly right. Not too much, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "targetNpcOpener",
+    "pattern": "corrective_neg_but",
+    "match": "it wasn't my place, but",
+    "context": "answer. I haven't said anything because it wasn't my place, but if someone is asking directly, then yes",
+    "full_text": "I know exactly who you mean. Your name comes up more often than you'd expect from casual acquaintance, and they ask about you the way someone asks when they're hoping for a particular answer. I haven't said anything because it wasn't my place, but if someone is asking directly, then yes, there's interest there."
+  },
+  {
+    "template_id": "loss_of_loved_ones_14",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "pattern": "past_tense_neg_affirm",
+    "match": "I wasn't with him, you see. I was",
+    "context": "I wasn't with him, you see. I was supposed to be, and I wasn't, and for n",
+    "full_text": "I wasn't with him, you see. I was supposed to be, and I wasn't, and for nine years I told myself it wouldn't have mattered. Learning the name has made that lie harder to tell. This is the closest I'll ever come to being there for him."
+  }
+]

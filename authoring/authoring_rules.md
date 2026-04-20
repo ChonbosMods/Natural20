@@ -36,7 +36,19 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 
 13. **No colons or dashes in dialogue text.** Never use `:` or `—` / `–` / `-` (used as a dash) in any dialogue string. These are written punctuation that no one uses in speech. Rewrite the sentence to flow naturally without them. "I feel steadier already, like I'm finally allowed to believe I can do this" not "I feel steadier already: like I'm finally allowed to believe I can do this." Commas, periods, and sentence breaks are always sufficient. Hyphens inside compound words (e.g., "empty-handed") are fine.
 
-14. **No corrective reframing constructions.** Do not use the "it's not X, it's Y" / "you didn't just X, you Y" pattern or any of its variants. These are literary devices that sound writerly, not spoken. Real people do not correct their own framing mid-sentence for rhetorical effect. Examples of forbidden patterns: "It's not X, it's Y." "It wasn't just an X, it was a Y." "You didn't just X, you Y." "You aren't X, you're Y." "This isn't about X, it's about Y." Instead, just say the thing directly. "That mattered" not "It wasn't just a gesture, it was something real."
+14. **No corrective reframing constructions.** Do not write sentences (or pairs of sentences) whose primary purpose is to pre-empt a wrong interpretation before or instead of stating the intended thing. Real people state what they mean; they don't rhetorically negate the wrong reading first. The AI-voice tell is the pre-emption: the speaker is arguing against a reading the listener hasn't offered. This ban covers the whole family:
+
+    - **Classic intra-sentence:** "It's not X, it's Y." / "It wasn't just X, it was Y." / "You didn't just X, you Y." / "This isn't about X, it's about Y."
+    - **Cross-sentence variants:** "It isn't X. It's Y." / "I'm not X. I'm Y." / "I wasn't X. I was Y." — same pattern split by a period.
+    - **Concessive negation:** "It isn't much, but it's what I have." / "That isn't a victory, but it's stability."
+    - **Causal flip:** "Not because X. Because Y."
+    - **Fragment pre-emption:** ". Not X. [intended thing]." — dismissing a weaker reading to make way for the stronger.
+    - **Not-just subfamily:** "X, not just Y" when Y is the weaker reading being knocked down. Drop the "not just Y" clause.
+    - **Confession-frame openers** do the same work at paragraph scale and are equally banned: "The truth is...", "Honestly?", "If I'm being honest...". Drop the opener and just make the admission.
+
+    **Rewrite by dropping the scaffold.** "That mattered" not "It wasn't just a gesture, it was something real." "The mine's been busy" not "It's not the tools breaking, it's that the mine's been busy."
+
+    **Permitted:** natural binary contrast ("getting worse, not better"), character-voiced idioms in context, and before/after without pre-emption ("I was worried yesterday. Today I'm not."). If the contrast points at a real distinction the speaker needs to make, keep it. If the sentence exists to knock down a reading the listener didn't suggest, cut it.
 
 ---
 
@@ -160,4 +172,8 @@ Hard constraints for pool entry authoring. These are not suggestions. Every entr
 | 24 | Plural verb + singular wildlife_type | "{wildlife_type} have been nesting" | Grammatical number (R31): wildlife_type is singular, use "a {wildlife_type} has been" |
 | 25 | Hardcoded name + variable for same entity | "He said 'deer' ... a {wildlife_type} crossed" | Variable coherence (R32): hardcoded name conflicts with variable |
 | 26 | Colon or dash in dialogue | "the real problem: nobody talks about it" / "it's a long walk — worth it though" | No colons or dashes (R13) |
-| 27 | Corrective reframing | "It wasn't just a gesture, it was something real" / "You didn't just help, you saved us" | No corrective reframing (R14) |
+| 27 | Corrective reframing (classic) | "It wasn't just a gesture, it was something real" / "You didn't just help, you saved us" | No corrective reframing (R14) |
+| 28 | Corrective reframing (cross-sentence) | "I'm not asking for much. I'm past that." / "It isn't a victory. It's stability." | R14: same pattern, split by a period |
+| 29 | Concessive negation | "It isn't much, but it's what I have" | R14: pre-empts the wrong reading before stating the intended thing |
+| 30 | Confession-frame opener | "The truth is, the mine's been busy." / "Honestly? I hate the walk." | R14: drop the opener, make the statement directly |
+| 31 | Not-just scaffold | "It helps, not just a little." / "I noticed, not just in passing." | R14: cut the dismissed weaker reading |

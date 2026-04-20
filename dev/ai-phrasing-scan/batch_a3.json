@@ -1,0 +1,340 @@
+[
+  {
+    "template_id": "supplication_02",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "All right. The truth is the order isn't just an order. It's for",
+    "full_text": "All right. The truth is the order isn't just an order. It's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "All right. That order's for someone whose family already buried one child this year. I couldn't look them in the eye and explain why their gift wasn't ready. That's the part I haven't been saying out loud.",
+    "note": "Dropped the 'truth is' opener and the 'isn't just X, it's Y' corrective. Said the thing directly."
+  },
+  {
+    "template_id": "deliverance_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I'm not asking you to save my sister from the illness, I'm",
+    "context": "y. A cough, then a fever, then nothing. I'm not asking you to save my sister from the illness, I'm asking you to save me from losing her t",
+    "full_text": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. I'm not asking you to save my sister from the illness, I'm asking you to save me from losing her the same way I lost everyone else.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I haven't told anyone this but I keep thinking about our mother. She went the same way. A cough, then a fever, then nothing. Just don't let me lose my sister the same way I lost everyone else.",
+    "note": "Collapsed the 'I'm not asking X, I'm asking Y' corrective into a single direct plea."
+  },
+  {
+    "template_id": "self_sacrifice_for_kindred_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I'm not asking you for an herb. I'm",
+    "context": "she coughs I hear it in my head anyway. I'm not asking you for an herb. I'm asking you to make sure I don't lose an",
+    "full_text": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. I'm not asking you for an herb. I'm asking you to make sure I don't lose another one.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I lost her brother two winters ago to the same kind of fever. I haven't said his name out loud since the day we buried him, and every time she coughs I hear it in my head anyway. Make sure I don't lose another one.",
+    "note": "Removed the 'I'm not asking for X. I'm asking for Y' corrective and kept the direct plea."
+  },
+  {
+    "template_id": "daring_enterprise_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "This isn't really about the project. It",
+    "context": "All right, here's the truth. This isn't really about the project. It's about proving to myself that I can st",
+    "full_text": "All right, here's the truth. This isn't really about the project. It's about proving to myself that I can still chase a thing and catch it. I haven't felt that way in a long time, and I'm not letting it slip past me.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "All right. The project isn't really the point. I want to prove to myself I can still chase a thing and catch it, and I haven't felt that way in a long time. I'm not letting it slip past me.",
+    "note": "Removed 'here's the truth' opener and flattened the 'isn't X, it's Y' scaffolding."
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_01",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "The truth is",
+    "context": "The truth is I don't even care about the tool. I mis",
+    "full_text": "The truth is I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I don't even care about the tool. I miss him. We used to work side by side every day and now I see him twice a year if I'm lucky, and I let a stupid argument become an excuse not to admit how much that hurts.",
+    "note": "Dropped the 'truth is' opener, otherwise kept intact."
+  },
+  {
+    "template_id": "remorse_03",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": "that wasn't mine to break. It",
+    "context": "I broke something that wasn't mine to break. It belonged to my father, and I let my tem",
+    "full_text": "I broke something that wasn't mine to break. It belonged to my father, and I let my temper get the better of me, and now there's a hole in my home where it used to sit. He's gone, so I can't apologize to him. The least I can do is replace it. Bring me a {quest_item} and I'll start there.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'Something that wasn't mine to break' is a natural relative clause, not corrective reframing of prior framing."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_03",
+    "source_file": "v2",
+    "field": "conflict1Text",
+    "match": "it wasn't practical. That was",
+    "context": "for a long time, and I kept telling her it wasn't practical. That was wrong of me. Bring me one, and I'll giv",
+    "full_text": "I want to show her I see her differently than she thinks I do. There's a {quest_item} she's been wanting for a long time, and I kept telling her it wasn't practical. That was wrong of me. Bring me one, and I'll give it to her without a single condition attached.",
+    "patterns_flagged": [
+      "cross_sentence_neg_affirm"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'I kept telling her it wasn't practical. That was wrong of me' is natural reported speech plus self-reproach, not AI-pattern corrective reframing."
+  },
+  {
+    "template_id": "loss_of_loved_ones_02",
+    "source_file": "v2",
+    "field": "expositionText",
+    "match": "I'm not asking for revenge. I'm",
+    "context": "on to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another",
+    "full_text": "I lost my son to {enemy_type_plural} a season ago. I'm not asking for revenge. I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me. Not for him. For me.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "I lost my son to {enemy_type_plural} a season ago. Revenge isn't what I want, I'm past that. But every time I see another one of them slinking around {settlement_name}, I feel like the world hasn't moved on, and I need it to. Take {kill_count} of them down for me.",
+    "note": "Kept {enemy_type_plural}, {settlement_name}, {kill_count}. Collapsed the 'I'm not X. I'm past that' corrective into one clause. Dropped the tricolon 'Not for him. For me.' per R14."
+  },
+  {
+    "template_id": "obtaining_04",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I'm not busy, I'm",
+    "context": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse",
+    "full_text": "You can see it, can't you. I'm not busy, I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting that I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You can see it, can't you. I'm not busy. I'm slow. My knees have been getting worse for a year and I've been covering it by staying close to the house and calling it being careful. Admitting I can't make the walk anymore feels like admitting I'm not the person I was, and I wasn't ready for someone to notice.",
+    "note": "Close call. The 'not X, Y' is short and plain enough to read as spoken hesitation when split into two sentences. Kept the beat but removed the comma-joined rhetorical rhythm."
+  },
+  {
+    "template_id": "rivalry_of_kinsmen_05",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "The truth is",
+    "context": "The truth is, I honestly don't remember whether I da",
+    "full_text": "The truth is, I honestly don't remember whether I damaged it or not. It's possible I did and didn't notice. But by the time he accused me, I was too proud to admit that, and then pride took over for both of us.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Honestly, I don't even remember whether I damaged it or not. It's possible I did and didn't notice. But by the time he accused me, I was too proud to admit that, and then pride took over for both of us.",
+    "note": "Replaced 'the truth is, I honestly' confession opener with a plainer hedge."
+  },
+  {
+    "template_id": "erroneous_judgment_04",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "ng back, but you saw the part underneath. The truth is I stopped sleeping the week it started,",
+    "full_text": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. The truth is I stopped sleeping the week it started, not because I was afraid of the accusation, but because I realized how alone I was in it. Years of neighbors and not one of them came to my door to ask if it was true before deciding it was.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You noticed, didn't you. Everyone else sees someone angry and fighting back, but you saw the part underneath. I stopped sleeping the week it started, and it wasn't the accusation keeping me awake. It was realizing how alone I was in it. Years of neighbors and not one came to my door to ask if it was true before deciding it was.",
+    "note": "Dropped 'the truth is' opener. Reworked the 'not because X, but because Y' causal-flip into two plainer sentences."
+  },
+  {
+    "template_id": "remorse_05",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "it isn't the thing I took. It",
+    "context": "The real weight of it isn't the thing I took. It's that I let myself become the kind of",
+    "full_text": "The real weight of it isn't the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
+    "patterns_flagged": [
+      "corrective_neg_but"
+    ],
+    "triage": "rewrite",
+    "rewrite": "The real weight of it has nothing to do with the thing I took. It's that I let myself become the kind of person who could take it and walk away. Every year I didn't return it, I proved that version of myself right, and I'm tired of proving it right.",
+    "note": "Rewrote the 'isn't X. It's Y.' corrective into a plainer lead that still opens the confession."
+  },
+  {
+    "template_id": "pursuit_08",
+    "source_file": "v2",
+    "field": "conflict2Text",
+    "match": "won't just wander off because the lure is gone. They",
+    "context": "ype_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_co",
+    "full_text": "One last push. The {enemy_type_plural} that are already entrenched won't just wander off because the lure is gone. They've made this territory theirs. {kill_count} more of them dealt with and the root and the branches are both cut.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'Won't just wander off' is natural negation, not the AI 'didn't just X, Y' corrective structure."
+  },
+  {
+    "template_id": "vengeance_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "didn't just fail to protect ground. I",
+    "context": "k. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never",
+    "full_text": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I knew I'd broken my word to someone who can never hear me make it right.",
+    "note": "Collapsed the 'didn't just X. I Y.' escalation into the straight admission."
+  },
+  {
+    "template_id": "conflict_with_fate_10",
+    "source_file": "v2",
+    "field": "resolutionText",
+    "match": "I'm not fixing something. I'm",
+    "context": "first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where eve",
+    "full_text": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}, because I was setting that coin aside for the next repair that isn't coming, and it deserves a better fate than my patch-purse. You helped me believe that fixed could actually mean finished.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "For the first time in what feels like forever, I've got nothing to fix. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {reward_item}, because I was setting that coin aside for the next repair that isn't coming, and it deserves a better fate than my patch-purse. You helped me believe that fixed could actually mean finished.",
+    "note": "Kept {reward_item}. Replaced the 'I'm not X. I'm Y.' corrective with a plainer lead-in."
+  },
+  {
+    "template_id": "self_sacrifice_for_an_ideal_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "gh the practical explanation, didn't you. The truth is my wife left me two years ago and the h",
+    "full_text": "You saw through the practical explanation, didn't you. The truth is my wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You saw through the practical explanation, didn't you. My wife left me two years ago and the house is too quiet at night. Walking the perimeter gives me a reason to be outside and a reason to be tired enough to sleep when I get back. The fact that it helps people is real, but it isn't the whole reason.",
+    "note": "Dropped 'the truth is' opener. Rest reads spoken."
+  },
+  {
+    "template_id": "ambition_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I'm not as confident as I sound. I've",
+    "context": "t? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year",
+    "full_text": "Ha, yeah, everyone talks big around here, right? Honestly though, between you and me, I'm not as confident as I sound. I've failed at two things already this year and both times I smiled like it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and that scares me more than the {enemy_type_plural} do.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'I'm not as confident as I sound' is a plain spoken admission, not the 'I'm not X, I'm Y' corrective pattern. No paired affirmation follows."
+  },
+  {
+    "template_id": "mistaken_jealousy_09",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I wasn't just suspicious, I was",
+    "context": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the w",
+    "full_text": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
+    "patterns_flagged": [
+      "past_tense_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Fine, you want the unvarnished version. I was past suspicious. I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
+    "note": "Removed 'I wasn't just X, I was Y' corrective. Kept the escalation beat via a plainer sentence."
+  },
+  {
+    "template_id": "remorse_06",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I wasn't angry. I was",
+    "context": "gument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were",
+    "full_text": "You picked up on something I left out, didn't you. I called it an argument, like we were both fighting, but I wasn't angry. I was calm when I said it and the words were chosen, not thrown. That's the part that doesn't fit the version I've been telling, because there was no heat and I just wanted to win.",
+    "patterns_flagged": [
+      "past_tense_neg_affirm"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'I wasn't angry. I was calm' is a plain factual correction of the word 'argument', not AI pre-emption. Reads as a real speaker walking back a prior description."
+  },
+  {
+    "template_id": "involuntary_crimes_of_love_07",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": ". The truth is",
+    "context": "hing in my face is telling you otherwise. The truth is I was careless because part of me didn'",
+    "full_text": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. The truth is I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
+    "patterns_flagged": [
+      "truth_is_opener"
+    ],
+    "triage": "rewrite",
+    "rewrite": "You can see it, can't you. I keep calling it an honest mistake, but something in my face is telling you otherwise. I was careless because part of me didn't want my friend's attention going to someone new, and we've been close for years. When I heard a rumor about someone with a similar name I didn't bother checking because I wanted it to be true.",
+    "note": "Dropped the 'the truth is' opener. Rest already reads plain."
+  },
+  {
+    "template_id": "obstacles_to_love_05",
+    "source_file": "v2",
+    "field": "conflict1TurnInText",
+    "match": "It isn't a grand gesture, and it isn't meant to be. It",
+    "context": "Good. It isn't a grand gesture, and it isn't meant to be. It just says someone from my side thought",
+    "full_text": "Good. It isn't a grand gesture, and it isn't meant to be. It just says someone from my side thought of them kindly, and I want them to sit with that before they know it was me.",
+    "patterns_flagged": [
+      "corrective_neg_but",
+      "cross_sentence_neg_affirm",
+      "it_just_after_neg"
+    ],
+    "triage": "rewrite",
+    "rewrite": "Good. It's a small thing, and that's the point. Just something that says someone from my side thought of them kindly, and I want them to sit with that before they know it was me.",
+    "note": "Replaced the 'isn't grand, isn't meant to be... it just says' scaffolding with a direct description. Preserved the quiet tone and the final clause."
+  },
+  {
+    "template_id": "obstacles_to_love_08",
+    "source_file": "v2",
+    "field": "expositionTurnInText",
+    "match": "can't just send it without any context. I",
+    "context": "ch, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground.",
+    "full_text": "That's exactly right. Not too much, not too little. But I realize now I can't just send it without any context. I need someone to prepare the ground.",
+    "patterns_flagged": [
+      "didnt_just"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'Can't just send it without any context' is natural spoken negation, not corrective reframing. No paired affirmation."
+  },
+  {
+    "template_id": "loss_of_loved_ones_14",
+    "source_file": "v2",
+    "field": "skillCheck.passText",
+    "match": "I wasn't with him, you see. I was",
+    "context": "I wasn't with him, you see. I was supposed to be, and I wasn't, and for n",
+    "full_text": "I wasn't with him, you see. I was supposed to be, and I wasn't, and for nine years I told myself it wouldn't have mattered. Learning the name has made that lie harder to tell. This is the closest I'll ever come to being there for him.",
+    "patterns_flagged": [
+      "past_tense_neg_affirm"
+    ],
+    "triage": "keep",
+    "rewrite": "",
+    "note": "False positive. 'I wasn't with him, you see. I was supposed to be' is a natural confession beat, not AI pre-emption. The flagged 'I was' starts a new clause rather than a paired affirmation of the negation."
+  },
+  {
+    "template_id": "mundane_bounty_23",
+    "source_file": "mundane",
+    "field": "resolutionText",
+    "match": "I'm not hoarding anymore. I'm",
+    "context": "earth if you want a bowl before you go. I'm not hoarding anymore. I'm eating.",
+    "full_text": "{reward_item}. There's stew on the hearth if you want a bowl before you go. I'm not hoarding anymore. I'm eating.",
+    "patterns_flagged": [
+      "first_person_neg_affirm"
+    ],
+    "triage": "rewrite",
+    "rewrite": "{reward_item}. There's stew on the hearth if you want a bowl before you go. No more hoarding. I'm eating again.",
+    "note": "Kept {reward_item}. Collapsed the 'I'm not X. I'm Y.' pair into a plainer two-beat closer."
+  }
+]

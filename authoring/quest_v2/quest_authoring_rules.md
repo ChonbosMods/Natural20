@@ -38,7 +38,19 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 13. **No colons or dashes in dialogue text.** Never use `:` or `—` / `–` / `-` (used as a dash) in any dialogue string. These are written punctuation that no one uses in speech. Rewrite the sentence to flow naturally without them. "I need to make this real, and it all depends on one thing" not "I need to make this real: it all depends on one thing." "I can't focus on the work, not with that hanging over me" not "I need them gone: I can't focus on the work with that hanging over me." Commas, periods, and sentence breaks are always sufficient. Hyphens inside compound words (e.g., "empty-handed") are fine.
 
-14. **No corrective reframing constructions.** Do not use the "it's not X, it's Y" / "you didn't just X, you Y" pattern or any of its variants. These are literary devices that sound writerly, not spoken. Real people do not correct their own framing mid-sentence for rhetorical effect. Examples of forbidden patterns: "It's not X, it's Y." "It wasn't just an X, it was a Y." "You didn't just X, you Y." "You aren't X, you're Y." "This isn't about X, it's about Y." Instead, just say the thing directly. "You saved us" not "You didn't just help, you saved us." "This matters to me" not "It's not about the coin, it's about what it means."
+14. **No corrective reframing constructions.** Do not write sentences (or pairs of sentences) whose primary purpose is to pre-empt a wrong interpretation before or instead of stating the intended thing. Real people state what they mean; they don't rhetorically negate the wrong reading first. The AI-voice tell is the pre-emption: the speaker is arguing against a reading the listener hasn't offered. This ban covers the whole family:
+
+    - **Classic intra-sentence:** "It's not X, it's Y." / "It wasn't just X, it was Y." / "You didn't just X, you Y." / "You aren't X, you're Y." / "This isn't about X, it's about Y."
+    - **Cross-sentence variants (same pattern, split by a period):** "It isn't X. It's Y." / "I'm not X. I'm Y." / "I wasn't X. I was Y." / "It isn't X. It just Y."
+    - **Concessive negation:** "X isn't Y, but Z." / "It isn't enough, but it's what I have." / "That isn't a victory, but it's stability."
+    - **Causal flip:** "Not because X. Because Y."
+    - **Fragment pre-emption:** ". Not X. [intended thing]." — dismissing a weaker reading to make way for the stronger.
+    - **Not-just subfamily:** "X, not just Y" when Y is a weaker interpretation being knocked down (e.g., "I want the big ideas followed through, not just the small ones" — drop "not just the small ones").
+    - **Confession-frame openers** do the same work at paragraph scale and are equally banned: "The truth is...", "Truth is...", "Honestly?", "If I'm being honest...", "All right, the truth is...". These stage a reveal instead of just making the admission. Drop the opener.
+
+    **Rewrite by dropping the scaffold.** "You saved us" not "You didn't just help, you saved us." "This matters to me" not "It's not about the coin, it's about what it means." "I'm past that" not "I'm not looking for revenge. I'm past that." "Take {reward_item}, it's what I have" not "Take {reward_item}. It isn't enough, but it's what I have."
+
+    **Permitted** (not banned by R14): natural binary contrast where the speaker is genuinely distinguishing two things ("getting worse, not better" / "two of us, not one" / "coordinated hunting, not scavenging"), character-voiced idioms in context ("show, don't tell" as a craft saying), and temporal before/after when no pre-emption is happening ("I was worried yesterday. Today I'm not."). Triage rule: if the sentence exists to pre-empt a reading the listener didn't suggest, cut the scaffolding. If the contrast points at something the speaker genuinely needs to distinguish, keep it.
 
 ---
 
@@ -152,4 +164,10 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 | 18 | Topic header too long | "The Ongoing Problem With The Night Raids Out East" | R34: 6 words max (recommended 2-4) |
 | 19 | Duplicate topic header | Same header as another template in the catalog | R40: must be unique |
 | 20 | Colon or dash in dialogue | "I need them gone: I can't focus" / "the real problem — nobody talks about it" | R13: no colons or dashes in dialogue |
-| 21 | Corrective reframing | "You didn't just help, you saved us" / "It's not about the coin, it's about what it means" | R14: no corrective reframing |
+| 21 | Corrective reframing (classic) | "You didn't just help, you saved us" / "It's not about the coin, it's about what it means" | R14: no corrective reframing |
+| 22 | Corrective reframing (cross-sentence) | "I'm not asking for revenge. I'm past that." / "It isn't a victory. It's stability." | R14: same pattern, split by a period |
+| 23 | Concessive negation | "It isn't enough, but it's what I have" / "That isn't a victory, but it's stability" | R14: pre-empts the wrong reading before stating the intended thing |
+| 24 | Confession-frame opener | "The truth is, I haven't slept in weeks." / "Honestly? I'm terrified." | R14: drop the opener and make the admission directly |
+| 25 | Causal flip | "Not because I'm afraid. Because I keep thinking..." | R14: state the real reason directly |
+| 26 | Fragment pre-emption | "Not just decent. The best." / "Not yet. Not ever." when used to stage a reveal | R14: drop the dismissed weaker reading |
+| 27 | Not-just scaffold | "Follow through on the big ideas, not just the small ones" / "Bring something useful, not just words" | R14: the "not just Y" is the weaker reading being knocked down; cut it |
