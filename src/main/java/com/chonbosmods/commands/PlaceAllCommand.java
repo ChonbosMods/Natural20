@@ -48,7 +48,7 @@ import java.util.UUID;
 public class PlaceAllCommand extends AbstractPlayerCommand {
 
     static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PlaceAll");
-    static final String PREFAB_KEY = "Nat20/testStructure";
+    static final String PREFAB_KEY = "Nat20/settlement_pieces/testStructure";
     static final String DEFAULT_CHEST_ITEM = "Quest_Treasure";
     static final String DEFAULT_MOB_ROLE = "Goblin_Scrapper";
     static final int CHAMPION_COUNT = 3;
