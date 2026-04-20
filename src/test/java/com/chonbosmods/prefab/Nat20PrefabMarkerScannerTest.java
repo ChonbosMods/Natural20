@@ -1,6 +1,7 @@
 package com.chonbosmods.prefab;
 
 import com.hypixel.hytale.math.vector.Vector3i;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +25,14 @@ class Nat20PrefabMarkerScannerTest {
         Nat20PrefabConstants.mobGroupSpawnId = 103;
         Nat20PrefabConstants.chestSpawnId = 104;
         Nat20PrefabConstants.forceEmptyId = 105;
+    }
+
+    @AfterAll
+    static void restoreSentinelState() {
+        // Prevent the mutated static IDs from leaking into other test classes
+        // that may be run in the same JVM and expect the Integer.MIN_VALUE
+        // sentinels.
+        Nat20PrefabConstants.resetForTests();
     }
 
     @Test
@@ -76,6 +85,18 @@ class Nat20PrefabMarkerScannerTest {
                 new FakePrefabBuffer.Cell(0, 0, 0, Nat20PrefabConstants.anchorId),
                 new FakePrefabBuffer.Cell(0, 1, 0, Nat20PrefabConstants.anchorId),
                 new FakePrefabBuffer.Cell(1, 0, 0, Nat20PrefabConstants.directionId)
+        ));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> Nat20PrefabMarkerScanner.scan(buffer));
+    }
+
+    @Test
+    void scanThrowsOnMultipleDirections() {
+        FakePrefabBuffer buffer = new FakePrefabBuffer(List.of(
+                new FakePrefabBuffer.Cell(0, 0, 0, Nat20PrefabConstants.anchorId),
+                new FakePrefabBuffer.Cell(1, 0, 0, Nat20PrefabConstants.directionId),
+                new FakePrefabBuffer.Cell(2, 0, 0, Nat20PrefabConstants.directionId)
         ));
 
         assertThrows(IllegalArgumentException.class,

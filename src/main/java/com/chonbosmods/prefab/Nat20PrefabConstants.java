@@ -109,4 +109,20 @@ public final class Nat20PrefabConstants {
         }
         return id;
     }
+
+    /**
+     * Reset every resolved field back to its pre-{@link #resolve()} sentinel
+     * state. Testing only. Production code must not call this: the asset pack
+     * only registers block IDs once per JVM, so clearing them at runtime would
+     * break every prefab scan that follows.
+     */
+    static void resetForTests() {
+        anchorId = Integer.MIN_VALUE;
+        directionId = Integer.MIN_VALUE;
+        npcSpawnId = Integer.MIN_VALUE;
+        mobGroupSpawnId = Integer.MIN_VALUE;
+        chestSpawnId = Integer.MIN_VALUE;
+        forceEmptyId = Integer.MIN_VALUE;
+        stripIds = IntSets.EMPTY_SET;
+    }
 }

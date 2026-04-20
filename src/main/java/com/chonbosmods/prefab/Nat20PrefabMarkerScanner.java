@@ -36,9 +36,17 @@ public final class Nat20PrefabMarkerScanner {
      * Scan a prefab buffer for Nat20 marker blocks and return the collected
      * local-space positions.
      *
+     * <p>When the anchor or direction marker is missing or duplicated, this
+     * method throws {@link IllegalArgumentException} directly. When the
+     * direction block coincides horizontally with the anchor (i.e. their
+     * offset has zero X and Z components), the throw propagates from
+     * {@link DirectionVector#snapToCardinal} via delegation rather than from
+     * an explicit check in this scanner.
+     *
      * @throws IllegalArgumentException if the anchor or direction marker is
-     *         missing or duplicated, or if the direction block coincides
-     *         horizontally with the anchor.
+     *         missing or duplicated, or (via delegation to
+     *         {@link DirectionVector#snapToCardinal}) if the direction block
+     *         has no horizontal offset from the anchor.
      */
     public static MarkerScan scan(IPrefabBuffer buffer) {
         List<Vector3i> anchors = new ArrayList<>();
@@ -73,12 +81,22 @@ public final class Nat20PrefabMarkerScanner {
         );
 
         if (anchors.size() != 1) {
+            if (anchors.isEmpty()) {
+                throw new IllegalArgumentException(
+                        "Prefab must have exactly one Nat20_Anchor block; found 0");
+            }
             throw new IllegalArgumentException(
-                    "Prefab must have exactly one Nat20_Anchor block; found " + anchors.size());
+                    "Prefab must have exactly one Nat20_Anchor block; found "
+                            + anchors.size() + " at " + anchors);
         }
         if (directions.size() != 1) {
+            if (directions.isEmpty()) {
+                throw new IllegalArgumentException(
+                        "Prefab must have exactly one Nat20_Direction block; found 0");
+            }
             throw new IllegalArgumentException(
-                    "Prefab must have exactly one Nat20_Direction block; found " + directions.size());
+                    "Prefab must have exactly one Nat20_Direction block; found "
+                            + directions.size() + " at " + directions);
         }
 
         Vector3i anchor = anchors.get(0);
