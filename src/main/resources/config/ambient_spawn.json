@@ -3,6 +3,7 @@
   "cooldown_millis": 300000,
   "min_distance_from_player": 50,
   "max_distance_from_player": 100,
+  "chunk_trigger_radius": 400,
   "anchor_retries": 5,
   "poi_exclusion_blocks": 64,
   "settlement_exclusion_blocks": 96,

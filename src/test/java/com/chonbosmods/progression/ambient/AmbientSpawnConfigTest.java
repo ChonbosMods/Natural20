@@ -9,10 +9,11 @@ class AmbientSpawnConfigTest {
     @Test
     void loadsShippedDefaults() {
         AmbientSpawnConfig cfg = AmbientSpawnConfig.load();
-        assertEquals(0.005, cfg.rollChance(), 1e-9);
+        assertEquals(1.0, cfg.rollChance(), 1e-9);
         assertEquals(300_000L, cfg.cooldownMillis());
         assertEquals(50, cfg.minDistanceFromPlayer());
         assertEquals(100, cfg.maxDistanceFromPlayer());
+        assertEquals(400, cfg.chunkTriggerRadius());
         assertEquals(5, cfg.anchorRetries());
         assertEquals(64, cfg.poiExclusionBlocks());
         assertEquals(96, cfg.settlementExclusionBlocks());

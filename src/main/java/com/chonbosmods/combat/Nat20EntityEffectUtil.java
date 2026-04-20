@@ -49,4 +49,5 @@ public final class Nat20EntityEffectUtil {
         if (effectCtrl.hasEffect(effect)) return false;
         return effectCtrl.addEffect(targetRef, effect, duration, OverlapBehavior.OVERWRITE, accessor);
     }
+
 }

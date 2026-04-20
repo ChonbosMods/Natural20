@@ -58,6 +58,7 @@ import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
 import com.chonbosmods.progression.Nat20MobLevel;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
+import com.chonbosmods.progression.Nat20MobTintTickSystem;
 import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.progression.Nat20XpOnKillSystem;
 import com.chonbosmods.progression.Nat20XpService;
@@ -477,6 +478,7 @@ public class Natural20 extends JavaPlugin {
         mobScaleSystem = new Nat20MobScaleSystem(scalingConfig);
         getEntityStoreRegistry().registerSystem(mobScaleSystem);
         getEntityStoreRegistry().registerSystem(new Nat20MobDmgScaleSystem(scalingConfig));
+        getEntityStoreRegistry().registerSystem(new Nat20MobTintTickSystem());
         mobGroupSpawner = new Nat20MobGroupSpawner(scalingConfig);
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);

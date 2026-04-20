@@ -23,6 +23,7 @@ public final class AmbientSpawnConfig {
     private final long cooldownMillis;
     private final int minDistanceFromPlayer;
     private final int maxDistanceFromPlayer;
+    private final int chunkTriggerRadius;
     private final int anchorRetries;
     private final int poiExclusionBlocks;
     private final int settlementExclusionBlocks;
@@ -33,7 +34,7 @@ public final class AmbientSpawnConfig {
 
     private AmbientSpawnConfig(double rollChance, long cooldownMillis,
                                int minDistanceFromPlayer, int maxDistanceFromPlayer,
-                               int anchorRetries,
+                               int chunkTriggerRadius, int anchorRetries,
                                int poiExclusionBlocks, int settlementExclusionBlocks,
                                int groupAnchorExclusionBlocks,
                                long decayWindowMillis, int decayPlayerNearRadius,
@@ -42,6 +43,7 @@ public final class AmbientSpawnConfig {
         this.cooldownMillis = cooldownMillis;
         this.minDistanceFromPlayer = minDistanceFromPlayer;
         this.maxDistanceFromPlayer = maxDistanceFromPlayer;
+        this.chunkTriggerRadius = chunkTriggerRadius;
         this.anchorRetries = anchorRetries;
         this.poiExclusionBlocks = poiExclusionBlocks;
         this.settlementExclusionBlocks = settlementExclusionBlocks;
@@ -61,6 +63,7 @@ public final class AmbientSpawnConfig {
                     r.get("cooldown_millis").getAsLong(),
                     r.get("min_distance_from_player").getAsInt(),
                     r.get("max_distance_from_player").getAsInt(),
+                    r.get("chunk_trigger_radius").getAsInt(),
                     r.get("anchor_retries").getAsInt(),
                     r.get("poi_exclusion_blocks").getAsInt(),
                     r.get("settlement_exclusion_blocks").getAsInt(),
@@ -80,6 +83,7 @@ public final class AmbientSpawnConfig {
     public long cooldownMillis()               { return cooldownMillis; }
     public int minDistanceFromPlayer()         { return minDistanceFromPlayer; }
     public int maxDistanceFromPlayer()         { return maxDistanceFromPlayer; }
+    public int chunkTriggerRadius()            { return chunkTriggerRadius; }
     public int anchorRetries()                 { return anchorRetries; }
     public int poiExclusionBlocks()            { return poiExclusionBlocks; }
     public int settlementExclusionBlocks()     { return settlementExclusionBlocks; }

@@ -2,6 +2,7 @@ package com.chonbosmods.quest.poi;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
+import com.chonbosmods.progression.GroupSource;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.RemoveReason;
@@ -45,6 +46,15 @@ public class MobGroupChunkListener {
     /** Debounce per-group to absorb the burst of 9 chunk-load events around an anchor. */
     private static final long CHECK_COOLDOWN_MS = 500L;
 
+    /**
+     * After a fresh spawn, suppress reconcile for this window. Chunk-load events fire
+     * immediately after spawn and would otherwise trigger ambient's despawn+respawn
+     * path on just-spawned mobs, causing client-side visual chaos (dropped tint,
+     * missing respawns). Freshly-spawned mobs don't need reconcile - their tint is
+     * already applied via the spawn path.
+     */
+    private static final long SPAWN_SUPPRESS_MS = 5_000L;
+
     private final Nat20MobGroupRegistry registry;
     private final Nat20MobGroupSpawner spawner;
 
@@ -53,6 +63,9 @@ public class MobGroupChunkListener {
 
     /** Per-group last-check timestamp for the debounce. */
     private final ConcurrentHashMap<String, Long> lastCheck = new ConcurrentHashMap<>();
+
+    /** Per-group "suppress reconcile until" timestamp, set at spawn time. */
+    private final ConcurrentHashMap<String, Long> spawnSuppressUntil = new ConcurrentHashMap<>();
 
     public MobGroupChunkListener(Nat20MobGroupRegistry registry, Nat20MobGroupSpawner spawner) {
         this.registry = registry;
@@ -92,8 +105,34 @@ public class MobGroupChunkListener {
         }
     }
 
+    /**
+     * Mark a group as just-spawned so reconcile is suppressed for {@link #SPAWN_SUPPRESS_MS}.
+     * Call this immediately after {@code spawner.spawnFromRecord} on the ambient/POI path
+     * so chunk-load events triggered by the spawn itself don't run reconcile on the fresh
+     * mobs (which for ambient would despawn+respawn them, confusing the client).
+     */
+    public void noteGroupSpawned(String groupKey) {
+        spawnSuppressUntil.put(groupKey, System.currentTimeMillis() + SPAWN_SUPPRESS_MS);
+    }
+
     private void reconcile(World world, MobGroupRecord record) {
         String groupKey = record.getGroupKey();
+        boolean trace = record.getSource() == GroupSource.AMBIENT;
+
+        // Spawn-suppress window: don't reconcile a group that was just spawned.
+        // Chunk-load events fire immediately after spawn and would otherwise trigger
+        // ambient's despawn+respawn path on fresh mobs, causing client-side visual
+        // chaos. Fresh mobs have tint applied via the spawn path already.
+        Long suppressUntil = spawnSuppressUntil.get(groupKey);
+        if (suppressUntil != null) {
+            if (System.currentTimeMillis() < suppressUntil) {
+                if (trace) LOGGER.atInfo().log(
+                        "Ambient reconcile suppressed (just-spawned): key=%s remaining=%dms",
+                        groupKey, suppressUntil - System.currentTimeMillis());
+                return;
+            }
+            spawnSuppressUntil.remove(groupKey);
+        }
 
         // Anchor-chunk-loaded gate. Mirrors SettlementWorldGenListener: reconciliation
         // must not run before the anchor's chunk has finished loading, or the sphere-scan
@@ -104,18 +143,34 @@ public class MobGroupChunkListener {
         int anchorChunkZ = (int) Math.floor(record.getAnchorZ() / CHUNK_BLOCK_SIZE);
         long anchorChunkKey = ((long) anchorChunkX << 32) | (anchorChunkZ & 0xFFFFFFFFL);
         if (world.getChunkIfLoaded(anchorChunkKey) == null) {
+            if (trace) LOGGER.atInfo().log(
+                    "Ambient reconcile gated: anchor chunk not loaded yet key=%s anchorChunk=(%d,%d)",
+                    groupKey, anchorChunkX, anchorChunkZ);
             return;
         }
 
         // Debounce
         long now = System.currentTimeMillis();
         Long last = lastCheck.get(groupKey);
-        if (last != null && now - last < CHECK_COOLDOWN_MS) return;
+        if (last != null && now - last < CHECK_COOLDOWN_MS) {
+            if (trace) LOGGER.atInfo().log(
+                    "Ambient reconcile debounced key=%s (%dms since last)",
+                    groupKey, now - last);
+            return;
+        }
         lastCheck.put(groupKey, now);
 
         // Per-group lock
         AtomicBoolean lock = inFlight.computeIfAbsent(groupKey, k -> new AtomicBoolean(false));
-        if (!lock.compareAndSet(false, true)) return;
+        if (!lock.compareAndSet(false, true)) {
+            if (trace) LOGGER.atInfo().log("Ambient reconcile blocked: lock held key=%s", groupKey);
+            return;
+        }
+
+        if (trace) LOGGER.atInfo().log(
+                "Ambient reconcile scheduled key=%s anchor=(%.0f,%.0f,%.0f) slots=%d",
+                groupKey, record.getAnchorX(), record.getAnchorY(), record.getAnchorZ(),
+                record.getSlots().size());
 
         world.execute(() -> {
             try {
@@ -129,11 +184,16 @@ public class MobGroupChunkListener {
     }
 
     private void runReconcilePass(World world, MobGroupRecord record) {
+        boolean trace = record.getSource() == GroupSource.AMBIENT;
+
         // Race-tolerance: the ambient decay sweep may have removed this record between
         // the lock-grab in reconcile() and this deferred execute(). If so, don't respawn
         // slots on a record that's already despawned and deleted.
         if (registry.get(record.getGroupKey()) == null) {
-            LOGGER.atFine().log("runReconcilePass: record %s no longer in registry, skipping",
+            if (trace) LOGGER.atInfo().log(
+                    "Ambient runReconcilePass skipped: record %s no longer in registry",
+                    record.getGroupKey());
+            else LOGGER.atFine().log("runReconcilePass: record %s no longer in registry, skipping",
                     record.getGroupKey());
             return;
         }
@@ -189,26 +249,43 @@ public class MobGroupChunkListener {
             liveBySlot.computeIfAbsent(member.getSlotIndex(), k -> new ArrayList<>()).add(ref);
         }
 
+        if (trace) LOGGER.atInfo().log(
+                "Ambient scan: nearby=%d ghostsRemoved=%d liveBySlot=%d key=%s",
+                nearby.size(), ghostsRemoved, liveBySlot.size(), record.getGroupKey());
+
         int respawned = 0;
         int matched = 0;
         int sweptDuplicates = ghostsRemoved;
 
         for (SlotRecord slot : record.getSlots()) {
-            if (slot.isDead()) continue;
+            if (slot.isDead()) {
+                if (trace) LOGGER.atInfo().log("Ambient slot %d: dead, skipped key=%s",
+                        slot.getSlotIndex(), record.getGroupKey());
+                continue;
+            }
 
             List<Ref<EntityStore>> matches = liveBySlot.get(slot.getSlotIndex());
 
             if (matches != null && !matches.isEmpty()) {
                 // Step 1: member-scan hit. Keep the first, despawn duplicates.
+                // Tint re-application on matched entities is handled by
+                // Nat20MobTintTickSystem, which periodically re-applies the tint
+                // EntityEffect on all tiered mobs (self-healing across chunk
+                // reload and server restart).
                 Ref<EntityStore> keep = matches.get(0);
                 UUID keepUuid = safeUuid(store, keep);
                 if (keepUuid != null) slot.setCurrentUuid(keepUuid.toString());
+                int dupes = 0;
                 for (int i = 1; i < matches.size(); i++) {
                     try {
                         store.removeEntity(matches.get(i), RemoveReason.REMOVE);
                         sweptDuplicates++;
+                        dupes++;
                     } catch (Exception ignored) {}
                 }
+                if (trace) LOGGER.atInfo().log(
+                        "Ambient slot %d: MEMBER-SCAN HIT uuid=%s dupesRemoved=%d key=%s",
+                        slot.getSlotIndex(), keepUuid, dupes, record.getGroupKey());
                 matched++;
                 continue;
             }
@@ -226,17 +303,41 @@ public class MobGroupChunkListener {
                         if (member != null
                                 && record.getGroupKey().equals(member.getGroupKey())
                                 && member.getSlotIndex() == slot.getSlotIndex()) {
+                            if (trace) LOGGER.atInfo().log(
+                                    "Ambient slot %d: UUID-CHECK HIT uuid=%s key=%s",
+                                    slot.getSlotIndex(), uuid, record.getGroupKey());
                             matched++;
                             continue;
+                        } else if (trace) {
+                            LOGGER.atInfo().log(
+                                    "Ambient slot %d: UUID resolved but member component mismatch "
+                                            + "(memberNull=%s) uuid=%s key=%s",
+                                    slot.getSlotIndex(), member == null, uuid, record.getGroupKey());
                         }
+                    } else if (trace) {
+                        LOGGER.atInfo().log(
+                                "Ambient slot %d: UUID %s does not resolve to entity; falling through to respawn key=%s",
+                                slot.getSlotIndex(), uuid, record.getGroupKey());
                     }
-                } catch (Exception ignored) {}
+                } catch (Exception e) {
+                    if (trace) LOGGER.atInfo().withCause(e).log(
+                            "Ambient slot %d: UUID parse/lookup threw; falling through to respawn key=%s",
+                            slot.getSlotIndex(), record.getGroupKey());
+                }
                 // Stale UUID: clear and fall through to spawn.
                 slot.setCurrentUuid(null);
+            } else if (trace) {
+                LOGGER.atInfo().log(
+                        "Ambient slot %d: no currentUuid recorded; falling through to respawn key=%s",
+                        slot.getSlotIndex(), record.getGroupKey());
             }
 
             // Step 5: spawn. Lock + debounce already held at reconcile() entry.
             UUID newUuid = spawner.respawnSlot(world, record, slot);
+            if (trace) LOGGER.atInfo().log(
+                    "Ambient slot %d: RESPAWN %s uuid=%s isBoss=%s key=%s",
+                    slot.getSlotIndex(), newUuid != null ? "OK" : "FAILED", newUuid, slot.isBoss(),
+                    record.getGroupKey());
             if (newUuid != null) {
                 respawned++;
                 // Step 6: post-spawn sweep. If another entity already bears this
@@ -277,6 +378,9 @@ public class MobGroupChunkListener {
             LOGGER.atFine().log("Reconcile %s: matched=%d respawned=%d sweptDuplicates=%d",
                     record.getGroupKey(), matched, respawned, sweptDuplicates);
         }
+        if (trace) LOGGER.atInfo().log(
+                "Ambient reconcile done key=%s matched=%d respawned=%d sweptDuplicates=%d",
+                record.getGroupKey(), matched, respawned, sweptDuplicates);
     }
 
     private static UUID safeUuid(Store<EntityStore> store, Ref<EntityStore> ref) {
