@@ -125,4 +125,12 @@ public final class Nat20PrefabConstants {
         forceEmptyId = Integer.MIN_VALUE;
         stripIds = IntSets.EMPTY_SET;
     }
+
+    /**
+     * Overwrite the resolved strip-ID set. Testing only. Production code goes
+     * through {@link #resolve()}, which rebuilds the set from the asset map.
+     */
+    static void setStripIdsForTests(IntSet ids) {
+        stripIds = ids;
+    }
 }

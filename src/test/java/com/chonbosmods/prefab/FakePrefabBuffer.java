@@ -18,7 +18,20 @@ import java.util.List;
  */
 final class FakePrefabBuffer implements IPrefabBuffer {
 
-    record Cell(int x, int y, int z, int blockId) {}
+    /**
+     * A pre-seeded cell. The 4-arg convenience constructor is sufficient for
+     * most scanner tests (supportValue / rotation / filler / fluidId /
+     * fluidLevel default to zero); the full 9-arg canonical constructor is
+     * used by passthrough tests that need to assert non-zero extras survive
+     * a wrapper.
+     */
+    record Cell(int x, int y, int z, int blockId,
+                int supportValue, int rotation, int filler,
+                int fluidId, int fluidLevel) {
+        Cell(int x, int y, int z, int blockId) {
+            this(x, y, z, blockId, 0, 0, 0, 0, 0);
+        }
+    }
 
     private final List<Cell> cells;
     private final int minX;
@@ -114,7 +127,9 @@ final class FakePrefabBuffer implements IPrefabBuffer {
     ) {
         for (Cell c : cells) {
             // signature: (x, y, z, blockId, holder, supportValue, rotation, filler, call, fluidId, fluidLevel)
-            blockConsumer.accept(c.x, c.y, c.z, c.blockId, null, 0, 0, 0, call, 0, 0);
+            blockConsumer.accept(c.x, c.y, c.z, c.blockId, null,
+                    c.supportValue, c.rotation, c.filler, call,
+                    c.fluidId, c.fluidLevel);
         }
     }
 
