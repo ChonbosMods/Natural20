@@ -1,6 +1,11 @@
 package com.chonbosmods.cave;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.prefab.MarkerScan;
+import com.chonbosmods.prefab.Nat20PrefabMarkerScanner;
+import com.chonbosmods.prefab.Nat20PrefabPaster;
+import com.chonbosmods.prefab.PlacedMarkers;
+import com.chonbosmods.prefab.YawAlignment;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
@@ -10,7 +15,6 @@ import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.protocol.BlockMaterial;
@@ -19,7 +23,6 @@ import com.hypixel.hytale.server.core.universe.world.accessor.BlockAccessor;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
@@ -35,7 +38,6 @@ public class UndergroundStructurePlacer {
     private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test"; // TODO: replace with small surface POI prefab
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
-    private static final int DEFER_TICKS = 5;
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -43,11 +45,12 @@ public class UndergroundStructurePlacer {
      * @param world     the world to place into
      * @param voidRecord the cave void to place adjacent to
      * @param store     component accessor for entity persistence
-     * @return a future that completes with the entrance position (tunnel start), or null on failure
+     * @return a future that completes with the placed marker positions (anchor + mob-group spawns + etc.),
+     *         or null on failure
      */
-    public CompletableFuture<Vector3i> placeAtVoid(World world, CaveVoidRecord voidRecord,
-                                                    Store<EntityStore> store) {
-        CompletableFuture<Vector3i> result = new CompletableFuture<>();
+    public CompletableFuture<PlacedMarkers> placeAtVoid(World world, CaveVoidRecord voidRecord,
+                                                       Store<EntityStore> store) {
+        CompletableFuture<PlacedMarkers> result = new CompletableFuture<>();
 
         // 1. Score floor positions for tunnel-mouth placement
         List<int[]> floorPositions = voidRecord.getFloorPositions();
@@ -157,31 +160,7 @@ public class UndergroundStructurePlacer {
         int floorY = bestFloor[1];
         int floorZ = bestFloor[2];
 
-        // Determine rotation: entrance faces +Z by default (Dungeon2Test)
-        // Rotate so entrance faces AWAY from the nearest wall (into the cave)
-        // Wall on -X -> entrance faces +X -> rotate 270 (entrance +Z becomes +X)
-        // Wall on +X -> entrance faces -X -> rotate 90  (entrance +Z becomes -X)
-        // Wall on -Z -> entrance faces +Z -> no rotation (default)
-        // Wall on +Z -> entrance faces -Z -> rotate 180
-        Rotation rotation = switch (bestWallDir) {
-            case "-X" -> Rotation.TwoSeventy;
-            case "+X" -> Rotation.Ninety;
-            case "+Z" -> Rotation.OneEighty;
-            default -> Rotation.None;  // -Z: entrance already faces +Z, away from -Z wall
-        };
-
-        LOGGER.atFine().log("Selected tunnel-mouth at (%d, %d, %d) score=%d wallDir=%s rotation=%s for void at (%d, %d, %d)",
-                floorX, floorY, floorZ, bestScore, bestWallDir, rotation, cx, cy, cz);
-
-        // 2. Place with anchor aligned to the tunnel-mouth floor
-        int structX = floorX;
-        int structY = floorY;
-        int structZ = floorZ;
-
-        LOGGER.atFine().log("Placing structure at (%d, %d, %d) rotation=%s for void at (%d, %d, %d)",
-                structX, structY, structZ, rotation, cx, cy, cz);
-
-        // 4. Load the prefab buffer
+        // 2. Load the prefab buffer
         Path prefabPath = findPrefabPath();
         if (prefabPath == null) {
             LOGGER.atSevere().log("Prefab not found: %s", TEST_PREFAB_KEY);
@@ -198,56 +177,41 @@ public class UndergroundStructurePlacer {
             return result;
         }
 
-        LOGGER.atFine().log("Loaded prefab buffer: %s (size: %dx%dx%d, anchor: %d,%d,%d, columns: %d)",
-                prefabPath,
-                buffer.getMaxX() - buffer.getMinX(),
-                buffer.getMaxY() - buffer.getMinY(),
-                buffer.getMaxZ() - buffer.getMinZ(),
-                buffer.getAnchorX(), buffer.getAnchorY(), buffer.getAnchorZ(),
-                buffer.getColumnCount());
+        // 3. Compute desired world-facing direction from the nearest-wall axis.
+        //    The entrance should face AWAY from the nearest wall, i.e. into the cave.
+        //    Wall on -X -> entrance faces +X; wall on +X -> -X; wall on +Z -> -Z; wall on -Z -> +Z.
+        Vector3i wantedWorldDir = switch (bestWallDir) {
+            case "-X" -> new Vector3i( 1, 0,  0);
+            case "+X" -> new Vector3i(-1, 0,  0);
+            case "+Z" -> new Vector3i( 0, 0, -1);
+            default   -> new Vector3i( 0, 0,  1); // "-Z" -> entrance faces +Z
+        };
 
-        // PrefabUtil.paste treats position as the anchor location
-        Vector3i pastePos = new Vector3i(structX, structY, structZ);
+        // Scan the prefab up-front so we can align its authored direction vector to the
+        // wanted world direction via YawAlignment. Note: the paster will scan again
+        // internally; that's cheap and keeps the paster API self-contained.
+        MarkerScan scan = Nat20PrefabMarkerScanner.scan(buffer);
+        Rotation rotation = YawAlignment.computeYawToAlign(scan.directionVector(), wantedWorldDir);
 
-        LOGGER.atFine().log("Paste position (anchor at): (%d, %d, %d) rotation=%s",
-                structX, structY, structZ, rotation);
+        LOGGER.atFine().log("Selected tunnel-mouth at (%d, %d, %d) score=%d wallDir=%s rotation=%s for void at (%d, %d, %d)",
+                floorX, floorY, floorZ, bestScore, bestWallDir, rotation, cx, cy, cz);
 
-        // 5. Pre-load chunks covering the prefab footprint
-        int minChunkX = ChunkUtil.chunkCoordinate(structX + buffer.getMinX());
-        int minChunkZ = ChunkUtil.chunkCoordinate(structZ + buffer.getMinZ());
-        int maxChunkX = ChunkUtil.chunkCoordinate(structX + buffer.getMaxX());
-        int maxChunkZ = ChunkUtil.chunkCoordinate(structZ + buffer.getMaxZ());
-
-        List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
-        for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
-            for (int chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
-                long key = ChunkUtil.indexChunk(chunkX, chunkZ);
-                chunkFutures.add(world.getNonTickingChunkAsync(key));
-            }
-        }
-
-        LOGGER.atFine().log("Pre-loading %d chunks for prefab placement", chunkFutures.size());
-
-        CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
-                .orTimeout(30, TimeUnit.SECONDS)
-                .whenComplete((ignored, error) -> {
-                    if (error != null) {
-                        LOGGER.atSevere().withCause(error).log("Chunk loading timed out for structure placement");
+        // 4. Delegate to the paster. It handles chunk preload + tick defer + filtered paste,
+        //    and returns world-space marker positions.
+        Nat20PrefabPaster.paste(buffer, world, new Vector3i(floorX, floorY, floorZ),
+                        rotation, new Random(), store)
+                .whenComplete((placed, error) -> {
+                    if (error != null || placed == null) {
+                        if (error != null) {
+                            LOGGER.atSevere().withCause(error).log(
+                                    "Cave POI paste failed at void (%d, %d, %d)", cx, cy, cz);
+                        }
                         result.complete(null);
                         return;
                     }
-                    deferTicks(world, DEFER_TICKS, () -> {
-                        try {
-                            Random random = new Random();
-                            PrefabUtil.paste(buffer, world, pastePos, rotation, true, random, 0, store);
-                            LOGGER.atFine().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
-
-                            result.complete(pastePos);
-                        } catch (Exception e) {
-                            LOGGER.atSevere().withCause(e).log("Failed to paste prefab");
-                            result.complete(null);
-                        }
-                    });
+                    LOGGER.atFine().log("Cave POI placed at (%d, %d, %d) rotation=%s",
+                            floorX, floorY, floorZ, rotation);
+                    result.complete(placed);
                 });
 
         return result;
@@ -360,14 +324,15 @@ public class UndergroundStructurePlacer {
     }
 
     /**
-     * Place the test prefab at surface level at the given x/z position.
-     * Finds the surface Y by scanning downward, then pastes with no rotation.
+     * Place the surface-fallback prefab at surface level at the given x/z position.
+     * Finds the surface Y by scanning downward, then pastes with no rotation via the
+     * shared {@link Nat20PrefabPaster} pipeline.
      *
-     * @return a future that completes with the surface position, or null on failure
+     * @return a future that completes with the placed marker positions, or null on failure
      */
-    public CompletableFuture<Vector3i> placeAtSurface(World world, int targetX, int targetZ,
-                                                        Store<EntityStore> store) {
-        CompletableFuture<Vector3i> result = new CompletableFuture<>();
+    public CompletableFuture<PlacedMarkers> placeAtSurface(World world, int targetX, int targetZ,
+                                                          Store<EntityStore> store) {
+        CompletableFuture<PlacedMarkers> result = new CompletableFuture<>();
 
         Path prefabPath = findSurfaceFallbackPrefabPath();
         if (prefabPath == null) {
@@ -415,51 +380,28 @@ public class UndergroundStructurePlacer {
                     final int surfaceY = foundY;
                     Vector3i pastePos = new Vector3i(targetX, surfaceY, targetZ);
 
-                    // Pre-load all chunks covering the prefab footprint
-                    int minCX = ChunkUtil.chunkCoordinate(targetX + buffer.getMinX());
-                    int minCZ = ChunkUtil.chunkCoordinate(targetZ + buffer.getMinZ());
-                    int maxCX = ChunkUtil.chunkCoordinate(targetX + buffer.getMaxX());
-                    int maxCZ = ChunkUtil.chunkCoordinate(targetZ + buffer.getMaxZ());
-
-                    List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
-                    for (int cx = minCX; cx <= maxCX; cx++) {
-                        for (int cz = minCZ; cz <= maxCZ; cz++) {
-                            chunkFutures.add(world.getNonTickingChunkAsync(ChunkUtil.indexChunk(cx, cz)));
-                        }
-                    }
-
-                    CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
-                        .orTimeout(30, TimeUnit.SECONDS)
-                        .whenComplete((ignored, error) -> {
-                            if (error != null) {
-                                LOGGER.atSevere().withCause(error).log("Surface placement: chunk loading timed out");
-                                result.complete(null);
-                                return;
-                            }
-                            deferTicks(world, DEFER_TICKS, () -> {
-                                try {
-                                    Random random = new Random();
-                                    PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
-                                    LOGGER.atFine().log("Surface POI placed at (%d, %d, %d)", targetX, surfaceY, targetZ);
-                                    result.complete(pastePos);
-                                } catch (Exception e) {
-                                    LOGGER.atSevere().withCause(e).log("Surface placement: paste failed");
+                    // Delegate to the paster. It handles chunk preload + tick defer + filtered paste.
+                    // Surface prefabs don't rotate, so pass Rotation.None.
+                    Nat20PrefabPaster.paste(buffer, world, pastePos,
+                                    Rotation.None, new Random(), store)
+                            .whenComplete((placed, error) -> {
+                                if (error != null || placed == null) {
+                                    if (error != null) {
+                                        LOGGER.atSevere().withCause(error).log(
+                                                "Surface placement: paste failed at (%d, %d, %d)",
+                                                targetX, surfaceY, targetZ);
+                                    }
                                     result.complete(null);
+                                    return;
                                 }
+                                LOGGER.atFine().log("Surface POI placed at (%d, %d, %d)",
+                                        targetX, surfaceY, targetZ);
+                                result.complete(placed);
                             });
-                        });
                 });
             });
 
         return result;
-    }
-
-    private void deferTicks(World world, int ticks, Runnable action) {
-        if (ticks <= 0) {
-            world.execute(action);
-        } else {
-            world.execute(() -> deferTicks(world, ticks - 1, action));
-        }
     }
 
 }

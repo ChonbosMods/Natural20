@@ -801,14 +801,15 @@ public class DialogueActionRegistry {
 
         Natural20.getInstance().getStructurePlacer()
             .placeAtVoid(world, void_, store)
-            .whenComplete((entrance, error) -> {
-                if (error != null || entrance == null) {
+            .whenComplete((placed, error) -> {
+                if (error != null || placed == null) {
                     if (error != null) {
                         LOGGER.atWarning().withCause(error).log("POI void placement failed for quest %s", quest.getQuestId());
                     }
                     world.execute(() -> bindings.put("poi_available", "false"));
                     return;
                 }
+                Vector3i entrance = placed.anchorWorld();
                 world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
             });
     }
@@ -885,14 +886,15 @@ public class DialogueActionRegistry {
 
         Natural20.getInstance().getStructurePlacer()
             .placeAtSurface(world, targetX, targetZ, store)
-            .whenComplete((entrance, error) -> {
-                if (error != null || entrance == null) {
+            .whenComplete((placed, error) -> {
+                if (error != null || placed == null) {
                     if (error != null) {
                         LOGGER.atWarning().withCause(error).log("Surface POI placement failed for quest %s", quest.getQuestId());
                     }
                     world.execute(() -> bindings.put("poi_available", "false"));
                     return;
                 }
+                Vector3i entrance = placed.anchorWorld();
                 world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
             });
     }

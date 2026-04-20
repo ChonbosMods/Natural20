@@ -402,12 +402,13 @@ public class Natural20 extends JavaPlugin {
             int targetZ = centerZ + (int) (dist * Math.sin(angle));
 
             getStructurePlacer().placeAtSurface(world, targetX, targetZ, store)
-                .whenComplete((entrance, error) -> {
-                    if (error != null || entrance == null) {
+                .whenComplete((placed, error) -> {
+                    if (error != null || placed == null) {
                         getLogger().atWarning().log("Surface fallback POI %d failed near settlement %s at (%d, %d)",
                             poiIndex, settlement.getCellKey(), targetX, targetZ);
                         return;
                     }
+                    Vector3i entrance = placed.anchorWorld();
                     settlement.addSurfaceFallbackPoi(entrance.getX(), entrance.getY(), entrance.getZ());
                     settlementRegistry.saveAsync();
                 });
