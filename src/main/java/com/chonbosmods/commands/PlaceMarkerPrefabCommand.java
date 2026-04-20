@@ -99,5 +99,21 @@ public class PlaceMarkerPrefabCommand extends AbstractPlayerCommand {
             placed.npcSpawnsWorld().size(),
             placed.mobGroupSpawnsWorld().size(),
             placed.chestSpawnsWorld().size())));
+        sendCoordList(ctx, "NPC", placed.npcSpawnsWorld());
+        sendCoordList(ctx, "MobGroup", placed.mobGroupSpawnsWorld());
+        sendCoordList(ctx, "Chest", placed.chestSpawnsWorld());
+    }
+
+    private static void sendCoordList(CommandContext ctx, String label,
+                                      java.util.List<Vector3d> positions) {
+        if (positions.isEmpty()) return;
+        StringBuilder sb = new StringBuilder("  ").append(label).append(":");
+        for (Vector3d v : positions) {
+            sb.append(" (")
+              .append((int) Math.floor(v.getX())).append(',')
+              .append((int) Math.floor(v.getY())).append(',')
+              .append((int) Math.floor(v.getZ())).append(')');
+        }
+        ctx.sendMessage(Message.raw(sb.toString()));
     }
 }
