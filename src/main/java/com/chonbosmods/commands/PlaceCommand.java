@@ -2,6 +2,7 @@ package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
+import com.chonbosmods.npc.NpcSpawnRole;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
@@ -21,6 +22,8 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -62,29 +65,42 @@ public class PlaceCommand extends AbstractPlayerCommand {
         context.sendMessage(Message.raw("Placing " + type + " at " +
             blockPos.getX() + ", " + blockPos.getY() + ", " + blockPos.getZ() + "..."));
 
+        // Generate a cell key for manual placements
+        String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
+        long nameSalt = System.currentTimeMillis();
+        long seed = nameSalt;
+
         world.execute(() -> {
-            Natural20.getInstance().getPlacer().place(
-                world, blockPos, type, Rotation.None, store, new Random()
-            );
+            Natural20.getInstance().getPlacer()
+                .place(world, blockPos, type, Rotation.None, store, new Random(seed))
+                .whenComplete((placed, error) -> world.execute(() -> {
+                    if (error != null || placed == null) {
+                        context.sendMessage(Message.raw("Settlement placement failed."));
+                        return;
+                    }
 
-            Vector3d origin = new Vector3d(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+                    List<Vector3d> markers = new ArrayList<>(placed.npcSpawnsWorld());
+                    Collections.shuffle(markers, new Random(seed));
 
-            // Generate a cell key for manual placements
-            String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
+                    List<NpcRecord> spawned = new ArrayList<>();
+                    int markerIdx = 0;
+                    for (NpcSpawnRole role : type.getNpcSpawns()) {
+                        for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
+                            NpcRecord rec = Natural20.getInstance().getNpcManager()
+                                .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
+                                                    cellKey, nameSalt);
+                            if (rec != null) spawned.add(rec);
+                        }
+                    }
 
-            long nameSalt = System.currentTimeMillis();
-            List<NpcRecord> npcRecords =
-                Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, type, origin, cellKey, nameSalt);
-
-            // Register in settlement registry
-            SettlementRecord record = new SettlementRecord(
-                cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
-                blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
-            record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(),
-                Natural20.getInstance().getSettlementRegistry().getUsedNames()));
-            record.getNpcs().addAll(npcRecords);
-            Natural20.getInstance().getSettlementRegistry().register(record);
+                    SettlementRecord record = new SettlementRecord(
+                        cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
+                        blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
+                    record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(),
+                        Natural20.getInstance().getSettlementRegistry().getUsedNames()));
+                    record.getNpcs().addAll(spawned);
+                    Natural20.getInstance().getSettlementRegistry().register(record);
+                }));
         });
     }
 }

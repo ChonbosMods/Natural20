@@ -1,6 +1,8 @@
 package com.chonbosmods.settlement;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.prefab.Nat20PrefabPaster;
+import com.chonbosmods.prefab.PlacedMarkers;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
@@ -9,7 +11,6 @@ import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.PrefabUtil;
 
 import com.hypixel.hytale.logger.HytaleLogger;
 
@@ -18,6 +19,7 @@ import java.nio.file.Path;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.CompletableFuture;
 
 public class SettlementPlacer {
 
@@ -86,29 +88,20 @@ public class SettlementPlacer {
     }
 
     /**
-     * Place a settlement structure at the given position.
-     * Must be called from the world thread or inside world.execute().
+     * Place a settlement structure via {@link Nat20PrefabPaster}, returning the
+     * marker positions that were scanned out of the prefab. The returned future
+     * completes asynchronously once chunks are loaded and the paste finishes.
+     * Completes with {@code null} on failure.
      */
-    public void place(World world, Vector3i position, SettlementType type, Rotation yaw,
-                      ComponentAccessor<EntityStore> componentAccessor, Random random) {
+    public CompletableFuture<PlacedMarkers> place(
+            World world, Vector3i desiredAnchorWorld, SettlementType type, Rotation yaw,
+            ComponentAccessor<EntityStore> store, Random random) {
         IPrefabBuffer buffer = prefabs.get(type);
         if (buffer == null) {
-            LOGGER.atWarning().log( "[Nat20] No prefab loaded for type: " + type);
-            return;
+            LOGGER.atWarning().log("No prefab loaded for type: %s", type);
+            return CompletableFuture.completedFuture(null);
         }
-
-        PrefabUtil.paste(
-            buffer,
-            world,
-            position,
-            yaw,
-            true,       // force — overwrite existing blocks
-            random,
-            0,          // setBlockSettings — default
-            componentAccessor
-        );
-        LOGGER.atFine().log( "[Nat20] Placed " + type + " at " +
-            position.getX() + ", " + position.getY() + ", " + position.getZ());
+        return Nat20PrefabPaster.paste(buffer, world, desiredAnchorWorld, yaw, random, store);
     }
 
     public boolean hasPrefab(SettlementType type) {

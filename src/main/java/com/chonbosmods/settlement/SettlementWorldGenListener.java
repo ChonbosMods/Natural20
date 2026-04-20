@@ -3,6 +3,7 @@ package com.chonbosmods.settlement;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
+import com.chonbosmods.npc.NpcSpawnRole;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -16,6 +17,8 @@ import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -83,32 +86,54 @@ public class SettlementWorldGenListener {
 
         // Place structure and spawn NPCs on world thread
         world.execute(() -> {
-            try {
-                var store = world.getEntityStore().getStore();
+            var store = world.getEntityStore().getStore();
+            int groundY = findGroundY(world, settlementX, settlementZ);
+            Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
-                int groundY = findGroundY(world, settlementX, settlementZ);
-                Vector3i blockPos = new Vector3i(settlementX, groundY, settlementZ);
-
-                if (placer.hasPrefab(SettlementType.TOWN)) {
-                    placer.place(world, blockPos, SettlementType.TOWN, Rotation.None, store, new Random(seed));
-                }
-
-                Vector3d origin = new Vector3d(settlementX, groundY, settlementZ);
-                List<NpcRecord> npcRecords = Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, SettlementType.TOWN, origin, cellKey, record.getPlacedAt());
-
-                record.setPosY(groundY);
-                record.getNpcs().addAll(npcRecords);
-                registry.saveAsync();
-
-                // Generate procedural topic dialogues for the new settlement's NPCs
-                Natural20.getInstance().onSettlementCreated(record, world);
-
-                LOGGER.atFine().log("Settlement placed at " + settlementX + ", " + groundY + ", " + settlementZ +
-                    " with " + npcRecords.size() + " NPCs");
-            } catch (Exception e) {
-                LOGGER.atSevere().withCause(e).log("Failed to place settlement at cell " + cellKey);
+            if (!placer.hasPrefab(SettlementType.TOWN)) {
+                LOGGER.atSevere().log("No prefab for TOWN, skipping settlement at cell %s", cellKey);
+                return;
             }
+
+            placer.place(world, anchorPos, SettlementType.TOWN, Rotation.None, store, new Random(seed))
+                .whenComplete((placed, error) -> world.execute(() -> {
+                    if (error != null || placed == null) {
+                        LOGGER.atSevere().withCause(error).log(
+                            "Settlement placement failed for cell %s", cellKey);
+                        return;
+                    }
+
+                    // Shuffle marker positions deterministically per cell.
+                    List<Vector3d> markers = new ArrayList<>(placed.npcSpawnsWorld());
+                    Collections.shuffle(markers, new Random(seed));
+
+                    // Assign roles to markers in declaration order.
+                    List<NpcRecord> spawned = new ArrayList<>();
+                    int requiredTotal = SettlementType.TOWN.getNpcSpawns().stream()
+                        .mapToInt(NpcSpawnRole::count).sum();
+                    int markerIdx = 0;
+                    for (NpcSpawnRole role : SettlementType.TOWN.getNpcSpawns()) {
+                        for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
+                            NpcRecord rec = Natural20.getInstance().getNpcManager()
+                                .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
+                                                    cellKey, record.getPlacedAt());
+                            if (rec != null) spawned.add(rec);
+                        }
+                    }
+                    if (markerIdx < requiredTotal) {
+                        LOGGER.atWarning().log(
+                            "Settlement at cell %s has %d Npc_Spawn markers but config requires %d; %d NPCs skipped",
+                            cellKey, markers.size(), requiredTotal, requiredTotal - markerIdx);
+                    }
+
+                    record.setPosY(groundY);
+                    record.getNpcs().addAll(spawned);
+                    registry.saveAsync();
+
+                    Natural20.getInstance().onSettlementCreated(record, world);
+                    LOGGER.atFine().log("Settlement placed at %d, %d, %d with %d NPCs",
+                        settlementX, groundY, settlementZ, spawned.size());
+                }));
         });
     }
 
