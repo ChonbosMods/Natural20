@@ -234,7 +234,7 @@ public class TopicGenerator {
 
             if (preQuest != null) {
                 bearerRecord.setPreGeneratedQuest(preQuest);
-                LOGGER.atInfo().log("  QUEST BEARER: %s (%s) quest=%s | /tp %d %d %d",
+                LOGGER.atFine().log("  QUEST BEARER: %s (%s) quest=%s | /tp %d %d %d",
                     bearerName, bearerRecord.getRole(),
                     preQuest.getSituationId(),
                     (int) bearerRecord.getSpawnX(),

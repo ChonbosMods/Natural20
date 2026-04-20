@@ -16,8 +16,7 @@
       "acceptText": "Oh, wonderful. I've been thinking about this all day and now it might actually happen.",
       "declineText": "That's fine. The craving will pass. Probably.",
       "expositionTurnInText": "Perfect. Tonight I'm cooking.",
-      "resolutionText": "You're a lifesaver. Take {reward_item}. And {reward_flavor} if you'll stay.",
-      "rewardFlavor": "a home-cooked meal on me",
+      "resolutionText": "You're a lifesaver. Take {reward_item}. The kitchen smells incredible already, and that's on you.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -34,8 +33,7 @@
       "acceptText": "Really? That's made my whole afternoon better already.",
       "declineText": "No trouble. I've gone without before.",
       "expositionTurnInText": "Oh, wonderful. I've been thinking about this all day.",
-      "resolutionText": "Thank you so much. Take {reward_item}, and some {reward_flavor} besides.",
-      "rewardFlavor": "preserves from my cupboard",
+      "resolutionText": "Thank you, truly. Take {reward_item}. I'm going to sit down with this and not share a bite.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -52,8 +50,7 @@
       "acceptText": "Oh, thank goodness. {settlement_npc} would never let me hear the end of it if I showed up empty-handed.",
       "declineText": "All right. I'll figure something out. I always do.",
       "expositionTurnInText": "Now I won't show up empty-handed. {settlement_npc} would never let me hear the end of it.",
-      "resolutionText": "You've saved my reputation. Here's {reward_item}, plus {reward_flavor}.",
-      "rewardFlavor": "dried herbs I've been saving",
+      "resolutionText": "You've saved my reputation. Here's {reward_item}. {settlement_npc} will never know how close I cut it, and I'd like to keep it that way.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -71,7 +68,6 @@
       "declineText": "Fair enough. I'll work around it.",
       "expositionTurnInText": "Good. That should keep me going for a while.",
       "resolutionText": "Appreciate it. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -89,7 +85,6 @@
       "declineText": "Understood. I'll make do with what I have.",
       "expositionTurnInText": "That'll do nicely. Back to it, then.",
       "resolutionText": "Thanks. Here's {reward_item} for your time.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -107,7 +102,6 @@
       "declineText": "No harm in asking. I'll sort it out myself.",
       "expositionTurnInText": "Perfect. I'll get these sorted right away.",
       "resolutionText": "You've saved me a trip. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -125,7 +119,6 @@
       "declineText": "That's all right. I'll manage the walk somehow.",
       "expositionTurnInText": "Ah, just what I needed. You're quicker than I'd have been.",
       "resolutionText": "Much obliged. Take {reward_item} with my thanks.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -143,7 +136,6 @@
       "declineText": "Worth a try. I'll figure something out before the afternoon's up.",
       "expositionTurnInText": "You're a natural. I'll have these put to use right away.",
       "resolutionText": "Here's {reward_item}. You've earned it.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -161,7 +153,6 @@
       "declineText": "Can't blame you. It's been on my list too long as it is.",
       "expositionTurnInText": "Finally. I've been putting this off for too long.",
       "resolutionText": "You're a good sort. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -178,8 +169,7 @@
       "acceptText": "Really? I didn't think anyone would go along with that. This should be interesting.",
       "declineText": "Fair enough. It was a strange ask.",
       "expositionTurnInText": "Oh, fascinating. I see why people make a fuss over these.",
-      "resolutionText": "Thanks for indulging me. Here's {reward_item}, and {reward_flavor} besides. A curiosity for a curiosity.",
-      "rewardFlavor": "an odd old coin",
+      "resolutionText": "Thanks for indulging me. Take {reward_item}. I've turned these over twice now and I still don't know what I was expecting.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -197,7 +187,6 @@
       "declineText": "The idea will keep. I'll get to it eventually.",
       "expositionTurnInText": "Excellent. Let's see if this idea holds up.",
       "resolutionText": "That was worth it. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -215,7 +204,6 @@
       "declineText": "That's fine. I'll ask {settlement_npc} to bring some next time.",
       "expositionTurnInText": "Let's see what all the talk is about.",
       "resolutionText": "I learned something today. Take {reward_item} with my thanks.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": []
     },
@@ -233,7 +221,6 @@
       "declineText": "I understand. I'll get over there myself when I find the time.",
       "expositionTurnInText": "You actually found it. I can't believe I let that wander off.",
       "resolutionText": "Thank you, really. Take {reward_item} with my gratitude.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh, you're here about that {quest_item}? Yeah, I've got it right here. Figured someone would come looking eventually.",
@@ -253,7 +240,6 @@
       "declineText": "That's all right. It's my own fault for losing track of it.",
       "expositionTurnInText": "That's a relief. I was starting to think it was gone for good.",
       "resolutionText": "You've got my gratitude. Here's {reward_item}.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "The {quest_item}? It's been sitting on my shelf. I was wondering whose it was. Here you go.",
@@ -272,8 +258,7 @@
       "acceptText": "You'd really do that? I keep meaning to go myself but the days just slip away.",
       "declineText": "I know, I know. I should just go get it. One of these days.",
       "expositionTurnInText": "There it is. I missed this more than I expected.",
-      "resolutionText": "You did me a real kindness. Take {reward_item}, plus some {reward_flavor}.",
-      "rewardFlavor": "last season's honey",
+      "resolutionText": "You did me a real kindness. Take {reward_item}. I'd have put this trip off another month, easy.",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Right, the {quest_item}. I kept it safe. Figured they'd want it back eventually. Here.",
@@ -293,7 +278,6 @@
       "declineText": "No trouble. It's not going anywhere.",
       "expositionTurnInText": "That's exactly what I was expecting. Looks good.",
       "resolutionText": "Appreciate the legwork. Take {reward_item} for the miles.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "You're picking up for someone in {settlement_name}? Right, the {quest_item}. It's all ready. Here you are.",
@@ -313,7 +297,6 @@
       "declineText": "All right. I'll send word again and hope for the best.",
       "expositionTurnInText": "Finally. I'd started to wonder if they forgot about me.",
       "resolutionText": "Thanks for handling that. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh, was I supposed to send that over? My mistake. Here's the {quest_item}. All yours.",
@@ -332,8 +315,7 @@
       "acceptText": "That saves me half a day's walk. I appreciate it.",
       "declineText": "No trouble. It'll still be there when I finally make the trip.",
       "expositionTurnInText": "Just what I needed. Thank you for making the trip.",
-      "resolutionText": "You saved me half a day's walk. Here's {reward_item}, and some {reward_flavor} for the road.",
-      "rewardFlavor": "roasted seeds",
+      "resolutionText": "You saved me half a day's walk. Here's {reward_item} for your trouble. Next time {target_npc} asks, I'll go myself, promise.",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Ah, you're here for the {quest_item}. I've had it set aside. Here, take it.",
@@ -353,7 +335,6 @@
       "declineText": "Understandable. It's my problem, really.",
       "expositionTurnInText": "There it is. Feels good to have it back.",
       "resolutionText": "I owe you one. Take {reward_item} for your trouble.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "The {quest_item}? Oh, right. I've been meaning to return that. Sorry it took so long. Here you go.",
@@ -373,7 +354,6 @@
       "declineText": "Fair point. I should just ask them myself.",
       "expositionTurnInText": "Finally. I was starting to forget what it looked like.",
       "resolutionText": "Thank you, I didn't want to make it awkward. Take {reward_item} with my thanks.",
-      "rewardFlavor": null,
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Has it really been that long? I completely lost track. Here's the {quest_item}, good as new. Mostly.",
@@ -392,8 +372,7 @@
       "acceptText": "Oh, thank you. I've been dreading the conversation and this spares me the awkwardness.",
       "declineText": "I suppose a letter would do. If I can find a way to phrase it that doesn't sound passive-aggressive.",
       "expositionTurnInText": "At last. I was running out of ways to politely not mention it.",
-      "resolutionText": "You're a diplomat. Here's {reward_item}, and {reward_flavor} I found tucked in the cover.",
-      "rewardFlavor": "a pressed flower bookmark",
+      "resolutionText": "You're a diplomat. Here's {reward_item}. I'd resigned myself to never seeing this again, truthfully.",
       "valence": "positive",
       "roleAffinity": [],
       "targetNpcOpener": "Oh no, the {quest_item}. I kept telling myself I'd bring it back. I'm terrible. Here, please take it.",
@@ -412,8 +391,7 @@
       "acceptText": "Good. The notice has been up two weeks and nobody's even taken it down to read it twice.",
       "declineText": "Can't blame you. It's a serious ask and the bounty's not what it ought to be.",
       "expositionTurnInText": "You're sure? You got {boss_name}? I'll pull the notice down myself. That's a weight off this whole place.",
-      "resolutionText": "Take {reward_item} with our thanks. There's {reward_flavor} on top, since you actually went and did it.",
-      "rewardFlavor": "what we scraped together past the posted purse",
+      "resolutionText": "Take {reward_item} with our thanks. Plenty of folk talk about collecting on notices like that. You did. That counts for something around here.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -430,8 +408,7 @@
       "acceptText": "Good. I want them dead. I'm tired of pretending I'm above saying it.",
       "declineText": "Then I keep waiting. Maybe someone with less to lose comes through next.",
       "expositionTurnInText": "It's done? Truly? I think I might sleep tonight without my hand on the door.",
-      "resolutionText": "Here. {reward_item}, and {reward_flavor}. I had it set aside for the rebuild but I'd rather it went to you.",
-      "rewardFlavor": "coin meant for new lumber",
+      "resolutionText": "Here. {reward_item}. I had coin set aside for the rebuild, and I'd rather spend it on the reason I can sleep tonight. The barn can wait another month.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -448,14 +425,13 @@
       "acceptText": "Thank you. I was starting to think we'd have to send our own people, and I don't want that on me.",
       "declineText": "I understand. I'd rather not ask, but the alternative is worse.",
       "expositionTurnInText": "That's a clean end to a long problem. {settlement_npc} will hear about it before sundown.",
-      "resolutionText": "Take {reward_item}. And {reward_flavor}, with the gratitude of {settlement_name}.",
-      "rewardFlavor": "a token from the hall's strongbox",
+      "resolutionText": "Take {reward_item}, drawn from the hall's strongbox with {settlement_name}'s gratitude behind it. {settlement_npc} is the one who insisted the sum be honest.",
       "valence": "positive",
       "roleAffinity": []
     },
     {
       "id": "mundane_bounty_04",
-      "topicHeader": "Long Overdue",
+      "topicHeader": "An Old Name",
       "situation": "mundane_bounty",
       "objectives": [
         {
@@ -466,8 +442,7 @@
       "acceptText": "All right. All right. Maybe this gets to be the year someone settles it.",
       "declineText": "Yeah, I figured. They're a name for a reason. I'll keep my head down.",
       "expositionTurnInText": "You're telling me {boss_name} is gone. Just like that. After all these years. I don't know what to do with my hands.",
-      "resolutionText": "Take {reward_item}. {reward_flavor}, too, because I never thought I'd be paying this out and it feels right to be generous.",
-      "rewardFlavor": "an old coin I'd been saving for spite",
+      "resolutionText": "Take {reward_item}. I'd been sitting on this purse so long I started thinking of it as ornamental. Turns out it was a bounty after all. Go on.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -484,8 +459,7 @@
       "acceptText": "Oh, thank you. Even hearing you say yes, my shoulders just dropped. I didn't realize how high they'd been.",
       "declineText": "No, of course. It's a lot to ask. I'll keep my door barred and hope.",
       "expositionTurnInText": "They're really gone? You're sure? I need a moment. I haven't been allowed to feel this in months.",
-      "resolutionText": "Take {reward_item}, please. And {reward_flavor}. I want you to have it. I want anything that says this is really over.",
-      "rewardFlavor": "the bracelet I'd hidden in case I had to run",
+      "resolutionText": "Take {reward_item}, please. I want it out of this house and in the hands of the person who made the house safe again. That's how I know it's real.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -502,8 +476,7 @@
       "acceptText": "Excellent. Drinks are on me when you come back. If you come back.",
       "declineText": "Fair enough. Some heads aren't worth the trip. I won't push.",
       "expositionTurnInText": "Well, I'll be. You actually did it. I owe you the drinks I promised, on top of everything else.",
-      "resolutionText": "{reward_item} for the work, {reward_flavor} for the trouble. Pleasure doing business.",
-      "rewardFlavor": "the round I owe you at the bar",
+      "resolutionText": "{reward_item} for the job, as promised. I owe you a round at the bar on top of it, and I'm a man who pays his tab. Pleasure doing business.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -520,8 +493,7 @@
       "acceptText": "Good. I was tired of pretending that notice wasn't spoiling the mood in here.",
       "declineText": "Understood. It'll sit there a while longer.",
       "expositionTurnInText": "You came back. I'll get word to the collectors and take the notice down.",
-      "resolutionText": "Take {reward_item} and {reward_flavor}. The purse is smaller by half after today, and rightfully so.",
-      "rewardFlavor": "a coin from the collection jar",
+      "resolutionText": "Take {reward_item}. The jar on the shelf is lighter by half tonight, and folk will drink faster knowing why.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -538,8 +510,7 @@
       "acceptText": "Very well. I'll send word ahead that it's being handled.",
       "declineText": "No offense taken. Writs don't pay themselves down in an afternoon.",
       "expositionTurnInText": "The writ can be closed, then. I'll see the seal broken before the week is out.",
-      "resolutionText": "{reward_item} from the paying purse. And {reward_flavor}. Signed and settled.",
-      "rewardFlavor": "the small brass pin that comes with a completed writ",
+      "resolutionText": "{reward_item}, drawn against the writ and witnessed. I'll mark the seal broken tonight. Signed and settled.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -556,8 +527,7 @@
       "acceptText": "Good. Nail's been waiting for someone willing to take what's on it.",
       "declineText": "That's your right. Coin'll stay nailed.",
       "expositionTurnInText": "You're back. Hand's yours. The nail comes down tonight.",
-      "resolutionText": "Here's {reward_item}, and {reward_flavor}. You earned every bit.",
-      "rewardFlavor": "the three spare coppers I rounded up",
+      "resolutionText": "Here's {reward_item}, off the nail and into your hand like I said. Honest coin for an honest end. You earned every bit.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -574,8 +544,7 @@
       "acceptText": "At last. I'd just about given up on ever paying that purse out.",
       "declineText": "Understandable. Standing offers don't have a deadline for a reason.",
       "expositionTurnInText": "Years it took, and you did it. Doesn't feel real, honestly.",
-      "resolutionText": "{reward_item}, as promised. And {reward_flavor}. Never thought I'd see the day.",
-      "rewardFlavor": "the purse, older than half the folk in here",
+      "resolutionText": "{reward_item}, paid out of a purse older than most folk drinking here. Feels strange to hand it over. Good strange. Never thought I'd see the day.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -592,8 +561,7 @@
       "acceptText": "Good. That's the closest I'll get to an answer.",
       "declineText": "Then I'll keep waiting. Somebody, someday.",
       "expositionTurnInText": "It's done. I don't feel what I thought I'd feel. But it's done.",
-      "resolutionText": "Take {reward_item}. And {reward_flavor}. My brother would've said it was too much. I'm glad it isn't.",
-      "rewardFlavor": "the ring he was bringing home",
+      "resolutionText": "Take {reward_item}. My brother would've said it was too much for any job. I'm finding I disagree with him tonight, and I'm allowed to.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -610,8 +578,7 @@
       "acceptText": "Finally. I've been carrying this in my teeth for a year.",
       "declineText": "Then I keep carrying it. I've done worse.",
       "expositionTurnInText": "Gone. Good. Let them plow dirt in whatever's next.",
-      "resolutionText": "{reward_item}, and {reward_flavor}. Take it and go eat somewhere well lit.",
-      "rewardFlavor": "the silver my wife was saving for a better year",
+      "resolutionText": "{reward_item}, and don't argue about what it's worth. My wife was saving that silver for a better year. This is the better year. Take it and go eat somewhere well lit.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -628,8 +595,7 @@
       "acceptText": "Yes. That's the right answer and the only one I could stand to hear.",
       "declineText": "Then I go looking for the next person who walks through.",
       "expositionTurnInText": "You did what I couldn't. There's no clean way to say thanks for that.",
-      "resolutionText": "{reward_item}. And {reward_flavor}. Both of them mine, given freely.",
-      "rewardFlavor": "the pendant I'd sworn to bury with them",
+      "resolutionText": "{reward_item}. Mine to give, and given freely. Don't say anything kind back. I won't hold.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -646,8 +612,7 @@
       "acceptText": "Good. I don't care how it gets done, only that it does.",
       "declineText": "Then I'll look at someone else until they say yes.",
       "expositionTurnInText": "It's off the world, then. That's all I wanted.",
-      "resolutionText": "Here. {reward_item}, {reward_flavor}, everything I promised. Worth every piece.",
-      "rewardFlavor": "my grandfather's knife and a bottle I was saving",
+      "resolutionText": "Here. {reward_item}, everything I promised and then some if I could find a way. Worth every piece to hear that smile is gone.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -664,8 +629,7 @@
       "acceptText": "Thank you. I'll tell the council we have someone.",
       "declineText": "Then we'll take the vote again. We know the answer, I just hate hearing it.",
       "expositionTurnInText": "Word's already traveled. Two families took their boards down off the windows.",
-      "resolutionText": "{reward_item} from the common purse, and {reward_flavor}. A whole town's share.",
-      "rewardFlavor": "a wheel of cheese and silver besides",
+      "resolutionText": "{reward_item} from the common purse. Every household put something in. The council argued about the sum. Nobody's arguing now.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -682,8 +646,7 @@
       "acceptText": "Good. I'll get word to the mill that relief is coming.",
       "declineText": "Fair. But the flour doesn't care what's fair.",
       "expositionTurnInText": "The first cart rolled in this afternoon. The baker nearly cried.",
-      "resolutionText": "Take {reward_item}, with {reward_flavor}. The mill is open again because of you.",
-      "rewardFlavor": "the first fresh loaf since autumn",
+      "resolutionText": "Take {reward_item}. The baker's got flour on her apron again. The road feeds us because you walked it. That's not small.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -700,8 +663,7 @@
       "acceptText": "Thank you. I'd rather admit it once than keep pretending.",
       "declineText": "I understand. I'll keep pretending a while longer.",
       "expositionTurnInText": "I'll put it in the ledger tonight. With your name, not mine.",
-      "resolutionText": "{reward_item} from the pool. {reward_flavor} from my own purse, because I owe it.",
-      "rewardFlavor": "a warden's pin I've been wanting to retire",
+      "resolutionText": "{reward_item} from the pool we raised, and every coin of it owed to you before it was owed to anyone else. Fourteen years of warden's pay couldn't have bought what you did today.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -718,8 +680,7 @@
       "acceptText": "Good. Luck is a terrible thing to plan around.",
       "declineText": "I understand. I'll try to get the patrols doubled in the meantime.",
       "expositionTurnInText": "One fewer thing to lose sleep over. I'll post the relief at the gate.",
-      "resolutionText": "{reward_item} and {reward_flavor}. Every coin the families chipped in.",
-      "rewardFlavor": "a pouch passed hand to hand around the square",
+      "resolutionText": "{reward_item}, every piece of it from a family who had something left to lose. You spent their fear for them. That's the only reason I can hand this over with a clear head.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -736,8 +697,7 @@
       "acceptText": "So it gets to end with you. All right. Good.",
       "declineText": "Then it gets told to one more generation. That's all right too.",
       "expositionTurnInText": "My children won't have to learn the name. That's a gift I didn't think I'd give.",
-      "resolutionText": "Take {reward_item}. {reward_flavor} came out of a jar my father put aside for this very thing. He'd have approved.",
-      "rewardFlavor": "old coin my father set aside against this day",
+      "resolutionText": "Take {reward_item}. It's out of a jar my father buried against this exact day and never lived to open. He'd have approved of where it ended up.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -754,8 +714,7 @@
       "acceptText": "Right. Good. That's an answer I can work with.",
       "declineText": "Fair. I wasn't expecting it to be you anyway.",
       "expositionTurnInText": "Huh. I thought I'd feel more. Maybe the feeling shows up in a week.",
-      "resolutionText": "{reward_item} and {reward_flavor}. I'm going to count something better now, I think.",
-      "rewardFlavor": "the wine I'd been saving to drink alone",
+      "resolutionText": "{reward_item}. I'd been saving a drink for a night like this and I'm not sure anymore that I want it. Maybe I'll count empty bottles instead of empty chairs.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -772,8 +731,7 @@
       "acceptText": "Works for me. Whatever face you find under the name.",
       "declineText": "All right. Maybe the next traveler has a better look in their eye.",
       "expositionTurnInText": "You saw a face. That alone is news.",
-      "resolutionText": "Here's {reward_item}, and {reward_flavor}. For whoever you had to look in the eye.",
-      "rewardFlavor": "the faceless sketch we've had nailed up for years",
+      "resolutionText": "Here's {reward_item}. Whoever the face belonged to, you're the first in {settlement_name} to see it. That's worth more than the coin, honestly.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -790,8 +748,7 @@
       "acceptText": "Good. The children can have a different story tonight.",
       "declineText": "Fair. Stories keep, even the bad ones.",
       "expositionTurnInText": "You're in the story now. That might be worse, for you.",
-      "resolutionText": "Take {reward_item} with {reward_flavor}. You're welcome in the telling, whatever version wins out.",
-      "rewardFlavor": "a lockbox key we haven't needed in a week",
+      "resolutionText": "Take {reward_item}. The lockboxes in {settlement_name} are sitting open for the first time in a year. You're welcome in the telling, whatever version of you wins out.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -808,8 +765,7 @@
       "acceptText": "You mean it? Oh. Oh, good.",
       "declineText": "No, I hear you, I do. I'll keep eating what I can.",
       "expositionTurnInText": "Gone. Truly gone. I'm going to sit down and eat until I can't.",
-      "resolutionText": "{reward_item}, and {reward_flavor}. Take whatever you want, I'm not hoarding anymore.",
-      "rewardFlavor": "the stew I finally made",
+      "resolutionText": "{reward_item}. There's stew on the hearth if you want a bowl before you go. I'm not hoarding anymore. I'm eating.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -826,8 +782,7 @@
       "acceptText": "I could kiss you. I'll tell them they can go out tomorrow.",
       "declineText": "I understand. I'll keep them in a little longer.",
       "expositionTurnInText": "They're outside right now. Shrieking, I might add. It's the best sound I've ever heard.",
-      "resolutionText": "Take {reward_item}. And {reward_flavor} from the kids. They insisted.",
-      "rewardFlavor": "a pair of painted rocks wrapped in cloth",
+      "resolutionText": "Take {reward_item}. You've got a friend in this house forever, like I said. Come back when you can hear the noise they make. That's the thanks, really.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -844,8 +799,7 @@
       "acceptText": "Oh. Thank you. Thank you. Please.",
       "declineText": "All right. I'll try breathing slower.",
       "expositionTurnInText": "The house sounds like a house again. I didn't know houses were supposed to sound like anything.",
-      "resolutionText": "{reward_item}, please. And {reward_flavor}. I want you to have something from the quiet I couldn't hear before.",
-      "rewardFlavor": "the charm I'd been clutching at night",
+      "resolutionText": "{reward_item}, please. I'd been clutching things like they could keep me safe. Turns out the only thing that did it was somebody else going out into the dark. That's you.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -862,8 +816,7 @@
       "acceptText": "Thank you. I'll tell her there's hope, though I'll say it gently.",
       "declineText": "That's fine. I'll get the door myself for a while longer.",
       "expositionTurnInText": "She opened it this morning. Just the morning air, but she opened it.",
-      "resolutionText": "Take {reward_item}, with {reward_flavor}. From her, mostly. She insisted.",
-      "rewardFlavor": "the bread she baked for the first time in weeks",
+      "resolutionText": "Take {reward_item}. She wanted to hand it over herself, but she's still getting used to the threshold being safe to cross. Give her another week.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -880,8 +833,7 @@
       "acceptText": "Excellent. Come back thirsty, we'll settle up over drinks.",
       "declineText": "Fair. I'll ask the next armed boot that walks in.",
       "expositionTurnInText": "Would you look at that. The betting book was wrong for once.",
-      "resolutionText": "{reward_item}, then. {reward_flavor}, because I'm in a good mood.",
-      "rewardFlavor": "the coin I won off the bookie across the road",
+      "resolutionText": "{reward_item}, then. I took the long odds on you and the bookie across the road is going to be sour about it all week. I'll drink on that for a month.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -898,8 +850,7 @@
       "acceptText": "Smart. You'll make more this way than through the hall.",
       "declineText": "Walk it off then. Never heard of me.",
       "expositionTurnInText": "Told you. The folk who know about this don't shout it.",
-      "resolutionText": "{reward_item}, quiet as it came. {reward_flavor} on top for keeping your mouth shut.",
-      "rewardFlavor": "coin that doesn't match the local stamp",
+      "resolutionText": "{reward_item}, quiet as it came. Don't ask where the stamp's from, don't mention this conversation. That's the whole deal.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -916,8 +867,7 @@
       "acceptText": "Good. Surprise is half the work, the other half is not dying.",
       "declineText": "Suit yourself. The local lot will keep trying and keep failing.",
       "expositionTurnInText": "Well, I was right about you and wrong about them. Both feel good.",
-      "resolutionText": "{reward_item} for the job. {reward_flavor} for embarrassing the professionals.",
-      "rewardFlavor": "the bet I won against the local hunters' guild",
+      "resolutionText": "{reward_item} for the job, and I'll be spending half of tonight watching the hunters' guild pretend this didn't happen. That alone was worth the wager.",
       "valence": "positive",
       "roleAffinity": []
     },
@@ -934,8 +884,7 @@
       "acceptText": "Thank you, truly. The ledger's been a headache for too long.",
       "declineText": "Worth a shot. I'll add another cart to the list I'm pretending to own.",
       "expositionTurnInText": "Finally. I'll close this page of the ledger and never open it again.",
-      "resolutionText": "Take {reward_item}, and {reward_flavor}. All of it, before it grows again.",
-      "rewardFlavor": "the ledger page itself, with my mark on it",
+      "resolutionText": "Take {reward_item}. The purse rolls over at month's end and I'd rather see it paid out than swell any larger. I'm closing this page of the ledger tonight.",
       "valence": "positive",
       "roleAffinity": []
     }

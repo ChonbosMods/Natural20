@@ -162,7 +162,7 @@ Per-objective variables are field-locked. This table is the law:
 
 **`{other_settlement}`** — always available as worldbuilding flavor.
 
-**`{reward_item}`** and **`{reward_flavor}`** — always available. `{reward_item}` is the rolled affix reward (highlighted). `{reward_flavor}` is the template's voiced flavor phrase (from the `rewardFlavor` field). Both should appear in resolutionText.
+**`{reward_item}`** — always available. The rolled affix reward (highlighted). Should appear in resolutionText. Only one item is handed over per quest; never coordinate `{reward_item}` with a second noun phrase the player might read as another item. There is no `{reward_flavor}` variable.
 
 **Forbidden variables** (these are smalltalk-only): `{mob_type}`, `{npc_name}`, `{npc_name_2}`, `{npc_role}`, `{poi_type}`, `{food_type}`, `{crop_type}`, `{wildlife_type}`, `{resource_type}`, `{direction}`, `{location_hint}`, `{time_ref}`, `{tone_opener}`, `{tone_closer}`, `{subject_focus}` and all variants.
 
@@ -241,7 +241,7 @@ Run every check on every template before outputting. Do not skip any step.
 - [ ] Per-objective variables only appear in their bound text field
 - [ ] `{target_npc}` trio only appears when TALK_TO_NPC objective exists
 - [ ] `{settlement_npc}` never framed as objective target
-- [ ] `{reward_item}` and `{reward_flavor}` appear in resolutionText
+- [ ] `{reward_item}` appears in resolutionText as a single gift (never coordinated with a second noun phrase)
 - [ ] No forbidden smalltalk variables anywhere
 
 **Structure:**

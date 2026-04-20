@@ -87,12 +87,11 @@ Quest chains support 2-5 objectives (exposition + 1-4 conflicts). All conflict p
 | `conflict4TurnInText` | `objectives[4]` |
 | `resolutionText` | current (just-completed) objective |
 
-### 1.7 Reward flavor
+### 1.7 Reward
 
 | Variable | Highlighted | Notes |
 |---|---|---|
-| `{reward_item}` | yes | The rolled affix reward's display name (e.g. `"Grishka's Toll-Breaker"`). Driven by the quest's rolled difficulty tier + iLvl, not the template. Always bound. Always highlighted. |
-| `{reward_flavor}` | no | Short voiced flavor phrase from the template's `rewardFlavor` field. Should read as an emotional tail on the gesture ("what silver I have and a debt I won't forget"), not an inventory note. Empty string if omitted. |
+| `{reward_item}` | yes | The rolled affix reward's display name (e.g. `"Grishka's Toll-Breaker"`). Driven by the quest's rolled difficulty tier + iLvl, not the template. Always bound. Always highlighted. Only one item is handed over per quest; resolutionText must never coordinate `{reward_item}` with a second noun phrase the player might read as another item. |
 
 ---
 
@@ -110,7 +109,7 @@ Quick reference for what's available where:
 | `{enemy_type_plural}` | Text fields bound to a KILL_BOSS objective | Refers to the boss's gang/kin, not the boss themselves |
 | `{quest_item}`, `{gather_count}` | Text fields bound to COLLECT_RESOURCES or FETCH_ITEM | Only in the matching field |
 | `{boss_name}`, `{group_difficulty}` | Any text field | Only when an objective has `"type": "KILL_BOSS"` |
-| `{reward_item}`, `{reward_flavor}` | Any text field (typically resolutionText) | Always (reward_flavor = empty if template omits rewardFlavor) |
+| `{reward_item}` | Any text field (typically resolutionText) | Always |
 
 ---
 

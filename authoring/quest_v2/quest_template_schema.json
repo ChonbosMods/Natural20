@@ -162,7 +162,7 @@
 
     "resolutionText": {
       "type": "string",
-      "description": "Final dialogue. Closes the emotional arc. Must reference {reward_item} and {reward_flavor} naturally. Must feel like an ending. Max 4 sentences.",
+      "description": "Final dialogue. Closes the emotional arc. Must reference {reward_item} naturally as a single handover (never coordinated with a second noun phrase the player might read as another item). Must feel like an ending. Max 4 sentences.",
       "maxLength": 600
     },
 
@@ -193,12 +193,6 @@
         }
       },
       "required": ["skill", "dc", "passText", "failText"]
-    },
-
-    "rewardFlavor": {
-      "type": "string",
-      "description": "Short voiced flavor phrase that populates {reward_flavor} in dialogue (e.g. 'silver set aside nine years', 'what little I have and a debt I won't forget'). Should be proportionate to the NPC's station, not an inventory list. The rolled item name is separately bound as {reward_item}, so do not name a specific item here — this is the emotional tail of the gesture.",
-      "maxLength": 200
     },
 
     "valence": {
@@ -239,8 +233,7 @@
       "{settlement_npc}",
       "{settlement_npc_role}",
       "{other_settlement}",
-      "{reward_item}",
-      "{reward_flavor}"
+      "{reward_item}"
     ],
     "requires_talk_to_npc_objective": [
       "{target_npc}",
@@ -284,14 +277,13 @@
     "expositionTurnInText": "You came back. That alone means more than you know. I still need {gather_count} {quest_item} to patch what they broke.",
     "conflict1Text": "The {enemy_type_plural} are handled, but the mess they left behind isn't. I need {gather_count} {quest_item} to get us through the next few weeks. Can you manage that?",
     "conflict1TurnInText": "Every time you come back, things are a little better than when you left. I can feel it settling.",
-    "resolutionText": "I don't know what we would have done. Take {reward_item}, I wish it were more. It's {reward_flavor}, and you've given us a chance to breathe again.",
+    "resolutionText": "I don't know what we would have done. Take {reward_item}, I wish it were more, and it's most of what I had set by for a worse week than this one. You've given us a chance to breathe again.",
     "skillCheck": {
       "skill": "INSIGHT",
       "dc": 12,
       "passText": "Honestly? I haven't slept in three days. Every sound outside the wall and I'm up, grabbing whatever's closest. My hands shake in the morning now.",
       "failText": "It's been hard. That's all I'll say about it."
     },
-    "rewardFlavor": "what silver I have and a debt I won't forget",
     "valence": "negative",
     "roleAffinity": []
   }

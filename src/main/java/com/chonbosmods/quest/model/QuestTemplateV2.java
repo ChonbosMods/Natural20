@@ -16,10 +16,8 @@ import java.util.List;
  *
  * <p>Rewards are difficulty-driven at runtime: the reward item is rolled by
  * {@code AffixRewardRoller} against the quest's rolled {@code DifficultyConfig},
- * and its display name binds to {@code {reward_item}}. Templates only author
- * {@code rewardFlavor} (if non-null): a short emotional note (≤ 5 words) that
- * appears in dialogue but never pretends to be an inventory item, bound as
- * {@code {reward_flavor}}. XP comes from the difficulty config, not the template.
+ * and its display name binds to {@code {reward_item}}. XP comes from the
+ * difficulty config, not the template.
  *
  * <p>{@code roleAffinity} is a hard eligibility filter. An empty or null list means
  * the template is eligible for any quest-bearer role. A non-empty list restricts
@@ -50,7 +48,6 @@ public record QuestTemplateV2(
     @Nullable String conflict4TurnInText,
     String resolutionText,
     @Nullable SkillCheck skillCheck,
-    @Nullable String rewardFlavor,
     String valence,
     @Nullable List<String> roleAffinity,
     @Nullable String targetNpcOpener,

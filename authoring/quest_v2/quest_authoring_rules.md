@@ -102,9 +102,9 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 
 ## Reward Rules
 
-31. **`{reward_item}` and `{reward_flavor}` power the reward line.** `{reward_item}` is the rolled affix reward's display name (highlighted, always bound at runtime by the difficulty-driven loot roll). `{reward_flavor}` is author-defined voiced flavor from the template's `rewardFlavor` field (empty string if omitted). Write flavor that feels proportional to the quest's emotional weight and practical to the NPC's station.
+31. **`{reward_item}` is the only reward variable.** It resolves at runtime to the rolled affix reward's display name (highlighted). There is no `{reward_flavor}` variable. Templates must not author a `rewardFlavor` field.
 
-32. **Reward flavor should be voiced, not listed.** "I'll make it worth your while" or "the best I can offer" or "what silver I have and a debt I won't forget", not "50 silver, 2 iron ingots, and 100 XP." Flavor is a narrative tail on the gesture, not an inventory manifest. The rolled `{reward_item}` handles the material side; `{reward_flavor}` carries the emotion.
+32. **One gift, voiced not listed.** The NPC hands the player exactly one thing: `{reward_item}`. The resolutionText must never read as two gifts ("Take {reward_item}. And a warm meal.", "{reward_item}, plus some silver besides."). Emotional weight that you'd otherwise package as a second item belongs in how the NPC voices the single handover ("Take {reward_item}, with every coin I'd been hiding under the floorboards folded into it") or in a non-physical gesture/promise ("I won't forget this", "my door opens whenever you pass through"). Gestures and promises are fine because they are voiced, not handed over. Never construct a closer that coordinates `{reward_item}` with a second noun phrase the player might expect to find in their inventory.
 
 ---
 
@@ -141,7 +141,7 @@ Hard constraints for quest template authoring. These are not suggestions. Every 
 | 7 | Target NPC without TALK_TO_NPC | "Ask {target_npc} about it" in a quest with no TALK_TO_NPC phase | R17: target NPC requires objective |
 | 8 | Mechanical reference | "Accept the quest and return when the objective is complete" | R30: no mechanics |
 | 9 | Cliffhanger resolution | "But I wonder... was that really the end of it?" | R29: resolution must close |
-| 10 | Inventory reward | "Your reward: 50 silver, 3 iron bars, leather boots" | R32: voiced not listed |
+| 10 | Second-gift reward flavor | "Take {reward_item}. And a warm meal." / "{reward_item}, plus some silver besides." | R32: one gift, voiced not listed |
 | 11 | Skill mismatch | Pass text reveals emotional truth, skill type is NATURE | R23-24: skill must match context |
 | 12 | Settlement NPC as objective | "Go talk to {settlement_npc} and ask what they know" | R19: settlement_npc is flavor only |
 | 13 | Unnamed-but-specific character | "The old woman who lives by the gate told me..." | R5: no unnamed-but-specific characters |

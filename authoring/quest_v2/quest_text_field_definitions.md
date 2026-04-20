@@ -44,7 +44,7 @@ Variables like `{kill_count}`, `{enemy_type}`, `{quest_item}`, and `{gather_coun
 
 **Critical:** If objectives[0] is KILL_MOBS, then `{kill_count}` and `{enemy_type}` are valid in expositionText and expositionTurnInText. If objectives[1] is COLLECT_RESOURCES, then `{quest_item}` and `{gather_count}` are valid in conflict1Text and conflict1TurnInText. Using a per-objective variable in a field bound to a different objective is an error.
 
-**Always-available variables:** `{quest_giver_name}`, `{settlement_name}`, `{settlement_type}`, `{self_role}`, `{settlement_npc}`, `{settlement_npc_role}`, `{other_settlement}`, `{reward_item}`, `{reward_flavor}` are bound at quest generation time and valid in any text field. `{target_npc}`, `{target_npc_role}`, and `{target_npc_settlement}` are available in any text field but only when the quest chain includes a TALK_TO_NPC objective. `{boss_name}` and `{group_difficulty}` are available in any text field when the chain includes a KILL_BOSS objective.
+**Always-available variables:** `{quest_giver_name}`, `{settlement_name}`, `{settlement_type}`, `{self_role}`, `{settlement_npc}`, `{settlement_npc_role}`, `{other_settlement}`, `{reward_item}` are bound at quest generation time and valid in any text field. `{target_npc}`, `{target_npc_role}`, and `{target_npc_settlement}` are available in any text field but only when the quest chain includes a TALK_TO_NPC objective. `{boss_name}` and `{group_difficulty}` are available in any text field when the chain includes a KILL_BOSS objective.
 
 ---
 
@@ -184,7 +184,7 @@ BAD:  "I've got my own things to do." <- player explaining themselves
 
 **What it must do:**
 - Close the emotional arc (see the situation's tone arc destination)
-- Reference `{reward_item}` and `{reward_flavor}` naturally, not as a transaction but as the NPC's way of expressing what the player's help meant
+- Reference `{reward_item}` naturally as a single gift (never coordinated with a second noun phrase the player might read as a second item), not as a transaction but as the NPC's way of expressing what the player's help meant
 - Leave the player with a feeling, not a loose thread
 
 **What it must NOT do:**

@@ -74,9 +74,7 @@ public class QuestGenerator {
 
         // {reward_item} is bound below after per-phase rolls (resolves to the final
         // phase's rolled item since that's the phase whose resolution dialogue
-        // references the reward). {reward_flavor} stays template-driven.
-        bindings.put("reward_flavor",
-            template.rewardFlavor() != null ? template.rewardFlavor() : "");
+        // references the reward).
 
         // Store all template text in bindings for dialogue node construction
         bindings.put("quest_topic_header", template.topicHeader());
@@ -190,7 +188,7 @@ public class QuestGenerator {
 
             if (isFinal) finalPhaseDisplayName = phaseDisplayName != null ? phaseDisplayName : "";
 
-            LOGGER.atInfo().log(
+            LOGGER.atFine().log(
                 "Quest %s phase %d roll: type=%s dampened=%s bypass=%s tier=%s[%s..%s] item=%s",
                 questId, i, objType, dampened, bypass, phaseTier, tierMin, tierMax,
                 phaseStack.getItemId());
@@ -209,7 +207,7 @@ public class QuestGenerator {
         quest.setRewardXp(difficulty.xpAmount());
         quest.setPhaseRewards(phaseRewards);
 
-        LOGGER.atInfo().log(
+        LOGGER.atFine().log(
             "Generated v2 quest %s: situation=%s, difficulty=%s, objectives=%d, "
                 + "tierRange=%s..%s, phaseRewards=%d, rewardXpPerPhase=%d, for NPC %s",
             questId, template.situation(), difficulty.id(), objectives.size(),
@@ -445,7 +443,7 @@ public class QuestGenerator {
                 // populationSpec spawn-buffer invariant in createPOIObjective is preserved.
                 ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random, difficulty);
                 if (killObj == null) {
-                    LOGGER.atInfo().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
+                    LOGGER.atFine().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
                     int killCount = rollKillCount(config, random, difficulty.mobCountMultiplier());
                     bindings.put("kill_count", String.valueOf(killCount));
                     killObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
@@ -461,7 +459,7 @@ public class QuestGenerator {
                 // so {boss_name} is bound for exposition text before the player travels.
                 ObjectiveInstance bossObj = createPOIObjective(type, bindings, config, random, difficulty);
                 if (bossObj == null) {
-                    LOGGER.atInfo().log("KILL_BOSS for %s: no void at generation, deferring POI to runtime", npcId);
+                    LOGGER.atFine().log("KILL_BOSS for %s: no void at generation, deferring POI to runtime", npcId);
                     bossObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
                         1, null, null);
                     bossObj.setTargetLabelPlural(bindings.get("enemy_type_plural"));
@@ -520,7 +518,7 @@ public class QuestGenerator {
                 String targetNpc = bindings.get("target_npc");
                 boolean hasTarget = targetNpc != null && !"someone who might know more".equals(targetNpc);
                 if (!hasTarget) {
-                    LOGGER.atInfo().log("TALK_TO_NPC for %s: no target at generation, deferring to runtime", npcId);
+                    LOGGER.atFine().log("TALK_TO_NPC for %s: no target at generation, deferring to runtime", npcId);
                 }
                 yield new ObjectiveInstance(
                     type,
@@ -549,7 +547,7 @@ public class QuestGenerator {
 
         CaveVoidRecord void_ = voidRegistry.findNearbyVoid(npcX, npcZ, 200, 600);
         if (void_ == null) {
-            LOGGER.atInfo().log("createPOIObjective: no unclaimed void in range for %s objective", type);
+            LOGGER.atFine().log("createPOIObjective: no unclaimed void in range for %s objective", type);
             return null;
         }
 
@@ -582,8 +580,6 @@ public class QuestGenerator {
                         bindings.put("enemy_type", readable);
                         bindings.put("enemy_type_plural", readable + "s");
                     }
-                    LOGGER.atInfo().log("createPOIObjective: zone=%s themed mob=%s for %s",
-                        zoneName, themed, type);
                 }
             }
         }
@@ -638,7 +634,7 @@ public class QuestGenerator {
             poiObj.setTargetLabelPlural(bindings.get("quest_item"));
         }
 
-        LOGGER.atInfo().log("createPOIObjective: claimed void at (%d,%d,%d) for %s objective (required=%d spawn=%d)",
+        LOGGER.atFine().log("createPOIObjective: claimed void at (%d,%d,%d) for %s objective (required=%d spawn=%d)",
             cx, cy, cz, type, requiredCount, spawnCount);
         return poiObj;
     }
@@ -702,7 +698,7 @@ public class QuestGenerator {
         target.setTargetLabel(bossName);
         target.setTargetLabelPlural(bossName);
 
-        LOGGER.atInfo().log("Pre-rolled boss: name=%s groupDiff=%s bossDiff=%s",
+        LOGGER.atFine().log("Pre-rolled boss: name=%s groupDiff=%s bossDiff=%s",
             bossName, groupDiff, bossDiff);
     }
 
