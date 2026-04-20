@@ -307,8 +307,15 @@ public class MobGroupChunkListener {
 
         if (respawned > 0 || sweptDuplicates > 0) {
             registry.saveAsync();
-            LOGGER.atFine().log("Reconcile %s: matched=%d respawned=%d sweptDuplicates=%d",
-                    record.getGroupKey(), matched, respawned, sweptDuplicates);
+        }
+        // Activation log: group now has live entities in the world. Fires once per
+        // reconcile pass when any slot was matched or respawned. Initial spawn is
+        // logged separately at spawn time ("AmbientSpawn role=..." in AmbientSpawnSystem).
+        if (matched > 0 || respawned > 0) {
+            LOGGER.atInfo().log("Group active key=%s anchor=(%.0f,%.0f,%.0f) matched=%d respawned=%d",
+                    record.getGroupKey(),
+                    record.getAnchorX(), record.getAnchorY(), record.getAnchorZ(),
+                    matched, respawned);
         }
     }
 

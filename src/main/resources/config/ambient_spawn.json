@@ -1,13 +1,13 @@
 {
   "roll_chance": 0.005,
-  "cooldown_millis": 300000,
+  "cooldown_millis": 60000,
   "min_distance_from_player": 50,
   "max_distance_from_player": 100,
   "chunk_trigger_radius": 400,
   "anchor_retries": 5,
   "poi_exclusion_blocks": 64,
   "settlement_exclusion_blocks": 96,
-  "group_anchor_exclusion_blocks": 200,
+  "group_anchor_exclusion_blocks": 100,
   "decay_window_millis": 1800000,
   "decay_player_near_radius": 150,
   "decay_sweep_interval_millis": 300000

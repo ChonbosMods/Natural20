@@ -37,7 +37,7 @@ public class CaveVoidRegistry {
     private static final Type MAP_TYPE = new TypeToken<Map<String, List<CaveVoidRecord>>>() {}.getType();
 
     private final ConcurrentHashMap<String, List<CaveVoidRecord>> voidsByCell = new ConcurrentHashMap<>();
-    private final Path savePath;
+    private Path savePath;
     private final AtomicBoolean dirty = new AtomicBoolean(false);
     // Serialises save execution so two ForkJoinPool workers cannot open
     // savePath for write at the same time. Concurrent BufferedWriters with
@@ -46,6 +46,15 @@ public class CaveVoidRegistry {
 
     public CaveVoidRegistry(Path savePath) {
         this.savePath = savePath;
+    }
+
+    /**
+     * Rebind the save file. Clears in-memory state. Called from the first-chunk-load
+     * hook so the registry is scoped to the currently-loaded world.
+     */
+    public void setSaveFile(Path newSavePath) {
+        this.savePath = newSavePath;
+        voidsByCell.clear();
     }
 
     /**

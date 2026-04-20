@@ -1,5 +1,6 @@
 package com.chonbosmods.quest.poi;
 
+import com.chonbosmods.progression.GroupSource;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -36,12 +37,22 @@ public class Nat20MobGroupRegistry {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Type MAP_TYPE = new TypeToken<Map<String, MobGroupRecord>>() {}.getType();
 
-    private final Path savePath;
+    private Path savePath;
     private final ConcurrentHashMap<String, MobGroupRecord> groups = new ConcurrentHashMap<>();
     private final AtomicBoolean savePending = new AtomicBoolean(false);
 
     public Nat20MobGroupRegistry(Path pluginDataDir) {
         this.savePath = pluginDataDir.resolve("mob_groups.json");
+    }
+
+    /**
+     * Rebind the save file to {@code worldDataDir / mob_groups.json}. Clears in-memory
+     * state. Called from the first-chunk-load hook so the registry is scoped to the
+     * currently-loaded world (wiping the world regenerates an empty registry).
+     */
+    public void setSaveDirectory(Path worldDataDir) {
+        this.savePath = worldDataDir.resolve("mob_groups.json");
+        groups.clear();
     }
 
     /**
@@ -81,7 +92,14 @@ public class Nat20MobGroupRegistry {
         return removed;
     }
 
-    /** Mark a slot dead and flush. No-op if groupKey unknown or slot not found. */
+    /**
+     * Mark a slot dead and flush. No-op if groupKey unknown or slot not found.
+     *
+     * <p>For ambient groups: if this kill leaves all slots dead, remove the record entirely
+     * so the area frees up for future ambient spawns (group-anchor exclusion no longer
+     * counts a fully-dead group). POI records stay: their lifecycle is tied to quest state
+     * and is swept elsewhere.
+     */
     public void markSlotDead(String groupKey, int slotIndex) {
         MobGroupRecord record = groups.get(groupKey);
         if (record == null) return;
@@ -89,10 +107,21 @@ public class Nat20MobGroupRegistry {
             if (slot.getSlotIndex() == slotIndex) {
                 slot.setDead(true);
                 slot.setCurrentUuid(null);
+                if (record.getSource() == GroupSource.AMBIENT && allSlotsDead(record)) {
+                    groups.remove(groupKey);
+                    LOGGER.atInfo().log("Ambient group all-dead, removed: %s", groupKey);
+                }
                 saveAsync();
                 return;
             }
         }
+    }
+
+    private static boolean allSlotsDead(MobGroupRecord record) {
+        for (SlotRecord s : record.getSlots()) {
+            if (!s.isDead()) return false;
+        }
+        return true;
     }
 
     /** Update the ephemeral UUID for a slot and flush. */

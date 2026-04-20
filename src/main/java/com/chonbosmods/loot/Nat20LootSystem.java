@@ -79,7 +79,9 @@ public class Nat20LootSystem {
         lootEntryRegistry.loadAll(entriesDir);
         namePoolRegistry.loadAll();
         mobNameGenerator.load();
-        itemRegistry.init(lootDataDir != null ? lootDataDir.getParent() : null);
+        // itemRegistry.init is called separately from the world-ready hook in Natural20
+        // so the persistent nat20_items.json lives in the world directory, not the
+        // plugin directory (so wiping the world also wipes generated affix items).
 
         LOGGER.atInfo().log("Loot system loaded: %d rarities, %d affixes, %d gems, %d entry tags, %d name pools",
             rarityRegistry.getLoadedCount(),

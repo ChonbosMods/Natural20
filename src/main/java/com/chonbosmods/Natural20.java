@@ -57,6 +57,7 @@ import com.chonbosmods.loot.mob.Nat20MobAffixes;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
 import com.chonbosmods.progression.Nat20MobLevel;
+import com.chonbosmods.progression.Nat20MobGroupDedupSystem;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.Nat20MobTintTickSystem;
 import com.chonbosmods.progression.MobScalingConfig;
@@ -259,9 +260,40 @@ public class Natural20 extends JavaPlugin {
     public POIProximitySystem getPOIProximitySystem() { return poiProximitySystem; }
 
     private volatile World defaultWorld;
+    private volatile boolean worldRegistriesInitialized = false;
 
     public World getDefaultWorld() {
         return defaultWorld;
+    }
+
+    /**
+     * Rebind the per-world registries (mob groups, cave voids, nat20 items) to paths
+     * under the loaded world's save directory and load their state. Called once from
+     * the first chunk-load event, before any listener accesses registry data. Wiping
+     * {@code devserver/universe/worlds/default} now also wipes these registries, which
+     * prevents cross-world data bleed (e.g., mob groups from an old world spawning in
+     * a freshly-generated world).
+     */
+    private void initWorldScopedRegistries(World world) {
+        if (worldRegistriesInitialized) return;
+        worldRegistriesInitialized = true;
+        try {
+            Path worldDataDir = world.getSavePath().resolve("nat20");
+            java.nio.file.Files.createDirectories(worldDataDir);
+
+            mobGroupRegistry.setSaveDirectory(worldDataDir);
+            mobGroupRegistry.load();
+
+            caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
+            caveVoidRegistry.load();
+
+            lootSystem.getItemRegistry().init(worldDataDir);
+            lootSystem.getItemRegistry().rehydrateAll();
+
+            getLogger().atInfo().log("World-scoped registries initialized under %s", worldDataDir);
+        } catch (Exception e) {
+            getLogger().atSevere().withCause(e).log("Failed to init world-scoped registries");
+        }
     }
 
     /**
@@ -343,7 +375,7 @@ public class Natural20 extends JavaPlugin {
         }
 
         int found = caveVoidRegistry.getCount() - beforeCount;
-        getLogger().atInfo().log("Cave void scan near settlement %s: found %d void(s) (scanned %d-block radius)",
+        getLogger().atFine().log("Cave void scan near settlement %s: found %d void(s) (scanned %d-block radius)",
             settlement.getCellKey(), found, scanRadius);
     }
 
@@ -375,9 +407,6 @@ public class Natural20 extends JavaPlugin {
                         return;
                     }
                     settlement.addSurfaceFallbackPoi(entrance.getX(), entrance.getY(), entrance.getZ());
-                    getLogger().atInfo().log("Surface fallback POI placed at (%d, %d, %d) for settlement %s",
-                        entrance.getX(), entrance.getY(), entrance.getZ(), settlement.getCellKey());
-                    // Save settlement with updated POI list
                     settlementRegistry.saveAsync();
                 });
         }
@@ -480,6 +509,8 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20MobDmgScaleSystem(scalingConfig));
         getEntityStoreRegistry().registerSystem(new Nat20MobTintTickSystem());
         mobGroupSpawner = new Nat20MobGroupSpawner(scalingConfig);
+        // Dedup system needs the registry, but we register it later (below) because
+        // mobGroupRegistry is constructed further down; see "Load POI mob-group registry".
         playerLevelHpSystem = new PlayerLevelHpSystem(scalingConfig);
         xpService = new Nat20XpService(playerLevelHpSystem);
         // Contributor tracking must register BEFORE XP/loot systems so the lethal
@@ -667,10 +698,12 @@ public class Natural20 extends JavaPlugin {
         settlementRegistry = new SettlementRegistry(getDataDirectory());
         settlementRegistry.load();
 
-        // Load POI mob-group registry + spawn coordinator
+        // Load POI mob-group registry + spawn coordinator. Data file is rebound to a
+        // world-scoped path in the first-chunk-load hook below, so this initial path is
+        // only a placeholder (nothing is loaded from disk at plugin start).
         mobGroupRegistry = new Nat20MobGroupRegistry(getDataDirectory());
-        mobGroupRegistry.load();
         poiGroupSpawnCoordinator = new POIGroupSpawnCoordinator(mobGroupRegistry, mobGroupSpawner);
+        getEntityStoreRegistry().registerSystem(new Nat20MobGroupDedupSystem(mobGroupRegistry));
 
         // Enumerate native hostile mob pool by scanning NPCPlugin roles
         hostilePool.initialize();
@@ -678,10 +711,10 @@ public class Natural20 extends JavaPlugin {
         // Load biome/zone theme tables (loads mob_themes.json from resources)
         mobThemeRegistry.initialize();
 
-        // Load cave void registry and scanner
+        // Load cave void registry and scanner. Like mob_groups.json, the save file is
+        // rebound to a world-scoped path in the first-chunk-load hook below.
         Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");
         caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
-        caveVoidRegistry.load();
         caveVoidScanner = new CaveVoidScanner(caveVoidRegistry);
         structurePlacer = new UndergroundStructurePlacer();
 
@@ -699,6 +732,7 @@ public class Natural20 extends JavaPlugin {
             var chunk = event.getChunk();
             if (defaultWorld == null) {
                 defaultWorld = chunk.getWorld();
+                initWorldScopedRegistries(defaultWorld);
             }
             // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
             int chunkBlockX = chunk.getX() * 32;
@@ -743,11 +777,10 @@ public class Natural20 extends JavaPlugin {
         // Load dialogue files from plugin data directory
         dialogueLoader.loadAll(getDataDirectory().resolve("dialogues"));
 
-        // Load loot system configs
+        // Load loot system configs. The itemRegistry's persistent nat20_items.json is
+        // initialized separately from initWorldScopedRegistries so it lives under the
+        // current world's save dir rather than the plugin data dir.
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
-
-        // Rehydrate persisted unique items and inject I18n entries
-        lootSystem.getItemRegistry().rehydrateAll();
 
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry);
@@ -921,7 +954,7 @@ public class Natural20 extends JavaPlugin {
 
                         if (!validUUIDs.contains(npcEntity.getUuid())) {
                             store.removeEntity(ref, RemoveReason.REMOVE);
-                            getLogger().atInfo().log("Removed ghost NPC: %s (%s) UUID %s in %s",
+                            getLogger().atFine().log("Removed ghost NPC: %s (%s) UUID %s in %s",
                                     data.getGeneratedName(), data.getRoleName(),
                                     npcEntity.getUuid(), cellKey);
                         }
