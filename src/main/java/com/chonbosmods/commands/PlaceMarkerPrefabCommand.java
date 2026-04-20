@@ -1,5 +1,6 @@
 package com.chonbosmods.commands;
 
+import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.hypixel.hytale.component.Ref;
@@ -14,7 +15,6 @@ import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredAr
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
-import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -50,7 +50,7 @@ public class PlaceMarkerPrefabCommand extends AbstractPlayerCommand {
                            @Nonnull World world) {
         String key = prefabKeyArg.get(ctx);
 
-        Path path = PrefabStore.get().findAssetPrefabPath(key);
+        Path path = Nat20PrefabPath.resolve(key);
         if (path == null) {
             ctx.sendMessage(Message.raw("Prefab not found: " + key));
             return;
