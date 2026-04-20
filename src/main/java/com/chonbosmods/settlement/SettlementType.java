@@ -5,7 +5,7 @@ import com.chonbosmods.npc.NpcSpawnRole;
 import java.util.List;
 
 public enum SettlementType {
-    TOWN("Nat20/tree1", 32, List.of(
+    TOWN("Nat20/testStructure", 32, List.of(
         new NpcSpawnRole("Villager",       2, 6, 40, 80),
         new NpcSpawnRole("Guard",          2, 3, 30, 60),
         new NpcSpawnRole("RANDOM_ARTISAN", 2, 4, 50, 80)
@@ -13,7 +13,7 @@ public enum SettlementType {
         List.of("mine", "farm", "tavern", "blacksmith", "well", "market"),
         List.of("goblins", "wolves", "skeletons")
     ),
-    OUTPOST("Nat20/tree1", 16, List.of(
+    OUTPOST("Nat20/testStructure", 16, List.of(
         new NpcSpawnRole("Villager",       1, 4, 35, 70),
         new NpcSpawnRole("Guard",          1, 2, 30, 55),
         new NpcSpawnRole("RANDOM_ARTISAN", 1, 3, 45, 75)
@@ -21,7 +21,7 @@ public enum SettlementType {
         List.of("farm", "well", "watchtower"),
         List.of("goblins", "wolves")
     ),
-    CART("Nat20/tree1", 8, List.of(
+    CART("Nat20/testStructure", 8, List.of(
         new NpcSpawnRole("Traveler",       1, 3, 25, 65)
     ),
         List.of(),

@@ -35,8 +35,8 @@ public class UndergroundStructurePlacer {
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
     // All cave and surface POI paths use the single marker-bearing test prefab
     // until dedicated per-biome / per-size prefabs are re-authored.
-    private static final String TEST_PREFAB_KEY = "Nat20/tree1";
-    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/tree1";
+    private static final String TEST_PREFAB_KEY = "Nat20/testStructure";
+    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/testStructure";
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
