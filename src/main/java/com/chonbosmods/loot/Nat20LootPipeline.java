@@ -114,7 +114,7 @@ public class Nat20LootPipeline {
             data.setUniqueItemId(uniqueId);
         }
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d)",
+        LOGGER.atFine().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d)",
             generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl);
 
         return data;
@@ -207,7 +207,7 @@ public class Nat20LootPipeline {
             data.setUniqueItemId(uniqueId);
         }
 
-        LOGGER.atInfo().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d, tierRange=[%d,%d])",
+        LOGGER.atFine().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d, tierRange=[%d,%d])",
             generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl, minRarityTier, maxRarityTier);
 
         return data;

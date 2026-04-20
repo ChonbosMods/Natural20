@@ -506,7 +506,7 @@ public class UndergroundStructurePlacer {
                                 try {
                                     Random random = new Random();
                                     PrefabUtil.paste(buffer, world, pastePos, Rotation.None, true, random, 0, store);
-                                    LOGGER.atInfo().log("Surface POI placed at (%d, %d, %d)", targetX, surfaceY, targetZ);
+                                    LOGGER.atFine().log("Surface POI placed at (%d, %d, %d)", targetX, surfaceY, targetZ);
                                     result.complete(pastePos);
                                 } catch (Exception e) {
                                     LOGGER.atSevere().withCause(e).log("Surface placement: paste failed");

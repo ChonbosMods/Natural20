@@ -112,7 +112,6 @@ public class Nat20ItemRegistry {
                 broadcastTranslations(Map.of(descKey, entry.description()));
                 // Then register the item asset
                 Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
-                LOGGER.atInfo().log("Registered unique item: %s (base=%s)", uniqueId, baseItemId);
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log("Failed to register item asset: %s", uniqueId);
             }
@@ -135,7 +134,7 @@ public class Nat20ItemRegistry {
         removeI18n("en-US", descKey);
 
         saveToDisk();
-        LOGGER.atInfo().log("Unregistered unique item: %s", uniqueId);
+        LOGGER.atFine().log("Unregistered unique item: %s", uniqueId);
     }
 
     public void rehydrateAll() {
