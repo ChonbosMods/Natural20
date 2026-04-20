@@ -2,6 +2,7 @@ package com.chonbosmods.cave;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.hypixel.hytale.logger.HytaleLogger;
 
@@ -12,8 +13,11 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -35,6 +39,10 @@ public class CaveVoidRegistry {
     private final ConcurrentHashMap<String, List<CaveVoidRecord>> voidsByCell = new ConcurrentHashMap<>();
     private final Path savePath;
     private final AtomicBoolean dirty = new AtomicBoolean(false);
+    // Serialises save execution so two ForkJoinPool workers cannot open
+    // savePath for write at the same time. Concurrent BufferedWriters with
+    // independent file offsets interleave bytes and produce malformed JSON.
+    private final Object saveLock = new Object();
 
     public CaveVoidRegistry(Path savePath) {
         this.savePath = savePath;
@@ -183,6 +191,8 @@ public class CaveVoidRegistry {
     /**
      * Load voids from the JSON file into memory.
      * If the file does not exist, starts with an empty registry.
+     * If the file is malformed, moves it aside as a .corrupt-<ts> backup and
+     * starts fresh so plugin startup is not blocked.
      */
     public void load() {
         if (!Files.exists(savePath)) {
@@ -198,28 +208,93 @@ public class CaveVoidRegistry {
             LOGGER.atFine().log("Loaded " + getCount() + " cave void(s) from " + savePath);
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to load cave_voids.json");
+        } catch (JsonSyntaxException | IllegalStateException e) {
+            voidsByCell.clear();
+            Path backup = savePath.resolveSibling(
+                    savePath.getFileName().toString() + ".corrupt-" + Instant.now().toEpochMilli());
+            try {
+                Files.move(savePath, backup, StandardCopyOption.REPLACE_EXISTING);
+                LOGGER.atSevere().withCause(e).log(
+                        "cave_voids.json is malformed; moved to " + backup + " and starting fresh");
+            } catch (IOException ioe) {
+                LOGGER.atSevere().withCause(ioe).log(
+                        "cave_voids.json is malformed and could not be backed up; starting fresh");
+            }
         }
     }
 
     /**
      * Debounced async save: if no save is already pending, schedule one.
-     * Writes the current snapshot to disk with pretty-printed JSON.
+     * Writes a snapshot of the registry to disk as pretty-printed JSON.
+     *
+     * <p>The snapshot is captured under the same per-cell locks used by
+     * {@link #register}, so Gson never iterates a list while a scanner thread
+     * is concurrently mutating it. The write itself runs inside
+     * {@link #saveLock} so queued saves execute serially and cannot truncate
+     * the file out from under each other.
      */
     public CompletableFuture<Void> saveAsync() {
         if (dirty.compareAndSet(true, false)) {
             return CompletableFuture.runAsync(() -> {
-                try {
-                    Files.createDirectories(savePath.getParent());
-                    try (Writer writer = Files.newBufferedWriter(savePath)) {
-                        GSON.toJson(voidsByCell, MAP_TYPE, writer);
+                synchronized (saveLock) {
+                    Map<String, List<CaveVoidRecord>> snapshot = snapshotUnderLocks();
+                    try {
+                        Files.createDirectories(savePath.getParent());
+                        try (Writer writer = Files.newBufferedWriter(savePath)) {
+                            GSON.toJson(snapshot, MAP_TYPE, writer);
+                        }
+                        LOGGER.atFine().log("Saved " + getCount() + " cave void(s) to " + savePath);
+                    } catch (IOException e) {
+                        dirty.set(true);
+                        LOGGER.atSevere().withCause(e).log("Failed to save cave_voids.json");
                     }
-                    LOGGER.atFine().log("Saved " + getCount() + " cave void(s) to " + savePath);
-                } catch (IOException e) {
-                    LOGGER.atSevere().withCause(e).log("Failed to save cave_voids.json");
                 }
             });
         }
         return CompletableFuture.completedFuture(null);
+    }
+
+    /**
+     * Deep-copy every cell list and record under the per-cell locks. The
+     * returned map is a caller-owned view safe to hand to Gson.
+     */
+    private Map<String, List<CaveVoidRecord>> snapshotUnderLocks() {
+        Map<String, List<CaveVoidRecord>> snapshot = new LinkedHashMap<>();
+        for (Map.Entry<String, List<CaveVoidRecord>> entry : voidsByCell.entrySet()) {
+            List<CaveVoidRecord> cell = entry.getValue();
+            List<CaveVoidRecord> copies;
+            synchronized (cell) {
+                copies = new ArrayList<>(cell.size());
+                for (CaveVoidRecord r : cell) {
+                    copies.add(deepCopy(r));
+                }
+            }
+            snapshot.put(entry.getKey(), copies);
+        }
+        return snapshot;
+    }
+
+    private static CaveVoidRecord deepCopy(CaveVoidRecord src) {
+        List<int[]> floors = src.getFloorPositions();
+        List<int[]> floorsCopy;
+        if (floors == null) {
+            floorsCopy = null;
+        } else {
+            floorsCopy = new ArrayList<>(floors.size());
+            for (int[] p : floors) {
+                floorsCopy.add(p == null ? null : p.clone());
+            }
+        }
+        CaveVoidRecord copy = new CaveVoidRecord(
+                src.getCenterX(), src.getCenterY(), src.getCenterZ(),
+                src.getMinX(), src.getMinY(), src.getMinZ(),
+                src.getMaxX(), src.getMaxY(), src.getMaxZ(),
+                src.getVolume(), floorsCopy, src.getChunkKey()
+        );
+        if (src.isClaimed()) {
+            copy.claim(src.getClaimedBySettlement());
+        }
+        return copy;
     }
 
     /**
