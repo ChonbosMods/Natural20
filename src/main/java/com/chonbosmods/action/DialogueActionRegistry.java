@@ -913,7 +913,11 @@ public class DialogueActionRegistry {
         StringBuilder sb = new StringBuilder();
         for (Vector3d v : positions) {
             if (sb.length() > 0) sb.append(';');
-            sb.append((int) v.getX()).append(',').append((int) v.getY()).append(',').append((int) v.getZ());
+            // Math.floor, not (int) cast: negative coords with (int) cast truncate
+            // toward zero (-10.5 → -10), misaligning marker cells in the -X / -Z quadrants.
+            sb.append((int) Math.floor(v.getX()))
+              .append(',').append((int) Math.floor(v.getY()))
+              .append(',').append((int) Math.floor(v.getZ()));
         }
         return sb.toString();
     }

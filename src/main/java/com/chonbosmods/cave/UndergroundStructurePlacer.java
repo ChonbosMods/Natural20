@@ -19,7 +19,6 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
-import com.hypixel.hytale.server.core.universe.world.accessor.BlockAccessor;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,8 +37,6 @@ public class UndergroundStructurePlacer {
     // until dedicated per-biome / per-size prefabs are re-authored.
     private static final String TEST_PREFAB_KEY = "Nat20/tree1";
     private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/tree1";
-    private static final int TUNNEL_WIDTH = 3;
-    private static final int TUNNEL_HEIGHT = 4;
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -261,54 +258,6 @@ public class UndergroundStructurePlacer {
         }
 
         return null;
-    }
-
-    /**
-     * Carve a 3-wide x 4-tall corridor of empty blocks from the structure entrance
-     * to the void floor position.
-     */
-    private void carveTunnel(World world, int startX, int startY, int startZ,
-                              int endX, int endY, int endZ) {
-        int dx = endX - startX;
-        int dz = endZ - startZ;
-        int steps = Math.max(Math.abs(dx), Math.abs(dz));
-        if (steps == 0) return;
-
-        float stepX = (float) dx / steps;
-        float stepZ = (float) dz / steps;
-        float stepY = (float) (endY - startY) / steps;
-
-        boolean primaryX = Math.abs(dx) >= Math.abs(dz);
-
-        for (int i = 0; i <= steps; i++) {
-            int bx = startX + Math.round(stepX * i);
-            int by = startY + Math.round(stepY * i);
-            int bz = startZ + Math.round(stepZ * i);
-
-            for (int w = -1; w <= 1; w++) {
-                for (int h = 0; h < TUNNEL_HEIGHT; h++) {
-                    int wx = primaryX ? bx : bx + w;
-                    int wy = by + h;
-                    int wz = primaryX ? bz + w : bz;
-                    setBlockEmpty(world, wx, wy, wz);
-                }
-            }
-        }
-
-        LOGGER.atFine().log("Carved tunnel from (%d, %d, %d) to (%d, %d, %d): %d steps",
-                startX, startY, startZ, endX, endY, endZ, steps);
-    }
-
-    private void setBlockEmpty(World world, int x, int y, int z) {
-        long chunkKey = ChunkUtil.indexChunk(
-                ChunkUtil.chunkCoordinate(x), ChunkUtil.chunkCoordinate(z));
-        BlockAccessor chunk = world.getChunkIfLoaded(chunkKey);
-        if (chunk == null) return;
-
-        BlockType empty = BlockType.getAssetMap().getAsset("Empty");
-        if (empty != null) {
-            chunk.setBlock(x, y, z, empty);
-        }
     }
 
     private int scanAir(World world, int x, int y, int z, int dx, int dz) {
