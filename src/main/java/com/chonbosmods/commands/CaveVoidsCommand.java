@@ -323,9 +323,9 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
         int py = (int) Math.floor(playerPos.getY());
         int pz = (int) Math.floor(playerPos.getZ());
 
-        context.sendMessage(Message.raw("Pasting Dungeon2Test with anchor at (" + px + ", " + py + ", " + pz + ")"));
+        context.sendMessage(Message.raw("Pasting Nat20/tree1 with anchor at (" + px + ", " + py + ", " + pz + ")"));
 
-        String prefabKey = "Nat20/dungeon/Dungeon2Test";
+        String prefabKey = "Nat20/tree1";
         Path prefabPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
         if (prefabPath == null) {
             // Fallback: walk up from plugin file to find assets/Server/Prefabs/

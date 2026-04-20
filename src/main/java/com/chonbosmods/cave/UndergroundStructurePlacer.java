@@ -34,8 +34,10 @@ import java.util.concurrent.TimeUnit;
 public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
-    private static final String TEST_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test";
-    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/dungeon/Dungeon2Test"; // TODO: replace with small surface POI prefab
+    // All cave and surface POI paths use the single marker-bearing test prefab
+    // until dedicated per-biome / per-size prefabs are re-authored.
+    private static final String TEST_PREFAB_KEY = "Nat20/tree1";
+    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/tree1";
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
 
