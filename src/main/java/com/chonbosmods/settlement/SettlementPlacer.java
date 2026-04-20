@@ -22,52 +22,68 @@ public class SettlementPlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Placer");
 
-    private final Map<SettlementType, IPrefabBuffer> prefabs = new EnumMap<>(SettlementType.class);
+    /** Cache of pre-loaded buffers for FULL-mode settlement types. */
+    private final Map<SettlementType, IPrefabBuffer> fullBuffers = new EnumMap<>(SettlementType.class);
 
     /**
-     * Load all prefabs. Tries the asset pack system first, then falls back to
-     * resolving from the plugin's file path (needed for dev mode where assets/
-     * is separate from the classpath).
+     * Pre-load buffers for every {@link FullPlacement} settlement type. PIECE-mode
+     * pieces are discovered and loaded on demand inside {@link SettlementPieceAssembler}.
      */
     public void init() {
         for (SettlementType type : SettlementType.values()) {
+            if (!(type.getPlacement() instanceof FullPlacement full)) continue;
             try {
-                Path prefabPath = findPrefabPath(type);
+                Path prefabPath = Nat20PrefabPath.resolve(full.prefabKey());
                 if (prefabPath == null) {
-                    LOGGER.atSevere().log( "[Nat20] Prefab not found: " + type.getPrefabKey());
+                    LOGGER.atSevere().log("Prefab not found: %s", full.prefabKey());
                     continue;
                 }
-                IPrefabBuffer buffer = PrefabBufferUtil.getCached(prefabPath);
-                prefabs.put(type, buffer);
-                LOGGER.atFine().log( "[Nat20] Loaded prefab: " + type.getPrefabKey() + " from " + prefabPath);
+                fullBuffers.put(type, PrefabBufferUtil.getCached(prefabPath));
+                LOGGER.atFine().log("Loaded full prefab for %s: %s", type, prefabPath);
             } catch (Exception e) {
-                LOGGER.atSevere().withCause(e).log("[Nat20] Failed to load prefab: " + type.getPrefabKey());
+                LOGGER.atSevere().withCause(e).log("Failed to load full prefab for %s", type);
             }
         }
     }
 
-    private Path findPrefabPath(SettlementType type) {
-        return Nat20PrefabPath.resolve(type.getPrefabKey());
-    }
-
     /**
-     * Place a settlement structure via {@link Nat20PrefabPaster}, returning the
-     * marker positions that were scanned out of the prefab. The returned future
-     * completes asynchronously once chunks are loaded and the paste finishes.
-     * Completes with {@code null} on failure.
+     * Place a settlement at {@code desiredAnchorWorld}. Dispatches on the settlement's
+     * {@link SettlementPlacement}: FULL pastes a single prefab, PIECE invokes
+     * {@link SettlementPieceAssembler}. Returns a single merged
+     * {@link PlacedMarkers} either way (for PIECE the anchor is the shared
+     * center and the spawn lists aggregate every piece's markers).
      */
     public CompletableFuture<PlacedMarkers> place(
             World world, Vector3i desiredAnchorWorld, SettlementType type, Rotation yaw,
             ComponentAccessor<EntityStore> store, Random random) {
-        IPrefabBuffer buffer = prefabs.get(type);
-        if (buffer == null) {
-            LOGGER.atWarning().log("No prefab loaded for type: %s", type);
-            return CompletableFuture.completedFuture(null);
-        }
-        return Nat20PrefabPaster.paste(buffer, world, desiredAnchorWorld, yaw, random, store);
+        SettlementPlacement placement = type.getPlacement();
+        return switch (placement) {
+            case FullPlacement full -> placeFull(world, desiredAnchorWorld, type, yaw, store, random);
+            case PiecePlacement piece -> SettlementPieceAssembler.assemble(
+                world, desiredAnchorWorld, piece, store, random);
+        };
     }
 
+    private CompletableFuture<PlacedMarkers> placeFull(
+            World world, Vector3i anchor, SettlementType type, Rotation yaw,
+            ComponentAccessor<EntityStore> store, Random random) {
+        IPrefabBuffer buffer = fullBuffers.get(type);
+        if (buffer == null) {
+            LOGGER.atWarning().log("No full prefab loaded for type: %s", type);
+            return CompletableFuture.completedFuture(null);
+        }
+        return Nat20PrefabPaster.paste(buffer, world, anchor, yaw, random, store);
+    }
+
+    /**
+     * @return true if the settlement type is ready to place. FULL types require a
+     *         loaded buffer; PIECE types are always "ready" (pool is enumerated
+     *         inside the assembler at place-time).
+     */
     public boolean hasPrefab(SettlementType type) {
-        return prefabs.containsKey(type);
+        return switch (type.getPlacement()) {
+            case FullPlacement full -> fullBuffers.containsKey(type);
+            case PiecePlacement piece -> true;
+        };
     }
 }

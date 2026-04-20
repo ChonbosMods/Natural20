@@ -31,7 +31,7 @@ import java.util.UUID;
 public class PlaceCommand extends AbstractPlayerCommand {
 
     private final RequiredArg<String> typeArg =
-        withRequiredArg("type", "Settlement type: town, outpost, cart", ArgTypes.STRING);
+        withRequiredArg("type", "Settlement type: town, outpost", ArgTypes.STRING);
 
     public PlaceCommand() {
         super("place", "Place a settlement structure at your position");
@@ -49,7 +49,7 @@ public class PlaceCommand extends AbstractPlayerCommand {
         try {
             type = SettlementType.valueOf(typeName);
         } catch (IllegalArgumentException e) {
-            context.sendMessage(Message.raw("Unknown type: " + typeName + ". Use: town, outpost, cart"));
+            context.sendMessage(Message.raw("Unknown type: " + typeName + ". Use: town, outpost"));
             return;
         }
 
