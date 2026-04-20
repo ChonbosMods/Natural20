@@ -5,6 +5,7 @@ import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.ints.IntSets;
 
 import java.util.Set;
 
@@ -50,10 +51,18 @@ public final class Nat20PrefabConstants {
     public static int forceEmptyId = Integer.MIN_VALUE;
 
     /** All resolved IDs for the 14 strip keys (markers + vanilla authoring/spawners). */
-    public static IntSet stripIds = new IntOpenHashSet();
+    private static IntSet stripIds = IntSets.EMPTY_SET;
 
     private Nat20PrefabConstants() {
         // utility class
+    }
+
+    /**
+     * @return the resolved strip-ID set (unmodifiable once {@link #resolve()}
+     *         has run; empty before then).
+     */
+    public static IntSet stripIds() {
+        return stripIds;
     }
 
     /**
@@ -73,22 +82,17 @@ public final class Nat20PrefabConstants {
         chestSpawnId = requireNat20Id(map, "Nat20_Chest_Spawn");
         forceEmptyId = requireNat20Id(map, "Nat20_Force_Empty");
 
-        IntOpenHashSet ids = new IntOpenHashSet();
+        IntOpenHashSet ids = new IntOpenHashSet(STRIP_KEYS.size());
         for (String key : STRIP_KEYS) {
             int id = map.getIndex(key);
             if (id == Integer.MIN_VALUE) {
-                if (key.startsWith("Nat20_")) {
-                    // Should have been caught above, but be defensive.
-                    throw new IllegalStateException(
-                            "Required Nat20 marker block not registered: " + key);
-                }
                 LOGGER.atWarning().log(
-                        "Vanilla prefab-strip block not registered (skipping): %s", key);
+                        "Prefab-strip block not registered (skipping): %s", key);
                 continue;
             }
             ids.add(id);
         }
-        stripIds = ids;
+        stripIds = IntSets.unmodifiable(ids);
 
         LOGGER.atInfo().log(
                 "Resolved Nat20 prefab markers: anchor=%d direction=%d npcSpawn=%d "

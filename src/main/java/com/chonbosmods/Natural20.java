@@ -83,6 +83,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
+import com.chonbosmods.prefab.Nat20PrefabConstants;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
@@ -688,7 +689,7 @@ public class Natural20 extends JavaPlugin {
         });
 
         // Resolve Nat20 prefab marker block IDs (fails fast if asset pack didn't register them)
-        com.chonbosmods.prefab.Nat20PrefabConstants.resolve();
+        Nat20PrefabConstants.resolve();
     }
 
     @Override
