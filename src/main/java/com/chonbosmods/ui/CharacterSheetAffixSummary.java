@@ -97,7 +97,7 @@ public final class CharacterSheetAffixSummary {
 
         List<EffectAffixSource.Source> sources =
                 new ArrayList<>(EffectAffixSource.resolveDefenderSources(playerRef, store, loot));
-        addHotbarShieldSources(sources, playerRef, store, loot);
+        addOffHandShieldSources(sources, playerRef, store, loot);
         if (sources.isEmpty()) return List.of();
 
         Map<String, Double> rawSum = new HashMap<>();
@@ -143,21 +143,22 @@ public final class CharacterSheetAffixSummary {
     }
 
     /**
-     * Hytale classifies shields as {@code Weapon_Shield_*} items, so they live
-     * in the Hotbar rather than the Armor container. Nat20 pools their affixes
+     * Shields live in the player's Utility inventory (Hytale's off-hand: shield
+     * JSON templates carry {@code "Utility": {"Usable": true}} and their animations
+     * ship under {@code Items/Off_Handed/Shield/...}). Nat20 pools shield affixes
      * under "armor" (block proficiency, resistances, evasion, gallant, thorns),
-     * so the readout should include them alongside true armor pieces.
+     * so the readout should include the off-hand shield alongside true armor.
      */
     @SuppressWarnings("unchecked")
-    private static void addHotbarShieldSources(List<EffectAffixSource.Source> sources,
-                                               Ref<EntityStore> playerRef,
-                                               Store<EntityStore> store,
-                                               Nat20LootSystem loot) {
-        CombinedItemContainer hotbar = InventoryComponent.getCombined(
-                store, playerRef, new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
-        if (hotbar == null) return;
-        for (short slot = 0; slot < hotbar.getCapacity(); slot++) {
-            ItemStack item = hotbar.getItemStack(slot);
+    private static void addOffHandShieldSources(List<EffectAffixSource.Source> sources,
+                                                Ref<EntityStore> playerRef,
+                                                Store<EntityStore> store,
+                                                Nat20LootSystem loot) {
+        CombinedItemContainer utility = InventoryComponent.getCombined(
+                store, playerRef, new ComponentType[]{InventoryComponent.Utility.getComponentType()});
+        if (utility == null) return;
+        for (short slot = 0; slot < utility.getCapacity(); slot++) {
+            ItemStack item = utility.getItemStack(slot);
             if (item == null || item.isEmpty()) continue;
             if (!isShield(item.getItemId())) continue;
             Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
