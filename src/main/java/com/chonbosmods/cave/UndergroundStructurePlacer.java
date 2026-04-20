@@ -36,10 +36,6 @@ public class UndergroundStructurePlacer {
     private static final int TUNNEL_WIDTH = 3;
     private static final int TUNNEL_HEIGHT = 4;
     private static final int DEFER_TICKS = 5;
-    private static final int CARVE_MARGIN = 3;
-    private static final int ENTRANCE_HALF_WIDTH = 3;
-    private static final int ENTRANCE_UP = 2;
-    private static final int ENTRANCE_DOWN = 1;
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -242,9 +238,6 @@ public class UndergroundStructurePlacer {
                     }
                     deferTicks(world, DEFER_TICKS, () -> {
                         try {
-                            // Carving disabled: Dungeon2Test has its own Empty blocks
-                            // carveClearing(world, pasteX, pasteY, pasteZ, buffer);
-
                             Random random = new Random();
                             PrefabUtil.paste(buffer, world, pastePos, rotation, true, random, 0, store);
                             LOGGER.atFine().log("Pasted prefab at (%d, %d, %d)", structX, structY, structZ);
@@ -338,65 +331,6 @@ public class UndergroundStructurePlacer {
 
         LOGGER.atFine().log("Carved tunnel from (%d, %d, %d) to (%d, %d, %d): %d steps",
                 startX, startY, startZ, endX, endY, endZ, steps);
-    }
-
-    /**
-     * Carve a clearing around the prefab's bounding box so the structure is not buried.
-     * Clears the prefab footprint + margin to empty, then the prefab paste overwrites
-     * the interior with the structure's own blocks.
-     */
-    private void carveClearing(World world, int pasteX, int pasteY, int pasteZ, IPrefabBuffer buffer) {
-        int fromX = pasteX + buffer.getMinX() - CARVE_MARGIN;
-        int fromZ = pasteZ + buffer.getMinZ() - CARVE_MARGIN;
-        int toX = pasteX + buffer.getMaxX() + CARVE_MARGIN;
-        int toZ = pasteZ + buffer.getMaxZ() + CARVE_MARGIN;
-        int fromY = pasteY + buffer.getMinY();
-        int toY = pasteY + buffer.getMaxY() + 1;
-
-        // Entrance exclusion zone: anchor world position ± half-width
-        // Detect entrance face from anchor position relative to prefab bounds
-        int anchorWorldX = pasteX + buffer.getAnchorX();
-        int anchorWorldY = pasteY + buffer.getAnchorY();
-        int anchorWorldZ = pasteZ + buffer.getAnchorZ();
-        boolean entranceOnMaxZ = buffer.getAnchorZ() >= buffer.getMaxZ();
-        int entranceFaceZ = entranceOnMaxZ
-                ? pasteZ + buffer.getMaxZ()
-                : pasteZ + buffer.getMinZ();
-
-        BlockType empty = BlockType.getAssetMap().getAsset("Empty");
-        if (empty == null) {
-            LOGGER.atSevere().log("Could not find Empty block type: carving skipped");
-            return;
-        }
-
-        int cleared = 0;
-        int skipped = 0;
-        for (int x = fromX; x <= toX; x++) {
-            for (int z = fromZ; z <= toZ; z++) {
-                long chunkKey = ChunkUtil.indexChunk(
-                        ChunkUtil.chunkCoordinate(x), ChunkUtil.chunkCoordinate(z));
-                BlockAccessor chunk = world.getChunkIfLoaded(chunkKey);
-                if (chunk == null) continue;
-
-                for (int y = fromY; y <= toY; y++) {
-                    // Skip entrance zone: in front of the entrance face, within entrance dimensions
-                    boolean inEntranceZ = entranceOnMaxZ ? z >= entranceFaceZ : z <= entranceFaceZ;
-                    if (inEntranceZ
-                            && x >= anchorWorldX - ENTRANCE_HALF_WIDTH
-                            && x <= anchorWorldX + ENTRANCE_HALF_WIDTH
-                            && y >= anchorWorldY - ENTRANCE_DOWN
-                            && y <= anchorWorldY + ENTRANCE_UP) {
-                        skipped++;
-                        continue;
-                    }
-                    chunk.setBlock(x, y, z, empty);
-                    cleared++;
-                }
-            }
-        }
-
-        LOGGER.atFine().log("Carved clearing: %d blocks cleared, %d skipped (entrance zone) in (%d,%d,%d)-(%d,%d,%d)",
-                cleared, skipped, fromX, fromY, fromZ, toX, toY, toZ);
     }
 
     private void setBlockEmpty(World world, int x, int y, int z) {
