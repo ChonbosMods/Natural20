@@ -686,6 +686,9 @@ public class Natural20 extends JavaPlugin {
                 world.getWorldConfig().setPvpEnabled(true);
                 stripForgottenTempleGatewayMarkers(world);
         });
+
+        // Resolve Nat20 prefab marker block IDs (fails fast if asset pack didn't register them)
+        com.chonbosmods.prefab.Nat20PrefabConstants.resolve();
     }
 
     @Override
