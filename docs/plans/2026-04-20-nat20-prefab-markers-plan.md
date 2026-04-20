@@ -231,42 +231,27 @@ unzip -l ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/packa
 
 ---
 
-### Task 1.2: Copy the editor-marker texture into our asset pack (REVISED)
+### Task 1.2: Copy the editor-marker texture into our asset pack (REVISED, DONE)
 
-**Files:**
-- Create: `assets/Common/BlockTextures/Nat20/editor_marker.png`
+**Files created:**
+- `src/main/resources/Common/BlockTextures/Nat20/editor_marker.png` (committed)
+- `assets/Common/BlockTextures/Nat20/editor_marker.png` (local-only, gitignored)
 
-**Step 1:** Locate the vanilla `Editor_Empty` texture.
+**Note:** `assets/` is gitignored in Natural20; files ship via `src/main/resources/` (classpath asset pack). Both dirs need manual sync for the dev server per project convention. The committed version lives in resources; the assets copy is for local devserver runs.
 
+Commands used:
 ```bash
-unzip -l ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip | grep -iE "BlockTextures/Editor_Empty"
-```
-Expected path: `Common/BlockTextures/Editor_Empty.png` (texture lives in Common, not Client).
-
-**Step 2:** Extract into our asset pack.
-
-```bash
-mkdir -p /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20
-unzip -j ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip \
+mkdir -p src/main/resources/Common/BlockTextures/Nat20
+unzip -jo ~/.var/app/com.hypixel.HytaleLauncher/data/Hytale/install/release/package/game/latest/Assets.zip \
     "Common/BlockTextures/Editor_Empty.png" \
-    -d /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/
-mv /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/Editor_Empty.png \
-   /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/editor_marker.png
-```
-
-**Step 3:** Verify file is a valid PNG.
-
-```bash
-file /home/keroppi/Development/Hytale/Natural20/assets/Common/BlockTextures/Nat20/editor_marker.png
-```
-Expected: `PNG image data, ...`.
-
-**Step 4:** Commit.
-
-```bash
-git add assets/Common/BlockTextures/Nat20/editor_marker.png
+    -d assets/Common/BlockTextures/Nat20/
+mv assets/Common/BlockTextures/Nat20/Editor_Empty.png assets/Common/BlockTextures/Nat20/editor_marker.png
+cp assets/Common/BlockTextures/Nat20/editor_marker.png src/main/resources/Common/BlockTextures/Nat20/editor_marker.png
+git add src/main/resources/Common/BlockTextures/Nat20/editor_marker.png
 git commit -m "chore(assets): copy Editor_Empty texture for Nat20 markers"
 ```
+
+Texture verified as `PNG image data, 32 x 32, 8-bit/color RGBA, non-interlaced`.
 
 ---
 
