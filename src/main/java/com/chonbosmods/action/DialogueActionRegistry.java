@@ -21,7 +21,9 @@ import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
+import com.chonbosmods.prefab.PlacedMarkers;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -810,7 +812,7 @@ public class DialogueActionRegistry {
                     return;
                 }
                 Vector3i entrance = placed.anchorWorld();
-                world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
+                world.execute(() -> finalizePlacement(quest, objective, entrance, placed, store, playerRef));
             });
     }
 
@@ -866,7 +868,7 @@ public class DialogueActionRegistry {
                     bindings.put("poi_available", "true");
                     bindings.put("poi_center_x", String.valueOf(prePlaced[0]));
                     bindings.put("poi_center_z", String.valueOf(prePlaced[2]));
-                    finalizePlacement(quest, objective, entrance, store, playerRef);
+                    finalizePlacement(quest, objective, entrance, null, store, playerRef);
                     return;
                 }
             }
@@ -895,15 +897,39 @@ public class DialogueActionRegistry {
                     return;
                 }
                 Vector3i entrance = placed.anchorWorld();
-                world.execute(() -> finalizePlacement(quest, objective, entrance, store, playerRef));
+                world.execute(() -> finalizePlacement(quest, objective, entrance, placed, store, playerRef));
             });
     }
 
     /**
+     * Serialize a list of {@link Vector3d} world positions into the format expected
+     * by the {@code poi_mob_group_positions} / {@code poi_chest_positions} bindings:
+     * semicolon-delimited int triples (e.g., {@code "12,64,-88;18,64,-82"}). Empty
+     * input returns an empty string. Coords are floored to int at serialize time;
+     * consumers re-center via {@code +0.5} when they need block-centered doubles.
+     */
+    private static String serializeVec3dList(List<Vector3d> positions) {
+        if (positions == null || positions.isEmpty()) return "";
+        StringBuilder sb = new StringBuilder();
+        for (Vector3d v : positions) {
+            if (sb.length() > 0) sb.append(';');
+            sb.append((int) v.getX()).append(',').append((int) v.getY()).append(',').append((int) v.getZ());
+        }
+        return sb.toString();
+    }
+
+    /**
      * Shared post-placement logic: set bindings, compute marker offset, write spawn descriptor, save.
+     *
+     * <p>{@code placed} may be null for the surface pre-placed fallback path (in-settlement
+     * legacy POI) which has only {@code Vector3i} coords and no marker scan result. When null,
+     * the {@code poi_mob_group_positions} and {@code poi_chest_positions} bindings are not
+     * written: {@link com.chonbosmods.quest.POIProximitySystem} then falls back to the POI
+     * entrance anchor for both mob-group scatter and chest placement.
      */
     private void finalizePlacement(QuestInstance quest, ObjectiveInstance objective,
-                                    Vector3i entrance, Store<EntityStore> store,
+                                    Vector3i entrance, PlacedMarkers placed,
+                                    Store<EntityStore> store,
                                     Ref<EntityStore> playerRef) {
         Map<String, String> bindings = quest.getVariableBindings();
         bindings.put("poi_x", String.valueOf(entrance.getX()));
@@ -911,6 +937,18 @@ public class DialogueActionRegistry {
         bindings.put("poi_z", String.valueOf(entrance.getZ()));
         bindings.put("poi_center_x", String.valueOf(entrance.getX()));
         bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
+
+        // Marker positions from the paste-time MarkerScan (Mob_Group_Spawn, Chest_Spawn).
+        // Semicolon-delimited int triples: "x1,y1,z1;x2,y2,z2;...". Consumed at spawn
+        // time in POIProximitySystem as the scatter anchor for mob groups and the chest
+        // placement coord; empty-string means "no marker present, fall back to entrance".
+        // {@code placed} is null on the pre-placed legacy surface path and on all entry
+        // points that don't run a marker scan; in that case we omit the bindings entirely
+        // (readers treat "missing" and "empty" identically via fallback to POI anchor).
+        if (placed != null) {
+            bindings.put("poi_mob_group_positions", serializeVec3dList(placed.mobGroupSpawnsWorld()));
+            bindings.put("poi_chest_positions",     serializeVec3dList(placed.chestSpawnsWorld()));
+        }
 
         Random rng = new Random(quest.getQuestId().hashCode() + quest.getConflictCount());
         double angle = rng.nextDouble() * 2 * Math.PI;
