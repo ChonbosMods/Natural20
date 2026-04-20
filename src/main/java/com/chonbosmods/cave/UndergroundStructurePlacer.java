@@ -33,11 +33,11 @@ import java.util.concurrent.TimeUnit;
 public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
-    // Temporary: both cave and surface POI paths resolve to the single marker-bearing
-    // test prefab shipped under settlement_pieces/. Once author content lands under
-    // hostile_poi/, switch these keys to "Nat20/hostile_poi/<real>".
-    private static final String TEST_PREFAB_KEY = "Nat20/settlement_pieces/testStructure";
-    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/settlement_pieces/testStructure";
+    // Both cave and surface POI paths resolve to the marker-bearing test prefab
+    // under hostile_poi/. Swap for dedicated per-biome / per-size prefabs once
+    // more author content lands.
+    private static final String TEST_PREFAB_KEY = "Nat20/hostile_poi/testStructure";
+    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/hostile_poi/testStructure";
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.

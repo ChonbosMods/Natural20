@@ -5,7 +5,7 @@ import com.chonbosmods.npc.NpcSpawnRole;
 import java.util.List;
 
 public enum SettlementType {
-    TOWN("Nat20/settlement_pieces/testStructure", 32, List.of(
+    TOWN("Nat20/settlement_full/testStructure", 32, List.of(
         new NpcSpawnRole("Villager",       2, 6, 40, 80),
         new NpcSpawnRole("Guard",          2, 3, 30, 60),
         new NpcSpawnRole("RANDOM_ARTISAN", 2, 4, 50, 80)
