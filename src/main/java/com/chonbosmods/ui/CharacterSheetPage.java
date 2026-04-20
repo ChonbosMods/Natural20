@@ -69,8 +69,6 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     /** Quest log: max pre-baked row slots in the .ui template. */
     private static final int MAX_QUEST_ROWS = 20;
-    /** Equipped-affixes list: max pre-baked row slots in the .ui template. */
-    private static final int MAX_AFFIX_ROWS = 20;
     /** Selected tab text color (white). */
     private static final String COLOR_TAB_ACTIVE = "#ffffff";
     /** Inactive tab text color (muted grey). */
@@ -164,11 +162,6 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         // Banner + ability rows: unified renderer, used both on first open and
         // after every + click rebuild.
         renderStatPanel(cmd);
-
-        // Equipped-gear affixes readout under the Apply button. Pulls live
-        // combined+softcapped values from CharacterSheetAffixSummary so the
-        // numbers match what combat systems actually apply.
-        renderAffixList(cmd, ref, store, data);
 
         // Quest Log right panel: Active / Completed tab + 20 quest row slots.
         // Task 16 + 17.
@@ -265,34 +258,6 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
      * currently selected tab. Task 16 + 17. Completed-tab rendering itself is
      * stubbed: Task 19 fills it in.
      */
-    /**
-     * Render the equipped-gear affix summary. Calls
-     * {@link CharacterSheetAffixSummary#summarize} which reads defender-side
-     * (armor) sources only (hotbar weapon is excluded by design) and applies
-     * each combat system's softcap + stat-scaling math so the displayed value
-     * matches reality. Rows past the live count are hidden; empty-state label
-     * shows when there are no affixes.
-     */
-    private void renderAffixList(UICommandBuilder cmd, Ref<EntityStore> ref,
-                                 Store<EntityStore> store, Nat20PlayerData data) {
-        com.chonbosmods.stats.PlayerStats playerStats = com.chonbosmods.stats.PlayerStats.from(data);
-        java.util.List<CharacterSheetAffixSummary.Line> lines =
-                CharacterSheetAffixSummary.summarize(ref, store, playerStats);
-        int n = Math.min(lines.size(), MAX_AFFIX_ROWS);
-
-        for (int i = 0; i < MAX_AFFIX_ROWS; i++) {
-            if (i < n) {
-                CharacterSheetAffixSummary.Line line = lines.get(i);
-                cmd.set("#CSAffix" + i + ".Visible", true);
-                cmd.set("#CSAffix" + i + ".Text", line.text());
-                cmd.set("#CSAffix" + i + ".Style.TextColor", line.color());
-            } else {
-                cmd.set("#CSAffix" + i + ".Visible", false);
-            }
-        }
-        cmd.set("#CSAffixEmpty.Visible", n == 0);
-    }
-
     private void renderQuestList(UICommandBuilder cmd, Nat20PlayerData data) {
         // Tab highlighting: gold for the active tab, muted grey for the inactive.
         cmd.set("#CSTabActive.Style.Default.LabelStyle.TextColor",
