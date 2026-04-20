@@ -289,6 +289,9 @@ public class Natural20 extends JavaPlugin {
             caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
             caveVoidRegistry.load();
 
+            settlementRegistry.setSaveDirectory(worldDataDir);
+            settlementRegistry.load();
+
             lootSystem.getItemRegistry().init(worldDataDir);
             lootSystem.getItemRegistry().rehydrateAll();
 
@@ -704,9 +707,10 @@ public class Natural20 extends JavaPlugin {
         // Load prefabs: assets are available by start()
         placer.init();
 
-        // Load settlement registry
+        // Settlement registry. Data file is rebound to a world-scoped path in the
+        // first-chunk-load hook below, so this initial path is only a placeholder
+        // (nothing is loaded from disk at plugin start).
         settlementRegistry = new SettlementRegistry(getDataDirectory());
-        settlementRegistry.load();
 
         // Load POI mob-group registry + spawn coordinator. Data file is rebound to a
         // world-scoped path in the first-chunk-load hook below, so this initial path is
