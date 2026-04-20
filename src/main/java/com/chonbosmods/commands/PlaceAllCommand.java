@@ -3,9 +3,12 @@ package com.chonbosmods.commands;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
 import com.chonbosmods.npc.NpcSpawnRole;
+import com.chonbosmods.prefab.MarkerScan;
+import com.chonbosmods.prefab.Nat20PrefabMarkerScanner;
 import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
+import com.chonbosmods.prefab.YawAlignment;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.quest.QuestChestPlacer;
 import com.chonbosmods.settlement.NpcRecord;
@@ -70,6 +73,9 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
         withOptionalArg("mob", "mob alias: goblin | trork | skeleton (default: goblin)", ArgTypes.STRING);
     private final OptionalArg<String> prefabArg =
         withOptionalArg("prefab", "prefab key (default: " + DEFAULT_PREFAB_KEY + ")", ArgTypes.STRING);
+    private final OptionalArg<String> wallDirArg =
+        withOptionalArg("wallDir", "simulated wall direction: -X | +X | -Z | +Z "
+            + "(entrance rotates to face away from it)", ArgTypes.STRING);
 
     public PlaceAllCommand() {
         super("placeall", "Paste a marker prefab and spawn NPCs/mob group/chest from its markers");
@@ -112,12 +118,40 @@ public class PlaceAllCommand extends AbstractPlayerCommand {
         Vector3d pos = tf.getPosition();
         Vector3i anchorPos = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
 
+        // Derive rotation from optional wallDir: entrance should face AWAY from the wall.
+        Rotation yaw = Rotation.None;
+        String rotationDesc = "None (no wallDir)";
+        if (ctx.provided(wallDirArg)) {
+            String wallDir = wallDirArg.get(ctx);
+            Vector3i wantedWorldDir = switch (wallDir) {
+                case "-X" -> new Vector3i( 1, 0,  0);
+                case "+X" -> new Vector3i(-1, 0,  0);
+                case "+Z" -> new Vector3i( 0, 0, -1);
+                case "-Z" -> new Vector3i( 0, 0,  1);
+                default -> null;
+            };
+            if (wantedWorldDir == null) {
+                ctx.sendMessage(Message.raw("Unknown wallDir '" + wallDir + "'. Use: -X | +X | -Z | +Z"));
+                return;
+            }
+            MarkerScan scan;
+            try {
+                scan = Nat20PrefabMarkerScanner.scan(buffer);
+            } catch (IllegalArgumentException e) {
+                ctx.sendMessage(Message.raw("Scanner rejected prefab: " + e.getMessage()));
+                return;
+            }
+            yaw = YawAlignment.computeYawToAlign(scan.directionVector(), wantedWorldDir);
+            rotationDesc = String.format("%s (prefabDir=%s, wantedWorldDir=%s)",
+                yaw, scan.directionVector(), wantedWorldDir);
+        }
+
         ctx.sendMessage(Message.raw("Pasting " + key + " at ("
             + anchorPos.getX() + ", " + anchorPos.getY() + ", " + anchorPos.getZ()
-            + ") with mob=" + mobRole + "..."));
+            + ") with mob=" + mobRole + " rotation=" + rotationDesc));
 
         long seed = System.currentTimeMillis();
-        Nat20PrefabPaster.paste(buffer, world, anchorPos, Rotation.None, new Random(seed), store)
+        Nat20PrefabPaster.paste(buffer, world, anchorPos, yaw, new Random(seed), store)
             .whenComplete((placed, error) -> {
                 if (error != null || placed == null) {
                     ctx.sendMessage(Message.raw("Paste failed"
