@@ -4,7 +4,6 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.quest.poi.MobGroupRecord;
 import com.chonbosmods.quest.poi.Nat20MobGroupRegistry;
 import com.chonbosmods.settlement.SettlementRegistry;
-import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 
 import java.util.Optional;
@@ -15,8 +14,6 @@ import java.util.Random;
  * Implements the six-rule validation from the design doc.
  */
 public final class AmbientAnchorFinder {
-
-    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|AmbientFinder");
 
     /**
      * Top-down surface finder. Returns world-Y of the standing surface (first solid block's
@@ -54,7 +51,6 @@ public final class AmbientAnchorFinder {
      */
     public Optional<Vector3d> find(SurfaceProbe surface, HeadroomProbe headroom,
                                    Vector3d playerPos, Random rng) {
-        int[] rejects = new int[6];
         for (int attempt = 0; attempt < cfg.anchorRetries(); attempt++) {
             double bearing = rng.nextDouble() * 2.0 * Math.PI;
             int distBand = cfg.maxDistanceFromPlayer() - cfg.minDistanceFromPlayer();
@@ -64,10 +60,10 @@ public final class AmbientAnchorFinder {
 
             // Rule 1
             int y = surface.findSurfaceY(x, z);
-            if (y == SurfaceProbe.INVALID) { rejects[0]++; continue; }
+            if (y == SurfaceProbe.INVALID) continue;
 
             // Rule 2
-            if (!headroom.has3BlockHeadroom(x, y, z)) { rejects[1]++; continue; }
+            if (!headroom.has3BlockHeadroom(x, y, z)) continue;
 
             // Rule 3
             int yN = surface.findSurfaceY(x, z + 3);
@@ -75,22 +71,19 @@ public final class AmbientAnchorFinder {
             int yE = surface.findSurfaceY(x + 3, z);
             int yW = surface.findSurfaceY(x - 3, z);
             if (!flatEnough(y, yN) || !flatEnough(y, yS)
-                    || !flatEnough(y, yE) || !flatEnough(y, yW)) { rejects[2]++; continue; }
+                    || !flatEnough(y, yE) || !flatEnough(y, yW)) continue;
 
             // Rule 4
-            if (voids.isNearAnyVoid(x, z, cfg.poiExclusionBlocks())) { rejects[3]++; continue; }
+            if (voids.isNearAnyVoid(x, z, cfg.poiExclusionBlocks())) continue;
 
             // Rule 5
-            if (settlements.isNearAnySettlement(x, z, cfg.settlementExclusionBlocks())) { rejects[4]++; continue; }
+            if (settlements.isNearAnySettlement(x, z, cfg.settlementExclusionBlocks())) continue;
 
             // Rule 6
-            if (isNearAnyGroupAnchor(x, z, cfg.groupAnchorExclusionBlocks())) { rejects[5]++; continue; }
+            if (isNearAnyGroupAnchor(x, z, cfg.groupAnchorExclusionBlocks())) continue;
 
             return Optional.of(new Vector3d(x, y, z));
         }
-        LOGGER.atInfo().log(
-                "Ambient find exhausted: r1surface=%d r2headroom=%d r3flat=%d r4void=%d r5settle=%d r6group=%d",
-                rejects[0], rejects[1], rejects[2], rejects[3], rejects[4], rejects[5]);
         return Optional.empty();
     }
 

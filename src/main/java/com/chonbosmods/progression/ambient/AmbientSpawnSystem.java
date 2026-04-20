@@ -36,7 +36,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Orchestrator for ambient surface group spawns. Owns per-player cooldown state, subscribes
@@ -58,7 +57,6 @@ public final class AmbientSpawnSystem {
     private final Nat20MobGroupSpawner spawner;
     private final MobGroupChunkListener chunkListener;
     private final CooldownMap cooldowns = new CooldownMap();
-    private final AtomicLong chunkLoadCounter = new AtomicLong();
 
     public AmbientSpawnSystem(AmbientSpawnConfig cfg,
                               AmbientAnchorFinder anchorFinder,
@@ -78,11 +76,6 @@ public final class AmbientSpawnSystem {
      * of the chunk center. At most one spawn per chunk-load event (first eligible player wins).
      */
     public void onChunkLoad(World world, int chunkBlockX, int chunkBlockZ) {
-        long n = chunkLoadCounter.incrementAndGet();
-        if (n % 100 == 1) {
-            LOGGER.atInfo().log("Ambient onChunkLoad heartbeat: %d events, latest=(%d,%d)",
-                    n, chunkBlockX, chunkBlockZ);
-        }
         world.execute(() -> doChunkLoadOnWorldThread(world, chunkBlockX, chunkBlockZ));
     }
 
@@ -205,9 +198,6 @@ public final class AmbientSpawnSystem {
 
             if (!cooldowns.canRoll(playerUuid, now)) continue;
 
-            LOGGER.atInfo().log("Ambient gate OK chunk=(%d,%d) player=%s distSq=%.0f",
-                    chunkBlockX, chunkBlockZ, playerUuid, dx * dx + dz * dz);
-
             if (trySpawnForPlayer(world, playerUuid, new Vector3d(px, pos.getY(), pz), now)) {
                 return; // At most one ambient spawn per chunk-load event.
             }
@@ -221,36 +211,21 @@ public final class AmbientSpawnSystem {
      */
     private boolean trySpawnForPlayer(World world, UUID playerUuid, Vector3d playerPos, long now) {
         Random rng = ThreadLocalRandom.current();
-        double roll = rng.nextDouble();
-        if (roll >= cfg.rollChance()) {
-            LOGGER.atInfo().log("Ambient roll failed: %.3f >= rollChance=%.3f player=%s",
-                    roll, cfg.rollChance(), playerUuid);
-            return false;
-        }
-        LOGGER.atInfo().log("Ambient roll passed: %.3f < rollChance=%.3f, finding anchor",
-                roll, cfg.rollChance());
+        if (rng.nextDouble() >= cfg.rollChance()) return false;
 
         AmbientAnchorFinder.SurfaceProbe surface = buildSurfaceProbe(world);
         AmbientAnchorFinder.HeadroomProbe headroom = buildHeadroomProbe(world);
         Optional<Vector3d> anchorOpt = anchorFinder.find(surface, headroom, playerPos, rng);
-        if (anchorOpt.isEmpty()) {
-            LOGGER.atInfo().log("Ambient anchor not found around player=(%d,%d,%d) after %d retries",
-                    (int) playerPos.getX(), (int) playerPos.getY(), (int) playerPos.getZ(),
-                    cfg.anchorRetries());
-            return false;
-        }
+        if (anchorOpt.isEmpty()) return false; // No cooldown burn on anchor-find failure.
         Vector3d anchor = anchorOpt.get();
 
         String zoneName = Nat20BiomeLookup.getZoneName(world, anchor.getX(), anchor.getZ());
         Nat20MobThemeRegistry themes = Natural20.getInstance().getMobThemeRegistry();
         String mobRole = themes.pickMob(zoneName, rng);
         if (mobRole == null) {
-            LOGGER.atInfo().log("Ambient theme returned null for zone=%s anchor=(%d,%d,%d)",
-                    zoneName, (int) anchor.getX(), (int) anchor.getY(), (int) anchor.getZ());
+            LOGGER.atFine().log("Ambient theme returned null for zone=%s", zoneName);
             return false;
         }
-        LOGGER.atInfo().log("Ambient anchor found=(%d,%d,%d) zone=%s role=%s",
-                (int) anchor.getX(), (int) anchor.getY(), (int) anchor.getZ(), zoneName, mobRole);
 
         spawnAmbientGroup(world, playerUuid, anchor, mobRole, now);
         return true;
