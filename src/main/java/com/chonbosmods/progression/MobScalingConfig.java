@@ -37,6 +37,7 @@ public final class MobScalingConfig {
     private final Map<Tier, Double> tierXpWeights;
     private final double questPhaseWeight;
     private final double d20SuccessWeight;
+    private final double normalMobXpMult;
 
     private final int playerBaseHp;
     private final int playerHpPerLevel;
@@ -54,6 +55,7 @@ public final class MobScalingConfig {
                              int baseHp, int baseDmg, double hpGrowth, double dmgGrowth,
                              Map<Tier, Double> tierXpWeights,
                              double questPhaseWeight, double d20SuccessWeight,
+                             double normalMobXpMult,
                              int playerBaseHp, int playerHpPerLevel,
                              Map<DifficultyTier, Integer> difficultyWeights,
                              Map<DifficultyTier, Integer> difficultyMlvlMods,
@@ -69,6 +71,7 @@ public final class MobScalingConfig {
         this.tierXpWeights = Map.copyOf(tierXpWeights);
         this.questPhaseWeight = questPhaseWeight;
         this.d20SuccessWeight = d20SuccessWeight;
+        this.normalMobXpMult = normalMobXpMult;
         this.playerBaseHp = playerBaseHp;
         this.playerHpPerLevel = playerHpPerLevel;
         this.difficultyWeights = Map.copyOf(difficultyWeights);
@@ -129,6 +132,8 @@ public final class MobScalingConfig {
             tierWeights.put(Tier.DUNGEON_BOSS, weights.get("dungeon_boss_kill").getAsDouble());
             double questWeight = weights.get("quest_phase").getAsDouble();
             double d20Weight = weights.get("d20_success").getAsDouble();
+            double normalMult = xp.has("normal_mob_xp_mult")
+                    ? xp.get("normal_mob_xp_mult").getAsDouble() : 1.0;
 
             JsonObject ps = root.getAsJsonObject("player_scaling");
             int pBaseHp = ps.get("base_hp").getAsInt();
@@ -172,7 +177,7 @@ public final class MobScalingConfig {
                     bands.size(), defaultAreaLevel);
             return new MobScalingConfig(bands, defaultAreaLevel, offsets, mults,
                     baseHp, baseDmg, hpGrowth, dmgGrowth,
-                    tierWeights, questWeight, d20Weight,
+                    tierWeights, questWeight, d20Weight, normalMult,
                     pBaseHp, pHpPerLevel,
                     weightsMap, mlvlMods, bossLegendary, affixes, gMin, gMax, gDefault);
         } catch (Exception e) {
@@ -208,6 +213,7 @@ public final class MobScalingConfig {
     public double killXpWeight(Tier tier) { return tierXpWeights.getOrDefault(tier, 1.0); }
     public double questPhaseWeight() { return questPhaseWeight; }
     public double d20SuccessWeight() { return d20SuccessWeight; }
+    public double normalMobXpMult() { return normalMobXpMult; }
     public int playerBaseHp() { return playerBaseHp; }
     public int playerHpPerLevel() { return playerHpPerLevel; }
 

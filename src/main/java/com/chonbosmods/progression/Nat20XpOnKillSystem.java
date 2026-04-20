@@ -92,6 +92,9 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
             mlvl = Math.min(45, mlvl + config.difficultyMlvlMod(level.getDifficultyTier()));
         }
         double weight = config.killXpWeight(level.getTier());
+        if (level.getDifficultyTier() == null) {
+            weight *= config.normalMobXpMult();
+        }
         int xp = Nat20XpMath.mobKillXp(mlvl, weight);
         if (xp <= 0) return;
 

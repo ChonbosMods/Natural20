@@ -36,7 +36,8 @@
       "dungeon_boss_kill": 8.0,
       "quest_phase": 7.0,
       "d20_success": 5.0
-    }
+    },
+    "normal_mob_xp_mult": 0.5
   },
   "player_scaling": {
     "base_hp": 100, "hp_per_level": 5
