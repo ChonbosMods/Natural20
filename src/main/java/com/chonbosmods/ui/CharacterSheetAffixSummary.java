@@ -2,6 +2,7 @@ package com.chonbosmods.ui;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.EffectAffixSource;
+import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.def.AffixValueRange;
@@ -11,8 +12,12 @@ import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.display.Nat20AffixDisplay;
 import com.chonbosmods.stats.PlayerStats;
 import com.chonbosmods.stats.Stat;
+import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.inventory.InventoryComponent;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
+import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.ArrayList;
@@ -91,7 +96,8 @@ public final class CharacterSheetAffixSummary {
         Nat20AffixRegistry registry = loot.getAffixRegistry();
 
         List<EffectAffixSource.Source> sources =
-                EffectAffixSource.resolveDefenderSources(playerRef, store, loot);
+                new ArrayList<>(EffectAffixSource.resolveDefenderSources(playerRef, store, loot));
+        addHotbarShieldSources(sources, playerRef, store, loot);
         if (sources.isEmpty()) return List.of();
 
         Map<String, Double> rawSum = new HashMap<>();
@@ -134,6 +140,36 @@ public final class CharacterSheetAffixSummary {
 
         lines.sort(Comparator.comparing(Line::text));
         return lines;
+    }
+
+    /**
+     * Hytale classifies shields as {@code Weapon_Shield_*} items, so they live
+     * in the Hotbar rather than the Armor container. Nat20 pools their affixes
+     * under "armor" (block proficiency, resistances, evasion, gallant, thorns),
+     * so the readout should include them alongside true armor pieces.
+     */
+    @SuppressWarnings("unchecked")
+    private static void addHotbarShieldSources(List<EffectAffixSource.Source> sources,
+                                               Ref<EntityStore> playerRef,
+                                               Store<EntityStore> store,
+                                               Nat20LootSystem loot) {
+        CombinedItemContainer hotbar = InventoryComponent.getCombined(
+                store, playerRef, new ComponentType[]{InventoryComponent.Hotbar.getComponentType()});
+        if (hotbar == null) return;
+        for (short slot = 0; slot < hotbar.getCapacity(); slot++) {
+            ItemStack item = hotbar.getItemStack(slot);
+            if (item == null || item.isEmpty()) continue;
+            if (!isShield(item.getItemId())) continue;
+            Nat20LootData lootData = item.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+            if (lootData == null) continue;
+            sources.add(EffectAffixSource.sourceFromLootData(lootData, loot));
+        }
+    }
+
+    private static boolean isShield(String itemId) {
+        if (itemId == null) return false;
+        String local = itemId.contains(":") ? itemId.substring(itemId.indexOf(':') + 1) : itemId;
+        return local.toLowerCase(Locale.US).startsWith("weapon_shield");
     }
 
     private static String formatLine(Nat20AffixDisplay.Entry e, double v) {

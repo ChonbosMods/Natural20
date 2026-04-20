@@ -81,7 +81,7 @@ public final class EffectAffixSource {
         return mobSource(ref, store);
     }
 
-    private static Source sourceFromLootData(Nat20LootData lootData, Nat20LootSystem lootSystem) {
+    public static Source sourceFromLootData(Nat20LootData lootData, Nat20LootSystem lootSystem) {
         int qv = Nat20AffixScaling.qualityValueOf(lootData, lootSystem.getRarityRegistry());
         return new Source(lootData.getAffixes(), lootData.getRarity(), lootData.getItemLevel(), qv);
     }
