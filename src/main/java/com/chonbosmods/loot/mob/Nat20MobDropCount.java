@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Rolls Nat20 drop counts per mob death based on {@link Tier} and
  * {@link DifficultyTier}. See
- * {@code docs/plans/2026-04-17-mob-loot-pool-redesign-design.md} for table.
+ * {@code docs/plans/2026-04-21-mob-loot-tuning-design.md} §4 for table.
  *
  * <p>REGULAR → 0.
  * <p>CHAMPION × {UNCOMMON, RARE, EPIC} → single Bernoulli trial at 18%.
