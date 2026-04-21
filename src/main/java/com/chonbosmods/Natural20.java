@@ -755,6 +755,18 @@ public class Natural20 extends JavaPlugin {
             if (scoreRegenSystem != null) scoreRegenSystem.removePlayer(uuid);
             if (hexSystem != null) hexSystem.removePlayer(uuid);
             Nat20ScoreDirtyFlag.removePlayer(uuid);
+            // Flag the party registry so offline members render as "Unknown"
+            // on any still-online partymate's /sheet view, and so the ghost
+            // leader rule observes live presence correctly.
+            if (partyRegistry != null) {
+                partyRegistry.markOffline(uuid);
+                try {
+                    partyRegistry.save();
+                } catch (java.io.IOException e) {
+                    getLogger().atWarning().withCause(e)
+                        .log("Failed to persist party registry on disconnect");
+                }
+            }
         });
 
         // Restore quest waypoint markers on player connect and register for POI proximity tracking

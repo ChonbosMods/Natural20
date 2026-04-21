@@ -291,12 +291,12 @@ $C.@Container {
               Text: "Party";
               Anchor: (Width: 90, Height: 24);
             }
-            $C.@SmallSecondaryTextButton #CSPartyTabServer {
-              Text: "Server";
-              Anchor: (Width: 90, Height: 24, Left: 4);
-            }
             $C.@SmallSecondaryTextButton #CSPartyTabInvites {
               Text: "Invites";
+              Anchor: (Width: 90, Height: 24, Left: 4);
+            }
+            $C.@SmallSecondaryTextButton #CSPartyTabServer {
+              Text: "Server";
               Anchor: (Width: 90, Height: 24, Left: 4);
             }
             Label { FlexWeight: 1; }

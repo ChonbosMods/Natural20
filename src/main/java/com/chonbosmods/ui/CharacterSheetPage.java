@@ -546,16 +546,26 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 boolean isSelf = member.equals(viewer);
                 boolean isLeader = member.equals(leader);
                 boolean online = partyReg.isOnline(member);
-                String name = resolveDisplayName(store, member);
-                if (name == null) name = "Unknown";
-                if (isLeader) name = "[Leader] " + name;
+
+                // Offline members are anonymized to "Unknown" rather than
+                // leaking a last-seen name. Name + [Leader] prefix return
+                // when the member reconnects.
+                String name;
+                String nameColor;
+                if (!online) {
+                    name = "Unknown";
+                    nameColor = COLOR_PLAYER_OFFLINE;
+                } else {
+                    String resolved = resolveDisplayName(store, member);
+                    if (resolved == null) resolved = "Unknown";
+                    name = isLeader ? "[Leader] " + resolved : resolved;
+                    nameColor = isLeader ? COLOR_PLAYER_LEADER : COLOR_PLAYER_ONLINE;
+                }
 
                 slotToPlayerUuid.put(i, member);
                 cmd.set("#CSPartyRow" + i + ".Visible", true);
                 cmd.set("#CSPartyRowName" + i + ".Text", name);
-                cmd.set("#CSPartyRowName" + i + ".Style.TextColor",
-                        isLeader ? COLOR_PLAYER_LEADER
-                                : (online ? COLOR_PLAYER_ONLINE : COLOR_PLAYER_OFFLINE));
+                cmd.set("#CSPartyRowName" + i + ".Style.TextColor", nameColor);
 
                 // Button A = Promote, Button B = Kick. Both leader-only, non-self.
                 // A is the wider slot (110px in the template) so the word
