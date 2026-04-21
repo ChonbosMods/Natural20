@@ -41,6 +41,16 @@ public class SettlementWorldGenListener {
     private final SettlementRegistry registry;
     private final SettlementPlacer placer;
 
+    /**
+     * Per-session set of cell keys whose settlement placement has failed at least
+     * once. Populated when the center fails validation or no pieces ground.
+     * Blocks re-attempts for this server run so chunk reloads of the same cell
+     * don't repeat the same work + log spam. Cleared on restart, so a single
+     * retry per boot cycle is possible if the failure was transient.
+     */
+    private final java.util.Set<String> failedCells =
+        java.util.concurrent.ConcurrentHashMap.newKeySet();
+
     public SettlementWorldGenListener(SettlementRegistry registry, SettlementPlacer placer) {
         this.registry = registry;
         this.placer = placer;
@@ -59,6 +69,12 @@ public class SettlementWorldGenListener {
         // Settlement already placed: check if NPCs need respawning
         if (registry.hasCell(cellKey)) {
             checkAndRespawnNpcs(world, cellKey);
+            return;
+        }
+
+        // Previously failed this session: don't retry (avoids log spam + wasted
+        // work on chunk reloads of the same unbuildable cell).
+        if (failedCells.contains(cellKey)) {
             return;
         }
 
@@ -95,22 +111,39 @@ public class SettlementWorldGenListener {
         // Place structure and spawn NPCs on world thread
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
-            int groundY = findGroundY(world, settlementX, settlementZ);
-            if (groundY <= 0) {
-                // Sampler returned its no-ground sentinel: center is over water, in a
-                // cave, or on unloaded chunks. Don't force a placement with bogus Y;
-                // drop the tentative record so it doesn't ghost in /nat20 settlements.
+            // Footprint-aware ground check: probe a halfX/halfZ matching the
+            // settlement's footprint, reject if center is over water, no ground,
+            // or the terrain across the footprint is too uneven (mountain peak,
+            // sharp ridge, cave mouth). Without this, centers often land on a
+            // thin pillar where a 1-point probe succeeds but every piece around
+            // it fails to ground, leaving zero pieces placed.
+            int half = type.getFootprint() / 2;
+            Nat20HeightmapSampler.SampleResult centerSample = Nat20HeightmapSampler.sample(
+                world, settlementX, settlementZ, half, half,
+                Nat20HeightmapSampler.Mode.ENTRY_ANCHOR);
+            if (centerSample.y() <= 0) {
                 LOGGER.atFine().log(
                     "No valid ground at settlement center (%d, %d) for cell %s; skipping",
                     settlementX, settlementZ, cellKey);
                 registry.unregister(cellKey);
+                failedCells.add(cellKey);
                 return;
             }
+            if (centerSample.tooSteep()) {
+                LOGGER.atFine().log(
+                    "Settlement center (%d, %d) too steep (slope=%d) for cell %s; skipping",
+                    settlementX, settlementZ, centerSample.slopeDelta(), cellKey);
+                registry.unregister(cellKey);
+                failedCells.add(cellKey);
+                return;
+            }
+            int groundY = centerSample.y();
             Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
             if (!placer.hasPrefab(type)) {
                 LOGGER.atSevere().log("No prefab for %s, skipping settlement at cell %s", type, cellKey);
                 registry.unregister(cellKey);
+                failedCells.add(cellKey);
                 return;
             }
 
@@ -121,6 +154,7 @@ public class SettlementWorldGenListener {
                             "Settlement placement failed for cell %s; removing tentative record",
                             cellKey);
                         registry.unregister(cellKey);
+                        failedCells.add(cellKey);
                         return;
                     }
 
@@ -248,18 +282,5 @@ public class SettlementWorldGenListener {
     private boolean isChunkContaining(int chunkBlockX, int chunkBlockZ, int blockX, int blockZ) {
         return chunkBlockX <= blockX && blockX < chunkBlockX + CHUNK_BLOCK_SIZE &&
                chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
-    }
-
-    /**
-     * @return valid ground Y at (x, z), or 0 if the sampler can't find one
-     *         (water column, all-transparent, unloaded chunk, etc.). Callers
-     *         must handle the 0 sentinel explicitly rather than placing at it.
-     */
-    private int findGroundY(World world, int x, int z) {
-        Nat20HeightmapSampler.SampleResult sample = Nat20HeightmapSampler.sample(
-            world, x, z, 0, 0,
-            Nat20HeightmapSampler.Mode.ENTRY_ANCHOR,
-            Integer.MAX_VALUE);
-        return sample.y();
     }
 }
