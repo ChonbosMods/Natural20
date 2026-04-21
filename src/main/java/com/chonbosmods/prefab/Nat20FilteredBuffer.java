@@ -125,10 +125,14 @@ public final class Nat20FilteredBuffer implements IPrefabBuffer {
                  c, fluidId, fluidLevel) -> {
                     // Drop Nat20 markers and vanilla authoring/spawner blocks.
                     if (Nat20PrefabConstants.stripIds().contains(blockId)) {
-                        // Force_Empty is in stripIds() but must still carve
-                        // the world cell to air: rewrite to Empty and forward
-                        // rather than silently dropping it.
-                        if (blockId == Nat20PrefabConstants.forceEmptyId) {
+                        // Force_Empty, NPC spawn, and mob group spawn markers
+                        // must still carve their cell to air: rewrite to Empty
+                        // and forward so PrefabUtil.paste overwrites the world
+                        // cell. Without this, the marker block stays in the
+                        // world and the NPC/mob entity spawns inside it.
+                        if (blockId == Nat20PrefabConstants.forceEmptyId
+                                || blockId == Nat20PrefabConstants.npcSpawnId
+                                || blockId == Nat20PrefabConstants.mobGroupSpawnId) {
                             blockConsumer.accept(x, y, z, 0, holder,
                                     supportValue, rotation, filler,
                                     c, fluidId, fluidLevel);
