@@ -94,6 +94,25 @@ class Nat20PartyQuestStoreTest {
     }
 
     @Test
+    void mutationsOnStoredInstancePersistAcrossReads() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("mut");
+        q.setAccepters(List.of(alice));
+        q.setMaxConflicts(3);
+        store.add(q);
+
+        QuestInstance first = store.getById("mut");
+        first.incrementConflictCount();
+
+        QuestInstance second = store.getById("mut");
+        assertEquals(1, second.getConflictCount(),
+            "store must return the same live instance, not a copy (avoids the transient-deserialization trap)");
+        assertSame(first, second);
+    }
+
+    @Test
     void removeCleansIndexForMultiAccepterQuest() {
         Nat20PartyQuestStore store = new Nat20PartyQuestStore();
         UUID alice = UUID.randomUUID();
