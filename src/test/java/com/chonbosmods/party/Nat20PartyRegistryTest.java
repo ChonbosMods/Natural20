@@ -125,6 +125,53 @@ class Nat20PartyRegistryTest {
     }
 
     @Test
+    void leaderCanKickNonLeaderMember() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        reg.acceptInvite(bob, reg.getParty(alice).getPartyId());
+
+        reg.kick(alice, bob);
+
+        assertEquals(List.of(alice), reg.getParty(alice).getMembers());
+        assertTrue(reg.getParty(bob).isSolo());
+    }
+
+    @Test
+    void nonLeaderCannotKick() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        UUID carol = UUID.randomUUID();
+        String pid = reg.getParty(alice).getPartyId();
+        reg.acceptInvite(bob, pid);
+        reg.acceptInvite(carol, pid);
+
+        assertThrows(SecurityException.class, () -> reg.kick(bob, carol));
+    }
+
+    @Test
+    void cannotKickSelf() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        reg.acceptInvite(bob, reg.getParty(alice).getPartyId());
+
+        assertThrows(IllegalArgumentException.class, () -> reg.kick(alice, alice));
+    }
+
+    @Test
+    void kickingNonMemberThrows() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID stranger = UUID.randomUUID();
+        reg.getParty(alice);
+        reg.getParty(stranger);
+
+        assertThrows(IllegalArgumentException.class, () -> reg.kick(alice, stranger));
+    }
+
+    @Test
     void leavingWhenAlreadySoloIsNoOpAndReturnsFreshParty() {
         Nat20PartyRegistry reg = new Nat20PartyRegistry();
         UUID alice = UUID.randomUUID();

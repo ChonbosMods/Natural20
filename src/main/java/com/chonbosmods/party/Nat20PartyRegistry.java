@@ -45,6 +45,23 @@ public class Nat20PartyRegistry {
         byPlayer.put(invitee, target);
     }
 
+    public void kick(UUID kicker, UUID target) {
+        if (kicker.equals(target)) {
+            throw new IllegalArgumentException("cannot kick self; use leave() instead");
+        }
+        Nat20Party party = byPlayer.get(kicker);
+        if (party == null || !kicker.equals(party.getLeader())) {
+            throw new SecurityException("only the party leader can kick members");
+        }
+        if (!party.getMembers().contains(target)) {
+            throw new IllegalArgumentException("target is not a member of the kicker's party");
+        }
+        party.removeMember(target);
+        Nat20Party targetSolo = Nat20Party.ofSolo(target);
+        byPlayer.put(target, targetSolo);
+        byPartyId.put(targetSolo.getPartyId(), targetSolo);
+    }
+
     public void leave(UUID player) {
         Nat20Party current = byPlayer.get(player);
         if (current != null) {
