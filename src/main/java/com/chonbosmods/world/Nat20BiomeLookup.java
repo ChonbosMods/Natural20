@@ -31,6 +31,22 @@ public final class Nat20BiomeLookup {
         return biome == null ? null : biome.getName();
     }
 
+    public record ZoneAndBiome(@Nullable String zone, @Nullable String biome) {
+        public static final ZoneAndBiome EMPTY = new ZoneAndBiome(null, null);
+    }
+
+    /** Combined lookup: avoids paying the ZoneBiomeResult query twice per call site. */
+    public static ZoneAndBiome getZoneAndBiome(World world, double x, double z) {
+        ZoneBiomeResult result = queryResult(world, x, z);
+        if (result == null) return ZoneAndBiome.EMPTY;
+        Zone zone = result.getZoneResult() == null ? null : result.getZoneResult().getZone();
+        Biome biome = result.getBiome();
+        return new ZoneAndBiome(
+            zone == null ? null : zone.name(),
+            biome == null ? null : biome.getName()
+        );
+    }
+
     @Nullable
     private static ZoneBiomeResult queryResult(World world, double x, double z) {
         IWorldGen worldGen = world.getChunkStore().getGenerator();

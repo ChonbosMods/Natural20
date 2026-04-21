@@ -564,10 +564,11 @@ public class QuestGenerator {
             com.hypixel.hytale.server.core.universe.world.World world =
                 Natural20.getInstance().getDefaultWorld();
             if (world != null) {
-                String zoneName = com.chonbosmods.world.Nat20BiomeLookup.getZoneName(world, cx, cz);
+                com.chonbosmods.world.Nat20BiomeLookup.ZoneAndBiome zb =
+                    com.chonbosmods.world.Nat20BiomeLookup.getZoneAndBiome(world, cx, cz);
                 com.chonbosmods.progression.Nat20MobThemeRegistry themeReg =
                     Natural20.getInstance().getMobThemeRegistry();
-                String themed = themeReg.pickMob(zoneName, random);
+                String themed = themeReg.pickMob(zb.zone(), zb.biome(), random);
                 if (themed != null) {
                     QuestPoolRegistry.ItemEntry match = poolRegistry.findHostileMob(themed);
                     bindings.put("enemy_type_id", themed);

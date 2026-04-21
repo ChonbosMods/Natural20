@@ -26,6 +26,7 @@
     "Hyena",
     "Larva_Silk",
     "Larva_Void",
+    "Leopard_Snow",
     "Molerat",
     "Outlander_Berserker",
     "Outlander_Brute",
@@ -35,6 +36,7 @@
     "Outlander_Stalker",
     "Raptor_Cave",
     "Rat",
+    "Rex_Cave",
     "Scorpion",
     "Shadow_Knight",
     "Skeleton_Incandescent_Head",
@@ -63,9 +65,11 @@
     "Trork_Unarmed",
     "Trork_Warrior",
     "Trork_Warrior_Patrol",
+    "Werewolf",
     "Wolf_Black",
     "Wolf_White",
     "Wraith_Lantern",
+    "Yeti",
     "Zombie",
     "Zombie_Aberrant",
     "Zombie_Aberrant_Big",
@@ -99,6 +103,170 @@
       "Wolf_Black": 1
     }
   },
+  "biome_keywords": [
+    {
+      "match": [
+        "Caldera"
+      ],
+      "weights": {
+        "Emberwulf": 2,
+        "Spirit_Ember": 2,
+        "Slug_Magma": 1,
+        "Shadow_Knight": 1,
+        "Zombie_Burnt": 1,
+        "Spirit_Thunder": 1
+      }
+    },
+    {
+      "match": [
+        "Lava",
+        "Volcano"
+      ],
+      "weights": {
+        "Emberwulf": 2,
+        "Slug_Magma": 2,
+        "Toad_Rhino_Magma": 2,
+        "Spirit_Ember": 2,
+        "Shadow_Knight": 1,
+        "Zombie_Burnt": 1
+      }
+    },
+    {
+      "match": [
+        "Ash",
+        "Burned"
+      ],
+      "weights": {
+        "Zombie_Burnt": 2,
+        "Shadow_Knight": 2,
+        "Emberwulf": 1,
+        "Spirit_Ember": 1,
+        "Slug_Magma": 1,
+        "Ghoul": 1
+      }
+    },
+    {
+      "match": [
+        "Ghost"
+      ],
+      "weights": {
+        "Wraith_Lantern": 2,
+        "Shadow_Knight": 2,
+        "Ghoul": 2,
+        "Werewolf": 1,
+        "Zombie_Aberrant": 1,
+        "Spirit_Frost": 1
+      }
+    },
+    {
+      "match": [
+        "Roots"
+      ],
+      "weights": {
+        "Crawler_Void": 2,
+        "Spirit_Root": 2,
+        "Larva_Void": 2,
+        "Snapdragon": 2,
+        "Eye_Void": 1,
+        "Werewolf": 1
+      }
+    },
+    {
+      "match": [
+        "Geysers"
+      ],
+      "weights": {
+        "Zombie_Aberrant": 2,
+        "Zombie_Aberrant_Big": 2,
+        "Zombie_Aberrant_Small": 2,
+        "Spirit_Thunder": 2,
+        "Crawler_Void": 1
+      }
+    },
+    {
+      "match": [
+        "Frozen",
+        "Glacier",
+        "Tundra"
+      ],
+      "weights": {
+        "Wolf_White": 2,
+        "Bear_Polar": 2,
+        "Spirit_Frost": 2,
+        "Zombie_Frost": 2,
+        "Leopard_Snow": 1,
+        "Yeti": 1,
+        "Wraith_Lantern": 1
+      }
+    },
+    {
+      "match": [
+        "Swamp"
+      ],
+      "weights": {
+        "Fen_Stalker": 2,
+        "Crocodile": 2,
+        "Snake_Marsh": 2,
+        "Toad_Rhino": 2,
+        "Ghoul": 1,
+        "Spider": 1,
+        "Rat": 1
+      }
+    },
+    {
+      "match": [
+        "Desert",
+        "Dunes"
+      ],
+      "weights": {
+        "Zombie_Sand": 2,
+        "Scorpion": 2,
+        "Snake_Cobra": 2,
+        "Snake_Rattle": 2,
+        "Hyena": 1,
+        "Outlander_Hunter": 1
+      }
+    },
+    {
+      "match": [
+        "Savannah"
+      ],
+      "weights": {
+        "Hyena": 2,
+        "Outlander_Hunter": 2,
+        "Outlander_Stalker": 2,
+        "Outlander_Marauder": 1,
+        "Scorpion": 1,
+        "Snake_Rattle": 1
+      }
+    },
+    {
+      "match": [
+        "Mountain"
+      ],
+      "weights": {
+        "Bear_Grizzly": 2,
+        "Raptor_Cave": 2,
+        "Wolf_Black": 1,
+        "Spider_Cave": 1,
+        "Rex_Cave": 1,
+        "Yeti": 1
+      }
+    },
+    {
+      "match": [
+        "Wastes"
+      ],
+      "weights": {
+        "Zombie_Aberrant": 2,
+        "Zombie_Aberrant_Big": 2,
+        "Zombie_Aberrant_Small": 2,
+        "Spirit_Thunder": 2,
+        "Crawler_Void": 1,
+        "Emberwulf": 1
+      }
+    }
+  ],
   "biomes": {
     "Zone1": {
       "weights": {

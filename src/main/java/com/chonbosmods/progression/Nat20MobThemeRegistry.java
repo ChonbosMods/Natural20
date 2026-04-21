@@ -1,6 +1,7 @@
 package com.chonbosmods.progression;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -13,9 +14,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public final class Nat20MobThemeRegistry {
 
@@ -24,7 +27,12 @@ public final class Nat20MobThemeRegistry {
 
     public record WeightedPool(List<String> roles, double[] cumulativeWeights, double totalWeight) {}
 
+    /** Ordered biome-keyword entry. First entry whose tokens hit any underscore-split token of
+     *  the biome name wins (replace semantics: overrides zone pool entirely). */
+    public record BiomeKeyword(Set<String> matchTokens, WeightedPool pool) {}
+
     private final Map<String, WeightedPool> zonePools = new HashMap<>();
+    private final List<BiomeKeyword> biomeKeywords = new ArrayList<>();
     private WeightedPool defaultPool;
     private List<String> outlierDrawPool = List.of();
     private double outlierChance = 0.05;
@@ -79,8 +87,24 @@ public final class Nat20MobThemeRegistry {
             }
         }
 
-        LOGGER.atInfo().log("Theme registry loaded: %d zones, outlier_pool=%d, outlier_chance=%.2f",
-            zonePools.size(), outlierDrawPool.size(), outlierChance);
+        JsonElement kwElement = root.get("biome_keywords");
+        if (kwElement != null && kwElement.isJsonArray()) {
+            for (JsonElement el : kwElement.getAsJsonArray()) {
+                if (!el.isJsonObject()) continue;
+                JsonObject entry = el.getAsJsonObject();
+                JsonArray matchArr = entry.getAsJsonArray("match");
+                if (matchArr == null || matchArr.size() == 0) continue;
+                Set<String> tokens = new HashSet<>();
+                for (JsonElement m : matchArr) tokens.add(m.getAsString());
+                WeightedPool pool = parsePool(entry.getAsJsonObject("weights"));
+                if (pool != null) {
+                    biomeKeywords.add(new BiomeKeyword(Collections.unmodifiableSet(tokens), pool));
+                }
+            }
+        }
+
+        LOGGER.atInfo().log("Theme registry loaded: %d zones, %d biome keywords, outlier_pool=%d, outlier_chance=%.2f",
+            zonePools.size(), biomeKeywords.size(), outlierDrawPool.size(), outlierChance);
     }
 
     @Nullable
@@ -107,7 +131,7 @@ public final class Nat20MobThemeRegistry {
     }
 
     @Nullable
-    public String pickMob(@Nullable String zoneName, Random random) {
+    public String pickMob(@Nullable String zoneName, @Nullable String biomeName, Random random) {
         if (!initialized) return null;
 
         // 5% outlier roll: uniform from the combined pool
@@ -115,7 +139,7 @@ public final class Nat20MobThemeRegistry {
             return outlierDrawPool.get(random.nextInt(outlierDrawPool.size()));
         }
 
-        WeightedPool pool = resolvePool(zoneName);
+        WeightedPool pool = resolvePool(zoneName, biomeName);
         if (pool == null) return null;
 
         double pick = random.nextDouble() * pool.totalWeight();
@@ -127,10 +151,22 @@ public final class Nat20MobThemeRegistry {
         return pool.roles().get(pool.roles().size() - 1);
     }
 
-    /** Exact match first, then split on '_' and try the first segment (so Zone1_Tier3 → Zone1).
-     *  Falls through to default_biome if neither hits. */
+    /** Cascade:
+     *  1) biome keyword (first entry whose tokens intersect the biome name's underscore-split tokens)
+     *  2) zone exact match
+     *  3) zone prefix match (Zone1_Tier3 → Zone1)
+     *  4) default_biome
+     *  Biome keyword hit uses REPLACE semantics: the keyword pool overrides the zone pool entirely. */
     @Nullable
-    private WeightedPool resolvePool(@Nullable String zoneName) {
+    private WeightedPool resolvePool(@Nullable String zoneName, @Nullable String biomeName) {
+        if (biomeName != null && !biomeKeywords.isEmpty()) {
+            String[] tokens = biomeName.split("_");
+            for (BiomeKeyword kw : biomeKeywords) {
+                for (String tok : tokens) {
+                    if (kw.matchTokens().contains(tok)) return kw.pool();
+                }
+            }
+        }
         if (zoneName == null) return defaultPool;
         WeightedPool exact = zonePools.get(zoneName);
         if (exact != null) return exact;

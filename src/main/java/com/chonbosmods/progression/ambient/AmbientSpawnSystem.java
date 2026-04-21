@@ -219,11 +219,12 @@ public final class AmbientSpawnSystem {
         if (anchorOpt.isEmpty()) return false; // No cooldown burn on anchor-find failure.
         Vector3d anchor = anchorOpt.get();
 
-        String zoneName = Nat20BiomeLookup.getZoneName(world, anchor.getX(), anchor.getZ());
+        Nat20BiomeLookup.ZoneAndBiome zb =
+            Nat20BiomeLookup.getZoneAndBiome(world, anchor.getX(), anchor.getZ());
         Nat20MobThemeRegistry themes = Natural20.getInstance().getMobThemeRegistry();
-        String mobRole = themes.pickMob(zoneName, rng);
+        String mobRole = themes.pickMob(zb.zone(), zb.biome(), rng);
         if (mobRole == null) {
-            LOGGER.atFine().log("Ambient theme returned null for zone=%s", zoneName);
+            LOGGER.atFine().log("Ambient theme returned null for zone=%s biome=%s", zb.zone(), zb.biome());
             return false;
         }
 
