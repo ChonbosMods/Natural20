@@ -332,6 +332,15 @@ public class Natural20 extends JavaPlugin {
             settlementRegistry.setSaveDirectory(worldDataDir);
             settlementRegistry.load();
 
+            // Regenerate dialogue topic graphs for settlements that persisted
+            // from a prior session. Without this, any NPC whose settlement was
+            // placed in a previous run falls back to the "..." graph because
+            // onSettlementCreated only fires for NEW settlements placed during
+            // this run's worldgen. Safe to run before questSystem is ready
+            // only because setup() constructs questSystem before this method
+            // is reachable (first-chunk-load is strictly later).
+            regenerateAllSettlementTopics();
+
             lootSystem.getItemRegistry().init(worldDataDir);
             lootSystem.getItemRegistry().rehydrateAll();
 
@@ -366,6 +375,46 @@ public class Natural20 extends JavaPlugin {
                 }
             }
         });
+    }
+
+    /**
+     * Iterate every settlement in {@link #settlementRegistry} and regenerate
+     * its dialogue topic graphs, registering the results into
+     * {@link #dialogueLoader}. No-op if {@code questSystem} is still null.
+     *
+     * <p>Must be called after {@code settlementRegistry.load()} so that
+     * settlements from prior sessions pick up dialogue graphs. Previously this
+     * loop only ran in {@link #setup()} before world-scoped registries
+     * loaded, leaving every persisted settlement's NPCs speaking only the
+     * "..." fallback graph.
+     *
+     * <p>Iteration is chronological by {@code placedAt} (tiebreak on cellKey)
+     * so the shared per-world dedup evolves deterministically, matching how
+     * it evolved during the original worldgen pass.
+     */
+    private void regenerateAllSettlementTopics() {
+        if (questSystem == null) return;
+        List<SettlementRecord> orderedSettlements = new ArrayList<>(
+            settlementRegistry.getAll().values());
+        if (orderedSettlements.isEmpty()) {
+            getLogger().atInfo().log("Generated procedural topics for 0 settlement(s)");
+            return;
+        }
+        orderedSettlements.sort(
+            java.util.Comparator.comparingLong(SettlementRecord::getPlacedAt)
+                .thenComparing(SettlementRecord::getCellKey));
+        java.util.Set<UUID> resetWorlds = new java.util.HashSet<>();
+        for (SettlementRecord settlement : orderedSettlements) {
+            UUID worldId = settlement.getWorldUUID();
+            if (worldId != null && resetWorlds.add(worldId)) {
+                questSystem.getTopicGenerator().resetDedupForWorld(worldId);
+            }
+            var topicGraphs = questSystem.getTopicGenerator()
+                .generate(settlement, deriveNearbyNames(settlement));
+            dialogueLoader.registerGeneratedGraphs(topicGraphs);
+        }
+        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)",
+            orderedSettlements.size());
     }
 
     /**
@@ -907,25 +956,12 @@ public class Natural20 extends JavaPlugin {
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry, partyQuestStore);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
-        // Generate procedural topics for all existing settlements. Iterate in
-        // chronological placedAt order (tiebreak on cellKey) so the shared
-        // per-world dedup evolves identically to how it did during original
-        // world-gen: this is what makes dialogue regeneration restart-stable.
-        List<SettlementRecord> orderedSettlements = new ArrayList<>(
-            settlementRegistry.getAll().values());
-        orderedSettlements.sort(
-            java.util.Comparator.comparingLong(SettlementRecord::getPlacedAt)
-                .thenComparing(SettlementRecord::getCellKey));
-        java.util.Set<UUID> resetWorlds = new java.util.HashSet<>();
-        for (SettlementRecord settlement : orderedSettlements) {
-            UUID worldId = settlement.getWorldUUID();
-            if (worldId != null && resetWorlds.add(worldId)) {
-                questSystem.getTopicGenerator().resetDedupForWorld(worldId);
-            }
-            var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
-            dialogueLoader.registerGeneratedGraphs(topicGraphs);
-        }
-        getLogger().atInfo().log("Generated procedural topics for %d settlement(s)", orderedSettlements.size());
+        // Note: settlementRegistry is world-scoped and still empty at this
+        // point (loaded on first chunk-load by initWorldScopedRegistries).
+        // The real regeneration for persisted settlements happens there. We
+        // still call here for the degenerate case of a server that somehow
+        // has settlements before any world loads; it's effectively a no-op.
+        regenerateAllSettlementTopics();
 
         // Periodic NPC state sync (every 60s)
         npcSyncExecutor = Executors.newSingleThreadScheduledExecutor(r -> {
