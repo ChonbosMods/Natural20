@@ -1,6 +1,7 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.loot.chest.Nat20ChestContainerWriter;
+import com.chonbosmods.loot.chest.Nat20ChestRollRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.Gson;
@@ -23,6 +24,17 @@ public class QuestChestPlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestChest");
     private static final String CHEST_BLOCK_NAME = "Furniture_Dungeon_Chest_Epic";
+
+    private static Nat20ChestRollRegistry chestRollRegistry;
+
+    /**
+     * Inject the chest-roll registry so quest chests opt out of affix-loot injection.
+     * Called once from plugin setup; null-safe for tests that don't exercise the full
+     * plugin lifecycle.
+     */
+    public static void setChestRollRegistry(Nat20ChestRollRegistry registry) {
+        chestRollRegistry = registry;
+    }
 
     public static boolean placeQuestChest(World world, int x, int y, int z,
                                            String itemTypeId, String itemLabel) {
@@ -102,6 +114,10 @@ public class QuestChestPlacer {
             chunk.setBlock(x, y, z, blockId, blockType, rotationIndex, filler, 93);
             // Apply container state
             chunk.setState(x, y, z, blockType, rotationIndex, holder);
+
+            if (chestRollRegistry != null) {
+                chestRollRegistry.markRolled(x, y, z);
+            }
 
             LOGGER.atInfo().log("Placed quest chest at %d, %d, %d with item %s (%s)",
                 x, y, z, itemTypeId, itemLabel);
