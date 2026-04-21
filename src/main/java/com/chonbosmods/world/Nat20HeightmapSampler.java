@@ -29,7 +29,8 @@ public final class Nat20HeightmapSampler {
      * Walks down from {@code startY} skipping tree blocks (leaves, trunks, branches, roots)
      * until a non-tree solid block is found. Returns (solid block Y + 1), i.e., the first
      * buildable Y above ground. Returns 0 (sentinel) if no solid block found within
-     * {@code maxSteps}.
+     * {@code maxSteps}, or if any {@code Fluid_*} block is encountered (water/lava reject
+     * the column so callers can skip placements over water).
      */
     static int walkDownToSolidGround(int startY,
                                      int maxSteps,
@@ -39,6 +40,7 @@ public final class Nat20HeightmapSampler {
             int y = startY - step;
             if (y <= 0) return 0;
             String name = blockNameAt.apply(y);
+            if (name != null && name.startsWith("Fluid_")) return 0;
             if (isTreeBlockName(name)) continue;
             if (isSolidAt.test(y)) return y + 1;
         }

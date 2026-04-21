@@ -84,6 +84,19 @@ class Nat20HeightmapSamplerTest {
     }
 
     @Test
+    void walkDown_rejectsColumnContainingFluid() {
+        // Water column above dirt seabed. Sampler must reject (return 0), NOT descend to seabed.
+        java.util.function.IntFunction<String> names = y -> {
+            if (y >= 66) return "Air";
+            if (y >= 60) return "Fluid_Water";
+            return "Soil_Dirt";
+        };
+        java.util.function.IntPredicate isSolid = y -> y <= 59;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid);
+        assertEquals(0, result, "fluid in column must reject the probe");
+    }
+
+    @Test
     void reduce_minPicksLowest() {
         int[] heights = {64, 65, 68, 63, 66};
         assertEquals(63, Nat20HeightmapSampler.reduce(heights, Nat20HeightmapSampler.Mode.MIN));
