@@ -57,7 +57,7 @@ public final class Nat20ChestRollRegistry {
                 GSON.toJson(rolled, MAP_TYPE, writer);
             }
         } catch (IOException e) {
-            LOGGER.atWarning().withCause(e).log("Failed to save chest_rolls.json");
+            LOGGER.atSevere().withCause(e).log("Failed to save chest_rolls.json");
         }
     }
 
@@ -68,10 +68,11 @@ public final class Nat20ChestRollRegistry {
         try (Reader reader = Files.newBufferedReader(savePath)) {
             Map<String, Long> loaded = GSON.fromJson(reader, MAP_TYPE);
             if (loaded != null) {
+                rolled.clear();
                 rolled.putAll(loaded);
             }
         } catch (IOException e) {
-            LOGGER.atWarning().withCause(e).log("Failed to load chest_rolls.json");
+            LOGGER.atSevere().withCause(e).log("Failed to load chest_rolls.json");
         }
     }
 
