@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 public class QuestInstance {
     private String questId;
@@ -20,6 +21,12 @@ public class QuestInstance {
     private Map<String, String> variableBindings = new HashMap<>();
     private Set<Integer> rewardsClaimed = new HashSet<>();
     private boolean skillcheckPassed;
+
+    /** Frozen snapshot of the claimant party's members at accept time. Immutable
+     *  for the life of the quest; never mutates on leave/kick/disband/rejoin per
+     *  the party & multiplayer quest design (2026-04-21). A solo player is a
+     *  single-element list. */
+    private List<UUID> accepters = new ArrayList<>();
 
     /** XP awarded on EVERY phase turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
      *  By design each phase of a multi-phase quest grants full XP ("each phase is its own quest"),
@@ -102,6 +109,19 @@ public class QuestInstance {
 
     public boolean isWaypointEnabled() { return waypointEnabled; }
     public void setWaypointEnabled(boolean v) { this.waypointEnabled = v; }
+
+    public List<UUID> getAccepters() {
+        if (accepters == null) accepters = new ArrayList<>();
+        return accepters;
+    }
+
+    public void setAccepters(List<UUID> accepters) {
+        this.accepters = accepters == null ? new ArrayList<>() : new ArrayList<>(accepters);
+    }
+
+    public boolean hasAccepter(UUID player) {
+        return getAccepters().contains(player);
+    }
 
     /** Current objective based on conflictCount: index 0 = exposition, 1 = conflict 1, 2 = conflict 2 */
     public ObjectiveInstance getCurrentObjective() {
