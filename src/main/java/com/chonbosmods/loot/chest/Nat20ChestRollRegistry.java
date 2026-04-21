@@ -33,11 +33,21 @@ public final class Nat20ChestRollRegistry {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Type MAP_TYPE = new TypeToken<Map<String, Long>>() {}.getType();
 
-    private final Path savePath;
+    private Path savePath;
     private final ConcurrentHashMap<String, Long> rolled = new ConcurrentHashMap<>();
 
     public Nat20ChestRollRegistry(Path rootDir) {
         this.savePath = rootDir.resolve("chest_rolls.json");
+    }
+
+    /**
+     * Rebind the save file to {@code worldDataDir / chest_rolls.json}. Clears in-memory
+     * state. Called from the first-chunk-load hook so the registry is scoped to the
+     * currently-loaded world (wiping the world regenerates an empty registry).
+     */
+    public synchronized void setSaveDirectory(Path worldDataDir) {
+        this.savePath = worldDataDir.resolve("chest_rolls.json");
+        rolled.clear();
     }
 
     public boolean hasBeenRolled(int x, int y, int z) {
