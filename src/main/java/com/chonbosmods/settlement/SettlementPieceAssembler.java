@@ -40,7 +40,13 @@ public final class SettlementPieceAssembler {
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|PieceAssembler");
 
     /** Max position-candidate retries before giving up on an individual piece. */
-    private static final int MAX_RETRIES_PER_PIECE = 30;
+    private static final int MAX_RETRIES_PER_PIECE = 60;
+
+    /** Extra pieces planned above target to absorb paste-time rejections (terrain). */
+    private static final int OVERPROVISION = 2;
+
+    /** If fewer than this many pieces actually paste, the settlement is not worth keeping. */
+    private static final int MIN_PASTED_PIECES = 4;
 
     /** Four cardinal rotations used for per-piece yaw. */
     private static final Rotation[] CARDINAL_ROTATIONS = {
@@ -61,10 +67,11 @@ public final class SettlementPieceAssembler {
 
         int targetCount = config.minPieces()
                 + rng.nextInt(config.maxPieces() - config.minPieces() + 1);
-        LOGGER.atInfo().log("Assembling %d pieces from '%s' (pool size=%d) at %s",
-            targetCount, config.poolCategory(), pool.size(), center);
+        int planCount = targetCount + OVERPROVISION;
+        LOGGER.atInfo().log("Assembling %d pieces (plan %d) from '%s' (pool size=%d) at %s",
+            targetCount, planCount, config.poolCategory(), pool.size(), center);
 
-        List<Placement> placements = planPlacements(targetCount, pool, center, config, rng);
+        List<Placement> placements = planPlacements(planCount, pool, center, config, rng);
         if (placements.isEmpty()) {
             LOGGER.atWarning().log("No pieces fit at %s with spacing=%d radius=%d",
                 center, config.minSpacing(), config.outerRadius());
@@ -315,12 +322,15 @@ public final class SettlementPieceAssembler {
             mobGroups.addAll(pm.mobGroupSpawnsWorld());
             chests.addAll(pm.chestSpawnsWorld());
         }
-        if (pasted == 0) {
-            LOGGER.atWarning().log("No pieces pasted successfully at %s", center);
+        if (pasted < MIN_PASTED_PIECES) {
+            LOGGER.atWarning().log(
+                "Only %d/%d pieces pasted at %s (min required: %d); abandoning settlement. "
+                    + "Any pasted pieces remain in the world as orphan ruins.",
+                pasted, futures.size(), center, MIN_PASTED_PIECES);
             return null;
         }
-        LOGGER.atInfo().log("Piece settlement at %s: pieces=%d npcs=%d mobGroups=%d chests=%d",
-            center, pasted, npcs.size(), mobGroups.size(), chests.size());
+        LOGGER.atInfo().log("Piece settlement at %s: pieces=%d/%d npcs=%d mobGroups=%d chests=%d",
+            center, pasted, futures.size(), npcs.size(), mobGroups.size(), chests.size());
 
         // The merged settlement's anchor is the shared center; direction is
         // arbitrary (pieces face different ways).
