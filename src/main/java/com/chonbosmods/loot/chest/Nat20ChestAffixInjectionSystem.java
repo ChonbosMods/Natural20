@@ -71,7 +71,7 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
                 debugBlockId, event.getInteractionType(), event.isCancelled());
 
         if (event.isCancelled()) return;
-        if (event.getInteractionType() != InteractionType.Secondary) return;
+        if (event.getInteractionType() != InteractionType.Use) return;
         if (event.getBlockType() == null) return;
         String blockTypeId = event.getBlockType().getId();
         if (blockTypeId == null || !config.isChestBlock(blockTypeId)) return;
