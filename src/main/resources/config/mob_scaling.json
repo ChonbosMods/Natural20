@@ -1,24 +1,24 @@
 {
   "area_level": {
     "bands": [
-      { "max_distance": 1000,  "area_level_start": 1,  "area_level_end": 10 },
-      { "max_distance": 2500,  "area_level_start": 11, "area_level_end": 20 },
-      { "max_distance": 5000,  "area_level_start": 21, "area_level_end": 30 },
+      { "max_distance": 2500,  "area_level_start": 1,  "area_level_end": 10 },
+      { "max_distance": 5000,  "area_level_start": 11, "area_level_end": 20 },
+      { "max_distance": 7500,  "area_level_start": 21, "area_level_end": 30 },
       { "max_distance": 10000, "area_level_start": 31, "area_level_end": 40 }
     ],
     "default_area_level": 40
   },
   "mlvl_offsets": {
     "REGULAR": 0,
-    "CHAMPION": 2,
-    "BOSS": 3,
-    "DUNGEON_BOSS": 5
+    "CHAMPION": 0,
+    "BOSS": 2,
+    "DUNGEON_BOSS": 3
   },
   "tier_multipliers": {
-    "REGULAR":      { "hp_mult": 1.0,  "dmg_mult": 1.0 },
-    "CHAMPION":     { "hp_mult": 2.5,  "dmg_mult": 1.3 },
-    "BOSS":         { "hp_mult": 5.0,  "dmg_mult": 1.8 },
-    "DUNGEON_BOSS": { "hp_mult": 20.0, "dmg_mult": 2.5 }
+    "REGULAR":      { "hp_mult": 1.0,  "dmg_mult": 0.769 },
+    "CHAMPION":     { "hp_mult": 2.5,  "dmg_mult": 1.0 },
+    "BOSS":         { "hp_mult": 5.0,  "dmg_mult": 1.385 },
+    "DUNGEON_BOSS": { "hp_mult": 20.0, "dmg_mult": 1.923 }
   },
   "monster_scaling": {
     "base_hp": 40, "base_dmg": 12,
@@ -44,14 +44,14 @@
   },
   "difficulty": {
     "weights": {
-      "uncommon": 45,
+      "uncommon": 50,
       "rare": 40,
-      "epic": 15
+      "epic": 10
     },
     "mlvl_mods": {
       "uncommon": 1,
-      "rare": 2,
-      "epic": 3,
+      "rare": 1,
+      "epic": 2,
       "legendary": 5
     },
     "boss_legendary_chance": 25,

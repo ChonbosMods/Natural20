@@ -16,56 +16,60 @@ import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.npc.entities.NPCEntity;
-import com.hypixel.hytale.server.npc.role.Role;
+import com.hypixel.hytale.server.core.util.TargetUtil;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Keeps ambient/POI mob group champions tethered to their boss when idle.
+ * Keeps ambient/POI mob group champions tethered to their boss by teleport-recalling
+ * strays, but only when it's invisible to players and the mob isn't still in combat.
  *
- * <p>Every {@link #TICK_INTERVAL_MS}, iterates champions (entities with
- * {@link Nat20MobGroupMemberComponent}) and compares their position to the boss
- * slot's live position. Behavior by distance:
+ * <p>Design constraints driving this system:
  * <ul>
- *   <li>&le; {@link #LEASH_RADIUS}: no-op.</li>
- *   <li>&gt; {@link #LEASH_RADIUS}, &le; {@link #TELEPORT_RADIUS}: call
- *       {@link NPCEntity#setLeashPoint} on the champion with the boss's current
- *       position. This is a soft nudge - it becomes an active pull only if the
- *       mob role's state machine defines a {@code ReturnToPost}-style
- *       {@link com.hypixel.hytale.server.npc.corecomponents.world.SensorLeash}
- *       with {@code BodyMotionSeek} (matches our Guard.json pattern). For roles
- *       without that state, the leash point is stored but not acted on: champs
- *       stay where they are until the teleport threshold triggers.</li>
- *   <li>&gt; {@link #TELEPORT_RADIUS}: hard {@link TransformComponent#teleportPosition}
- *       to a scattered spot near the boss. Catches strays that fell behind after
- *       combat or fast chunk-load bursts.</li>
+ *   <li>The Hytale SDK exposes no role-agnostic "walk to point" API. {@code setLeashPoint}
+ *       is a soft nudge that only works if the role JSON defines a {@code ReturnToPost}
+ *       state with {@code SensorLeash} + {@code BodyMotionSeek} (our {@code Guard.json}
+ *       pattern). 80+ base-game mob roles don't have it, and editing each is not on the
+ *       table. The only universal movement primitive is
+ *       {@link TransformComponent#teleportPosition}. So we teleport.</li>
+ *   <li>Teleport must never happen while a player can see it. We gate on a
+ *       {@link #PLAYER_PROXIMITY_RADIUS} check, not on behavior-tree target slots,
+ *       because target refs invalidate when the player leaves the chunk.</li>
+ *   <li>Teleport must never happen during combat, even when the player has just run out
+ *       of view. We use {@code lastCombatMillis} on {@link Nat20MobGroupMemberComponent},
+ *       written by {@link Nat20MobGroupCombatStampSystem} on every damage event. This is
+ *       a persisted timestamp keyed to the entity, not a live-ref check, so chunk reload
+ *       and server restart don't reset it.</li>
+ *   <li>Teleport requires {@link #REQUIRED_OUT_OF_RANGE_TICKS} consecutive out-of-range
+ *       ticks before firing. The counter is also on the member component so a chunk flap
+ *       doesn't reset progress.</li>
  * </ul>
  *
- * <p>Idle suppression: before enforcing, we check the champion's {@code Role} via
- * {@link com.hypixel.hytale.server.npc.role.support.MarkedEntitySupport#getEntityTargets}.
- * If any target slot (combat target, interaction target, etc.) holds a valid ref,
- * the champion is considered busy and we skip. Same canonical idle predicate we
- * use elsewhere for Nat20 NPCs.
- *
- * <p>If the boss slot is dead or its UUID doesn't resolve, the leash is released -
- * surviving champions roam freely.
+ * <p>Per-check debounce (next-tick time) stays in an ephemeral
+ * {@link ConcurrentHashMap}: losing it on chunk reload just means the next tick fires
+ * one frame earlier, which is correctness-neutral.
  */
 public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|MobGroupLeash");
     private static final Query<EntityStore> QUERY = Query.any();
 
-    /** Champion stays within this range of the boss with no enforcement. */
-    private static final double LEASH_RADIUS = 25.0;
-    private static final double LEASH_RADIUS_SQ = LEASH_RADIUS * LEASH_RADIUS;
-
-    /** Past this range, force-teleport the champion back to the boss. */
-    private static final double TELEPORT_RADIUS = 50.0;
+    /** Past this range, the champion is considered strayed and enters the gate sequence. */
+    private static final double TELEPORT_RADIUS = 25.0;
     private static final double TELEPORT_RADIUS_SQ = TELEPORT_RADIUS * TELEPORT_RADIUS;
+
+    /** No teleport fires if any player is within this radius of the champion. */
+    private static final double PLAYER_PROXIMITY_RADIUS = 40.0;
+
+    /** A mob counts as "in combat" for this long after any damage it deals or takes. */
+    private static final long COMBAT_GRACE_MS = 15_000L;
+
+    /** How many consecutive out-of-range ticks must pass before teleport fires. */
+    private static final int REQUIRED_OUT_OF_RANGE_TICKS = 3;
 
     /** How often each champion is re-evaluated. */
     private static final long TICK_INTERVAL_MS = 2_000L;
@@ -137,21 +141,49 @@ public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
         double dz = bossPos.getZ() - champPos.getZ();
         double distSq = dx * dx + dy * dy + dz * dz;
 
-        if (distSq <= LEASH_RADIUS_SQ) return;
-
-        NPCEntity npc = store.getComponent(ref, NPCEntity.getComponentType());
-        if (npc == null) return;
-        if (hasAnyTarget(npc)) return; // engaged (combat / interaction / etc.)
-        npc.setLeashPoint(bossPos);
-
-        if (distSq > TELEPORT_RADIUS_SQ) {
-            Vector3d target = scatterAround(bossPos, TELEPORT_SCATTER);
-            champT.teleportPosition(target);
-            LOGGER.atFine().log(
-                    "Leash teleport: group=%s slot=%d distSq=%.0f to (%.1f,%.1f,%.1f)",
-                    member.getGroupKey(), member.getSlotIndex(), distSq,
-                    target.getX(), target.getY(), target.getZ());
+        if (distSq <= TELEPORT_RADIUS_SQ) {
+            if (member.getOutOfRangeTicks() != 0) member.setOutOfRangeTicks(0);
+            return;
         }
+
+        // Combat grace: any damage involving this mob within the last 15s suppresses enforcement.
+        // Counter is not reset here — if combat ends while still out of range, we resume the
+        // countdown from where it stopped rather than starting over.
+        if (now - member.getLastCombatMillis() < COMBAT_GRACE_MS) {
+            return;
+        }
+
+        // Player proximity gate: no teleport if any player can see the champion. Resets
+        // the out-of-range counter so a player drifting in and out doesn't slowly march
+        // the mob toward a teleport.
+        if (anyPlayerNearby(champPos, store)) {
+            if (member.getOutOfRangeTicks() != 0) member.setOutOfRangeTicks(0);
+            return;
+        }
+
+        int ticks = member.getOutOfRangeTicks() + 1;
+        if (ticks < REQUIRED_OUT_OF_RANGE_TICKS) {
+            member.setOutOfRangeTicks(ticks);
+            return;
+        }
+
+        Vector3d target = scatterAround(bossPos, TELEPORT_SCATTER);
+        champT.teleportPosition(target);
+        member.setOutOfRangeTicks(0);
+        LOGGER.atFine().log(
+                "Leash teleport: group=%s slot=%d distSq=%.0f to (%.1f,%.1f,%.1f)",
+                member.getGroupKey(), member.getSlotIndex(), distSq,
+                target.getX(), target.getY(), target.getZ());
+    }
+
+    private boolean anyPlayerNearby(Vector3d champPos, Store<EntityStore> store) {
+        List<Ref<EntityStore>> nearby =
+                TargetUtil.getAllEntitiesInSphere(champPos, PLAYER_PROXIMITY_RADIUS, store);
+        for (Ref<EntityStore> r : nearby) {
+            if (r == null || !r.isValid()) continue;
+            if (store.getComponent(r, Natural20.getPlayerDataType()) != null) return true;
+        }
+        return false;
     }
 
     private static SlotRecord findLiveBoss(MobGroupRecord record) {
@@ -159,22 +191,6 @@ public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
             if (s.isBoss() && !s.isDead() && s.getCurrentUuid() != null) return s;
         }
         return null;
-    }
-
-    /**
-     * True if this NPC has any active target (combat, interaction, etc.) in any of
-     * its MarkedEntitySupport slots. This mirrors the idle check Hytale's own role
-     * state transitions use.
-     */
-    private static boolean hasAnyTarget(NPCEntity npc) {
-        Role role = npc.getRole();
-        if (role == null) return false;
-        Ref<EntityStore>[] targets = role.getMarkedEntitySupport().getEntityTargets();
-        if (targets == null) return false;
-        for (Ref<EntityStore> t : targets) {
-            if (t != null && t.isValid()) return true;
-        }
-        return false;
     }
 
     private Vector3d scatterAround(Vector3d center, double radius) {

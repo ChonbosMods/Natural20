@@ -57,6 +57,7 @@ import com.chonbosmods.loot.mob.Nat20MobAffixes;
 import com.chonbosmods.loot.mob.Nat20MobGroupMemberComponent;
 import com.chonbosmods.loot.mob.Nat20MobLootDropSystem;
 import com.chonbosmods.progression.Nat20MobLevel;
+import com.chonbosmods.progression.Nat20MobGroupCombatStampSystem;
 import com.chonbosmods.progression.Nat20MobGroupDedupSystem;
 import com.chonbosmods.progression.Nat20MobGroupLeashSystem;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
@@ -718,6 +719,7 @@ public class Natural20 extends JavaPlugin {
         mobGroupRegistry = new Nat20MobGroupRegistry(getDataDirectory());
         poiGroupSpawnCoordinator = new POIGroupSpawnCoordinator(mobGroupRegistry, mobGroupSpawner);
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupDedupSystem(mobGroupRegistry));
+        getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
 
         // Enumerate native hostile mob pool by scanning NPCPlugin roles

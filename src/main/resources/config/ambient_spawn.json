@@ -1,6 +1,6 @@
 {
-  "roll_chance": 0.005,
-  "cooldown_millis": 60000,
+  "roll_chance": 0.02,
+  "cooldown_millis": 30000,
   "min_distance_from_player": 50,
   "max_distance_from_player": 100,
   "chunk_trigger_radius": 400,
