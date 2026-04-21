@@ -84,4 +84,8 @@ public final class Nat20ChestLootConfig {
     public boolean isChestBlock(String blockTypeName) {
         return chestBlockTypes.contains(blockTypeName);
     }
+
+    public int blockTypeCount() {
+        return chestBlockTypes.size();
+    }
 }

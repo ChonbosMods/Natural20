@@ -66,6 +66,10 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
     public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
                        Store<EntityStore> store, CommandBuffer<EntityStore> cb,
                        UseBlockEvent.Pre event) {
+        String debugBlockId = event.getBlockType() != null ? event.getBlockType().getId() : "<null>";
+        LOGGER.atInfo().log("UseBlockEvent.Pre: block=%s interaction=%s cancelled=%s",
+                debugBlockId, event.getInteractionType(), event.isCancelled());
+
         if (event.isCancelled()) return;
         if (event.getInteractionType() != InteractionType.Secondary) return;
         if (event.getBlockType() == null) return;
