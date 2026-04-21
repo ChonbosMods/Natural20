@@ -557,16 +557,18 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                         isLeader ? COLOR_PLAYER_LEADER
                                 : (online ? COLOR_PLAYER_ONLINE : COLOR_PLAYER_OFFLINE));
 
-                // Button A = Kick, Button B = Promote. Both leader-only, non-self.
+                // Button A = Promote, Button B = Kick. Both leader-only, non-self.
+                // A is the wider slot (110px in the template) so the word
+                // "Promote" fits without truncation.
                 boolean showKick = viewerIsLeader && !isSelf;
                 boolean showPromote = viewerIsLeader && !isSelf;
                 String kickToken = "kick-" + i;
                 boolean confirmingKick = kickToken.equals(pendingConfirmToken);
 
-                cmd.set("#CSPartyRowBtnA" + i + ".Visible", showKick);
-                cmd.set("#CSPartyRowBtnA" + i + ".Text", confirmingKick ? "Confirm?" : "Kick");
-                cmd.set("#CSPartyRowBtnB" + i + ".Visible", showPromote);
-                cmd.set("#CSPartyRowBtnB" + i + ".Text", "Promote");
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", showPromote);
+                cmd.set("#CSPartyRowBtnA" + i + ".Text", "Promote");
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", showKick);
+                cmd.set("#CSPartyRowBtnB" + i + ".Text", confirmingKick ? "Confirm?" : "Kick");
             } else {
                 cmd.set("#CSPartyRow" + i + ".Visible", false);
                 cmd.set("#CSPartyRowBtnA" + i + ".Visible", false);
@@ -787,8 +789,8 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
         switch (currentPartyTab) {
             case PARTY -> {
-                if (isButtonA) handleKickClicked(slot, target);
-                else handlePromoteClicked(target);
+                if (isButtonA) handlePromoteClicked(target);
+                else handleKickClicked(slot, target);
             }
             case SERVER -> {
                 if (isButtonA) handleInviteClicked(store, target);
