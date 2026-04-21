@@ -66,6 +66,7 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
     public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
                        Store<EntityStore> store, CommandBuffer<EntityStore> cb,
                        UseBlockEvent.Pre event) {
+        if (event.isCancelled()) return;
         if (event.getInteractionType() != InteractionType.Secondary) return;
         if (event.getBlockType() == null) return;
         String blockTypeId = event.getBlockType().getId();
@@ -95,7 +96,8 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         boolean injected = Nat20ChestContainerWriter.injectIntoFirstEmptySlot(
                 world, pos.getX(), pos.getY(), pos.getZ(), stack);
         if (injected) {
-            LOGGER.atFine().log("Injected Nat20 loot into chest at %s (areaLevel=%d)", pos, areaLevel);
+            LOGGER.atInfo().log("Chest inject at %d,%d,%d areaLevel=%d -> %s",
+                    pos.getX(), pos.getY(), pos.getZ(), areaLevel, data.getGeneratedName());
         }
     }
 
