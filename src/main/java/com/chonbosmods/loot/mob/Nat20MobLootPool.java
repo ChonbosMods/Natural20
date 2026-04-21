@@ -82,7 +82,7 @@ public final class Nat20MobLootPool {
         return new PickResult(global.get(rng.nextInt(global.size())), Source.GLOBAL);
     }
 
-    private static List<String> buildGlobalPool(Nat20LootEntryRegistry registry, int ilvl) {
+    public static List<String> buildGlobalPool(Nat20LootEntryRegistry registry, int ilvl) {
         List<String> pool = new ArrayList<>();
         for (String itemId : registry.getAllItemIds()) {
             if (!Nat20ItemTierResolver.isGearItem(itemId)) continue;

@@ -1,5 +1,7 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.loot.chest.Nat20ChestContainerWriter;
+import com.chonbosmods.loot.chest.Nat20ChestRollRegistry;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.Gson;
@@ -8,7 +10,6 @@ import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
-import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
@@ -23,6 +24,19 @@ public class QuestChestPlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestChest");
     private static final String CHEST_BLOCK_NAME = "Furniture_Dungeon_Chest_Epic";
+
+    private static Nat20ChestRollRegistry chestRollRegistry;
+
+    /**
+     * Inject the chest-roll registry so quest chests opt out of affix-loot injection.
+     * Must be called before any quest chest is placed: when null, quest chests will
+     * be re-rolled by {@code Nat20ChestAffixInjectionSystem} on first player
+     * interaction, overwriting (or colliding with) the authored reward. Null-safe
+     * solely to accommodate tests that don't exercise the full plugin lifecycle.
+     */
+    public static void setChestRollRegistry(Nat20ChestRollRegistry registry) {
+        chestRollRegistry = registry;
+    }
 
     public static boolean placeQuestChest(World world, int x, int y, int z,
                                            String itemTypeId, String itemLabel) {
@@ -86,8 +100,7 @@ public class QuestChestPlacer {
             Holder<ChunkStore> holder = ChunkStore.REGISTRY.deserialize(bson);
 
             // 4. Get chunk (WorldChunk uses world coordinates)
-            long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
-            WorldChunk chunk = world.getNonTickingChunk(chunkKey);
+            WorldChunk chunk = Nat20ChestContainerWriter.getLoadedChunk(world, x, z);
             if (chunk == null) {
                 LOGGER.atWarning().log("Chunk not loaded at %d, %d for quest chest", x, z);
                 return false;
@@ -103,6 +116,10 @@ public class QuestChestPlacer {
             chunk.setBlock(x, y, z, blockId, blockType, rotationIndex, filler, 93);
             // Apply container state
             chunk.setState(x, y, z, blockType, rotationIndex, holder);
+
+            if (chestRollRegistry != null) {
+                chestRollRegistry.markRolled(x, y, z);
+            }
 
             LOGGER.atInfo().log("Placed quest chest at %d, %d, %d with item %s (%s)",
                 x, y, z, itemTypeId, itemLabel);

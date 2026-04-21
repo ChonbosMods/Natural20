@@ -75,11 +75,17 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.loot.chest.Nat20ChestAffixInjectionSystem;
+import com.chonbosmods.loot.chest.Nat20ChestLootConfig;
+import com.chonbosmods.loot.chest.Nat20ChestLootPicker;
+import com.chonbosmods.loot.chest.Nat20ChestLootRoller;
+import com.chonbosmods.loot.chest.Nat20ChestRollRegistry;
 import com.chonbosmods.quest.CollectResourceTrackingSystem;
 import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.POIProximitySystem;
+import com.chonbosmods.quest.QuestChestPlacer;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
@@ -150,6 +156,7 @@ public class Natural20 extends JavaPlugin {
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
+    private Nat20ChestRollRegistry chestRollRegistry;
     private final Nat20HostilePool hostilePool = new Nat20HostilePool();
     private final com.chonbosmods.world.Nat20ZoneRegistry zoneRegistry = new com.chonbosmods.world.Nat20ZoneRegistry();
     private final Nat20MobThemeRegistry mobThemeRegistry = new Nat20MobThemeRegistry();
@@ -236,6 +243,10 @@ public class Natural20 extends JavaPlugin {
         return mobGroupRegistry;
     }
 
+    public Nat20ChestRollRegistry getChestRollRegistry() {
+        return chestRollRegistry;
+    }
+
     public Nat20HostilePool getHostilePool() {
         return hostilePool;
     }
@@ -286,6 +297,9 @@ public class Natural20 extends JavaPlugin {
 
             mobGroupRegistry.setSaveDirectory(worldDataDir);
             mobGroupRegistry.load();
+
+            chestRollRegistry.setSaveDirectory(worldDataDir);
+            chestRollRegistry.load();
 
             caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
             caveVoidRegistry.load();
@@ -721,6 +735,16 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupDedupSystem(mobGroupRegistry));
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
+
+        // Chest affix-loot injection. Registry data file is rebound to a world-scoped
+        // path in the first-chunk-load hook below; initial path is a placeholder.
+        Nat20ChestLootConfig chestLootConfig = Nat20ChestLootConfig.load();
+        chestRollRegistry = new Nat20ChestRollRegistry(getDataDirectory());
+        Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
+        Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
+        QuestChestPlacer.setChestRollRegistry(chestRollRegistry);
+        getEntityStoreRegistry().registerSystem(new Nat20ChestAffixInjectionSystem(
+                chestLootConfig, chestLootRoller, chestRollRegistry, scalingConfig, chestLootPicker));
 
         // Enumerate native hostile mob pool by scanning NPCPlugin roles
         hostilePool.initialize();
