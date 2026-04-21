@@ -19,7 +19,6 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Nat20ItemRenderer {
 
@@ -61,46 +60,8 @@ public class Nat20ItemRenderer {
             double maxValue = Nat20AffixScaling.interpolate(range, rolledAffix.maxLevel(), lootData, rarityRegistry);
             double midValue = (minValue + maxValue) * 0.5;
 
-            String value;
-            String unit;
-            if ("MULTIPLICATIVE".equals(affixDef.modifierType())) {
-                value = String.format("+%.0f", midValue * 100);
-                unit = "%";
-            } else {
-                value = String.format("+%.1f", midValue);
-                unit = "";
-            }
-
-            String affixName = extractDisplayWord(affixDef.displayName());
-            String scalingStat = affixDef.statScaling() != null
-                    ? affixDef.statScaling().primary().name()
-                    : null;
-            String type = affixDef.type().name();
-
-            // Per-affix requirement check
-            boolean requirementMet = true;
-            String requirementText = null;
-            if (affixDef.statRequirement() != null && !affixDef.statRequirement().isEmpty()) {
-                requirementText = formatStatRequirement(affixDef.statRequirement());
-                if (playerStats != null) {
-                    for (Map.Entry<Stat, Integer> req : affixDef.statRequirement().entrySet()) {
-                        if (playerStats.stats()[req.getKey().index()] < req.getValue()) {
-                            requirementMet = false;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            // Render the tooltip line with colour markup per the locked mapping.
             String renderedText = renderAffixLine(affixDef, rolledAffix, minValue, maxValue, midValue, rarity.color());
-
-            affixes.add(new AffixLine(
-                    affixName, value, unit, affixDef.targetStat(),
-                    scalingStat, type, requirementMet, requirementText,
-                    affixDef.description(), affixDef.cooldown(), affixDef.procChance(),
-                    renderedText
-            ));
+            affixes.add(new AffixLine(affixDef.type().name(), renderedText));
         }
 
         // Socket lines
@@ -166,15 +127,6 @@ public class Nat20ItemRenderer {
                 requirement,
                 lootData.getDescription()
         );
-    }
-
-    private String formatStatRequirement(Map<Stat, Integer> statRequirement) {
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<Stat, Integer> entry : statRequirement.entrySet()) {
-            if (!sb.isEmpty()) sb.append(", ");
-            sb.append(entry.getKey().name()).append(" ").append(entry.getValue());
-        }
-        return sb.toString();
     }
 
     /**

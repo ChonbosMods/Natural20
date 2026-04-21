@@ -18,7 +18,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new ZoneDumpCommand());
         addSubCommand(new ProbeCommand());
         addSubCommand(new LootCommand());
-        addSubCommand(new LootInspectCommand());
         addSubCommand(new SettlementsCommand());
         addSubCommand(new KillNpcCommand());
         addSubCommand(new PlacePrefabsCommand());
