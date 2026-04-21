@@ -1,5 +1,11 @@
 package com.chonbosmods.world;
 
+import com.hypixel.hytale.math.util.ChunkUtil;
+import com.hypixel.hytale.protocol.BlockMaterial;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
+
 public final class Nat20HeightmapSampler {
 
     private Nat20HeightmapSampler() {}
@@ -7,6 +13,9 @@ public final class Nat20HeightmapSampler {
     public enum Mode { MIN, MEDIAN, ENTRY_ANCHOR }
 
     public record SampleResult(int y, int slopeDelta, boolean tooSteep) {}
+
+    private static final int DOWNWALK_MAX_STEPS = 20;
+    private static final int DEFAULT_SLOPE_THRESHOLD = 4;
 
     static boolean isTreeBlockName(String name) {
         if (name == null) return false;
@@ -72,5 +81,79 @@ public final class Nat20HeightmapSampler {
             if (h > max) max = h;
         }
         return max - min;
+    }
+
+    /**
+     * Sample the terrain surface at an axis-aligned footprint centered on (centerX, centerZ).
+     * Probes 5 points (center + 4 corners) via WorldChunk.getHeight(), walks each result down
+     * through tree blocks to real solid ground, then reduces per {@code mode}.
+     *
+     * <p><b>Chunk requirement:</b> All 5 probe points must lie in non-ticking-loaded chunks.
+     * Callers typically preload chunks via {@code world.getNonTickingChunkAsync(...)} before
+     * invoking this method.
+     *
+     * <p><b>ENTRY_ANCHOR mode:</b> Y is taken from the center probe; corner probes contribute
+     * only to slope reporting. Use when a specific XZ (dungeon mouth, door sill) must be flush
+     * with terrain and the rest of the footprint can clip.
+     *
+     * @return sampled Y + slope delta, or a result with {@code tooSteep=true} if the delta
+     *         exceeds {@code slopeThreshold}.
+     */
+    public static SampleResult sample(World world,
+                                      int centerX, int centerZ,
+                                      int halfX, int halfZ,
+                                      Mode mode,
+                                      int slopeThreshold) {
+        int[] xs = { centerX, centerX - halfX, centerX + halfX, centerX - halfX, centerX + halfX };
+        int[] zs = { centerZ, centerZ - halfZ, centerZ - halfZ, centerZ + halfZ, centerZ + halfZ };
+        int[] heights = new int[5];
+        for (int i = 0; i < 5; i++) {
+            heights[i] = probeGroundY(world, xs[i], zs[i]);
+        }
+        int delta = slopeDelta(heights);
+        int y = reduce(heights, mode);
+        return new SampleResult(y, delta, delta > slopeThreshold);
+    }
+
+    /** Convenience overload: uses the default slope threshold ({@value DEFAULT_SLOPE_THRESHOLD}). */
+    public static SampleResult sample(World world,
+                                      int centerX, int centerZ,
+                                      int halfX, int halfZ,
+                                      Mode mode) {
+        return sample(world, centerX, centerZ, halfX, halfZ, mode, DEFAULT_SLOPE_THRESHOLD);
+    }
+
+    /** Probe a single XZ: get canopy Y from the chunk heightmap, walk down past trees. */
+    private static int probeGroundY(World world, int x, int z) {
+        long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
+        WorldChunk chunk = world.getNonTickingChunk(chunkKey);
+        if (chunk == null) return 0;
+        int lx = Math.floorMod(x, ChunkUtil.SIZE);
+        int lz = Math.floorMod(z, ChunkUtil.SIZE);
+        int canopyY = chunk.getHeight(lx, lz);
+        if (canopyY <= 0) return 0;
+
+        // Single-slot cache so blockNameAt and isSolidAt share one BlockType lookup per Y.
+        // The walk always calls blockNameAt(y) first, then isSolidAt(y) on the same y — so
+        // we prime on the name call and reuse on the solid check.
+        int[] cachedY = { Integer.MIN_VALUE };
+        BlockType[] cachedBt = { null };
+        java.util.function.IntFunction<BlockType> lookup = y -> {
+            if (cachedY[0] != y) {
+                cachedY[0] = y;
+                cachedBt[0] = world.getBlockType(x, y, z);
+            }
+            return cachedBt[0];
+        };
+
+        return walkDownToSolidGround(canopyY, DOWNWALK_MAX_STEPS,
+            y -> {
+                BlockType bt = lookup.apply(y);
+                return bt == null ? "" : bt.getId();
+            },
+            y -> {
+                BlockType bt = lookup.apply(y);
+                return bt != null && bt.getMaterial() == BlockMaterial.Solid;
+            });
     }
 }
