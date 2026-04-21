@@ -2,8 +2,13 @@ package com.chonbosmods.quest.party;
 
 import com.chonbosmods.quest.QuestInstance;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Server-global, quest-keyed authoritative store for active {@link QuestInstance}s.
@@ -20,6 +25,7 @@ import java.util.Map;
 public class Nat20PartyQuestStore {
 
     private final Map<String, QuestInstance> primary = new HashMap<>();
+    private final Map<UUID, Set<String>> byPlayer = new HashMap<>();
 
     public void add(QuestInstance quest) {
         String id = quest.getQuestId();
@@ -27,9 +33,20 @@ public class Nat20PartyQuestStore {
             throw new IllegalArgumentException("QuestInstance must have a questId before add()");
         }
         primary.put(id, quest);
+        for (UUID player : quest.getAccepters()) {
+            byPlayer.computeIfAbsent(player, k -> new HashSet<>()).add(id);
+        }
     }
 
     public QuestInstance getById(String questId) {
         return primary.get(questId);
+    }
+
+    public List<QuestInstance> queryByPlayer(UUID player) {
+        Set<String> ids = byPlayer.get(player);
+        if (ids == null || ids.isEmpty()) return List.of();
+        List<QuestInstance> out = new ArrayList<>(ids.size());
+        for (String id : ids) out.add(primary.get(id));
+        return out;
     }
 }
