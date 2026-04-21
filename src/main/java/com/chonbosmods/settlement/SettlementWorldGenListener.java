@@ -97,7 +97,7 @@ public class SettlementWorldGenListener {
             ? SettlementType.OUTPOST
             : SettlementType.TOWN;
 
-        LOGGER.atFine().log("Placing %s at cell %s position %d, %d",
+        LOGGER.atInfo().log("Placing %s at cell %s position %d, %d",
             type, cellKey, settlementX, settlementZ);
 
         // Mark as placed immediately to prevent double-placement
@@ -111,18 +111,19 @@ public class SettlementWorldGenListener {
         // Place structure and spawn NPCs on world thread
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
-            // Footprint-aware ground check: probe a halfX/halfZ matching the
-            // settlement's footprint, reject if center is over water, no ground,
-            // or the terrain across the footprint is too uneven (mountain peak,
-            // sharp ridge, cave mouth). Without this, centers often land on a
-            // thin pillar where a 1-point probe succeeds but every piece around
-            // it fails to ground, leaving zero pieces placed.
+            // Footprint-aware ground check: probe halfX/halfZ matching the
+            // settlement's footprint, reject only on actual cliffs/peaks (slope
+            // threshold scales with footprint width so rolling hills still
+            // qualify). Without this, centers often land on a thin pillar where
+            // a 1-point probe succeeds but every piece around it fails to
+            // ground, leaving zero pieces placed.
             int half = type.getFootprint() / 2;
+            int slopeThreshold = half; // e.g. TOWN footprint=32 → 16 blocks allowed across 32 wide (~27 deg)
             Nat20HeightmapSampler.SampleResult centerSample = Nat20HeightmapSampler.sample(
                 world, settlementX, settlementZ, half, half,
-                Nat20HeightmapSampler.Mode.ENTRY_ANCHOR);
+                Nat20HeightmapSampler.Mode.ENTRY_ANCHOR, slopeThreshold);
             if (centerSample.y() <= 0) {
-                LOGGER.atFine().log(
+                LOGGER.atInfo().log(
                     "No valid ground at settlement center (%d, %d) for cell %s; skipping",
                     settlementX, settlementZ, cellKey);
                 registry.unregister(cellKey);
@@ -130,9 +131,9 @@ public class SettlementWorldGenListener {
                 return;
             }
             if (centerSample.tooSteep()) {
-                LOGGER.atFine().log(
-                    "Settlement center (%d, %d) too steep (slope=%d) for cell %s; skipping",
-                    settlementX, settlementZ, centerSample.slopeDelta(), cellKey);
+                LOGGER.atInfo().log(
+                    "Settlement center (%d, %d) too steep (slope=%d > %d) for cell %s; skipping",
+                    settlementX, settlementZ, centerSample.slopeDelta(), slopeThreshold, cellKey);
                 registry.unregister(cellKey);
                 failedCells.add(cellKey);
                 return;
