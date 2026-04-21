@@ -72,9 +72,38 @@ class Nat20FilteredBufferTest {
     }
 
     @Test
-    void markerBlocksDropped() {
+    void anchorAndDirectionAndSpawnMarkersRewrittenToAir() {
+        // Anchor, direction, NPC-spawn, and mob-group-spawn markers must be
+        // rewritten to blockId 0 (not silently dropped) so PrefabUtil.paste
+        // carves the world cell to air. The scanner has already extracted
+        // their positions upstream; leaving the marker block in the world
+        // would make NPCs/mobs spawn inside a visible beacon block.
         FakePrefabBuffer inner = new FakePrefabBuffer(List.of(
                 new FakePrefabBuffer.Cell(0, 0, 0, Nat20PrefabConstants.anchorId),
+                new FakePrefabBuffer.Cell(1, 0, 0, Nat20PrefabConstants.directionId),
+                new FakePrefabBuffer.Cell(2, 0, 0, Nat20PrefabConstants.npcSpawnId),
+                new FakePrefabBuffer.Cell(3, 0, 0, Nat20PrefabConstants.mobGroupSpawnId),
+                new FakePrefabBuffer.Cell(4, 0, 0, STRUCTURAL_ID)
+        ));
+
+        List<SeenBlock> seen = runThroughFilter(inner);
+
+        assertEquals(5, seen.size());
+        assertEquals(0, seen.get(0).blockId(), "anchor rewritten to air");
+        assertEquals(0, seen.get(1).blockId(), "direction rewritten to air");
+        assertEquals(0, seen.get(2).blockId(), "npc spawn rewritten to air");
+        assertEquals(0, seen.get(3).blockId(), "mob group spawn rewritten to air");
+        assertEquals(STRUCTURAL_ID, seen.get(4).blockId(), "structural block passes through");
+    }
+
+    @Test
+    void chestMarkerSilentlyDropped() {
+        // Chest markers are NOT rewritten to air: the downstream chest-spawn
+        // system places an actual chest block at that position, which would
+        // be overwritten if we also cleared the cell. Leave the world cell
+        // alone (marker block is silently stripped).
+        FakePrefabBuffer inner = new FakePrefabBuffer(List.of(
+                new FakePrefabBuffer.Cell(0, 0, 0, Nat20PrefabConstants.chestSpawnId),
                 new FakePrefabBuffer.Cell(1, 0, 0, STRUCTURAL_ID)
         ));
 
