@@ -1,9 +1,14 @@
 package com.chonbosmods.party;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -169,6 +174,64 @@ class Nat20PartyRegistryTest {
         reg.getParty(stranger);
 
         assertThrows(IllegalArgumentException.class, () -> reg.kick(alice, stranger));
+    }
+
+    @Test
+    void saveAndLoadRoundTripsMultiMemberPartyCompositionAndLeader(@TempDir Path tmp) throws Exception {
+        Path file = tmp.resolve("parties.json");
+
+        Nat20PartyRegistry out = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        UUID carol = UUID.randomUUID();
+        String pid = out.getParty(alice).getPartyId();
+        out.acceptInvite(bob, pid);
+        out.acceptInvite(carol, pid);
+
+        out.saveTo(file);
+
+        Nat20PartyRegistry in = new Nat20PartyRegistry();
+        in.loadFrom(file);
+
+        Nat20Party restored = in.getParty(alice);
+        assertEquals(List.of(alice, bob, carol), restored.getMembers());
+        assertEquals(alice, restored.getLeader());
+        assertEquals(pid, restored.getPartyId());
+        assertSame(restored, in.getParty(bob));
+        assertSame(restored, in.getParty(carol));
+    }
+
+    @Test
+    void saveAndLoadPreservesLastSeenForGhostLeaderRule(@TempDir Path tmp) throws Exception {
+        Path file = tmp.resolve("parties.json");
+
+        AtomicReference<Instant> now = new AtomicReference<>(Instant.parse("2026-04-01T00:00:00Z"));
+        Nat20PartyRegistry out = new Nat20PartyRegistry(now::get, Duration.ofDays(7));
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        out.acceptInvite(bob, out.getParty(alice).getPartyId());
+        out.markOffline(alice); // last seen 2026-04-01
+
+        out.saveTo(file);
+
+        // Reload in a fresh registry. Clock advances past the ghost threshold.
+        now.set(Instant.parse("2026-04-15T00:00:00Z")); // 14 days later
+        Nat20PartyRegistry in = new Nat20PartyRegistry(now::get, Duration.ofDays(7));
+        in.loadFrom(file);
+
+        in.markOnline(bob);
+
+        assertEquals(bob, in.getParty(bob).getLeader(),
+            "after reload, ghost-leader rule must still use the persisted lastSeen for alice");
+    }
+
+    @Test
+    void loadFromMissingFileStartsEmpty(@TempDir Path tmp) throws Exception {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        reg.loadFrom(tmp.resolve("nope.json"));
+        UUID alice = UUID.randomUUID();
+        // Registry is empty; lookup still auto-creates solo party.
+        assertTrue(reg.getParty(alice).isSolo());
     }
 
     @Test

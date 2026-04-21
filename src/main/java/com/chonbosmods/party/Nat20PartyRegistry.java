@@ -1,9 +1,17 @@
 package com.chonbosmods.party;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -20,6 +28,7 @@ import java.util.function.Supplier;
 public class Nat20PartyRegistry {
 
     private static final Duration DEFAULT_GHOST_THRESHOLD = Duration.ofDays(7);
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private final Map<UUID, Nat20Party> byPlayer = new HashMap<>();
     private final Map<String, Nat20Party> byPartyId = new HashMap<>();
@@ -122,5 +131,63 @@ public class Nat20PartyRegistry {
         if (Duration.between(leaderSeen, now).compareTo(ghostThreshold) > 0) {
             party.promoteToLeader(player);
         }
+    }
+
+    public void saveTo(Path file) throws IOException {
+        Path parent = file.getParent();
+        if (parent != null) Files.createDirectories(parent);
+        Snapshot snap = new Snapshot();
+        for (Nat20Party party : byPartyId.values()) {
+            PartySnapshot ps = new PartySnapshot();
+            ps.leader = party.getLeader();
+            ps.members = new ArrayList<>(party.getMembers());
+            snap.parties.put(party.getPartyId(), ps);
+        }
+        for (Map.Entry<UUID, Instant> e : lastSeen.entrySet()) {
+            snap.lastSeen.put(e.getKey().toString(), e.getValue().toString());
+        }
+        Files.writeString(file, GSON.toJson(snap));
+    }
+
+    public void loadFrom(Path file) throws IOException {
+        byPlayer.clear();
+        byPartyId.clear();
+        lastSeen.clear();
+        online.clear();
+        if (!Files.exists(file)) return;
+        String json = Files.readString(file);
+        if (json.isEmpty()) return;
+        Snapshot snap = GSON.fromJson(json, Snapshot.class);
+        if (snap == null) return;
+        if (snap.parties != null) {
+            for (Map.Entry<String, PartySnapshot> e : snap.parties.entrySet()) {
+                PartySnapshot ps = e.getValue();
+                if (ps == null || ps.members == null || ps.members.isEmpty()) continue;
+                Nat20Party party = new Nat20Party(e.getKey(), ps.members.get(0));
+                for (int i = 1; i < ps.members.size(); i++) {
+                    party.addMember(ps.members.get(i));
+                }
+                if (ps.leader != null && ps.members.contains(ps.leader)) {
+                    party.promoteToLeader(ps.leader);
+                }
+                byPartyId.put(party.getPartyId(), party);
+                for (UUID m : ps.members) byPlayer.put(m, party);
+            }
+        }
+        if (snap.lastSeen != null) {
+            for (Map.Entry<String, String> e : snap.lastSeen.entrySet()) {
+                lastSeen.put(UUID.fromString(e.getKey()), Instant.parse(e.getValue()));
+            }
+        }
+    }
+
+    private static class Snapshot {
+        Map<String, PartySnapshot> parties = new HashMap<>();
+        Map<String, String> lastSeen = new HashMap<>();
+    }
+
+    private static class PartySnapshot {
+        UUID leader;
+        List<UUID> members;
     }
 }
