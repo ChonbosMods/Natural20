@@ -22,17 +22,21 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Orchestrates Natural 20 affix-loot injection into native chests on first
- * secondary-use (right-click) interaction.
+ * Use (F-key) interaction.
  *
- * <p>Thin event handler: delegates all decisions to injected collaborators.
- * On a qualifying chest open, marks the position as rolled BEFORE running the
- * chance gate so that every chest rolls exactly once regardless of whether
- * the roll wins, fails to pick, or throws. The registry is the source of
- * truth; the chance roll is a downstream filter.
+ * <p>Hooks {@link UseBlockEvent.Post} so the chest UI is already open by the time
+ * we mutate the container. That lets {@code SimpleItemContainer.setItemStackForSlot}'s
+ * internal {@code sendUpdate} broadcast a clean single-slot delta to the viewing
+ * player — no block-state resync, no "invalid item" flicker.
+ *
+ * <p>Marks the chest position as rolled BEFORE running the chance gate so that
+ * every chest rolls exactly once regardless of whether the roll wins, fails to
+ * pick, or throws. The registry is the source of truth; the chance roll is a
+ * downstream filter.
  *
  * <p>See {@code docs/plans/2026-04-21-chest-affix-loot-injection.md} Task 6.
  */
-public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStore, UseBlockEvent.Pre> {
+public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStore, UseBlockEvent.Post> {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|ChestAffixInjection");
     private static final Query<EntityStore> QUERY = Query.any();
@@ -49,7 +53,7 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
             Nat20ChestRollRegistry registry,
             MobScalingConfig scalingConfig,
             Nat20ChestLootPicker picker) {
-        super(UseBlockEvent.Pre.class);
+        super(UseBlockEvent.Post.class);
         this.config = config;
         this.roller = roller;
         this.registry = registry;
@@ -65,12 +69,11 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
     @Override
     public void handle(int entityIndex, ArchetypeChunk<EntityStore> chunk,
                        Store<EntityStore> store, CommandBuffer<EntityStore> cb,
-                       UseBlockEvent.Pre event) {
+                       UseBlockEvent.Post event) {
         String debugBlockId = event.getBlockType() != null ? event.getBlockType().getId() : "<null>";
-        LOGGER.atInfo().log("UseBlockEvent.Pre: block=%s interaction=%s cancelled=%s",
-                debugBlockId, event.getInteractionType(), event.isCancelled());
+        LOGGER.atInfo().log("UseBlockEvent.Post: block=%s interaction=%s",
+                debugBlockId, event.getInteractionType());
 
-        if (event.isCancelled()) return;
         if (event.getInteractionType() != InteractionType.Use) return;
         if (event.getBlockType() == null) return;
         String blockTypeId = event.getBlockType().getId();
