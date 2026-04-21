@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 public class Nat20PlayerData implements Component<EntityStore> {
 
@@ -92,8 +93,18 @@ public class Nat20PlayerData implements Component<EntityStore> {
     // Most-recent-first; QuestStateManager.markQuestCompleted prepends.
     private List<CompletedQuestRecord> completedQuests = new ArrayList<>();
 
+    /** Runtime-only reference to the owning player's UUID. Populated by the
+     *  plugin after the component is loaded from the entity store, so that
+     *  code paths holding {@code Nat20PlayerData} can resolve the player UUID
+     *  without plumbing it alongside. Not part of {@link #CODEC}; never
+     *  persisted. */
+    private transient UUID playerUuid;
+
     public Nat20PlayerData() {
     }
+
+    public UUID getPlayerUuid() { return playerUuid; }
+    public void setPlayerUuid(UUID playerUuid) { this.playerUuid = playerUuid; }
 
     public int[] getStats() {
         return stats;
