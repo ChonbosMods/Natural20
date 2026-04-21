@@ -3,7 +3,6 @@ package com.chonbosmods.settlement;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
-import com.chonbosmods.npc.NpcSpawnRole;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -17,8 +16,6 @@ import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -103,28 +100,9 @@ public class SettlementWorldGenListener {
                         return;
                     }
 
-                    // Shuffle marker positions deterministically per cell.
-                    List<Vector3d> markers = new ArrayList<>(placed.npcSpawnsWorld());
-                    Collections.shuffle(markers, new Random(seed));
-
-                    // Assign roles to markers in declaration order.
-                    List<NpcRecord> spawned = new ArrayList<>();
-                    int requiredTotal = SettlementType.TOWN.getNpcSpawns().stream()
-                        .mapToInt(NpcSpawnRole::count).sum();
-                    int markerIdx = 0;
-                    for (NpcSpawnRole role : SettlementType.TOWN.getNpcSpawns()) {
-                        for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
-                            NpcRecord rec = Natural20.getInstance().getNpcManager()
-                                .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
-                                                    cellKey, record.getPlacedAt());
-                            if (rec != null) spawned.add(rec);
-                        }
-                    }
-                    if (markerIdx < requiredTotal) {
-                        LOGGER.atWarning().log(
-                            "Settlement at cell %s has %d Npc_Spawn markers but config requires %d; %d NPCs skipped",
-                            cellKey, markers.size(), requiredTotal, requiredTotal - markerIdx);
-                    }
+                    List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                        store, world, SettlementType.TOWN, placed.npcSpawnsWorld(),
+                        cellKey, record.getPlacedAt());
 
                     record.setPosY(groundY);
                     record.getNpcs().addAll(spawned);

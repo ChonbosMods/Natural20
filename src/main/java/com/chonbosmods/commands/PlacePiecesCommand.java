@@ -2,12 +2,12 @@ package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
-import com.chonbosmods.npc.NpcSpawnRole;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.quest.QuestChestPlacer;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.PiecePlacement;
+import com.chonbosmods.settlement.SettlementNpcFanOut;
 import com.chonbosmods.settlement.SettlementPieceAssembler;
 import com.chonbosmods.settlement.SettlementPlacement;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -26,8 +26,6 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -103,25 +101,13 @@ public class PlacePiecesCommand extends AbstractPlayerCommand {
 
     private static int spawnNpcs(World world, Store<EntityStore> store,
                                   PlacedMarkers placed, long seed) {
-        if (placed.npcSpawnsWorld().isEmpty()) return 0;
         SettlementType type = SettlementType.TOWN;
-        List<Vector3d> markers = new ArrayList<>(placed.npcSpawnsWorld());
-        Collections.shuffle(markers, new Random(seed));
-
         String cellKey = "placepieces_"
             + placed.anchorWorld().getX() + "_" + placed.anchorWorld().getZ()
             + "_" + seed;
 
-        List<NpcRecord> spawned = new ArrayList<>();
-        int markerIdx = 0;
-        for (NpcSpawnRole role : type.getNpcSpawns()) {
-            for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
-                NpcRecord rec = Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
-                                        cellKey, seed);
-                if (rec != null) spawned.add(rec);
-            }
-        }
+        List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+            store, world, type, placed.npcSpawnsWorld(), cellKey, seed);
 
         SettlementRecord record = new SettlementRecord(
             cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),

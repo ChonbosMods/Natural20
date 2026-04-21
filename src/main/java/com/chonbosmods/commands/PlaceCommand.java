@@ -2,8 +2,8 @@ package com.chonbosmods.commands;
 
 import com.chonbosmods.Natural20;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
-import com.chonbosmods.npc.NpcSpawnRole;
 import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementNpcFanOut;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
@@ -22,8 +22,6 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -79,19 +77,8 @@ public class PlaceCommand extends AbstractPlayerCommand {
                         return;
                     }
 
-                    List<Vector3d> markers = new ArrayList<>(placed.npcSpawnsWorld());
-                    Collections.shuffle(markers, new Random(seed));
-
-                    List<NpcRecord> spawned = new ArrayList<>();
-                    int markerIdx = 0;
-                    for (NpcSpawnRole role : type.getNpcSpawns()) {
-                        for (int i = 0; i < role.count() && markerIdx < markers.size(); i++, markerIdx++) {
-                            NpcRecord rec = Natural20.getInstance().getNpcManager()
-                                .spawnSettlementNpc(store, world, role, markers.get(markerIdx),
-                                                    cellKey, nameSalt);
-                            if (rec != null) spawned.add(rec);
-                        }
-                    }
+                    List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                        store, world, type, placed.npcSpawnsWorld(), cellKey, nameSalt);
 
                     SettlementRecord record = new SettlementRecord(
                         cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
