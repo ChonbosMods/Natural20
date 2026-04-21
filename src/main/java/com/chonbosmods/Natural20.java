@@ -90,6 +90,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
+import com.chonbosmods.party.Nat20PartyInviteRegistry;
 import com.chonbosmods.party.Nat20PartyRegistry;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -158,6 +159,7 @@ public class Natural20 extends JavaPlugin {
     private QuestSystem questSystem;
     private Nat20PartyQuestStore partyQuestStore;
     private Nat20PartyRegistry partyRegistry;
+    private Nat20PartyInviteRegistry partyInviteRegistry;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
@@ -246,6 +248,10 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20PartyRegistry getPartyRegistry() {
         return partyRegistry;
+    }
+
+    public Nat20PartyInviteRegistry getPartyInviteRegistry() {
+        return partyInviteRegistry;
     }
 
     public SettlementRegistry getSettlementRegistry() {
@@ -877,9 +883,11 @@ public class Natural20 extends JavaPlugin {
         // the world. Design: docs/plans/2026-04-21-party-multiplayer-quest-design.md.
         partyQuestStore = new Nat20PartyQuestStore();
         partyRegistry = new Nat20PartyRegistry();
+        partyInviteRegistry = new Nat20PartyInviteRegistry();
         try {
             partyQuestStore.loadFrom(getDataDirectory().resolve("party_quests.json"));
             partyRegistry.loadFrom(getDataDirectory().resolve("parties.json"));
+            partyInviteRegistry.loadFrom(getDataDirectory().resolve("party_invites.json"));
         } catch (java.io.IOException e) {
             getLogger().atWarning().withCause(e).log("Failed to load party / party-quest state");
         }
