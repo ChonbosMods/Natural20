@@ -14,6 +14,7 @@ import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.npc.entities.NPCEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
     private final MobScalingConfig config;
     private final Nat20XpService xpService;
     private final Nat20DamageContributorTracker contributorTracker;
+    private final Nat20SpeciesXpRegistry speciesRegistry;
 
     private int healthIdx = Integer.MIN_VALUE;
     private boolean statResolved;
@@ -45,10 +47,12 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
     private final Map<UUID, Long> processedDeaths = new ConcurrentHashMap<>();
 
     public Nat20XpOnKillSystem(MobScalingConfig config, Nat20XpService xpService,
-                               Nat20DamageContributorTracker contributorTracker) {
+                               Nat20DamageContributorTracker contributorTracker,
+                               Nat20SpeciesXpRegistry speciesRegistry) {
         this.config = config;
         this.xpService = xpService;
         this.contributorTracker = contributorTracker;
+        this.speciesRegistry = speciesRegistry;
     }
 
     @Override
@@ -94,6 +98,12 @@ public class Nat20XpOnKillSystem extends DamageEventSystem {
         double weight = config.killXpWeight(level.getTier());
         if (level.getDifficultyTier() == null) {
             weight *= config.normalMobXpMult();
+        }
+        // Species multiplier (HP*damage-derived): orthogonal to tier weight, so
+        // Nat20-affixed CHAMPION/BOSS already outscales native same-species.
+        NPCEntity npcEntity = store.getComponent(victimRef, NPCEntity.getComponentType());
+        if (npcEntity != null) {
+            weight *= speciesRegistry.getWeight(npcEntity.getRoleName());
         }
         int xp = Nat20XpMath.mobKillXp(mlvl, weight);
         if (xp <= 0) return;
