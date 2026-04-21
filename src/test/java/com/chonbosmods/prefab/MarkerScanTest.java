@@ -17,7 +17,8 @@ class MarkerScanTest {
             new Vector3i(1, 0, 0),
             List.of(new Vector3i(5, 0, 5)),
             List.of(new Vector3i(10, 0, 10)),
-            List.of()
+            List.of(),
+            -5, 5, -5, 5
         );
         assertEquals(new Vector3i(0, 0, 0), scan.anchorLocal());
         assertEquals(new Vector3i(1, 0, 0), scan.directionLocal());
@@ -25,5 +26,9 @@ class MarkerScanTest {
         assertEquals(1, scan.npcSpawnsLocal().size());
         assertEquals(1, scan.mobGroupSpawnsLocal().size());
         assertEquals(0, scan.chestSpawnsLocal().size());
+        assertEquals(-5, scan.structureMinX());
+        assertEquals(5, scan.structureMaxX());
+        assertEquals(-5, scan.structureMinZ());
+        assertEquals(5, scan.structureMaxZ());
     }
 }

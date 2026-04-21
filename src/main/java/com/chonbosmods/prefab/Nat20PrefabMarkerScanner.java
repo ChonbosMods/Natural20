@@ -54,6 +54,10 @@ public final class Nat20PrefabMarkerScanner {
         List<Vector3i> npcs = new ArrayList<>();
         List<Vector3i> mobGroups = new ArrayList<>();
         List<Vector3i> chests = new ArrayList<>();
+        int[] structureMinX = { Integer.MAX_VALUE };
+        int[] structureMaxX = { Integer.MIN_VALUE };
+        int[] structureMinZ = { Integer.MAX_VALUE };
+        int[] structureMaxZ = { Integer.MIN_VALUE };
 
         buffer.forEach(
                 IPrefabBuffer.iterateAllColumns(),
@@ -68,8 +72,14 @@ public final class Nat20PrefabMarkerScanner {
                         mobGroups.add(new Vector3i(x, y, z));
                     } else if (blockId == Nat20PrefabConstants.chestSpawnId) {
                         chests.add(new Vector3i(x, y, z));
+                    } else if (blockId != 0 && !Nat20PrefabConstants.stripIds().contains(blockId)) {
+                        // Count toward the structural footprint only if it's a real block
+                        // (not air, not a Nat20 marker, not a vanilla authoring/spawner block).
+                        if (x < structureMinX[0]) structureMinX[0] = x;
+                        if (x > structureMaxX[0]) structureMaxX[0] = x;
+                        if (z < structureMinZ[0]) structureMinZ[0] = z;
+                        if (z > structureMaxZ[0]) structureMaxZ[0] = z;
                     }
-                    // other blocks: ignored
                 },
                 (x, z, entities, t) -> {
                     // entities: no-op
@@ -106,6 +116,15 @@ public final class Nat20PrefabMarkerScanner {
                 direction.getY() - anchor.getY(),
                 direction.getZ() - anchor.getZ());
 
-        return new MarkerScan(anchor, direction, directionVector, npcs, mobGroups, chests);
+        // Structure bounds fall back to a 1x1 at the anchor if the prefab has no
+        // structural blocks at all (only markers). Won't happen for real prefabs;
+        // defensive so downstream bound math never sees Integer.MAX_VALUE.
+        int sMinX = structureMinX[0] == Integer.MAX_VALUE ? anchor.getX() : structureMinX[0];
+        int sMaxX = structureMaxX[0] == Integer.MIN_VALUE ? anchor.getX() : structureMaxX[0];
+        int sMinZ = structureMinZ[0] == Integer.MAX_VALUE ? anchor.getZ() : structureMinZ[0];
+        int sMaxZ = structureMaxZ[0] == Integer.MIN_VALUE ? anchor.getZ() : structureMaxZ[0];
+
+        return new MarkerScan(anchor, direction, directionVector, npcs, mobGroups, chests,
+                sMinX, sMaxX, sMinZ, sMaxZ);
     }
 }

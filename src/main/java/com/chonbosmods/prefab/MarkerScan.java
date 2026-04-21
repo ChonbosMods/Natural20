@@ -15,6 +15,12 @@ import java.util.List;
  * @param npcSpawnsLocal      positions of every {@code Nat20_Npc_Spawn} marker.
  * @param mobGroupSpawnsLocal positions of every {@code Nat20_Mob_Group_Spawn} marker.
  * @param chestSpawnsLocal    positions of every {@code Nat20_Chest_Spawn} marker.
+ * @param structureMinX       min X of non-marker, non-empty blocks (structural footprint only,
+ *                            excludes markers that extend past the visible structure). Use for
+ *                            piece-to-piece spacing so marker bloat doesn't inflate the AABB.
+ * @param structureMaxX       max X of non-marker, non-empty blocks.
+ * @param structureMinZ       min Z of non-marker, non-empty blocks.
+ * @param structureMaxZ       max Z of non-marker, non-empty blocks.
  */
 public record MarkerScan(
     Vector3i anchorLocal,
@@ -22,5 +28,7 @@ public record MarkerScan(
     Vector3i directionVector,
     List<Vector3i> npcSpawnsLocal,
     List<Vector3i> mobGroupSpawnsLocal,
-    List<Vector3i> chestSpawnsLocal
+    List<Vector3i> chestSpawnsLocal,
+    int structureMinX, int structureMaxX,
+    int structureMinZ, int structureMaxZ
 ) {}
