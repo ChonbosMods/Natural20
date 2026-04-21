@@ -83,6 +83,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
+import com.chonbosmods.prefab.Nat20PrefabConstants;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementNpcDeathSystem;
 import com.chonbosmods.settlement.SettlementPlacer;
@@ -288,6 +289,9 @@ public class Natural20 extends JavaPlugin {
             caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
             caveVoidRegistry.load();
 
+            settlementRegistry.setSaveDirectory(worldDataDir);
+            settlementRegistry.load();
+
             lootSystem.getItemRegistry().init(worldDataDir);
             lootSystem.getItemRegistry().rehydrateAll();
 
@@ -401,12 +405,13 @@ public class Natural20 extends JavaPlugin {
             int targetZ = centerZ + (int) (dist * Math.sin(angle));
 
             getStructurePlacer().placeAtSurface(world, targetX, targetZ, store)
-                .whenComplete((entrance, error) -> {
-                    if (error != null || entrance == null) {
+                .whenComplete((placed, error) -> {
+                    if (error != null || placed == null) {
                         getLogger().atWarning().log("Surface fallback POI %d failed near settlement %s at (%d, %d)",
                             poiIndex, settlement.getCellKey(), targetX, targetZ);
                         return;
                     }
+                    Vector3i entrance = placed.anchorWorld();
                     settlement.addSurfaceFallbackPoi(entrance.getX(), entrance.getY(), entrance.getZ());
                     settlementRegistry.saveAsync();
                 });
@@ -686,18 +691,26 @@ public class Natural20 extends JavaPlugin {
                 world.getWorldConfig().setPvpEnabled(true);
                 stripForgottenTempleGatewayMarkers(world);
         });
+
     }
 
     @Override
     protected void start() {
         getLogger().atInfo().log("Natural 20 loading prefabs...");
 
+        // Resolve Nat20 prefab marker block IDs. Deferred to start() because
+        // BlockType.getAssetMap() isn't populated until after every plugin's
+        // setup() has run (vanilla asset modules load their maps during setup,
+        // and we set up before them).
+        Nat20PrefabConstants.resolve();
+
         // Load prefabs: assets are available by start()
         placer.init();
 
-        // Load settlement registry
+        // Settlement registry. Data file is rebound to a world-scoped path in the
+        // first-chunk-load hook below, so this initial path is only a placeholder
+        // (nothing is loaded from disk at plugin start).
         settlementRegistry = new SettlementRegistry(getDataDirectory());
-        settlementRegistry.load();
 
         // Load POI mob-group registry + spawn coordinator. Data file is rebound to a
         // world-scoped path in the first-chunk-load hook below, so this initial path is

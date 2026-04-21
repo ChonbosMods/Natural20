@@ -178,15 +178,16 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
 
         Natural20.getInstance().getStructurePlacer()
                 .placeAtVoid(world, nearest, store)
-                .whenComplete((entrance, error) -> {
+                .whenComplete((placed, error) -> {
                     if (error != null) {
                         context.sendMessage(Message.raw("Structure placement failed: " + error.getMessage()));
                         return;
                     }
-                    if (entrance == null) {
+                    if (placed == null) {
                         context.sendMessage(Message.raw("Structure placement failed: no entrance position returned."));
                         return;
                     }
+                    Vector3i entrance = placed.anchorWorld();
                     context.sendMessage(Message.raw("Structure placed at (" +
                             entrance.getX() + ", " + entrance.getY() + ", " + entrance.getZ() +
                             ") connected to void at (" + cx + ", " + cy + ", " + cz + ")"));
@@ -322,9 +323,9 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
         int py = (int) Math.floor(playerPos.getY());
         int pz = (int) Math.floor(playerPos.getZ());
 
-        context.sendMessage(Message.raw("Pasting Dungeon2Test with anchor at (" + px + ", " + py + ", " + pz + ")"));
+        context.sendMessage(Message.raw("Pasting Nat20/tree1 with anchor at (" + px + ", " + py + ", " + pz + ")"));
 
-        String prefabKey = "Nat20/dungeon/Dungeon2Test";
+        String prefabKey = "Nat20/tree1";
         Path prefabPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
         if (prefabPath == null) {
             // Fallback: walk up from plugin file to find assets/Server/Prefabs/
@@ -423,11 +424,12 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
 
         Natural20.getInstance().getStructurePlacer()
             .placeAtVoid(world, nearest, store)
-            .whenComplete((entrance, error) -> {
-                if (error != null || entrance == null) {
+            .whenComplete((placed, error) -> {
+                if (error != null || placed == null) {
                     context.sendMessage(Message.raw("Prefab placement failed."));
                     return;
                 }
+                Vector3i entrance = placed.anchorWorld();
                 context.sendMessage(Message.raw("Prefab placed at (" +
                     entrance.getX() + ", " + entrance.getY() + ", " + entrance.getZ() + ")"));
                 context.sendMessage(Message.raw("Spawning " + mobCount + "x " + mobRole + "..."));

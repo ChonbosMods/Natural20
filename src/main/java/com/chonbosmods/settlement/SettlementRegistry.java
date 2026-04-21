@@ -30,13 +30,24 @@ public class SettlementRegistry {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Type MAP_TYPE = new TypeToken<Map<String, SettlementRecord>>() {}.getType();
 
-    private final Path savePath;
+    private Path savePath;
     private final ConcurrentHashMap<String, SettlementRecord> settlements = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<UUID, World> worldCache = new ConcurrentHashMap<>();
     private final AtomicBoolean savePending = new AtomicBoolean(false);
 
     public SettlementRegistry(Path pluginDataDir) {
         this.savePath = pluginDataDir.resolve("settlements.json");
+    }
+
+    /**
+     * Rebind the save file to {@code worldDataDir / settlements.json}. Clears
+     * in-memory state so the next {@link #load()} reads the world-scoped file
+     * fresh. Mirrors {@code CaveVoidRegistry.setSaveFile}.
+     */
+    public void setSaveDirectory(Path worldDataDir) {
+        this.savePath = worldDataDir.resolve("settlements.json");
+        settlements.clear();
+        worldCache.clear();
     }
 
     /**

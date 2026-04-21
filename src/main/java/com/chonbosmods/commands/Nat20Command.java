@@ -24,6 +24,15 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new SettlementsCommand());
         addSubCommand(new KillNpcCommand());
         addSubCommand(new PlacePrefabsCommand());
+        addSubCommand(new PlaceMarkerPrefabCommand());
+        addSubCommand(new PlaceAllCommand());
+        addSubCommand(new PlaceNorthCommand());
+        addSubCommand(new PlaceSouthCommand());
+        addSubCommand(new PlaceEastCommand());
+        addSubCommand(new PlaceWestCommand());
+        addSubCommand(new SyncPrefabsCommand());
+        addSubCommand(new PlacePiecesCommand());
+        addSubCommand(new WhereAmICommand());
         addSubCommand(new CaveVoidsCommand());
         addSubCommand(new WaypointTestCommand());
         addSubCommand(new ItemNamesCommand());

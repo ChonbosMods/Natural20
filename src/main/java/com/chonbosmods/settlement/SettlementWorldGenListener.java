@@ -83,32 +83,35 @@ public class SettlementWorldGenListener {
 
         // Place structure and spawn NPCs on world thread
         world.execute(() -> {
-            try {
-                var store = world.getEntityStore().getStore();
+            var store = world.getEntityStore().getStore();
+            int groundY = findGroundY(world, settlementX, settlementZ);
+            Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
-                int groundY = findGroundY(world, settlementX, settlementZ);
-                Vector3i blockPos = new Vector3i(settlementX, groundY, settlementZ);
-
-                if (placer.hasPrefab(SettlementType.TOWN)) {
-                    placer.place(world, blockPos, SettlementType.TOWN, Rotation.None, store, new Random(seed));
-                }
-
-                Vector3d origin = new Vector3d(settlementX, groundY, settlementZ);
-                List<NpcRecord> npcRecords = Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, SettlementType.TOWN, origin, cellKey, record.getPlacedAt());
-
-                record.setPosY(groundY);
-                record.getNpcs().addAll(npcRecords);
-                registry.saveAsync();
-
-                // Generate procedural topic dialogues for the new settlement's NPCs
-                Natural20.getInstance().onSettlementCreated(record, world);
-
-                LOGGER.atFine().log("Settlement placed at " + settlementX + ", " + groundY + ", " + settlementZ +
-                    " with " + npcRecords.size() + " NPCs");
-            } catch (Exception e) {
-                LOGGER.atSevere().withCause(e).log("Failed to place settlement at cell " + cellKey);
+            if (!placer.hasPrefab(SettlementType.TOWN)) {
+                LOGGER.atSevere().log("No prefab for TOWN, skipping settlement at cell %s", cellKey);
+                return;
             }
+
+            placer.place(world, anchorPos, SettlementType.TOWN, Rotation.None, store, new Random(seed))
+                .whenComplete((placed, error) -> world.execute(() -> {
+                    if (error != null || placed == null) {
+                        LOGGER.atSevere().withCause(error).log(
+                            "Settlement placement failed for cell %s", cellKey);
+                        return;
+                    }
+
+                    List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                        store, world, SettlementType.TOWN, placed.npcSpawnsWorld(),
+                        cellKey, record.getPlacedAt());
+
+                    record.setPosY(groundY);
+                    record.getNpcs().addAll(spawned);
+                    registry.saveAsync();
+
+                    Natural20.getInstance().onSettlementCreated(record, world);
+                    LOGGER.atFine().log("Settlement placed at %d, %d, %d with %d NPCs",
+                        settlementX, groundY, settlementZ, spawned.size());
+                }));
         });
     }
 

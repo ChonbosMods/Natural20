@@ -163,11 +163,35 @@ public class POIProximitySystem {
             return false;
         }
 
+        // Prefer the first Mob_Group_Spawn marker position baked into bindings at
+        // placement time (PlacedMarkers.mobGroupSpawnsWorld). Falls back to the POI
+        // entrance anchor for legacy quests and the surface-fallback legacy path,
+        // which have no marker scan. Single-group-per-POI only for now: additional
+        // marker positions are reserved for a future multi-group expansion.
+        Vector3d spawnAnchor = anchor;
+        String mobGroupPositions = quest.getVariableBindings().get("poi_mob_group_positions");
+        if (mobGroupPositions != null && !mobGroupPositions.isEmpty()) {
+            String[] first = mobGroupPositions.split(";")[0].split(",");
+            if (first.length == 3) {
+                try {
+                    spawnAnchor = new Vector3d(
+                            Double.parseDouble(first[0]) + 0.5,
+                            Double.parseDouble(first[1]) + 0.5,
+                            Double.parseDouble(first[2]) + 0.5);
+                    LOGGER.atFine().log("Using mob_group_spawn marker at %s for quest %s (was %s)",
+                            spawnAnchor, quest.getQuestId(), anchor);
+                } catch (NumberFormatException e) {
+                    LOGGER.atWarning().log("Malformed poi_mob_group_positions '%s' for quest %s; using entrance anchor",
+                            mobGroupPositions, quest.getQuestId());
+                }
+            }
+        }
+
         LOGGER.atInfo().log("First-spawn trigger: quest=%s objective=%s anchor=(%d,%d,%d) mobRole=%s",
                 quest.getQuestId(), objective.getType(),
-                (int) anchor.getX(), (int) anchor.getY(), (int) anchor.getZ(), mobRole);
+                (int) spawnAnchor.getX(), (int) spawnAnchor.getY(), (int) spawnAnchor.getZ(), mobRole);
 
-        coordinator.firstSpawn(world, anchor, mobRole, playerUuid,
+        coordinator.firstSpawn(world, spawnAnchor, mobRole, playerUuid,
                 quest.getQuestId(), poiSlotIdx, quest, objective, playerData);
         return true;
     }
@@ -199,9 +223,38 @@ public class POIProximitySystem {
         String fetchItemType = b.get("fetch_item_type");
         if (fetchItemType == null) return false;
 
-        int ax = (int) anchor.getX();
-        int ay = (int) anchor.getY();
-        int az = (int) anchor.getZ();
+        // Prefer the first Chest_Spawn marker position baked into bindings at
+        // placement time. Falls back to the POI entrance anchor for legacy quests
+        // and the surface-fallback legacy path (no marker scan).
+        String chestPositions = b.get("poi_chest_positions");
+        int ax, ay, az;
+        if (chestPositions != null && !chestPositions.isEmpty()) {
+            String[] first = chestPositions.split(";")[0].split(",");
+            if (first.length == 3) {
+                try {
+                    ax = Integer.parseInt(first[0]);
+                    ay = Integer.parseInt(first[1]);
+                    az = Integer.parseInt(first[2]);
+                    LOGGER.atFine().log("Using Chest_Spawn marker at (%d,%d,%d) for quest %s",
+                            ax, ay, az, quest.getQuestId());
+                } catch (NumberFormatException e) {
+                    LOGGER.atWarning().log("Malformed poi_chest_positions '%s' for quest %s; using entrance anchor",
+                            chestPositions, quest.getQuestId());
+                    ax = (int) anchor.getX();
+                    ay = (int) anchor.getY();
+                    az = (int) anchor.getZ();
+                }
+            } else {
+                ax = (int) anchor.getX();
+                ay = (int) anchor.getY();
+                az = (int) anchor.getZ();
+            }
+        } else {
+            ax = (int) anchor.getX();
+            ay = (int) anchor.getY();
+            az = (int) anchor.getZ();
+        }
+
         boolean placed = QuestChestPlacer.placeQuestChest(world, ax, ay, az,
                 fetchItemType, b.getOrDefault("fetch_item_label", "quest item"));
         if (!placed) return false;

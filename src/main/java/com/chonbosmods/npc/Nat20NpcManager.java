@@ -4,14 +4,11 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.settlement.NpcRecord;
-import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.protocol.BlockMaterial;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
@@ -38,86 +35,88 @@ public class Nat20NpcManager {
         "ArtisanCook"
     );
 
+    /** Shared per-settlement artisan dedup state. Keyed by settlement cellKey. */
+    private final java.util.Map<String, List<String>> usedArtisansByCell = new java.util.concurrent.ConcurrentHashMap<>();
+
+    /** Shared per-settlement name-index counter. Keyed by settlement cellKey. */
+    private final java.util.Map<String, java.util.concurrent.atomic.AtomicInteger> npcIndexByCell =
+        new java.util.concurrent.ConcurrentHashMap<>();
+
     /**
-     * Spawn all NPCs defined by the given settlement type at positions relative to origin.
-     * Handles RANDOM_ARTISAN deduplication and ground-level scanning.
+     * Spawn a single settlement NPC at the given world position. Caller picks
+     * the position (typically from a {@code Nat20_Npc_Spawn} marker scan).
+     * Handles RANDOM_ARTISAN deduplication per-cell and deterministic name
+     * generation.
      *
-     * @param store   the entity store
-     * @param world   the world to scan for ground and spawn into
-     * @param type    the settlement type whose NPC spawn defs to use
-     * @param origin  the world-space origin of the settlement
-     * @param cellKey the settlement cell key for persistence
-     * @return list of NpcRecords for all successfully spawned NPCs
+     * @param store     the entity store
+     * @param world     the world to spawn into
+     * @param role      the role to spawn (count ignored here; caller loops over count)
+     * @param worldPos  the exact world-space position to spawn at
+     * @param cellKey   the settlement cell key for persistence
+     * @param nameSalt  salt for deterministic name generation
+     * @return the new NpcRecord, or null on failure
      */
-    public List<NpcRecord> spawnSettlementNpcs(
+    public NpcRecord spawnSettlementNpc(
             Store<EntityStore> store, World world,
-            SettlementType type, Vector3d origin, String cellKey, long nameSalt) {
+            NpcSpawnRole role, Vector3d worldPos,
+            String cellKey, long nameSalt) {
 
-        List<NpcRecord> spawned = new ArrayList<>();
-        List<String> usedArtisans = new ArrayList<>();
+        List<String> usedArtisans = usedArtisansByCell.computeIfAbsent(cellKey, k -> new ArrayList<>());
+        String roleName = resolveRole(role.role(), usedArtisans);
 
-        int npcIndex = 0;
-        for (NpcSpawnDef def : type.getNpcSpawns()) {
-            String roleName = resolveRole(def.role(), usedArtisans);
-
-            int roleIndex = NPCPlugin.get().getIndex(roleName);
-            if (roleIndex < 0) {
-                LOGGER.atWarning().log("[Nat20] Role not registered in NPCPlugin: " + roleName);
-                continue;
-            }
-
-            double spawnX = origin.getX() + def.xOffset() + 0.5;
-            double spawnZ = origin.getZ() + def.zOffset() + 0.5;
-            double spawnY = findGroundY(world, (int) (origin.getX() + def.xOffset()),
-                    (int) (origin.getZ() + def.zOffset()), (int) origin.getY());
-
-            Vector3d spawnPos = new Vector3d(spawnX, spawnY, spawnZ);
-
-            // Generate name deterministically from settlement + NPC index + world-unique salt
-            String name = Nat20NameGenerator.generate(cellKey.hashCode() * 31L + npcIndex + nameSalt);
-            npcIndex++;
-
-            // Create model from unmodified skin: engine serialization breaks
-            // on modified skins (beard/hair changes cause scale=0 on chunk reload)
-            Random skinRng = new Random(name.hashCode());
-            com.hypixel.hytale.protocol.PlayerSkin baseSkin =
-                CosmeticsModule.get().generateRandomSkin(skinRng);
-            com.hypixel.hytale.server.core.asset.type.model.config.Model model =
-                CosmeticsModule.get().createModel(baseSkin, 1.0f);
-
-            Pair<Ref<EntityStore>, NPCEntity> result =
-                NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, def.rotation(), model, null);
-
-            if (result != null) {
-                Ref<EntityStore> npcRef = result.first();
-                NPCEntity npcEntity = result.second();
-
-                NpcRecord npcRecord = new NpcRecord(
-                    roleName, npcEntity.getUuid(),
-                    spawnX, spawnY, spawnZ,
-                    def.rotation().getX(), def.rotation().getY(), def.rotation().getZ(),
-                    def.leashRadius(), name);
-                int dispMin = Math.max(0, def.dispositionMin());
-                int dispMax = Math.min(100, def.dispositionMax());
-                if (dispMax < dispMin) dispMax = dispMin;
-                npcRecord.setDisposition(dispMin == dispMax
-                    ? dispMin
-                    : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
-
-                applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false, world);
-                spawned.add(npcRecord);
-
-                LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
-                    (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
-            } else {
-                LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
-                    (int) spawnX + ", " + (int) spawnY + ", " + (int) spawnZ);
-            }
+        int roleIndex = NPCPlugin.get().getIndex(roleName);
+        if (roleIndex < 0) {
+            LOGGER.atWarning().log("[Nat20] Role not registered in NPCPlugin: " + roleName);
+            return null;
         }
 
-        LOGGER.atFine().log("[Nat20] Spawned " + spawned.size() + "/" +
-            type.getNpcSpawns().size() + " NPCs for " + type);
-        return spawned;
+        // Random yaw rotation so NPCs don't all face the same direction.
+        Vector3f rotation = new Vector3f(0, (float) (ThreadLocalRandom.current().nextDouble() * 360.0), 0);
+
+        // Generate name deterministically from settlement + NPC index + world-unique salt
+        int npcIndex = npcIndexByCell
+            .computeIfAbsent(cellKey, k -> new java.util.concurrent.atomic.AtomicInteger(0))
+            .getAndIncrement();
+        String name = Nat20NameGenerator.generate(cellKey.hashCode() * 31L + npcIndex + nameSalt);
+
+        // Create model from unmodified skin: engine serialization breaks
+        // on modified skins (beard/hair changes cause scale=0 on chunk reload)
+        Random skinRng = new Random(name.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+            CosmeticsModule.get().generateRandomSkin(skinRng);
+        com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+            CosmeticsModule.get().createModel(baseSkin, 1.0f);
+
+        Pair<Ref<EntityStore>, NPCEntity> result =
+            NPCPlugin.get().spawnEntity(store, roleIndex, worldPos, rotation, model, null);
+
+        if (result == null) {
+            LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
+                (int) worldPos.getX() + ", " + (int) worldPos.getY() + ", " + (int) worldPos.getZ());
+            return null;
+        }
+
+        Ref<EntityStore> npcRef = result.first();
+        NPCEntity npcEntity = result.second();
+
+        NpcRecord npcRecord = new NpcRecord(
+            roleName, npcEntity.getUuid(),
+            worldPos.getX(), worldPos.getY(), worldPos.getZ(),
+            rotation.getX(), rotation.getY(), rotation.getZ(),
+            role.leashRadius(), name);
+        int dispMin = Math.max(0, role.dispositionMin());
+        int dispMax = Math.min(100, role.dispositionMax());
+        if (dispMax < dispMin) dispMax = dispMin;
+        npcRecord.setDisposition(dispMin == dispMax
+            ? dispMin
+            : ThreadLocalRandom.current().nextInt(dispMin, dispMax + 1));
+
+        applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false, world);
+
+        LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
+            (int) worldPos.getX() + ", " + (int) worldPos.getY() + ", " + (int) worldPos.getZ());
+
+        return npcRecord;
     }
 
     private String formatDisplayName(String name, String roleName) {
@@ -366,27 +365,4 @@ public class Nat20NpcManager {
         return chosen;
     }
 
-    /**
-     * Find the ground-level Y coordinate for an NPC spawn point.
-     * Scans downward from world ceiling with a final fallback.
-     *
-     * @param world   the world to scan
-     * @param x       block X coordinate
-     * @param z       block Z coordinate
-     * @param originY the settlement origin Y
-     * @return the Y coordinate to place the NPC (groundY + 1.0)
-     */
-    private double findGroundY(World world, int x, int z, int originY) {
-        // Scan downward from world ceiling: same approach as settlement placement
-        for (int y = 256; y >= 0; y--) {
-            BlockType blockType = world.getBlockType(x, y, z);
-            if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
-                return y + 1.0;
-            }
-        }
-
-        // Final fallback
-        LOGGER.atWarning().log("[Nat20] No ground found at %d, %d near originY=%d: using fallback Y", x, z, originY);
-        return originY + 1.0;
-    }
 }

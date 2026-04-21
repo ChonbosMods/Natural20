@@ -3,6 +3,7 @@ package com.chonbosmods.commands;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
 import com.chonbosmods.settlement.NpcRecord;
+import com.chonbosmods.settlement.SettlementNpcFanOut;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
@@ -28,7 +29,7 @@ import java.util.UUID;
 public class PlaceCommand extends AbstractPlayerCommand {
 
     private final RequiredArg<String> typeArg =
-        withRequiredArg("type", "Settlement type: town, outpost, cart", ArgTypes.STRING);
+        withRequiredArg("type", "Settlement type: town, outpost", ArgTypes.STRING);
 
     public PlaceCommand() {
         super("place", "Place a settlement structure at your position");
@@ -46,7 +47,7 @@ public class PlaceCommand extends AbstractPlayerCommand {
         try {
             type = SettlementType.valueOf(typeName);
         } catch (IllegalArgumentException e) {
-            context.sendMessage(Message.raw("Unknown type: " + typeName + ". Use: town, outpost, cart"));
+            context.sendMessage(Message.raw("Unknown type: " + typeName + ". Use: town, outpost"));
             return;
         }
 
@@ -62,29 +63,31 @@ public class PlaceCommand extends AbstractPlayerCommand {
         context.sendMessage(Message.raw("Placing " + type + " at " +
             blockPos.getX() + ", " + blockPos.getY() + ", " + blockPos.getZ() + "..."));
 
+        // Generate a cell key for manual placements
+        String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
+        long nameSalt = System.currentTimeMillis();
+        long seed = nameSalt;
+
         world.execute(() -> {
-            Natural20.getInstance().getPlacer().place(
-                world, blockPos, type, Rotation.None, store, new Random()
-            );
+            Natural20.getInstance().getPlacer()
+                .place(world, blockPos, type, Rotation.None, store, new Random(seed))
+                .whenComplete((placed, error) -> world.execute(() -> {
+                    if (error != null || placed == null) {
+                        context.sendMessage(Message.raw("Settlement placement failed."));
+                        return;
+                    }
 
-            Vector3d origin = new Vector3d(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+                    List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                        store, world, type, placed.npcSpawnsWorld(), cellKey, nameSalt);
 
-            // Generate a cell key for manual placements
-            String cellKey = "manual_" + blockPos.getX() + "_" + blockPos.getZ();
-
-            long nameSalt = System.currentTimeMillis();
-            List<NpcRecord> npcRecords =
-                Natural20.getInstance().getNpcManager()
-                    .spawnSettlementNpcs(store, world, type, origin, cellKey, nameSalt);
-
-            // Register in settlement registry
-            SettlementRecord record = new SettlementRecord(
-                cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
-                blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
-            record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(),
-                Natural20.getInstance().getSettlementRegistry().getUsedNames()));
-            record.getNpcs().addAll(npcRecords);
-            Natural20.getInstance().getSettlementRegistry().register(record);
+                    SettlementRecord record = new SettlementRecord(
+                        cellKey, UUID.nameUUIDFromBytes(world.getName().getBytes()),
+                        blockPos.getX(), blockPos.getY(), blockPos.getZ(), type);
+                    record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(),
+                        Natural20.getInstance().getSettlementRegistry().getUsedNames()));
+                    record.getNpcs().addAll(spawned);
+                    Natural20.getInstance().getSettlementRegistry().register(record);
+                }));
         });
     }
 }
