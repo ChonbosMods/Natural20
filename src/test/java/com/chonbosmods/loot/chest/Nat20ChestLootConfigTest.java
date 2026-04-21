@@ -58,4 +58,23 @@ class Nat20ChestLootConfigTest {
         assertFalse(c.isChestBlock("Furniture_Chest_Epic"));
         assertFalse(c.isChestBlock("furniture_chest"));
     }
+
+    @Test
+    void matchesStateMachineVariantIds(@TempDir Path tmp) throws Exception {
+        Path cfg = tmp.resolve("chest_loot.json");
+        Files.writeString(cfg, """
+                {
+                  "chance_per_band": [0.05],
+                  "default_chance": 0.05,
+                  "chest_block_types": ["Furniture_Kweebec_Chest_Small", "Furniture_Dungeon_Chest_Legendary_Large"]
+                }
+                """);
+        Nat20ChestLootConfig c = Nat20ChestLootConfig.load(cfg);
+        assertTrue(c.isChestBlock("*Furniture_Kweebec_Chest_Small_State_Definitions_CloseWindow"));
+        assertTrue(c.isChestBlock("*Furniture_Kweebec_Chest_Small_State_Definitions_OpenWindow"));
+        assertTrue(c.isChestBlock("**Furniture_Dungeon_Chest_Legendary_Large_State_Definitions_OpenWindow_State_Definitions_CloseWindow"));
+        assertTrue(c.isChestBlock("Furniture_Kweebec_Chest_Small"));
+        assertFalse(c.isChestBlock(null));
+        assertFalse(c.isChestBlock("*Furniture_NotAChest_State_Definitions_CloseWindow"));
+    }
 }

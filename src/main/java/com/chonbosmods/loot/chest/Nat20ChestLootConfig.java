@@ -82,7 +82,22 @@ public final class Nat20ChestLootConfig {
     }
 
     public boolean isChestBlock(String blockTypeName) {
-        return chestBlockTypes.contains(blockTypeName);
+        if (blockTypeName == null) return false;
+        return chestBlockTypes.contains(normalizeBlockTypeId(blockTypeName));
+    }
+
+    /**
+     * Runtime {@code BlockType.getId()} returns state-machine variants like
+     * {@code *Furniture_Kweebec_Chest_Small_State_Definitions_CloseWindow}. Strip the
+     * leading {@code *} markers and the {@code _State_Definitions_<state>} suffix so
+     * the allowlist can store base names (e.g. {@code Furniture_Kweebec_Chest_Small}).
+     */
+    static String normalizeBlockTypeId(String id) {
+        int start = 0;
+        while (start < id.length() && id.charAt(start) == '*') start++;
+        String stripped = start == 0 ? id : id.substring(start);
+        int suffix = stripped.indexOf("_State_Definitions_");
+        return suffix >= 0 ? stripped.substring(0, suffix) : stripped;
     }
 
     public int blockTypeCount() {
