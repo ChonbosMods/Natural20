@@ -2,7 +2,7 @@
   "QualityValue": 1,
   "Color": "#c9d2dd",
   "DisplayName": "server.nat20.rarity.common",
-  "BaseWeight": 1000,
+  "BaseWeight": 300,
   "MaxAffixes": 1,
   "MaxSockets": 0,
   "StatRequirement": 0,
@@ -10,6 +10,6 @@
   "TooltipArrowTexture": "nat20_arrow_common",
   "SlotTexture": "nat20_slot_common",
   "LootRules": [
-    { "Type": "ANY", "Count": 1, "Probability": 0.5 }
+    { "Type": "ANY", "Count": 1, "Probability": 1.0 }
   ]
 }
