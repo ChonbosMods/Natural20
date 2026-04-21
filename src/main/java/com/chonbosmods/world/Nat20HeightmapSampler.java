@@ -17,7 +17,7 @@ public final class Nat20HeightmapSampler {
     }
 
     /**
-     * Walks down from {@code startY} skipping tree blocks (logs/leaves/foliage/branches)
+     * Walks down from {@code startY} skipping tree blocks (leaves, trunks, branches, roots)
      * until a non-tree solid block is found. Returns (solid block Y + 1), i.e., the first
      * buildable Y above ground. Returns 0 (sentinel) if no solid block found within
      * {@code maxSteps}.
