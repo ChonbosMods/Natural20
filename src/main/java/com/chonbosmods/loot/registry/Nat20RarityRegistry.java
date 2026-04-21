@@ -182,7 +182,6 @@ public class Nat20RarityRegistry {
             return selectRandom(random, minTier, maxTier);
         }
 
-        boolean multiplyHighTiers = true; // both RARE and EPIC apply the 1.5x bias
         boolean zeroCommon = difficulty == DifficultyTier.EPIC
                 || difficulty == DifficultyTier.LEGENDARY;
 
@@ -196,11 +195,12 @@ public class Nat20RarityRegistry {
             boolean isCommon = def.qualityValue() == 1;
             if (isCommon && zeroCommon) {
                 w = 0.0;
-            } else if (!isCommon && multiplyHighTiers) {
+            } else if (!isCommon) {
                 w *= 1.5;
             }
             // EPIC/LEGENDARY: redistribute Common's original 300 weight upward.
             if (zeroCommon) {
+                // 100 + 150 + 40 + 10 = 300 = Common's BaseWeight in Common.json; keep in sync.
                 switch (def.qualityValue()) {
                     case 2 -> w += 100.0; // Uncommon
                     case 3 -> w += 150.0; // Rare
