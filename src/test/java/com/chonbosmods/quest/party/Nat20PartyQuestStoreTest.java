@@ -7,7 +7,9 @@ import org.junit.jupiter.api.io.TempDir;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -210,6 +212,70 @@ class Nat20PartyQuestStoreTest {
 
         assertEquals(1, seen.size());
         assertSame(q, seen.get(0), "sink receives the authoritative live instance for reward dispense");
+    }
+
+    @Test
+    void migratePlayerMovesLegacyQuestsIntoStoreWithSelfAsAccepter() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+
+        QuestInstance legacy = new QuestInstance();
+        legacy.setQuestId("legacy-1");
+        // accepters empty: legacy save didn't have the field
+
+        Map<String, QuestInstance> legacyActive = new HashMap<>();
+        legacyActive.put("legacy-1", legacy);
+
+        store.migratePlayer(alice, legacyActive);
+
+        QuestInstance migrated = store.getById("legacy-1");
+        assertNotNull(migrated);
+        assertEquals(List.of(alice), migrated.getAccepters());
+        assertEquals(1, store.queryByPlayer(alice).size());
+    }
+
+    @Test
+    void migratePlayerIsIdempotentWhenQuestAlreadyInStore() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+
+        QuestInstance existing = new QuestInstance();
+        existing.setQuestId("legacy-1");
+        existing.setAccepters(List.of(alice));
+        store.add(existing);
+
+        QuestInstance legacy = new QuestInstance();
+        legacy.setQuestId("legacy-1");
+
+        store.migratePlayer(alice, Map.of("legacy-1", legacy));
+
+        assertSame(existing, store.getById("legacy-1"),
+            "first writer wins: migration does not overwrite an existing entry");
+        assertEquals(1, store.queryByPlayer(alice).size());
+    }
+
+    @Test
+    void migratePlayerSkipsEntriesMissingQuestId() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+
+        QuestInstance broken = new QuestInstance();
+        // no questId set
+
+        Map<String, QuestInstance> legacyActive = new HashMap<>();
+        legacyActive.put("malformed", broken);
+
+        assertDoesNotThrow(() -> store.migratePlayer(alice, legacyActive));
+        assertTrue(store.queryByPlayer(alice).isEmpty());
+    }
+
+    @Test
+    void migratePlayerHandlesNullAndEmptyInputs() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        assertDoesNotThrow(() -> store.migratePlayer(alice, null));
+        assertDoesNotThrow(() -> store.migratePlayer(alice, new HashMap<>()));
+        assertTrue(store.queryByPlayer(alice).isEmpty());
     }
 
     @Test

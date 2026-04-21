@@ -83,6 +83,27 @@ public class Nat20PartyQuestStore {
         void record(UUID player, QuestInstance quest);
     }
 
+    /**
+     * One-shot migration from the legacy per-player {@code active_quests} JSON
+     * stored on {@code Nat20PlayerData} into this quest-keyed store. Each legacy
+     * entry becomes a store entry with {@code accepters = [player]}.
+     *
+     * <p>Idempotent: if the store already contains an entry for a given
+     * questId, the legacy copy is dropped (first writer wins). Safe to call
+     * repeatedly and on empty/null input.
+     */
+    public void migratePlayer(UUID player, Map<String, QuestInstance> legacyActive) {
+        if (legacyActive == null || legacyActive.isEmpty()) return;
+        for (QuestInstance legacy : legacyActive.values()) {
+            String id = legacy.getQuestId();
+            if (id == null || id.isEmpty()) continue;
+            if (primary.containsKey(id)) continue;
+            legacy.setAccepters(List.of(player));
+            primary.put(id, legacy);
+            byPlayer.computeIfAbsent(player, k -> new HashSet<>()).add(id);
+        }
+    }
+
     public void turnIn(String questId, CompletionSink sink) {
         QuestInstance q = primary.get(questId);
         if (q == null) return;
