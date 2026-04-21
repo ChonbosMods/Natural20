@@ -1,6 +1,7 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.party.Nat20Party;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -80,6 +81,21 @@ public class QuestStateManager {
         Map<String, QuestInstance> quests = getActiveQuests(data);
         quests.remove(questId);
         saveActiveQuests(data, quests);
+    }
+
+    /**
+     * Snapshot the party's current members into the quest as its frozen
+     * accepters list, then store the quest. This is the single entry point for
+     * accepting a quest on behalf of a party; it enforces the design rule that
+     * accepters is captured at accept time and never mutates afterward.
+     */
+    public void acceptForParty(Nat20Party party, QuestInstance quest) {
+        if (store == null) {
+            throw new IllegalStateException(
+                "acceptForParty requires the store-backed QuestStateManager");
+        }
+        quest.setAccepters(List.copyOf(party.getMembers()));
+        store.add(quest);
     }
 
     public QuestInstance getQuest(Nat20PlayerData data, String questId) {
