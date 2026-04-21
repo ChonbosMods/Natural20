@@ -12,9 +12,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Persistent position-keyed registry of chests that have already been rolled for
@@ -23,6 +21,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * <p>Backed by {@code chest_rolls.json}. Thread-safe: in-memory map is a
  * {@link ConcurrentHashMap}; file I/O is serialized via {@code synchronized}.
+ * {@link #markRolled} writes synchronously so a JVM crash right after a first
+ * interaction cannot lose the mark and let the same chest roll again on restart.
+ * Chest opens are rare enough (a handful per minute across all players) that the
+ * disk I/O cost is negligible; an async debounce buys nothing here.
  */
 public final class Nat20ChestRollRegistry {
 
@@ -33,7 +35,6 @@ public final class Nat20ChestRollRegistry {
 
     private final Path savePath;
     private final ConcurrentHashMap<String, Long> rolled = new ConcurrentHashMap<>();
-    private final AtomicBoolean savePending = new AtomicBoolean(false);
 
     public Nat20ChestRollRegistry(Path rootDir) {
         this.savePath = rootDir.resolve("chest_rolls.json");
@@ -46,7 +47,7 @@ public final class Nat20ChestRollRegistry {
     /** Idempotent: repeated calls for the same position overwrite the timestamp but leave the position rolled. */
     public void markRolled(int x, int y, int z) {
         rolled.put(key(x, y, z), System.currentTimeMillis());
-        saveAsync();
+        save();
     }
 
     /** Synchronous flush. Safe to call from any thread. */
@@ -78,14 +79,5 @@ public final class Nat20ChestRollRegistry {
 
     private static String key(int x, int y, int z) {
         return x + "," + y + "," + z;
-    }
-
-    private void saveAsync() {
-        if (savePending.compareAndSet(false, true)) {
-            CompletableFuture.runAsync(() -> {
-                savePending.set(false);
-                save();
-            });
-        }
     }
 }
