@@ -15,6 +15,7 @@ public final class Nat20ChestLootRoller {
         return rng.nextDouble() < chance;
     }
 
+    /** Returns 0..3. Band count must stay in sync with {@code chance_per_band} length in chest_loot.json. */
     public static int bandForAreaLevel(int areaLevel) {
         if (areaLevel <= 10) return 0;
         if (areaLevel <= 20) return 1;
