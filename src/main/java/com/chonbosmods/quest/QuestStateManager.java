@@ -84,6 +84,27 @@ public class QuestStateManager {
     }
 
     /**
+     * One-shot migration helper. Reads legacy {@code active_quests} JSON from
+     * the player's questFlags, returning the decoded map (or empty on absent,
+     * blank, or malformed input). Never throws.
+     */
+    public static Map<String, QuestInstance> readLegacyActiveQuests(Nat20PlayerData data) {
+        String json = data.getQuestData(KEY_ACTIVE_QUESTS);
+        if (json == null || json.isEmpty()) return new HashMap<>();
+        try {
+            Map<String, QuestInstance> result = GSON.fromJson(json, QUEST_MAP_TYPE);
+            return result != null ? result : new HashMap<>();
+        } catch (Exception e) {
+            return new HashMap<>();
+        }
+    }
+
+    /** Clears the legacy {@code active_quests} questFlag entry. Idempotent. */
+    public static void clearLegacyActiveQuests(Nat20PlayerData data) {
+        data.setQuestData(KEY_ACTIVE_QUESTS, "");
+    }
+
+    /**
      * Snapshot the party's current members into the quest as its frozen
      * accepters list, then store the quest. This is the single entry point for
      * accepting a quest on behalf of a party; it enforces the design rule that
