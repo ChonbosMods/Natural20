@@ -51,4 +51,35 @@ class Nat20HeightmapSamplerTest {
         assertFalse(Nat20HeightmapSampler.isTreeBlockName(""));
         assertFalse(Nat20HeightmapSampler.isTreeBlockName(null));
     }
+
+    @Test
+    void walkDown_returnsYOnePastSolid_whenStartIsLeafCanopy() {
+        // Simulated column: y=68-70 leaves, y=67 trunk, y<=66 dirt (solid).
+        // Start at y=70, expect y=67 (66 is dirt top + 1).
+        java.util.function.IntFunction<String> names = y -> {
+            if (y >= 68) return "Plant_Leaves_Oak";
+            if (y == 67) return "Wood_Oak_Trunk";
+            return "Soil_Dirt";
+        };
+        java.util.function.IntPredicate isSolid = y -> y <= 66; // dirt is solid-opacity
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid);
+        assertEquals(67, result, "should land on first non-tree solid block top + 1");
+    }
+
+    @Test
+    void walkDown_returnsStartPlusOne_whenStartIsAlreadyOnGround() {
+        java.util.function.IntFunction<String> names = y -> "Stone_Granite";
+        java.util.function.IntPredicate isSolid = y -> true;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(64, 30, names, isSolid);
+        assertEquals(65, result);
+    }
+
+    @Test
+    void walkDown_bailsAtMaxStepsReturningSentinel() {
+        // All transparent: should bail out after maxSteps and return 0 (sentinel).
+        java.util.function.IntFunction<String> names = y -> "Air";
+        java.util.function.IntPredicate isSolid = y -> false;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(200, 20, names, isSolid);
+        assertEquals(0, result);
+    }
 }
