@@ -29,8 +29,10 @@ public class QuestChestPlacer {
 
     /**
      * Inject the chest-roll registry so quest chests opt out of affix-loot injection.
-     * Called once from plugin setup; null-safe for tests that don't exercise the full
-     * plugin lifecycle.
+     * Must be called before any quest chest is placed: when null, quest chests will
+     * be re-rolled by {@code Nat20ChestAffixInjectionSystem} on first player
+     * interaction, overwriting (or colliding with) the authored reward. Null-safe
+     * solely to accommodate tests that don't exercise the full plugin lifecycle.
      */
     public static void setChestRollRegistry(Nat20ChestRollRegistry registry) {
         chestRollRegistry = registry;

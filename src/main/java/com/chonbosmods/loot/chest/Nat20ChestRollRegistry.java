@@ -33,7 +33,7 @@ public final class Nat20ChestRollRegistry {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Type MAP_TYPE = new TypeToken<Map<String, Long>>() {}.getType();
 
-    private Path savePath;
+    private volatile Path savePath;
     private final ConcurrentHashMap<String, Long> rolled = new ConcurrentHashMap<>();
 
     public Nat20ChestRollRegistry(Path rootDir) {
