@@ -96,10 +96,21 @@ public class SettlementWorldGenListener {
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
             int groundY = findGroundY(world, settlementX, settlementZ);
+            if (groundY <= 0) {
+                // Sampler returned its no-ground sentinel: center is over water, in a
+                // cave, or on unloaded chunks. Don't force a placement with bogus Y;
+                // drop the tentative record so it doesn't ghost in /nat20 settlements.
+                LOGGER.atFine().log(
+                    "No valid ground at settlement center (%d, %d) for cell %s; skipping",
+                    settlementX, settlementZ, cellKey);
+                registry.unregister(cellKey);
+                return;
+            }
             Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
             if (!placer.hasPrefab(type)) {
                 LOGGER.atSevere().log("No prefab for %s, skipping settlement at cell %s", type, cellKey);
+                registry.unregister(cellKey);
                 return;
             }
 
@@ -107,7 +118,9 @@ public class SettlementWorldGenListener {
                 .whenComplete((placed, error) -> world.execute(() -> {
                     if (error != null || placed == null) {
                         LOGGER.atSevere().withCause(error).log(
-                            "Settlement placement failed for cell %s", cellKey);
+                            "Settlement placement failed for cell %s; removing tentative record",
+                            cellKey);
+                        registry.unregister(cellKey);
                         return;
                     }
 
@@ -237,11 +250,16 @@ public class SettlementWorldGenListener {
                chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
     }
 
+    /**
+     * @return valid ground Y at (x, z), or 0 if the sampler can't find one
+     *         (water column, all-transparent, unloaded chunk, etc.). Callers
+     *         must handle the 0 sentinel explicitly rather than placing at it.
+     */
     private int findGroundY(World world, int x, int z) {
         Nat20HeightmapSampler.SampleResult sample = Nat20HeightmapSampler.sample(
             world, x, z, 0, 0,
             Nat20HeightmapSampler.Mode.ENTRY_ANCHOR,
             Integer.MAX_VALUE);
-        return sample.y() > 0 ? sample.y() : 64;
+        return sample.y();
     }
 }

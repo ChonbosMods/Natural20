@@ -80,6 +80,22 @@ public class SettlementRegistry {
     }
 
     /**
+     * Remove a settlement record by cell key. Used to clean up tentative records when
+     * placement fails (e.g., no pieces could be grounded) so `/nat20 settlements`
+     * doesn't list ghost entries the player can't find in the world.
+     *
+     * @return true if a record was removed
+     */
+    public boolean unregister(String cellKey) {
+        SettlementRecord removed = settlements.remove(cellKey);
+        if (removed != null) {
+            saveAsync();
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Look up a settlement by its cell key.
      * @return the record, or null if not found
      */
