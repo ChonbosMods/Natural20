@@ -15,6 +15,7 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new ModelsCommand());
         addSubCommand(new RolesCommand());
         addSubCommand(new HostileDumpCommand());
+        addSubCommand(new MobStatsDumpCommand());
         addSubCommand(new ThemeHereCommand());
         addSubCommand(new ZoneDumpCommand());
         addSubCommand(new BiomeDumpCommand());
