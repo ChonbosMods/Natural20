@@ -1,6 +1,8 @@
 package com.chonbosmods.settlement;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.prefab.MarkerScan;
+import com.chonbosmods.prefab.Nat20PrefabMarkerScanner;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.world.Nat20HeightmapSampler;
@@ -92,7 +94,7 @@ public final class SettlementPieceAssembler {
     private static CompletableFuture<PlacedMarkers> pasteGrounded(
             Placement placement, World world, Random rng,
             ComponentAccessor<EntityStore> store) {
-        Bounds b = rotatedBoundsAt(placement.buffer, placement.anchor, placement.yaw);
+        Bounds b = rotatedStructureBoundsAt(placement.scan, placement.anchor, placement.yaw);
         int halfX = Math.max(placement.anchor.getX() - b.minX, b.maxX - placement.anchor.getX());
         int halfZ = Math.max(placement.anchor.getZ() - b.minZ, b.maxZ - placement.anchor.getZ());
 
@@ -219,15 +221,26 @@ public final class SettlementPieceAssembler {
                 continue;
             }
 
+            // Scan markers up front: (1) catch malformed prefabs at plan time instead
+            // of paste time, (2) get structural bounds for edge-to-edge spacing that
+            // excludes stray marker blocks that extend past the visible structure.
+            MarkerScan scan;
+            try {
+                scan = Nat20PrefabMarkerScanner.scan(buffer);
+            } catch (RuntimeException e) {
+                LOGGER.atWarning().log("Skipping malformed piece '%s': %s", pick, e.getMessage());
+                continue;
+            }
+
             Placement chosen = null;
             for (int retry = 0; retry < MAX_RETRIES_PER_PIECE; retry++) {
                 Rotation yaw = CARDINAL_ROTATIONS[rng.nextInt(CARDINAL_ROTATIONS.length)];
                 Vector3i candidateAnchor = randomAnchor(center, config.outerRadius(), rng);
-                Bounds candidateBounds = rotatedBoundsAt(buffer, candidateAnchor, yaw);
+                Bounds candidateBounds = rotatedStructureBoundsAt(scan, candidateAnchor, yaw);
 
                 if (fits(candidateBounds, placed, config.minSpacing())) {
                     placed.add(candidateBounds);
-                    chosen = new Placement(pick, buffer, candidateAnchor, yaw);
+                    chosen = new Placement(pick, buffer, scan, candidateAnchor, yaw);
                     break;
                 }
             }
@@ -251,13 +264,15 @@ public final class SettlementPieceAssembler {
     }
 
     /**
-     * Axis-aligned XZ bounding box of a rotated prefab pasted at {@code anchor}.
-     * Rotates the four corners of the prefab-local XZ box, picks min/max in world coords.
+     * Axis-aligned XZ bounding box of a rotated prefab's STRUCTURAL footprint pasted
+     * at {@code anchor}. Uses {@link MarkerScan#structureMinX()} etc. so the bounds
+     * reflect only the visible structure (non-marker, non-empty blocks), not
+     * free-floating marker blocks that would otherwise inflate the AABB.
      * Y is ignored (piece spacing only cares about ground footprint).
      */
-    private static Bounds rotatedBoundsAt(IPrefabBuffer buffer, Vector3i anchor, Rotation yaw) {
-        int[] cornersX = {buffer.getMinX(), buffer.getMinX(), buffer.getMaxX(), buffer.getMaxX()};
-        int[] cornersZ = {buffer.getMinZ(), buffer.getMaxZ(), buffer.getMinZ(), buffer.getMaxZ()};
+    private static Bounds rotatedStructureBoundsAt(MarkerScan scan, Vector3i anchor, Rotation yaw) {
+        int[] cornersX = {scan.structureMinX(), scan.structureMinX(), scan.structureMaxX(), scan.structureMaxX()};
+        int[] cornersZ = {scan.structureMinZ(), scan.structureMaxZ(), scan.structureMinZ(), scan.structureMaxZ()};
         int minX = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE;
         int minZ = Integer.MAX_VALUE, maxZ = Integer.MIN_VALUE;
         for (int k = 0; k < 4; k++) {
@@ -318,7 +333,8 @@ public final class SettlementPieceAssembler {
         );
     }
 
-    private record Placement(Path source, IPrefabBuffer buffer, Vector3i anchor, Rotation yaw) {}
+    private record Placement(Path source, IPrefabBuffer buffer, MarkerScan scan,
+                             Vector3i anchor, Rotation yaw) {}
 
     private record Bounds(int minX, int maxX, int minZ, int maxZ) {
         boolean overlapsWithinSpacing(Bounds other, int spacing) {
