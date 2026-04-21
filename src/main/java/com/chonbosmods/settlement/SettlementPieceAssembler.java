@@ -125,7 +125,7 @@ public final class SettlementPieceAssembler {
                 world.execute(() -> {
                     Nat20HeightmapSampler.SampleResult ground = Nat20HeightmapSampler.sample(
                         world, placement.anchor.getX(), placement.anchor.getZ(),
-                        halfX, halfZ, Nat20HeightmapSampler.Mode.MIN);
+                        halfX, halfZ, Nat20HeightmapSampler.Mode.MEDIAN);
                     if (ground.y() <= 0) {
                         LOGGER.atFine().log(
                             "Piece grounding: no ground at (%d, %d); skipping",
