@@ -38,4 +38,19 @@ public class Nat20Party {
     public void addMember(UUID player) {
         if (!members.contains(player)) members.add(player);
     }
+
+    public void removeMember(UUID player) {
+        boolean removed = members.remove(player);
+        if (!removed) return;
+        if (player.equals(leader) && !members.isEmpty()) {
+            leader = members.get(0);
+        }
+    }
+
+    public void promoteToLeader(UUID player) {
+        if (!members.contains(player)) {
+            throw new IllegalArgumentException("cannot promote non-member to leader");
+        }
+        leader = player;
+    }
 }

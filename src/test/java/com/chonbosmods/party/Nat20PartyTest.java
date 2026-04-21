@@ -64,4 +64,67 @@ class Nat20PartyTest {
             () -> members.add(UUID.randomUUID()),
             "getMembers must not expose the mutable internal list");
     }
+
+    @Test
+    void removeMemberRemovesNonLeaderAndKeepsLeader() {
+        UUID a = UUID.randomUUID();
+        UUID b = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        p.addMember(b);
+        p.removeMember(b);
+        assertEquals(List.of(a), p.getMembers());
+        assertEquals(a, p.getLeader());
+    }
+
+    @Test
+    void leaderLeavePromotesNextByJoinOrder() {
+        UUID a = UUID.randomUUID();
+        UUID b = UUID.randomUUID();
+        UUID c = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        p.addMember(b);
+        p.addMember(c);
+
+        p.removeMember(a);
+
+        assertEquals(List.of(b, c), p.getMembers());
+        assertEquals(b, p.getLeader(), "succession is next-by-join-order");
+    }
+
+    @Test
+    void removingLastMemberLeavesPartyEmpty() {
+        UUID a = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        p.removeMember(a);
+        assertTrue(p.getMembers().isEmpty());
+        assertTrue(p.isEmpty());
+    }
+
+    @Test
+    void removeMemberOfNonMemberIsNoOp() {
+        UUID a = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        assertDoesNotThrow(() -> p.removeMember(UUID.randomUUID()));
+        assertEquals(List.of(a), p.getMembers());
+    }
+
+    @Test
+    void promoteToLeaderSetsLeaderToExistingMember() {
+        UUID a = UUID.randomUUID();
+        UUID b = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        p.addMember(b);
+
+        p.promoteToLeader(b);
+
+        assertEquals(b, p.getLeader());
+    }
+
+    @Test
+    void promoteToLeaderRejectsNonMember() {
+        UUID a = UUID.randomUUID();
+        Nat20Party p = Nat20Party.ofSolo(a);
+        assertThrows(IllegalArgumentException.class,
+            () -> p.promoteToLeader(UUID.randomUUID()));
+    }
 }
