@@ -70,6 +70,7 @@ public class QuestInstance {
     }
 
     public String getQuestId() { return questId; }
+    public void setQuestId(String questId) { this.questId = questId; }
     public String getSituationId() { return situationId; }
     public String getSourceNpcId() { return sourceNpcId; }
     public String getSourceSettlementId() { return sourceSettlementId; }
