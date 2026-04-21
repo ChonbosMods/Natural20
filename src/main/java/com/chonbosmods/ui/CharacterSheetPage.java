@@ -475,17 +475,21 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     private void renderPartySection(UICommandBuilder cmd, Store<EntityStore> store) {
         slotToPlayerUuid.clear();
 
-        // Tab highlighting: gold active, muted inactive. Matches Quest Log pattern.
-        cmd.set("#CSPartyTabParty.Style.TextColor",
+        // Tab highlighting: gold active, muted inactive. Buttons use the
+        // Style.Default.LabelStyle.TextColor path, NOT Style.TextColor
+        // (that one only applies to plain Labels; setting it on a button
+        // element crashes the client). Matches the Quest Log #CSTabActive /
+        // #CSTabCompleted pattern in renderQuestList().
+        cmd.set("#CSPartyTabParty.Style.Default.LabelStyle.TextColor",
                 currentPartyTab == PartyTab.PARTY ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
-        cmd.set("#CSPartyTabServer.Style.TextColor",
+        cmd.set("#CSPartyTabServer.Style.Default.LabelStyle.TextColor",
                 currentPartyTab == PartyTab.SERVER ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
 
         // Invites tab: grey out when zero pending invites for this player.
         Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
         boolean hasInvite = inviteReg != null
                 && inviteReg.getForInvitee(this.playerRef.getUuid()) != null;
-        cmd.set("#CSPartyTabInvites.Style.TextColor",
+        cmd.set("#CSPartyTabInvites.Style.Default.LabelStyle.TextColor",
                 currentPartyTab == PartyTab.INVITES ? COLOR_TAB_ACTIVE
                         : (hasInvite ? COLOR_TAB_INACTIVE : COLOR_PLAYER_OFFLINE));
         cmd.set("#CSPartyTabInvites.Disabled", !hasInvite && currentPartyTab != PartyTab.INVITES);
