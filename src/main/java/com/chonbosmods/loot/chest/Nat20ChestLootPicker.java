@@ -4,11 +4,11 @@ import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootPipeline;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.mob.Nat20ItemTierResolver;
+import com.chonbosmods.loot.mob.Nat20MobLootPool;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.hypixel.hytale.logger.HytaleLogger;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -47,7 +47,7 @@ public final class Nat20ChestLootPicker {
      * @return generated loot data, or empty if the pool is empty or the pipeline returns null
      */
     public Optional<Nat20LootData> pickLoot(int ilvl, Random rng) {
-        List<String> pool = buildGlobalPool(ilvl);
+        List<String> pool = Nat20MobLootPool.buildGlobalPool(lootSystem.getLootEntryRegistry(), ilvl);
         if (pool.isEmpty()) {
             LOGGER.atWarning().log("Empty chest loot pool at ilvl=%d; nothing to generate", ilvl);
             return Optional.empty();
@@ -81,22 +81,6 @@ public final class Nat20ChestLootPicker {
         LOGGER.atWarning().log("Chest pick exhausted %d attempts at ilvl=%d without a valid roll",
                 MAX_PICK_ATTEMPTS, ilvl);
         return Optional.empty();
-    }
-
-    /**
-     * Build the global gear pool for this ilvl. Duplicates the filter from
-     * {@code Nat20MobLootPool.buildGlobalPool} because that class's {@code build(...)}
-     * requires a mob/store context chests do not have.
-     */
-    private List<String> buildGlobalPool(int ilvl) {
-        Nat20LootEntryRegistry registry = lootSystem.getLootEntryRegistry();
-        List<String> pool = new ArrayList<>();
-        for (String itemId : registry.getAllItemIds()) {
-            if (!Nat20ItemTierResolver.isGearItem(itemId)) continue;
-            if (!Nat20ItemTierResolver.allowsIlvl(itemId, ilvl)) continue;
-            pool.add(itemId);
-        }
-        return pool;
     }
 
     private String resolveDisplayName(String itemId) {
