@@ -142,18 +142,32 @@ public final class SettlementPieceAssembler {
                     }
                     Vector3i groundedAnchor = new Vector3i(
                         placement.anchor.getX(), ground.y(), placement.anchor.getZ());
-                    Nat20PrefabPaster.paste(placement.buffer, world, groundedAnchor,
-                                            placement.yaw, rng, store)
-                        .whenComplete((placed, pasteErr) -> {
-                            if (pasteErr != null) {
-                                LOGGER.atSevere().withCause(pasteErr).log(
-                                    "Piece paste failed at (%d, %d, %d)",
-                                    groundedAnchor.getX(), groundedAnchor.getY(), groundedAnchor.getZ());
-                                out.complete(null);
-                                return;
-                            }
-                            out.complete(placed);
-                        });
+                    // Nat20PrefabPaster.paste validates markers synchronously and throws
+                    // IllegalArgumentException if the prefab is missing a required anchor
+                    // or direction marker. Catch here so one malformed piece doesn't
+                    // escape the world.execute lambda and tank the whole task queue entry.
+                    CompletableFuture<PlacedMarkers> pasteFuture;
+                    try {
+                        pasteFuture = Nat20PrefabPaster.paste(placement.buffer, world,
+                            groundedAnchor, placement.yaw, rng, store);
+                    } catch (RuntimeException scanErr) {
+                        LOGGER.atSevere().withCause(scanErr).log(
+                            "Piece paste rejected malformed prefab '%s'; skipping",
+                            placement.source);
+                        out.complete(null);
+                        return;
+                    }
+                    pasteFuture.whenComplete((placed, pasteErr) -> {
+                        if (pasteErr != null) {
+                            LOGGER.atSevere().withCause(pasteErr).log(
+                                "Piece paste failed at (%d, %d, %d) source=%s",
+                                groundedAnchor.getX(), groundedAnchor.getY(),
+                                groundedAnchor.getZ(), placement.source);
+                            out.complete(null);
+                            return;
+                        }
+                        out.complete(placed);
+                    });
                 });
             });
         return out;
