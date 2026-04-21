@@ -29,4 +29,19 @@ public class Nat20PartyRegistry {
     public Nat20Party getPartyById(String partyId) {
         return byPartyId.get(partyId);
     }
+
+    public void acceptInvite(UUID invitee, String targetPartyId) {
+        Nat20Party target = byPartyId.get(targetPartyId);
+        if (target == null) {
+            throw new IllegalArgumentException("no such party: " + targetPartyId);
+        }
+        Nat20Party current = getParty(invitee);
+        if (!current.isSolo()) {
+            throw new IllegalStateException("player is already in a multi-member party");
+        }
+        current.removeMember(invitee);
+        if (current.isEmpty()) byPartyId.remove(current.getPartyId());
+        target.addMember(invitee);
+        byPlayer.put(invitee, target);
+    }
 }
