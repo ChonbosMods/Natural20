@@ -7,7 +7,7 @@ import java.util.List;
 public enum SettlementType {
     // NpcSpawnRole declaration order defines the per-NPC role cycle:
     // fan-out assigns role = roles[markerIdx % roles.size()]. Keep Guard first.
-    TOWN(new PiecePlacement("settlement_pieces", 4, 8, 40, 8), 32, List.of(
+    TOWN(new PiecePlacement("settlement_pieces", 4, 8, 40, 4), 32, List.of(
         new NpcSpawnRole("Guard",          2, 3, 30, 60),
         new NpcSpawnRole("Villager",       2, 6, 40, 80),
         new NpcSpawnRole("RANDOM_ARTISAN", 2, 4, 50, 80)
