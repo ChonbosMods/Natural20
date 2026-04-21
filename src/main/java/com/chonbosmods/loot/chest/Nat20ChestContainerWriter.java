@@ -11,6 +11,16 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 
+/**
+ * Mutates the container of an already-placed block (chests etc.). Use this for
+ * post-placement loot injection (e.g. affix rolls when a native chest is first
+ * opened). To CREATE a fresh chest with pre-loaded contents, use
+ * {@link com.chonbosmods.quest.QuestChestPlacer} instead: that path builds a
+ * block holder from JSON and does a 2-pass hydration, which is not what this
+ * class does.
+ *
+ * <p>All public methods must be called from the world thread.
+ */
 public final class Nat20ChestContainerWriter {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|ChestContainerWriter");
