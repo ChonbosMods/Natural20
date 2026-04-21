@@ -5,17 +5,19 @@ import com.chonbosmods.npc.NpcSpawnRole;
 import java.util.List;
 
 public enum SettlementType {
+    // NpcSpawnRole declaration order defines the per-NPC role cycle:
+    // fan-out assigns role = roles[markerIdx % roles.size()]. Keep Guard first.
     TOWN(new PiecePlacement("settlement_pieces", 4, 8, 40, 8), 32, List.of(
-        new NpcSpawnRole("Villager",       2, 6, 40, 80),
         new NpcSpawnRole("Guard",          2, 3, 30, 60),
+        new NpcSpawnRole("Villager",       2, 6, 40, 80),
         new NpcSpawnRole("RANDOM_ARTISAN", 2, 4, 50, 80)
     ),
         List.of("mine", "farm", "tavern", "blacksmith", "well", "market"),
         List.of("goblins", "wolves", "skeletons")
     ),
     OUTPOST(new FullPlacement("Nat20/settlement_full/testStructure"), 16, List.of(
-        new NpcSpawnRole("Villager",       1, 4, 35, 70),
         new NpcSpawnRole("Guard",          1, 2, 30, 55),
+        new NpcSpawnRole("Villager",       1, 4, 35, 70),
         new NpcSpawnRole("RANDOM_ARTISAN", 1, 3, 45, 75)
     ),
         List.of("farm", "well", "watchtower"),

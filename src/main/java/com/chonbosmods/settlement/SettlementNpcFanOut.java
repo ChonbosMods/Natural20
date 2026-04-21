@@ -20,11 +20,15 @@ import java.util.Random;
  * battle-tested {@link com.chonbosmods.npc.Nat20NpcManager#spawnSettlementNpc}
  * once per selected marker.
  *
- * <p>Role assignment cycles through a <b>count-weighted</b> role list built
- * from the type's {@link NpcSpawnRole} declarations, so a TOWN with
- * {@code Villager×2 + Guard×2 + Artisan×2} produces the same role mix
- * regardless of marker count. Every marker's world position is the NPC's
- * spawn AND leash point (handled inside {@code spawnSettlementNpc}).
+ * <p>Role assignment cycles through the type's {@link NpcSpawnRole} list in
+ * declaration order, one role per NPC : marker {@code i} gets
+ * {@code roles[i % roles.size()]}. A TOWN declared as
+ * {@code [Guard, Villager, Artisan]} with 5 markers yields
+ * {@code Guard, Villager, Artisan, Guard, Villager}. The {@code count} field
+ * on each {@link NpcSpawnRole} is metadata only (leash radius / disposition
+ * still matter): it no longer weighs the cycle. Every marker's world position
+ * is the NPC's spawn AND leash point (handled inside
+ * {@code spawnSettlementNpc}).
  */
 public final class SettlementNpcFanOut {
 
@@ -58,15 +62,15 @@ public final class SettlementNpcFanOut {
         Collections.shuffle(selected, rng);
         selected = selected.subList(0, target);
 
-        List<NpcSpawnRole> weightedRoles = buildWeightedRoleList(type);
-        if (weightedRoles.isEmpty()) {
+        List<NpcSpawnRole> roleCycle = type.getNpcSpawns();
+        if (roleCycle.isEmpty()) {
             LOGGER.atWarning().log("Settlement %s has no NpcSpawnRole entries; skipping fan-out", type);
             return List.of();
         }
 
         List<NpcRecord> spawned = new ArrayList<>(target);
         for (int i = 0; i < selected.size(); i++) {
-            NpcSpawnRole role = weightedRoles.get(i % weightedRoles.size());
+            NpcSpawnRole role = roleCycle.get(i % roleCycle.size());
             NpcRecord rec = Natural20.getInstance().getNpcManager()
                 .spawnSettlementNpc(store, world, role, selected.get(i), cellKey, seed);
             if (rec != null) spawned.add(rec);
@@ -88,13 +92,4 @@ public final class SettlementNpcFanOut {
         return MIN_NPCS + rng.nextInt(markerCount - MIN_NPCS + 1);
     }
 
-    private static List<NpcSpawnRole> buildWeightedRoleList(SettlementType type) {
-        List<NpcSpawnRole> weighted = new ArrayList<>();
-        for (NpcSpawnRole role : type.getNpcSpawns()) {
-            for (int i = 0; i < role.count(); i++) {
-                weighted.add(role);
-            }
-        }
-        return weighted;
-    }
 }
