@@ -1,5 +1,6 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.topic.TopicGenerator;
 import com.chonbosmods.topic.TopicPoolRegistry;
@@ -19,13 +20,13 @@ public class QuestSystem {
     private final TopicTemplateRegistry topicTemplateRegistry;
     private final TopicGenerator topicGenerator;
 
-    public QuestSystem(SettlementRegistry settlementRegistry) {
+    public QuestSystem(SettlementRegistry settlementRegistry, Nat20PartyQuestStore partyQuestStore) {
         this.templateRegistry = new QuestTemplateRegistry();
         this.poolRegistry = new QuestPoolRegistry();
         this.poolRegistry.setTemplateRegistry(templateRegistry);
         this.difficultyRegistry = new QuestDifficultyRegistry();
         this.difficultyRegistry.loadAll();
-        this.stateManager = new QuestStateManager();
+        this.stateManager = new QuestStateManager(partyQuestStore);
         this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry, difficultyRegistry);
         this.referenceManager = new ReferenceManager(templateRegistry, settlementRegistry, stateManager);
         this.topicPoolRegistry = new TopicPoolRegistry();

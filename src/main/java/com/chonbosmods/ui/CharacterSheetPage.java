@@ -3,6 +3,11 @@ package com.chonbosmods.ui;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.party.Nat20Party;
+import com.chonbosmods.party.Nat20PartyInviteRegistry;
+import com.chonbosmods.party.Nat20PartyRegistry;
+import com.chonbosmods.party.PartyInvite;
+import com.chonbosmods.party.PartyInviteBanner;
 import com.chonbosmods.progression.Nat20XpMath;
 import com.chonbosmods.quest.CompletedQuestRecord;
 import com.chonbosmods.quest.QuestInstance;
@@ -10,6 +15,7 @@ import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.stats.Stat;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
@@ -32,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Character Sheet page (Tasks 7-14+).
@@ -85,6 +92,17 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     /** Quest Log tab selection. Resets to ACTIVE on every new page instance. */
     private enum QuestTab { ACTIVE, COMPLETED }
 
+    /** Party section: max pre-baked row slots in the .ui template. */
+    private static final int MAX_PARTY_ROWS = 8;
+    /** Party section tab selection. Resets to PARTY on every new page instance. */
+    private enum PartyTab { PARTY, SERVER, INVITES }
+    /** Greyed-out name color for offline party members. */
+    private static final String COLOR_PLAYER_OFFLINE = "#888888";
+    /** White for online / server-listed players. */
+    private static final String COLOR_PLAYER_ONLINE = "#ffffff";
+    /** Gold for the party leader's name row. */
+    private static final String COLOR_PLAYER_LEADER = "#ffd700";
+
     public static final BuilderCodec<PageEventData> EVENT_CODEC = BuilderCodec.builder(PageEventData.class, PageEventData::new)
             .addField(new KeyedCodec<>("Type", Codec.STRING), PageEventData::setType, PageEventData::getType)
             .addField(new KeyedCodec<>("Id", Codec.STRING), PageEventData::setId, PageEventData::getId)
@@ -103,6 +121,18 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     /** Slot index -> questId mapping populated on each Active-tab render so that
      *  Task 18's row-tap handler can resolve which quest a slot represents. */
     private final Map<Integer, String> slotToQuestId = new HashMap<>();
+
+    /** Currently selected Party tab. Defaults to PARTY on every new page. */
+    private PartyTab currentPartyTab = PartyTab.PARTY;
+    /** Slot index -> player UUID mapping for the currently rendered party row
+     *  set. Repopulated on every rebuild. Maps to the target of any
+     *  Kick / Promote / Invite / Accept / Decline action. */
+    private final Map<Integer, UUID> slotToPlayerUuid = new HashMap<>();
+    /** Token of the most-recently-armed confirm action, or null if none.
+     *  Example values: "kick-3", "leave". On click, if token matches, commit
+     *  the action; else arm this one and rebuild. Any unrelated click (tab
+     *  switch, different row) clears the pending confirm on the next rebuild. */
+    private String pendingConfirmToken;
 
     public CharacterSheetPage(PlayerRef playerRef) {
         super(playerRef, CustomPageLifetime.CanDismiss, EVENT_CODEC);
@@ -216,6 +246,45 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                     EventData.of("Type", "questrow").append("Id", String.valueOf(i)),
                     false);
         }
+
+        // Party section: tab buttons, per-row action buttons, and Leave.
+        // Slice 5e bindings. Button semantics vary by current tab; the
+        // dispatcher resolves slot -> target UUID via slotToPlayerUuid.
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSPartyTabParty",
+                EventData.of("Type", "party-tab").append("Id", "party"),
+                false);
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSPartyTabServer",
+                EventData.of("Type", "party-tab").append("Id", "server"),
+                false);
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSPartyTabInvites",
+                EventData.of("Type", "party-tab").append("Id", "invites"),
+                false);
+        for (int i = 0; i < MAX_PARTY_ROWS; i++) {
+            events.addEventBinding(
+                    CustomUIEventBindingType.Activating,
+                    "#CSPartyRowBtnA" + i,
+                    EventData.of("Type", "party-row-a").append("Id", String.valueOf(i)),
+                    false);
+            events.addEventBinding(
+                    CustomUIEventBindingType.Activating,
+                    "#CSPartyRowBtnB" + i,
+                    EventData.of("Type", "party-row-b").append("Id", String.valueOf(i)),
+                    false);
+        }
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSPartyLeaveBtn",
+                EventData.of("Type", "party-leave"),
+                false);
+
+        // Render party section on first open + every rebuild.
+        renderPartySection(cmd, store);
     }
 
     /**
@@ -397,6 +466,227 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
     }
 
     /** Set the XP bar fill width in pixels. Track width is fixed in the template. */
+    /**
+     * Render the Party section: tab highlighting, row population for the
+     * currently selected tab, and the Leave button (Party tab only).
+     * Repopulates {@link #slotToPlayerUuid} so row button dispatch can resolve
+     * target players.
+     */
+    private void renderPartySection(UICommandBuilder cmd, Store<EntityStore> store) {
+        slotToPlayerUuid.clear();
+
+        // Tab highlighting: gold active, muted inactive. Buttons use the
+        // Style.Default.LabelStyle.TextColor path, NOT Style.TextColor
+        // (that one only applies to plain Labels; setting it on a button
+        // element crashes the client). Matches the Quest Log #CSTabActive /
+        // #CSTabCompleted pattern in renderQuestList().
+        cmd.set("#CSPartyTabParty.Style.Default.LabelStyle.TextColor",
+                currentPartyTab == PartyTab.PARTY ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
+        cmd.set("#CSPartyTabServer.Style.Default.LabelStyle.TextColor",
+                currentPartyTab == PartyTab.SERVER ? COLOR_TAB_ACTIVE : COLOR_TAB_INACTIVE);
+
+        // Invites tab: grey out when zero pending invites for this player.
+        Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
+        boolean hasInvite = inviteReg != null
+                && inviteReg.getForInvitee(this.playerRef.getUuid()) != null;
+        cmd.set("#CSPartyTabInvites.Style.Default.LabelStyle.TextColor",
+                currentPartyTab == PartyTab.INVITES ? COLOR_TAB_ACTIVE
+                        : (hasInvite ? COLOR_TAB_INACTIVE : COLOR_PLAYER_OFFLINE));
+        cmd.set("#CSPartyTabInvites.Disabled", !hasInvite && currentPartyTab != PartyTab.INVITES);
+
+        // Leave button shows only on Party tab and only when the viewer is in a
+        // multi-member party (nothing to leave from a size-1 default party).
+        Nat20PartyRegistry partyReg = Natural20.getInstance().getPartyRegistry();
+        Nat20Party myParty = partyReg != null ? partyReg.getParty(this.playerRef.getUuid()) : null;
+        boolean canLeave = myParty != null && !myParty.isSolo();
+        boolean confirmingLeave = "leave".equals(pendingConfirmToken);
+        cmd.set("#CSPartyLeaveBtn.Visible", currentPartyTab == PartyTab.PARTY && canLeave);
+        cmd.set("#CSPartyLeaveBtn.Text", confirmingLeave ? "Confirm Leave" : "Leave Party");
+
+        // Dispatch per-tab row renderer. Hidden rows are reset to blank / disabled.
+        switch (currentPartyTab) {
+            case PARTY -> renderPartyTabRows(cmd, store, partyReg, myParty);
+            case SERVER -> renderServerTabRows(cmd, store, partyReg);
+            case INVITES -> renderInvitesTabRows(cmd, store, partyReg, inviteReg);
+        }
+    }
+
+    private void renderPartyTabRows(UICommandBuilder cmd, Store<EntityStore> store,
+                                    Nat20PartyRegistry partyReg, Nat20Party myParty) {
+        if (partyReg == null || myParty == null) {
+            hidePartyRows(cmd);
+            cmd.set("#CSPartyEmptyState.Visible", true);
+            cmd.set("#CSPartyEmptyState.Text", "Party system unavailable.");
+            return;
+        }
+
+        List<UUID> members = myParty.getMembers();
+        UUID viewer = this.playerRef.getUuid();
+        UUID leader = myParty.getLeader();
+        boolean viewerIsLeader = viewer.equals(leader);
+
+        cmd.set("#CSPartyEmptyState.Visible", members.size() <= 1);
+        if (members.size() <= 1) {
+            cmd.set("#CSPartyEmptyState.Text",
+                "You are in a solo party. Invite someone from the Server tab.");
+        }
+
+        for (int i = 0; i < MAX_PARTY_ROWS; i++) {
+            if (i < members.size()) {
+                UUID member = members.get(i);
+                boolean isSelf = member.equals(viewer);
+                boolean isLeader = member.equals(leader);
+                boolean online = partyReg.isOnline(member);
+                String name = resolveDisplayName(store, member);
+                if (name == null) name = "Unknown";
+                if (isLeader) name = "[Leader] " + name;
+
+                slotToPlayerUuid.put(i, member);
+                cmd.set("#CSPartyRow" + i + ".Visible", true);
+                cmd.set("#CSPartyRowName" + i + ".Text", name);
+                cmd.set("#CSPartyRowName" + i + ".Style.TextColor",
+                        isLeader ? COLOR_PLAYER_LEADER
+                                : (online ? COLOR_PLAYER_ONLINE : COLOR_PLAYER_OFFLINE));
+
+                // Button A = Kick, Button B = Promote. Both leader-only, non-self.
+                boolean showKick = viewerIsLeader && !isSelf;
+                boolean showPromote = viewerIsLeader && !isSelf;
+                String kickToken = "kick-" + i;
+                boolean confirmingKick = kickToken.equals(pendingConfirmToken);
+
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", showKick);
+                cmd.set("#CSPartyRowBtnA" + i + ".Text", confirmingKick ? "Confirm?" : "Kick");
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", showPromote);
+                cmd.set("#CSPartyRowBtnB" + i + ".Text", "Promote");
+            } else {
+                cmd.set("#CSPartyRow" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", false);
+            }
+        }
+    }
+
+    private void renderServerTabRows(UICommandBuilder cmd, Store<EntityStore> store,
+                                     Nat20PartyRegistry partyReg) {
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null || partyReg == null) {
+            hidePartyRows(cmd);
+            cmd.set("#CSPartyEmptyState.Visible", true);
+            cmd.set("#CSPartyEmptyState.Text", "Server player list unavailable.");
+            return;
+        }
+
+        UUID viewer = this.playerRef.getUuid();
+        List<UUID> candidates = new ArrayList<>();
+        for (PlayerRef other : world.getPlayerRefs()) {
+            UUID uuid = other.getUuid();
+            if (uuid == null || uuid.equals(viewer)) continue;
+            candidates.add(uuid);
+        }
+
+        cmd.set("#CSPartyEmptyState.Visible", candidates.isEmpty());
+        if (candidates.isEmpty()) {
+            cmd.set("#CSPartyEmptyState.Text", "No other players online.");
+        }
+
+        for (int i = 0; i < MAX_PARTY_ROWS; i++) {
+            if (i < candidates.size()) {
+                UUID target = candidates.get(i);
+                String name = resolveDisplayName(store, target);
+                if (name == null) name = "Player";
+                boolean targetAlreadyPartied = !partyReg.getParty(target).isSolo();
+
+                slotToPlayerUuid.put(i, target);
+                cmd.set("#CSPartyRow" + i + ".Visible", true);
+                cmd.set("#CSPartyRowName" + i + ".Text", name);
+                cmd.set("#CSPartyRowName" + i + ".Style.TextColor", COLOR_PLAYER_ONLINE);
+
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", true);
+                cmd.set("#CSPartyRowBtnA" + i + ".Text",
+                        targetAlreadyPartied ? "In Party" : "Invite");
+                cmd.set("#CSPartyRowBtnA" + i + ".Disabled", targetAlreadyPartied);
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", false);
+            } else {
+                cmd.set("#CSPartyRow" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", false);
+            }
+        }
+    }
+
+    private void renderInvitesTabRows(UICommandBuilder cmd, Store<EntityStore> store,
+                                      Nat20PartyRegistry partyReg,
+                                      Nat20PartyInviteRegistry inviteReg) {
+        if (inviteReg == null) {
+            hidePartyRows(cmd);
+            cmd.set("#CSPartyEmptyState.Visible", true);
+            cmd.set("#CSPartyEmptyState.Text", "Invites unavailable.");
+            return;
+        }
+
+        UUID viewer = this.playerRef.getUuid();
+        PartyInvite invite = inviteReg.getForInvitee(viewer);
+        List<PartyInvite> list = new ArrayList<>();
+        if (invite != null) list.add(invite);
+
+        cmd.set("#CSPartyEmptyState.Visible", list.isEmpty());
+        if (list.isEmpty()) {
+            cmd.set("#CSPartyEmptyState.Text", "No pending invites.");
+        }
+
+        for (int i = 0; i < MAX_PARTY_ROWS; i++) {
+            if (i < list.size()) {
+                PartyInvite pi = list.get(i);
+                String name = resolveDisplayName(store, pi.inviterUuid());
+                if (name == null) name = "Someone";
+
+                slotToPlayerUuid.put(i, pi.inviterUuid());
+                cmd.set("#CSPartyRow" + i + ".Visible", true);
+                cmd.set("#CSPartyRowName" + i + ".Text", name + " invited you");
+                cmd.set("#CSPartyRowName" + i + ".Style.TextColor", COLOR_PLAYER_ONLINE);
+
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", true);
+                cmd.set("#CSPartyRowBtnA" + i + ".Text", "Accept");
+                cmd.set("#CSPartyRowBtnA" + i + ".Disabled", false);
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", true);
+                cmd.set("#CSPartyRowBtnB" + i + ".Text", "Decline");
+                cmd.set("#CSPartyRowBtnB" + i + ".Disabled", false);
+            } else {
+                cmd.set("#CSPartyRow" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnA" + i + ".Visible", false);
+                cmd.set("#CSPartyRowBtnB" + i + ".Visible", false);
+            }
+        }
+    }
+
+    private static void hidePartyRows(UICommandBuilder cmd) {
+        for (int i = 0; i < MAX_PARTY_ROWS; i++) {
+            cmd.set("#CSPartyRow" + i + ".Visible", false);
+            cmd.set("#CSPartyRowBtnA" + i + ".Visible", false);
+            cmd.set("#CSPartyRowBtnB" + i + ".Visible", false);
+        }
+    }
+
+    /** Resolve a UUID to its display name via the default world's player ref,
+     *  or null if the player is offline / unresolvable. */
+    private static String resolveDisplayName(Store<EntityStore> store, UUID uuid) {
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null) return null;
+        Ref<EntityStore> entityRef = world.getEntityRef(uuid);
+        if (entityRef == null) return null;
+        Player player = store.getComponent(entityRef, Player.getComponentType());
+        return player != null ? player.getDisplayName() : null;
+    }
+
+    /** Walk {@code world.getPlayerRefs()} for a PlayerRef matching the given
+     *  UUID, or null if the player is offline in this world. */
+    private static PlayerRef findPlayerRef(World world, UUID uuid) {
+        for (PlayerRef pr : world.getPlayerRefs()) {
+            if (uuid.equals(pr.getUuid())) return pr;
+        }
+        return null;
+    }
+
     private static void setXpBarFillPixels(UICommandBuilder cmd, int pixels) {
         Anchor anchor = new Anchor();
         anchor.setLeft(Value.of(0));
@@ -433,6 +723,183 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         }
         if ("questrow".equals(type)) {
             handleQuestRowClicked(ref, store, data.getId());
+            return;
+        }
+        if ("party-tab".equals(type)) {
+            PartyTab target = switch (data.getId()) {
+                case "server" -> PartyTab.SERVER;
+                case "invites" -> PartyTab.INVITES;
+                default -> PartyTab.PARTY;
+            };
+            if (currentPartyTab != target) {
+                currentPartyTab = target;
+                pendingConfirmToken = null;
+                rebuild();
+            }
+            return;
+        }
+        if ("party-row-a".equals(type)) {
+            handlePartyRowButton(ref, store, data.getId(), true);
+            return;
+        }
+        if ("party-row-b".equals(type)) {
+            handlePartyRowButton(ref, store, data.getId(), false);
+            return;
+        }
+        if ("party-leave".equals(type)) {
+            handleLeaveClicked();
+        }
+    }
+
+    /**
+     * Dispatch for a party row button click. Button A / B semantics depend on
+     * the current tab:
+     *   PARTY   : A=Kick (confirm), B=Promote
+     *   SERVER  : A=Invite, B=(hidden)
+     *   INVITES : A=Accept, B=Decline
+     */
+    private void handlePartyRowButton(Ref<EntityStore> ref, Store<EntityStore> store,
+                                      String slotStr, boolean isButtonA) {
+        int slot;
+        try {
+            slot = Integer.parseInt(slotStr);
+        } catch (NumberFormatException e) {
+            return;
+        }
+        UUID target = slotToPlayerUuid.get(slot);
+        if (target == null) return;
+
+        switch (currentPartyTab) {
+            case PARTY -> {
+                if (isButtonA) handleKickClicked(slot, target);
+                else handlePromoteClicked(target);
+            }
+            case SERVER -> {
+                if (isButtonA) handleInviteClicked(store, target);
+            }
+            case INVITES -> {
+                if (isButtonA) handleAcceptInviteClicked(target);
+                else handleDeclineInviteClicked(target);
+            }
+        }
+    }
+
+    private void handleKickClicked(int slot, UUID target) {
+        Nat20PartyRegistry reg = Natural20.getInstance().getPartyRegistry();
+        if (reg == null) return;
+        String token = "kick-" + slot;
+        if (!token.equals(pendingConfirmToken)) {
+            pendingConfirmToken = token;
+            rebuild();
+            return;
+        }
+        try {
+            reg.kick(this.playerRef.getUuid(), target);
+        } catch (RuntimeException e) {
+            LOGGER.atWarning().log("Kick failed: %s", e.getMessage());
+        }
+        pendingConfirmToken = null;
+        persistPartyState();
+        rebuild();
+    }
+
+    private void handlePromoteClicked(UUID target) {
+        Nat20PartyRegistry reg = Natural20.getInstance().getPartyRegistry();
+        if (reg == null) return;
+        UUID viewer = this.playerRef.getUuid();
+        Nat20Party party = reg.getParty(viewer);
+        if (!viewer.equals(party.getLeader())) return;
+        if (!party.getMembers().contains(target)) return;
+        party.promoteToLeader(target);
+        persistPartyState();
+        rebuild();
+    }
+
+    private void handleInviteClicked(Store<EntityStore> store, UUID target) {
+        Nat20PartyRegistry partyReg = Natural20.getInstance().getPartyRegistry();
+        Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
+        if (partyReg == null || inviteReg == null) return;
+
+        UUID viewer = this.playerRef.getUuid();
+        try {
+            partyReg.createInvite(inviteReg, viewer, target);
+        } catch (RuntimeException e) {
+            LOGGER.atWarning().log("Invite failed: %s", e.getMessage());
+            rebuild();
+            return;
+        }
+
+        // Fire the banner only to online invitees. Offline invitees see the
+        // invite on their next /sheet open via the Invites tab.
+        if (partyReg.isOnline(target)) {
+            World world = Natural20.getInstance().getDefaultWorld();
+            if (world != null) {
+                PlayerRef inviteeRef = findPlayerRef(world, target);
+                if (inviteeRef != null) {
+                    String inviterName = resolveDisplayName(store, viewer);
+                    if (inviterName == null) inviterName = "Someone";
+                    PartyInviteBanner.show(inviteeRef, inviterName);
+                }
+            }
+        }
+
+        persistInviteState();
+        rebuild();
+    }
+
+    private void handleAcceptInviteClicked(UUID inviter) {
+        Nat20PartyRegistry partyReg = Natural20.getInstance().getPartyRegistry();
+        Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
+        if (partyReg == null || inviteReg == null) return;
+        try {
+            partyReg.acceptPendingInvite(inviteReg, this.playerRef.getUuid());
+        } catch (RuntimeException e) {
+            LOGGER.atWarning().log("Accept failed: %s", e.getMessage());
+        }
+        currentPartyTab = PartyTab.PARTY;
+        persistPartyState();
+        persistInviteState();
+        rebuild();
+    }
+
+    private void handleDeclineInviteClicked(UUID inviter) {
+        Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
+        if (inviteReg == null) return;
+        Natural20.getInstance().getPartyRegistry()
+            .declinePendingInvite(inviteReg, this.playerRef.getUuid());
+        persistInviteState();
+        rebuild();
+    }
+
+    private void handleLeaveClicked() {
+        Nat20PartyRegistry reg = Natural20.getInstance().getPartyRegistry();
+        if (reg == null) return;
+        if (!"leave".equals(pendingConfirmToken)) {
+            pendingConfirmToken = "leave";
+            rebuild();
+            return;
+        }
+        reg.leave(this.playerRef.getUuid());
+        pendingConfirmToken = null;
+        persistPartyState();
+        rebuild();
+    }
+
+    private static void persistPartyState() {
+        try {
+            Natural20.getInstance().getPartyRegistry()
+                .saveTo(Natural20.getInstance().getDataDirectory().resolve("parties.json"));
+        } catch (java.io.IOException e) {
+            LOGGER.atWarning().withCause(e).log("Failed to persist party registry");
+        }
+    }
+
+    private static void persistInviteState() {
+        try {
+            Natural20.getInstance().getPartyInviteRegistry()
+                .saveTo(Natural20.getInstance().getDataDirectory().resolve("party_invites.json"));
+        } catch (java.io.IOException e) {
+            LOGGER.atWarning().withCause(e).log("Failed to persist party invite registry");
         }
     }
 
