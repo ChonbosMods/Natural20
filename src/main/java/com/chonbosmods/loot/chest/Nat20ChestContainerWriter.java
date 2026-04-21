@@ -3,7 +3,6 @@ package com.chonbosmods.loot.chest;
 import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.SimpleItemContainer;
 import com.hypixel.hytale.server.core.modules.block.components.ItemContainerBlock;
@@ -68,15 +67,6 @@ public final class Nat20ChestContainerWriter {
         }
 
         container.setItemStackForSlot(emptySlot, stack);
-
-        int blockId = chunk.getBlock(x, y, z);
-        BlockType blockType = (BlockType) BlockType.getAssetMap().getAsset(blockId);
-        if (blockType == null) {
-            LOGGER.atWarning().log("Failed to resolve block type for id %d at %d, %d, %d", blockId, x, y, z);
-            return false;
-        }
-        int rotationIndex = chunk.getRotationIndex(x, y, z);
-        chunk.setState(x, y, z, blockType, rotationIndex, holder);
 
         LOGGER.atInfo().log("Injected %s into chest at %d, %d, %d slot %d",
                 stack.getItemId(), x, y, z, emptySlot);
