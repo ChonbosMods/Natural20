@@ -115,6 +115,48 @@ public class Nat20PartyRegistry {
         lastSeen.put(player, clock.get());
     }
 
+    public boolean isOnline(UUID player) {
+        return online.contains(player);
+    }
+
+    /**
+     * Create a pending invite from {@code inviter} to {@code invitee} targeting
+     * the inviter's current party. Rejects self-invites and invites to players
+     * already in a multi-member party; replaces any prior pending invite for
+     * the same invitee. Does not fire any banner; the caller (plugin) is
+     * responsible for visual notification.
+     */
+    public void createInvite(Nat20PartyInviteRegistry invites, UUID inviter, UUID invitee) {
+        if (inviter.equals(invitee)) {
+            throw new IllegalArgumentException("cannot invite self");
+        }
+        Nat20Party inviteeCurrent = getParty(invitee);
+        if (!inviteeCurrent.isSolo()) {
+            throw new IllegalStateException("invitee is already in a multi-member party");
+        }
+        Nat20Party inviterParty = getParty(inviter);
+        invites.put(new PartyInvite(inviter, invitee, inviterParty.getPartyId(), clock.get()));
+    }
+
+    /**
+     * Accept the pending invite for {@code invitee}. The invitee joins the
+     * party identified by the invite's {@code targetPartyId} and the invite is
+     * removed. Throws if no pending invite exists.
+     */
+    public void acceptPendingInvite(Nat20PartyInviteRegistry invites, UUID invitee) {
+        PartyInvite pending = invites.getForInvitee(invitee);
+        if (pending == null) {
+            throw new IllegalStateException("no pending invite for " + invitee);
+        }
+        acceptInvite(invitee, pending.targetPartyId());
+        invites.removeForInvitee(invitee);
+    }
+
+    /** Decline (discard) the pending invite for {@code invitee}. No-op if none. */
+    public void declinePendingInvite(Nat20PartyInviteRegistry invites, UUID invitee) {
+        invites.removeForInvitee(invitee);
+    }
+
     /**
      * If {@code player} is a non-leader in a multi-member party and the
      * party's current leader has been offline longer than {@link #ghostThreshold},
