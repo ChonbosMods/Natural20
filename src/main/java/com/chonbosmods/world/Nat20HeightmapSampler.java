@@ -9,10 +9,10 @@ public final class Nat20HeightmapSampler {
     public record SampleResult(int y, int slopeDelta, boolean tooSteep) {}
 
     static boolean isTreeBlockName(String name) {
-        if (name == null || !name.startsWith("Wood_")) return false;
-        return name.endsWith("_Log")
-            || name.endsWith("_Leaves")
-            || name.endsWith("_Foliage")
-            || name.endsWith("_Branch");
+        if (name == null) return false;
+        if (name.startsWith("Prototype_")) return false;
+        if (name.startsWith("Plant_Leaves_")) return true;
+        if (!name.startsWith("Wood_")) return false;
+        return name.contains("_Trunk") || name.contains("_Branch_") || name.endsWith("_Roots");
     }
 }
