@@ -2,7 +2,9 @@ package com.chonbosmods.quest.party;
 
 import com.chonbosmods.quest.QuestInstance;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -125,6 +127,68 @@ class Nat20PartyQuestStoreTest {
         store.remove("shared-gone");
 
         assertTrue(store.queryByPlayer(alice).isEmpty());
+        assertTrue(store.queryByPlayer(bob).isEmpty());
+    }
+
+    @Test
+    void saveAndLoadRoundTripsAllQuests(@TempDir Path tmp) throws Exception {
+        Path file = tmp.resolve("party_quests.json");
+
+        Nat20PartyQuestStore out = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+
+        QuestInstance q1 = new QuestInstance();
+        q1.setQuestId("q1");
+        q1.setAccepters(List.of(alice, bob));
+        q1.setMaxConflicts(2);
+        out.add(q1);
+
+        out.saveTo(file);
+
+        Nat20PartyQuestStore in = new Nat20PartyQuestStore();
+        in.loadFrom(file);
+
+        QuestInstance loaded = in.getById("q1");
+        assertNotNull(loaded);
+        assertEquals(List.of(alice, bob), loaded.getAccepters());
+        assertEquals(2, loaded.getMaxConflicts());
+
+        assertEquals(1, in.queryByPlayer(alice).size(),
+            "secondary index must be rebuilt on load");
+        assertEquals(1, in.queryByPlayer(bob).size());
+    }
+
+    @Test
+    void loadFromMissingFileStartsEmpty(@TempDir Path tmp) throws Exception {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        store.loadFrom(tmp.resolve("nope.json"));
+        assertNull(store.getById("anything"));
+    }
+
+    @Test
+    void loadClearsPriorStateBeforeLoading(@TempDir Path tmp) throws Exception {
+        Path file = tmp.resolve("pq.json");
+
+        Nat20PartyQuestStore sink = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("persisted");
+        q.setAccepters(List.of(alice));
+        sink.add(q);
+        sink.saveTo(file);
+
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID bob = UUID.randomUUID();
+        QuestInstance pre = new QuestInstance();
+        pre.setQuestId("stale");
+        pre.setAccepters(List.of(bob));
+        store.add(pre);
+
+        store.loadFrom(file);
+
+        assertNull(store.getById("stale"), "load must wipe pre-existing in-memory state");
+        assertNotNull(store.getById("persisted"));
         assertTrue(store.queryByPlayer(bob).isEmpty());
     }
 

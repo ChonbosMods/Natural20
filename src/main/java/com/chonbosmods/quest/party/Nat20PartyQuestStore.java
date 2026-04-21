@@ -1,7 +1,14 @@
 package com.chonbosmods.quest.party;
 
 import com.chonbosmods.quest.QuestInstance;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +30,10 @@ import java.util.UUID;
  * §11 Storage architecture.
  */
 public class Nat20PartyQuestStore {
+
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Type PRIMARY_TYPE =
+        new TypeToken<Map<String, QuestInstance>>() {}.getType();
 
     private final Map<String, QuestInstance> primary = new HashMap<>();
     private final Map<UUID, Set<String>> byPlayer = new HashMap<>();
@@ -58,6 +69,28 @@ public class Nat20PartyQuestStore {
             if (ids == null) continue;
             ids.remove(questId);
             if (ids.isEmpty()) byPlayer.remove(player);
+        }
+    }
+
+    public void saveTo(Path file) throws IOException {
+        Path parent = file.getParent();
+        if (parent != null) Files.createDirectories(parent);
+        Files.writeString(file, GSON.toJson(primary, PRIMARY_TYPE));
+    }
+
+    public void loadFrom(Path file) throws IOException {
+        primary.clear();
+        byPlayer.clear();
+        if (!Files.exists(file)) return;
+        String json = Files.readString(file);
+        if (json.isEmpty()) return;
+        Map<String, QuestInstance> loaded = GSON.fromJson(json, PRIMARY_TYPE);
+        if (loaded == null) return;
+        primary.putAll(loaded);
+        for (QuestInstance q : loaded.values()) {
+            for (UUID player : q.getAccepters()) {
+                byPlayer.computeIfAbsent(player, k -> new HashSet<>()).add(q.getQuestId());
+            }
         }
     }
 }
