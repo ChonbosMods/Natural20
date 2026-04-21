@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -164,6 +165,51 @@ class Nat20PartyQuestStoreTest {
         Nat20PartyQuestStore store = new Nat20PartyQuestStore();
         store.loadFrom(tmp.resolve("nope.json"));
         assertNull(store.getById("anything"));
+    }
+
+    @Test
+    void turnInRecordsCompletionForEveryAccepterAndRemovesQuest() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("done");
+        q.setAccepters(List.of(alice, bob));
+        store.add(q);
+
+        List<UUID> recordedFor = new ArrayList<>();
+        store.turnIn("done", (player, inst) -> recordedFor.add(player));
+
+        assertEquals(List.of(alice, bob), recordedFor,
+            "every accepter must receive a completion record, in accepters order");
+        assertNull(store.getById("done"));
+        assertTrue(store.queryByPlayer(alice).isEmpty());
+        assertTrue(store.queryByPlayer(bob).isEmpty());
+    }
+
+    @Test
+    void turnInUnknownIdDoesNothing() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        List<UUID> recordedFor = new ArrayList<>();
+        store.turnIn("nope", (p, i) -> recordedFor.add(p));
+        assertTrue(recordedFor.isEmpty());
+    }
+
+    @Test
+    void turnInPassesTheLiveQuestInstanceToSink() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("same-ref");
+        q.setAccepters(List.of(alice));
+        store.add(q);
+
+        List<QuestInstance> seen = new ArrayList<>();
+        store.turnIn("same-ref", (p, inst) -> seen.add(inst));
+
+        assertEquals(1, seen.size());
+        assertSame(q, seen.get(0), "sink receives the authoritative live instance for reward dispense");
     }
 
     @Test

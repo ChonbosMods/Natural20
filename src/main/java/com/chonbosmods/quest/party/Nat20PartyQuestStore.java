@@ -72,6 +72,24 @@ public class Nat20PartyQuestStore {
         }
     }
 
+    /**
+     * Callback for turn-in, invoked once per accepter. Implementers record the
+     * {@code CompletedQuestRecord} into the per-player data store. The sink
+     * receives the live quest instance so the template (reward xp, reward
+     * items, etc.) can be read out before the instance is removed.
+     */
+    @FunctionalInterface
+    public interface CompletionSink {
+        void record(UUID player, QuestInstance quest);
+    }
+
+    public void turnIn(String questId, CompletionSink sink) {
+        QuestInstance q = primary.get(questId);
+        if (q == null) return;
+        for (UUID player : q.getAccepters()) sink.record(player, q);
+        remove(questId);
+    }
+
     public void saveTo(Path file) throws IOException {
         Path parent = file.getParent();
         if (parent != null) Files.createDirectories(parent);
