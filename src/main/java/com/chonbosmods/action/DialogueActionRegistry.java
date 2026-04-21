@@ -12,6 +12,9 @@ import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestDispositionConstants;
+import com.chonbosmods.party.Nat20Party;
+import com.chonbosmods.party.Nat20PartyRegistry;
+import com.chonbosmods.party.PartyQuestAcceptedBanner;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.settlement.NpcRecord;
@@ -167,8 +170,23 @@ public class DialogueActionRegistry {
             // Set state BEFORE saving so it persists correctly
             quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
 
-            // Add quest to player's active quests
-            questSystem.getStateManager().addQuest(ctx.playerData(), quest);
+            // Accept on behalf of the whole party so every member's quest log
+            // sees the quest, not just the player who clicked Accept. Accepters
+            // is a frozen snapshot of the accepter's party membership at this
+            // instant and never mutates on subsequent leave/kick/disband.
+            Nat20PartyRegistry partyRegistry = Natural20.getInstance().getPartyRegistry();
+            java.util.UUID accepterUuid = ctx.player().getPlayerRef().getUuid();
+            Nat20Party acceptingParty = partyRegistry.getParty(accepterUuid);
+            questSystem.getStateManager().acceptForParty(acceptingParty, quest);
+
+            // Persist the party-quest store immediately so acceptance survives
+            // a crash or restart (store mutations are in-memory only otherwise).
+            try {
+                Natural20.getInstance().getPartyQuestStore().saveTo(
+                    Natural20.getInstance().getDataDirectory().resolve("party_quests.json"));
+            } catch (java.io.IOException e) {
+                LOGGER.atWarning().withCause(e).log("Failed to persist party-quest store on accept");
+            }
 
             // Rescale every COLLECT_RESOURCES objective now that we know the accepting
             // player's zone. Walks all phases because multi-phase quests may have
@@ -216,8 +234,28 @@ public class DialogueActionRegistry {
             String questLabel = quest.getVariableBindings().getOrDefault("quest_objective_summary",
                 quest.getSituationId());
             ctx.systemLogger().accept("Quest accepted: " + questLabel);
-            LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s",
-                ctx.player().getPlayerRef().getUuid(), quest.getQuestId(), npcName);
+            LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s (accepters=%s)",
+                accepterUuid, quest.getQuestId(), npcName, quest.getAccepters());
+
+            // Fire a "Quest Accepted" banner to every online party member OTHER
+            // than the accepter. The accepter already sees the inline "Quest
+            // accepted: ..." system message above, so the banner would be noise
+            // for them.
+            com.hypixel.hytale.server.core.universe.world.World world =
+                Natural20.getInstance().getDefaultWorld();
+            if (world != null && acceptingParty.getMembers().size() > 1) {
+                String accepterName = ctx.player().getDisplayName();
+                for (java.util.UUID peerUuid : acceptingParty.getMembers()) {
+                    if (peerUuid.equals(accepterUuid)) continue;
+                    if (!partyRegistry.isOnline(peerUuid)) continue;
+                    for (com.hypixel.hytale.server.core.universe.PlayerRef peer : world.getPlayerRefs()) {
+                        if (peerUuid.equals(peer.getUuid())) {
+                            PartyQuestAcceptedBanner.show(peer, accepterName, questLabel);
+                            break;
+                        }
+                    }
+                }
+            }
 
             // Consume the pre-generated quest so it can't be given again
             npcRecord.setPreGeneratedQuest(null);

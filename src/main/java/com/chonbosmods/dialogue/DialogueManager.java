@@ -91,10 +91,18 @@ public class DialogueManager {
             );
         }
 
-        // Get or create player data
+        // Get or create player data. Bind the runtime playerUuid eagerly so
+        // downstream quest-state code (QuestStateManager + party-quest store)
+        // can resolve the owner on every subsequent call. PlayerReady only
+        // populates this field when the component already exists; because
+        // Nat20PlayerData is lazy-created here, PlayerReady's bind is skipped
+        // for brand-new players and the UUID would otherwise stay null.
         Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
         if (playerData == null) {
             playerData = store.addComponent(playerRef, Natural20.getPlayerDataType());
+        }
+        if (playerData.getPlayerUuid() == null) {
+            playerData.setPlayerUuid(playerUuid);
         }
 
         // Defensive copy: quest injection mutates the graph, so each session
