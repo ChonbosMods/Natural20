@@ -91,4 +91,54 @@ class Nat20PartyRegistryTest {
         assertThrows(IllegalArgumentException.class,
             () -> reg.acceptInvite(alice, "no-such-party"));
     }
+
+    @Test
+    void leaveRevertsToFreshSizeOneParty() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        reg.acceptInvite(bob, reg.getParty(alice).getPartyId());
+
+        reg.leave(bob);
+
+        Nat20Party bobsNew = reg.getParty(bob);
+        assertTrue(bobsNew.isSolo());
+        assertEquals(bob, bobsNew.getLeader());
+        assertEquals(List.of(alice), reg.getParty(alice).getMembers());
+    }
+
+    @Test
+    void leavingPromotesNextMemberToLeaderInOriginalParty() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        UUID carol = UUID.randomUUID();
+        String pid = reg.getParty(alice).getPartyId();
+        reg.acceptInvite(bob, pid);
+        reg.acceptInvite(carol, pid);
+
+        reg.leave(alice);
+
+        Nat20Party remaining = reg.getParty(bob);
+        assertEquals(List.of(bob, carol), remaining.getMembers());
+        assertEquals(bob, remaining.getLeader(), "succession fires automatically on leader leave");
+    }
+
+    @Test
+    void leavingWhenAlreadySoloIsNoOpAndReturnsFreshParty() {
+        Nat20PartyRegistry reg = new Nat20PartyRegistry();
+        UUID alice = UUID.randomUUID();
+        Nat20Party before = reg.getParty(alice);
+
+        reg.leave(alice);
+
+        Nat20Party after = reg.getParty(alice);
+        assertTrue(after.isSolo());
+        assertEquals(alice, after.getLeader());
+        // The partyId may or may not change depending on implementation; both are valid.
+        // What must hold: alice is in a solo party led by alice after the call.
+        assertEquals(List.of(alice), after.getMembers());
+        // Quiet the unused warning; before is retained for readability of the test narrative.
+        assertNotNull(before);
+    }
 }

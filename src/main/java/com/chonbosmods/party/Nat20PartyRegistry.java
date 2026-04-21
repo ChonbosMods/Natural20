@@ -44,4 +44,15 @@ public class Nat20PartyRegistry {
         target.addMember(invitee);
         byPlayer.put(invitee, target);
     }
+
+    public void leave(UUID player) {
+        Nat20Party current = byPlayer.get(player);
+        if (current != null) {
+            current.removeMember(player);
+            if (current.isEmpty()) byPartyId.remove(current.getPartyId());
+        }
+        Nat20Party solo = Nat20Party.ofSolo(player);
+        byPlayer.put(player, solo);
+        byPartyId.put(solo.getPartyId(), solo);
+    }
 }
