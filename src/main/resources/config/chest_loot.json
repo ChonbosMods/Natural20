@@ -1,0 +1,9 @@
+{
+  "chance_per_band": [0.05, 0.10, 0.15, 0.25],
+  "default_chance": 0.25,
+  "chest_block_types": [
+    "Furniture_Chest",
+    "Furniture_Dungeon_Chest",
+    "hytale:chest"
+  ]
+}
