@@ -72,6 +72,43 @@ class Nat20PartyQuestStoreTest {
         assertNotNull(store.queryByPlayer(UUID.randomUUID()));
     }
 
+    @Test
+    void removeDeletesFromPrimaryAndIndex() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("gone");
+        q.setAccepters(List.of(alice));
+        store.add(q);
+
+        store.remove("gone");
+
+        assertNull(store.getById("gone"));
+        assertTrue(store.queryByPlayer(alice).isEmpty());
+    }
+
+    @Test
+    void removeOfUnknownIdIsNoOp() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        assertDoesNotThrow(() -> store.remove("never-existed"));
+    }
+
+    @Test
+    void removeCleansIndexForMultiAccepterQuest() {
+        Nat20PartyQuestStore store = new Nat20PartyQuestStore();
+        UUID alice = UUID.randomUUID();
+        UUID bob = UUID.randomUUID();
+        QuestInstance q = new QuestInstance();
+        q.setQuestId("shared-gone");
+        q.setAccepters(List.of(alice, bob));
+        store.add(q);
+
+        store.remove("shared-gone");
+
+        assertTrue(store.queryByPlayer(alice).isEmpty());
+        assertTrue(store.queryByPlayer(bob).isEmpty());
+    }
+
     private static Set<String> idsOf(Collection<QuestInstance> quests) {
         return quests.stream().map(QuestInstance::getQuestId).collect(Collectors.toSet());
     }

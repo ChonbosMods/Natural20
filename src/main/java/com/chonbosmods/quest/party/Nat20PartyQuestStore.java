@@ -49,4 +49,15 @@ public class Nat20PartyQuestStore {
         for (String id : ids) out.add(primary.get(id));
         return out;
     }
+
+    public void remove(String questId) {
+        QuestInstance q = primary.remove(questId);
+        if (q == null) return;
+        for (UUID player : q.getAccepters()) {
+            Set<String> ids = byPlayer.get(player);
+            if (ids == null) continue;
+            ids.remove(questId);
+            if (ids.isEmpty()) byPlayer.remove(player);
+        }
+    }
 }
