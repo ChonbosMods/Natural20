@@ -3,8 +3,10 @@ package com.chonbosmods.settlement;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
+import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
@@ -21,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 /**
@@ -66,14 +69,94 @@ public final class SettlementPieceAssembler {
             return CompletableFuture.completedFuture(null);
         }
 
-        // Paste all pieces; await all, then merge markers.
+        // Paste all pieces; await all, then merge markers. Each piece is first
+        // grounded to the terrain heightmap (Mode.MIN so it sits on its lowest
+        // corner), then pasted at the corrected Y. Pieces on too-steep or
+        // no-ground terrain complete with null and are dropped by merge().
         List<CompletableFuture<PlacedMarkers>> futures = new ArrayList<>(placements.size());
         for (Placement p : placements) {
-            futures.add(Nat20PrefabPaster.paste(p.buffer, world, p.anchor, p.yaw, rng, store));
+            futures.add(pasteGrounded(p, world, rng, store));
         }
         return CompletableFuture
             .allOf(futures.toArray(new CompletableFuture[0]))
             .thenApply(v -> merge(center, futures));
+    }
+
+    /**
+     * Preload the chunks covered by the rotated piece footprint, sample the
+     * terrain surface with {@link Nat20HeightmapSampler.Mode#MIN}, and paste
+     * at the anchor overridden to the sampled Y. Returns a future completing
+     * with {@code null} if no ground is found or the slope exceeds the
+     * sampler's default threshold (the piece is silently dropped by merge()).
+     */
+    private static CompletableFuture<PlacedMarkers> pasteGrounded(
+            Placement placement, World world, Random rng,
+            ComponentAccessor<EntityStore> store) {
+        Bounds b = rotatedBoundsAt(placement.buffer, placement.anchor, placement.yaw);
+        int halfX = Math.max(placement.anchor.getX() - b.minX, b.maxX - placement.anchor.getX());
+        int halfZ = Math.max(placement.anchor.getZ() - b.minZ, b.maxZ - placement.anchor.getZ());
+
+        // Preload the chunks the sampler's 5 probes will read. The probe corners
+        // sit at the edges of the rotated footprint, so preload the footprint's
+        // chunk range directly (Nat20PrefabPaster.paste will preload again but
+        // that's a no-op once chunks are already non-ticking-loaded).
+        int minCX = ChunkUtil.chunkCoordinate(b.minX);
+        int maxCX = ChunkUtil.chunkCoordinate(b.maxX);
+        int minCZ = ChunkUtil.chunkCoordinate(b.minZ);
+        int maxCZ = ChunkUtil.chunkCoordinate(b.maxZ);
+        List<CompletableFuture<?>> chunkFutures = new ArrayList<>();
+        for (int cx = minCX; cx <= maxCX; cx++) {
+            for (int cz = minCZ; cz <= maxCZ; cz++) {
+                chunkFutures.add(world.getNonTickingChunkAsync(ChunkUtil.indexChunk(cx, cz)));
+            }
+        }
+
+        CompletableFuture<PlacedMarkers> out = new CompletableFuture<>();
+        CompletableFuture.allOf(chunkFutures.toArray(new CompletableFuture[0]))
+            .orTimeout(30, TimeUnit.SECONDS)
+            .whenComplete((ignored, err) -> {
+                if (err != null) {
+                    LOGGER.atWarning().withCause(err).log(
+                        "Piece grounding: chunk preload failed at (%d, %d); skipping",
+                        placement.anchor.getX(), placement.anchor.getZ());
+                    out.complete(null);
+                    return;
+                }
+                world.execute(() -> {
+                    Nat20HeightmapSampler.SampleResult ground = Nat20HeightmapSampler.sample(
+                        world, placement.anchor.getX(), placement.anchor.getZ(),
+                        halfX, halfZ, Nat20HeightmapSampler.Mode.MIN);
+                    if (ground.y() <= 0) {
+                        LOGGER.atFine().log(
+                            "Piece grounding: no ground at (%d, %d); skipping",
+                            placement.anchor.getX(), placement.anchor.getZ());
+                        out.complete(null);
+                        return;
+                    }
+                    if (ground.tooSteep()) {
+                        LOGGER.atFine().log(
+                            "Piece grounding: slope %d too steep at (%d, %d); skipping",
+                            ground.slopeDelta(), placement.anchor.getX(), placement.anchor.getZ());
+                        out.complete(null);
+                        return;
+                    }
+                    Vector3i groundedAnchor = new Vector3i(
+                        placement.anchor.getX(), ground.y(), placement.anchor.getZ());
+                    Nat20PrefabPaster.paste(placement.buffer, world, groundedAnchor,
+                                            placement.yaw, rng, store)
+                        .whenComplete((placed, pasteErr) -> {
+                            if (pasteErr != null) {
+                                LOGGER.atSevere().withCause(pasteErr).log(
+                                    "Piece paste failed at (%d, %d, %d)",
+                                    groundedAnchor.getX(), groundedAnchor.getY(), groundedAnchor.getZ());
+                                out.complete(null);
+                                return;
+                            }
+                            out.complete(placed);
+                        });
+                });
+            });
+        return out;
     }
 
     private static List<Path> enumeratePool(String poolCategory) {

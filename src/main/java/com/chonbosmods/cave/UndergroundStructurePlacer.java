@@ -6,6 +6,7 @@ import com.chonbosmods.prefab.Nat20PrefabMarkerScanner;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.prefab.YawAlignment;
+import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
@@ -302,34 +303,45 @@ public class UndergroundStructurePlacer {
             return result;
         }
 
-        // Pre-load the chunk at target position to scan surface height
-        long targetChunkKey = ChunkUtil.indexChunk(
-            ChunkUtil.chunkCoordinate(targetX), ChunkUtil.chunkCoordinate(targetZ));
-        world.getNonTickingChunkAsync(targetChunkKey)
+        // Pre-load the 3x3 chunk grid around the target so the sampler's corner probes
+        // (which may fall in neighboring chunks) all have loaded heightmaps.
+        int centerCX = ChunkUtil.chunkCoordinate(targetX);
+        int centerCZ = ChunkUtil.chunkCoordinate(targetZ);
+        java.util.List<java.util.concurrent.CompletableFuture<?>> chunkFutures = new java.util.ArrayList<>();
+        for (int dcx = -1; dcx <= 1; dcx++) {
+            for (int dcz = -1; dcz <= 1; dcz++) {
+                chunkFutures.add(world.getNonTickingChunkAsync(
+                    ChunkUtil.indexChunk(centerCX + dcx, centerCZ + dcz)));
+            }
+        }
+        java.util.concurrent.CompletableFuture.allOf(chunkFutures.toArray(new java.util.concurrent.CompletableFuture[0]))
             .orTimeout(30, TimeUnit.SECONDS)
-            .whenComplete((chunk, err) -> {
+            .whenComplete((ignored, err) -> {
                 if (err != null) {
                     LOGGER.atWarning().withCause(err).log("Surface placement: chunk load failed");
                     result.complete(null);
                     return;
                 }
                 world.execute(() -> {
-                    // Find surface Y: scan downward from Y=200 to first solid block
-                    int foundY = -1;
-                    for (int y = 200; y > 10; y--) {
-                        BlockType bt = world.getBlockType(targetX, y, targetZ);
-                        if (bt != null && bt.getMaterial() == BlockMaterial.Solid) {
-                            foundY = y + 1; // place ON TOP of the solid block
-                            break;
-                        }
+                    int halfX = Math.max(Math.abs(buffer.getMinX()), Math.abs(buffer.getMaxX()));
+                    int halfZ = Math.max(Math.abs(buffer.getMinZ()), Math.abs(buffer.getMaxZ()));
+                    Nat20HeightmapSampler.SampleResult sample = Nat20HeightmapSampler.sample(
+                        world, targetX, targetZ, halfX, halfZ,
+                        Nat20HeightmapSampler.Mode.ENTRY_ANCHOR);
+
+                    if (sample.y() <= 0) {
+                        LOGGER.atWarning().log("Surface placement: no ground found at (%d, %d)", targetX, targetZ);
+                        result.complete(null);
+                        return;
                     }
-                    if (foundY < 0) {
-                        LOGGER.atWarning().log("Surface placement: no solid ground at (%d, %d)", targetX, targetZ);
+                    if (sample.tooSteep()) {
+                        LOGGER.atFine().log("Surface placement: slope %d too steep at (%d, %d); skipping",
+                            sample.slopeDelta(), targetX, targetZ);
                         result.complete(null);
                         return;
                     }
 
-                    final int surfaceY = foundY;
+                    final int surfaceY = sample.y();
                     Vector3i pastePos = new Vector3i(targetX, surfaceY, targetZ);
 
                     // Delegate to the paster. It handles chunk preload + tick defer + filtered paste.

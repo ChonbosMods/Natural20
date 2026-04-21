@@ -6,6 +6,7 @@ import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementNpcFanOut;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
+import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.vector.Vector3d;
@@ -58,7 +59,19 @@ public class PlaceCommand extends AbstractPlayerCommand {
         }
 
         Vector3d pos = transform.getPosition();
-        Vector3i blockPos = new Vector3i((int) pos.getX(), (int) pos.getY(), (int) pos.getZ());
+        int px = (int) pos.getX();
+        int pz = (int) pos.getZ();
+
+        // Sampler returns Y=0 if chunk is ticking (player's own chunk usually is);
+        // fall back to player Y in that case. Prefabs placed at the player's feet
+        // may still float on trees; this retrofit mainly helps /place when used
+        // across chunk boundaries via teleport or third-person debug flows.
+        Nat20HeightmapSampler.SampleResult ground = Nat20HeightmapSampler.sample(
+            world, px, pz, 0, 0,
+            Nat20HeightmapSampler.Mode.ENTRY_ANCHOR,
+            Integer.MAX_VALUE);
+        int py = ground.y() > 0 ? ground.y() : (int) pos.getY();
+        Vector3i blockPos = new Vector3i(px, py, pz);
 
         context.sendMessage(Message.raw("Placing " + type + " at " +
             blockPos.getX() + ", " + blockPos.getY() + ", " + blockPos.getZ() + "..."));
