@@ -87,7 +87,10 @@ import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.POIProximitySystem;
 import com.chonbosmods.quest.QuestChestPlacer;
 import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
+import com.chonbosmods.quest.party.Nat20PartyQuestStore;
+import com.chonbosmods.party.Nat20PartyRegistry;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.prefab.Nat20PrefabConstants;
@@ -153,6 +156,8 @@ public class Natural20 extends JavaPlugin {
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
     private final Nat20LootSystem lootSystem = new Nat20LootSystem();
     private QuestSystem questSystem;
+    private Nat20PartyQuestStore partyQuestStore;
+    private Nat20PartyRegistry partyRegistry;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
@@ -233,6 +238,14 @@ public class Natural20 extends JavaPlugin {
 
     public QuestSystem getQuestSystem() {
         return questSystem;
+    }
+
+    public Nat20PartyQuestStore getPartyQuestStore() {
+        return partyQuestStore;
+    }
+
+    public Nat20PartyRegistry getPartyRegistry() {
+        return partyRegistry;
     }
 
     public SettlementRegistry getSettlementRegistry() {
@@ -678,11 +691,46 @@ public class Natural20 extends JavaPlugin {
             Nat20PlayerData data = event.getPlayerRef().getStore()
                     .getComponent(event.getPlayerRef(), getPlayerDataType());
             if (data != null) {
+                // Bind the runtime UUID onto the player data component so the
+                // store-backed QuestStateManager can resolve the player on
+                // every subsequent read / mutation. This MUST happen before
+                // migration below, and before any QuestMarkerProvider /
+                // sweep call that might read active quests.
+                data.setPlayerUuid(uuid);
+
+                // One-shot migration: move any legacy questFlags active quests
+                // into the party-quest store under accepters=[self], then wipe
+                // the legacy key. Idempotent: re-login is a no-op.
+                java.util.Map<String, QuestInstance> legacy =
+                    QuestStateManager.readLegacyActiveQuests(data);
+                if (!legacy.isEmpty()) {
+                    partyQuestStore.migratePlayer(uuid, legacy);
+                    QuestStateManager.clearLegacyActiveQuests(data);
+                    try {
+                        partyQuestStore.saveTo(getDataDirectory().resolve("party_quests.json"));
+                    } catch (java.io.IOException e) {
+                        getLogger().atWarning().withCause(e)
+                            .log("Failed to persist party-quest store after migration");
+                    }
+                }
+
                 QuestMarkerProvider.refreshMarkers(uuid, data);
                 // Stale-sweep POI mob-group records: remove any whose quest is no longer active.
                 // Runs here instead of plugin init because Nat20PlayerData is only readable once
                 // the player's entity is in the store.
                 sweepStaleMobGroupRecords(uuid, data);
+            }
+
+            // Ensure the player has a party (default size-1) and is flagged
+            // online so the ghost-leader rule can fire correctly on long-gone
+            // leaders. Persist if a new party was created.
+            partyRegistry.getParty(uuid);
+            partyRegistry.markOnline(uuid);
+            try {
+                partyRegistry.saveTo(getDataDirectory().resolve("parties.json"));
+            } catch (java.io.IOException e) {
+                getLogger().atWarning().withCause(e)
+                    .log("Failed to persist party registry on player ready");
             }
             if (poiProximitySystem != null) poiProximitySystem.addPlayer(uuid);
             if (settlementDiscoverySystem != null) settlementDiscoverySystem.addPlayer(uuid);
@@ -823,8 +871,21 @@ public class Natural20 extends JavaPlugin {
         // current world's save dir rather than the plugin data dir.
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
 
+        // Initialize party + party-quest store. Both are server-global; their
+        // save files live under the plugin data dir (not world-scoped) because
+        // parties can span worlds and quest state belongs to the party, not
+        // the world. Design: docs/plans/2026-04-21-party-multiplayer-quest-design.md.
+        partyQuestStore = new Nat20PartyQuestStore();
+        partyRegistry = new Nat20PartyRegistry();
+        try {
+            partyQuestStore.loadFrom(getDataDirectory().resolve("party_quests.json"));
+            partyRegistry.loadFrom(getDataDirectory().resolve("parties.json"));
+        } catch (java.io.IOException e) {
+            getLogger().atWarning().withCause(e).log("Failed to load party / party-quest state");
+        }
+
         // Initialize quest system
-        questSystem = new QuestSystem(settlementRegistry);
+        questSystem = new QuestSystem(settlementRegistry, partyQuestStore);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
         // Generate procedural topics for all existing settlements. Iterate in
         // chronological placedAt order (tiebreak on cellKey) so the shared
