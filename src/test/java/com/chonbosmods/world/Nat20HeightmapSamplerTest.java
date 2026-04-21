@@ -82,4 +82,23 @@ class Nat20HeightmapSamplerTest {
         int result = Nat20HeightmapSampler.walkDownToSolidGround(200, 20, names, isSolid);
         assertEquals(0, result);
     }
+
+    @Test
+    void reduce_minPicksLowest() {
+        int[] heights = {64, 65, 68, 63, 66};
+        assertEquals(63, Nat20HeightmapSampler.reduce(heights, Nat20HeightmapSampler.Mode.MIN));
+    }
+
+    @Test
+    void reduce_medianPicksMiddle() {
+        int[] heights = {64, 65, 68, 63, 66};
+        // sorted: 63, 64, 65, 66, 68 -> median = 65
+        assertEquals(65, Nat20HeightmapSampler.reduce(heights, Nat20HeightmapSampler.Mode.MEDIAN));
+    }
+
+    @Test
+    void reduce_entryAnchorPicksFirstElement() {
+        int[] heights = {99, 65, 68, 63, 66};
+        assertEquals(99, Nat20HeightmapSampler.reduce(heights, Nat20HeightmapSampler.Mode.ENTRY_ANCHOR));
+    }
 }

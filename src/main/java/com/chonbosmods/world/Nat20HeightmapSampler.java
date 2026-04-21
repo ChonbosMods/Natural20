@@ -35,4 +35,33 @@ public final class Nat20HeightmapSampler {
         }
         return 0;
     }
+
+    /**
+     * Reduces the 5 probe heights (corners + center) to a single anchor Y according to {@code mode}.
+     *
+     * <ul>
+     *   <li>{@link Mode#MIN}: lowest of all probes. Sits the prefab on the lowest corner so it
+     *       never floats over a dip; higher corners clip into terrain.</li>
+     *   <li>{@link Mode#MEDIAN}: middle of the sorted probes. Accepts some corner clipping on
+     *       uneven terrain in exchange for not burying the prefab at the lowest pit.</li>
+     *   <li>{@link Mode#ENTRY_ANCHOR}: returns {@code heights[0]}. The caller is expected to pass
+     *       the entry-point XZ as the first probe so the entry is flush with terrain; the
+     *       remaining probes are used only for slope reporting, not Y selection.</li>
+     * </ul>
+     */
+    static int reduce(int[] heights, Mode mode) {
+        return switch (mode) {
+            case MIN -> {
+                int m = Integer.MAX_VALUE;
+                for (int h : heights) if (h < m) m = h;
+                yield m;
+            }
+            case MEDIAN -> {
+                int[] copy = heights.clone();
+                java.util.Arrays.sort(copy);
+                yield copy[copy.length / 2];
+            }
+            case ENTRY_ANCHOR -> heights[0];
+        };
+    }
 }
