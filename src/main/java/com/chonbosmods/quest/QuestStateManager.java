@@ -1,6 +1,7 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -17,7 +18,29 @@ public class QuestStateManager {
     private static final Type QUEST_MAP_TYPE = new TypeToken<Map<String, QuestInstance>>() {}.getType();
     private static final Type REF_MAP_TYPE = new TypeToken<Map<String, ReferenceState>>() {}.getType();
 
+    /** When non-null, active-quest state lives in the store and this manager
+     *  routes reads/writes through it. When null, the legacy per-player JSON
+     *  storage is used (transitional: will be removed once all call sites flip). */
+    private final Nat20PartyQuestStore store;
+
+    public QuestStateManager() {
+        this.store = null;
+    }
+
+    public QuestStateManager(Nat20PartyQuestStore store) {
+        this.store = store;
+    }
+
     public Map<String, QuestInstance> getActiveQuests(Nat20PlayerData data) {
+        if (store != null) {
+            UUID uuid = data.getPlayerUuid();
+            if (uuid == null) return new HashMap<>();
+            Map<String, QuestInstance> out = new HashMap<>();
+            for (QuestInstance q : store.queryByPlayer(uuid)) {
+                out.put(q.getQuestId(), q);
+            }
+            return out;
+        }
         String json = data.getQuestData(KEY_ACTIVE_QUESTS);
         if (json == null || json.isEmpty()) return new HashMap<>();
         Map<String, QuestInstance> result = GSON.fromJson(json, QUEST_MAP_TYPE);
@@ -25,22 +48,48 @@ public class QuestStateManager {
     }
 
     public void saveActiveQuests(Nat20PlayerData data, Map<String, QuestInstance> quests) {
+        if (store != null) {
+            // No-op under the store model: store is the authoritative home and
+            // mutations on returned live references are already visible. File
+            // persistence is flushed via Nat20PartyQuestStore.saveTo on the
+            // plugin's save cadence, not per-call.
+            return;
+        }
         data.setQuestData(KEY_ACTIVE_QUESTS, GSON.toJson(quests, QUEST_MAP_TYPE));
     }
 
     public void addQuest(Nat20PlayerData data, QuestInstance quest) {
+        if (store != null) {
+            if (quest.getAccepters().isEmpty()) {
+                UUID uuid = data.getPlayerUuid();
+                if (uuid != null) quest.setAccepters(List.of(uuid));
+            }
+            store.add(quest);
+            return;
+        }
         Map<String, QuestInstance> quests = getActiveQuests(data);
         quests.put(quest.getQuestId(), quest);
         saveActiveQuests(data, quests);
     }
 
     public void removeQuest(Nat20PlayerData data, String questId) {
+        if (store != null) {
+            store.remove(questId);
+            return;
+        }
         Map<String, QuestInstance> quests = getActiveQuests(data);
         quests.remove(questId);
         saveActiveQuests(data, quests);
     }
 
     public QuestInstance getQuest(Nat20PlayerData data, String questId) {
+        if (store != null) {
+            QuestInstance q = store.getById(questId);
+            if (q == null) return null;
+            UUID uuid = data.getPlayerUuid();
+            if (uuid == null || !q.hasAccepter(uuid)) return null;
+            return q;
+        }
         return getActiveQuests(data).get(questId);
     }
 
