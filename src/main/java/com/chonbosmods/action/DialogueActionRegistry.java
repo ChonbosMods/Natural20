@@ -182,8 +182,7 @@ public class DialogueActionRegistry {
             // Persist the party-quest store immediately so acceptance survives
             // a crash or restart (store mutations are in-memory only otherwise).
             try {
-                Natural20.getInstance().getPartyQuestStore().saveTo(
-                    Natural20.getInstance().getDataDirectory().resolve("party_quests.json"));
+                Natural20.getInstance().getPartyQuestStore().save();
             } catch (java.io.IOException e) {
                 LOGGER.atWarning().withCause(e).log("Failed to persist party-quest store on accept");
             }

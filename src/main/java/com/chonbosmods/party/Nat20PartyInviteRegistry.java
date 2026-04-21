@@ -23,8 +23,30 @@ import java.util.UUID;
 public class Nat20PartyInviteRegistry {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final String SAVE_FILE_NAME = "party_invites.json";
 
     private final Map<UUID, PartyInvite> byInvitee = new HashMap<>();
+    private Path saveDirectory;
+
+    /** Bind the world-scoped save directory. Subsequent {@link #save()} /
+     *  {@link #load()} calls resolve {@code party_invites.json} inside it. */
+    public void setSaveDirectory(Path dir) {
+        this.saveDirectory = dir;
+    }
+
+    public void save() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        saveTo(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
+
+    public void load() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        loadFrom(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
 
     public void put(PartyInvite invite) {
         byInvitee.put(invite.inviteeUuid(), invite);

@@ -341,6 +341,17 @@ public class Natural20 extends JavaPlugin {
             // is reachable (first-chunk-load is strictly later).
             regenerateAllSettlementTopics();
 
+            // Party + quest-accepters + pending-invites state is world-scoped,
+            // not server-global: parties track which players are adventuring
+            // together in THIS world, and quest state belongs to the world's
+            // world progression. Fresh world = fresh parties, by design.
+            partyQuestStore.setSaveDirectory(worldDataDir);
+            partyQuestStore.load();
+            partyRegistry.setSaveDirectory(worldDataDir);
+            partyRegistry.load();
+            partyInviteRegistry.setSaveDirectory(worldDataDir);
+            partyInviteRegistry.load();
+
             lootSystem.getItemRegistry().init(worldDataDir);
             lootSystem.getItemRegistry().rehydrateAll();
 
@@ -768,7 +779,7 @@ public class Natural20 extends JavaPlugin {
                     partyQuestStore.migratePlayer(uuid, legacy);
                     QuestStateManager.clearLegacyActiveQuests(data);
                     try {
-                        partyQuestStore.saveTo(getDataDirectory().resolve("party_quests.json"));
+                        partyQuestStore.save();
                     } catch (java.io.IOException e) {
                         getLogger().atWarning().withCause(e)
                             .log("Failed to persist party-quest store after migration");
@@ -788,7 +799,7 @@ public class Natural20 extends JavaPlugin {
             partyRegistry.getParty(uuid);
             partyRegistry.markOnline(uuid);
             try {
-                partyRegistry.saveTo(getDataDirectory().resolve("parties.json"));
+                partyRegistry.save();
             } catch (java.io.IOException e) {
                 getLogger().atWarning().withCause(e)
                     .log("Failed to persist party registry on player ready");
@@ -938,20 +949,14 @@ public class Natural20 extends JavaPlugin {
         // current world's save dir rather than the plugin data dir.
         lootSystem.loadAll(getDataDirectory().resolve("loot"));
 
-        // Initialize party + party-quest store. Both are server-global; their
-        // save files live under the plugin data dir (not world-scoped) because
-        // parties can span worlds and quest state belongs to the party, not
-        // the world. Design: docs/plans/2026-04-21-party-multiplayer-quest-design.md.
+        // Construct party + party-quest + invite registries. They are bound
+        // to a world-scoped save directory inside initWorldScopedRegistries
+        // when the first chunk loads, matching the settlement / mob-group
+        // pattern. At setup time the registries are empty; disk loading is
+        // strictly per-world.
         partyQuestStore = new Nat20PartyQuestStore();
         partyRegistry = new Nat20PartyRegistry();
         partyInviteRegistry = new Nat20PartyInviteRegistry();
-        try {
-            partyQuestStore.loadFrom(getDataDirectory().resolve("party_quests.json"));
-            partyRegistry.loadFrom(getDataDirectory().resolve("parties.json"));
-            partyInviteRegistry.loadFrom(getDataDirectory().resolve("party_invites.json"));
-        } catch (java.io.IOException e) {
-            getLogger().atWarning().withCause(e).log("Failed to load party / party-quest state");
-        }
 
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry, partyQuestStore);

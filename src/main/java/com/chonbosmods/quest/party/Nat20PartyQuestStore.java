@@ -35,8 +35,31 @@ public class Nat20PartyQuestStore {
     private static final Type PRIMARY_TYPE =
         new TypeToken<Map<String, QuestInstance>>() {}.getType();
 
+    private static final String SAVE_FILE_NAME = "party_quests.json";
+
     private final Map<String, QuestInstance> primary = new HashMap<>();
     private final Map<UUID, Set<String>> byPlayer = new HashMap<>();
+    private Path saveDirectory;
+
+    /** Bind the world-scoped save directory. Subsequent {@link #save()} /
+     *  {@link #load()} calls resolve {@code party_quests.json} inside it. */
+    public void setSaveDirectory(Path dir) {
+        this.saveDirectory = dir;
+    }
+
+    public void save() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        saveTo(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
+
+    public void load() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        loadFrom(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
 
     public void add(QuestInstance quest) {
         String id = quest.getQuestId();

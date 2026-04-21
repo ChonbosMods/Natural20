@@ -29,14 +29,36 @@ public class Nat20PartyRegistry {
 
     private static final Duration DEFAULT_GHOST_THRESHOLD = Duration.ofDays(7);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final String SAVE_FILE_NAME = "parties.json";
 
     private final Map<UUID, Nat20Party> byPlayer = new HashMap<>();
     private final Map<String, Nat20Party> byPartyId = new HashMap<>();
     private final Map<UUID, Instant> lastSeen = new HashMap<>();
     private final Set<UUID> online = new HashSet<>();
+    private Path saveDirectory;
 
     private final Supplier<Instant> clock;
     private final Duration ghostThreshold;
+
+    /** Bind the world-scoped save directory. Subsequent {@link #save()} /
+     *  {@link #load()} calls resolve {@code parties.json} inside it. */
+    public void setSaveDirectory(Path dir) {
+        this.saveDirectory = dir;
+    }
+
+    public void save() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        saveTo(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
+
+    public void load() throws IOException {
+        if (saveDirectory == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
+        loadFrom(saveDirectory.resolve(SAVE_FILE_NAME));
+    }
 
     public Nat20PartyRegistry() {
         this(Instant::now, DEFAULT_GHOST_THRESHOLD);

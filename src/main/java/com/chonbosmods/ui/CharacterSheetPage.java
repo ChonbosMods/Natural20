@@ -905,8 +905,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     private static void persistPartyState() {
         try {
-            Natural20.getInstance().getPartyRegistry()
-                .saveTo(Natural20.getInstance().getDataDirectory().resolve("parties.json"));
+            Natural20.getInstance().getPartyRegistry().save();
         } catch (java.io.IOException e) {
             LOGGER.atWarning().withCause(e).log("Failed to persist party registry");
         }
@@ -914,8 +913,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
 
     private static void persistInviteState() {
         try {
-            Natural20.getInstance().getPartyInviteRegistry()
-                .saveTo(Natural20.getInstance().getDataDirectory().resolve("party_invites.json"));
+            Natural20.getInstance().getPartyInviteRegistry().save();
         } catch (java.io.IOException e) {
             LOGGER.atWarning().withCause(e).log("Failed to persist party invite registry");
         }
