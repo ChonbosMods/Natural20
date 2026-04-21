@@ -85,7 +85,7 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         double dist = Math.hypot(pos.getX(), pos.getZ());
         int areaLevel = scalingConfig.areaLevelForDistance(dist);
         Random rng = ThreadLocalRandom.current();
-        if (!roller.roll(areaLevel, rng)) return;
+        if (!roller.roll(rng)) return;
 
         Optional<Nat20LootData> loot = picker.pickLoot(areaLevel, rng);
         if (loot.isEmpty()) return;

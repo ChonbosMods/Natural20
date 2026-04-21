@@ -13,9 +13,7 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -24,13 +22,11 @@ public final class Nat20ChestLootConfig {
     private static final Gson GSON = new Gson();
     private static final String RESOURCE_PATH = "config/chest_loot.json";
 
-    private final List<Double> chancePerBand;
-    private final double defaultChance;
+    private final double chance;
     private final Set<String> chestBlockTypes;
 
-    private Nat20ChestLootConfig(List<Double> chancePerBand, double defaultChance, Set<String> chestBlockTypes) {
-        this.chancePerBand = List.copyOf(chancePerBand);
-        this.defaultChance = defaultChance;
+    private Nat20ChestLootConfig(double chance, Set<String> chestBlockTypes) {
+        this.chance = chance;
         this.chestBlockTypes = Set.copyOf(chestBlockTypes);
     }
 
@@ -53,15 +49,7 @@ public final class Nat20ChestLootConfig {
     private static Nat20ChestLootConfig parse(Reader reader) {
         JsonObject root = GSON.fromJson(reader, JsonObject.class);
 
-        List<Double> bands = new ArrayList<>();
-        JsonArray bandArray = root.getAsJsonArray("chance_per_band");
-        if (bandArray != null) {
-            for (JsonElement e : bandArray) {
-                bands.add(e.getAsDouble());
-            }
-        }
-
-        double def = root.has("default_chance") ? root.get("default_chance").getAsDouble() : 0.0;
+        double c = root.has("chance") ? root.get("chance").getAsDouble() : 0.0;
 
         Set<String> types = new HashSet<>();
         JsonArray typeArray = root.getAsJsonArray("chest_block_types");
@@ -71,14 +59,11 @@ public final class Nat20ChestLootConfig {
             }
         }
 
-        return new Nat20ChestLootConfig(bands, def, types);
+        return new Nat20ChestLootConfig(c, types);
     }
 
-    public double chanceForBand(int band) {
-        if (band < 0 || band >= chancePerBand.size()) {
-            return defaultChance;
-        }
-        return chancePerBand.get(band);
+    public double getChance() {
+        return chance;
     }
 
     public boolean isChestBlock(String blockTypeName) {

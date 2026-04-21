@@ -10,16 +10,7 @@ public final class Nat20ChestLootRoller {
         this.config = config;
     }
 
-    public boolean roll(int areaLevel, Random rng) {
-        double chance = config.chanceForBand(bandForAreaLevel(areaLevel));
-        return rng.nextDouble() < chance;
-    }
-
-    /** Returns 0..3. Band count must stay in sync with {@code chance_per_band} length in chest_loot.json. */
-    public static int bandForAreaLevel(int areaLevel) {
-        if (areaLevel <= 10) return 0;
-        if (areaLevel <= 20) return 1;
-        if (areaLevel <= 30) return 2;
-        return 3;
+    public boolean roll(Random rng) {
+        return rng.nextDouble() < config.getChance();
     }
 }

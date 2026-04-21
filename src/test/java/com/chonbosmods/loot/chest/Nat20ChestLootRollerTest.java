@@ -11,52 +11,39 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Nat20ChestLootRollerTest {
 
-    private Nat20ChestLootConfig cfgWith(Path tmp, double... chances) throws Exception {
+    private Nat20ChestLootConfig cfgWithChance(Path tmp, double chance) throws Exception {
         Path file = tmp.resolve("chest_loot.json");
-        StringBuilder arr = new StringBuilder("[");
-        for (int i = 0; i < chances.length; i++) {
-            if (i > 0) arr.append(",");
-            arr.append(chances[i]);
-        }
-        arr.append("]");
         Files.writeString(file, """
-                { "chance_per_band": %s, "default_chance": 0.0, "chest_block_types": [] }
-                """.formatted(arr));
+                { "chance": %s, "chest_block_types": [] }
+                """.formatted(chance));
         return Nat20ChestLootConfig.load(file);
     }
 
     @Test
-    void bandIndexZeroForAreaLevels1To10(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWith(tmp, 0.05, 0.10, 0.15, 0.25);
-        assertEquals(0, Nat20ChestLootRoller.bandForAreaLevel(1));
-        assertEquals(0, Nat20ChestLootRoller.bandForAreaLevel(10));
-        assertEquals(1, Nat20ChestLootRoller.bandForAreaLevel(11));
-        assertEquals(1, Nat20ChestLootRoller.bandForAreaLevel(20));
-        assertEquals(2, Nat20ChestLootRoller.bandForAreaLevel(21));
-        assertEquals(3, Nat20ChestLootRoller.bandForAreaLevel(31));
-        assertEquals(3, Nat20ChestLootRoller.bandForAreaLevel(40));
+    void rollAlwaysTrueWhenChanceIsOne(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 1.0);
+        Random rng = new Random(1234L);
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfg);
+        for (int i = 0; i < 100; i++) {
+            assertTrue(roller.roll(rng), "chance=1.0 must always fire");
+        }
     }
 
     @Test
-    void rollReturnsTrueBelowThreshold(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWith(tmp, 0.7);
+    void rollAlwaysFalseWhenChanceIsZero(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 0.0);
         Random rng = new Random(1234L);
-        assertTrue(new Nat20ChestLootRoller(cfg).roll(1, rng));
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfg);
+        for (int i = 0; i < 100; i++) {
+            assertFalse(roller.roll(rng), "chance=0.0 must never fire");
+        }
     }
 
     @Test
-    void rollReturnsFalseAboveThreshold(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWith(tmp, 0.0);
+    void rollReturnsTrueWhenRngBelowChance(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 0.7);
+        // Random(1234L).nextDouble() first value ~= 0.6466, below 0.7
         Random rng = new Random(1234L);
-        assertFalse(new Nat20ChestLootRoller(cfg).roll(1, rng));
-    }
-
-    @Test
-    void rollUsesBandSpecificChance(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWith(tmp, 0.0, 1.0, 0.0, 0.0);
-        Random rng = new Random(1234L);
-        assertFalse(new Nat20ChestLootRoller(cfg).roll(1, rng), "band 0 is 0%");
-        assertTrue(new Nat20ChestLootRoller(cfg).roll(11, rng), "band 1 is 100%");
-        assertFalse(new Nat20ChestLootRoller(cfg).roll(21, rng), "band 2 is 0%");
+        assertTrue(new Nat20ChestLootRoller(cfg).roll(rng));
     }
 }
