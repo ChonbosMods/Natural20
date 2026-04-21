@@ -101,4 +101,10 @@ class Nat20HeightmapSamplerTest {
         int[] heights = {99, 65, 68, 63, 66};
         assertEquals(99, Nat20HeightmapSampler.reduce(heights, Nat20HeightmapSampler.Mode.ENTRY_ANCHOR));
     }
+
+    @Test
+    void slopeDelta_isMaxMinusMin() {
+        assertEquals(5, Nat20HeightmapSampler.slopeDelta(new int[]{64, 65, 68, 63, 66}));
+        assertEquals(0, Nat20HeightmapSampler.slopeDelta(new int[]{70, 70, 70, 70, 70}));
+    }
 }

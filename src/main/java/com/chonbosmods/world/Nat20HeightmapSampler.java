@@ -64,4 +64,13 @@ public final class Nat20HeightmapSampler {
             case ENTRY_ANCHOR -> heights[0];
         };
     }
+
+    static int slopeDelta(int[] heights) {
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        for (int h : heights) {
+            if (h < min) min = h;
+            if (h > max) max = h;
+        }
+        return max - min;
+    }
 }
