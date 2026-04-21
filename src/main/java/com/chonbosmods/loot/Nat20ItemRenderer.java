@@ -61,7 +61,6 @@ public class Nat20ItemRenderer {
             double maxValue = Nat20AffixScaling.interpolate(range, rolledAffix.maxLevel(), lootData, rarityRegistry);
             double midValue = (minValue + maxValue) * 0.5;
 
-            // Legacy numeric fields (still used by ComparisonDeltas for STAT-type diffing).
             String value;
             String unit;
             if ("MULTIPLICATIVE".equals(affixDef.modifierType())) {

@@ -3,12 +3,9 @@ package com.chonbosmods.loot.display;
 import javax.annotation.Nullable;
 
 /**
- * Resolved data for a single affix tooltip line.
- *
- * <p>The {@code renderedText} field is the pre-formatted display string with Hytale color markup
- * ({@code <color is="#hex">...</color>}) already applied. Display-oriented builders should emit
- * it directly. The remaining numeric fields ({@code value}, {@code unit}, {@code statName}) are
- * retained so {@link ComparisonDeltas} can diff STAT-type affixes between items.
+ * Resolved data for a single affix tooltip line. {@code renderedText} is the pre-formatted
+ * display string with Hytale color markup already applied; numeric fields remain for debug
+ * inspection via {@code /nat20 lootinspect}.
  */
 public record AffixLine(
     String name,
