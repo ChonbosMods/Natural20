@@ -8,8 +8,10 @@ import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20ItemRegistry;
 import com.chonbosmods.loot.registry.Nat20NamePoolRegistry;
 import com.chonbosmods.loot.registry.Nat20RarityRegistry;
+import com.chonbosmods.progression.DifficultyTier;
 import com.google.common.flogger.FluentLogger;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class Nat20LootPipeline {
@@ -209,6 +211,84 @@ public class Nat20LootPipeline {
 
         LOGGER.atFine().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d, tierRange=[%d,%d])",
             generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl, minRarityTier, maxRarityTier);
+
+        return data;
+    }
+
+    /**
+     * Generate loot data with tier clamping AND difficulty-biased rarity selection.
+     * Used by {@link com.chonbosmods.loot.mob.Nat20MobLootListener} so RARE/EPIC
+     * champion drops skew toward higher rarities. Passing {@code difficulty == null}
+     * is equivalent to the non-difficulty overload.
+     *
+     * <p>See {@code docs/plans/2026-04-21-mob-loot-tuning-design.md} §4.
+     */
+    public Nat20LootData generate(String itemId, String baseName, String categoryKey,
+                                   int minRarityTier, int maxRarityTier,
+                                   @Nullable DifficultyTier difficulty,
+                                   Random random, int ilvl) {
+        Nat20RarityDef rarity = rarityRegistry.selectRandomForDifficulty(
+                random, minRarityTier, maxRarityTier, difficulty);
+        if (rarity == null) {
+            LOGGER.atWarning().log("No rarity definitions loaded, cannot generate loot for %s", itemId);
+            return null;
+        }
+
+        double lootLevel = random.nextDouble();
+        List<RolledAffix> rolledAffixes = rollAffixes(rarity, categoryKey, random);
+        int sockets = rollSockets(rarity, random);
+
+        String prefixSource = null;
+        String suffixSource = null;
+        StringBuilder nameBuilder = new StringBuilder();
+
+        for (var affix : rolledAffixes) {
+            Nat20AffixDef def = affixRegistry.get(affix.id());
+            if (def != null && def.namePosition() == NamePosition.PREFIX && prefixSource == null) {
+                prefixSource = affix.id();
+                nameBuilder.append(getDisplayName(def, rarity.id(), random)).append(" ");
+                break;
+            }
+        }
+
+        nameBuilder.append(baseName);
+
+        for (var affix : rolledAffixes) {
+            Nat20AffixDef def = affixRegistry.get(affix.id());
+            if (def != null && def.namePosition() == NamePosition.SUFFIX && suffixSource == null) {
+                suffixSource = affix.id();
+                nameBuilder.append(" of ").append(getDisplayName(def, rarity.id(), random));
+                break;
+            }
+        }
+
+        String generatedName = nameBuilder.toString();
+        String variantItemId = resolveVariantId(itemId, rarity.id());
+        String description = buildDescription(rolledAffixes, rarity.id(), sockets, rarity);
+
+        Nat20LootData data = new Nat20LootData();
+        data.setVersion(Nat20LootData.CURRENT_VERSION);
+        data.setRarity(rarity.id());
+        data.setLootLevel(lootLevel);
+        data.setItemLevel(ilvl);
+        data.setAffixes(rolledAffixes);
+        data.setSockets(sockets);
+        data.setGems(new ArrayList<>());
+        data.setGeneratedName(generatedName);
+        data.setNamePrefixSource(prefixSource);
+        data.setNameSuffixSource(suffixSource);
+        data.setDescription(description);
+        data.setVariantItemId(variantItemId);
+
+        String qualityId = rarity.id();
+        if (itemRegistry != null) {
+            String uniqueId = itemRegistry.registerItem(itemId, qualityId, data);
+            data.setUniqueItemId(uniqueId);
+        }
+
+        LOGGER.atFine().log("Generated loot: %s [%s] variant=%s with %d affixes, %d sockets (lootLevel=%.2f, ilvl=%d, tierRange=[%d,%d], difficulty=%s)",
+            generatedName, rarity.id(), variantItemId, rolledAffixes.size(), sockets, lootLevel, ilvl,
+            minRarityTier, maxRarityTier, difficulty);
 
         return data;
     }

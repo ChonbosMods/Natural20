@@ -3,6 +3,7 @@ package com.chonbosmods.loot.registry;
 import com.chonbosmods.loot.AffixType;
 import com.chonbosmods.loot.def.LootRuleEntry;
 import com.chonbosmods.loot.def.Nat20RarityDef;
+import com.chonbosmods.progression.DifficultyTier;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -151,6 +152,80 @@ public class Nat20RarityRegistry {
         for (var def : pool) {
             cumulative += def.baseWeight();
             if (roll < cumulative) return def;
+        }
+        return pool.getLast();
+    }
+
+    /**
+     * Difficulty-biased rarity selection for Nat20 mob drops.
+     *
+     * <p>Starts from the default per-rarity base weights (filtered to the
+     * [minTier, maxTier] window), then applies two layered biases keyed off
+     * {@link DifficultyTier}:
+     * <ul>
+     *   <li>difficulty >= RARE: multiply Uncommon / Rare / Epic / Legendary
+     *       weights by 1.5x.</li>
+     *   <li>difficulty >= EPIC: zero Common's weight and redistribute its
+     *       original 300-point share into Uncommon (+100), Rare (+150),
+     *       Epic (+40), Legendary (+10).</li>
+     * </ul>
+     *
+     * <p>Unknown/null difficulty (chest loot, quest rewards, UNCOMMON mobs)
+     * behaves identically to {@link #selectRandom(Random, int, int)}.
+     *
+     * <p>See {@code docs/plans/2026-04-21-mob-loot-tuning-design.md} §4 for
+     * the probability tables this reproduces.
+     */
+    public Nat20RarityDef selectRandomForDifficulty(Random random, int minTier, int maxTier,
+                                                     @Nullable DifficultyTier difficulty) {
+        if (difficulty == null || difficulty == DifficultyTier.UNCOMMON) {
+            return selectRandom(random, minTier, maxTier);
+        }
+
+        boolean multiplyHighTiers = true; // both RARE and EPIC apply the 1.5x bias
+        boolean zeroCommon = difficulty == DifficultyTier.EPIC
+                || difficulty == DifficultyTier.LEGENDARY;
+
+        List<Nat20RarityDef> pool = new ArrayList<>();
+        List<Double> weights = new ArrayList<>();
+        double totalWeight = 0.0;
+
+        for (var def : raritiesById.values()) {
+            if (def.qualityValue() < minTier || def.qualityValue() > maxTier) continue;
+            double w = def.baseWeight();
+            boolean isCommon = def.qualityValue() == 1;
+            if (isCommon && zeroCommon) {
+                w = 0.0;
+            } else if (!isCommon && multiplyHighTiers) {
+                w *= 1.5;
+            }
+            // EPIC/LEGENDARY: redistribute Common's original 300 weight upward.
+            if (zeroCommon) {
+                switch (def.qualityValue()) {
+                    case 2 -> w += 100.0; // Uncommon
+                    case 3 -> w += 150.0; // Rare
+                    case 4 -> w += 40.0;  // Epic
+                    case 5 -> w += 10.0;  // Legendary
+                    default -> {}
+                }
+            }
+            if (w <= 0.0) continue;
+            pool.add(def);
+            weights.add(w);
+            totalWeight += w;
+        }
+
+        if (pool.isEmpty() || totalWeight <= 0.0) {
+            LOGGER.atWarning().log("selectRandomForDifficulty: empty pool for tierRange=[%d,%d] difficulty=%s, falling back",
+                    minTier, maxTier, difficulty);
+            return selectRandom(random, minTier, maxTier);
+        }
+
+        double roll = random.nextDouble() * totalWeight;
+        double cumulative = 0.0;
+        for (int i = 0; i < pool.size(); i++) {
+            cumulative += weights.get(i);
+            if (roll < cumulative) return pool.get(i);
         }
         return pool.getLast();
     }

@@ -84,14 +84,10 @@ public class Nat20MobLootListener {
     private record GeneratedDrop(String baseItemId, Nat20LootData data) {}
 
     /**
-     * Generate drops until {@code dropCount} slots have been filled with a non-Common
-     * item from any Nat20 mob above {@link DifficultyTier#UNCOMMON}. Common rolls
-     * still drop as "bonus" items but don't consume a slot.
-     * Capped at {@code dropCount * REROLL_CAP_MULTIPLIER} iterations to prevent
-     * pathological infinite loops if Common is somehow the only outcome.
+     * Generate exactly {@code dropCount} drops. Each slot samples {@link Nat20MobLootPool}
+     * once; whatever rarity the pipeline rolls is the drop. Null/empty picks and pipeline
+     * failures skip the slot (no re-roll).
      */
-    private static final int REROLL_CAP_MULTIPLIER = 5;
-
     private List<GeneratedDrop> generateDrops(Nat20MobLootPool pool, int dropCount,
                                                @Nullable DifficultyTier difficulty,
                                                int ilvl, Random rng) {
@@ -102,17 +98,11 @@ public class Nat20MobLootListener {
         int effectiveMin = gate[0];
         int effectiveMax = gate[1];
 
-        boolean rerollCommons = difficulty != null && difficulty != DifficultyTier.UNCOMMON;
-        int maxIterations = dropCount * REROLL_CAP_MULTIPLIER;
-        int satisfied = 0;
-        int iterations = 0;
-
-        while (satisfied < dropCount && iterations < maxIterations) {
-            iterations++;
+        for (int slot = 1; slot <= dropCount; slot++) {
             Nat20MobLootPool.PickResult pick = pool.pick(rng);
             if (pick == null) {
-                LOGGER.atWarning().log("Pool pick returned null at slot %d/%d; aborting remaining slots", satisfied + 1, dropCount);
-                break;
+                LOGGER.atWarning().log("Pool pick returned null at slot %d/%d; skipping", slot, dropCount);
+                continue;
             }
             String itemId = pick.itemId();
             String categoryKey = Nat20ItemTierResolver.inferCategory(itemId);
@@ -122,30 +112,18 @@ public class Nat20MobLootListener {
             Nat20LootData data = pipeline.generate(
                     itemId, baseName, categoryKey,
                     effectiveMin, effectiveMax,
+                    difficulty,
                     rng, ilvl);
 
             if (data == null) {
-                LOGGER.atWarning().log("Pipeline returned null (itemId=%s ilvl=%d source=%s); re-rolling slot %d",
-                        itemId, ilvl, pick.source(), satisfied + 1);
+                LOGGER.atWarning().log("Pipeline returned null (itemId=%s ilvl=%d source=%s); skipping slot %d",
+                        itemId, ilvl, pick.source(), slot);
                 continue;
             }
 
-            boolean isCommon = "Common".equalsIgnoreCase(data.getRarity());
-            boolean bonusReroll = rerollCommons && isCommon;
             results.add(new GeneratedDrop(itemId, data));
-            if (bonusReroll) {
-                LOGGER.atInfo().log("Bonus drop (Common from %s mob): %s [%s] from %s (source=%s) — re-rolling slot %d/%d",
-                        difficulty, data.getGeneratedName(), data.getRarity(), itemId, pick.source(), satisfied + 1, dropCount);
-            } else {
-                satisfied++;
-                LOGGER.atInfo().log("Drop %d/%d: %s [%s] from %s (source=%s)",
-                        satisfied, dropCount, data.getGeneratedName(), data.getRarity(), itemId, pick.source());
-            }
-        }
-
-        if (satisfied < dropCount) {
-            LOGGER.atWarning().log("Hit reroll cap: satisfied=%d/%d iterations=%d difficulty=%s ilvl=%d",
-                    satisfied, dropCount, iterations, difficulty, ilvl);
+            LOGGER.atInfo().log("Drop %d/%d: %s [%s] from %s (source=%s)",
+                    slot, dropCount, data.getGeneratedName(), data.getRarity(), itemId, pick.source());
         }
 
         return results;
