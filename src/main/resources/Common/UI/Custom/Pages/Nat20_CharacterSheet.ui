@@ -497,13 +497,24 @@ $C.@Container {
             }
           }
 
-          // Leave Party button, shown only on the Party tab. Clicking once
-          // swaps the label to "Confirm Leave"; a second click within a few
-          // seconds confirms and leaves. Timeout handled in Java.
-          $C.@SmallSecondaryTextButton #CSPartyLeaveBtn {
-            Text: "Leave Party";
-            Anchor: (Height: 28, Width: 140, Top: 6);
+          // Leave Party + Cancel buttons, shown only on the Party tab.
+          // First click on Leave swaps its label to "Confirm Leave" and
+          // reveals #CSPartyLeaveCancelBtn; a second click on Leave commits
+          // the leave, while Cancel aborts the pending confirm.
+          Group #CSPartyLeaveRow {
+            LayoutMode: Left;
+            Anchor: (Height: 28, Top: 6);
             Visible: false;
+
+            $C.@SmallSecondaryTextButton #CSPartyLeaveBtn {
+              Text: "Leave Party";
+              Anchor: (Width: 140, Height: 28);
+            }
+            $C.@SmallSecondaryTextButton #CSPartyLeaveCancelBtn {
+              Text: "Cancel";
+              Anchor: (Width: 90, Height: 28, Left: 6);
+              Visible: false;
+            }
           }
         }
       }

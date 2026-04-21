@@ -282,6 +282,11 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 "#CSPartyLeaveBtn",
                 EventData.of("Type", "party-leave"),
                 false);
+        events.addEventBinding(
+                CustomUIEventBindingType.Activating,
+                "#CSPartyLeaveCancelBtn",
+                EventData.of("Type", "party-leave-cancel"),
+                false);
 
         // Render party section on first open + every rebuild.
         renderPartySection(cmd, store);
@@ -494,14 +499,18 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                         : (hasInvite ? COLOR_TAB_INACTIVE : COLOR_PLAYER_OFFLINE));
         cmd.set("#CSPartyTabInvites.Disabled", !hasInvite && currentPartyTab != PartyTab.INVITES);
 
-        // Leave button shows only on Party tab and only when the viewer is in a
-        // multi-member party (nothing to leave from a size-1 default party).
+        // Leave button row shows only on Party tab and only when the viewer
+        // is in a multi-member party (nothing to leave from a size-1 default
+        // party). The Cancel button only appears while a Leave confirm is
+        // armed, so the resting state is a single button.
         Nat20PartyRegistry partyReg = Natural20.getInstance().getPartyRegistry();
         Nat20Party myParty = partyReg != null ? partyReg.getParty(this.playerRef.getUuid()) : null;
         boolean canLeave = myParty != null && !myParty.isSolo();
         boolean confirmingLeave = "leave".equals(pendingConfirmToken);
-        cmd.set("#CSPartyLeaveBtn.Visible", currentPartyTab == PartyTab.PARTY && canLeave);
+        boolean showLeaveRow = currentPartyTab == PartyTab.PARTY && canLeave;
+        cmd.set("#CSPartyLeaveRow.Visible", showLeaveRow);
         cmd.set("#CSPartyLeaveBtn.Text", confirmingLeave ? "Confirm Leave" : "Leave Party");
+        cmd.set("#CSPartyLeaveCancelBtn.Visible", showLeaveRow && confirmingLeave);
 
         // Dispatch per-tab row renderer. Hidden rows are reset to blank / disabled.
         switch (currentPartyTab) {
@@ -748,6 +757,13 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         }
         if ("party-leave".equals(type)) {
             handleLeaveClicked();
+            return;
+        }
+        if ("party-leave-cancel".equals(type)) {
+            if ("leave".equals(pendingConfirmToken)) {
+                pendingConfirmToken = null;
+                rebuild();
+            }
         }
     }
 
