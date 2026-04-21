@@ -1,5 +1,6 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.loot.chest.Nat20ChestContainerWriter;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.Gson;
@@ -8,7 +9,6 @@ import com.hypixel.hytale.component.Holder;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
-import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
@@ -86,8 +86,7 @@ public class QuestChestPlacer {
             Holder<ChunkStore> holder = ChunkStore.REGISTRY.deserialize(bson);
 
             // 4. Get chunk (WorldChunk uses world coordinates)
-            long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
-            WorldChunk chunk = world.getNonTickingChunk(chunkKey);
+            WorldChunk chunk = Nat20ChestContainerWriter.getLoadedChunk(world, x, z);
             if (chunk == null) {
                 LOGGER.atWarning().log("Chunk not loaded at %d, %d for quest chest", x, z);
                 return false;
