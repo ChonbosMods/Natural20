@@ -3,13 +3,12 @@ package com.chonbosmods.settlement;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.npc.Nat20PlaceNameGenerator;
+import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
-import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.modules.entity.component.Invulnerable;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
@@ -227,12 +226,10 @@ public class SettlementWorldGenListener {
     }
 
     private int findGroundY(World world, int x, int z) {
-        for (int y = 256; y >= 0; y--) {
-            BlockType blockType = world.getBlockType(x, y, z);
-            if (blockType != null && blockType.getMaterial() == BlockMaterial.Solid) {
-                return y + 1;
-            }
-        }
-        return 64;
+        Nat20HeightmapSampler.SampleResult sample = Nat20HeightmapSampler.sample(
+            world, x, z, 0, 0,
+            Nat20HeightmapSampler.Mode.ENTRY_ANCHOR,
+            Integer.MAX_VALUE);
+        return sample.y() > 0 ? sample.y() : 64;
     }
 }
