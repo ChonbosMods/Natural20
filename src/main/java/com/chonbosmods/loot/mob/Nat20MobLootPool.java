@@ -35,7 +35,7 @@ import java.util.Random;
  */
 public final class Nat20MobLootPool {
 
-    public static final float NATIVE_LIST_BIAS = 0.08f;
+    public static final float NATIVE_LIST_BIAS = 0.12f;
 
     public enum Source { NATIVE, GLOBAL }
     public record PickResult(String itemId, Source source) {}
@@ -67,7 +67,7 @@ public final class Nat20MobLootPool {
     public int nativeSize()  { return native_.size(); }
 
     /**
-     * Pick one item for a drop slot. 8% chance to pull from native (if non-empty),
+     * Pick one item for a drop slot. 12% chance to pull from native (if non-empty),
      * otherwise from global. Caller must handle a null return only if the whole
      * pool is empty (checked via {@link #isEmpty()} first).
      */
