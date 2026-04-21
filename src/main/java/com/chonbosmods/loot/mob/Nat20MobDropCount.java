@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * {@code docs/plans/2026-04-17-mob-loot-pool-redesign-design.md} for table.
  *
  * <p>REGULAR → 0.
- * <p>CHAMPION × {UNCOMMON, RARE, EPIC} → single Bernoulli trial at 35/40/45%.
+ * <p>CHAMPION × {UNCOMMON, RARE, EPIC} → single Bernoulli trial at 18%.
  * LEGENDARY CHAMPION is an invalid combo (0 drops + one-shot warning).
  * <p>BOSS/DUNGEON_BOSS → guaranteed base + N independent 30% bonus rolls.
  */
@@ -22,9 +22,9 @@ public final class Nat20MobDropCount {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|MobDropCount");
 
-    private static final float CHAMPION_CHANCE_UNCOMMON = 0.35f;
-    private static final float CHAMPION_CHANCE_RARE     = 0.40f;
-    private static final float CHAMPION_CHANCE_EPIC     = 0.45f;
+    private static final float CHAMPION_CHANCE_UNCOMMON = 0.18f;
+    private static final float CHAMPION_CHANCE_RARE     = 0.18f;
+    private static final float CHAMPION_CHANCE_EPIC     = 0.18f;
     private static final float BOSS_BONUS_CHANCE        = 0.30f;
 
     private static final AtomicBoolean LEGENDARY_CHAMPION_WARNED = new AtomicBoolean(false);
