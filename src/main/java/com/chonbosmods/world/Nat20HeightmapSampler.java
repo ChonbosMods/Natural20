@@ -29,16 +29,21 @@ public final class Nat20HeightmapSampler {
      * Walks down from {@code startY} skipping tree blocks (leaves, trunks, branches, roots)
      * until a non-tree solid block is found. Returns (solid block Y + 1), i.e., the first
      * buildable Y above ground. Returns 0 (sentinel) if no solid block found within
-     * {@code maxSteps}, or if any {@code Fluid_*} block is encountered (water/lava reject
-     * the column so callers can skip placements over water).
+     * {@code maxSteps}, or if any fluid (water/lava/etc.) is encountered.
+     *
+     * <p>Fluids are tested two ways: primarily via {@code isFluidAt} (Hytale's fluid layer
+     * lives in a separate {@code fluidId} palette, not in {@code blockId}), and defensively
+     * via block-name prefix {@code "Fluid_"} for servers that may stamp fluids as blocks.
      */
     static int walkDownToSolidGround(int startY,
                                      int maxSteps,
                                      java.util.function.IntFunction<String> blockNameAt,
-                                     java.util.function.IntPredicate isSolidAt) {
+                                     java.util.function.IntPredicate isSolidAt,
+                                     java.util.function.IntPredicate isFluidAt) {
         for (int step = 0; step < maxSteps; step++) {
             int y = startY - step;
             if (y <= 0) return 0;
+            if (isFluidAt.test(y)) return 0;
             String name = blockNameAt.apply(y);
             if (name != null && name.startsWith("Fluid_")) return 0;
             if (isTreeBlockName(name)) continue;
@@ -156,6 +161,10 @@ public final class Nat20HeightmapSampler {
             y -> {
                 BlockType bt = lookup.apply(y);
                 return bt != null && bt.getMaterial() == BlockMaterial.Solid;
-            });
+            },
+            // Hytale tracks fluids in a separate palette on the chunk, not as blockIds:
+            // water cells have blockId=Empty but fluidId > 0. Without this check the walk
+            // would descend through water and land on the seabed, sinking prefabs.
+            y -> chunk.getFluidId(lx, y, lz) != 0);
     }
 }

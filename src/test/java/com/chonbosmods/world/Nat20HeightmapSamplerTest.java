@@ -62,7 +62,8 @@ class Nat20HeightmapSamplerTest {
             return "Soil_Dirt";
         };
         java.util.function.IntPredicate isSolid = y -> y <= 66; // dirt is solid-opacity
-        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid);
+        java.util.function.IntPredicate noFluid = y -> false;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid, noFluid);
         assertEquals(67, result, "should land on first non-tree solid block top + 1");
     }
 
@@ -70,7 +71,8 @@ class Nat20HeightmapSamplerTest {
     void walkDown_returnsStartPlusOne_whenStartIsAlreadyOnGround() {
         java.util.function.IntFunction<String> names = y -> "Stone_Granite";
         java.util.function.IntPredicate isSolid = y -> true;
-        int result = Nat20HeightmapSampler.walkDownToSolidGround(64, 30, names, isSolid);
+        java.util.function.IntPredicate noFluid = y -> false;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(64, 30, names, isSolid, noFluid);
         assertEquals(65, result);
     }
 
@@ -79,21 +81,34 @@ class Nat20HeightmapSamplerTest {
         // All transparent: should bail out after maxSteps and return 0 (sentinel).
         java.util.function.IntFunction<String> names = y -> "Air";
         java.util.function.IntPredicate isSolid = y -> false;
-        int result = Nat20HeightmapSampler.walkDownToSolidGround(200, 20, names, isSolid);
+        java.util.function.IntPredicate noFluid = y -> false;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(200, 20, names, isSolid, noFluid);
         assertEquals(0, result);
     }
 
     @Test
-    void walkDown_rejectsColumnContainingFluid() {
-        // Water column above dirt seabed. Sampler must reject (return 0), NOT descend to seabed.
+    void walkDown_rejectsColumnContainingFluidByName() {
+        // Defensive path: blockId-as-fluid name. Some servers may stamp fluids as blocks.
         java.util.function.IntFunction<String> names = y -> {
             if (y >= 66) return "Air";
             if (y >= 60) return "Fluid_Water";
             return "Soil_Dirt";
         };
         java.util.function.IntPredicate isSolid = y -> y <= 59;
-        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid);
-        assertEquals(0, result, "fluid in column must reject the probe");
+        java.util.function.IntPredicate noFluid = y -> false;
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid, noFluid);
+        assertEquals(0, result, "fluid blockId name must reject the probe");
+    }
+
+    @Test
+    void walkDown_rejectsColumnWhenFluidLayerPresent() {
+        // Primary path: Hytale's real water is air-blocks with fluidId set. Name check
+        // misses this; the isFluidAt predicate must catch it.
+        java.util.function.IntFunction<String> names = y -> y <= 59 ? "Soil_Dirt" : "Air";
+        java.util.function.IntPredicate isSolid = y -> y <= 59;
+        java.util.function.IntPredicate isFluid = y -> y >= 60 && y <= 65; // water between 60-65
+        int result = Nat20HeightmapSampler.walkDownToSolidGround(70, 30, names, isSolid, isFluid);
+        assertEquals(0, result, "fluid layer must reject the probe via isFluidAt");
     }
 
     @Test
