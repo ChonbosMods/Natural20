@@ -1,0 +1,53 @@
+{
+  "npcId": "Jiub",
+  "defaultDisposition": 50,
+  "greetingNodeId": "jiub_greeting",
+  "topics": [
+    {
+      "id": "placeholder_combat",
+      "label": "Combat",
+      "entryNodeId": "node_placeholder_combat",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "placeholder_stats",
+      "label": "Stats and rolls",
+      "entryNodeId": "node_placeholder_stats",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "placeholder_quests",
+      "label": "Quests",
+      "entryNodeId": "node_placeholder_quests",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 3
+    }
+  ],
+  "nodes": {
+    "jiub_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Welcome back. Ask me anything you'd like to know.",
+      "responses": []
+    },
+    "node_placeholder_combat": {
+      "type": "DIALOGUE",
+      "speakerText": "Placeholder for combat. Will be written in a follow-up.",
+      "responses": []
+    },
+    "node_placeholder_stats": {
+      "type": "DIALOGUE",
+      "speakerText": "Placeholder for stats. Will be written in a follow-up.",
+      "responses": []
+    },
+    "node_placeholder_quests": {
+      "type": "DIALOGUE",
+      "speakerText": "Placeholder for quests. Will be written in a follow-up.",
+      "responses": []
+    }
+  }
+}
