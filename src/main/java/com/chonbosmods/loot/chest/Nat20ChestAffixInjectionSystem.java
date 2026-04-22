@@ -98,7 +98,13 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         if (!anyInjected) return;
 
         if (roller.rollSecondary(rng)) {
-            injectOne(world, pos, areaLevel, rng, config.getSecondaryMaxRarityTier(), "secondary");
+            // Soft-bias toward low rarity: probability getSecondaryLowRarityBias() of
+            // clamping max to Uncommon; otherwise use the full ilvl gate. Reduces
+            // Rare/Epic/Legendary frequency for the bonus without eliminating it.
+            Integer secondaryMax = rng.nextDouble() < config.getSecondaryLowRarityBias()
+                    ? 2   // Uncommon cap
+                    : null; // null => default ilvl gate
+            injectOne(world, pos, areaLevel, rng, secondaryMax, "secondary");
         }
 
         // Suppress this open — the player's next Use press reads a settled state.

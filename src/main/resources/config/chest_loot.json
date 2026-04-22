@@ -1,7 +1,7 @@
 {
   "primary_chance": 0.35,
-  "secondary_chance": 0.05,
-  "secondary_max_rarity_tier": 2,
+  "secondary_chance": 0.1429,
+  "secondary_low_rarity_bias": 0.7,
   "chest_block_types": [
     "Furniture_Ancient_Chest_Large",
     "Furniture_Ancient_Chest_Large_Treasure",

@@ -24,16 +24,16 @@ public final class Nat20ChestLootConfig {
 
     private final double primaryChance;
     private final double secondaryChance;
-    private final int secondaryMaxRarityTier;
+    private final double secondaryLowRarityBias;
     private final Set<String> chestBlockTypes;
 
     private Nat20ChestLootConfig(double primaryChance,
                                  double secondaryChance,
-                                 int secondaryMaxRarityTier,
+                                 double secondaryLowRarityBias,
                                  Set<String> chestBlockTypes) {
         this.primaryChance = primaryChance;
         this.secondaryChance = secondaryChance;
-        this.secondaryMaxRarityTier = secondaryMaxRarityTier;
+        this.secondaryLowRarityBias = secondaryLowRarityBias;
         this.chestBlockTypes = Set.copyOf(chestBlockTypes);
     }
 
@@ -58,9 +58,9 @@ public final class Nat20ChestLootConfig {
 
         double primary = root.has("primary_chance") ? root.get("primary_chance").getAsDouble() : 0.0;
         double secondary = root.has("secondary_chance") ? root.get("secondary_chance").getAsDouble() : 0.0;
-        int secondaryMax = root.has("secondary_max_rarity_tier")
-                ? root.get("secondary_max_rarity_tier").getAsInt()
-                : 2;
+        double lowBias = root.has("secondary_low_rarity_bias")
+                ? root.get("secondary_low_rarity_bias").getAsDouble()
+                : 0.0;
 
         Set<String> types = new HashSet<>();
         JsonArray typeArray = root.getAsJsonArray("chest_block_types");
@@ -70,7 +70,7 @@ public final class Nat20ChestLootConfig {
             }
         }
 
-        return new Nat20ChestLootConfig(primary, secondary, secondaryMax, types);
+        return new Nat20ChestLootConfig(primary, secondary, lowBias, types);
     }
 
     public double getPrimaryChance() {
@@ -83,12 +83,13 @@ public final class Nat20ChestLootConfig {
     }
 
     /**
-     * Rarity-tier clamp applied to the secondary item so the bonus roll is biased
-     * toward Common/Uncommon. Tier values: Common=1, Uncommon=2, Rare=3, Epic=4,
-     * Legendary=5. Default 2 (Uncommon max).
+     * Probability (0..1) that the secondary item's rarity is clamped to Uncommon
+     * maximum. When it misses, the secondary uses the full ilvl gate. A soft bias
+     * rather than a hard cap: raises Common/Uncommon frequency and reduces
+     * Rare/Epic/Legendary without eliminating them. Default 0.7.
      */
-    public int getSecondaryMaxRarityTier() {
-        return secondaryMaxRarityTier;
+    public double getSecondaryLowRarityBias() {
+        return secondaryLowRarityBias;
     }
 
     public boolean isChestBlock(String blockTypeName) {

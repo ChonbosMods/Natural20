@@ -16,15 +16,15 @@ class Nat20ChestLootConfigTest {
         Files.writeString(cfg, """
                 {
                   "primary_chance": 0.35,
-                  "secondary_chance": 0.05,
-                  "secondary_max_rarity_tier": 2,
+                  "secondary_chance": 0.1429,
+                  "secondary_low_rarity_bias": 0.7,
                   "chest_block_types": ["Furniture_Chest"]
                 }
                 """);
         Nat20ChestLootConfig c = Nat20ChestLootConfig.load(cfg);
         assertEquals(0.35, c.getPrimaryChance(), 1e-9);
-        assertEquals(0.05, c.getSecondaryChance(), 1e-9);
-        assertEquals(2, c.getSecondaryMaxRarityTier());
+        assertEquals(0.1429, c.getSecondaryChance(), 1e-9);
+        assertEquals(0.7, c.getSecondaryLowRarityBias(), 1e-9);
     }
 
     @Test
@@ -36,7 +36,7 @@ class Nat20ChestLootConfigTest {
         Nat20ChestLootConfig c = Nat20ChestLootConfig.load(cfg);
         assertEquals(0.0, c.getPrimaryChance(), 1e-9);
         assertEquals(0.0, c.getSecondaryChance(), 1e-9);
-        assertEquals(2, c.getSecondaryMaxRarityTier());
+        assertEquals(0.0, c.getSecondaryLowRarityBias(), 1e-9);
     }
 
     @Test
