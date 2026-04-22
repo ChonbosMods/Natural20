@@ -94,6 +94,7 @@ import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.chonbosmods.party.Nat20PartyInviteRegistry;
 import com.chonbosmods.party.Nat20PartyRegistry;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
+import com.chonbosmods.npc.JiubManager;
 import com.chonbosmods.npc.Nat20NpcManager;
 import com.chonbosmods.prefab.Nat20PrefabConstants;
 import com.chonbosmods.settlement.NpcRecord;
@@ -153,6 +154,7 @@ public class Natural20 extends JavaPlugin {
 
     private final SettlementPlacer placer = new SettlementPlacer();
     private final Nat20NpcManager npcManager = new Nat20NpcManager();
+    private final JiubManager jiubManager = new JiubManager();
     private final DialogueActionRegistry actionRegistry = new DialogueActionRegistry();
     private final DialogueLoader dialogueLoader = new DialogueLoader();
     private final DialogueManager dialogueManager = new DialogueManager(dialogueLoader, actionRegistry);
@@ -222,6 +224,10 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20NpcManager getNpcManager() {
         return npcManager;
+    }
+
+    public JiubManager getJiubManager() {
+        return jiubManager;
     }
 
     public Config<Nat20GlobalData> getGlobalConfig() {
@@ -351,6 +357,11 @@ public class Natural20 extends JavaPlugin {
             partyRegistry.load();
             partyInviteRegistry.setSaveDirectory(worldDataDir);
             partyInviteRegistry.load();
+
+            // Jiub singleton: rebind and load the persisted UUID (if any).
+            // Actual spawn is deferred to the chunk-pre-load hook below so it
+            // runs on the world thread after chunk initialization.
+            jiubManager.setSaveDirectory(worldDataDir);
 
             lootSystem.getItemRegistry().init(worldDataDir);
             lootSystem.getItemRegistry().rehydrateAll();
@@ -917,9 +928,11 @@ public class Natural20 extends JavaPlugin {
 
         getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, event -> {
             var chunk = event.getChunk();
+            boolean firstChunk = false;
             if (defaultWorld == null) {
                 defaultWorld = chunk.getWorld();
                 initWorldScopedRegistries(defaultWorld);
+                firstChunk = true;
             }
             // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
             int chunkBlockX = chunk.getX() * 32;
@@ -927,6 +940,16 @@ public class Natural20 extends JavaPlugin {
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             mobGroupChunkListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             ambientSpawnSystem.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+
+            // Jiub singleton: fire idempotent spawn on the world thread on
+            // the very first chunk-pre-load. Subsequent chunk-pre-loads are
+            // a no-op (defaultWorld is already set and firstChunk stays false).
+            // Idempotency also holds inside JiubManager itself as a safety net.
+            if (firstChunk) {
+                World w = defaultWorld;
+                w.execute(() -> jiubManager.spawnJiubIfAbsent(
+                    w.getEntityStore().getStore(), w));
+            }
         });
 
         // POI population listener (writes spawn descriptors, provides spawnMobs for proximity system)
