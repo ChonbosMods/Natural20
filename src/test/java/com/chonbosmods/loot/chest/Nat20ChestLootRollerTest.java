@@ -11,39 +11,49 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Nat20ChestLootRollerTest {
 
-    private Nat20ChestLootConfig cfgWithChance(Path tmp, double chance) throws Exception {
+    private Nat20ChestLootConfig cfgWith(Path tmp, double primary, double secondary) throws Exception {
         Path file = tmp.resolve("chest_loot.json");
         Files.writeString(file, """
-                { "chance": %s, "chest_block_types": [] }
-                """.formatted(chance));
+                { "primary_chance": %s, "secondary_chance": %s, "chest_block_types": [] }
+                """.formatted(primary, secondary));
         return Nat20ChestLootConfig.load(file);
     }
 
     @Test
-    void rollAlwaysTrueWhenChanceIsOne(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 1.0);
+    void primaryAlwaysTrueWhenChanceIsOne(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfgWith(tmp, 1.0, 0.0));
         Random rng = new Random(1234L);
-        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfg);
-        for (int i = 0; i < 100; i++) {
-            assertTrue(roller.roll(rng), "chance=1.0 must always fire");
-        }
+        for (int i = 0; i < 100; i++) assertTrue(roller.rollPrimary(rng));
     }
 
     @Test
-    void rollAlwaysFalseWhenChanceIsZero(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 0.0);
+    void primaryAlwaysFalseWhenChanceIsZero(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfgWith(tmp, 0.0, 1.0));
         Random rng = new Random(1234L);
-        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfg);
-        for (int i = 0; i < 100; i++) {
-            assertFalse(roller.roll(rng), "chance=0.0 must never fire");
-        }
+        for (int i = 0; i < 100; i++) assertFalse(roller.rollPrimary(rng));
     }
 
     @Test
-    void rollReturnsTrueWhenRngBelowChance(@TempDir Path tmp) throws Exception {
-        Nat20ChestLootConfig cfg = cfgWithChance(tmp, 0.7);
-        // Random(1234L).nextDouble() first value ~= 0.6466, below 0.7
+    void secondaryAlwaysTrueWhenChanceIsOne(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfgWith(tmp, 0.0, 1.0));
         Random rng = new Random(1234L);
-        assertTrue(new Nat20ChestLootRoller(cfg).roll(rng));
+        for (int i = 0; i < 100; i++) assertTrue(roller.rollSecondary(rng));
+    }
+
+    @Test
+    void secondaryAlwaysFalseWhenChanceIsZero(@TempDir Path tmp) throws Exception {
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfgWith(tmp, 1.0, 0.0));
+        Random rng = new Random(1234L);
+        for (int i = 0; i < 100; i++) assertFalse(roller.rollSecondary(rng));
+    }
+
+    @Test
+    void primaryAndSecondaryUseIndependentChances(@TempDir Path tmp) throws Exception {
+        // Random(1234L).nextDouble() first value ~= 0.6466, second ~= 0.9513
+        Nat20ChestLootConfig cfg = cfgWith(tmp, 0.7, 0.1);
+        Random rng = new Random(1234L);
+        Nat20ChestLootRoller roller = new Nat20ChestLootRoller(cfg);
+        assertTrue(roller.rollPrimary(rng), "0.6466 < 0.7 -> true");
+        assertFalse(roller.rollSecondary(rng), "0.9513 < 0.1 -> false");
     }
 }

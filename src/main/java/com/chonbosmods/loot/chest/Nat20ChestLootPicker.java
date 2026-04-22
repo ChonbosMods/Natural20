@@ -40,13 +40,35 @@ public final class Nat20ChestLootPicker {
     }
 
     /**
-     * Roll one piece of chest loot for the given area level.
-     *
-     * @param ilvl area level (same semantics as mob {@code getAreaLevel()})
-     * @param rng  random source
-     * @return generated loot data, or empty if the pool is empty or the pipeline returns null
+     * Roll one piece of chest loot using the default ilvl rarity gate.
      */
     public Optional<Nat20LootData> pickLoot(int ilvl, Random rng) {
+        int[] gate = Nat20LootPipeline.rarityGateForIlvl(ilvl);
+        return pickLoot(ilvl, gate[0], gate[1], rng);
+    }
+
+    /**
+     * Roll one piece of chest loot with caller-supplied rarity-tier clamps. Bounds
+     * are intersected with the ilvl gate so callers can tighten the ceiling (e.g.
+     * bias a bonus roll toward Common/Uncommon) without bypassing ilvl policy.
+     *
+     * @param ilvl        area level (same semantics as mob {@code getAreaLevel()})
+     * @param minTier     minimum rarity tier (1=Common ... 5=Legendary)
+     * @param maxTier     maximum rarity tier
+     * @param rng         random source
+     * @return generated loot data, or empty if pool empty, clamp impossible, or pipeline fails
+     */
+    public Optional<Nat20LootData> pickLoot(int ilvl, int minTier, int maxTier, Random rng) {
+        int[] gate = Nat20LootPipeline.rarityGateForIlvl(ilvl);
+        int effectiveMin = Math.max(minTier, gate[0]);
+        int effectiveMax = Math.min(maxTier, gate[1]);
+        if (effectiveMin > effectiveMax) {
+            LOGGER.atWarning().log(
+                    "Chest pick skipped: rarity clamp [%d,%d] incompatible with ilvl=%d gate [%d,%d]",
+                    minTier, maxTier, ilvl, gate[0], gate[1]);
+            return Optional.empty();
+        }
+
         List<String> pool = Nat20MobLootPool.buildGlobalPool(lootSystem.getLootEntryRegistry(), ilvl);
         if (pool.isEmpty()) {
             LOGGER.atWarning().log("Empty chest loot pool at ilvl=%d; nothing to generate", ilvl);
@@ -54,9 +76,6 @@ public final class Nat20ChestLootPicker {
         }
 
         Nat20LootPipeline pipeline = lootSystem.getPipeline();
-        int[] gate = Nat20LootPipeline.rarityGateForIlvl(ilvl);
-        int effectiveMin = gate[0];
-        int effectiveMax = gate[1];
 
         for (int attempt = 0; attempt < MAX_PICK_ATTEMPTS; attempt++) {
             String itemId = pool.get(rng.nextInt(pool.size()));
@@ -73,8 +92,8 @@ public final class Nat20ChestLootPicker {
                         itemId, ilvl);
                 continue;
             }
-            LOGGER.atInfo().log("Chest pick: %s [%s] from %s (ilvl=%d)",
-                    data.getGeneratedName(), data.getRarity(), itemId, ilvl);
+            LOGGER.atInfo().log("Chest pick: %s [%s] from %s (ilvl=%d tier=[%d,%d])",
+                    data.getGeneratedName(), data.getRarity(), itemId, ilvl, effectiveMin, effectiveMax);
             return Optional.of(data);
         }
 

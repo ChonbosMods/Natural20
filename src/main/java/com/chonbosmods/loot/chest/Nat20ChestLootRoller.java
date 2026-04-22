@@ -10,7 +10,12 @@ public final class Nat20ChestLootRoller {
         this.config = config;
     }
 
-    public boolean roll(Random rng) {
-        return rng.nextDouble() < config.getChance();
+    public boolean rollPrimary(Random rng) {
+        return rng.nextDouble() < config.getPrimaryChance();
+    }
+
+    /** Conditional roll for a bonus second item; caller should only invoke when primary succeeded. */
+    public boolean rollSecondary(Random rng) {
+        return rng.nextDouble() < config.getSecondaryChance();
     }
 }

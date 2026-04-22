@@ -882,8 +882,11 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20ChestAffixInjectionSystem(
                 chestLootConfig, chestLootRoller, chestRollRegistry, scalingConfig, chestLootPicker));
         com.hypixel.hytale.logger.HytaleLogger.get("Nat20|ChestInject").atInfo()
-                .log("Chest affix injection wired: %d block types; chance=%.2f",
-                        chestLootConfig.blockTypeCount(), chestLootConfig.getChance());
+                .log("Chest affix injection wired: %d block types; primary=%.2f secondary=%.2f (maxTier=%d)",
+                        chestLootConfig.blockTypeCount(),
+                        chestLootConfig.getPrimaryChance(),
+                        chestLootConfig.getSecondaryChance(),
+                        chestLootConfig.getSecondaryMaxRarityTier());
 
         // Enumerate native hostile mob pool by scanning NPCPlugin roles
         hostilePool.initialize();

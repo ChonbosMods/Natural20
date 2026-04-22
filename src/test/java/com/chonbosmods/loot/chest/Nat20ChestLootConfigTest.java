@@ -11,26 +11,32 @@ import static org.junit.jupiter.api.Assertions.*;
 class Nat20ChestLootConfigTest {
 
     @Test
-    void loadsFlatChance(@TempDir Path tmp) throws Exception {
+    void loadsPrimaryAndSecondaryChances(@TempDir Path tmp) throws Exception {
         Path cfg = tmp.resolve("chest_loot.json");
         Files.writeString(cfg, """
                 {
-                  "chance": 0.25,
-                  "chest_block_types": ["Furniture_Chest", "hytale:chest"]
+                  "primary_chance": 0.35,
+                  "secondary_chance": 0.05,
+                  "secondary_max_rarity_tier": 2,
+                  "chest_block_types": ["Furniture_Chest"]
                 }
                 """);
         Nat20ChestLootConfig c = Nat20ChestLootConfig.load(cfg);
-        assertEquals(0.25, c.getChance(), 1e-9);
+        assertEquals(0.35, c.getPrimaryChance(), 1e-9);
+        assertEquals(0.05, c.getSecondaryChance(), 1e-9);
+        assertEquals(2, c.getSecondaryMaxRarityTier());
     }
 
     @Test
-    void missingChanceDefaultsToZero(@TempDir Path tmp) throws Exception {
+    void missingFieldsDefaultSafely(@TempDir Path tmp) throws Exception {
         Path cfg = tmp.resolve("chest_loot.json");
         Files.writeString(cfg, """
                 { "chest_block_types": [] }
                 """);
         Nat20ChestLootConfig c = Nat20ChestLootConfig.load(cfg);
-        assertEquals(0.0, c.getChance(), 1e-9);
+        assertEquals(0.0, c.getPrimaryChance(), 1e-9);
+        assertEquals(0.0, c.getSecondaryChance(), 1e-9);
+        assertEquals(2, c.getSecondaryMaxRarityTier());
     }
 
     @Test
@@ -38,7 +44,8 @@ class Nat20ChestLootConfigTest {
         Path cfg = tmp.resolve("chest_loot.json");
         Files.writeString(cfg, """
                 {
-                  "chance": 1.0,
+                  "primary_chance": 1.0,
+                  "secondary_chance": 0.0,
                   "chest_block_types": ["Furniture_Chest", "hytale:chest"]
                 }
                 """);
@@ -54,7 +61,8 @@ class Nat20ChestLootConfigTest {
         Path cfg = tmp.resolve("chest_loot.json");
         Files.writeString(cfg, """
                 {
-                  "chance": 1.0,
+                  "primary_chance": 1.0,
+                  "secondary_chance": 0.0,
                   "chest_block_types": ["Furniture_Kweebec_Chest_Small", "Furniture_Dungeon_Chest_Legendary_Large"]
                 }
                 """);

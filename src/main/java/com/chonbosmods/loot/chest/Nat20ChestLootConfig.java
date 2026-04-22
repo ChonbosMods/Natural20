@@ -22,11 +22,18 @@ public final class Nat20ChestLootConfig {
     private static final Gson GSON = new Gson();
     private static final String RESOURCE_PATH = "config/chest_loot.json";
 
-    private final double chance;
+    private final double primaryChance;
+    private final double secondaryChance;
+    private final int secondaryMaxRarityTier;
     private final Set<String> chestBlockTypes;
 
-    private Nat20ChestLootConfig(double chance, Set<String> chestBlockTypes) {
-        this.chance = chance;
+    private Nat20ChestLootConfig(double primaryChance,
+                                 double secondaryChance,
+                                 int secondaryMaxRarityTier,
+                                 Set<String> chestBlockTypes) {
+        this.primaryChance = primaryChance;
+        this.secondaryChance = secondaryChance;
+        this.secondaryMaxRarityTier = secondaryMaxRarityTier;
         this.chestBlockTypes = Set.copyOf(chestBlockTypes);
     }
 
@@ -49,7 +56,11 @@ public final class Nat20ChestLootConfig {
     private static Nat20ChestLootConfig parse(Reader reader) {
         JsonObject root = GSON.fromJson(reader, JsonObject.class);
 
-        double c = root.has("chance") ? root.get("chance").getAsDouble() : 0.0;
+        double primary = root.has("primary_chance") ? root.get("primary_chance").getAsDouble() : 0.0;
+        double secondary = root.has("secondary_chance") ? root.get("secondary_chance").getAsDouble() : 0.0;
+        int secondaryMax = root.has("secondary_max_rarity_tier")
+                ? root.get("secondary_max_rarity_tier").getAsInt()
+                : 2;
 
         Set<String> types = new HashSet<>();
         JsonArray typeArray = root.getAsJsonArray("chest_block_types");
@@ -59,11 +70,25 @@ public final class Nat20ChestLootConfig {
             }
         }
 
-        return new Nat20ChestLootConfig(c, types);
+        return new Nat20ChestLootConfig(primary, secondary, secondaryMax, types);
     }
 
-    public double getChance() {
-        return chance;
+    public double getPrimaryChance() {
+        return primaryChance;
+    }
+
+    /** Conditional chance of a second item, gated on the primary roll succeeding. */
+    public double getSecondaryChance() {
+        return secondaryChance;
+    }
+
+    /**
+     * Rarity-tier clamp applied to the secondary item so the bonus roll is biased
+     * toward Common/Uncommon. Tier values: Common=1, Uncommon=2, Rare=3, Epic=4,
+     * Legendary=5. Default 2 (Uncommon max).
+     */
+    public int getSecondaryMaxRarityTier() {
+        return secondaryMaxRarityTier;
     }
 
     public boolean isChestBlock(String blockTypeName) {
