@@ -1,0 +1,60 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 600, Height: 320);
+
+  #Content {
+    LayoutMode: Top;
+    Padding: (Left: 24, Right: 24, Top: 20, Bottom: 20);
+
+    // Title bar
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 36);
+      Padding: (Bottom: 12);
+
+      Label { FlexWeight: 1; }
+      Label #JiubIntroTitle {
+        Text: "Jiub";
+        Style: (
+          TextColor: #ffd700(1),
+          FontSize: 22,
+          RenderBold: true
+        );
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // Intro line (typewritten by the player implicitly: Hytale renders
+    // it instantly; the line is short enough that no animation is needed)
+    Group {
+      LayoutMode: Top;
+      FlexWeight: 1;
+      Padding: (Left: 12, Right: 12, Top: 8);
+
+      Label #JiubIntroLine {
+        Text: "";
+        Style: (
+          TextColor: #ffcc00(1),
+          FontSize: 16
+        );
+        Wrap: true;
+      }
+    }
+
+    // Continue button row
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 52, Top: 16);
+
+      Group { FlexWeight: 1; }
+      $C.@SmallSecondaryTextButton #JiubIntroContinueBtn {
+        Text: "Continue";
+        Anchor: (Width: 200);
+      }
+      Group { FlexWeight: 1; }
+    }
+  }
+}

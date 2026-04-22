@@ -109,6 +109,7 @@ import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.settlement.SettlementThreatSystem;
 import com.chonbosmods.settlement.SettlementWorldGenListener;
 import com.chonbosmods.ui.CharacterSheetManager;
+import com.chonbosmods.ui.JiubIntroPage;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Ref;
@@ -848,21 +849,15 @@ public class Natural20 extends JavaPlugin {
             // not yet committed a Background, open the forced intro + picker
             // flow. The flag flips on background commit (BackgroundCommitter),
             // so a disconnect mid-picker re-fires the flow on next PlayerReady.
-            //
-            // Task 4.1 wires the hook; the actual JiubIntroPage open() call is
-            // filled in by Task 6.1. Until then we just log so the firing can
-            // be verified in smoke tests.
             Nat20PlayerData firstJoinData = event.getPlayerRef().getStore()
                     .getComponent(event.getPlayerRef(), getPlayerDataType());
             if (firstJoinData == null || !firstJoinData.isFirstJoinSeen()) {
                 Ref<EntityStore> jiubRef = jiubManager.getJiubRef();
                 if (jiubRef != null) {
-                    getLogger().atInfo().log(
-                            "First-join auto-trigger fired for %s; Jiub ref=%s (Task 6.1 will open the intro page)",
-                            uuid, jiubRef);
-                    // TODO(Task 6.1): JiubIntroPage.open(event.getPlayerRef(),
-                    //                                    event.getPlayerRef().getStore(),
-                    //                                    jiubRef);
+                    JiubIntroPage.open(
+                            event.getPlayerRef(),
+                            event.getPlayerRef().getStore(),
+                            jiubRef);
                 } else {
                     getLogger().atWarning().log(
                             "First-join auto-trigger fired for %s but Jiub is not yet spawned; skipping",

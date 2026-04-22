@@ -22,6 +22,9 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Background picker with a two-screen flow (Tasks 5.1 + 5.2).
@@ -61,6 +64,20 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
      *  future background adds a 4th item, bump this constant and add the
      *  matching {@code #BgDetailKitLine4} label in the template. */
     private static final int MAX_KIT_LINES = 3;
+
+    /** Same value as {@code PageDialoguePresenter.PAGE_TRANSITION_DELAY_MS}.
+     *  Hytale's PageManager crashes if a new page is opened inside the event
+     *  handler of the page being dismissed; the post-Confirm hand-off to
+     *  {@code Nat20DialoguePage} is deferred by this many ms so the handler
+     *  stack unwinds first. */
+    private static final long PAGE_TRANSITION_DELAY_MS = 50;
+
+    private static final ScheduledExecutorService SCHEDULER =
+            Executors.newSingleThreadScheduledExecutor(r -> {
+                Thread t = new Thread(r, "Nat20-PickerTransition");
+                t.setDaemon(true);
+                return t;
+            });
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC =
             BuilderCodec.builder(PageEventData.class, PageEventData::new)
@@ -189,10 +206,24 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     LOGGER.atSevere().withCause(e).log(
                             "BackgroundCommitter.commit failed for '%s'", bg.name());
                 }
-                // TODO(Task 6.1): replace this close with a transition into the
-                // standard Nat20DialoguePage so Jiub's post-pick dialogue lands
-                // in the same page the player will see for every other NPC.
+                // Close the picker, then hand off to the standard Jiub dialogue
+                // page. Jiub's greeting node serves as the "transition line"
+                // (see Task 6.1 design): no separate transition page is needed
+                // because the greeting already reads as a post-pick segue.
                 close();
+                Ref<EntityStore> jiubRef = Natural20.getInstance().getJiubManager().getJiubRef();
+                if (jiubRef == null) {
+                    LOGGER.atWarning().log(
+                            "Picker confirmed but Jiub ref is null; standard dialogue not opened");
+                    return;
+                }
+                // Defer: opening a new page inside this handler crashes the
+                // PageManager. 50ms matches PageDialoguePresenter's transition
+                // delay and is enough for the dismiss to land first.
+                final Ref<EntityStore> jiub = jiubRef;
+                SCHEDULER.schedule(() -> Natural20.getInstance().getDialogueManager()
+                                .startSession(ref, jiub, store, () -> {}),
+                        PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
             }
             default -> LOGGER.atWarning().log("Unknown event type '%s'", type);
         }
