@@ -60,7 +60,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
-    private int[] stats = {10, 10, 10, 10, 10, 10};
+    private int[] stats = {0, 0, 0, 0, 0, 0};
     private int level = 1;
     private long totalXp = 0L;
     private int pendingAbilityPoints = 0;
@@ -111,7 +111,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
     }
 
     public void setStats(int[] stats) {
-        this.stats = stats != null ? stats.clone() : new int[]{10, 10, 10, 10, 10, 10};
+        this.stats = stats != null ? stats.clone() : new int[]{0, 0, 0, 0, 0, 0};
     }
 
     public int getLevel() {
