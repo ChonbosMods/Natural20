@@ -1,5 +1,6 @@
 package com.chonbosmods.data;
 
+import com.chonbosmods.background.Background;
 import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.model.ExhaustionState;
 import com.chonbosmods.quest.CompletedQuestRecord;
@@ -58,6 +59,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("CompletedQuests", COMPLETED_QUESTS_CODEC),
                     Nat20PlayerData::setCompletedQuestsRaw, Nat20PlayerData::getCompletedQuestsRaw)
             .addField(new KeyedCodec<>("FirstJoinSeen", Codec.BOOLEAN), Nat20PlayerData::setFirstJoinSeen, Nat20PlayerData::isFirstJoinSeen)
+            .addField(new KeyedCodec<>("Background", Codec.STRING), Nat20PlayerData::setBackgroundName, Nat20PlayerData::getBackgroundName)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -93,6 +95,11 @@ public class Nat20PlayerData implements Component<EntityStore> {
     // committed). Used by the Jiub tutorial NPC system to auto-trigger dialogue on
     // the player's very first join and skip it on subsequent logins.
     private boolean firstJoinSeen = false;
+
+    // Background chosen at commit time. Stored as the enum's name() for codec
+    // stability across renames; null for pre-feature saves and for brand-new
+    // players before they commit through the picker.
+    private String backgroundName;
 
     // Persisted record of completed quests (for Quest Log UI). Replaces the legacy
     // comma-separated `completed_quest_ids` string flag.
@@ -528,6 +535,29 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     public void setFirstJoinSeen(boolean firstJoinSeen) {
         this.firstJoinSeen = firstJoinSeen;
+    }
+
+    // --- Background ---
+
+    public String getBackgroundName() {
+        return backgroundName;
+    }
+
+    public void setBackgroundName(String backgroundName) {
+        this.backgroundName = backgroundName;
+    }
+
+    public Background getBackground() {
+        if (backgroundName == null) return null;
+        try {
+            return Background.valueOf(backgroundName);
+        } catch (IllegalArgumentException ignored) {
+            return null;
+        }
+    }
+
+    public void setBackground(Background background) {
+        this.backgroundName = background != null ? background.name() : null;
     }
 
     // --- Discovered Settlements ---

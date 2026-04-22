@@ -42,6 +42,7 @@ public final class BackgroundCommitter {
         stats[background.primary().index()] += 3;
         stats[background.secondary().index()] += 3;
         data.setStats(stats);
+        data.setBackground(background);
         data.setFirstJoinSeen(true);
     }
 

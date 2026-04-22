@@ -1,6 +1,7 @@
 package com.chonbosmods.ui;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.background.Background;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.party.Nat20Party;
@@ -168,9 +169,11 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         }
         appliedPendingPoints = data.getPendingAbilityPoints();
 
-        // Header: name + level
+        // Header: name + level + chosen background
         cmd.set("#CSName.Text", player.getDisplayName());
         cmd.set("#CSLevel.Text", "Lvl " + data.getLevel());
+        Background bg = data.getBackground();
+        cmd.set("#CSBackground.Text", bg != null ? bg.displayName() : "");
 
         // XP readout + bar fill
         int level = data.getLevel();
