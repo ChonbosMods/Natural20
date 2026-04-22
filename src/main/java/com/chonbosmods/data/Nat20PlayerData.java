@@ -57,6 +57,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("Perception", Codec.FLOAT), Nat20PlayerData::setPerception, Nat20PlayerData::getPerception)
             .addField(new KeyedCodec<>("CompletedQuests", COMPLETED_QUESTS_CODEC),
                     Nat20PlayerData::setCompletedQuestsRaw, Nat20PlayerData::getCompletedQuestsRaw)
+            .addField(new KeyedCodec<>("FirstJoinSeen", Codec.BOOLEAN), Nat20PlayerData::setFirstJoinSeen, Nat20PlayerData::isFirstJoinSeen)
             .build();
 
     // Index order: STR=0, DEX=1, CON=2, INT=3, WIS=4, CHA=5
@@ -87,6 +88,11 @@ public class Nat20PlayerData implements Component<EntityStore> {
     private Set<String> discoveredSettlements = new HashSet<>();
 
     private float perception = 0.0f;
+
+    // True once this player has completed the first-join flow (background selector
+    // committed). Used by the Jiub tutorial NPC system to auto-trigger dialogue on
+    // the player's very first join and skip it on subsequent logins.
+    private boolean firstJoinSeen = false;
 
     // Persisted record of completed quests (for Quest Log UI). Replaces the legacy
     // comma-separated `completed_quest_ids` string flag.
@@ -514,6 +520,16 @@ public class Nat20PlayerData implements Component<EntityStore> {
         this.perception = perception;
     }
 
+    // --- First Join Seen ---
+
+    public boolean isFirstJoinSeen() {
+        return firstJoinSeen;
+    }
+
+    public void setFirstJoinSeen(boolean firstJoinSeen) {
+        this.firstJoinSeen = firstJoinSeen;
+    }
+
     // --- Discovered Settlements ---
 
     public Set<String> getDiscoveredSettlements() {
@@ -589,6 +605,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
         copy.discoveredSettlements = new HashSet<>(this.discoveredSettlements);
         copy.perception = this.perception;
+        copy.firstJoinSeen = this.firstJoinSeen;
         copy.completedQuests = new ArrayList<>(this.completedQuests);
         return copy;
     }
