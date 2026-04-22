@@ -14,10 +14,8 @@ public class QuestStateManager {
 
     private static final Gson GSON = new GsonBuilder().create();
     private static final String KEY_ACTIVE_QUESTS = "active_quests";
-    private static final String KEY_ACTIVE_REFS = "active_references";
 
     private static final Type QUEST_MAP_TYPE = new TypeToken<Map<String, QuestInstance>>() {}.getType();
-    private static final Type REF_MAP_TYPE = new TypeToken<Map<String, ReferenceState>>() {}.getType();
 
     /** When non-null, active-quest state lives in the store and this manager
      *  routes reads/writes through it. When null, the legacy per-player JSON
@@ -173,28 +171,5 @@ public class QuestStateManager {
         data.getCompletedQuests().add(0, new CompletedQuestRecord(questId, questName, finalObjectiveText));
 
         removeQuest(data, questId);
-    }
-
-    public Map<String, ReferenceState> getActiveReferences(Nat20PlayerData data) {
-        String json = data.getQuestData(KEY_ACTIVE_REFS);
-        if (json == null || json.isEmpty()) return new HashMap<>();
-        Map<String, ReferenceState> result = GSON.fromJson(json, REF_MAP_TYPE);
-        return result != null ? result : new HashMap<>();
-    }
-
-    public void saveActiveReferences(Nat20PlayerData data, Map<String, ReferenceState> refs) {
-        data.setQuestData(KEY_ACTIVE_REFS, GSON.toJson(refs, REF_MAP_TYPE));
-    }
-
-    public void addReference(Nat20PlayerData data, ReferenceState ref) {
-        Map<String, ReferenceState> refs = getActiveReferences(data);
-        refs.put(ref.getReferenceId(), ref);
-        saveActiveReferences(data, refs);
-    }
-
-    public void removeReference(Nat20PlayerData data, String referenceId) {
-        Map<String, ReferenceState> refs = getActiveReferences(data);
-        refs.remove(referenceId);
-        saveActiveReferences(data, refs);
     }
 }
