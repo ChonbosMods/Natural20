@@ -76,7 +76,7 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
-import com.chonbosmods.loot.chest.Nat20ChestChunkScanner;
+import com.chonbosmods.loot.chest.Nat20ChestAffixInjectionSystem;
 import com.chonbosmods.loot.chest.Nat20ChestLootConfig;
 import com.chonbosmods.loot.chest.Nat20ChestLootPicker;
 import com.chonbosmods.loot.chest.Nat20ChestLootRoller;
@@ -165,7 +165,6 @@ public class Natural20 extends JavaPlugin {
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
     private Nat20ChestRollRegistry chestRollRegistry;
-    private Nat20ChestChunkScanner chestChunkScanner;
     private final Nat20HostilePool hostilePool = new Nat20HostilePool();
     private final com.chonbosmods.world.Nat20ZoneRegistry zoneRegistry = new com.chonbosmods.world.Nat20ZoneRegistry();
     private final Nat20MobThemeRegistry mobThemeRegistry = new Nat20MobThemeRegistry();
@@ -267,10 +266,6 @@ public class Natural20 extends JavaPlugin {
 
     public Nat20ChestRollRegistry getChestRollRegistry() {
         return chestRollRegistry;
-    }
-
-    public Nat20ChestChunkScanner getChestChunkScanner() {
-        return chestChunkScanner;
     }
 
     public Nat20HostilePool getHostilePool() {
@@ -877,18 +872,15 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
 
-        // Chest affix-loot pre-injection. Scans every loaded chunk for native chests
-        // once and injects affix loot before any player opens them, so the first-open
-        // sees the item natively with no mid-open UI resync. Registry data file is
-        // rebound to a world-scoped path in the first-chunk-load hook below; initial
-        // path is a placeholder.
+        // Chest affix-loot injection. Registry data file is rebound to a world-scoped
+        // path in the first-chunk-load hook below; initial path is a placeholder.
         Nat20ChestLootConfig chestLootConfig = Nat20ChestLootConfig.load();
         chestRollRegistry = new Nat20ChestRollRegistry(getDataDirectory());
         Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
         Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
         QuestChestPlacer.setChestRollRegistry(chestRollRegistry);
-        chestChunkScanner = new Nat20ChestChunkScanner(
-                chestLootConfig, chestLootRoller, chestRollRegistry, scalingConfig, chestLootPicker);
+        getEntityStoreRegistry().registerSystem(new Nat20ChestAffixInjectionSystem(
+                chestLootConfig, chestLootRoller, chestRollRegistry, scalingConfig, chestLootPicker));
         com.hypixel.hytale.logger.HytaleLogger.get("Nat20|ChestInject").atInfo()
                 .log("Chest affix injection wired: %d block types; chance=%.2f",
                         chestLootConfig.blockTypeCount(), chestLootConfig.getChance());
@@ -931,9 +923,6 @@ public class Natural20 extends JavaPlugin {
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             mobGroupChunkListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             ambientSpawnSystem.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
-            if (chestChunkScanner != null) {
-                chestChunkScanner.onChunkLoad(chunk.getWorld(), chunk, chunkBlockX, chunkBlockZ);
-            }
         });
 
         // POI population listener (writes spawn descriptors, provides spawnMobs for proximity system)
