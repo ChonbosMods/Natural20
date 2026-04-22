@@ -27,8 +27,10 @@ $C.@Container {
       Label { FlexWeight: 1; }
     }
 
-    // 8-row x 2-column button grid (15 buttons; row 8 column 2 is empty).
-    Group {
+    // -------------------------------------------------------------------
+    // Screen 1: grid of 15 backgrounds (visible by default)
+    // -------------------------------------------------------------------
+    Group #BgGridGroup {
       LayoutMode: Top;
       FlexWeight: 1;
       Padding: (Top: 4);
@@ -156,6 +158,137 @@ $C.@Container {
         }
         Group { Anchor: (Width: 8); }
         Group { FlexWeight: 1; }
+      }
+    }
+
+    // -------------------------------------------------------------------
+    // Screen 2: detail panel (hidden by default; shown after grid click)
+    // -------------------------------------------------------------------
+    Group #BgDetailGroup {
+      LayoutMode: Top;
+      FlexWeight: 1;
+      Padding: (Top: 4);
+      Visible: false;
+
+      // Background name (large label, centered via flex spacers)
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 44, Top: 4);
+
+        Label { FlexWeight: 1; }
+        Label #BgDetailTitle {
+          Text: "";
+          Style: (
+            TextColor: #ffd700(1),
+            FontSize: 20,
+            RenderBold: true
+          );
+        }
+        Label { FlexWeight: 1; }
+      }
+
+      // Flavor sentence (placeholder until authoring pass)
+      Group {
+        LayoutMode: Top;
+        Anchor: (Height: 60, Top: 12);
+        Padding: (Left: 12, Right: 12);
+
+        Label #BgDetailFlavor {
+          Text: "";
+          Style: (
+            TextColor: #dddddd(1),
+            FontSize: 14
+          );
+          Wrap: true;
+        }
+      }
+
+      // Stat bonuses (e.g. "+3 STR, +3 CON")
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 32, Top: 12);
+
+        Label { FlexWeight: 1; }
+        Label #BgDetailStats {
+          Text: "";
+          Style: (
+            TextColor: #ffffff(1),
+            FontSize: 16,
+            RenderBold: true
+          );
+        }
+        Label { FlexWeight: 1; }
+      }
+
+      // "Starter Kit" heading
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 26, Top: 16);
+
+        Label { FlexWeight: 1; }
+        Label #BgDetailKitHeader {
+          Text: "Starter Kit";
+          Style: (
+            TextColor: #ffd700(1),
+            FontSize: 15,
+            RenderBold: true
+          );
+        }
+        Label { FlexWeight: 1; }
+      }
+
+      // Kit lines (up to 3)
+      Group {
+        LayoutMode: Top;
+        Anchor: (Height: 96, Top: 4);
+        Padding: (Left: 12, Right: 12);
+
+        Label #BgDetailKitLine1 {
+          Text: "";
+          Style: (
+            TextColor: #ffffff(1),
+            FontSize: 14
+          );
+          Anchor: (Height: 22);
+          Visible: false;
+        }
+        Label #BgDetailKitLine2 {
+          Text: "";
+          Style: (
+            TextColor: #ffffff(1),
+            FontSize: 14
+          );
+          Anchor: (Height: 22, Top: 4);
+          Visible: false;
+        }
+        Label #BgDetailKitLine3 {
+          Text: "";
+          Style: (
+            TextColor: #ffffff(1),
+            FontSize: 14
+          );
+          Anchor: (Height: 22, Top: 4);
+          Visible: false;
+        }
+      }
+
+      // Spacer pushes buttons to the bottom
+      Group { FlexWeight: 1; }
+
+      // Confirm / Back row
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 52, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBackBtn {
+          Text: "Back";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 12); }
+        $C.@SmallSecondaryTextButton #BgConfirmBtn {
+          Text: "Confirm";
+          FlexWeight: 1;
+        }
       }
     }
   }
