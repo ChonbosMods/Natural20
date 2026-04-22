@@ -94,14 +94,19 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
         // CantClose = the client cannot dismiss this page through any user input
         // (Esc, click-out, etc). Server-initiated close() still works.
         super(playerRef, CustomPageLifetime.CantClose, EVENT_CODEC);
+        LOGGER.atInfo().log("Constructed BackgroundPickerPage for player %s",
+                playerRef.getUuid());
     }
 
     @Override
     public void build(Ref<EntityStore> ref, UICommandBuilder cmd, UIEventBuilder events,
                       Store<EntityStore> store) {
+        boolean onDetail = selectedBackground != null;
+        LOGGER.atInfo().log("Build: onDetail=%s selected=%s",
+                onDetail,
+                selectedBackground == null ? "null" : selectedBackground.name());
         cmd.append(PAGE_LAYOUT);
 
-        boolean onDetail = selectedBackground != null;
         cmd.set("#BgGridGroup.Visible", !onDetail);
         cmd.set("#BgDetailGroup.Visible", onDetail);
 
@@ -177,7 +182,14 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
         String id = data.getId();
-        if (type == null || type.isEmpty()) return;
+        LOGGER.atInfo().log("handleDataEvent: type=%s id=%s selected=%s",
+                type == null ? "null" : type,
+                id == null ? "null" : id,
+                selectedBackground == null ? "null" : selectedBackground.name());
+        if (type == null || type.isEmpty()) {
+            LOGGER.atWarning().log("Empty event type; ignoring");
+            return;
+        }
 
         switch (type) {
             case "pick" -> {
@@ -186,10 +198,12 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     LOGGER.atWarning().log("Background pick: unknown id '%s'", id);
                     return;
                 }
+                LOGGER.atInfo().log("Pick: %s (%s) -> detail screen", bg.name(), bg.displayName());
                 selectedBackground = bg;
                 rebuild();
             }
             case "back" -> {
+                LOGGER.atInfo().log("Back: returning to grid");
                 selectedBackground = null;
                 rebuild();
             }
@@ -199,6 +213,7 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     return;
                 }
                 Background bg = selectedBackground;
+                LOGGER.atInfo().log("Confirm: committing %s (%s)", bg.name(), bg.displayName());
                 try {
                     BackgroundCommitter.commit(ref, store, bg, new Random());
                     LOGGER.atInfo().log("Background committed: %s (%s)", bg.name(), bg.displayName());
@@ -207,22 +222,30 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                             "BackgroundCommitter.commit failed for '%s'", bg.name());
                 }
                 // Close the picker, then hand off to the standard Jiub dialogue
-                // page. Jiub's greeting node serves as the "transition line"
-                // (see Task 6.1 design): no separate transition page is needed
-                // because the greeting already reads as a post-pick segue.
+                // page if he's spawned. If Jiub isn't spawned yet (the player
+                // joined faster than the chunk-pre-load hook could run), we
+                // still closed the picker and committed the background, so
+                // the player is free in the world. They can F-interact Jiub
+                // later when he's present.
                 close();
                 Ref<EntityStore> jiubRef = Natural20.getInstance().getJiubManager().getJiubRef();
                 if (jiubRef == null) {
                     LOGGER.atWarning().log(
-                            "Picker confirmed but Jiub ref is null; standard dialogue not opened");
+                            "Picker confirmed but Jiub ref is null; "
+                                    + "commit applied, post-commit dialogue skipped");
                     return;
                 }
                 // Defer: opening a new page inside this handler crashes the
                 // PageManager. 50ms matches PageDialoguePresenter's transition
                 // delay and is enough for the dismiss to land first.
                 final Ref<EntityStore> jiub = jiubRef;
-                SCHEDULER.schedule(() -> Natural20.getInstance().getDialogueManager()
-                                .startSession(ref, jiub, store, () -> {}),
+                LOGGER.atInfo().log("Scheduling post-commit dialogue session open in %dms",
+                        PAGE_TRANSITION_DELAY_MS);
+                SCHEDULER.schedule(() -> {
+                            LOGGER.atInfo().log("Opening post-commit DialogueManager session");
+                            Natural20.getInstance().getDialogueManager()
+                                    .startSession(ref, jiub, store, () -> {});
+                        },
                         PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
             }
             default -> LOGGER.atWarning().log("Unknown event type '%s'", type);

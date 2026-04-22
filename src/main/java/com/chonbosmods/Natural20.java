@@ -849,20 +849,33 @@ public class Natural20 extends JavaPlugin {
             // not yet committed a Background, open the forced intro + picker
             // flow. The flag flips on background commit (BackgroundCommitter),
             // so a disconnect mid-picker re-fires the flow on next PlayerReady.
+            //
+            // Jiub may not be spawned yet: the chunk-pre-load spawn runs on the
+            // world thread whereas PlayerReadyEvent can fire before that task
+            // resolves. The intro + picker pages do NOT need an NPC ref to
+            // render, so we open them unconditionally here; the picker's
+            // Confirm handler handles a still-null jiubRef by committing the
+            // background (stats + kit) but skipping the post-commit dialogue
+            // hand-off, leaving the player free in the world.
             Nat20PlayerData firstJoinData = event.getPlayerRef().getStore()
                     .getComponent(event.getPlayerRef(), getPlayerDataType());
-            if (firstJoinData == null || !firstJoinData.isFirstJoinSeen()) {
-                Ref<EntityStore> jiubRef = jiubManager.getJiubRef();
-                if (jiubRef != null) {
-                    JiubIntroPage.open(
-                            event.getPlayerRef(),
-                            event.getPlayerRef().getStore(),
-                            jiubRef);
-                } else {
-                    getLogger().atWarning().log(
-                            "First-join auto-trigger fired for %s but Jiub is not yet spawned; skipping",
-                            uuid);
-                }
+            boolean firstJoinSeen = firstJoinData != null && firstJoinData.isFirstJoinSeen();
+            Ref<EntityStore> jiubRef = jiubManager.getJiubRef();
+            getLogger().atInfo().log(
+                    "First-join check for %s: firstJoinData=%s firstJoinSeen=%s jiubRef=%s",
+                    uuid,
+                    firstJoinData == null ? "null" : "present",
+                    firstJoinSeen,
+                    jiubRef == null ? "null" : "present");
+            if (!firstJoinSeen) {
+                getLogger().atInfo().log(
+                        "First-join auto-trigger: opening JiubIntroPage for %s (jiubRef=%s)",
+                        uuid,
+                        jiubRef == null ? "null, will skip post-commit dialogue" : "present");
+                JiubIntroPage.open(
+                        event.getPlayerRef(),
+                        event.getPlayerRef().getStore(),
+                        jiubRef);
             }
         });
 

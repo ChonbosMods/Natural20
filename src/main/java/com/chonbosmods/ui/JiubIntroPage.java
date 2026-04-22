@@ -82,6 +82,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     @Override
     public void build(Ref<EntityStore> ref, UICommandBuilder cmd, UIEventBuilder events,
                       Store<EntityStore> store) {
+        LOGGER.atInfo().log("Build: state=%s", state);
         cmd.append(PAGE_LAYOUT);
 
         String text = state == State.INTRO1 ? INTRO1_TEXT : INTRO2_TEXT;
@@ -97,6 +98,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     @Override
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
+        LOGGER.atInfo().log("handleDataEvent: type=%s state=%s", type, state);
         if (!"continue".equals(type)) {
             LOGGER.atWarning().log("Unknown event type '%s'", type);
             return;
@@ -104,6 +106,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
 
         if (state == State.INTRO1) {
             state = State.INTRO2;
+            LOGGER.atInfo().log("Advancing to INTRO2");
             rebuild();
             return;
         }
@@ -111,6 +114,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         // INTRO2 -> close intro, open picker. Defer the picker open: the
         // PageManager crashes if a new page is opened inside the handler of
         // the page being dismissed.
+        LOGGER.atInfo().log("INTRO2 Continue; closing intro and scheduling picker open");
         close();
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) {
@@ -119,6 +123,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         }
         PlayerRef pRef = player.getPlayerRef();
         SCHEDULER.schedule(() -> {
+            LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
             BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
             player.getPageManager().openCustomPage(ref, store, picker);
         }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
@@ -142,6 +147,10 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             LOGGER.atWarning().log("JiubIntroPage.open: Player component is null; intro not opened");
             return;
         }
+        LOGGER.atInfo().log(
+                "Opening JiubIntroPage for player %s (jiubRef=%s)",
+                player.getPlayerRef().getUuid(),
+                jiubRef == null ? "null" : "present");
         JiubIntroPage page = new JiubIntroPage(player.getPlayerRef());
         player.getPageManager().openCustomPage(playerRef, store, page);
     }
