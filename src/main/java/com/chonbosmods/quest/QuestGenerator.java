@@ -356,7 +356,7 @@ public class QuestGenerator {
         return nearest;
     }
 
-    private void buildObjectiveSummary(ObjectiveInstance obj, Map<String, String> bindings) {
+    public static void buildObjectiveSummary(ObjectiveInstance obj, Map<String, String> bindings) {
         if (obj == null) return;
         String summary = switch (obj.getType()) {
             case KILL_MOBS -> obj.isSingletonBossKill()

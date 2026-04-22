@@ -217,6 +217,15 @@ public class DialogueActionRegistry {
             ObjectiveInstance firstObj = quest.getCurrentObjective();
             if (firstObj != null) {
                 tryResolveObjective(quest, firstObj);
+                // Rebuild the objective summary AFTER late-binding so bindings
+                // that were baked at generation time ("Speak with someone
+                // nearby" when other_settlement was unknown) get replaced with
+                // the resolved target label. Without this, the quest log row
+                // and accept toast stay stuck on the placeholder text even
+                // though the dialogue graph and waypoint both resolve the
+                // real name.
+                com.chonbosmods.quest.QuestGenerator.buildObjectiveSummary(
+                    firstObj, quest.getVariableBindings());
                 ObjectiveType firstType = firstObj.getType();
                 if (firstType == ObjectiveType.KILL_MOBS || firstType == ObjectiveType.KILL_BOSS
                         || firstType == ObjectiveType.FETCH_ITEM) {
