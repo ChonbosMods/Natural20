@@ -1,0 +1,162 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 600, Height: 620);
+
+  #Content {
+    LayoutMode: Top;
+    Padding: (Left: 20, Right: 20, Top: 16, Bottom: 16);
+
+    // Title bar
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 36);
+      Padding: (Bottom: 10);
+
+      Label { FlexWeight: 1; }
+      Label #BgPickerTitle {
+        Text: "Choose your Background";
+        Style: (
+          TextColor: #ffd700(1),
+          FontSize: 22,
+          RenderBold: true
+        );
+      }
+      Label { FlexWeight: 1; }
+    }
+
+    // 8-row x 2-column button grid (15 buttons; row 8 column 2 is empty).
+    Group {
+      LayoutMode: Top;
+      FlexWeight: 1;
+      Padding: (Top: 4);
+
+      // Row 1
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 4);
+
+        $C.@SmallSecondaryTextButton #BgBtn1 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn2 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 2
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn3 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn4 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 3
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn5 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn6 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 4
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn7 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn8 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 5
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn9 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn10 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 6
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn11 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn12 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 7
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn13 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        $C.@SmallSecondaryTextButton #BgBtn14 {
+          Text: "";
+          FlexWeight: 1;
+        }
+      }
+
+      // Row 8 (only one button: row trailer is an empty spacer to preserve grid alignment)
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 56, Top: 8);
+
+        $C.@SmallSecondaryTextButton #BgBtn15 {
+          Text: "";
+          FlexWeight: 1;
+        }
+        Group { Anchor: (Width: 8); }
+        Group { FlexWeight: 1; }
+      }
+    }
+  }
+}
