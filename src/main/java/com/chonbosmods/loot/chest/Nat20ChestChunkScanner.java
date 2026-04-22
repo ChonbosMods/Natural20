@@ -3,7 +3,6 @@ package com.chonbosmods.loot.chest;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.progression.MobScalingConfig;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -12,6 +11,7 @@ import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Scans loaded chunks for native chest blocks and pre-injects Nat20 affix loot
@@ -37,6 +37,7 @@ public final class Nat20ChestChunkScanner {
     private final Nat20ChestRollRegistry registry;
     private final MobScalingConfig scalingConfig;
     private final Nat20ChestLootPicker picker;
+    private final AtomicInteger chunkScanCount = new AtomicInteger(0);
 
     public Nat20ChestChunkScanner(
             Nat20ChestLootConfig config,
@@ -51,14 +52,12 @@ public final class Nat20ChestChunkScanner {
         this.picker = picker;
     }
 
-    public void onChunkLoad(World world, int chunkBlockX, int chunkBlockZ) {
-        long chunkKey = ChunkUtil.indexChunk(
-                ChunkUtil.chunkCoordinate(chunkBlockX),
-                ChunkUtil.chunkCoordinate(chunkBlockZ));
-        WorldChunk chunk = world.getChunkIfLoaded(chunkKey);
+    public void onChunkLoad(World world, WorldChunk chunk, int chunkBlockX, int chunkBlockZ) {
         if (chunk == null) return;
 
         Random rng = ThreadLocalRandom.current();
+        int chestsFound = 0;
+        int rollsAttempted = 0;
 
         for (int lx = 0; lx < CHUNK_SIZE; lx++) {
             for (int lz = 0; lz < CHUNK_SIZE; lz++) {
@@ -72,8 +71,11 @@ public final class Nat20ChestChunkScanner {
                     String id = bt.getId();
                     if (id == null || !config.isChestBlock(id)) continue;
 
+                    chestsFound++;
+
                     if (registry.hasBeenRolled(wx, y, wz)) continue;
                     registry.markRolled(wx, y, wz);
+                    rollsAttempted++;
 
                     if (!roller.roll(rng)) continue;
 
@@ -95,6 +97,15 @@ public final class Nat20ChestChunkScanner {
                     }
                 }
             }
+        }
+
+        int scan = chunkScanCount.incrementAndGet();
+        if (chestsFound > 0) {
+            LOGGER.atInfo().log("Chunk scan (%d,%d): found %d chest(s), %d rolled (scan #%d)",
+                    chunkBlockX >> 5, chunkBlockZ >> 5, chestsFound, rollsAttempted, scan);
+        } else if (scan % 50 == 1) {
+            LOGGER.atInfo().log("Chunk scan (%d,%d): no chests (scan #%d heartbeat)",
+                    chunkBlockX >> 5, chunkBlockZ >> 5, scan);
         }
     }
 

@@ -928,7 +928,7 @@ public class Natural20 extends JavaPlugin {
             mobGroupChunkListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             ambientSpawnSystem.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
             if (chestChunkScanner != null) {
-                chestChunkScanner.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
+                chestChunkScanner.onChunkLoad(chunk.getWorld(), chunk, chunkBlockX, chunkBlockZ);
             }
         });
 
