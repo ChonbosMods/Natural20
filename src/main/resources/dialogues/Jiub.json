@@ -85,7 +85,7 @@
 
     "node_affixes_1": {
       "type": "DIALOGUE",
-      "speakerText": "Nearly everything in Natural 20 is shaped by affixes, the small named bonuses that turn a plain longsword into something you'll remember finding. A weapon may burn its targets, a helmet may turn thorns on anyone who strikes you, a pair of gloves may drink back a sliver of life from every wound you deal. Most gear you find carries at least one, and the best gear carries several.",
+      "speakerText": "Nearly everything in Natural 20 is shaped by affixes, the small named bonuses that turn a plain longsword into something you'll remember finding. A weapon may burn its targets, a helmet may turn thorns on anyone who strikes you, a pair of gloves may grant a sliver of life from every wound you deal. Most gear you find carries at least one, and the best gear carries several.",
       "responses": [
         {
           "id": "continue",
@@ -149,7 +149,7 @@
 
     "node_quests_1": {
       "type": "DIALOGUE",
-      "speakerText": "Quests in Natural 20 come from the NPCs you meet. A conversation reveals their trouble, their rumor, their need. If you choose to help, the quest joins your character sheet and travels with you from that moment on. Type \u0001/sheet\u0002 to open your Quest Log, where every active thread and every quest you've finished is kept in view.",
+      "speakerText": "Quests in Natural 20 come from the Hytale settlers you meet in towns across the land. A conversation reveals their trouble, their rumor, their need. If you choose to help, the quest joins your character sheet and travels with you from that moment on. Type \u0001/sheet\u0002 to open your Quest Log, where every active thread and every quest you've finished is kept in view.",
       "responses": [
         {
           "id": "continue",
