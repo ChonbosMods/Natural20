@@ -36,14 +36,13 @@ public final class Nat20ChestRollRegistry {
     private volatile Path savePath;
     private final ConcurrentHashMap<String, Long> rolled = new ConcurrentHashMap<>();
 
-    public Nat20ChestRollRegistry(Path rootDir) {
-        this.savePath = rootDir.resolve("chest_rolls.json");
+    public Nat20ChestRollRegistry() {
     }
 
     /**
-     * Rebind the save file to {@code worldDataDir / chest_rolls.json}. Clears in-memory
-     * state. Called from the first-chunk-load hook so the registry is scoped to the
-     * currently-loaded world (wiping the world regenerates an empty registry).
+     * Bind the save file to {@code worldDataDir / chest_rolls.json}. Clears in-memory
+     * state. Must be called before any save or load; called from the first-chunk-load
+     * hook so the registry is scoped to the currently-loaded world.
      */
     public synchronized void setSaveDirectory(Path worldDataDir) {
         this.savePath = worldDataDir.resolve("chest_rolls.json");
@@ -60,8 +59,15 @@ public final class Nat20ChestRollRegistry {
         save();
     }
 
-    /** Synchronous flush. Safe to call from any thread. */
+    /**
+     * Synchronous flush. Safe to call from any thread.
+     *
+     * @throws IllegalStateException if {@link #setSaveDirectory} has not been called
+     */
     public synchronized void save() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         try {
             Files.createDirectories(savePath.getParent());
             try (Writer writer = Files.newBufferedWriter(savePath)) {
@@ -72,7 +78,13 @@ public final class Nat20ChestRollRegistry {
         }
     }
 
+    /**
+     * @throws IllegalStateException if {@link #setSaveDirectory} has not been called
+     */
     public synchronized void load() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         if (!Files.exists(savePath)) {
             return;
         }

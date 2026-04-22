@@ -12,7 +12,8 @@ class CaveVoidRegistryProximityTest {
 
     @Test
     void isNearAnyVoidRespectsBothClaimedAndUnclaimed(@TempDir Path tmp) {
-        CaveVoidRegistry reg = new CaveVoidRegistry(tmp.resolve("cave_voids.json"));
+        CaveVoidRegistry reg = new CaveVoidRegistry();
+        reg.setSaveFile(tmp.resolve("cave_voids.json"));
 
         // Unclaimed void at (100, 64, 100).
         CaveVoidRecord unclaimed = new CaveVoidRecord(

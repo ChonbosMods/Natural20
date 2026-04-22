@@ -40,7 +40,7 @@ class AmbientAnchorFinderTest {
 
     @Test
     void rejectsAllCandidatesInsidePoiVoidExclusion(@TempDir Path tmp) {
-        CaveVoidRegistry voids = new CaveVoidRegistry(tmp.resolve("v.json"));
+        CaveVoidRegistry voids = newVoids(tmp);
         // Seed voids densely enough that every 50-100 block radius candidate around origin
         // falls within 64 blocks of at least one void.
         for (int x = -200; x <= 200; x += 40) {
@@ -54,8 +54,8 @@ class AmbientAnchorFinderTest {
             }
         }
         AmbientAnchorFinder finder = new AmbientAnchorFinder(
-                voids, new SettlementRegistry(tmp),
-                new Nat20MobGroupRegistry(tmp), AmbientSpawnConfig.load());
+                voids, newSettlements(tmp),
+                newGroups(tmp), AmbientSpawnConfig.load());
         Optional<Vector3d> result = finder.find(
                 FLAT_SURFACE, CLEAR_SKY, new Vector3d(0, 64, 0), new Random(42));
         assertTrue(result.isEmpty(), "all candidates inside POI void exclusion should abort");
@@ -63,7 +63,7 @@ class AmbientAnchorFinderTest {
 
     @Test
     void rejectsAllCandidatesInsideSettlementExclusion(@TempDir Path tmp) {
-        SettlementRegistry settlements = new SettlementRegistry(tmp);
+        SettlementRegistry settlements = newSettlements(tmp);
         UUID world = new UUID(0, 0);
         for (int x = -200; x <= 200; x += 40) {
             for (int z = -200; z <= 200; z += 40) {
@@ -72,8 +72,8 @@ class AmbientAnchorFinderTest {
             }
         }
         AmbientAnchorFinder finder = new AmbientAnchorFinder(
-                new CaveVoidRegistry(tmp.resolve("v.json")), settlements,
-                new Nat20MobGroupRegistry(tmp), AmbientSpawnConfig.load());
+                newVoids(tmp), settlements,
+                newGroups(tmp), AmbientSpawnConfig.load());
         Optional<Vector3d> result = finder.find(
                 FLAT_SURFACE, CLEAR_SKY, new Vector3d(0, 64, 0), new Random(42));
         assertTrue(result.isEmpty(), "all candidates inside settlement exclusion should abort");
@@ -81,7 +81,7 @@ class AmbientAnchorFinderTest {
 
     @Test
     void rejectsAllCandidatesInsideLiveGroupExclusion(@TempDir Path tmp) {
-        Nat20MobGroupRegistry groups = new Nat20MobGroupRegistry(tmp);
+        Nat20MobGroupRegistry groups = newGroups(tmp);
         // Dense grid of existing groups anywhere a 50-100 candidate might land.
         for (int x = -200; x <= 200; x += 80) {
             for (int z = -200; z <= 200; z += 80) {
@@ -94,8 +94,8 @@ class AmbientAnchorFinderTest {
             }
         }
         AmbientAnchorFinder finder = new AmbientAnchorFinder(
-                new CaveVoidRegistry(tmp.resolve("v.json")),
-                new SettlementRegistry(tmp),
+                newVoids(tmp),
+                newSettlements(tmp),
                 groups, AmbientSpawnConfig.load());
         Optional<Vector3d> result = finder.find(
                 FLAT_SURFACE, CLEAR_SKY, new Vector3d(0, 64, 0), new Random(42));
@@ -140,11 +140,29 @@ class AmbientAnchorFinderTest {
         assertTrue(result.isEmpty(), "cliff (Y delta > 2) must fail rule 3 on every retry");
     }
 
+    private static CaveVoidRegistry newVoids(Path tmp) {
+        CaveVoidRegistry reg = new CaveVoidRegistry();
+        reg.setSaveFile(tmp.resolve("v.json"));
+        return reg;
+    }
+
+    private static SettlementRegistry newSettlements(Path tmp) {
+        SettlementRegistry reg = new SettlementRegistry();
+        reg.setSaveDirectory(tmp);
+        return reg;
+    }
+
+    private static Nat20MobGroupRegistry newGroups(Path tmp) {
+        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry();
+        reg.setSaveDirectory(tmp);
+        return reg;
+    }
+
     private static AmbientAnchorFinder emptyFinder(Path tmp) {
         return new AmbientAnchorFinder(
-                new CaveVoidRegistry(tmp.resolve("v.json")),
-                new SettlementRegistry(tmp),
-                new Nat20MobGroupRegistry(tmp),
+                newVoids(tmp),
+                newSettlements(tmp),
+                newGroups(tmp),
                 AmbientSpawnConfig.load());
     }
 }

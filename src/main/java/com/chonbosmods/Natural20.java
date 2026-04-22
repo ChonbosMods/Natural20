@@ -903,24 +903,23 @@ public class Natural20 extends JavaPlugin {
         // Load prefabs: assets are available by start()
         placer.init();
 
-        // Settlement registry. Data file is rebound to a world-scoped path in the
-        // first-chunk-load hook below, so this initial path is only a placeholder
-        // (nothing is loaded from disk at plugin start).
-        settlementRegistry = new SettlementRegistry(getDataDirectory());
+        // Settlement registry. Save path is bound to the world-scoped directory in
+        // the first-chunk-load hook below; any save/load before that throws.
+        settlementRegistry = new SettlementRegistry();
 
-        // Load POI mob-group registry + spawn coordinator. Data file is rebound to a
-        // world-scoped path in the first-chunk-load hook below, so this initial path is
-        // only a placeholder (nothing is loaded from disk at plugin start).
-        mobGroupRegistry = new Nat20MobGroupRegistry(getDataDirectory());
+        // Load POI mob-group registry + spawn coordinator. Save path is bound to the
+        // world-scoped directory in the first-chunk-load hook below; any save/load
+        // before that throws.
+        mobGroupRegistry = new Nat20MobGroupRegistry();
         poiGroupSpawnCoordinator = new POIGroupSpawnCoordinator(mobGroupRegistry, mobGroupSpawner);
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupDedupSystem(mobGroupRegistry));
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
 
-        // Chest affix-loot injection. Registry data file is rebound to a world-scoped
-        // path in the first-chunk-load hook below; initial path is a placeholder.
+        // Chest affix-loot injection. Save path is bound to the world-scoped directory
+        // in the first-chunk-load hook below; any save/load before that throws.
         Nat20ChestLootConfig chestLootConfig = Nat20ChestLootConfig.load();
-        chestRollRegistry = new Nat20ChestRollRegistry(getDataDirectory());
+        chestRollRegistry = new Nat20ChestRollRegistry();
         Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
         Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
         QuestChestPlacer.setChestRollRegistry(chestRollRegistry);
@@ -943,10 +942,9 @@ public class Natural20 extends JavaPlugin {
         // Load per-species XP weight table (HP/damage-derived multipliers)
         speciesXpRegistry.initialize();
 
-        // Load cave void registry and scanner. Like mob_groups.json, the save file is
-        // rebound to a world-scoped path in the first-chunk-load hook below.
-        Path caveVoidPath = getDataDirectory().resolve("cave_voids.json");
-        caveVoidRegistry = new CaveVoidRegistry(caveVoidPath);
+        // Load cave void registry and scanner. Save file is bound to the world-scoped
+        // directory in the first-chunk-load hook below; any save/load before that throws.
+        caveVoidRegistry = new CaveVoidRegistry();
         caveVoidScanner = new CaveVoidScanner(caveVoidRegistry);
         structurePlacer = new UndergroundStructurePlacer();
 

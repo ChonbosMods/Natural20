@@ -12,7 +12,8 @@ class SettlementRegistryProximityTest {
 
     @Test
     void isNearAnySettlementFindsCentersWithinRadius(@TempDir Path tmp) {
-        SettlementRegistry reg = new SettlementRegistry(tmp);
+        SettlementRegistry reg = new SettlementRegistry();
+        reg.setSaveDirectory(tmp);
 
         SettlementRecord record = new SettlementRecord(
                 "0,0",

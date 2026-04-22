@@ -44,13 +44,13 @@ public class CaveVoidRegistry {
     // independent file offsets interleave bytes and produce malformed JSON.
     private final Object saveLock = new Object();
 
-    public CaveVoidRegistry(Path savePath) {
-        this.savePath = savePath;
+    public CaveVoidRegistry() {
     }
 
     /**
-     * Rebind the save file. Clears in-memory state. Called from the first-chunk-load
-     * hook so the registry is scoped to the currently-loaded world.
+     * Bind the save file. Clears in-memory state. Must be called before any save or
+     * load; called from the first-chunk-load hook so the registry is scoped to the
+     * currently-loaded world.
      */
     public void setSaveFile(Path newSavePath) {
         this.savePath = newSavePath;
@@ -204,6 +204,9 @@ public class CaveVoidRegistry {
      * starts fresh so plugin startup is not blocked.
      */
     public void load() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveFile not set; call setSaveFile first");
+        }
         if (!Files.exists(savePath)) {
             LOGGER.atFine().log("No cave_voids.json found: starting fresh");
             return;
@@ -243,6 +246,9 @@ public class CaveVoidRegistry {
      * the file out from under each other.
      */
     public CompletableFuture<Void> saveAsync() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveFile not set; call setSaveFile first");
+        }
         if (dirty.compareAndSet(true, false)) {
             return CompletableFuture.runAsync(() -> {
                 synchronized (saveLock) {

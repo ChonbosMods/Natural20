@@ -35,14 +35,13 @@ public class SettlementRegistry {
     private final ConcurrentHashMap<UUID, World> worldCache = new ConcurrentHashMap<>();
     private final AtomicBoolean savePending = new AtomicBoolean(false);
 
-    public SettlementRegistry(Path pluginDataDir) {
-        this.savePath = pluginDataDir.resolve("settlements.json");
+    public SettlementRegistry() {
     }
 
     /**
-     * Rebind the save file to {@code worldDataDir / settlements.json}. Clears
+     * Bind the save file to {@code worldDataDir / settlements.json}. Clears
      * in-memory state so the next {@link #load()} reads the world-scoped file
-     * fresh. Mirrors {@code CaveVoidRegistry.setSaveFile}.
+     * fresh. Must be called before any save or load.
      */
     public void setSaveDirectory(Path worldDataDir) {
         this.savePath = worldDataDir.resolve("settlements.json");
@@ -53,8 +52,13 @@ public class SettlementRegistry {
     /**
      * Load settlements from the JSON file into memory.
      * If the file does not exist, starts with an empty registry.
+     *
+     * @throws IllegalStateException if {@link #setSaveDirectory} has not been called
      */
     public void load() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         if (!Files.exists(savePath)) {
             LOGGER.atFine().log("No settlements.json found: starting fresh");
             return;
@@ -197,6 +201,9 @@ public class SettlementRegistry {
      * The save writes the current snapshot to disk with pretty-printed JSON.
      */
     public void saveAsync() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         if (savePending.compareAndSet(false, true)) {
             CompletableFuture.runAsync(() -> {
                 savePending.set(false);

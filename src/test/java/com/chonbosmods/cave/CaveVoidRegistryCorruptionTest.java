@@ -24,6 +24,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class CaveVoidRegistryCorruptionTest {
 
+    private static CaveVoidRegistry newRegistry(Path save) {
+        CaveVoidRegistry reg = new CaveVoidRegistry();
+        reg.setSaveFile(save);
+        return reg;
+    }
+
+
     @Test
     void loadRecoversFromMalformedJson(@TempDir Path tmp) throws IOException {
         Path save = tmp.resolve("cave_voids.json");
@@ -32,7 +39,7 @@ class CaveVoidRegistryCorruptionTest {
                 "{\"0,0\":[{\"centerX\":0,\"centerY\":0,\"centerZ\":0," +
                         "\"floorPositions\":[[1,2,3],[1,[2,3],4]]}]}");
 
-        CaveVoidRegistry reg = new CaveVoidRegistry(save);
+        CaveVoidRegistry reg = newRegistry(save);
         assertDoesNotThrow(reg::load, "load() must survive malformed JSON");
         assertEquals(0, reg.getCount(), "registry should be empty after corrupt load");
         assertFalse(Files.exists(save), "corrupt file should have been moved aside");
@@ -56,7 +63,7 @@ class CaveVoidRegistryCorruptionTest {
     @Test
     void concurrentRegisterAndSaveProducesValidJson(@TempDir Path tmp) throws Exception {
         Path save = tmp.resolve("cave_voids.json");
-        CaveVoidRegistry reg = new CaveVoidRegistry(save);
+        CaveVoidRegistry reg = newRegistry(save);
         reg.register(makeRecord(0, 64, 0, 500));
 
         AtomicBoolean stop = new AtomicBoolean(false);
@@ -90,7 +97,7 @@ class CaveVoidRegistryCorruptionTest {
                 sawCorruption.set(true);
                 break;
             }
-            CaveVoidRegistry loader = new CaveVoidRegistry(save);
+            CaveVoidRegistry loader = newRegistry(save);
             try {
                 loader.load();
             } catch (RuntimeException e) {

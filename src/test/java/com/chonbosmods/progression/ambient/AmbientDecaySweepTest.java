@@ -13,9 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AmbientDecaySweepTest {
 
+    private static Nat20MobGroupRegistry newRegistry(Path dir) {
+        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry();
+        reg.setSaveDirectory(dir);
+        return reg;
+    }
+
+
     @Test
     void recordOlderThanWindowWithNoPlayerNearIsExpired(@TempDir Path tmp) {
-        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry(tmp);
+        Nat20MobGroupRegistry reg = newRegistry(tmp);
         long now = 10_000_000L;
         MobGroupRecord r = ambientRecord("ambient:g1", now - 2_000_000L);
         reg.put(r);
@@ -29,7 +36,7 @@ class AmbientDecaySweepTest {
 
     @Test
     void recordWithPlayerNearRefreshesLastSeen(@TempDir Path tmp) {
-        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry(tmp);
+        Nat20MobGroupRegistry reg = newRegistry(tmp);
         long now = 10_000_000L;
         MobGroupRecord r = ambientRecord("ambient:g1", now - 2_000_000L);
         r.setAnchor(0, 64, 0);
@@ -45,7 +52,7 @@ class AmbientDecaySweepTest {
 
     @Test
     void youngRecordIsNotExpired(@TempDir Path tmp) {
-        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry(tmp);
+        Nat20MobGroupRegistry reg = newRegistry(tmp);
         long now = 10_000_000L;
         MobGroupRecord r = ambientRecord("ambient:g1", now - 60_000L);
         reg.put(r);
@@ -56,7 +63,7 @@ class AmbientDecaySweepTest {
 
     @Test
     void distantPlayerDoesNotRefresh(@TempDir Path tmp) {
-        Nat20MobGroupRegistry reg = new Nat20MobGroupRegistry(tmp);
+        Nat20MobGroupRegistry reg = newRegistry(tmp);
         long now = 10_000_000L;
         MobGroupRecord r = ambientRecord("ambient:g1", now - 2_000_000L);
         r.setAnchor(0, 64, 0);

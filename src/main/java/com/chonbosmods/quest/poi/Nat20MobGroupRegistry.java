@@ -41,14 +41,13 @@ public class Nat20MobGroupRegistry {
     private final ConcurrentHashMap<String, MobGroupRecord> groups = new ConcurrentHashMap<>();
     private final AtomicBoolean savePending = new AtomicBoolean(false);
 
-    public Nat20MobGroupRegistry(Path pluginDataDir) {
-        this.savePath = pluginDataDir.resolve("mob_groups.json");
+    public Nat20MobGroupRegistry() {
     }
 
     /**
-     * Rebind the save file to {@code worldDataDir / mob_groups.json}. Clears in-memory
-     * state. Called from the first-chunk-load hook so the registry is scoped to the
-     * currently-loaded world (wiping the world regenerates an empty registry).
+     * Bind the save file to {@code worldDataDir / mob_groups.json}. Clears in-memory
+     * state. Must be called before any save or load; called from the first-chunk-load
+     * hook so the registry is scoped to the currently-loaded world.
      */
     public void setSaveDirectory(Path worldDataDir) {
         this.savePath = worldDataDir.resolve("mob_groups.json");
@@ -57,8 +56,13 @@ public class Nat20MobGroupRegistry {
 
     /**
      * Load groups from {@code mob_groups.json} if it exists.
+     *
+     * @throws IllegalStateException if {@link #setSaveDirectory} has not been called
      */
     public void load() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         if (!Files.exists(savePath)) {
             LOGGER.atFine().log("No mob_groups.json found: starting fresh");
             return;
@@ -169,6 +173,9 @@ public class Nat20MobGroupRegistry {
      * Debounced async save. Same pattern as {@link com.chonbosmods.settlement.SettlementRegistry#saveAsync}.
      */
     public void saveAsync() {
+        if (savePath == null) {
+            throw new IllegalStateException("saveDirectory not set; call setSaveDirectory first");
+        }
         if (savePending.compareAndSet(false, true)) {
             CompletableFuture.runAsync(() -> {
                 savePending.set(false);
