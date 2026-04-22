@@ -5,14 +5,12 @@ import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.progression.MobScalingConfig;
 import com.hypixel.hytale.component.ArchetypeChunk;
 import com.hypixel.hytale.component.CommandBuffer;
-import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.protocol.InteractionType;
-import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.server.core.event.events.ecs.UseBlockEvent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -99,31 +97,19 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         ItemStack stack = buildItemStack(data);
         if (stack == null) return;
 
-        // DIAGNOSTIC: phantom-entity discriminator test (handoff doc Theory 2a vs 2b).
-        // Spawn a ground ItemEntity at the player with the same ItemStack BEFORE the
-        // container inject + setState. This mirrors the mob-drop render path which
-        // renders Nat20 unique ids cleanly, so it exercises whatever client-side
-        // warming ItemUtils.throwItem triggers. If the chest-open glitch disappears
-        // while this code is active, Theory 2a (client-registry warming) is confirmed
-        // and we decompile ItemUtils.throwItem to port its warm step cleanly. If the
-        // glitch persists, Theory 2b (setState tear-down) is confirmed and the whole
-        // mid-open mutation approach is doomed.
-        // The phantom item will briefly appear near the player; it despawns naturally.
-        // Remove this block once the discriminator has answered.
-        Ref<EntityStore> playerRef = event.getContext().getEntity();
-        if (playerRef != null && playerRef.isValid()) {
-            ItemStack phantomStack = buildItemStack(data);
-            if (phantomStack != null) {
-                ItemUtils.throwItem(playerRef, phantomStack, 0.0f, cb);
-                LOGGER.atInfo().log("Phantom-throw diagnostic: spawned ItemEntity at player for id=%s",
-                        phantomStack.getItemId());
-            }
-        }
-
         boolean injected = Nat20ChestContainerWriter.injectIntoFirstEmptySlot(
                 world, pos.getX(), pos.getY(), pos.getZ(), stack);
         if (injected) {
-            LOGGER.atInfo().log("Chest inject at %d,%d,%d areaLevel=%d -> %s",
+            // Cancel this first interaction so the chest UI never opens. On the
+            // player's next Use press our handler short-circuits at the
+            // hasBeenRolled() gate above, the native open flow runs, and the UI
+            // renders from a settled container state with our item already in place.
+            // Rationale: mutating the container during the open transition (Attempt 1
+            // / 3) makes setState tear down the client UI mid-render. Deferring the
+            // open entirely sidesteps that teardown window at the cost of one extra
+            // F-press on first discovery. See handoff doc Theory 2b.
+            event.setCancelled(true);
+            LOGGER.atInfo().log("Chest inject at %d,%d,%d areaLevel=%d -> %s (cancelled first open; re-press Use to view)",
                     pos.getX(), pos.getY(), pos.getZ(), areaLevel, data.getGeneratedName());
         }
     }
