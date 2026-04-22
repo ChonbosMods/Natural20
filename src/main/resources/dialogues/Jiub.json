@@ -4,49 +4,210 @@
   "greetingNodeId": "jiub_greeting",
   "topics": [
     {
-      "id": "placeholder_combat",
-      "label": "Combat",
-      "entryNodeId": "node_placeholder_combat",
+      "id": "topic_stats_leveling",
+      "label": "Stats & Leveling",
+      "entryNodeId": "node_stats_1",
       "scope": "LOCAL",
       "startLearned": true,
       "sortOrder": 1
     },
     {
-      "id": "placeholder_stats",
-      "label": "Stats and rolls",
-      "entryNodeId": "node_placeholder_stats",
+      "id": "topic_gear_affixes",
+      "label": "Gear Affixes",
+      "entryNodeId": "node_affixes_1",
       "scope": "LOCAL",
       "startLearned": true,
       "sortOrder": 2
     },
     {
-      "id": "placeholder_quests",
-      "label": "Quests",
-      "entryNodeId": "node_placeholder_quests",
+      "id": "topic_mob_groups",
+      "label": "Mob Groups & Enemies",
+      "entryNodeId": "node_mobs_1",
       "scope": "LOCAL",
       "startLearned": true,
       "sortOrder": 3
+    },
+    {
+      "id": "topic_quests",
+      "label": "Quests",
+      "entryNodeId": "node_quests_1",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 4
+    },
+    {
+      "id": "topic_parties",
+      "label": "Parties",
+      "entryNodeId": "node_parties_1",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 5
     }
   ],
   "nodes": {
     "jiub_greeting": {
       "type": "DIALOGUE",
-      "speakerText": "Welcome back. Ask me anything you'd like to know.",
+      "speakerText": "Ask me anything you'd like to know.",
       "responses": []
     },
-    "node_placeholder_combat": {
+
+    "node_stats_1": {
       "type": "DIALOGUE",
-      "speakerText": "Placeholder for combat. Will be written in a follow-up.",
+      "speakerText": "You're a character with six ability scores now. Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma shape everything from the weight of your blows to how NPCs respond when you open your mouth. As you explore, fight, and complete quests, you earn experience, gain levels, and collect ability points to place wherever you choose. Type \u0001/sheet\u0002 at any time to open your character sheet and see your scores laid out.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_stats_2",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_stats_2": {
+      "type": "DIALOGUE",
+      "speakerText": "Every score does two jobs. When a moment calls for a roll of the d20, for a dialogue challenge or a feat of perception or a test of will, your score modifies that roll in the old D&D tradition. The rest of the time, quietly and always, those same scores scale your capability in combat. Dexterity raises your baseline crit chance, Strength swells the damage your crits deal, and Chonstitution hardens your resolve and increases HP.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_stats_3",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_stats_3": {
+      "type": "DIALOGUE",
+      "speakerText": "The world climbs with you. As your level rises, the loot you find scales to match, and the affixes on your gear grow more potent in your hands. Your character sheet keeps the picture whole. It shows your scores, your level, your unspent points, and every quest you've taken on.",
       "responses": []
     },
-    "node_placeholder_stats": {
+
+    "node_affixes_1": {
       "type": "DIALOGUE",
-      "speakerText": "Placeholder for stats. Will be written in a follow-up.",
+      "speakerText": "Nearly everything in Natural 20 is shaped by affixes, the small named bonuses that turn a plain longsword into something you'll remember finding. A weapon may burn its targets, a helmet may turn thorns on anyone who strikes you, a pair of gloves may drink back a sliver of life from every wound you deal. Most gear you find carries at least one, and the best gear carries several.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_affixes_2",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_affixes_2": {
+      "type": "DIALOGUE",
+      "speakerText": "When you loot a piece of equipment, the affix lines appear in its tooltip, each one colored and named. They're drawn from a single deep pool that spans damage of every element, critical hits, resistances, absorption, thorns, leech, evasion, and more besides. Some pair with your ability scores. A crit-damage affix in the hands of a Strength-built fighter hits harder than the same affix on someone who didn't invest there.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_affixes_3",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_affixes_3": {
+      "type": "DIALOGUE",
+      "speakerText": "The creatures you fight draw from that same pool. A champion marked with Life Leech will drink back health from every hit it lands on you, and a boss wreathed in Thorns will punish every blow you throw. Reading an elite mob, then, is a lot like reading a tooltip. The affixes you know from your own gear are the very same ones threatening you from across the battlefield, and knowing what to expect is half of surviving.",
       "responses": []
     },
-    "node_placeholder_quests": {
+
+    "node_mobs_1": {
       "type": "DIALOGUE",
-      "speakerText": "Placeholder for quests. Will be written in a follow-up.",
+      "speakerText": "Enemies in Natural 20 do not wander the world alone. They travel in groups, a single boss with a band of champion minions at its flank, and every group carries a difficulty tier that marks it at a glance.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_mobs_2",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_mobs_2": {
+      "type": "DIALOGUE",
+      "speakerText": "Every tiered mob wears a colored tint you can read from across the field. Uncommon groups carry a green wash, Rare a blue one, Epic a regal purple, and Legendary a burning gold. The brighter the tint, the more affixes the group carries, the harder its members hit, and the richer the loot they'll leave behind. Bosses earn their own names too, so the Overlord who leads today's warband will not be the Overlord who leads the next.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_mobs_3",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_mobs_3": {
+      "type": "DIALOGUE",
+      "speakerText": "Groups belong to their environment. A forest encounter is not a desert encounter. A tundra pack favors beasts of the cold, where a volcanic one favors things that crawled from the heat. A rare outlier spawn breaks the rule now and then, a reward for the wanderer willing to be surprised. Groups seed the world in two ways, ambient encounters that appear as you roam the surface, and quest and POI encounters that anchor to a specific objective and wait for you to arrive.",
+      "responses": []
+    },
+
+    "node_quests_1": {
+      "type": "DIALOGUE",
+      "speakerText": "Quests in Natural 20 come from the NPCs you meet. A conversation reveals their trouble, their rumor, their need. If you choose to help, the quest joins your character sheet and travels with you from that moment on. Type \u0001/sheet\u0002 to open your Quest Log, where every active thread and every quest you've finished is kept in view.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_quests_2",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_quests_2": {
+      "type": "DIALOGUE",
+      "speakerText": "A quest may not be just a single errand. They can unfold in phases, an exposition and then one or more conflicts, each with its own objective and its own reward. You might be asked to speak with someone, gather resources from a particular region, fetch a lost item, clear a group of enemies, or slay a named boss. Every phase you complete pays out on its own, with experience, loot, and whatever rare item the quest giver was willing to part with.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_quests_3",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_quests_3": {
+      "type": "DIALOGUE",
+      "speakerText": "Kill credit is generous. If you've struck a foe in the moments before its death, the kill counts as yours, whether the final blow was your swing, an ally's arrow, a well-timed fall, or the environment itself. Gathering quests respect where you travel too. The farther from safety you work, the larger the haul you'll bring home for the same task. Your Quest Log keeps every active thread in view, lets you toggle a waypoint on each one, and preserves a record of every quest you've seen through.",
+      "responses": []
+    },
+
+    "node_parties_1": {
+      "type": "DIALOGUE",
+      "speakerText": "Every player in Natural 20 belongs to a party. If you're adventuring alone, you're a party of one. Invite a friend and you become a party of two, with all the shared fortune that comes with it. Type \u0001/sheet\u0002 to send an invite or to accept one waiting for you.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_parties_2",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_parties_2": {
+      "type": "DIALOGUE",
+      "speakerText": "Parties claim quests together. When any member accepts a quest, the rest of the party accepts alongside them, and objective progress is shared between nearby party members. Turn in a phase and your partymates collect their rewards whether they fought at your side or were away from the keyboard entirely. The experience, the loot, and the items arrive for each of them in full.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_parties_3",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_parties_3": {
+      "type": "DIALOGUE",
+      "speakerText": "The world answers your numbers. Enemies spawning near a larger party rise to meet the group facing them, so there is no trivializing a fight by simply bringing more swords. Leadership passes automatically if a leader goes quiet too long, so a stale invite will never strand an active group. And the quests you accept together stay yours. If your paths diverge, the adventure you began remains on every sheet that agreed to it.",
       "responses": []
     }
   }
