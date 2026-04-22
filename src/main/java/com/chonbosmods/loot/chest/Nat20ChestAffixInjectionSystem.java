@@ -106,16 +106,26 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
     }
 
     private static ItemStack buildItemStack(Nat20LootData data) {
-        String stackItemId = data.getUniqueItemId();
+        // Follow-up B per handoff doc: prefer variantItemId (pre-registered rarity
+        // variant) over uniqueItemId (dynamically-generated per-instance id). Mob
+        // drops render cleanly via ItemUtils.throwItem with uniqueItemId, so this
+        // experiment isolates whether the chest-path glitch is an id-resolution
+        // issue (Theory 1) or a render-path issue (Theory 2). If it still glitches,
+        // Theory 2 is confirmed and the fix is to mirror throwItem's client-side
+        // pre-warm, not to change item ids.
+        String stackItemId = data.getVariantItemId();
+        String idSource = "variant";
         if (stackItemId == null || stackItemId.isEmpty()) {
-            stackItemId = data.getVariantItemId();
+            stackItemId = data.getUniqueItemId();
+            idSource = "unique";
         }
         if (stackItemId == null || stackItemId.isEmpty()) {
-            LOGGER.atWarning().log("Chest loot %s has no uniqueItemId or variantItemId; cannot build ItemStack",
+            LOGGER.atWarning().log("Chest loot %s has no variantItemId or uniqueItemId; cannot build ItemStack",
                     data.getGeneratedName());
             return null;
         }
         try {
+            LOGGER.atInfo().log("Building chest ItemStack: idSource=%s id=%s", idSource, stackItemId);
             return new ItemStack(stackItemId, 1).withMetadata(Nat20LootData.METADATA_KEY, data);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to build chest ItemStack for itemId=%s", stackItemId);
