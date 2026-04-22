@@ -57,11 +57,10 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         return t;
     });
 
-    /** Placeholder copy: real prose lands in a later authoring pass. */
     private static final String INTRO1_TEXT =
-            "Welcome, traveler. The world has changed since you slept.";
-    /** Design-doc-locked second line: it sets up the picker narratively. */
-    private static final String INTRO2_TEXT = "Tell me about your background.";
+            "Stand up. There you go. You were dreaming. Not even last night's storm could wake you.";
+    private static final String INTRO2_TEXT =
+            "Somewhere behind you is the life you came from. I'd like to hear what it looked like.";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC =
             BuilderCodec.builder(PageEventData.class, PageEventData::new)

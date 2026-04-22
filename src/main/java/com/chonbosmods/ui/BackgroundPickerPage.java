@@ -135,9 +135,7 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
 
     private void buildDetail(UICommandBuilder cmd, UIEventBuilder events, Background bg) {
         cmd.set("#BgDetailTitle.Text", bg.displayName());
-        cmd.set("#BgDetailFlavor.Text",
-                "Placeholder flavor for " + bg.displayName()
-                        + ". Real prose lands in a later authoring pass.");
+        cmd.set("#BgDetailFlavor.Text", flavorFor(bg));
         cmd.set("#BgDetailStats.Text",
                 "+3 " + bg.primary().name() + ", +3 " + bg.secondary().name());
 
@@ -267,6 +265,87 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
             if (b.name().equals(name)) return b;
         }
         return null;
+    }
+
+    /**
+     * Per-background flavor paragraph shown on the picker's detail screen.
+     * Read by the player as their character's backstory; written in second
+     * person, never names places, NPCs, or events outside the registry.
+     * Mechanics (stats and kit) are listed separately on the same screen,
+     * so this is pure identity prose.
+     */
+    private static String flavorFor(Background bg) {
+        return switch (bg) {
+            case SOLDIER -> "You marched where you were told to march, for longer than made sense, and "
+                    + "you held the line when the line needed holding. The work made your shoulders "
+                    + "thick and your patience longer. You came back from it slower than you left, "
+                    + "but you came back on your own feet.";
+            case SAILOR -> "You learned your footing on wet planks and your grip on wet rope. The ship "
+                    + "was always asking for more of your back and more of your balance, and giving "
+                    + "it became the shape of your days. Half the crew couldn't name the year, but "
+                    + "every one of them could climb the mast in a blow.";
+            case VETERAN -> "You were the one they sent when the fighting was going to last longer than "
+                    + "the speeches promised. You learned which orders to follow and which to walk "
+                    + "into a tent and talk out of a captain's mouth. The swinging came easy. The "
+                    + "knowing when came slower.";
+            case FOLK_HERO -> "You did something your village needed doing when nobody else would, and "
+                    + "the kind of people who remember things remembered you for it. You never went "
+                    + "looking to be anyone's hero, and you still don't think of yourself as one. "
+                    + "The sword came off a tavern wall on your way out of town, and nobody asked "
+                    + "for it back.";
+            case NOBLE -> "You grew up knowing which fork to use and which smile to wear when the wrong "
+                    + "cousin came to dinner. The sword at your hip was your grandfather's, and "
+                    + "you've trained with it long enough to carry its weight like your own. Every "
+                    + "room you walked into, you walked into like you belonged there, and so far no "
+                    + "one has argued.";
+            case CRIMINAL -> "You learned early which rooftops held your weight and which guards took a "
+                    + "second cup of wine with dinner. Nothing in that life was given, and what you "
+                    + "kept you kept because you could run longer, climb quieter, and take a hit "
+                    + "better than the people chasing you. The daggers stayed because they fit your "
+                    + "hand and didn't ask questions.";
+            case ARTISAN -> "You spent your apprenticeship learning that the hand and the eye lie to "
+                    + "each other, and the only thing that tells the truth is the finished piece. "
+                    + "Years at the bench teach you to read a flaw before your master sees it, and "
+                    + "to shape wood or metal until it does what the drawing said it would. The "
+                    + "club was the first thing you picked up that didn't need explaining.";
+            case SCOUT -> "You learned the woods the way other people learn their neighbors, by watching "
+                    + "and by being patient enough to be shown. A deer path told you more than a "
+                    + "signpost, and a broken twig told you more than the deer path did. The bow "
+                    + "came naturally once you understood that the arrow goes where your breath does.";
+            case ENTERTAINER -> "You played rooms that wanted to love you and rooms that wanted to hate "
+                    + "you, and you learned to tell them apart before you spoke. The act needed "
+                    + "quick hands, quicker feet, and a smile that could hold when something went "
+                    + "wrong onstage. The crossbow was a prop once. A few rooms turned ugly, and "
+                    + "eventually the prop had to work.";
+            case HERMIT -> "You spent years with only the weather and your own thoughts, and eventually "
+                    + "you learned to let the thoughts go quiet too. What came after was room "
+                    + "enough in your head to notice things the noise had been hiding, and the "
+                    + "patience to sit with them. The staff was what you leaned on when your legs "
+                    + "got tired of the long walk to the well.";
+            case OUTLANDER -> "You were born where the maps get lazy and the roads stop bothering. "
+                    + "Winter out there teaches you what to carry and what to do without, and "
+                    + "reading the weather matters more than reading anything else. The axe was "
+                    + "the first tool put in your hand and the last one you'd ever put down.";
+            case URCHIN -> "You knew which alleys had a dry corner by the time you were six, and which "
+                    + "shopkeepers left the day-old bread where a small hand could reach it by the "
+                    + "time you were seven. You learned to go hungry and keep going, and you "
+                    + "learned to get people to like you because being liked kept you fed. The "
+                    + "club came later, when people stopped underestimating someone your size.";
+            case SAGE -> "You read everything they put in front of you, and then the books they kept "
+                    + "locked up, and then the ones that didn't belong to any library you could "
+                    + "name. Somewhere along the way you stopped collecting answers and started "
+                    + "collecting better questions. The staff was a gift from a teacher who didn't "
+                    + "like goodbyes.";
+            case CHARLATAN -> "You've been six different people in three different cities, and the only "
+                    + "thing they had in common was the face in the mirror. You can read a mark in "
+                    + "the time it takes them to sit down, and write a whole story around them by "
+                    + "the time they've ordered a drink. The staff isn't yours, strictly speaking, "
+                    + "but the person it belongs to is unlikely to come asking.";
+            case ACOLYTE -> "You held the hands of the sick and the dying, and you said the words that "
+                    + "needed saying, even on the nights you weren't sure you believed them "
+                    + "yourself. People listened to you because you listened to them first. The "
+                    + "mace was the temple's, and the temple is a long way from here.";
+        };
     }
 
     public static class PageEventData {
