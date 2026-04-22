@@ -547,25 +547,23 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 boolean isLeader = member.equals(leader);
                 boolean online = partyReg.isOnline(member);
 
-                // Online: resolve live name; leader gets gold + [Leader]
-                // prefix. Offline: fall back to the cached last-seen name
-                // from Nat20PartyRegistry (populated every PlayerReady) and
-                // render in grey. "Unknown" only appears if we've never
-                // observed a name for this UUID (shouldn't happen in
-                // practice since members have to log in to join a party).
+                // Online: resolve live name. Offline: fall back to the cached
+                // last-seen name from Nat20PartyRegistry (populated every
+                // PlayerReady). "Unknown" only appears if we've never
+                // observed a name for this UUID.
+                //
+                // Labelling is independent of color: [Leader] prefix shows
+                // for any leader regardless of online state so you can tell
+                // at a glance who holds the privilege. Color signals
+                // presence: grey offline, gold online-leader, white
+                // online-non-leader.
                 String resolved = online ? resolveDisplayName(store, member) : null;
                 if (resolved == null) resolved = partyReg.getKnownName(member);
                 if (resolved == null) resolved = "Unknown";
 
-                String name;
-                String nameColor;
-                if (!online) {
-                    name = resolved;
-                    nameColor = COLOR_PLAYER_OFFLINE;
-                } else {
-                    name = isLeader ? "[Leader] " + resolved : resolved;
-                    nameColor = isLeader ? COLOR_PLAYER_LEADER : COLOR_PLAYER_ONLINE;
-                }
+                String name = isLeader ? "[Leader] " + resolved : resolved;
+                String nameColor = !online ? COLOR_PLAYER_OFFLINE
+                        : (isLeader ? COLOR_PLAYER_LEADER : COLOR_PLAYER_ONLINE);
 
                 slotToPlayerUuid.put(i, member);
                 cmd.set("#CSPartyRow" + i + ".Visible", true);
