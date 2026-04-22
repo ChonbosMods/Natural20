@@ -38,9 +38,9 @@ $C.@Container {
         Text: "";
         Style: (
           TextColor: #ffcc00(1),
-          FontSize: 16
+          FontSize: 16,
+          Wrap: true
         );
-        Wrap: true;
       }
     }
 

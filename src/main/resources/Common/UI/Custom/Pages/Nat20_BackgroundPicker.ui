@@ -197,9 +197,9 @@ $C.@Container {
           Text: "";
           Style: (
             TextColor: #dddddd(1),
-            FontSize: 14
+            FontSize: 14,
+            Wrap: true
           );
-          Wrap: true;
         }
       }
 
