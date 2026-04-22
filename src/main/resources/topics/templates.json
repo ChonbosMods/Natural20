@@ -2,288 +2,262 @@
   "version": 2,
   "templates": [
     {
-      "id": "danger",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["PERCEPTION", "INSIGHT"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "sighting",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": true,
-      "skills": ["PERCEPTION", "NATURE"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_source"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "treasure",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INVESTIGATION", "HISTORY"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "corruption",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INSIGHT", "INVESTIGATION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "conflict",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INSIGHT", "PERSUASION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "disappearance",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INVESTIGATION", "PERCEPTION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "migration",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["NATURE", "PERCEPTION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_source"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "omen",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["ARCANA", "RELIGION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "weather",
-      "label": "The Weather Lately",
-      "subjectRequired": false,
-      "skills": ["NATURE", "PERCEPTION"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "trade",
-      "label": "Trade at {subject_focus_the}",
-      "requiresConcrete": true,
-      "skills": ["PERSUASION", "INVESTIGATION"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "craftsmanship",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INSIGHT", "HISTORY"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "community",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["PERSUASION", "INSIGHT"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "nature",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["NATURE", "PERCEPTION"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "nostalgia",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["HISTORY", "INSIGHT"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
-      "id": "curiosity",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["INVESTIGATION", "ARCANA"],
-      "reactionIntensity": "intense",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]    },
-    {
-      "id": "festival",
-      "label": "{subject_focus_The}",
-      "requiresConcrete": false,
-      "skills": ["PERFORMANCE", "PERSUASION"],
-      "reactionIntensity": "mild",
-      "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]    },
-    {
       "id": "mundane_daily_life",
       "label": "Daily Life",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERCEPTION"],
+      "skills": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "npc_opinions",
       "label": "Around Town",
       "subjectRequired": false,
-      "skills": ["PERSUASION", "INSIGHT"],
+      "skills": [
+        "PERSUASION",
+        "INSIGHT"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     },
     {
       "id": "settlement_pride",
       "label": "Life Here",
       "subjectRequired": false,
-      "skills": ["PERSUASION", "HISTORY"],
+      "skills": [
+        "PERSUASION",
+        "HISTORY"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     },
     {
       "id": "poi_awareness",
       "label": "Local Happenings",
       "subjectRequired": false,
-      "skills": ["PERCEPTION", "INVESTIGATION"],
+      "skills": [
+        "PERCEPTION",
+        "INVESTIGATION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "press_details"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "creature_complaints",
       "label": "Trouble",
       "subjectRequired": false,
-      "skills": ["NATURE", "PERCEPTION"],
+      "skills": [
+        "NATURE",
+        "PERCEPTION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "press_details"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "distant_rumors",
       "label": "Word from Outside",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERSUASION"],
+      "skills": [
+        "INSIGHT",
+        "PERSUASION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "family_talk",
       "label": "People",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERSUASION"],
+      "skills": [
+        "INSIGHT",
+        "PERSUASION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     },
     {
       "id": "folk_wisdom",
       "label": "Advice",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "HISTORY"],
+      "skills": [
+        "INSIGHT",
+        "HISTORY"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "idle_musings",
       "label": "Advice",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERCEPTION"],
+      "skills": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "food_and_meals",
       "label": "Advice",
       "subjectRequired": false,
-      "skills": ["NATURE", "INSIGHT"],
+      "skills": [
+        "NATURE",
+        "INSIGHT"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     },
     {
       "id": "travelers_and_trade",
       "label": "Rumors",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERSUASION"],
+      "skills": [
+        "INSIGHT",
+        "PERSUASION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "night_watch",
       "label": "Rumors",
       "subjectRequired": false,
-      "skills": ["PERCEPTION", "NATURE"],
+      "skills": [
+        "PERCEPTION",
+        "NATURE"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "press_details"],
-      "reactionPrompts": ["ask_opinion"]
+      "detailPrompts": [
+        "ask_more",
+        "press_details"
+      ],
+      "reactionPrompts": [
+        "ask_opinion"
+      ]
     },
     {
       "id": "work_life",
       "label": "Work",
       "subjectRequired": false,
-      "skills": ["INSIGHT", "PERCEPTION"],
+      "skills": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     },
     {
       "id": "old_times",
       "label": "History",
       "subjectRequired": false,
-      "skills": ["HISTORY", "INSIGHT"],
+      "skills": [
+        "HISTORY",
+        "INSIGHT"
+      ],
       "reactionIntensity": "mild",
       "intro": "{tone_opener}{entry_intro}{tone_closer}",
-      "detailPrompts": ["ask_more", "ask_context"],
-      "reactionPrompts": ["ask_opinion", "ask_feeling"]
+      "detailPrompts": [
+        "ask_more",
+        "ask_context"
+      ],
+      "reactionPrompts": [
+        "ask_opinion",
+        "ask_feeling"
+      ]
     }
   ]
 }

@@ -418,17 +418,6 @@ public class TopicPoolRegistry {
     // --- Coherent triplet pool methods ---
 
     public void loadCoherentPools(@Nullable Path poolsDir) {
-        // V2 pools (archived, still loaded for backward compatibility)
-        String[] v2Ids = {
-            "danger", "sighting", "treasure", "corruption", "conflict",
-            "disappearance", "migration", "omen", "weather", "trade",
-            "craftsmanship", "community", "nature", "nostalgia", "curiosity", "festival"
-        };
-        for (String id : v2Ids) {
-            loadCoherentPool(id, "v2", poolsDir);
-        }
-
-        // V3 pools (label-based category system with template variables)
         String[] v3Ids = {
             "mundane_daily_life", "npc_opinions", "settlement_pride",
             "poi_awareness", "creature_complaints", "distant_rumors",
