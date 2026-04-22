@@ -38,8 +38,8 @@ public class UndergroundStructurePlacer {
     // Both cave and surface POI paths resolve to the marker-bearing test prefab
     // under hostile_poi/. Swap for dedicated per-biome / per-size prefabs once
     // more author content lands.
-    private static final String TEST_PREFAB_KEY = "Nat20/hostile_poi/testStructure";
-    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/hostile_poi/testStructure";
+    private static final String TEST_PREFAB_KEY = "Nat20/hostile_poi/poi1";
+    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/hostile_poi/poi1";
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
