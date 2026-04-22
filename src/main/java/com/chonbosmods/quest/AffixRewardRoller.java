@@ -47,16 +47,7 @@ public final class AffixRewardRoller {
      *                                  a valid stack at the requested tier/ilvl
      */
     public static ItemStack roll(String tier, int ilvl, Random random) {
-        if (tier == null || !VALID_TIERS.contains(tier)) {
-            throw new IllegalArgumentException(
-                    "Invalid reward tier '" + tier + "'; expected one of " + VALID_TIERS);
-        }
-        if (ilvl <= 0) {
-            throw new IllegalArgumentException("Reward ilvl must be > 0 (got " + ilvl + ")");
-        }
-        if (random == null) {
-            throw new IllegalArgumentException("random must not be null");
-        }
+        validateCommonArgs(tier, ilvl, random);
 
         Nat20LootSystem lootSystem = Natural20.getInstance().getLootSystem();
         if (lootSystem == null) {
@@ -64,14 +55,6 @@ public final class AffixRewardRoller {
                     "Nat20LootSystem unavailable; cannot roll reward (tier=" + tier
                             + ", ilvl=" + ilvl + ")");
         }
-
-        Nat20RarityDef rarity = lootSystem.getRarityRegistry().get(tier);
-        if (rarity == null) {
-            throw new IllegalStateException(
-                    "Rarity '" + tier + "' not loaded by Nat20RarityRegistry; "
-                            + "cannot roll reward (ilvl=" + ilvl + ")");
-        }
-        int qualityValue = rarity.qualityValue();
 
         Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
         List<String> itemIds = new ArrayList<>(entryRegistry.getAllItemIds());
@@ -84,6 +67,50 @@ public final class AffixRewardRoller {
         // item.getId() straight into the same registry lookups), so use them as-is.
         String itemId = itemIds.get(random.nextInt(itemIds.size()));
 
+        return rollFor(itemId, tier, ilvl, random);
+    }
+
+    /**
+     * Rolls a reward stack for a SPECIFIC base item id at the given tier/ilvl,
+     * running it through the same loot pipeline as {@link #roll(String, int, Random)}
+     * but skipping the uniform-random item pick.
+     *
+     * <p>Used by callers that already know which base item they want (e.g., a
+     * Background starter-kit grant), but still need the full category +
+     * display-name + affix pipeline applied.
+     *
+     * @param itemId base item id; must resolve in {@link Nat20LootEntryRegistry}
+     * @param tier   vanilla Hytale quality id: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary"
+     * @param ilvl   item level (must be > 0)
+     * @param random RNG source for the roll
+     * @return the rolled reward stack with {@link Nat20LootData} attached as metadata
+     * @throws IllegalArgumentException if {@code itemId} is null/blank, {@code tier} is not in
+     *                                  the whitelist, or {@code ilvl <= 0}
+     * @throws IllegalStateException    if the loot system is not initialized or cannot produce
+     *                                  a valid stack for the given itemId/tier/ilvl
+     */
+    public static ItemStack rollFor(String itemId, String tier, int ilvl, Random random) {
+        if (itemId == null || itemId.isBlank()) {
+            throw new IllegalArgumentException("itemId must not be null or blank");
+        }
+        validateCommonArgs(tier, ilvl, random);
+
+        Nat20LootSystem lootSystem = Natural20.getInstance().getLootSystem();
+        if (lootSystem == null) {
+            throw new IllegalStateException(
+                    "Nat20LootSystem unavailable; cannot roll reward (itemId='" + itemId
+                            + "', tier=" + tier + ", ilvl=" + ilvl + ")");
+        }
+
+        Nat20RarityDef rarity = lootSystem.getRarityRegistry().get(tier);
+        if (rarity == null) {
+            throw new IllegalStateException(
+                    "Rarity '" + tier + "' not loaded by Nat20RarityRegistry; "
+                            + "cannot roll reward (itemId='" + itemId + "', ilvl=" + ilvl + ")");
+        }
+        int qualityValue = rarity.qualityValue();
+
+        Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
         String categoryKey = entryRegistry.getManualCategoryKey(itemId);
         if (categoryKey == null) {
             throw new IllegalStateException(
@@ -116,5 +143,18 @@ public final class AffixRewardRoller {
                 : itemId;
         return new ItemStack(stackItemId, 1)
                 .withMetadata(Nat20LootData.METADATA_KEY, lootData);
+    }
+
+    private static void validateCommonArgs(String tier, int ilvl, Random random) {
+        if (tier == null || !VALID_TIERS.contains(tier)) {
+            throw new IllegalArgumentException(
+                    "Invalid reward tier '" + tier + "'; expected one of " + VALID_TIERS);
+        }
+        if (ilvl <= 0) {
+            throw new IllegalArgumentException("Reward ilvl must be > 0 (got " + ilvl + ")");
+        }
+        if (random == null) {
+            throw new IllegalArgumentException("random must not be null");
+        }
     }
 }
