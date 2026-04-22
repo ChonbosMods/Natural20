@@ -5,6 +5,7 @@ import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.quest.AffixRewardRoller;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
@@ -22,6 +23,8 @@ import java.util.Random;
  * smoke test (Task 7).
  */
 public final class BackgroundCommitter {
+
+    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|BackgroundCommit");
 
     private BackgroundCommitter() {}
 
@@ -88,14 +91,23 @@ public final class BackgroundCommitter {
                 stack = new ItemStack(item.itemId(), item.quantity());
             }
             ItemStackTransaction tx = player.giveItem(stack, playerRef, store);
-            // Intentionally do not inspect tx: see Javadoc above.
-            // Reference the variable to make the "we know about the transaction" intent explicit.
             if (tx == null) {
                 // giveItem should always return a transaction; if it doesn't, we have a
                 // bigger problem than starter kits. Fail loudly rather than silently.
                 throw new IllegalStateException(
                         "Player.giveItem returned null transaction for kit item '"
                                 + item.itemId() + "' (background=" + background.name() + ")");
+            }
+            if (!tx.succeeded()) {
+                // Picker fires on first join with empty inventory, so this should not
+                // happen in practice. Log if it does so a tester re-triggering commit
+                // (e.g., via a future debug command) can see the silent loss.
+                ItemStack remainder = tx.getRemainder();
+                int remainderQty = remainder != null ? remainder.getQuantity() : item.quantity();
+                LOGGER.atSevere().log(
+                        "Background kit grant REFUSED for '%s' (background=%s); "
+                                + "remainder qty=%d. Inventory full?",
+                        item.itemId(), background.name(), remainderQty);
             }
         }
     }
@@ -126,6 +138,18 @@ public final class BackgroundCommitter {
         Nat20PlayerData data = store.getComponent(playerRef, Natural20.getPlayerDataType());
         if (data == null) {
             data = store.addComponent(playerRef, Natural20.getPlayerDataType());
+        }
+        // Bind the runtime playerUuid eagerly so downstream quest-state code can
+        // resolve the owner. PlayerReadyEvent only binds the UUID when the
+        // component already exists; because Nat20PlayerData is lazy-created here
+        // for brand-new players, PlayerReady's bind would otherwise be skipped
+        // and the UUID would stay null until first NPC dialogue. Mirrors the
+        // pattern in DialogueManager.startSession.
+        if (data.getPlayerUuid() == null) {
+            Player player = store.getComponent(playerRef, Player.getComponentType());
+            if (player != null) {
+                data.setPlayerUuid(player.getPlayerRef().getUuid());
+            }
         }
         applyStats(data, background);
         grantKit(playerRef, store, background, random);
