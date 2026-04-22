@@ -269,6 +269,10 @@ public class Natural20 extends JavaPlugin {
         return chestRollRegistry;
     }
 
+    public Nat20ChestChunkScanner getChestChunkScanner() {
+        return chestChunkScanner;
+    }
+
     public Nat20HostilePool getHostilePool() {
         return hostilePool;
     }
