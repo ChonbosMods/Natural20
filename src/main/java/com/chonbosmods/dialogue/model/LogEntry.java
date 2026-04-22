@@ -27,7 +27,8 @@ public sealed interface LogEntry {
         String skillName,
         int totalRoll,
         boolean passed,
-        boolean critical
+        boolean critical,
+        int xpGained
     ) implements LogEntry {}
 
     /** Serialize any LogEntry to JSON with a discriminator "type" field. */
@@ -65,6 +66,7 @@ public sealed interface LogEntry {
                 obj.addProperty("totalRoll", r.totalRoll());
                 obj.addProperty("passed", r.passed());
                 obj.addProperty("critical", r.critical());
+                obj.addProperty("xpGained", r.xpGained());
             }
         }
         return obj;
@@ -91,7 +93,8 @@ public sealed interface LogEntry {
                 obj.get("skillName").getAsString(),
                 obj.get("totalRoll").getAsInt(),
                 obj.get("passed").getAsBoolean(),
-                obj.has("critical") && obj.get("critical").getAsBoolean());
+                obj.has("critical") && obj.get("critical").getAsBoolean(),
+                obj.has("xpGained") ? obj.get("xpGained").getAsInt() : 0);
             default -> null;
         };
     }

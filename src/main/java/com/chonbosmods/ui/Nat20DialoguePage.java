@@ -221,9 +221,14 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     else if (r.passed()) condition = "Success";
                     else condition = "Failure";
                     String color = r.passed() ? "#66BB77" : "#CC4444";
-                    String text = "[" + r.statAbbreviation() + "] " + r.skillName()
-                        + " " + r.totalRoll() + " : " + condition;
-                    lines.add(new LogLine(text, color, false));
+                    StringBuilder text = new StringBuilder()
+                        .append("[").append(r.statAbbreviation()).append("] ")
+                        .append(r.skillName()).append(" ").append(r.totalRoll())
+                        .append(": ").append(condition);
+                    if (r.passed() && r.xpGained() > 0) {
+                        text.append(". Gained ").append(r.xpGained()).append(" XP");
+                    }
+                    lines.add(new LogLine(text.toString(), color, false));
                 }
             }
         }
