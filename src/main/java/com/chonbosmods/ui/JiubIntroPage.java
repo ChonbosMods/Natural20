@@ -142,11 +142,26 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             return;
         }
 
-        // INTRO2 -> close intro, open picker. Defer the picker open: the
-        // PageManager crashes if a new page is opened inside the handler of
-        // the page being dismissed.
-        LOGGER.atInfo().log("INTRO2 Continue; closing intro and scheduling picker open");
-        close();
+        // INTRO2 -> open the picker. Two safety patterns required for this
+        // transition to work reliably:
+        //
+        //   1. SCHEDULER defer (50ms) so the new page open happens AFTER the
+        //      current event handler has unwound. Opening a new page inside
+        //      the handler of the page being replaced was observed to leave
+        //      the new page in a broken state.
+        //
+        //   2. world.execute(...) bounce so openCustomPage runs on the world
+        //      thread. Without this, the page renders visually but its
+        //      server-side event bindings intermittently fail to register;
+        //      the player sees buttons but clicks never reach the server.
+        //      Same root cause as the post-commit dialogue race that bit us
+        //      earlier.
+        //
+        // We do NOT call close() on the intro page. The picker's openCustomPage
+        // replaces it through the page manager automatically. Calling close()
+        // first was observed to cause stale state on the next page (proven
+        // out in BackgroundPickerPage's Confirm path).
+        LOGGER.atInfo().log("INTRO2 Continue; scheduling picker open");
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) {
             LOGGER.atWarning().log("Continue from intro2 but Player component is null; picker not opened");
@@ -154,9 +169,17 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         }
         PlayerRef pRef = player.getPlayerRef();
         SCHEDULER.schedule(() -> {
-            LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
-            BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
-            player.getPageManager().openCustomPage(ref, store, picker);
+            com.hypixel.hytale.server.core.universe.world.World world =
+                    com.chonbosmods.Natural20.getInstance().getDefaultWorld();
+            if (world == null) {
+                LOGGER.atWarning().log("Default world unavailable; picker not opened");
+                return;
+            }
+            world.execute(() -> {
+                LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
+                BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
+                player.getPageManager().openCustomPage(ref, store, picker);
+            });
         }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 
