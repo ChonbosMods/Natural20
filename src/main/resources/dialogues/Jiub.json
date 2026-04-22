@@ -175,6 +175,19 @@
     },
     "node_quests_3": {
       "type": "DIALOGUE",
+      "speakerText": "Some quests will not mark your objective with a single point on the map. Instead, a circle will be drawn around the area, and the thing you are looking for lies somewhere within it. More often than not, the trail leads underground, so bring a torch and the patience to dig. The circle tells you where to begin. The finding is yours to do.",
+      "responses": [
+        {
+          "id": "continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_quests_4",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ]
+    },
+    "node_quests_4": {
+      "type": "DIALOGUE",
       "speakerText": "Kill credit is generous. If you've struck a foe in the moments before its death, the kill counts as yours, whether the final blow was your swing, an ally's arrow, a well-timed fall, or the environment itself. Gathering quests respect where you travel too. The farther from safety you work, the larger the haul you'll bring home for the same task. Your Quest Log keeps every active thread in view, lets you toggle a waypoint on each one, and preserves a record of every quest you've seen through.",
       "responses": []
     },
