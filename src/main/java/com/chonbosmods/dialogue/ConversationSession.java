@@ -671,7 +671,17 @@ public class ConversationSession {
         continueChainNodeIds.add(entryNodeId);
         continueChainIndex = 0;
 
-        // Walk the CONTINUE chain to collect all node IDs
+        // Reset stat check state; scanForStatCheck populates it if any chain node has a check.
+        statCheckAvailable = false;
+        statCheckResponseId = null;
+        scanForStatCheck(entryNode);
+
+        // Walk the CONTINUE chain to collect all node IDs, scanning each beat
+        // for stat check responses. TopicGraphBuilder places the stat check on
+        // a random beat (entry or any later beat), so scanning only the entry
+        // would miss checks on mid-chain or last beats and leave
+        // statCheckResumeNodeId unset, stranding the player on the pass/fail
+        // node with no CONTINUE injected.
         DialogueNode.DialogueTextNode current = entryNode;
         while (true) {
             ResponseOption continueOpt = current.responses().stream()
@@ -683,19 +693,20 @@ public class ConversationSession {
             DialogueNode nextNode = graph.getNode(nextId);
             if (nextNode instanceof DialogueNode.DialogueTextNode nextText) {
                 current = nextText;
+                scanForStatCheck(current);
             } else {
                 break;
             }
         }
+    }
 
-        // Detect if stat check is available
-        statCheckAvailable = false;
-        statCheckResponseId = null;
-        for (ResponseOption r : entryNode.responses()) {
+    private void scanForStatCheck(DialogueNode.DialogueTextNode node) {
+        if (statCheckResponseId != null) return;
+        for (ResponseOption r : node.responses()) {
             if (r.skillCheckRef() != null) {
                 statCheckAvailable = true;
                 statCheckResponseId = r.id();
-                break;
+                return;
             }
         }
     }

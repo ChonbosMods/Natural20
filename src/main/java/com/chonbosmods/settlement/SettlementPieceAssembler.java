@@ -12,6 +12,7 @@ import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
+import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -183,6 +184,11 @@ public final class SettlementPieceAssembler {
     }
 
     private static List<Path> enumeratePool(String poolCategory) {
+        for (PrefabStore.AssetPackPrefabPath pack : PrefabStore.get().getAllAssetPrefabPaths()) {
+            List<Path> found = scanDir(pack.prefabsPath().resolve("Nat20").resolve(poolCategory));
+            if (!found.isEmpty()) return found;
+        }
+
         Path pluginFile = Natural20.getInstance().getFile();
         if (pluginFile == null) return List.of();
         Path candidate = pluginFile;

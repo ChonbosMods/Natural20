@@ -4,6 +4,7 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.cave.CaveVoidScanner;
+import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.util.ChunkUtil;
@@ -326,24 +327,7 @@ public class CaveVoidsCommand extends AbstractPlayerCommand {
         context.sendMessage(Message.raw("Pasting Nat20/tree1 with anchor at (" + px + ", " + py + ", " + pz + ")"));
 
         String prefabKey = "Nat20/tree1";
-        Path prefabPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
-        if (prefabPath == null) {
-            // Fallback: walk up from plugin file to find assets/Server/Prefabs/
-            Path pluginFile = Natural20.getInstance().getFile();
-            if (pluginFile != null) {
-                Path candidate = pluginFile;
-                for (int i = 0; i < 4; i++) {
-                    Path p = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
-                            .resolve(prefabKey + ".prefab.json");
-                    if (java.nio.file.Files.exists(p)) { prefabPath = p; break; }
-                    p = candidate.resolve("Server").resolve("Prefabs")
-                            .resolve(prefabKey + ".prefab.json");
-                    if (java.nio.file.Files.exists(p)) { prefabPath = p; break; }
-                    candidate = candidate.getParent();
-                    if (candidate == null) break;
-                }
-            }
-        }
+        Path prefabPath = Nat20PrefabPath.resolve(prefabKey);
         if (prefabPath == null) {
             context.sendMessage(Message.raw("Prefab not found: " + prefabKey));
             return;

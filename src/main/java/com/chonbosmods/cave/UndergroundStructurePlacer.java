@@ -3,6 +3,7 @@ package com.chonbosmods.cave;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.prefab.MarkerScan;
 import com.chonbosmods.prefab.Nat20PrefabMarkerScanner;
+import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.prefab.YawAlignment;
@@ -231,35 +232,7 @@ public class UndergroundStructurePlacer {
     }
 
     private Path findPrefabPath(String prefabKey) {
-        // Try asset pack lookup first
-        Path assetPath = PrefabStore.get().findAssetPrefabPath(prefabKey);
-        if (assetPath != null) {
-            return assetPath;
-        }
-
-        // Fall back: resolve from plugin file path (dev mode)
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile != null) {
-            Path candidate = pluginFile;
-            for (int i = 0; i < 4; i++) {
-                Path assetsDir = candidate.resolve("assets").resolve("Server").resolve("Prefabs")
-                        .resolve(prefabKey + ".prefab.json");
-                if (Files.exists(assetsDir)) {
-                    LOGGER.atFine().log("Found prefab via fallback path: %s", assetsDir);
-                    return assetsDir;
-                }
-                Path directDir = candidate.resolve("Server").resolve("Prefabs")
-                        .resolve(prefabKey + ".prefab.json");
-                if (Files.exists(directDir)) {
-                    LOGGER.atFine().log("Found prefab via direct path: %s", directDir);
-                    return directDir;
-                }
-                candidate = candidate.getParent();
-                if (candidate == null) break;
-            }
-        }
-
-        return null;
+        return Nat20PrefabPath.resolve(prefabKey);
     }
 
     private int scanAir(World world, int x, int y, int z, int dx, int dz) {

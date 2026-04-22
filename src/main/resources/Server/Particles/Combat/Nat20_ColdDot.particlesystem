@@ -1,8 +1,0 @@
-{
-  "Spawners": [
-    { "SpawnerId": "Effect_Snow", "PositionOffset": { "Y": 0.5 } },
-    { "SpawnerId": "Effect_Snow_Impact", "PositionOffset": { "Y": 0.3 } }
-  ],
-  "BoundingRadius": 50,
-  "CullDistance": 75
-}

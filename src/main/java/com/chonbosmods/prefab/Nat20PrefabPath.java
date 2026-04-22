@@ -30,6 +30,14 @@ public final class Nat20PrefabPath {
         Path assetPath = PrefabStore.get().findAssetPrefabPath(key);
         if (assetPath != null) return assetPath;
 
+        for (PrefabStore.AssetPackPrefabPath pack : PrefabStore.get().getAllAssetPrefabPaths()) {
+            Path candidate = pack.prefabsPath().resolve(key + ".prefab.json");
+            if (Files.exists(candidate)) {
+                LOGGER.atFine().log("Resolved %s via asset pack enumeration: %s", key, candidate);
+                return candidate;
+            }
+        }
+
         Path pluginFile = Natural20.getInstance().getFile();
         if (pluginFile == null) return null;
 
