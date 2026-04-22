@@ -547,17 +547,22 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 boolean isLeader = member.equals(leader);
                 boolean online = partyReg.isOnline(member);
 
-                // Offline members are anonymized to "Unknown" rather than
-                // leaking a last-seen name. Name + [Leader] prefix return
-                // when the member reconnects.
+                // Online: resolve live name; leader gets gold + [Leader]
+                // prefix. Offline: fall back to the cached last-seen name
+                // from Nat20PartyRegistry (populated every PlayerReady) and
+                // render in grey. "Unknown" only appears if we've never
+                // observed a name for this UUID (shouldn't happen in
+                // practice since members have to log in to join a party).
+                String resolved = online ? resolveDisplayName(store, member) : null;
+                if (resolved == null) resolved = partyReg.getKnownName(member);
+                if (resolved == null) resolved = "Unknown";
+
                 String name;
                 String nameColor;
                 if (!online) {
-                    name = "Unknown";
+                    name = resolved;
                     nameColor = COLOR_PLAYER_OFFLINE;
                 } else {
-                    String resolved = resolveDisplayName(store, member);
-                    if (resolved == null) resolved = "Unknown";
                     name = isLeader ? "[Leader] " + resolved : resolved;
                     nameColor = isLeader ? COLOR_PLAYER_LEADER : COLOR_PLAYER_ONLINE;
                 }
@@ -658,7 +663,11 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         for (int i = 0; i < MAX_PARTY_ROWS; i++) {
             if (i < list.size()) {
                 PartyInvite pi = list.get(i);
+                // Live lookup first (inviter usually online at invite time),
+                // fall back to the registry's cached last-seen name so an
+                // inviter who logged off before we responded still displays.
                 String name = resolveDisplayName(store, pi.inviterUuid());
+                if (name == null) name = partyReg.getKnownName(pi.inviterUuid());
                 if (name == null) name = "Someone";
 
                 slotToPlayerUuid.put(i, pi.inviterUuid());

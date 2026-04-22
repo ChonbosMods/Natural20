@@ -35,6 +35,10 @@ public class Nat20PartyRegistry {
     private final Map<String, Nat20Party> byPartyId = new HashMap<>();
     private final Map<UUID, Instant> lastSeen = new HashMap<>();
     private final Set<UUID> online = new HashSet<>();
+    /** Last-seen display name per player UUID. Populated on PlayerReady so
+     *  offline party members can still render their name on a partymate's
+     *  /sheet view. Persisted alongside the registry. */
+    private final Map<UUID, String> knownNames = new HashMap<>();
     private Path saveDirectory;
 
     private final Supplier<Instant> clock;
@@ -141,6 +145,17 @@ public class Nat20PartyRegistry {
         return online.contains(player);
     }
 
+    /** Cache the player's display name so offline renders can still show it. */
+    public void recordName(UUID player, String displayName) {
+        if (displayName == null || displayName.isEmpty()) return;
+        knownNames.put(player, displayName);
+    }
+
+    /** Last-seen display name for {@code player}, or null if never seen. */
+    public String getKnownName(UUID player) {
+        return knownNames.get(player);
+    }
+
     /**
      * Create a pending invite from {@code inviter} to {@code invitee} targeting
      * the inviter's current party. Rejects self-invites and invites to players
@@ -210,6 +225,9 @@ public class Nat20PartyRegistry {
         for (Map.Entry<UUID, Instant> e : lastSeen.entrySet()) {
             snap.lastSeen.put(e.getKey().toString(), e.getValue().toString());
         }
+        for (Map.Entry<UUID, String> e : knownNames.entrySet()) {
+            snap.knownNames.put(e.getKey().toString(), e.getValue());
+        }
         Files.writeString(file, GSON.toJson(snap));
     }
 
@@ -218,6 +236,7 @@ public class Nat20PartyRegistry {
         byPartyId.clear();
         lastSeen.clear();
         online.clear();
+        knownNames.clear();
         if (!Files.exists(file)) return;
         String json = Files.readString(file);
         if (json.isEmpty()) return;
@@ -243,11 +262,17 @@ public class Nat20PartyRegistry {
                 lastSeen.put(UUID.fromString(e.getKey()), Instant.parse(e.getValue()));
             }
         }
+        if (snap.knownNames != null) {
+            for (Map.Entry<String, String> e : snap.knownNames.entrySet()) {
+                knownNames.put(UUID.fromString(e.getKey()), e.getValue());
+            }
+        }
     }
 
     private static class Snapshot {
         Map<String, PartySnapshot> parties = new HashMap<>();
         Map<String, String> lastSeen = new HashMap<>();
+        Map<String, String> knownNames = new HashMap<>();
     }
 
     private static class PartySnapshot {

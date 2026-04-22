@@ -805,6 +805,10 @@ public class Natural20 extends JavaPlugin {
                 sweepStaleMobGroupRecords(uuid, data);
             }
 
+            // Cache display name so offline partymates can still render a
+            // name instead of "Unknown" once this player disconnects later.
+            partyRegistry.recordName(uuid, event.getPlayer().getDisplayName());
+
             // Ensure the player has a party (default size-1) and is flagged
             // online so the ghost-leader rule can fire correctly on long-gone
             // leaders. Persist if a new party was created.
