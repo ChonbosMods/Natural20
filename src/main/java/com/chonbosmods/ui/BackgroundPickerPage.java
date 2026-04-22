@@ -219,25 +219,14 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     LOGGER.atSevere().withCause(e).log(
                             "BackgroundCommitter.commit failed for '%s'", bg.name());
                 }
-                // Close the picker, then hand off to the standard Jiub dialogue
-                // page if he's spawned. If Jiub isn't spawned yet (the player
-                // joined faster than the chunk-pre-load hook could run), we
-                // still closed the picker and committed the background, so
-                // the player is free in the world. They can F-interact Jiub
-                // later when he's present.
+                // Close the picker, then open the standard Jiub dialogue. By
+                // the time the player has read two intro lines, picked a
+                // background, and clicked Confirm, Jiub has been spawned for
+                // plenty of time (first chunk-preload fires well before
+                // PlayerReadyEvent). If he's somehow still missing, we log and
+                // move on: the player can F-interact Jiub later.
                 close();
-                // Defer: opening a new page inside this handler crashes the
-                // PageManager. 50ms matches PageDialoguePresenter's transition
-                // delay and is enough for the dismiss to land first.
-                //
-                // If Jiub isn't spawned yet (the player committed faster than
-                // the chunk-pre-load spawn hook resolved), retry on a short
-                // interval for up to ~3s. This catches the first-join race
-                // where the picker opens before Jiub's chunk has loaded.
-                LOGGER.atInfo().log(
-                        "Scheduling post-commit dialogue session (first attempt in %dms)",
-                        PAGE_TRANSITION_DELAY_MS);
-                schedulePostCommitDialogue(ref, store, 0);
+                schedulePostCommitDialogue(ref, store);
             }
             default -> LOGGER.atWarning().log("Unknown event type '%s'", type);
         }
@@ -252,68 +241,42 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
         close();
     }
 
-    /** Max retries for the post-commit dialogue open when jiubRef is null. */
-    private static final int POST_COMMIT_MAX_ATTEMPTS = 12;
-    /** Interval between retries (ms). Total wait: ~3s across 12 attempts. */
-    private static final long POST_COMMIT_RETRY_INTERVAL_MS = 250;
-
     /**
-     * Schedule (or retry) the post-commit DialogueManager.startSession. Retries
-     * on 250ms intervals until Jiub is spawned or attempts are exhausted. First
-     * attempt uses {@link #PAGE_TRANSITION_DELAY_MS} to match the dismiss delay
-     * for the picker page.
+     * Schedule the post-commit DialogueManager.startSession.
      *
-     * <p>{@link com.hypixel.hytale.server.core.universe.world.storage.EntityStore}
-     * asserts the world thread, so the SCHEDULER callback bounces through
-     * {@code world.execute(...)} before touching the store. A scheduler-thread
-     * call to {@code startSession} would throw silently and abort mid-flow
-     * (see {@code store-thread-affinity} memory note).
+     * <p>Uses {@link #PAGE_TRANSITION_DELAY_MS} to let the picker's dismiss
+     * packet land first (opening a new page inside the handler of the page
+     * being closed crashes the PageManager), then bounces through
+     * {@code world.execute(...)} so {@code Store.getComponent} inside
+     * {@code startSession} runs on the world thread (see memory note
+     * {@code store-thread-affinity}).
+     *
+     * <p>If Jiub is somehow not spawned at this point, log and move on: the
+     * player can F-interact him later. Retry loop was removed because in
+     * practice Jiub is spawned on the first ChunkPreLoadProcessEvent, which
+     * fires long before the player finishes the intro + picker flow.
      */
     private static void schedulePostCommitDialogue(Ref<EntityStore> ref,
-                                                   Store<EntityStore> store,
-                                                   int attempt) {
-        long delay = attempt == 0 ? PAGE_TRANSITION_DELAY_MS : POST_COMMIT_RETRY_INTERVAL_MS;
+                                                   Store<EntityStore> store) {
         SCHEDULER.schedule(() -> {
             com.hypixel.hytale.server.core.universe.world.World world =
                     Natural20.getInstance().getDefaultWorld();
             if (world == null) {
-                LOGGER.atWarning().log(
-                        "Post-commit dialogue: default world unavailable; aborting retry loop");
+                LOGGER.atWarning().log("Post-commit dialogue: default world unavailable; skipping");
                 return;
             }
-            // world.execute(...) hands the body off to the world thread so
-            // Store.getComponent inside DialogueManager.startSession doesn't
-            // trip its thread assertion.
-            world.execute(() -> postCommitDialogueTick(ref, store, attempt));
-        }, delay, TimeUnit.MILLISECONDS);
-    }
-
-    /** World-thread body for {@link #schedulePostCommitDialogue}. */
-    private static void postCommitDialogueTick(Ref<EntityStore> ref,
-                                               Store<EntityStore> store,
-                                               int attempt) {
-        Ref<EntityStore> jiub = Natural20.getInstance().getJiubManager().getJiubRef();
-        if (jiub != null) {
-            LOGGER.atInfo().log(
-                    "Opening post-commit DialogueManager session (attempt %d, world thread)",
-                    attempt + 1);
-            Natural20.getInstance().getDialogueManager()
-                    .startSession(ref, jiub, store, () -> {});
-            return;
-        }
-        if (attempt + 1 >= POST_COMMIT_MAX_ATTEMPTS) {
-            LOGGER.atWarning().log(
-                    "Post-commit dialogue: Jiub still not spawned after %d attempts (%dms total); "
-                            + "giving up. Player can F-interact Jiub once his chunk loads.",
-                    POST_COMMIT_MAX_ATTEMPTS,
-                    PAGE_TRANSITION_DELAY_MS
-                            + (POST_COMMIT_MAX_ATTEMPTS - 1) * POST_COMMIT_RETRY_INTERVAL_MS);
-            return;
-        }
-        LOGGER.atInfo().log(
-                "Post-commit dialogue: Jiub not spawned yet (attempt %d/%d); retrying in %dms",
-                attempt + 1, POST_COMMIT_MAX_ATTEMPTS, POST_COMMIT_RETRY_INTERVAL_MS);
-        schedulePostCommitDialogue(ref, store, attempt + 1);
+            world.execute(() -> {
+                Ref<EntityStore> jiub = Natural20.getInstance().getJiubManager().getJiubRef();
+                if (jiub == null) {
+                    LOGGER.atWarning().log(
+                            "Post-commit dialogue: Jiub not spawned; player can F-interact later");
+                    return;
+                }
+                LOGGER.atInfo().log("Opening post-commit DialogueManager session");
+                Natural20.getInstance().getDialogueManager()
+                        .startSession(ref, jiub, store, () -> {});
+            });
+        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 
     private static Background findBackground(String name) {
