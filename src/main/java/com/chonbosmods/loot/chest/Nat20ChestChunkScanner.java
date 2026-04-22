@@ -72,6 +72,8 @@ public final class Nat20ChestChunkScanner {
                     if (id == null || !config.isChestBlock(id)) continue;
 
                     chestsFound++;
+                    LOGGER.atInfo().log("Found chest at %d %d %d type=%s (tp: /tp @s %d %d %d)",
+                            wx, y, wz, id, wx, y, wz);
 
                     if (registry.hasBeenRolled(wx, y, wz)) continue;
                     registry.markRolled(wx, y, wz);
