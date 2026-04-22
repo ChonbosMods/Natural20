@@ -219,13 +219,20 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     LOGGER.atSevere().withCause(e).log(
                             "BackgroundCommitter.commit failed for '%s'", bg.name());
                 }
-                // Close the picker, then open the standard Jiub dialogue. By
-                // the time the player has read two intro lines, picked a
-                // background, and clicked Confirm, Jiub has been spawned for
-                // plenty of time (first chunk-preload fires well before
-                // PlayerReadyEvent). If he's somehow still missing, we log and
-                // move on: the player can F-interact Jiub later.
-                close();
+                // Do NOT call close() on the picker here. Opening the new
+                // dialogue page replaces it automatically through the page
+                // manager. The explicit close() path was causing the standard
+                // Nat20DialoguePage to open with stale/empty state (greeting
+                // not rendered, topics + goodbye visually locked): diagnosed
+                // by comparing with PageDialoguePresenter's dice-roll
+                // transition, which surrenders the old page via
+                // clearEventHandler + reference-null and opens the new one
+                // 50ms later without ever calling close() on the old page.
+                //
+                // Event handler does not need explicit clear here because the
+                // picker's onDismiss is the default no-op (CustomUIPage's)
+                // and our handleDataEvent will no longer be invoked once the
+                // new page takes over.
                 schedulePostCommitDialogue(ref, store);
             }
             default -> LOGGER.atWarning().log("Unknown event type '%s'", type);
