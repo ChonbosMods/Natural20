@@ -271,7 +271,7 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
             cmd.set(twSelector + ".TextSpans", Message.raw("").color(typewriterLine.color));
 
             activeTypewriter = new DialogueTypewriter(
-                    typewriterLine.text, typewriterLine.color, twSelector, this,
+                    typewriterLine.text, typewriterLine.color, twSelector, this::pushUpdate,
                     null, this::onTypewriterComplete);
             activeTypewriter.start();
         }

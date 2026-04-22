@@ -187,26 +187,27 @@ $C.@Container {
         Label { FlexWeight: 1; }
       }
 
-      // Flavor sentence (placeholder until authoring pass)
+      // Flavor paragraph
       Group {
         LayoutMode: Top;
-        Anchor: (Height: 60, Top: 12);
-        Padding: (Left: 12, Right: 12);
+        Anchor: (Height: 110, Top: 12);
+        Padding: (Left: 16, Right: 16);
 
         Label #BgDetailFlavor {
           Text: "";
           Style: (
             TextColor: #dddddd(1),
-            FontSize: 14,
+            FontSize: 17,
             Wrap: true
           );
         }
       }
 
-      // Stat bonuses (e.g. "+3 STR, +3 CON")
+      // Stat bonuses (e.g. "+3 STR, +3 CON") — extra Top breathing room
+      // separates them from the flavor paragraph above.
       Group {
         LayoutMode: Left;
-        Anchor: (Height: 32, Top: 12);
+        Anchor: (Height: 32, Top: 28);
 
         Label { FlexWeight: 1; }
         Label #BgDetailStats {

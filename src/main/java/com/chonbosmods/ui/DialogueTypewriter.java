@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 /**
  * Character-by-character reveal engine for NPC dialogue text. Schedules timed
@@ -35,7 +36,7 @@ public class DialogueTypewriter {
     private final String fullText;
     private final String color;
     private final String selector;
-    private final Nat20DialoguePage page;
+    private final Consumer<UICommandBuilder> pushUpdate;
     private final Runnable onTickSound;
     private final Runnable onComplete;
 
@@ -48,16 +49,18 @@ public class DialogueTypewriter {
      * @param fullText    complete NPC speech text
      * @param color       hex color for the text (e.g. "#FFCC00")
      * @param selector    label selector (e.g. "#Log17")
-     * @param page        dialogue page to push updates to
+     * @param pushUpdate  consumer that pushes a UICommandBuilder to the page
+     *                    (typically a method reference like {@code page::pushUpdate})
      * @param onTickSound nullable sound callback fired each tick (future use)
      * @param onComplete  called when reveal finishes or is skipped (not on cancel)
      */
     public DialogueTypewriter(String fullText, String color, String selector,
-                              Nat20DialoguePage page, Runnable onTickSound, Runnable onComplete) {
+                              Consumer<UICommandBuilder> pushUpdate,
+                              Runnable onTickSound, Runnable onComplete) {
         this.fullText = (fullText != null) ? fullText : "";
         this.color = color;
         this.selector = selector;
-        this.page = page;
+        this.pushUpdate = pushUpdate;
         this.onTickSound = onTickSound;
         this.onComplete = onComplete;
         this.totalVisible = EntityHighlight.visibleLength(this.fullText);
@@ -101,7 +104,7 @@ public class DialogueTypewriter {
         // Push partial text update with colored entity spans
         UICommandBuilder cmd = new UICommandBuilder();
         cmd.set(selector + ".TextSpans", EntityHighlight.toMessageSubstring(fullText, rawEnd, color));
-        page.pushUpdate(cmd);
+        pushUpdate.accept(cmd);
 
         if (onTickSound != null) {
             onTickSound.run();
@@ -137,7 +140,7 @@ public class DialogueTypewriter {
             // Reveal the full text with entity highlighting
             UICommandBuilder cmd = new UICommandBuilder();
             cmd.set(selector + ".TextSpans", EntityHighlight.toMessage(fullText, color));
-            page.pushUpdate(cmd);
+            pushUpdate.accept(cmd);
 
             if (onComplete != null) {
                 onComplete.run();

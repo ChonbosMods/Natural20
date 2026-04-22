@@ -68,9 +68,13 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
                             PageEventData::setType, PageEventData::getType)
                     .build();
 
+    /** Same reveal color as the standard dialogue page's NPC speech. */
+    private static final String TYPEWRITER_COLOR = "#FFCC00";
+
     private enum State { INTRO1, INTRO2 }
 
     private State state = State.INTRO1;
+    private volatile DialogueTypewriter activeTypewriter;
 
     public JiubIntroPage(PlayerRef playerRef) {
         // CantClose = the client cannot dismiss this page through any user input
@@ -85,13 +89,33 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         cmd.append(PAGE_LAYOUT);
 
         String text = state == State.INTRO1 ? INTRO1_TEXT : INTRO2_TEXT;
-        cmd.set("#JiubIntroLine.Text", text);
+
+        // Clear the line label; typewriter will populate it character-by-character
+        // via TextSpans. (Setting .Text would block the subsequent .TextSpans
+        // writes from rendering on top.)
+        cmd.set("#JiubIntroLine.TextSpans",
+                com.hypixel.hytale.server.core.Message.raw("").color(TYPEWRITER_COLOR));
 
         events.addEventBinding(
                 CustomUIEventBindingType.Activating,
                 "#JiubIntroContinueBtn",
                 EventData.of("Type", "continue"),
                 false);
+
+        // Cancel any in-flight typewriter from a prior build (state transition
+        // rebuilds while previous line is still typing), then start a fresh one.
+        if (activeTypewriter != null) {
+            activeTypewriter.cancel();
+        }
+        activeTypewriter = new DialogueTypewriter(
+                text, TYPEWRITER_COLOR, "#JiubIntroLine", this::pushUpdate,
+                null, null);
+        activeTypewriter.start();
+    }
+
+    /** Public bridge so {@link DialogueTypewriter} can push partial text updates. */
+    public void pushUpdate(UICommandBuilder cmd) {
+        sendUpdate(cmd);
     }
 
     @Override
@@ -100,6 +124,14 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         LOGGER.atInfo().log("handleDataEvent: type=%s state=%s", type, state);
         if (!"continue".equals(type)) {
             LOGGER.atWarning().log("Unknown event type '%s'", type);
+            return;
+        }
+
+        // Continue mid-typewriter = skip the reveal, don't advance state.
+        // Matches the dialogue page's click-to-skip pattern.
+        if (activeTypewriter != null && !activeTypewriter.isComplete()) {
+            LOGGER.atInfo().log("Skipping typewriter for state=%s", state);
+            activeTypewriter.skip();
             return;
         }
 
