@@ -963,12 +963,18 @@ public class Natural20 extends JavaPlugin {
             ambientSpawnSystem.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);
 
             // Jiub singleton: fire idempotent spawn on the world thread on
-            // the very first chunk-pre-load. Subsequent chunk-pre-loads are
-            // a no-op (defaultWorld is already set and firstChunk stays false).
-            // Idempotency also holds inside JiubManager itself as a safety net.
+            // the very first chunk-pre-load. Subsequent chunk-pre-loads fire
+            // reattachJiubIfPresent so the PlayerSkinComponent is re-written
+            // after native chunk serialization strips it — without this, Jiub
+            // returns to his default silhouette ("naked") when a player dies
+            // and the spawn chunk reloads. Mirrors the settlement-NPC pattern
+            // (Nat20NpcManager.reattachNpc + SettlementWorldGenListener).
+            World w = defaultWorld;
             if (firstChunk) {
-                World w = defaultWorld;
                 w.execute(() -> jiubManager.spawnJiubIfAbsent(
+                    w.getEntityStore().getStore(), w));
+            } else {
+                w.execute(() -> jiubManager.reattachJiubIfPresent(
                     w.getEntityStore().getStore(), w));
             }
         });

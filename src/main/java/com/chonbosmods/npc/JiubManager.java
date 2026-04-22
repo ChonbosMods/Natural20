@@ -64,9 +64,19 @@ public final class JiubManager {
     /** Yaw in degrees for facing south (toward the player at world spawn). */
     private static final float FACING_SOUTH_YAW = 180.0f;
 
+    /**
+     * Cooldown for chunk-reload reattach checks, matching the settlement-NPC
+     * pattern in {@code SettlementWorldGenListener.checkAndRespawnNpcs}. Rapid
+     * chunk-pre-load fires (e.g., a player tabbing across settlement edges)
+     * should not cause repeated PlayerSkinComponent re-writes within a single
+     * 500ms window.
+     */
+    private static final long REATTACH_COOLDOWN_MS = 500L;
+
     private volatile Path savePath;
     private volatile UUID jiubUuid;
     private volatile Ref<EntityStore> jiubRef;
+    private volatile long lastReattachCheckMs;
 
     /**
      * Rebind the persistence file to {@code worldDataDir / jiub.json} and
@@ -78,6 +88,7 @@ public final class JiubManager {
         this.savePath = worldDataDir.resolve("jiub.json");
         this.jiubRef = null;
         this.jiubUuid = null;
+        this.lastReattachCheckMs = 0L;
         load();
     }
 
@@ -188,6 +199,70 @@ public final class JiubManager {
             spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(),
             FACING_SOUTH_YAW, jiubUuid);
         return jiubRef;
+    }
+
+    /**
+     * Re-apply {@link PlayerSkinComponent} (and {@link Nameplate}) to Jiub
+     * after chunk reload. Native chunk persistence reconstructs a bare Player
+     * model from the persisted ModelReference, which strips the custom skin
+     * and nameplate. Without this, Jiub returns "naked" (default character
+     * silhouette) when a player respawns and the spawn chunk reloads. Pattern
+     * mirrors {@code Nat20NpcManager.reattachNpc} / {@code SettlementWorldGenListener.checkAndRespawnNpcs}.
+     *
+     * <p>Idempotent and cheap: cooldown-gated to 500ms, chunk-loaded-gated
+     * (no work if Jiub's chunk isn't loaded yet), no-op if Jiub was never
+     * spawned in this world. Safe to call on every {@code ChunkPreLoadProcessEvent}.
+     *
+     * <p>Does NOT re-apply {@code ModelComponent}: the initial spawn uses the
+     * {@code spawnEntity} Model-as-5th-arg overload to avoid the documented
+     * scale=0 chunk-reload crash; re-creating ModelComponent here would
+     * re-introduce that same crash on the next reload. Settlements only
+     * re-create it for the Tier-2 "custom data stripped" path, which for
+     * Jiub would imply a bigger problem we shouldn't paper over.
+     */
+    public synchronized void reattachJiubIfPresent(Store<EntityStore> store, World world) {
+        if (jiubUuid == null) {
+            return; // never spawned this world
+        }
+        long now = System.currentTimeMillis();
+        if (now - lastReattachCheckMs < REATTACH_COOLDOWN_MS) {
+            return;
+        }
+        lastReattachCheckMs = now;
+
+        // Rely on getEntityRef's own chunk-loaded semantics: it returns null
+        // for entities in unloaded chunks. Unlike the settlement reconciliation
+        // path we never auto-respawn on missing-ref, so a false "chunk not
+        // loaded" read is harmless — we just skip this tick and try again on
+        // the next chunk-pre-load.
+        Ref<EntityStore> ref;
+        try {
+            ref = world.getEntityRef(jiubUuid);
+        } catch (Exception e) {
+            return;
+        }
+        if (ref == null) {
+            return;
+        }
+        // Entity must still be an NPCEntity; if not, something wiped it and
+        // we take the same "don't auto-respawn" stance as spawnJiubIfAbsent.
+        if (store.getComponent(ref, NPCEntity.getComponentType()) == null) {
+            return;
+        }
+
+        // Cache the live ref in case it wasn't yet resolved this session.
+        this.jiubRef = ref;
+
+        // Re-apply the skin deterministically from the display name so Jiub's
+        // appearance is stable across reloads. Matches the Random(name.hashCode())
+        // pattern Nat20NpcManager.applyNpcComponents uses.
+        Random skinRng = new Random(DISPLAY_NAME.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin skin =
+            CosmeticsModule.get().generateRandomSkin(skinRng);
+        store.putComponent(ref, PlayerSkinComponent.getComponentType(),
+            new PlayerSkinComponent(skin));
+        store.putComponent(ref, Nameplate.getComponentType(),
+            new Nameplate(DISPLAY_NAME));
     }
 
     /**
