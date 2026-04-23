@@ -25,6 +25,7 @@ public class Nat20NpcData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("DialogueState", Codec.STRING), Nat20NpcData::setDialogueState, Nat20NpcData::getDialogueState)
             .addField(new KeyedCodec<>("Flags", MapCodec.STRING_HASH_MAP_CODEC), Nat20NpcData::setFlags, Nat20NpcData::getFlags)
             .addField(new KeyedCodec<>("SettlementCellKey", Codec.STRING), Nat20NpcData::setSettlementCellKey, Nat20NpcData::getSettlementCellKey)
+            .addField(new KeyedCodec<>("CeliusGravus", Codec.BOOLEAN), Nat20NpcData::setCeliusGravus, Nat20NpcData::isCeliusGravus)
             .build();
 
     private String generatedName;
@@ -34,6 +35,7 @@ public class Nat20NpcData implements Component<EntityStore> {
     private Map<String, String> flags = new HashMap<>();
     private String settlementCellKey;
     private QuestMarkerState questMarkerState = QuestMarkerState.NONE;
+    private boolean celiusGravus;
 
     public Nat20NpcData() {
     }
@@ -94,6 +96,14 @@ public class Nat20NpcData implements Component<EntityStore> {
         this.questMarkerState = questMarkerState;
     }
 
+    public boolean isCeliusGravus() {
+        return celiusGravus;
+    }
+
+    public void setCeliusGravus(boolean celiusGravus) {
+        this.celiusGravus = celiusGravus;
+    }
+
     @Override
     public Nat20NpcData clone() {
         Nat20NpcData copy = new Nat20NpcData();
@@ -104,6 +114,7 @@ public class Nat20NpcData implements Component<EntityStore> {
         copy.flags = new HashMap<>(this.flags);
         copy.settlementCellKey = this.settlementCellKey;
         copy.questMarkerState = this.questMarkerState;
+        copy.celiusGravus = this.celiusGravus;
         return copy;
     }
 }

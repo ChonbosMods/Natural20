@@ -6,6 +6,7 @@ import com.chonbosmods.npc.Nat20PlaceNameGenerator;
 import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -27,6 +28,9 @@ public class SettlementWorldGenListener {
     private static final double JITTER_MIN = 0.25;
     private static final double JITTER_MAX = 0.75;
     private static final long SEED_OFFSET = 827364510L;
+
+    /** Spawn cell: (0,0) snaps to world spawn x/z so the tutorial NPC is walkable from spawn. */
+    private static final String SPAWN_CELL_KEY = "0,0";
 
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
@@ -77,8 +81,25 @@ public class SettlementWorldGenListener {
 
         int cellOriginX = cellX * CELL_SIZE;
         int cellOriginZ = cellZ * CELL_SIZE;
-        int settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
-        int settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+        int settlementX;
+        int settlementZ;
+        if (SPAWN_CELL_KEY.equals(cellKey)) {
+            // Spawn settlement anchors to world spawn so the tutorial NPC is walkable from drop-in.
+            int[] spawnXZ = resolveSpawnCellAnchor(world);
+            if (spawnXZ != null) {
+                settlementX = spawnXZ[0];
+                settlementZ = spawnXZ[1];
+                // Consume the same two rng draws so any downstream seeded work matches normal cells.
+                rng.nextDouble();
+                rng.nextDouble();
+            } else {
+                settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+                settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+            }
+        } else {
+            settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+            settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+        }
 
         // Only the chunk containing the settlement center triggers placement
         if (!isChunkContaining(chunkBlockX, chunkBlockZ, settlementX, settlementZ)) {
@@ -148,6 +169,10 @@ public class SettlementWorldGenListener {
 
                     record.setPosY(groundY);
                     record.getNpcs().addAll(spawned);
+
+                    if (SPAWN_CELL_KEY.equals(cellKey)) {
+                        renameFirstGuardToCelius(store, world, spawned);
+                    }
                     // Capture every Nat20_Chest_Spawn marker so passive fetch quests can
                     // claim one and spawn the quest chest at the authored location instead
                     // of falling back to the settlement center.
@@ -272,5 +297,58 @@ public class SettlementWorldGenListener {
     private boolean isChunkContaining(int chunkBlockX, int chunkBlockZ, int blockX, int blockZ) {
         return chunkBlockX <= blockX && blockX < chunkBlockX + CHUNK_BLOCK_SIZE &&
                chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
+    }
+
+    /** Resolve the world-spawn x/z for the (0,0) cell anchor. Null on failure. */
+    private int[] resolveSpawnCellAnchor(World world) {
+        try {
+            Transform t = world.getWorldConfig().getSpawnProvider()
+                .getSpawnPoint(world, new UUID(0L, 0L));
+            Vector3d p = t.getPosition();
+            return new int[]{(int) p.getX(), (int) p.getZ()};
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log(
+                "Failed to resolve world spawn for (0,0); falling back to jitter");
+            return null;
+        }
+    }
+
+    /**
+     * Rename the first Guard in the spawn settlement to "Celius Gravus" and flag him
+     * so DialogueManager can short-circuit to his bespoke dialogue graph. Mutates both
+     * the persisted NpcRecord and the live Nat20NpcData component for the current
+     * world-thread session.
+     */
+    private void renameFirstGuardToCelius(
+            com.hypixel.hytale.component.Store<EntityStore> store,
+            World world, List<NpcRecord> spawned) {
+        NpcRecord guard = null;
+        for (NpcRecord npc : spawned) {
+            if ("Guard".equals(npc.getRole())) {
+                guard = npc;
+                break;
+            }
+        }
+        if (guard == null) {
+            LOGGER.atWarning().log(
+                "Spawn settlement has no Guard to promote to Celius Gravus; tutorial NPC missing");
+            return;
+        }
+
+        guard.setGeneratedName("Celius Gravus");
+        guard.setCeliusGravus(true);
+
+        if (guard.getEntityUUID() == null) return;
+        Ref<EntityStore> guardRef = world.getEntityRef(guard.getEntityUUID());
+        if (guardRef == null) return;
+        var npcData = store.getComponent(guardRef,
+            com.chonbosmods.Natural20.getNpcDataType());
+        if (npcData == null) return;
+        npcData.setGeneratedName("Celius Gravus");
+        npcData.setCeliusGravus(true);
+        npcData.setFlags(guard.getFlags());
+
+        LOGGER.atInfo().log("Spawn settlement: Guard promoted to Celius Gravus (UUID %s)",
+            guard.getEntityUUID());
     }
 }

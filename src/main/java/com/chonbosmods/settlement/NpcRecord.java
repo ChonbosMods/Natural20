@@ -100,6 +100,12 @@ public class NpcRecord {
     public Map<String, String> getFlags() { return flags; }
     public void setFlags(Map<String, String> flags) { this.flags = flags != null ? new HashMap<>(flags) : new HashMap<>(); }
 
+    public boolean isCeliusGravus() { return "true".equals(flags.get("celius_gravus")); }
+    public void setCeliusGravus(boolean value) {
+        if (value) flags.put("celius_gravus", "true");
+        else flags.remove("celius_gravus");
+    }
+
     public QuestInstance getPreGeneratedQuest() { return preGeneratedQuest; }
     public void setPreGeneratedQuest(QuestInstance quest) { this.preGeneratedQuest = quest; }
 
