@@ -19,6 +19,7 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.Map;
@@ -96,14 +97,31 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
             if (hasItem && !wasReady) {
                 // Picked up quest item
                 obj.markComplete();
-                if (quest.markPhaseReadyForTurnIn()) {
+                boolean firstReady = quest.markPhaseReadyForTurnIn();
+                dirty = true;
+
+                // Persist the transition before firing the proximity gate so any
+                // eviction fires against a committed phase-ready state.
+                questSystem.getStateManager().saveActiveQuests(playerData, quests);
+                dirty = false;
+
+                // Party proximity gate: evict accepters who are out of range at
+                // the phase-completion moment. Anchor on the fetching player's
+                // current position. No-op for solo / single-accepter quests.
+                World world = Natural20.getInstance().getDefaultWorld();
+                if (world != null) {
+                    Nat20QuestProximityGate.checkAtEntity(quest,
+                            player.getPlayerRef().getUuid(), ref, store, world,
+                            Natural20.getInstance());
+                }
+
+                setTurnInParticle(quest);
+                if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
                     int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
                     Natural20.getInstance().getXpService().award(player, ref, store, xp,
                             "quest:" + quest.getQuestId());
                 }
-                dirty = true;
-                setTurnInParticle(quest);
                 LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",
                     player.getPlayerRef().getUuid(), fetchItemType, quest.getQuestId());
             } else if (!hasItem && wasReady) {
