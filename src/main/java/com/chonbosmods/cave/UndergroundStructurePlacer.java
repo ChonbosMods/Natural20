@@ -35,11 +35,9 @@ import java.util.concurrent.TimeUnit;
 public class UndergroundStructurePlacer {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|CavePlacer");
-    // Both cave and surface POI paths resolve to the marker-bearing test prefab
-    // under hostile_poi/. Swap for dedicated per-biome / per-size prefabs once
-    // more author content lands.
-    private static final String TEST_PREFAB_KEY = "Nat20/hostile_poi/poi1";
-    private static final String SURFACE_FALLBACK_PREFAB_KEY = "Nat20/hostile_poi/poi1";
+
+    /** Pool of authored hostile POI prefabs, picked uniformly per placement. */
+    private static final String HOSTILE_POI_POOL = "hostile_poi";
 
     /**
      * Place a structure adjacent to the given cave void and carve a connecting tunnel.
@@ -162,10 +160,11 @@ public class UndergroundStructurePlacer {
         int floorY = bestFloor[1];
         int floorZ = bestFloor[2];
 
-        // 2. Load the prefab buffer
-        Path prefabPath = findPrefabPath();
+        // 2. Pick a hostile POI prefab from the pool and load its buffer
+        Random rng = new Random();
+        Path prefabPath = pickRandomHostilePrefab(rng);
         if (prefabPath == null) {
-            LOGGER.atSevere().log("Prefab not found: %s", TEST_PREFAB_KEY);
+            LOGGER.atSevere().log("No hostile POI prefabs found under pool '%s'", HOSTILE_POI_POOL);
             result.complete(null);
             return result;
         }
@@ -220,19 +219,13 @@ public class UndergroundStructurePlacer {
     }
 
     /**
-     * Find the prefab file path. Tries asset pack lookup first, then falls back to walking
-     * up the filesystem from the plugin file to find assets/Server/Prefabs/.
+     * Pick a uniformly random prefab path from the hostile POI pool. Returns
+     * {@code null} if the pool is empty (e.g. no hostile_poi prefabs shipped).
      */
-    private Path findPrefabPath() {
-        return findPrefabPath(TEST_PREFAB_KEY);
-    }
-
-    private Path findSurfaceFallbackPrefabPath() {
-        return findPrefabPath(SURFACE_FALLBACK_PREFAB_KEY);
-    }
-
-    private Path findPrefabPath(String prefabKey) {
-        return Nat20PrefabPath.resolve(prefabKey);
+    private static Path pickRandomHostilePrefab(Random rng) {
+        List<Path> pool = Nat20PrefabPath.enumeratePool(HOSTILE_POI_POOL);
+        if (pool.isEmpty()) return null;
+        return pool.get(rng.nextInt(pool.size()));
     }
 
     private int scanAir(World world, int x, int y, int z, int dx, int dz) {
@@ -260,9 +253,10 @@ public class UndergroundStructurePlacer {
                                                           Store<EntityStore> store) {
         CompletableFuture<PlacedMarkers> result = new CompletableFuture<>();
 
-        Path prefabPath = findSurfaceFallbackPrefabPath();
+        Path prefabPath = pickRandomHostilePrefab(new Random());
         if (prefabPath == null) {
-            LOGGER.atSevere().log("Surface placement: surfaceFallbackPrefab not found: %s", SURFACE_FALLBACK_PREFAB_KEY);
+            LOGGER.atSevere().log(
+                "Surface placement: no hostile POI prefabs found under pool '%s'", HOSTILE_POI_POOL);
             result.complete(null);
             return result;
         }

@@ -4,8 +4,11 @@ import com.chonbosmods.Natural20;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Resolve a prefab key (e.g. {@code "Nat20/testStructure"}) into a filesystem
@@ -59,5 +62,50 @@ public final class Nat20PrefabPath {
             if (candidate == null) break;
         }
         return null;
+    }
+
+    /**
+     * Enumerate every {@code .prefab.json} file under {@code Nat20/<poolCategory>/}
+     * across all registered asset-pack paths, with the same filesystem fallback as
+     * {@link #resolve(String)} so dev-runtime working copies resolve too.
+     *
+     * @param poolCategory subdirectory under {@code Server/Prefabs/Nat20/} to enumerate
+     *                     (e.g. {@code "settlement_pieces"}, {@code "hostile_poi"}).
+     * @return sorted list of absolute paths; empty list if the pool directory is not
+     *         present in any search root.
+     */
+    public static List<Path> enumeratePool(String poolCategory) {
+        for (PrefabStore.AssetPackPrefabPath pack : PrefabStore.get().getAllAssetPrefabPaths()) {
+            List<Path> found = scanDir(pack.prefabsPath().resolve("Nat20").resolve(poolCategory));
+            if (!found.isEmpty()) return found;
+        }
+
+        Path pluginFile = Natural20.getInstance().getFile();
+        if (pluginFile == null) return List.of();
+        Path candidate = pluginFile;
+        for (int i = 0; i < 5; i++) {
+            List<Path> found = scanDir(candidate.resolve("assets").resolve("Server")
+                .resolve("Prefabs").resolve("Nat20").resolve(poolCategory));
+            if (!found.isEmpty()) return found;
+            found = scanDir(candidate.resolve("Server").resolve("Prefabs")
+                .resolve("Nat20").resolve(poolCategory));
+            if (!found.isEmpty()) return found;
+            candidate = candidate.getParent();
+            if (candidate == null) break;
+        }
+        return List.of();
+    }
+
+    private static List<Path> scanDir(Path dir) {
+        if (!Files.isDirectory(dir)) return List.of();
+        try (Stream<Path> s = Files.walk(dir)) {
+            return s.filter(Files::isRegularFile)
+                    .filter(p -> p.getFileName().toString().endsWith(".prefab.json"))
+                    .sorted()
+                    .toList();
+        } catch (IOException e) {
+            LOGGER.atWarning().withCause(e).log("Failed to scan pool dir %s", dir);
+            return List.of();
+        }
     }
 }

@@ -60,7 +60,7 @@ public final class SettlementPieceAssembler {
             World world, Vector3i center, PiecePlacement config,
             ComponentAccessor<EntityStore> store, Random rng) {
 
-        List<Path> pool = enumeratePool(config.poolCategory());
+        List<Path> pool = com.chonbosmods.prefab.Nat20PrefabPath.enumeratePool(config.poolCategory());
         if (pool.isEmpty()) {
             LOGGER.atWarning().log("Piece pool '%s' is empty; cannot assemble", config.poolCategory());
             return CompletableFuture.completedFuture(null);
@@ -183,40 +183,6 @@ public final class SettlementPieceAssembler {
         return out;
     }
 
-    private static List<Path> enumeratePool(String poolCategory) {
-        for (PrefabStore.AssetPackPrefabPath pack : PrefabStore.get().getAllAssetPrefabPaths()) {
-            List<Path> found = scanDir(pack.prefabsPath().resolve("Nat20").resolve(poolCategory));
-            if (!found.isEmpty()) return found;
-        }
-
-        Path pluginFile = Natural20.getInstance().getFile();
-        if (pluginFile == null) return List.of();
-        Path candidate = pluginFile;
-        for (int i = 0; i < 5; i++) {
-            List<Path> found = scanDir(candidate.resolve("assets").resolve("Server")
-                .resolve("Prefabs").resolve("Nat20").resolve(poolCategory));
-            if (!found.isEmpty()) return found;
-            found = scanDir(candidate.resolve("Server").resolve("Prefabs")
-                .resolve("Nat20").resolve(poolCategory));
-            if (!found.isEmpty()) return found;
-            candidate = candidate.getParent();
-            if (candidate == null) break;
-        }
-        return List.of();
-    }
-
-    private static List<Path> scanDir(Path dir) {
-        if (!Files.isDirectory(dir)) return List.of();
-        try (Stream<Path> s = Files.walk(dir)) {
-            return s.filter(Files::isRegularFile)
-                    .filter(p -> p.getFileName().toString().endsWith(".prefab.json"))
-                    .sorted()
-                    .toList();
-        } catch (IOException e) {
-            LOGGER.atWarning().withCause(e).log("Failed to scan pool dir %s", dir);
-            return List.of();
-        }
-    }
 
     private static List<Placement> planPlacements(int targetCount, List<Path> pool,
                                                    Vector3i center, PiecePlacement config,
