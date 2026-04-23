@@ -34,6 +34,21 @@
       }
     },
     {
+      "id": "topic_tutorial_phase3_turnin",
+      "label": "{boss_name} is dead",
+      "entryNodeId": "node_tutorial_phase3_entry",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 0,
+      "questTopic": true,
+      "condition": {
+        "type": "QUEST_PHASE_STATE",
+        "questId": "tutorial_main",
+        "phase": "2",
+        "state": "READY_FOR_TURN_IN"
+      }
+    },
+    {
       "id": "topic_keeping_watch",
       "label": "Keeping watch",
       "entryNodeId": "node_watch_1",
@@ -63,6 +78,15 @@
       "responses": [],
       "onEnter": [
         { "type": "TUTORIAL_TURN_IN_PHASE_2" }
+      ],
+      "exhaustsTopic": true
+    },
+    "node_tutorial_phase3_entry": {
+      "type": "DIALOGUE",
+      "speakerText": "You found {boss_name} and put them down. That's the sort of work this town remembers. Go on, your road's your own from here.",
+      "responses": [],
+      "onEnter": [
+        { "type": "TUTORIAL_TURN_IN_PHASE_3" }
       ],
       "exhaustsTopic": true
     },

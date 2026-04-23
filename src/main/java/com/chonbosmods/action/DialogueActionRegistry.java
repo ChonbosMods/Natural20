@@ -94,6 +94,9 @@ public class DialogueActionRegistry {
      *  READY_FOR_TURN_IN to phase 3. Piece 2 stub rewrites the objective summary
      *  to "More coming soon."; Piece 3 replaces with real boss/POI setup. */
     public static final String TUTORIAL_TURN_IN_PHASE_2 = "TUTORIAL_TURN_IN_PHASE_2";
+    /** Tutorial phase-3 turn-in: marks the quest COMPLETED, awards per-phase XP,
+     *  and sends a closing system message. No item reward for the MVP. */
+    public static final String TUTORIAL_TURN_IN_PHASE_3 = "TUTORIAL_TURN_IN_PHASE_3";
 
     private final Map<String, DialogueAction> actions = new HashMap<>();
 
@@ -741,17 +744,57 @@ public class DialogueActionRegistry {
             }
 
             quest.incrementConflictCount();
+            List<ObjectiveInstance> objectives = quest.getObjectives();
+            ObjectiveInstance phase3Obj = objectives.size() > 2 ? objectives.get(2) : null;
+            com.chonbosmods.quest.TutorialPhase3Setup.setupPhase3(quest, phase3Obj);
             quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
-            // Piece 3 replaces this stub with real hostile POI + boss pre-roll.
-            quest.getVariableBindings().put("quest_objective_summary", "More coming soon.");
             saveQuest(questSystem, ctx.playerData(), quest);
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
 
             LOGGER.atInfo().log(
-                "TUTORIAL_TURN_IN_PHASE_2: tutorial_main advanced to phase 3 stub for %s",
+                "TUTORIAL_TURN_IN_PHASE_2: tutorial_main advanced to phase 3 for %s",
                 ctx.player().getPlayerRef().getUuid());
+        });
+
+        register(TUTORIAL_TURN_IN_PHASE_3, (ctx, params) -> {
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) return;
+            QuestInstance quest = questSystem.getStateManager().getQuest(
+                ctx.playerData(), com.chonbosmods.quest.TutorialQuestFactory.QUEST_ID);
+            if (quest == null) {
+                LOGGER.atWarning().log("TUTORIAL_TURN_IN_PHASE_3: tutorial_main not found for %s",
+                    ctx.player().getPlayerRef().getUuid());
+                return;
+            }
+            if (quest.getConflictCount() != 2
+                    || quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) {
+                LOGGER.atWarning().log(
+                    "TUTORIAL_TURN_IN_PHASE_3: unexpected quest state cc=%d state=%s",
+                    quest.getConflictCount(), quest.getState());
+                return;
+            }
+
+            int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(ctx.playerData().getLevel());
+            if (xp > 0) {
+                Natural20.getInstance().getXpService().award(
+                    ctx.player(), ctx.playerRef(), ctx.store(),
+                    xp, "quest:" + quest.getQuestId() + ":phase2");
+            }
+
+            String bossName = quest.getVariableBindings().getOrDefault("boss_name", "the boss");
+            ctx.systemLogger().accept(
+                "Tutorial complete. " + bossName + " falls, and Celius nods you on. Received " + xp + " XP.");
+
+            questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
+
+            QuestMarkerProvider.refreshMarkers(
+                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+
+            LOGGER.atInfo().log(
+                "TUTORIAL_TURN_IN_PHASE_3: tutorial_main completed for %s (xp=%d)",
+                ctx.player().getPlayerRef().getUuid(), xp);
         });
     }
 

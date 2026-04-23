@@ -33,6 +33,9 @@ public final class TutorialQuestFactory {
     public static final String SOURCE_NPC_ID = "CeliusGravus";
     public static final String SOURCE_SETTLEMENT_ID = "0,0";
     public static final String QUEST_TOPIC_HEADER = "A Matter of Urgency";
+    /** Difficulty config id used for the tutorial quest. Drives phase-3 mob/boss ilvl,
+     *  populationSpec, XP, and reward tier range. "easy" ⇒ Common-Uncommon rewards. */
+    public static final String DIFFICULTY_ID = "easy";
 
     private TutorialQuestFactory() {}
 
@@ -108,6 +111,7 @@ public final class TutorialQuestFactory {
             QUEST_ID, SITUATION_ID, SOURCE_NPC_ID, SOURCE_SETTLEMENT_ID,
             objectives, bindings);
         quest.setMaxConflicts(2);
+        quest.setDifficultyId(DIFFICULTY_ID);
         quest.setState(QuestState.READY_FOR_TURN_IN);
         quest.setAccepters(List.of(playerUuid));
 
