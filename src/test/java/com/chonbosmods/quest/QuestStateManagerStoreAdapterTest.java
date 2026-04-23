@@ -53,8 +53,8 @@ class QuestStateManagerStoreAdapterTest {
 
         mgr.addQuest(aliceData, q);
 
-        assertNotNull(store.getById("solo-accept"));
-        assertEquals(List.of(alice), store.getById("solo-accept").getAccepters(),
+        assertNotNull(store.get("solo-accept"));
+        assertEquals(List.of(alice), store.get("solo-accept").getAccepters(),
             "legacy addQuest path defaults accepters to [self] when empty");
     }
 
@@ -74,7 +74,7 @@ class QuestStateManagerStoreAdapterTest {
 
         mgr.addQuest(aliceData, q);
 
-        assertEquals(List.of(alice, bob), store.getById("party-accept").getAccepters());
+        assertEquals(List.of(alice, bob), store.get("party-accept").getAccepters());
     }
 
     @Test
@@ -110,7 +110,7 @@ class QuestStateManagerStoreAdapterTest {
 
         mgr.removeQuest(aliceData, "doomed");
 
-        assertNull(store.getById("doomed"));
+        assertNull(store.get("doomed"));
     }
 
     @Test

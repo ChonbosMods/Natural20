@@ -26,7 +26,7 @@ class QuestStateManagerAcceptForPartyTest {
 
         mgr.acceptForParty(party, q);
 
-        QuestInstance stored = store.getById("party-quest");
+        QuestInstance stored = store.get("party-quest");
         assertNotNull(stored);
         assertEquals(List.of(alice, bob), stored.getAccepters());
     }
@@ -47,7 +47,7 @@ class QuestStateManagerAcceptForPartyTest {
 
         party.removeMember(bob); // bob leaves after accept
 
-        assertEquals(List.of(alice, bob), store.getById("frozen").getAccepters(),
+        assertEquals(List.of(alice, bob), store.get("frozen").getAccepters(),
             "accepters is frozen at accept time and does not track party membership");
     }
 
@@ -63,7 +63,7 @@ class QuestStateManagerAcceptForPartyTest {
         q.setQuestId("solo");
         mgr.acceptForParty(solo, q);
 
-        assertEquals(List.of(alice), store.getById("solo").getAccepters());
+        assertEquals(List.of(alice), store.get("solo").getAccepters());
     }
 
     @Test

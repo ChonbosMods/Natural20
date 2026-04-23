@@ -4,6 +4,7 @@ import com.chonbosmods.quest.QuestInstance;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.hypixel.hytale.logger.HytaleLogger;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -30,6 +31,8 @@ import java.util.UUID;
  * §11 Storage architecture.
  */
 public class Nat20PartyQuestStore {
+
+    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20PartyQuestStore");
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Type PRIMARY_TYPE =
@@ -72,12 +75,6 @@ public class Nat20PartyQuestStore {
         }
     }
 
-    public QuestInstance getById(String questId) {
-        return primary.get(questId);
-    }
-
-    /** Alias for {@link #getById(String)}; provided for call sites that prefer
-     *  the shorter name. */
     public QuestInstance get(String questId) {
         return primary.get(questId);
     }
@@ -101,6 +98,7 @@ public class Nat20PartyQuestStore {
         try {
             save();
         } catch (IOException e) {
+            LOGGER.atSevere().withCause(e).log("Failed to persist dropAccepter questId=%s", questId);
             throw new RuntimeException("Failed to persist dropAccepter for quest " + questId, e);
         }
     }
@@ -116,6 +114,7 @@ public class Nat20PartyQuestStore {
     public void remove(String questId) {
         QuestInstance q = primary.remove(questId);
         if (q == null) return;
+        // Walk raw accepters: any stale index entries for dropped players must also be cleaned up.
         for (UUID player : q.getAccepters()) {
             Set<String> ids = byPlayer.get(player);
             if (ids == null) continue;

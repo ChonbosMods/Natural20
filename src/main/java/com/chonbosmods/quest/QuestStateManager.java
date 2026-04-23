@@ -119,7 +119,7 @@ public class QuestStateManager {
 
     public QuestInstance getQuest(Nat20PlayerData data, String questId) {
         if (store != null) {
-            QuestInstance q = store.getById(questId);
+            QuestInstance q = store.get(questId);
             if (q == null) return null;
             UUID uuid = data.getPlayerUuid();
             if (uuid == null || !q.hasAccepter(uuid)) return null;

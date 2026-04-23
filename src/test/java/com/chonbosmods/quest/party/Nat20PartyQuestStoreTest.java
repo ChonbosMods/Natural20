@@ -27,13 +27,13 @@ class Nat20PartyQuestStoreTest {
 
         store.add(q);
 
-        assertSame(q, store.getById("q-001"));
+        assertSame(q, store.get("q-001"));
     }
 
     @Test
     void getByIdReturnsNullForUnknown() {
         Nat20PartyQuestStore store = new Nat20PartyQuestStore();
-        assertNull(store.getById("nope"));
+        assertNull(store.get("nope"));
     }
 
     @Test
@@ -88,7 +88,7 @@ class Nat20PartyQuestStoreTest {
 
         store.remove("gone");
 
-        assertNull(store.getById("gone"));
+        assertNull(store.get("gone"));
         assertTrue(store.queryByPlayer(alice).isEmpty());
     }
 
@@ -108,10 +108,10 @@ class Nat20PartyQuestStoreTest {
         q.setMaxConflicts(3);
         store.add(q);
 
-        QuestInstance first = store.getById("mut");
+        QuestInstance first = store.get("mut");
         first.incrementConflictCount();
 
-        QuestInstance second = store.getById("mut");
+        QuestInstance second = store.get("mut");
         assertEquals(1, second.getConflictCount(),
             "store must return the same live instance, not a copy (avoids the transient-deserialization trap)");
         assertSame(first, second);
@@ -152,7 +152,7 @@ class Nat20PartyQuestStoreTest {
         Nat20PartyQuestStore in = new Nat20PartyQuestStore();
         in.loadFrom(file);
 
-        QuestInstance loaded = in.getById("q1");
+        QuestInstance loaded = in.get("q1");
         assertNotNull(loaded);
         assertEquals(List.of(alice, bob), loaded.getAccepters());
         assertEquals(2, loaded.getMaxConflicts());
@@ -166,7 +166,7 @@ class Nat20PartyQuestStoreTest {
     void loadFromMissingFileStartsEmpty(@TempDir Path tmp) throws Exception {
         Nat20PartyQuestStore store = new Nat20PartyQuestStore();
         store.loadFrom(tmp.resolve("nope.json"));
-        assertNull(store.getById("anything"));
+        assertNull(store.get("anything"));
     }
 
     @Test
@@ -185,7 +185,7 @@ class Nat20PartyQuestStoreTest {
 
         assertEquals(List.of(alice, bob), recordedFor,
             "every accepter must receive a completion record, in accepters order");
-        assertNull(store.getById("done"));
+        assertNull(store.get("done"));
         assertTrue(store.queryByPlayer(alice).isEmpty());
         assertTrue(store.queryByPlayer(bob).isEmpty());
     }
@@ -228,7 +228,7 @@ class Nat20PartyQuestStoreTest {
 
         store.migratePlayer(alice, legacyActive);
 
-        QuestInstance migrated = store.getById("legacy-1");
+        QuestInstance migrated = store.get("legacy-1");
         assertNotNull(migrated);
         assertEquals(List.of(alice), migrated.getAccepters());
         assertEquals(1, store.queryByPlayer(alice).size());
@@ -249,7 +249,7 @@ class Nat20PartyQuestStoreTest {
 
         store.migratePlayer(alice, Map.of("legacy-1", legacy));
 
-        assertSame(existing, store.getById("legacy-1"),
+        assertSame(existing, store.get("legacy-1"),
             "first writer wins: migration does not overwrite an existing entry");
         assertEquals(1, store.queryByPlayer(alice).size());
     }
@@ -299,8 +299,8 @@ class Nat20PartyQuestStoreTest {
 
         store.loadFrom(file);
 
-        assertNull(store.getById("stale"), "load must wipe pre-existing in-memory state");
-        assertNotNull(store.getById("persisted"));
+        assertNull(store.get("stale"), "load must wipe pre-existing in-memory state");
+        assertNotNull(store.get("persisted"));
         assertTrue(store.queryByPlayer(bob).isEmpty());
     }
 
