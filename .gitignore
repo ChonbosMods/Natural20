@@ -58,7 +58,8 @@ Thumbs.db
 
 ### Claude / AI ###
 .claude/
-docs/
+docs/*
+!docs/wiki/
 
 ### Decompiled SDK ###
 /com/
