@@ -55,6 +55,9 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
     // preserve total damage (affix × BASE_TICKS), so per-tick scales up as duration
     // shrinks — shorter duration = higher DPS = more valuable roll.
     private static final float BASE_TICKS = Nat20DotTickSystem.MAX_DURATION / TICK_INTERVAL;
+    // Per-tick damage scales with INT (magic damage stat). Proc reliability
+    // is driven by def.procScaling() from the affix JSON (typically WIS).
+    private static final double INT_DAMAGE_FACTOR = 0.15;
 
     private final Nat20LootSystem lootSystem;
     private final Nat20DotTickSystem dotTickSystem;
@@ -140,10 +143,10 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                 if (procChance <= 0) continue;
 
                 PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
-                if (stats != null && def.statScaling() != null) {
-                    Stat primary = def.statScaling().primary();
+                if (stats != null && def.procScaling() != null) {
+                    Stat primary = def.procScaling().primary();
                     int modifier = stats.getPowerModifier(primary);
-                    procChance *= (1.0 + modifier * def.statScaling().factor());
+                    procChance *= (1.0 + modifier * def.procScaling().factor());
                 }
                 procChance = Math.min(procChance, 1.0);
 
@@ -170,9 +173,9 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
                     double rolledLevel = rolledAffix.rollLevel(rng);
                     double perTickAtBase = range.interpolate(rolledLevel, src.ilvl(), src.qualityValue());
                     PlayerStats dotStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
-                    if (dotStats != null && def.statScaling() != null) {
-                        int mod = dotStats.getPowerModifier(def.statScaling().primary());
-                        perTickAtBase *= (1.0 + mod * def.statScaling().factor());
+                    if (dotStats != null) {
+                        int intMod = dotStats.getPowerModifier(Stat.INT);
+                        perTickAtBase *= (1.0 + intMod * INT_DAMAGE_FACTOR);
                     }
                     double totalDamage = perTickAtBase * BASE_TICKS;
                     damagePerTick = (float) (totalDamage / actualTicks);

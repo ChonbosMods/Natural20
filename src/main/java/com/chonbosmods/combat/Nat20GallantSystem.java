@@ -131,6 +131,17 @@ public class Nat20GallantSystem extends DamageEventSystem {
 
         if (totalProcChance <= 0 || totalReduction <= 0) return;
 
+        // Scale proc chance by the stat declared in ProcScaling (typically WIS),
+        // kept distinct from StatScaling which scales the reduction value (CHA).
+        PlayerStats procStats = resolvePlayerStats(defenderRef, store);
+        Nat20AffixDef procDef = affixRegistry.get(AFFIX_ID);
+        if (procStats != null && procDef != null && procDef.procScaling() != null) {
+            Stat primary = procDef.procScaling().primary();
+            int modifier = procStats.getPowerModifier(primary);
+            totalProcChance *= (1.0 + modifier * procDef.procScaling().factor());
+        }
+        totalProcChance = Math.min(totalProcChance, 1.0);
+
         totalReduction = Nat20Softcap.softcap(totalReduction, SOFTCAP_K);
 
         double roll = ThreadLocalRandom.current().nextDouble();

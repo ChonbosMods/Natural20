@@ -39,6 +39,13 @@ import java.util.concurrent.ConcurrentHashMap;
  *   1. Filter: consume existing hex (amplify this hit)
  *   2. Inspect: apply new hex (for the next hit)
  * This means a hex weapon naturally consumes then reapplies each swing.
+ *
+ * TODO (deferred rework): Hex should NOT be consumed by, or apply its bonus to,
+ * damage originating from the same item that applied the hex. The current behavior
+ * lets a Hex weapon consume its own curse on every swing from the second hit onward,
+ * effectively turning Hex into a flat damage multiplier on self. Intended design is:
+ * Hex is applied by weapon A, the next non-weapon-A damage consumes it. Weapon A's
+ * own hits should neither amplify nor consume. Not fixing yet — needs design pass.
  */
 public class Nat20HexSystem extends DamageEventSystem {
 

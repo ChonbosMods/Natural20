@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Vicious Mockery: on melee hit, applies debuff EntityEffect on target.
@@ -97,12 +98,26 @@ public class Nat20ViciousMockerySystem extends DamageEventSystem {
                 Nat20AffixDef def = affixRegistry.get(AFFIX_ID);
                 if (def == null) return;
 
+                PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+
+                // Proc chance gate: base from ProcChance, scaled by the stat declared
+                // in ProcScaling (typically WIS). Kept distinct from StatScaling which
+                // scales the amplify value (typically CHA).
+                double procChance = parseProcChance(def.procChance());
+                if (procChance <= 0) return;
+                if (stats != null && def.procScaling() != null) {
+                    Stat primary = def.procScaling().primary();
+                    int modifier = stats.getPowerModifier(primary);
+                    procChance *= (1.0 + modifier * def.procScaling().factor());
+                }
+                procChance = Math.min(procChance, 1.0);
+                if (ThreadLocalRandom.current().nextDouble() > procChance) return;
+
                 AffixValueRange range = def.getValuesForRarity(src.rarity());
                 if (range == null) return;
 
                 double baseValue = range.interpolate(rolledAffix.midLevel(), src.ilvl(), src.qualityValue());
                 double effectiveValue = baseValue;
-                PlayerStats stats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
                 if (stats != null && def.statScaling() != null) {
                     Stat primary = def.statScaling().primary();
                     int modifier = stats.getPowerModifier(primary);
@@ -146,6 +161,20 @@ public class Nat20ViciousMockerySystem extends DamageEventSystem {
             return 0;
         }
         return state.amplifyMultiplier;
+    }
+
+    private static double parseProcChance(@Nullable String procChanceStr) {
+        if (procChanceStr == null || procChanceStr.isEmpty()) return 0.0;
+        try {
+            String trimmed = procChanceStr.strip();
+            if (trimmed.endsWith("%")) {
+                return Double.parseDouble(trimmed.substring(0, trimmed.length() - 1)) / 100.0;
+            }
+            return Double.parseDouble(trimmed);
+        } catch (NumberFormatException e) {
+            LOGGER.atWarning().log("[ViciousMockery] failed to parse proc chance: '%s'", procChanceStr);
+            return 0.0;
+        }
     }
 
     private boolean resolveEffect() {

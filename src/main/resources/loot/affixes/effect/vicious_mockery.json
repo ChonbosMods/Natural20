@@ -12,6 +12,10 @@
     "Primary": "CHA",
     "Factor": 0.15
   },
+  "ProcScaling": {
+    "Primary": "WIS",
+    "Factor": 0.15
+  },
   "TargetStat": "ViciousMockery",
   "ModifierType": "ADDITIVE",
   "ValuesPerRarity": {
@@ -37,6 +41,7 @@
     }
   },
   "Description": "On hit, target takes increased damage from all sources for a short time.",
+  "ProcChance": "60%",
   "MobEligible": true,
   "AffixSlotCost": 1
 }

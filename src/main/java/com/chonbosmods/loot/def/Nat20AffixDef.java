@@ -16,6 +16,7 @@ public record Nat20AffixDef(
     Set<String> categories,
     @Nullable Map<Stat, Integer> statRequirement,
     @Nullable StatScaling statScaling,
+    @Nullable StatScaling procScaling,
     String targetStat,
     String modifierType,
     Map<String, AffixValueRange> valuesPerRarity,

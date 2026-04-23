@@ -111,6 +111,15 @@ public class Nat20AffixRegistry {
             );
         }
 
+        StatScaling procScaling = null;
+        if (obj.has("ProcScaling") && !obj.get("ProcScaling").isJsonNull()) {
+            JsonObject ps = obj.getAsJsonObject("ProcScaling");
+            procScaling = new StatScaling(
+                Stat.valueOf(ps.get("Primary").getAsString()),
+                ps.get("Factor").getAsDouble()
+            );
+        }
+
         Map<String, AffixValueRange> valuesPerRarity = new LinkedHashMap<>();
         if (obj.has("ValuesPerRarity")) {
             JsonObject vpObj = obj.getAsJsonObject("ValuesPerRarity");
@@ -148,6 +157,7 @@ public class Nat20AffixRegistry {
             categories,
             statReq,
             scaling,
+            procScaling,
             obj.has("TargetStat") && !obj.get("TargetStat").isJsonNull() ? obj.get("TargetStat").getAsString() : null,
             obj.has("ModifierType") && !obj.get("ModifierType").isJsonNull() ? obj.get("ModifierType").getAsString() : "ADDITIVE",
             valuesPerRarity,

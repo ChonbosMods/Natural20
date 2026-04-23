@@ -4,7 +4,7 @@
 
 Some weapons carry a **DOT** affix: on hit, they have a chance to apply a lingering elemental effect that ticks damage on the target for several seconds. There are four flavors: **Ignite** (fire), **Cold** (frost), **Infect** (poison), and **Corrupt** (void).
 
-Base proc chance is 60% per hit, and Wisdom scales both the proc chance (up to a 100% cap) and the damage per tick. Each DOT's values are locked in at application time and tick at a fixed interval until the DOT runs out. Different DOT types stack on the same target, but while one element is ticking, further hits of that same element can't start a new DOT until the old one ends. Ticks are amplified by Elemental Weakness and reduced by Elemental Resistance.
+Base proc chance is 60% per hit, and Wisdom scales the proc chance toward a 100% cap. Intelligence scales the damage per tick. Each DOT's values are locked in at application time and tick at a fixed interval until the DOT runs out. Different DOT types stack on the same target, but while one element is ticking, further hits of that same element can't start a new DOT until the old one ends. Ticks are amplified by Elemental Weakness and reduced by Elemental Resistance.
 
 ---
 
@@ -40,7 +40,7 @@ procChance = min(1.0, 0.60 × (1 + 0.15 × WIS_modifier))
 - **+4 WIS**: 96% per hit
 - **+5 WIS or higher**: 100% per hit (cap)
 
-So a dedicated caster hits the ceiling with enough WIS investment, while low-WIS wielders lose about two in five procs. WIS also boosts per-tick damage (see below), so the stat pulls double duty.
+So a dedicated caster hits the ceiling with enough WIS investment, while low-WIS wielders lose about two in five procs. Per-tick damage is scaled by **INT** separately (see below): WIS lands the DOT, INT makes it hurt.
 
 ### Duration
 
@@ -78,17 +78,24 @@ So a Rare affix that rolls a base of `3.0` per tick delivers `3.0 × 7.5 = 22.5`
 
 A hard floor of **0.5 damage per tick** is enforced so low rolls always tick for something.
 
-### WIS scaling
+### Stat scaling (WIS for proc, INT for damage)
 
-The DOT's base per-tick value is scaled by the wielder's **Wisdom (WIS)** modifier with a factor of **0.15**:
+Elemental DOTs split stat responsibilities cleanly:
+
+- **Wisdom (WIS)** governs caster reliability: it scales the proc chance (covered above).
+- **Intelligence (INT)** governs magic damage output: it scales the per-tick damage value.
+
+The INT scaling factor is **0.15** per point of INT modifier:
 
 ```
-effectivePerTick = rolledPerTickValue × (1 + 0.15 × WIS_modifier)
+effectivePerTick = rolledPerTickValue × (1 + 0.15 × INT_modifier)
 ```
 
-This scaling is snapshotted **at application time**. If the wielder's WIS changes mid-DOT, the ticks already in flight don't change: only new applications see new WIS.
+Like proc scaling, damage scaling is snapshotted **at application time**. If the wielder's INT changes mid-DOT, the ticks already in flight don't change: only new applications see new INT.
 
-WIS scaling is applied *before* the total-damage-preservation formula, so stronger WIS increases total damage proportionally.
+INT scaling is applied *before* the total-damage-preservation formula, so stronger INT increases total damage proportionally across any duration roll.
+
+This split means a dedicated elemental-caster build invests in both stats: WIS so the DOT reliably lands, INT so it hits hard when it does.
 
 ### Tick timing and sync
 
@@ -112,15 +119,15 @@ DOT ticks are tagged with the element's damage type, so downstream systems see t
 
 - **Elemental Weakness** on the target: amplifies each tick by the weakness percentage.
 - **Elemental Resistance** on the target: reduces each tick by the resistance percentage.
-- **INT scaling from Nat20ScoreDamageSystem**: does **not** apply to DOT ticks. INT boosts the direct elemental weapon damage at application time, but DOT ticks use the WIS-scaled per-tick value that was baked in when the DOT was applied.
+- **INT's flat elemental bonus (from direct elemental hits)**: does **not** stack on top of DOT ticks. INT's flat-per-hit bonus applies to direct elemental weapon damage; for DOTs, INT scaling is already baked into the per-tick value at application time (see Stat scaling above). The two amplifications don't compound.
 - **Applying new weakness/DOTs from DOT ticks**: DOT ticks never re-trigger weapon affixes. They do not apply weakness, they do not re-roll DOT procs, and they do not trigger elemental-damage secondary hits. Only direct hits do.
 
 ### End-to-end example
 
-A player with +3 WIS wields a **Rare** sword rolled with `Ignite`, base per-tick `3.0`, duration `10 seconds`. The target has a **30% Fire Weakness** active.
+A player with **+3 WIS** and **+3 INT** wields a **Rare** sword rolled with `Ignite`, base per-tick `3.0`, duration `10 seconds`. The target has a **30% Fire Weakness** active.
 
-1. Player hits. Proc chance: `0.60 × (1 + 0.15 × 3) = 0.60 × 1.45 ≈ 87%`. The roll passes; Ignite applies. (If it had failed, the hit would still land normally; just no DOT this swing.)
-2. Per-tick with WIS: `3.0 × (1 + 0.15 × 3) = 3.0 × 1.45 ≈ 4.35` per tick at max duration.
+1. Player hits. Proc chance (WIS): `0.60 × (1 + 0.15 × 3) = 0.60 × 1.45 ≈ 87%`. The roll passes; Ignite applies. (If it had failed, the hit would still land normally; just no DOT this swing.)
+2. Per-tick damage (INT): `3.0 × (1 + 0.15 × 3) = 3.0 × 1.45 ≈ 4.35` per tick at max duration.
 3. Total damage preserved to 10 s: `totalDamage = 4.35 × 7.5 ≈ 32.6`, spread over `10 / 2 = 5` ticks → `32.6 / 5 ≈ 6.5` damage per tick.
 4. Each tick fires with a fire damage tag. Fire Weakness on the target amplifies by 30%: `6.5 × 1.30 ≈ 8.5` damage per tick actually applied.
 5. Over the DOT's 10-second life, the target takes roughly `8.5 × 5 = 42.5` fire damage, on top of the initial physical hit.
