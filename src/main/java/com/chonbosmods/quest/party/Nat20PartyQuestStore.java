@@ -67,13 +67,42 @@ public class Nat20PartyQuestStore {
             throw new IllegalArgumentException("QuestInstance must have a questId before add()");
         }
         primary.put(id, quest);
-        for (UUID player : quest.getAccepters()) {
+        for (UUID player : quest.eligibleAccepters()) {
             byPlayer.computeIfAbsent(player, k -> new HashSet<>()).add(id);
         }
     }
 
     public QuestInstance getById(String questId) {
         return primary.get(questId);
+    }
+
+    /** Alias for {@link #getById(String)}; provided for call sites that prefer
+     *  the shorter name. */
+    public QuestInstance get(String questId) {
+        return primary.get(questId);
+    }
+
+    /**
+     * Mark {@code playerUuid} as ineligible for {@code questId} (e.g. out of
+     * proximity at reward time, or explicitly opted out). The player stays in
+     * {@link QuestInstance#getAccepters()} for audit purposes but is removed
+     * from the per-player index so {@link #queryByPlayer(UUID)} stops returning
+     * this quest for them. The change is persisted immediately.
+     */
+    public void dropAccepter(String questId, UUID playerUuid) {
+        QuestInstance q = primary.get(questId);
+        if (q == null) return;
+        q.dropAccepter(playerUuid);
+        Set<String> indexEntry = byPlayer.get(playerUuid);
+        if (indexEntry != null) {
+            indexEntry.remove(questId);
+            if (indexEntry.isEmpty()) byPlayer.remove(playerUuid);
+        }
+        try {
+            save();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to persist dropAccepter for quest " + questId, e);
+        }
     }
 
     public List<QuestInstance> queryByPlayer(UUID player) {
@@ -150,7 +179,7 @@ public class Nat20PartyQuestStore {
         if (loaded == null) return;
         primary.putAll(loaded);
         for (QuestInstance q : loaded.values()) {
-            for (UUID player : q.getAccepters()) {
+            for (UUID player : q.eligibleAccepters()) {
                 byPlayer.computeIfAbsent(player, k -> new HashSet<>()).add(q.getQuestId());
             }
         }
