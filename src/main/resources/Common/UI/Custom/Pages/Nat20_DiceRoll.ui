@@ -49,38 +49,38 @@ $C.@Container {
         Anchor: (Width: 110, Height: 110);
 
         // Tumble frames (10)
-        Group #A_T01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_01.png"); Visible: false; }
-        Group #A_T02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_02.png"); Visible: false; }
-        Group #A_T03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_03.png"); Visible: false; }
-        Group #A_T04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_04.png"); Visible: false; }
-        Group #A_T05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_05.png"); Visible: false; }
-        Group #A_T06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_06.png"); Visible: false; }
-        Group #A_T07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_07.png"); Visible: false; }
-        Group #A_T08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_08.png"); Visible: false; }
-        Group #A_T09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_09.png"); Visible: false; }
-        Group #A_T10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_10.png"); Visible: false; }
+        Group #AT01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_01.png"); Visible: false; }
+        Group #AT02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_02.png"); Visible: false; }
+        Group #AT03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_03.png"); Visible: false; }
+        Group #AT04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_04.png"); Visible: false; }
+        Group #AT05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_05.png"); Visible: false; }
+        Group #AT06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_06.png"); Visible: false; }
+        Group #AT07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_07.png"); Visible: false; }
+        Group #AT08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_08.png"); Visible: false; }
+        Group #AT09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_09.png"); Visible: false; }
+        Group #AT10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_10.png"); Visible: false; }
 
         // Result frames (20)
-        Group #A_R01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_01.png"); Visible: false; }
-        Group #A_R02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_02.png"); Visible: false; }
-        Group #A_R03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_03.png"); Visible: false; }
-        Group #A_R04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_04.png"); Visible: false; }
-        Group #A_R05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_05.png"); Visible: false; }
-        Group #A_R06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_06.png"); Visible: false; }
-        Group #A_R07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_07.png"); Visible: false; }
-        Group #A_R08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_08.png"); Visible: false; }
-        Group #A_R09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_09.png"); Visible: false; }
-        Group #A_R10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_10.png"); Visible: false; }
-        Group #A_R11 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_11.png"); Visible: false; }
-        Group #A_R12 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_12.png"); Visible: false; }
-        Group #A_R13 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_13.png"); Visible: false; }
-        Group #A_R14 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_14.png"); Visible: false; }
-        Group #A_R15 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_15.png"); Visible: false; }
-        Group #A_R16 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_16.png"); Visible: false; }
-        Group #A_R17 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_17.png"); Visible: false; }
-        Group #A_R18 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_18.png"); Visible: false; }
-        Group #A_R19 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_19.png"); Visible: false; }
-        Group #A_R20 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_20.png"); Visible: false; }
+        Group #AR01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_01.png"); Visible: false; }
+        Group #AR02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_02.png"); Visible: false; }
+        Group #AR03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_03.png"); Visible: false; }
+        Group #AR04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_04.png"); Visible: false; }
+        Group #AR05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_05.png"); Visible: false; }
+        Group #AR06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_06.png"); Visible: false; }
+        Group #AR07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_07.png"); Visible: false; }
+        Group #AR08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_08.png"); Visible: false; }
+        Group #AR09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_09.png"); Visible: false; }
+        Group #AR10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_10.png"); Visible: false; }
+        Group #AR11 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_11.png"); Visible: false; }
+        Group #AR12 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_12.png"); Visible: false; }
+        Group #AR13 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_13.png"); Visible: false; }
+        Group #AR14 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_14.png"); Visible: false; }
+        Group #AR15 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_15.png"); Visible: false; }
+        Group #AR16 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_16.png"); Visible: false; }
+        Group #AR17 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_17.png"); Visible: false; }
+        Group #AR18 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_18.png"); Visible: false; }
+        Group #AR19 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_19.png"); Visible: false; }
+        Group #AR20 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_20.png"); Visible: false; }
       }
       Group #DiceGap { Anchor: (Width: 20, Height: 110); Visible: false; }
       Group #DieB {
@@ -88,38 +88,38 @@ $C.@Container {
         Visible: false;
 
         // Tumble frames (10)
-        Group #B_T01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_01.png"); Visible: false; }
-        Group #B_T02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_02.png"); Visible: false; }
-        Group #B_T03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_03.png"); Visible: false; }
-        Group #B_T04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_04.png"); Visible: false; }
-        Group #B_T05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_05.png"); Visible: false; }
-        Group #B_T06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_06.png"); Visible: false; }
-        Group #B_T07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_07.png"); Visible: false; }
-        Group #B_T08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_08.png"); Visible: false; }
-        Group #B_T09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_09.png"); Visible: false; }
-        Group #B_T10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_10.png"); Visible: false; }
+        Group #BT01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_01.png"); Visible: false; }
+        Group #BT02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_02.png"); Visible: false; }
+        Group #BT03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_03.png"); Visible: false; }
+        Group #BT04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_04.png"); Visible: false; }
+        Group #BT05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_05.png"); Visible: false; }
+        Group #BT06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_06.png"); Visible: false; }
+        Group #BT07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_07.png"); Visible: false; }
+        Group #BT08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_08.png"); Visible: false; }
+        Group #BT09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_09.png"); Visible: false; }
+        Group #BT10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_tumble_10.png"); Visible: false; }
 
         // Result frames (20)
-        Group #B_R01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_01.png"); Visible: false; }
-        Group #B_R02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_02.png"); Visible: false; }
-        Group #B_R03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_03.png"); Visible: false; }
-        Group #B_R04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_04.png"); Visible: false; }
-        Group #B_R05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_05.png"); Visible: false; }
-        Group #B_R06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_06.png"); Visible: false; }
-        Group #B_R07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_07.png"); Visible: false; }
-        Group #B_R08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_08.png"); Visible: false; }
-        Group #B_R09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_09.png"); Visible: false; }
-        Group #B_R10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_10.png"); Visible: false; }
-        Group #B_R11 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_11.png"); Visible: false; }
-        Group #B_R12 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_12.png"); Visible: false; }
-        Group #B_R13 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_13.png"); Visible: false; }
-        Group #B_R14 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_14.png"); Visible: false; }
-        Group #B_R15 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_15.png"); Visible: false; }
-        Group #B_R16 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_16.png"); Visible: false; }
-        Group #B_R17 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_17.png"); Visible: false; }
-        Group #B_R18 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_18.png"); Visible: false; }
-        Group #B_R19 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_19.png"); Visible: false; }
-        Group #B_R20 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_20.png"); Visible: false; }
+        Group #BR01 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_01.png"); Visible: false; }
+        Group #BR02 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_02.png"); Visible: false; }
+        Group #BR03 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_03.png"); Visible: false; }
+        Group #BR04 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_04.png"); Visible: false; }
+        Group #BR05 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_05.png"); Visible: false; }
+        Group #BR06 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_06.png"); Visible: false; }
+        Group #BR07 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_07.png"); Visible: false; }
+        Group #BR08 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_08.png"); Visible: false; }
+        Group #BR09 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_09.png"); Visible: false; }
+        Group #BR10 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_10.png"); Visible: false; }
+        Group #BR11 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_11.png"); Visible: false; }
+        Group #BR12 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_12.png"); Visible: false; }
+        Group #BR13 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_13.png"); Visible: false; }
+        Group #BR14 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_14.png"); Visible: false; }
+        Group #BR15 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_15.png"); Visible: false; }
+        Group #BR16 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_16.png"); Visible: false; }
+        Group #BR17 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_17.png"); Visible: false; }
+        Group #BR18 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_18.png"); Visible: false; }
+        Group #BR19 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_19.png"); Visible: false; }
+        Group #BR20 { Anchor: (Left: 0, Top: 0, Right: 0, Bottom: 0); Background: (TexturePath: "d20_result_20.png"); Visible: false; }
       }
       Label { FlexWeight: 1; }
     }

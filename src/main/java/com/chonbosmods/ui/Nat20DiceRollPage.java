@@ -39,20 +39,21 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
     private static final long SETTLE_DELAY_MS = 200;
     private static final long DIE_B_START_DELAY_MS = 200;
 
-    // Frame selectors: #A_T01-#A_T10 / #B_T01-#B_T10 for tumble,
-    // #A_R01-#A_R20 / #B_R01-#B_R20 for results
+    // Frame selectors: #AT01-#AT10 / #BT01-#BT10 for tumble,
+    // #AR01-#AR20 / #BR01-#BR20 for results.
+    // No underscores: Hytale's .ui TextParser rejects underscores in element IDs.
     private static final String[] TUMBLE_IDS_A = new String[TUMBLE_FRAMES];
     private static final String[] RESULT_IDS_A = new String[20];
     private static final String[] TUMBLE_IDS_B = new String[TUMBLE_FRAMES];
     private static final String[] RESULT_IDS_B = new String[20];
     static {
         for (int i = 0; i < TUMBLE_FRAMES; i++) {
-            TUMBLE_IDS_A[i] = String.format("#A_T%02d", i + 1);
-            TUMBLE_IDS_B[i] = String.format("#B_T%02d", i + 1);
+            TUMBLE_IDS_A[i] = String.format("#AT%02d", i + 1);
+            TUMBLE_IDS_B[i] = String.format("#BT%02d", i + 1);
         }
         for (int i = 0; i < 20; i++) {
-            RESULT_IDS_A[i] = String.format("#A_R%02d", i + 1);
-            RESULT_IDS_B[i] = String.format("#B_R%02d", i + 1);
+            RESULT_IDS_A[i] = String.format("#AR%02d", i + 1);
+            RESULT_IDS_B[i] = String.format("#BR%02d", i + 1);
         }
     }
 
@@ -319,12 +320,12 @@ public class Nat20DiceRollPage extends InteractiveCustomUIPage<Nat20DiceRollPage
 
     /** Parse a frame element ID back to index. Works for either die since the suffix is the same. */
     private int parseFrameIdx(String frameId) {
-        // Expected forms: "#A_T01".."#A_T10", "#A_R01".."#A_R20", or the #B_ variants.
-        if (frameId.length() < 6) return -1;
-        char kind = frameId.charAt(3); // 'T' or 'R'
+        // Expected forms: "#AT01".."#AT10", "#AR01".."#AR20", or the #B variants.
+        if (frameId.length() < 5) return -1;
+        char kind = frameId.charAt(2); // 'T' or 'R'
         int n;
         try {
-            n = Integer.parseInt(frameId.substring(4));
+            n = Integer.parseInt(frameId.substring(3));
         } catch (NumberFormatException e) {
             return -1;
         }
