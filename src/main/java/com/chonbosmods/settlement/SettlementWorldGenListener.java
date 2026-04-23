@@ -29,8 +29,12 @@ public class SettlementWorldGenListener {
     private static final double JITTER_MAX = 0.75;
     private static final long SEED_OFFSET = 827364510L;
 
-    /** Spawn cell: (0,0) snaps to world spawn x/z so the tutorial NPC is walkable from spawn. */
-    private static final String SPAWN_CELL_KEY = "0,0";
+    /**
+     * Cached cell key containing the world spawn point. The settlement placed there
+     * snaps to world spawn x/z (no jitter) and has its first Guard promoted to
+     * Celius. Resolved lazily from the world's SpawnProvider on first chunk load.
+     */
+    private volatile String cachedSpawnCellKey;
 
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
@@ -83,7 +87,7 @@ public class SettlementWorldGenListener {
         int cellOriginZ = cellZ * CELL_SIZE;
         int settlementX;
         int settlementZ;
-        if (SPAWN_CELL_KEY.equals(cellKey)) {
+        if (resolveSpawnCellKey(world).equals(cellKey)) {
             // Spawn settlement anchors to world spawn so the tutorial NPC is walkable from drop-in.
             int[] spawnXZ = resolveSpawnCellAnchor(world);
             if (spawnXZ != null) {
@@ -170,7 +174,7 @@ public class SettlementWorldGenListener {
                     record.setPosY(groundY);
                     record.getNpcs().addAll(spawned);
 
-                    if (SPAWN_CELL_KEY.equals(cellKey)) {
+                    if (resolveSpawnCellKey(world).equals(cellKey)) {
                         renameFirstGuardToCelius(store, world, spawned);
                     }
                     // Capture every Nat20_Chest_Spawn marker so passive fetch quests can
@@ -299,7 +303,7 @@ public class SettlementWorldGenListener {
                chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
     }
 
-    /** Resolve the world-spawn x/z for the (0,0) cell anchor. Null on failure. */
+    /** Resolve the world-spawn x/z anchor for the spawn cell. Null on failure. */
     private int[] resolveSpawnCellAnchor(World world) {
         try {
             Transform t = world.getWorldConfig().getSpawnProvider()
@@ -308,8 +312,36 @@ public class SettlementWorldGenListener {
             return new int[]{(int) p.getX(), (int) p.getZ()};
         } catch (Exception e) {
             LOGGER.atWarning().withCause(e).log(
-                "Failed to resolve world spawn for (0,0); falling back to jitter");
+                "Failed to resolve world spawn anchor; falling back to jitter");
             return null;
+        }
+    }
+
+    /**
+     * Resolve the cell key that contains the world spawn. Cached after first success.
+     * Used to pick which cell's settlement hosts Celius and skips jitter.
+     * Falls back to "0,0" if the spawn provider throws; that fallback is harmless
+     * because the eventual (0,0) placement will still behave like any other cell.
+     */
+    private String resolveSpawnCellKey(World world) {
+        String cached = cachedSpawnCellKey;
+        if (cached != null) return cached;
+        try {
+            Transform t = world.getWorldConfig().getSpawnProvider()
+                .getSpawnPoint(world, new UUID(0L, 0L));
+            Vector3d p = t.getPosition();
+            int sx = Math.floorDiv((int) p.getX(), CELL_SIZE);
+            int sz = Math.floorDiv((int) p.getZ(), CELL_SIZE);
+            String key = sx + "," + sz;
+            cachedSpawnCellKey = key;
+            LOGGER.atInfo().log("Spawn cell resolved to %s (world spawn at %.0f, %.0f, %.0f)",
+                key, p.getX(), p.getY(), p.getZ());
+            return key;
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log(
+                "Failed to resolve spawn cell key; falling back to 0,0");
+            cachedSpawnCellKey = "0,0";
+            return cachedSpawnCellKey;
         }
     }
 

@@ -96,7 +96,7 @@ public final class TutorialPhase3Setup {
         String populationSpec = buildPopulationSpec(quest);
 
         // ----- POI selection: nearby cave void, else surface fallback east of spawn -----
-        int[] anchor = resolveSpawnAnchor();
+        int[] anchor = resolveSpawnAnchor(quest);
         int anchorX = anchor[0], anchorZ = anchor[1];
 
         CaveVoidRegistry voidRegistry = plugin.getCaveVoidRegistry();
@@ -151,12 +151,21 @@ public final class TutorialPhase3Setup {
             + ":" + difficulty.bossIlvlOffset();
     }
 
-    private static int[] resolveSpawnAnchor() {
+    private static int[] resolveSpawnAnchor(QuestInstance quest) {
         SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-        if (settlements != null) {
-            SettlementRecord spawn = settlements.getByCell(TutorialQuestFactory.SOURCE_SETTLEMENT_ID);
+        String cellKey = quest != null ? quest.getSourceSettlementId() : null;
+        if (settlements != null && cellKey != null) {
+            SettlementRecord spawn = settlements.getByCell(cellKey);
             if (spawn != null) {
                 return new int[]{(int) spawn.getPosX(), (int) spawn.getPosZ(), (int) spawn.getPosY()};
+            }
+        }
+        // Last resort: scan for Celius directly (handles the legacy path where the
+        // quest was created before the source settlement was known).
+        if (settlements != null) {
+            SettlementRecord celius = TutorialQuestFactory.findCeliusSettlement(settlements);
+            if (celius != null) {
+                return new int[]{(int) celius.getPosX(), (int) celius.getPosZ(), (int) celius.getPosY()};
             }
         }
         return new int[]{0, 0, 64};

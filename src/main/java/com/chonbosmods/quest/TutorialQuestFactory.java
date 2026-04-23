@@ -4,6 +4,7 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.background.Background;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -31,7 +32,6 @@ public final class TutorialQuestFactory {
     public static final String QUEST_ID = "tutorial_main";
     public static final String SITUATION_ID = "tutorial";
     public static final String SOURCE_NPC_ID = "CeliusGravus";
-    public static final String SOURCE_SETTLEMENT_ID = "0,0";
     public static final String QUEST_TOPIC_HEADER = "A Matter of Urgency";
     /** Difficulty config id used for the tutorial quest. Drives phase-3 mob/boss ilvl,
      *  populationSpec, XP, and reward tier range. "easy" ⇒ Common-Uncommon rewards. */
@@ -62,6 +62,15 @@ public final class TutorialQuestFactory {
             return;
         }
 
+        // Find the settlement that hosts Celius (flagged in SettlementWorldGenListener).
+        // The cell key is whatever cell the world spawn fell into this world, not
+        // a hardcoded "0,0". If Celius's settlement hasn't placed yet we still create
+        // the quest but with a null sourceSettlementId; the return waypoint will no-op
+        // until the cell loads and the player can still find him in the world.
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        SettlementRecord celiusSettlement = findCeliusSettlement(settlements);
+        String sourceSettlementId = celiusSettlement != null ? celiusSettlement.getCellKey() : null;
+
         List<ObjectiveInstance> objectives = new ArrayList<>();
 
         // Phase 1: pre-completed TALK_TO_NPC so state starts READY_FOR_TURN_IN.
@@ -69,7 +78,7 @@ public final class TutorialQuestFactory {
         // so this target does not auto-register a dialogue topic on him.
         ObjectiveInstance phase1 = new ObjectiveInstance(
             ObjectiveType.TALK_TO_NPC, SOURCE_NPC_ID, "Speak with Celius Gravus",
-            1, null, SOURCE_SETTLEMENT_ID);
+            1, null, sourceSettlementId);
         phase1.markComplete();
         objectives.add(phase1);
 
@@ -93,22 +102,15 @@ public final class TutorialQuestFactory {
         }
         // npc_x/npc_z anchor the nearest-other-settlement search used by
         // tryResolveDeferredTalkToNpc at phase 2 turn-in. Seed from Celius's
-        // settlement if the placement already landed; otherwise fall back to
-        // world-origin (spawn is near origin in practice).
-        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-        double anchorX = 0, anchorZ = 0;
-        if (settlements != null) {
-            SettlementRecord spawn = settlements.getByCell(SOURCE_SETTLEMENT_ID);
-            if (spawn != null) {
-                anchorX = spawn.getPosX();
-                anchorZ = spawn.getPosZ();
-            }
-        }
+        // settlement if it has placed; otherwise fall back to 0,0 (resolver
+        // will still find something).
+        double anchorX = celiusSettlement != null ? celiusSettlement.getPosX() : 0;
+        double anchorZ = celiusSettlement != null ? celiusSettlement.getPosZ() : 0;
         bindings.put("npc_x", Double.toString(anchorX));
         bindings.put("npc_z", Double.toString(anchorZ));
 
         QuestInstance quest = new QuestInstance(
-            QUEST_ID, SITUATION_ID, SOURCE_NPC_ID, SOURCE_SETTLEMENT_ID,
+            QUEST_ID, SITUATION_ID, SOURCE_NPC_ID, sourceSettlementId,
             objectives, bindings);
         quest.setMaxConflicts(2);
         quest.setDifficultyId(DIFFICULTY_ID);
@@ -129,7 +131,24 @@ public final class TutorialQuestFactory {
                 "Go on, then. Don't keep Celius waiting.");
         }
 
-        LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, phase2Resolved=%s)",
-            playerUuid, background != null ? background.name() : "null", resolved);
+        LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, celiusCell=%s, phase2Resolved=%s)",
+            playerUuid, background != null ? background.name() : "null",
+            sourceSettlementId, resolved);
+    }
+
+    /**
+     * Scan the settlement registry for the NPC flagged {@code celius_gravus} and
+     * return the settlement containing him. Returns null if no Celius-flagged NPC
+     * exists yet (e.g. the spawn cell's chunk hasn't loaded); callers should
+     * handle this gracefully.
+     */
+    public static SettlementRecord findCeliusSettlement(SettlementRegistry settlements) {
+        if (settlements == null) return null;
+        for (SettlementRecord s : settlements.getAll().values()) {
+            for (NpcRecord n : s.getNpcs()) {
+                if (n.isCeliusGravus()) return s;
+            }
+        }
+        return null;
     }
 }
