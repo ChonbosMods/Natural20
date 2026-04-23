@@ -69,12 +69,21 @@ public class DialogueManager {
             return;
         }
 
-        // Load dialogue graph: try generated name first (for generated topics), then role name
-        String npcId = npcData.getGeneratedName();
-        DialogueGraph graph = npcId != null ? dialogueLoader.getGraphForNpc(npcId) : null;
-        if (graph == null) {
-            npcId = npcData.getRoleName();
+        // Celius Gravus: bespoke tutorial NPC, load his fixed graph directly and
+        // skip procedural smalltalk/quest injection entirely (design §4).
+        String npcId;
+        DialogueGraph graph;
+        if (npcData.isCeliusGravus()) {
+            npcId = "CeliusGravus";
             graph = dialogueLoader.getGraphForNpc(npcId);
+        } else {
+            // Load dialogue graph: try generated name first (for generated topics), then role name
+            npcId = npcData.getGeneratedName();
+            graph = npcId != null ? dialogueLoader.getGraphForNpc(npcId) : null;
+            if (graph == null) {
+                npcId = npcData.getRoleName();
+                graph = dialogueLoader.getGraphForNpc(npcId);
+            }
         }
         if (graph == null) {
             // No authored or generated graph: create a minimal fallback so the
@@ -110,14 +119,32 @@ public class DialogueManager {
         graph = graph.mutableCopy();
 
         // Late-resolve any {tokens} that were unresolvable at generation time
-        // (e.g., {other_settlement} when no neighbors existed yet).
-        graph.lateResolve(buildLateBindings(npcData));
+        // (e.g., {other_settlement} when no neighbors existed yet). For Celius
+        // specifically, merge the active tutorial quest's variableBindings so
+        // authored JSON topics interpolate {target_npc}, {target_npc_settlement},
+        // {Background}, etc. Quest bindings win over settlement bindings on
+        // collisions since they describe the live tutorial state.
+        Map<String, String> lateBindings = buildLateBindings(npcData);
+        if (npcData.isCeliusGravus()) {
+            QuestSystem qs = Natural20.getInstance().getQuestSystem();
+            if (qs != null) {
+                QuestInstance tutorial = qs.getStateManager().getQuest(
+                    playerData, com.chonbosmods.quest.TutorialQuestFactory.QUEST_ID);
+                if (tutorial != null && tutorial.getVariableBindings() != null) {
+                    lateBindings.putAll(tutorial.getVariableBindings());
+                }
+            }
+        }
+        graph.lateResolve(lateBindings);
 
-        // Inject quest topics: available quests (from NPC's preGeneratedQuest) and turn-in topics
-        injectQuestAvailableTopics(graph, npcId, npcData, playerData);
-        injectQuestTurnInTopics(graph, npcId, playerData);
-        // Inject talk-to-NPC topics for any quests targeting this NPC
-        injectTalkToNpcTopics(graph, npcId, playerData);
+        // Inject quest topics: available quests (from NPC's preGeneratedQuest) and turn-in topics.
+        // Celius uses fixed tutorial-specific actions instead of the procedural injector path.
+        if (!npcData.isCeliusGravus()) {
+            injectQuestAvailableTopics(graph, npcId, npcData, playerData);
+            injectQuestTurnInTopics(graph, npcId, playerData);
+            // Inject talk-to-NPC topics for any quests targeting this NPC
+            injectTalkToNpcTopics(graph, npcId, playerData);
+        }
 
         // Clear exhaustion and consumed decisives for quest topics (rebuilt fresh each session).
         // Consumed decisives must be cleared so [Turn in] buttons work across conflict phases

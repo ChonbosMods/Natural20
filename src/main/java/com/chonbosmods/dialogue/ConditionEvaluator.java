@@ -1,6 +1,10 @@
 package com.chonbosmods.dialogue;
 
+import com.chonbosmods.Natural20;
 import com.chonbosmods.dialogue.model.DialogueCondition;
+import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestState;
+import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.stats.Stat;
 import com.google.common.flogger.FluentLogger;
 
@@ -48,6 +52,28 @@ public final class ConditionEvaluator {
         register("TOPIC_LEARNED", (params, ctx) -> {
             String topicId = params.get("topicId");
             return ctx.learnedGlobalTopics().contains(topicId);
+        });
+
+        register("QUEST_PHASE_STATE", (params, ctx) -> {
+            String questId = params.get("questId");
+            if (questId == null) return false;
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) return false;
+            QuestInstance quest = questSystem.getStateManager().getQuest(ctx.playerData(), questId);
+            if (quest == null) return false;
+            String phaseRaw = params.get("phase");
+            if (phaseRaw != null) {
+                try {
+                    if (quest.getConflictCount() != Integer.parseInt(phaseRaw)) return false;
+                } catch (NumberFormatException e) { return false; }
+            }
+            String stateRaw = params.get("state");
+            if (stateRaw != null) {
+                try {
+                    if (quest.getState() != QuestState.valueOf(stateRaw)) return false;
+                } catch (IllegalArgumentException e) { return false; }
+            }
+            return true;
         });
     }
 

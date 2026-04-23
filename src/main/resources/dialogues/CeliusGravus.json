@@ -1,0 +1,99 @@
+{
+  "npcId": "CeliusGravus",
+  "defaultDisposition": 55,
+  "greetingNodeId": "celius_greeting",
+  "topics": [
+    {
+      "id": "topic_tutorial_phase1_turnin",
+      "label": "Jiub sent me",
+      "entryNodeId": "node_tutorial_phase1_entry",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 0,
+      "questTopic": true,
+      "condition": {
+        "type": "QUEST_PHASE_STATE",
+        "questId": "tutorial_main",
+        "phase": "0",
+        "state": "READY_FOR_TURN_IN"
+      }
+    },
+    {
+      "id": "topic_tutorial_phase2_turnin",
+      "label": "Word from {target_npc}",
+      "entryNodeId": "node_tutorial_phase2_entry",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 0,
+      "questTopic": true,
+      "condition": {
+        "type": "QUEST_PHASE_STATE",
+        "questId": "tutorial_main",
+        "phase": "1",
+        "state": "READY_FOR_TURN_IN"
+      }
+    },
+    {
+      "id": "topic_tutorial_phase3_turnin",
+      "label": "{boss_name} is dead",
+      "entryNodeId": "node_tutorial_phase3_entry",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 0,
+      "questTopic": true,
+      "condition": {
+        "type": "QUEST_PHASE_STATE",
+        "questId": "tutorial_main",
+        "phase": "2",
+        "state": "READY_FOR_TURN_IN"
+      }
+    },
+    {
+      "id": "topic_keeping_watch",
+      "label": "Keeping watch",
+      "entryNodeId": "node_watch_1",
+      "scope": "LOCAL",
+      "startLearned": true,
+      "sortOrder": 1
+    }
+  ],
+  "nodes": {
+    "celius_greeting": {
+      "type": "DIALOGUE",
+      "speakerText": "Stay sharp out there. The road past the gate has a way of sorting the prepared from the hopeful.",
+      "responses": []
+    },
+    "node_tutorial_phase1_entry": {
+      "type": "DIALOGUE",
+      "speakerText": "Good, Jiub told me to expect you. Ride out to {target_npc_settlement} and find {target_npc}, they'll have something for you to bring back.",
+      "responses": [],
+      "onEnter": [
+        { "type": "TUTORIAL_TURN_IN_PHASE_1" }
+      ],
+      "exhaustsTopic": true
+    },
+    "node_tutorial_phase2_entry": {
+      "type": "DIALOGUE",
+      "speakerText": "Back already. Good. Whatever {target_npc} told you, hold onto it, there's one more thing I'll need your hands for.",
+      "responses": [],
+      "onEnter": [
+        { "type": "TUTORIAL_TURN_IN_PHASE_2" }
+      ],
+      "exhaustsTopic": true
+    },
+    "node_tutorial_phase3_entry": {
+      "type": "DIALOGUE",
+      "speakerText": "You found {boss_name} and put them down. That's the sort of work this town remembers. Go on, your road's your own from here.",
+      "responses": [],
+      "onEnter": [
+        { "type": "TUTORIAL_TURN_IN_PHASE_3" }
+      ],
+      "exhaustsTopic": true
+    },
+    "node_watch_1": {
+      "type": "DIALOGUE",
+      "speakerText": "The gate keeps the worst of it out. The rest of us do the rest.",
+      "responses": []
+    }
+  }
+}

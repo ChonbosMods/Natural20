@@ -249,19 +249,18 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
     }
 
     /**
-     * Schedule the post-commit DialogueManager.startSession.
+     * Schedule opening {@link JiubIntroPage} in INTRO3 state so Jiub hands the
+     * player off to Celius with a line interpolating their newly-chosen
+     * background. INTRO3's Continue creates the tutorial quest and then schedules
+     * the standard Jiub dialogue session; the old direct
+     * {@code DialogueManager.startSession} path moved there.
      *
      * <p>Uses {@link #PAGE_TRANSITION_DELAY_MS} to let the picker's dismiss
      * packet land first (opening a new page inside the handler of the page
      * being closed crashes the PageManager), then bounces through
-     * {@code world.execute(...)} so {@code Store.getComponent} inside
-     * {@code startSession} runs on the world thread (see memory note
-     * {@code store-thread-affinity}).
-     *
-     * <p>If Jiub is somehow not spawned at this point, log and move on: the
-     * player can F-interact him later. Retry loop was removed because in
-     * practice Jiub is spawned on the first ChunkPreLoadProcessEvent, which
-     * fires long before the player finishes the intro + picker flow.
+     * {@code world.execute(...)} so {@code store.getComponent} inside
+     * {@link JiubIntroPage#openIntro3} runs on the world thread (see memory
+     * note {@code store-thread-affinity}).
      */
     private static void schedulePostCommitDialogue(Ref<EntityStore> ref,
                                                    Store<EntityStore> store) {
@@ -269,19 +268,12 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
             com.hypixel.hytale.server.core.universe.world.World world =
                     Natural20.getInstance().getDefaultWorld();
             if (world == null) {
-                LOGGER.atWarning().log("Post-commit dialogue: default world unavailable; skipping");
+                LOGGER.atWarning().log("Post-commit INTRO3: default world unavailable; skipping");
                 return;
             }
             world.execute(() -> {
-                Ref<EntityStore> jiub = Natural20.getInstance().getJiubManager().getJiubRef();
-                if (jiub == null) {
-                    LOGGER.atWarning().log(
-                            "Post-commit dialogue: Jiub not spawned; player can F-interact later");
-                    return;
-                }
-                LOGGER.atInfo().log("Opening post-commit DialogueManager session");
-                Natural20.getInstance().getDialogueManager()
-                        .startSession(ref, jiub, store, () -> {});
+                LOGGER.atInfo().log("Opening post-commit JiubIntroPage.INTRO3");
+                JiubIntroPage.openIntro3(ref, store);
             });
         }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }

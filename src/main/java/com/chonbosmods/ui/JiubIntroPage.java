@@ -1,5 +1,9 @@
 package com.chonbosmods.ui;
 
+import com.chonbosmods.Natural20;
+import com.chonbosmods.background.Background;
+import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.quest.TutorialQuestFactory;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
@@ -14,6 +18,7 @@ import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.concurrent.Executors;
@@ -61,6 +66,9 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             "Stand up. There you go. You were dreaming. Not even last night's storm could wake you.";
     private static final String INTRO2_TEXT =
             "Somewhere behind you is the life you came from. I'd like to hear what it looked like.";
+    /** {0} is substituted with the player's Background displayName prefixed with "a" or "an". */
+    private static final String INTRO3_TEMPLATE =
+            "Go talk to Celius Gravus. He has been looking for help with something urgent and could use {0} of your caliber.";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC =
             BuilderCodec.builder(PageEventData.class, PageEventData::new)
@@ -71,15 +79,22 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     /** Same reveal color as the standard dialogue page's NPC speech. */
     private static final String TYPEWRITER_COLOR = "#FFCC00";
 
-    private enum State { INTRO1, INTRO2 }
+    private enum State { INTRO1, INTRO2, INTRO3 }
 
-    private State state = State.INTRO1;
+    private State state;
+    private final Background background;
     private volatile DialogueTypewriter activeTypewriter;
 
     public JiubIntroPage(PlayerRef playerRef) {
+        this(playerRef, State.INTRO1, null);
+    }
+
+    public JiubIntroPage(PlayerRef playerRef, State initialState, Background background) {
         // CantClose = the client cannot dismiss this page through any user input
         // (Esc, click-out, etc). Server-initiated close() still works.
         super(playerRef, CustomPageLifetime.CantClose, EVENT_CODEC);
+        this.state = initialState;
+        this.background = background;
     }
 
     @Override
@@ -88,7 +103,11 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         LOGGER.atInfo().log("Build: state=%s", state);
         cmd.append(PAGE_LAYOUT);
 
-        String text = state == State.INTRO1 ? INTRO1_TEXT : INTRO2_TEXT;
+        String text = switch (state) {
+            case INTRO1 -> INTRO1_TEXT;
+            case INTRO2 -> INTRO2_TEXT;
+            case INTRO3 -> renderIntro3();
+        };
 
         // Clear the line label; typewriter will populate it character-by-character
         // via TextSpans. (Setting .Text would block the subsequent .TextSpans
@@ -142,45 +161,62 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             return;
         }
 
-        // INTRO2 -> open the picker. Two safety patterns required for this
-        // transition to work reliably:
-        //
-        //   1. SCHEDULER defer (50ms) so the new page open happens AFTER the
-        //      current event handler has unwound. Opening a new page inside
-        //      the handler of the page being replaced was observed to leave
-        //      the new page in a broken state.
-        //
-        //   2. world.execute(...) bounce so openCustomPage runs on the world
-        //      thread. Without this, the page renders visually but its
-        //      server-side event bindings intermittently fail to register;
-        //      the player sees buttons but clicks never reach the server.
-        //      Same root cause as the post-commit dialogue race that bit us
-        //      earlier.
-        //
-        // We do NOT call close() on the intro page. The picker's openCustomPage
-        // replaces it through the page manager automatically. Calling close()
-        // first was observed to cause stale state on the next page (proven
-        // out in BackgroundPickerPage's Confirm path).
-        LOGGER.atInfo().log("INTRO2 Continue; scheduling picker open");
-        Player player = store.getComponent(ref, Player.getComponentType());
-        if (player == null) {
-            LOGGER.atWarning().log("Continue from intro2 but Player component is null; picker not opened");
-            return;
-        }
-        PlayerRef pRef = player.getPlayerRef();
-        SCHEDULER.schedule(() -> {
-            com.hypixel.hytale.server.core.universe.world.World world =
-                    com.chonbosmods.Natural20.getInstance().getDefaultWorld();
-            if (world == null) {
-                LOGGER.atWarning().log("Default world unavailable; picker not opened");
+        if (state == State.INTRO2) {
+            // INTRO2 -> open the picker. Two safety patterns required for this
+            // transition to work reliably:
+            //
+            //   1. SCHEDULER defer (50ms) so the new page open happens AFTER the
+            //      current event handler has unwound. Opening a new page inside
+            //      the handler of the page being replaced was observed to leave
+            //      the new page in a broken state.
+            //
+            //   2. world.execute(...) bounce so openCustomPage runs on the world
+            //      thread. Without this, the page renders visually but its
+            //      server-side event bindings intermittently fail to register;
+            //      the player sees buttons but clicks never reach the server.
+            //      Same root cause as the post-commit dialogue race that bit us
+            //      earlier.
+            //
+            // We do NOT call close() on the intro page. The picker's openCustomPage
+            // replaces it through the page manager automatically. Calling close()
+            // first was observed to cause stale state on the next page (proven
+            // out in BackgroundPickerPage's Confirm path).
+            LOGGER.atInfo().log("INTRO2 Continue; scheduling picker open");
+            Player player = store.getComponent(ref, Player.getComponentType());
+            if (player == null) {
+                LOGGER.atWarning().log("Continue from intro2 but Player component is null; picker not opened");
                 return;
             }
-            world.execute(() -> {
-                LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
-                BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
-                player.getPageManager().openCustomPage(ref, store, picker);
-            });
-        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
+            PlayerRef pRef = player.getPlayerRef();
+            SCHEDULER.schedule(() -> {
+                World world = Natural20.getInstance().getDefaultWorld();
+                if (world == null) {
+                    LOGGER.atWarning().log("Default world unavailable; picker not opened");
+                    return;
+                }
+                world.execute(() -> {
+                    LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
+                    BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
+                    player.getPageManager().openCustomPage(ref, store, picker);
+                });
+            }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
+            return;
+        }
+
+        // INTRO3 Continue: create the tutorial quest on the player's data, then
+        // schedule the standard post-commit Jiub dialogue session.
+        LOGGER.atInfo().log("INTRO3 Continue; creating tutorial quest and scheduling Jiub session");
+        Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
+        Player player = store.getComponent(ref, Player.getComponentType());
+        if (playerData == null || player == null) {
+            LOGGER.atWarning().log(
+                "Continue from intro3 but playerData=%s player=%s; tutorial quest not created",
+                playerData, player);
+            return;
+        }
+        TutorialQuestFactory.createAndAssign(playerData, background,
+            player.getPlayerRef().getUuid());
+        schedulePostCommitDialogue(ref, store);
     }
 
     /**
@@ -207,6 +243,72 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
                 jiubRef == null ? "null" : "present");
         JiubIntroPage page = new JiubIntroPage(player.getPlayerRef());
         player.getPageManager().openCustomPage(playerRef, store, page);
+    }
+
+    /**
+     * Entry point for the post-background-commit INTRO3 line. Reads the just-committed
+     * {@link Background} from player data and opens this page in INTRO3 state. When
+     * the player clicks Continue, the tutorial quest is created and the standard Jiub
+     * dialogue session is scheduled.
+     */
+    public static void openIntro3(Ref<EntityStore> playerRef, Store<EntityStore> store) {
+        Player player = store.getComponent(playerRef, Player.getComponentType());
+        if (player == null) {
+            LOGGER.atWarning().log("openIntro3: Player component is null; INTRO3 not opened");
+            return;
+        }
+        Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
+        Background bg = playerData != null ? playerData.getBackground() : null;
+        LOGGER.atInfo().log("openIntro3: background=%s for player %s",
+            bg == null ? "null" : bg.name(), player.getPlayerRef().getUuid());
+        JiubIntroPage page = new JiubIntroPage(player.getPlayerRef(), State.INTRO3, bg);
+        player.getPageManager().openCustomPage(playerRef, store, page);
+    }
+
+    private String renderIntro3() {
+        String article = "a";
+        String name;
+        if (background != null) {
+            name = background.displayName();
+            if (!name.isEmpty() && isVowel(name.charAt(0))) {
+                article = "an";
+            }
+        } else {
+            name = "adventurer";
+        }
+        return INTRO3_TEMPLATE.replace("{0}", article + " " + name);
+    }
+
+    private static boolean isVowel(char c) {
+        return "AEIOUaeiou".indexOf(c) >= 0;
+    }
+
+    /**
+     * Defer the standard Jiub dialogue session the same way the picker used to do it:
+     * scheduler unwinds first, then world.execute bounces onto the world thread so
+     * store.getComponent calls inside startSession are thread-safe. Mirrors the
+     * former {@code BackgroundPickerPage.schedulePostCommitDialogue}.
+     */
+    private static void schedulePostCommitDialogue(Ref<EntityStore> ref,
+                                                   Store<EntityStore> store) {
+        SCHEDULER.schedule(() -> {
+            World world = Natural20.getInstance().getDefaultWorld();
+            if (world == null) {
+                LOGGER.atWarning().log("Post-commit dialogue: default world unavailable; skipping");
+                return;
+            }
+            world.execute(() -> {
+                Ref<EntityStore> jiub = Natural20.getInstance().getJiubManager().getJiubRef();
+                if (jiub == null) {
+                    LOGGER.atWarning().log(
+                        "Post-commit dialogue: Jiub not spawned; player can F-interact later");
+                    return;
+                }
+                LOGGER.atInfo().log("Opening post-commit DialogueManager session");
+                Natural20.getInstance().getDialogueManager()
+                    .startSession(ref, jiub, store, () -> {});
+            });
+        }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 
     public static class PageEventData {
