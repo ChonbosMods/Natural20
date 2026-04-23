@@ -7,7 +7,6 @@ import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryChangeEvent;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
@@ -15,7 +14,6 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
-import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
@@ -117,33 +115,24 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                     player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
                     targetItemId, quest.getQuestId());
 
-                // Persist the transition before firing the proximity gate so any
-                // eviction fires against a committed phase-ready state.
+                // Persist the transition so any downstream read sees committed state.
                 questSystem.getStateManager().saveActiveQuests(playerData, quests);
                 dirty = false;
 
-                // Party proximity gate: identify accepters who are out of range
-                // at the phase-completion moment. Anchor on the collecting
-                // player's current position. Under Option B (2026-04-22) missed
-                // accepters stay on the quest; missed set persists on the quest
-                // for the item-dispense filter at CONTINUE_QUEST.
-                double[] anchor = null;
-                TransformComponent tx = store.getComponent(ref, TransformComponent.getComponentType());
-                if (tx != null) {
-                    Vector3d pos = tx.getPosition();
-                    if (pos != null) {
-                        anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
-                    }
-                }
-                java.util.Set<java.util.UUID> missed = java.util.Collections.emptySet();
-                World world = Natural20.getInstance().getDefaultWorld();
-                if (anchor != null && world != null) {
-                    missed = Nat20QuestProximityGate.check(quest, player.getPlayerRef().getUuid(),
-                            anchor, world, Natural20.getInstance());
-                    quest.markMissedForPhase(quest.getConflictCount(), missed);
-                    questSystem.getStateManager().saveActiveQuests(playerData, quests);
-                }
-
+                // COLLECT_RESOURCES exemption (2026-04-23): this objective type
+                // does NOT fire the party proximity gate. Rationale:
+                //   1. Collect objectives can be completed anywhere in the world
+                //      by any accepter: a proximity check would be nonsensical
+                //      (there is no single place "the objective happened at").
+                //   2. InventoryChangeEvent fires on every drop + pickup, so if
+                //      we gated here the missed-set + Quest Missed banner would
+                //      spam every time the triggering player drops and picks
+                //      back up the matching resource.
+                // Effect under Option B: missed-set stays empty for this phase,
+                // so TURN_IN_V2.dispensePhaseXp and dispenseItemsToOtherAccepters
+                // award XP + rerolled items to every online accepter. Offline
+                // accepters are still silently skipped by the existing offline
+                // filter in the dispense paths. KILL/FETCH/TALK still gate.
                 setTurnInParticle(quest);
                 if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
@@ -152,6 +141,7 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 // transition propagates without a /sheet toggle. XP is NOT
                 // awarded here: TURN_IN_V2.dispensePhaseXp owns the per-phase
                 // grant.
+                World world = Natural20.getInstance().getDefaultWorld();
                 if (world != null) {
                     Nat20QuestRewardDispatcher.refreshMarkersForAccepters(quest, world);
                 }
