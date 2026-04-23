@@ -483,6 +483,34 @@ public class DialogueActionRegistry {
                 bindings.put("quest_objective_summary", summary);
                 ctx.systemLogger().accept("New objective: " + summary);
 
+                // Fire the same "Quest Accepted" banner on phase-advance so every
+                // online accepter sees visual confirmation that a new objective
+                // is active (matches the GIVE_QUEST banner semantics). The
+                // triggering player sees the "New objective: ..." inline system
+                // message above instead, so the banner fires for peers only to
+                // match the accept flow. Missed players for the OUTGOING phase
+                // (conflictCount-1 from the caller's perspective here, since we
+                // already ran incrementConflictCount) are still eligible for the
+                // NEW phase and get the banner: Option B keeps them on the quest.
+                com.hypixel.hytale.server.core.universe.world.World advanceWorld =
+                    Natural20.getInstance().getDefaultWorld();
+                if (advanceWorld != null && quest.getAccepters().size() > 1) {
+                    java.util.UUID triggerUuid = ctx.player().getPlayerRef().getUuid();
+                    String accepterName = ctx.player().getDisplayName();
+                    String bannerLabel = summary;
+                    Nat20PartyRegistry partyRegistry = Natural20.getInstance().getPartyRegistry();
+                    for (java.util.UUID peerUuid : quest.getAccepters()) {
+                        if (peerUuid.equals(triggerUuid)) continue;
+                        if (partyRegistry != null && !partyRegistry.isOnline(peerUuid)) continue;
+                        for (com.hypixel.hytale.server.core.universe.PlayerRef peer : advanceWorld.getPlayerRefs()) {
+                            if (peerUuid.equals(peer.getUuid())) {
+                                PartyQuestAcceptedBanner.show(peer, accepterName, bannerLabel);
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 saveQuest(questSystem, ctx.playerData(), quest);
                 LOGGER.atInfo().log("CONTINUE_QUEST: quest %s advanced to conflict %d/%d",
                     quest.getQuestId(), quest.getConflictCount(), quest.getMaxConflicts());
