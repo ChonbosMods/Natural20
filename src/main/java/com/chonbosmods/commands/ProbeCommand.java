@@ -83,7 +83,13 @@ public class ProbeCommand extends AbstractPlayerCommand {
             if ("dualpanel".equals(templateKey)) {
                 probeDualPanel(player, playerRef, ref, store, context);
             } else {
-                probeDiceRoll(player, playerRef, ref, store, context);
+                String modeArg = parts.length >= 2 ? parts[1].toLowerCase() : "normal";
+                RollMode mode = switch (modeArg) {
+                    case "adv", "advantage" -> RollMode.ADVANTAGE;
+                    case "dis", "disadvantage" -> RollMode.DISADVANTAGE;
+                    default -> RollMode.NORMAL;
+                };
+                probeDiceRoll(player, playerRef, ref, store, context, mode);
             }
             return;
         }
@@ -159,8 +165,14 @@ public class ProbeCommand extends AbstractPlayerCommand {
 
     private void probeDiceRoll(Player player, PlayerRef playerRef,
                                Ref<EntityStore> ref, Store<EntityStore> store,
-                               CommandContext context) {
-        SkillCheckResult testResult = new SkillCheckResult(17, -1, RollMode.NORMAL, 3, 2, 22, 14, true, false);
+                               CommandContext context, RollMode mode) {
+        // Deterministic fixtures per mode so visual iteration is stable.
+        // NORMAL: nat 17 kept, no second die. ADV: keep 17, drop 4. DIS: keep 4, drop 17.
+        int kept = mode == RollMode.DISADVANTAGE ? 4 : 17;
+        int other = mode == RollMode.NORMAL ? -1 : (mode == RollMode.ADVANTAGE ? 4 : 17);
+        int total = kept + 3 + 2;
+        boolean passed = total >= 14;
+        SkillCheckResult testResult = new SkillCheckResult(kept, other, mode, 3, 2, total, 14, passed, false);
         Nat20DiceRollPage page = new Nat20DiceRollPage(playerRef, Skill.PERSUASION, Stat.CHA,
             testResult,
             r -> {
@@ -170,6 +182,6 @@ public class ProbeCommand extends AbstractPlayerCommand {
 
         player.getHudManager().hideHudComponents(playerRef, HudComponent.Hotbar, HudComponent.Reticle);
         player.getPageManager().openCustomPage(ref, store, page);
-        context.sendMessage(Message.raw("Opened dice roll probe"));
+        context.sendMessage(Message.raw("Opened dice roll probe (mode=" + mode + ")"));
     }
 }

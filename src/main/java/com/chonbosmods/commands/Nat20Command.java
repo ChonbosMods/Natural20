@@ -56,5 +56,6 @@ public class Nat20Command extends AbstractCommandCollection {
         addSubCommand(new StatsCommand());
         addSubCommand(new CharacterCommand());
         addSubCommand(new TestPickerCommand());
+        addSubCommand(new TestSkillCheckCommand());
     }
 }
