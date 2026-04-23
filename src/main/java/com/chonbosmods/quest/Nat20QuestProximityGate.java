@@ -12,7 +12,9 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import java.util.Collections;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -23,10 +25,12 @@ import java.util.UUID;
  * <p>Every objective-completion site calls {@link #check} on the world thread
  * immediately after the objective transitions from incomplete to complete and
  * before any phase-advance / reward / banner. The gate walks the quest's
- * eligible accepters, evicts anyone outside the proximity radius or offline,
- * fires a Quest-Missed banner at the online evictees, and queues a pending
- * banner on {@link Nat20PendingBannerStore} for the offline ones (the
- * PlayerReadyEvent drain in {@code Natural20} replays it on next login).
+ * accepters, identifies anyone outside the proximity radius or offline, fires
+ * a Quest-Missed banner at the online missed accepters, and returns the set
+ * of missed UUIDs so the caller can skip per-phase rewards for them. Accepters
+ * are never dropped from the quest: under Option B (2026-04-22 pivot) they
+ * stay on for subsequent phases and simply miss this phase's XP + item.
+ * Offline missed accepters are silent (no offline queue).
  *
  * <p>Design reference: {@code docs/plans/2026-04-22-party-quest-proximity-and-mlvl-scaling-impl.md}
  * Task 10.
@@ -49,7 +53,7 @@ public final class Nat20QuestProximityGate {
      * @param world            the world in which the event fired
      * @param plugin           the running plugin instance (for accessor + side-car store)
      */
-    public static void check(
+    public static Set<UUID> check(
             QuestInstance quest,
             UUID triggeringPlayer,
             double[] anchorXyz,
@@ -57,14 +61,14 @@ public final class Nat20QuestProximityGate {
             Natural20 plugin) {
         if (quest == null || triggeringPlayer == null || anchorXyz == null
                 || world == null || plugin == null) {
-            return;
+            return Collections.emptySet();
         }
 
         Nat20PartyRegistry registry = plugin.getPartyRegistry();
         Nat20PartyQuestStore store = plugin.getPartyQuestStore();
-        if (registry == null || store == null) return;
+        if (registry == null || store == null) return Collections.emptySet();
 
-        Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
+        return Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
                 quest,
                 triggeringPlayer,
                 anchorXyz,
@@ -81,20 +85,20 @@ public final class Nat20QuestProximityGate {
      * TransformComponent internally and short-circuits cleanly on missing components.
      * Intended for the four tracking-system wire-ins (KILL/COLLECT/FETCH/TALK).
      */
-    public static void checkAtEntity(
+    public static Set<UUID> checkAtEntity(
             QuestInstance quest,
             UUID triggeringPlayer,
             Ref<EntityStore> entityRef,
             Store<EntityStore> store,
             World world,
             Natural20 plugin) {
-        if (entityRef == null || store == null || world == null) return;
+        if (entityRef == null || store == null || world == null) return Collections.emptySet();
         TransformComponent tx = store.getComponent(entityRef, TransformComponent.getComponentType());
-        if (tx == null) return;
+        if (tx == null) return Collections.emptySet();
         Vector3d pos = tx.getPosition();
-        if (pos == null) return;
+        if (pos == null) return Collections.emptySet();
         double[] anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
-        check(quest, triggeringPlayer, anchor, world, plugin);
+        return check(quest, triggeringPlayer, anchor, world, plugin);
     }
 
     /**

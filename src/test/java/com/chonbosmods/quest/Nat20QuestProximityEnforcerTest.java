@@ -24,7 +24,7 @@ class Nat20QuestProximityEnforcerTest {
     }
 
     @Test
-    void sweep_evictsBob_andFiresOnlineBanner() {
+    void sweep_returnsMissedBob_andFiresOnlineBanner() {
         QuestInstance q = new QuestInstance();
         q.setQuestId("q1");
         q.setAccepters(List.of(alice, bob));
@@ -38,14 +38,16 @@ class Nat20QuestProximityEnforcerTest {
         Predicate<UUID> online = u -> true;  // both online
 
         List<PendingQuestMissedBanner> onlinePending = new ArrayList<>();
-        Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
+        Set<UUID> missed = Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
             q, alice, new double[]{0,0,0},
             positions, online,
             store,
             (uuid, pending) -> { onlineBannersFired.add(uuid); onlinePending.add(pending); },
             (uuid, pending) -> offlineBannersQueued.add(uuid));
 
-        assertTrue(q.droppedAccepters().contains(bob));
+        // Option B: accepters are NOT terminated on miss.
+        assertFalse(q.droppedAccepters().contains(bob));
+        assertTrue(missed.contains(bob));
         assertEquals(List.of(bob), onlineBannersFired);
         assertTrue(offlineBannersQueued.isEmpty());
         assertEquals(1, onlinePending.size());
@@ -54,7 +56,7 @@ class Nat20QuestProximityEnforcerTest {
     }
 
     @Test
-    void sweep_offlineBob_queuesBannerInsteadOfFiring() {
+    void sweep_offlineBob_returnsMissedSilently() {
         QuestInstance q = new QuestInstance();
         q.setQuestId("q1");
         q.setAccepters(List.of(alice, bob));
@@ -64,14 +66,18 @@ class Nat20QuestProximityEnforcerTest {
             u.equals(alice) ? Optional.of(new double[]{0,0,0}) : Optional.empty();
         Predicate<UUID> online = u -> u.equals(alice);
 
-        Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
+        Set<UUID> missed = Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
             q, alice, new double[]{0,0,0},
             positions, online,
             store,
             (uuid, pending) -> onlineBannersFired.add(uuid),
             (uuid, pending) -> offlineBannersQueued.add(uuid));
 
-        assertEquals(List.of(bob), offlineBannersQueued);
+        // Option B: offline missed accepters are silent (no queue, no banner).
+        // They stay on the quest and simply miss this phase's rewards.
+        assertTrue(missed.contains(bob));
+        assertTrue(offlineBannersQueued.isEmpty());
         assertTrue(onlineBannersFired.isEmpty());
+        assertFalse(q.droppedAccepters().contains(bob));
     }
 }

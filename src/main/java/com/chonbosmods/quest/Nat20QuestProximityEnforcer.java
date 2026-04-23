@@ -13,17 +13,32 @@ public final class Nat20QuestProximityEnforcer {
         void fire(UUID playerUuid, PendingQuestMissedBanner pending);
     }
 
+    /**
+     * Retained for binary compatibility and future re-enablement. Option B
+     * (non-terminal gate) no longer queues offline banners: if an accepter is
+     * offline at phase completion, they silently miss THAT phase only. The
+     * interface stays so the caller site and tests retain their shape while
+     * the offline-queue pathway is dormant.
+     */
     @FunctionalInterface
     public interface OfflineBannerQueuer {
         void queue(UUID playerUuid, PendingQuestMissedBanner pending);
     }
 
     /**
-     * Evict eligible accepters outside radius or offline. Ghost-safe:
-     * offline evictees get a pending banner, online evictees get an immediate banner.
-     * The triggering player is never evicted.
+     * Walk the quest's accepters and compute the set that are out-of-range or
+     * offline at the phase-completion moment. Online missed accepters get an
+     * immediate Quest-Missed banner; offline missed accepters are silent
+     * (Option B: "if players are offline when a quest is turned in TOUGH
+     * LUCK" per 2026-04-22 pivot). Accepters are NEVER terminated: they stay
+     * on the quest for subsequent phases and the returned set is the caller's
+     * responsibility to remember (see {@link QuestInstance#markMissedForPhase}).
+     *
+     * <p>The triggering player is never considered missed.
+     *
+     * @return the set of accepter UUIDs that missed this phase
      */
-    public static void sweepForPhaseCompletion(
+    public static Set<UUID> sweepForPhaseCompletion(
             QuestInstance quest,
             UUID triggeringPlayer,
             double[] anchorXyz,
@@ -32,25 +47,26 @@ public final class Nat20QuestProximityEnforcer {
             Nat20PartyQuestStore store,
             OnlineBannerDispatcher online,
             OfflineBannerQueuer offline) {
-        Set<UUID> toEvict = Nat20PartyProximityEvictor.sweep(
-                quest.eligibleAccepters(),
+        Set<UUID> missed = Nat20PartyProximityEvictor.sweep(
+                new LinkedHashSet<>(quest.getAccepters()),
                 triggeringPlayer,
                 anchorXyz,
                 positionResolver,
                 com.chonbosmods.party.Nat20PartyTuning.NAT20_PARTY_PROXIMITY);
-        if (toEvict.isEmpty()) return;
+        if (missed.isEmpty()) return missed;
 
         String topicHeader = quest.getVariableBindings()
                 .getOrDefault("quest_topic_header", "Quest");
-        for (UUID uuid : toEvict) {
-            store.dropAccepter(quest.getQuestId(), uuid);
-            PendingQuestMissedBanner pending = new PendingQuestMissedBanner(
-                    quest.getQuestId(), topicHeader, System.currentTimeMillis());
+        for (UUID uuid : missed) {
+            // Option B: do NOT drop the accepter from the quest. They stay on
+            // the quest for subsequent phases; just miss this phase's rewards.
             if (isOnline.test(uuid)) {
+                PendingQuestMissedBanner pending = new PendingQuestMissedBanner(
+                        quest.getQuestId(), topicHeader, System.currentTimeMillis());
                 online.fire(uuid, pending);
-            } else {
-                offline.queue(uuid, pending);
             }
+            // Offline missed: silent. No queue per 2026-04-22 pivot.
         }
+        return missed;
     }
 }
