@@ -1,15 +1,28 @@
 package com.chonbosmods.dialogue;
 
+import com.chonbosmods.dice.RollMode;
+
+/**
+ * Disposition label + roll-mode lookup.
+ *
+ * <p>The 9-bracket enum (HOSTILE..LOYAL) is UI decoration only: it drives the
+ * disposition label and color shown on {@code Nat20DialoguePage}. The gameplay
+ * mechanic is the 3-band {@link #rollMode(int)} split (hostile/neutral/friendly),
+ * which controls advantage/disadvantage on dialogue skill checks.
+ *
+ * <p>The two are intentionally separate: fine-grained UI labels vs. coarse
+ * gameplay effect. Do not re-couple them to a DC-shift table.
+ */
 public enum DispositionBracket {
-    HOSTILE(0, 10, 5),
-    SCORNFUL(11, 24, 3),
-    UNFRIENDLY(25, 39, 2),
-    WARY(40, 49, 1),
-    NEUTRAL(50, 59, 0),
-    CORDIAL(60, 69, -1),
-    FRIENDLY(70, 79, -2),
-    TRUSTED(80, 89, -3),
-    LOYAL(90, 100, -4);
+    HOSTILE(0, 10),
+    SCORNFUL(11, 24),
+    UNFRIENDLY(25, 39),
+    WARY(40, 49),
+    NEUTRAL(50, 59),
+    CORDIAL(60, 69),
+    FRIENDLY(70, 79),
+    TRUSTED(80, 89),
+    LOYAL(90, 100);
 
     // --- Text pool boundary thresholds (used in textPoolFromDisposition) ---
 
@@ -22,21 +35,19 @@ public enum DispositionBracket {
     /** Disposition below this value maps to "loyal" text pool. */
     private static final int TEXT_POOL_LOYAL_MIN = 80;
 
-    /** Maximum effective DC after disposition modifier is applied. */
-    private static final int MAX_EFFECTIVE_DC = 30;
+    // --- Roll-mode band thresholds (used in rollMode) ---
+
+    /** Disposition at or above this value rolls at NORMAL (below = DISADVANTAGE). */
+    private static final int ROLL_NORMAL_MIN = 25;
+    /** Disposition at or above this value rolls at ADVANTAGE. */
+    private static final int ROLL_ADVANTAGE_MIN = 75;
 
     private final int minDisposition;
     private final int maxDisposition;
-    private final int dcModifier;
 
-    DispositionBracket(int min, int max, int dcMod) {
+    DispositionBracket(int min, int max) {
         this.minDisposition = min;
         this.maxDisposition = max;
-        this.dcModifier = dcMod;
-    }
-
-    public int dcModifier() {
-        return dcModifier;
     }
 
     public static DispositionBracket fromDisposition(int disposition) {
@@ -63,10 +74,24 @@ public enum DispositionBracket {
         return "loyal";
     }
 
-    public static int effectiveDC(int baseDC, int disposition, boolean dispositionScaling) {
-        if (!dispositionScaling) return baseDC;
-        int modifier = fromDisposition(disposition).dcModifier;
-        return Math.clamp(baseDC + modifier, 1, MAX_EFFECTIVE_DC);
+    /**
+     * Maps a disposition value to the d20 roll mode for dialogue skill checks.
+     *
+     * <p>Three bands (clamped to 0..100):
+     * <ul>
+     *   <li>0-24: {@link RollMode#DISADVANTAGE}</li>
+     *   <li>25-74: {@link RollMode#NORMAL}</li>
+     *   <li>75-100: {@link RollMode#ADVANTAGE}</li>
+     * </ul>
+     *
+     * <p>Kept separate from the 9-bracket enum on purpose: the enum is UI
+     * decoration (labels/colors); this is the gameplay mechanic.
+     */
+    public static RollMode rollMode(int disposition) {
+        int clamped = Math.clamp(disposition, 0, 100);
+        if (clamped < ROLL_NORMAL_MIN) return RollMode.DISADVANTAGE;
+        if (clamped < ROLL_ADVANTAGE_MIN) return RollMode.NORMAL;
+        return RollMode.ADVANTAGE;
     }
 
     public static int clampDisposition(int value) {

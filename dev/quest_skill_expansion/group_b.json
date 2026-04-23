@@ -24,7 +24,6 @@
     "resolutionText": "We're not rebuilt, but we're standing, and that's something I couldn't have said three days ago. Take {quest_reward}. Every bit of it was set aside for exactly this kind of trouble, and I can't think of anyone who earned it more.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're right to press me on what I've been leaving out. The fire wasn't random. Someone left a lantern burning near the grain, and I know who, and I've been covering for them because they're young and terrified. I can't let that out without ruining a life, so I've been carrying it alone.",
       "failText": "It was just bad luck. Sometimes fires happen and there's nobody to blame."
     },
@@ -62,7 +61,6 @@
     "resolutionText": "The workshop is standing. Not pretty, not finished, but standing. Take {quest_reward}. You showed up when the ground was still shaking and that's the kind of thing a person remembers for a long time.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "Since you're asking the question I've been dodging. I knew the wall was weakening for months and I kept putting off the repair. Every time I looked at it I told myself it would hold through one more season. I was wrong, and now everyone here is paying for my hesitation.",
       "failText": "Walls come down. It's the nature of old buildings. Nothing more to it."
     },
@@ -100,7 +98,6 @@
     "resolutionText": "The water came and it went and we're still here. Take {quest_reward}. I didn't think I'd have anything left to give, and the fact that I do feels like proof we came through the worst of it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right. Since you're making it clear I should stop dancing around it. I'd been warned the bank was weak months ago and I told the council it would hold because I didn't want to spend the coin to reinforce it. That decision is why three families are sleeping in the hall tonight instead of their own homes.",
       "failText": "The river does what it wants. Nobody could have predicted the timing."
     },
@@ -133,7 +130,6 @@
     "resolutionText": "We're fed, we're sheltered, and I have a piece of her back. Take {quest_reward}. I was ready to lose everything, and you stopped that from being the whole story.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine, you want the part I've been keeping to myself? The cellar was overloaded because I'd been hoarding, so afraid of running short that I packed it beyond what the ground could support. The weight is what made the slope give way. The disaster I'm recovering from is one I built with my own caution.",
       "failText": "Landslides happen. The hill was always unstable."
     },
@@ -166,7 +162,6 @@
     "resolutionText": "We lost the barn but we kept the house, we kept each other, and now we have enough to face the winter. Take {quest_reward}. You turned a story about losing everything into a story about keeping what matters.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "Hearing you say it like that, with that kind of confidence, I almost believe we'll come out of this all right. Nobody here has talked to me like I'm capable of handling it. You just treated me like a person with a problem, not a person who is the problem. I needed that more than the supplies.",
       "failText": "It's been a long couple of days. I'm managing the way anyone would."
     },
@@ -204,7 +199,6 @@
     "resolutionText": "The ground shook and we shook with it, but we didn't fall. Take {quest_reward}. You were the steadiest thing in {settlement_name} for three very unsteady days, and I won't forget it.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 13,
       "passText": "You noticed something about the tremor too, then. It wasn't natural. The vibration had a rhythm to it, a pulse, like something underneath was breathing. I've been afraid to say that out loud because I don't know what it means, and I'd rather patch the well than think about what might be under the ground.",
       "failText": "The earth shakes sometimes. It shook, and now we're dealing with it."
     },
@@ -235,7 +229,6 @@
     "resolutionText": "My bench is stocked, my route is clear, and I can actually do the work the way it's meant to be done. Take {quest_reward}. Simple help deserves a simple thanks, and this is both.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're good at finding the thing nobody says out loud. The real reason I'm out of stock is that I gave most of it away to a family that was struggling, and I didn't charge them for it. I told everyone I used it up in a bad batch. I'd rather they think I'm careless than know I can't say no to someone in need.",
       "failText": "I just ran through it faster than expected. These things happen."
     },
@@ -264,7 +257,6 @@
     "resolutionText": "Shelves are full, the arrangement is back on, and I can stop worrying about the next delivery. Take {quest_reward}. You kept a good thing from falling apart over a misunderstanding.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You caught me avoiding the obvious question. I was afraid {target_npc} had found a better buyer, because my operation is small and theirs has been growing. I didn't want to ask directly in case the answer was yes and I'd have to hear it. Turns out the fear was louder than the facts.",
       "failText": "Arrangements get delayed sometimes. I'm sure it's nothing."
     },
@@ -302,7 +294,6 @@
     "resolutionText": "My route is clear, my contacts are current, and my bench is stocked. Take {quest_reward}. You broke a cycle of avoidance I'd built up around myself.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right, you've made it clear I should be honest about why this has been dragging on. The truth is I was embarrassed to face {target_npc} after leaving them waiting so long. The {enemy_type_plural} were real, but they were also convenient. I let a problem stay a problem because it gave me a reason not to deal with something harder.",
       "failText": "The road was blocked. That's the whole of it."
     },
@@ -335,7 +326,6 @@
     "resolutionText": "Everything is in place. The piece, the plan, the quiet. Take {quest_reward}. You gave me the push I needed to stop planning and start doing.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "Fine, I'll tell you. I've been stalling because the project means a lot to me and I'm afraid that once I start, I'll find out I'm not good enough to finish it. The missing piece wasn't really the problem, my confidence was. You showing up and making things happen shamed me into admitting I was hiding behind excuses.",
       "failText": "I'm just careful about getting everything lined up before I commit. That's all."
     },
@@ -366,7 +356,6 @@
     "resolutionText": "The favor is repaid, {target_npc} is satisfied, and my reputation is intact. Take {quest_reward}. You helped me keep a relationship I was about to lose through neglect, and that's worth more than the coin.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "The way you put that, I couldn't help but laugh. You're right. I've been treating a simple favor like it was some impossible burden, and the longer I waited, the bigger it grew in my head. Hearing someone describe my situation with that kind of lightness made me realize how absurd I've been about the whole thing.",
       "failText": "I just got behind. It happens to everyone eventually."
     },
@@ -404,7 +393,6 @@
     "resolutionText": "Every promise kept, every favor returned, every loose end dealt with. Take {quest_reward}. You did in three days what I spent two weeks avoiding, and the relief alone is worth twice what I'm paying you.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 12,
       "passText": "You're right that there's a pattern in how I've been behaving. My grandmother used to say that avoiding small duties invites larger failures, and she meant it as a spiritual warning, not just practical advice. I've been ignoring that teaching and the guilt isn't just about the errand. It's about becoming the kind of person she warned me not to become.",
       "failText": "I just got behind on a few things. It a crisis, just a backlog."
     },
@@ -437,7 +425,6 @@
     "resolutionText": "I can walk past those trees now without that nagging feeling in my chest. Take {quest_reward}. You helped me find the answer and then deal with what the answer meant, and both parts mattered.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You found the gap in what I was telling you. I've seen these marks before, years ago, near my old home before I came to {settlement_name}. The same kind of marks preceded a season of attacks that drove my family out. I've been downplaying the urgency because I didn't want to start a panic, but I'm not wrong about what they mean.",
       "failText": "They're just marks. Probably old, probably harmless. I'm curious, that's all."
     },
@@ -468,7 +455,6 @@
     "resolutionText": "The humming has already lessened, exactly the way {target_npc} said it would. Take {quest_reward}. You helped me prove I wasn't hearing things, and then you helped me learn the things weren't dangerous. Both parts mattered.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You're right that I've been leaving out the part that scares me most. I hear it at night too, through the floor of my house. I moved my bed to the far wall and I haven't told anyone because once you say 'I hear the ground humming in my sleep,' people stop taking you seriously about anything.",
       "failText": "It's just a curiosity. I'd like it explained, that's all."
     },
@@ -508,7 +494,6 @@
     "resolutionText": "The mystery is solved, the stores are whole, and nothing is getting in anymore. Take {quest_reward}. You saved me from weeks more of counting and wondering.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right, since you're pressing. I was afraid to investigate too hard because I thought it might be a person, one of the families here that's been struggling. I was prepared to let it continue if someone was taking what they needed and too ashamed to ask. Learning it's creatures is actually a relief, because now I can stop feeling guilty about wanting to fix it.",
       "failText": "I don't have a theory. That's why I need help."
     },
@@ -548,7 +533,6 @@
     "resolutionText": "No more surprises at dawn, no more tools on rooftops. Take {quest_reward}. You took something that was making me question my own sanity and turned it into a problem with a solution.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 14,
       "passText": "You think the behavior isn't random? The patterns they arrange things in are too consistent to be play, almost like territory marking expressed through objects instead of scent. I've never heard of creatures doing that. The fact that you recognized it as unusual rather than just mischievous tells me there's something deeper here than pest control.",
       "failText": "It's strange behavior. I just want it to stop."
     },
@@ -581,7 +565,6 @@
     "resolutionText": "The mystery is solved and the nights are quiet again. Take {quest_reward}. You gave {settlement_name} back its peace, and that's worth more than any of us were willing to admit.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "All right, I'll tell you the part I've been leaving out. I've known what the sound is for a week, but the last time I raised an alarm about something underground I was wrong and people still remind me of it. I needed someone else to confirm it so they'd actually listen this time. You've given me that.",
       "failText": "I genuinely don't know what it is. That's why I need help."
     },
@@ -610,7 +593,6 @@
     "resolutionText": "My work is my work again, and I know why it stopped being. Take {quest_reward}. You helped me find an answer I was too close to see, and that's the kind of help that lasts.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "The way you described the problem back to me, with real interest, like the craft itself mattered to you. Nobody here talks about dye work like that, they see the finished cloth and shrug. You looked at the process and treated it like it was worth understanding, and that made me feel like an artisan again instead of someone failing at a chore.",
       "failText": "It's a craft problem. I just want to fix it."
     },
@@ -643,7 +625,6 @@
     "resolutionText": "The account is closed. I won't pretend it brought her back or made the house less quiet, but it's done, and done matters. Take {quest_reward}. It's what I would have spent on her this winter.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You noticed I haven't said her name. Every time I try, my voice does something I'm not ready for anyone to hear. I told the neighbors I was upset about property damage, because a grown adult crying over a dog gets a certain look in this settlement. She was more than property, she was the only friend who never needed me to explain myself.",
       "failText": "She was a good dog. There's nothing else to say about it."
     },
@@ -674,7 +655,6 @@
     "resolutionText": "The marker stands and the debt is as paid as it can be. Take {quest_reward}. I won't pretend I feel whole, but I feel finished, and that's the next best thing.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 14,
       "passText": "You caught the thing I've been hiding from everyone, including myself. I failed to reinforce the fence when I knew it was weak, and the creatures got in because of my neglect. The rage I feel isn't just at them, it's at myself for giving them the opening. Directing it outward is the only way I know to keep moving.",
       "failText": "They destroyed what I built. The rest is between me and the trees."
     },
@@ -707,7 +687,6 @@
     "resolutionText": "She's resting properly again, and nothing is going to disturb that as long as I'm breathing. Take {quest_reward}. It's what she would have wanted me to give someone who helped keep her memory whole.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 14,
       "passText": "You want to know why I'm this angry? I promised her I would take care of that spot, stood there the day we placed the stones and said it out loud, and I meant it the way you mean a thing you'll never break. When I found the cairn torn apart, I didn't just fail to protect ground. I broke my word to someone who can never hear me make it right.",
       "failText": "She was my sister. That's all the reason I need, and all the reason I'll give."
     },
@@ -743,7 +722,6 @@
     "resolutionText": "The water is coming back, slowly, but it's coming. Take {quest_reward}. I sat by that bank for months with nothing but anger, and now I have proof that things can get better.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "Fine. The part I haven't said is that I was warned this could happen. Someone told me the creatures were moving into the watershed and I dismissed it because I didn't want to spend the season building barriers instead of fishing. My livelihood was destroyed by my own stubbornness, and the anger I feel at those creatures is really anger I can't bear to aim at myself.",
       "failText": "They fouled the water. That's the fact, and that's what I'm settling."
     },
@@ -774,7 +752,6 @@
     "resolutionText": "The work is done and the space has something in it again. Take {quest_reward}. I'm not going to call it closure, because I don't believe in the word. But the weight shifted, and I can stand a little straighter under it now.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "The way you said that, so easily, like grief is something you can just name and set down. I've been trying to do that for a year and couldn't manage the first part. Nobody here talks about loss that directly, they circle it and whisper around it. You just walked up to it and called it what it is, and something in me unclenched.",
       "failText": "It's old anger. I don't need it explained to me, just answered."
     },
@@ -805,7 +782,6 @@
     "resolutionText": "Something is growing again where my mother's hands put the first seeds in the ground. Take {quest_reward}. You helped me save the one thing in this world I can't replace and can't explain the value of to anyone who didn't know her.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 12,
       "passText": "You understand what a garden like that means, then. My mother planted it following the old seasonal rites, the way her mother taught her, putting the first seeds in on the morning her tradition marked as the beginning of growth. It was her way of keeping faith with something larger. Watching it get destroyed felt like watching her prayers get answered with silence.",
       "failText": "It's a garden. It was my mother's. That's reason enough."
     },
@@ -838,7 +814,6 @@
     "resolutionText": "I won't say the pattern is broken, I've been disappointed too many times for that. But today was good, and yesterday was good, and I'll take two good days in a row as a sign. Take {quest_reward}. You showed me what it looks like when things go right for a change.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You read past what I was saying, didn't you. The truth is I've started to believe I cause it, not rationally, but in that part of your mind that keeps count. Everything I touch seems to sour eventually, and I've stopped starting new things because I'm afraid I'll ruin them the way I've ruined everything else. Saying it out loud sounds foolish, but living with it doesn't.",
       "failText": "It's just a bad stretch. Stretches end."
     },
@@ -876,7 +851,6 @@
     "resolutionText": "Nothing is broken. I've said that three times today and it keeps being true. Take {quest_reward}. You helped me step off a wheel I'd been running on so long I forgot what solid ground felt like.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "All right. The thing I haven't admitted to anyone is that some of these problems are cascading because I cut corners on early repairs. I was so tired from the previous fix that I rushed the next one, which made it fail sooner, which meant another fix sooner. I built the cycle myself, and admitting that is harder than any of the repairs.",
       "failText": "Things break. I fix them. That's the whole story."
     },
@@ -909,7 +883,6 @@
     "resolutionText": "We came through a season that had no business being this hard, and we're still standing. Take {quest_reward}. I can't control the weather or the calendar, but I can recognize someone who showed up when both turned against us.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "Since you're making me say it plainly. I ignored the early signs because I was too proud to admit the season was turning before I was ready. The old farmers warned me and I waved them off, and now everyone here is paying for my stubbornness. The weather didn't betray us, I did, by not listening when I should have.",
       "failText": "Nobody predicted this. It just happened."
     },
@@ -947,7 +920,6 @@
     "resolutionText": "Twelve years of good harvests, one bad one, and now the start of recovery. Take {quest_reward}. I was ready to believe the land had turned against me, and you showed me it was just sick, not hostile. That difference matters more than you know.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "The confidence in your voice when you said the field could recover. I needed to hear someone say it like they believed it. My neighbors have been giving me the look people give when they think you should cut your losses, and I was starting to agree with them. But the way you talked about it, like the ground and I still had a future together, that's what kept me from walking away.",
       "failText": "It's a field problem. I just want it solved."
     },
@@ -980,7 +952,6 @@
     "resolutionText": "I'm holding steady. Not gaining, but not losing ground anymore, and after the month I've had, that feels like a triumph. Take {quest_reward}. You helped me stop the bleeding, and that's the thing that had to happen before anything else could.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "All right, since you're not going to let me brush it off. I've been telling people I'm handling it because I didn't want anyone to see how far behind I've fallen. The truth is I nearly gave up last week, sat down in the middle of the floor with a broken hinge in my hand and couldn't stand up for an hour. You making me say it is the first time I've admitted out loud that I'm drowning.",
       "failText": "Things wear out. It's just happening all at once, which is my particular luck."
     },
@@ -1018,7 +989,6 @@
     "resolutionText": "For the first time in what feels like forever, I'm not fixing something. I'm just standing here in a place where everything works, and it feels strange and wonderful. Take {quest_reward}. You helped me believe that fixed could actually mean finished.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 13,
       "passText": "You noticed something about the failure pattern, didn't you. The collapse keeps happening in the same spot because there's something in the ground there that rejects normal construction. I've dug it up twice and both times there was a residue I couldn't identify, almost crystalline, and warm to the touch. I don't know what it is, but It natural, and pretending it's just bad soil hasn't been working.",
       "failText": "The ground is difficult. That's all I know and all I need to know right now."
     },

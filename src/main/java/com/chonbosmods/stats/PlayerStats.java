@@ -15,13 +15,13 @@ public record PlayerStats(int[] stats, int level, Set<String> proficiencies) {
     }
 
     /**
-     * D&D 5e signed ability modifier: {@code floor((score - 10) / 2)}.
-     * Used only for d20 rolls against a difficulty class. Negative values are
-     * intentional here: they preserve the "low-stat character fails the roll"
-     * texture for dialogue skill checks.
+     * Non-negative skill-check modifier: {@code floor(score / 3)}. Score 0→+0,
+     * 9→+3, 15→+5, 30→+10. Unified with {@link #getPowerModifier(Stat)} so d20
+     * checks and flat combat math use the same stat curve: even a dumped stat
+     * contributes a non-negative baseline instead of the D&D 5e signed penalty.
      */
     public int getSkillCheckModifier(Stat stat) {
-        return Math.floorDiv(getStat(stat) - 10, 2);
+        return Math.floorDiv(getStat(stat), 3);
     }
 
     /**
@@ -37,7 +37,12 @@ public record PlayerStats(int[] stats, int level, Set<String> proficiencies) {
         return proficiencies.contains(skill.name());
     }
 
+    /**
+     * Proficiency bonus scaled for Natural 20's 40-level progression: 8-level
+     * tiers stretch D&D's 20-level curve so the bonus only ticks every 8
+     * character levels. Levels 1-8→+2, 9-16→+3, 17-24→+4, 25-32→+5, 33-40→+6.
+     */
     public int getProficiencyBonus() {
-        return 2 + (level - 1) / 4;
+        return 2 + (level - 1) / 8;
     }
 }

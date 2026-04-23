@@ -3,6 +3,7 @@ package com.chonbosmods.topic;
 import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.dialogue.model.DialogueGraph;
+import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.QuestGenerator;
 import com.chonbosmods.quest.QuestInstance;
@@ -41,15 +42,17 @@ public class TopicGenerator {
     private final TopicPoolRegistry topicPool;
     private final TopicTemplateRegistry templateRegistry;
     private final QuestGenerator questGenerator;
+    private final MobScalingConfig scalingConfig;
 
     /** Shared dedup state, one per world. World-gen is single-threaded per world. */
     private final Map<UUID, PercentageDedup> dedupByWorld = new HashMap<>();
 
     public TopicGenerator(TopicPoolRegistry topicPool, TopicTemplateRegistry templateRegistry,
-                          QuestGenerator questGenerator) {
+                          QuestGenerator questGenerator, MobScalingConfig scalingConfig) {
         this.topicPool = topicPool;
         this.templateRegistry = templateRegistry;
         this.questGenerator = questGenerator;
+        this.scalingConfig = scalingConfig;
     }
 
     /**
@@ -268,8 +271,14 @@ public class TopicGenerator {
             String greeting = topicPool.randomGreeting(dedup, random);
             String returnGreeting = topicPool.randomReturnGreeting(dedup, random);
 
+            // Zone mlvl drives the procedural DC tier distribution in TopicGraphBuilder.
+            // Matches Nat20MobLevel.areaLevel after spawn: same formula, same origin.
+            double spawnDist = Math.sqrt(npc.getSpawnX() * npc.getSpawnX()
+                    + npc.getSpawnZ() * npc.getSpawnZ());
+            int zoneMlvl = scalingConfig.areaLevelForDistance(spawnDist);
+
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, npc.getDisposition(), greeting, returnGreeting, assignments, topicPool, random
+                npcName, npc.getDisposition(), zoneMlvl, greeting, returnGreeting, assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
 

@@ -109,12 +109,18 @@ public class QuestGenerator {
         // Skill check (optional). When present, DialogueManager builds a SkillCheckNode
         // and a third response option on the entry node. The pass branch fires
         // MARK_SKILLCHECK_PASSED before the accept node so TURN_IN_V2 picks up the bonus.
+        //
+        // Authored variant pins a tier (threaded through as {@code quest_skillcheck_tier});
+        // Procedural omits the tier binding and lets DialogueManager roll one from the
+        // NPC's zone-mlvl via QuestProceduralWeights (Task 16).
         if (template.skillCheck() != null) {
             QuestTemplateV2.SkillCheck sc = template.skillCheck();
             bindings.put("quest_skillcheck_skill", sc.skill().name());
-            bindings.put("quest_skillcheck_dc", String.valueOf(sc.dc()));
             bindings.put("quest_skillcheck_pass_text", sc.passText());
             bindings.put("quest_skillcheck_fail_text", sc.failText());
+            if (sc instanceof QuestTemplateV2.SkillCheck.Authored authored) {
+                bindings.put("quest_skillcheck_tier", authored.tier().name());
+            }
         }
 
         // Conflict count is template-driven: a 2-objective template has 1 conflict, a

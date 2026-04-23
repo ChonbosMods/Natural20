@@ -1,5 +1,6 @@
 package com.chonbosmods.quest;
 
+import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.topic.TopicGenerator;
@@ -19,7 +20,7 @@ public class QuestSystem {
     private final TopicTemplateRegistry topicTemplateRegistry;
     private final TopicGenerator topicGenerator;
 
-    public QuestSystem(SettlementRegistry settlementRegistry, Nat20PartyQuestStore partyQuestStore) {
+    public QuestSystem(SettlementRegistry settlementRegistry, Nat20PartyQuestStore partyQuestStore, MobScalingConfig scalingConfig) {
         this.templateRegistry = new QuestTemplateRegistry();
         this.poolRegistry = new QuestPoolRegistry();
         this.poolRegistry.setTemplateRegistry(templateRegistry);
@@ -29,7 +30,7 @@ public class QuestSystem {
         this.generator = new QuestGenerator(templateRegistry, settlementRegistry, poolRegistry, difficultyRegistry);
         this.topicPoolRegistry = new TopicPoolRegistry();
         this.topicTemplateRegistry = new TopicTemplateRegistry();
-        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, generator);
+        this.topicGenerator = new TopicGenerator(topicPoolRegistry, topicTemplateRegistry, generator, scalingConfig);
     }
 
     public void loadTemplates(Path questDataDir) {

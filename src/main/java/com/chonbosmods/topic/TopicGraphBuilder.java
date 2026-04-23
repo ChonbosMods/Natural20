@@ -1,5 +1,6 @@
 package com.chonbosmods.topic;
 
+import com.chonbosmods.dialogue.DifficultyTier;
 import com.chonbosmods.dialogue.ValenceType;
 import com.chonbosmods.dialogue.model.*;
 import com.chonbosmods.quest.DialogueResolver;
@@ -26,20 +27,25 @@ public class TopicGraphBuilder {
         @Nullable PoolEntry entry
     ) {}
 
-    // --- Stat check tuning ---
-    private static final int STAT_CHECK_DC_MIN = 8;
-    private static final int STAT_CHECK_DC_MAX = 16;
-
     private final String npcId;
     private final int defaultDisposition;
+    private final int zoneMlvl;
     private final String greetingText;
     private final String returnGreetingText;
     private final List<TopicAssignment> assignments;
     private final TopicPoolRegistry topicPool;
     private final Random random;
+    /**
+     * @param zoneMlvl NPC's zone monster level (1..40), used by the procedural
+     *                 tier weight lookup in {@link MundaneTierWeights#forMlvl(int)}.
+     *                 In live gen this comes from
+     *                 {@code MobScalingConfig.areaLevelForDistance(...)} at the NPC's
+     *                 spawn position; in {@code DialogueDryRun} it defaults to 1.
+     */
     public TopicGraphBuilder(
             String npcId,
             int defaultDisposition,
+            int zoneMlvl,
             String greetingText,
             String returnGreetingText,
             List<TopicAssignment> assignments,
@@ -48,6 +54,7 @@ public class TopicGraphBuilder {
     ) {
         this.npcId = npcId;
         this.defaultDisposition = defaultDisposition;
+        this.zoneMlvl = zoneMlvl;
         this.greetingText = greetingText;
         this.returnGreetingText = returnGreetingText;
         this.assignments = assignments;
@@ -152,8 +159,6 @@ public class TopicGraphBuilder {
         String checkNodeId = null;
         if (statCheckApproved) {
             Skill skill = assignment.skill();
-            Stat stat = skill.getStat();
-            int baseDC = STAT_CHECK_DC_MIN + random.nextInt(STAT_CHECK_DC_MAX - STAT_CHECK_DC_MIN + 1);
 
             checkNodeId = subjectId + "_skill_check";
             String passNodeId = subjectId + "_skill_pass";
@@ -177,8 +182,10 @@ public class TopicGraphBuilder {
                     String.valueOf(MundaneDispositionConstants.STAT_CHECK_FAIL))),
                 false, false, entryValence
             ));
+            double[] weights = MundaneTierWeights.forMlvl(zoneMlvl);
+            DifficultyTier tier = com.chonbosmods.dialogue.WeightedTierDraw.pick(weights, random);
             nodes.put(checkNodeId, new DialogueNode.SkillCheckNode(
-                skill, null, baseDC, true, passNodeId, failNodeId, List.of()
+                skill, null, tier, true, passNodeId, failNodeId, List.of()
             ));
         }
 

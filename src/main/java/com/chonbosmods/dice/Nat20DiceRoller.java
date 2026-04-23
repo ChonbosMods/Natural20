@@ -16,17 +16,38 @@ public final class Nat20DiceRoller {
     }
 
     public static SkillCheckResult roll(PlayerStats stats, SkillCheckRequest request, Random rng) {
-        int naturalRoll = rng.nextInt(20) + 1;
+        int first = rng.nextInt(20) + 1;
+        int kept;
+        int other;
+
+        switch (request.mode()) {
+            case ADVANTAGE -> {
+                int second = rng.nextInt(20) + 1;
+                kept = Math.max(first, second);
+                other = Math.min(first, second);
+            }
+            case DISADVANTAGE -> {
+                int second = rng.nextInt(20) + 1;
+                kept = Math.min(first, second);
+                other = Math.max(first, second);
+            }
+            default -> {
+                kept = first;
+                other = -1;
+            }
+        }
 
         Stat effectiveStat = request.stat() != null ? request.stat() : request.skill().getAssociatedStat();
         int statModifier = stats.getSkillCheckModifier(effectiveStat);
         int proficiencyBonus = stats.isProficient(request.skill()) ? stats.getProficiencyBonus() : 0;
+        int totalRoll = kept + statModifier + proficiencyBonus;
 
-        int totalRoll = naturalRoll + statModifier + proficiencyBonus;
+        boolean critical = kept == 20 || kept == 1;
+        boolean passed = kept == 20 || (kept != 1 && totalRoll >= request.dc());
 
-        boolean critical = naturalRoll == 20 || naturalRoll == 1;
-        boolean passed = naturalRoll == 20 || (naturalRoll != 1 && totalRoll >= request.dc());
-
-        return new SkillCheckResult(naturalRoll, statModifier, proficiencyBonus, totalRoll, request.dc(), passed, critical);
+        return new SkillCheckResult(
+                kept, other, request.mode(),
+                statModifier, proficiencyBonus, totalRoll, request.dc(),
+                passed, critical);
     }
 }

@@ -471,11 +471,9 @@ public class DialogueManager {
 
         ResponseOption checkOption = null;
         String skillName = b.get("quest_skillcheck_skill");
-        String dcRaw = b.get("quest_skillcheck_dc");
-        if (skillName != null && dcRaw != null) {
+        if (skillName != null) {
             try {
                 com.chonbosmods.stats.Skill skill = com.chonbosmods.stats.Skill.valueOf(skillName);
-                int dc = Integer.parseInt(dcRaw);
                 String passText = DialogueResolver.resolveQuestText(
                     b.getOrDefault("quest_skillcheck_pass_text", ""), b, expositionObj, playerLevel);
                 String failText = DialogueResolver.resolveQuestText(
@@ -517,9 +515,30 @@ public class DialogueManager {
                     failText, null, failResponses, List.of(), false, false, ValenceType.NEUTRAL
                 ));
 
+                // Tier: if the template authored one, it was threaded through as
+                // {@code quest_skillcheck_tier} in QuestGenerator; otherwise, roll
+                // from the NPC's zone-mlvl via QuestProceduralWeights. The RNG seed
+                // hashes (npcId, questId, "questproc") so the same quest shows the
+                // same tier to the same player across sessions: re-opening the
+                // dialogue does not re-roll a different difficulty.
+                String tierRaw = b.get("quest_skillcheck_tier");
+                DifficultyTier tier;
+                if (tierRaw != null) {
+                    tier = DifficultyTier.valueOf(tierRaw);
+                } else {
+                    double spawnDist = Math.sqrt(
+                        npcRecord.getSpawnX() * npcRecord.getSpawnX()
+                            + npcRecord.getSpawnZ() * npcRecord.getSpawnZ());
+                    int zoneMlvl = Natural20.getInstance().getScalingConfig()
+                        .areaLevelForDistance(spawnDist);
+                    double[] weights = com.chonbosmods.quest.QuestProceduralWeights.forMlvl(zoneMlvl);
+                    Random rng = new Random(Objects.hash(npcId, questId, "questproc"));
+                    tier = WeightedTierDraw.pick(weights, rng);
+                }
+
                 // Skill check node: routes pass/fail.
                 graph.nodes().put(checkNodeId, new DialogueNode.SkillCheckNode(
-                    skill, null, dc, false, passNodeId, failNodeId, List.of()
+                    skill, null, tier, true, passNodeId, failNodeId, List.of()
                 ));
 
                 // Skill check option: triggers the check. Uses skillCheckRef instead
@@ -536,8 +555,8 @@ public class DialogueManager {
                     checkNodeId, skill.getStat().name(), null
                 );
             } catch (IllegalArgumentException e) {
-                LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s' or dc='%s', skipping check option",
-                    questId, skillName, dcRaw);
+                LOGGER.atWarning().log("Quest %s skill check has invalid skill='%s', skipping check option",
+                    questId, skillName);
             }
         }
 

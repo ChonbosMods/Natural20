@@ -1,6 +1,8 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.quest.model.QuestTemplateV2;
+import com.chonbosmods.quest.model.QuestVariant;
+import com.chonbosmods.quest.model.SkillCheckAdapter;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
 
@@ -18,7 +20,9 @@ public class QuestTemplateRegistry {
 
     private final List<QuestTemplateV2> v2Templates = new ArrayList<>();
     private final List<QuestTemplateV2> mundaneTemplates = new ArrayList<>();
-    private static final Gson GSON = new GsonBuilder().create();
+    private static final Gson GSON = new GsonBuilder()
+        .registerTypeAdapter(QuestTemplateV2.SkillCheck.class, new SkillCheckAdapter())
+        .create();
 
     public void loadAll(@Nullable Path overrideDir) {
         loadV2Templates(overrideDir);

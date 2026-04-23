@@ -1051,7 +1051,7 @@ public class Natural20 extends JavaPlugin {
         partyInviteRegistry = new Nat20PartyInviteRegistry();
 
         // Initialize quest system
-        questSystem = new QuestSystem(settlementRegistry, partyQuestStore);
+        questSystem = new QuestSystem(settlementRegistry, partyQuestStore, scalingConfig);
         questSystem.loadTemplates(getDataDirectory().resolve("quests"));
         // Note: settlementRegistry is world-scoped and still empty at this
         // point (loaded on first chunk-load by initWorldScopedRegistries).

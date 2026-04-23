@@ -188,8 +188,11 @@ public class DialogueDryRun {
             String greeting = topicPool.randomGreeting(random);
             String returnGreeting = topicPool.randomReturnGreeting(random);
 
+            // Dry-run has no world position: default to zoneMlvl=1 (starter-zone
+            // weight distribution) for a defensible authoring preview.
+            int zoneMlvl = 1;
             TopicGraphBuilder builder = new TopicGraphBuilder(
-                npcName, npc.getDisposition(), greeting, returnGreeting,
+                npcName, npc.getDisposition(), zoneMlvl, greeting, returnGreeting,
                 assignments, topicPool, random
             );
             DialogueGraph graph = builder.build();
@@ -437,7 +440,7 @@ public class DialogueDryRun {
             String statPrefix = resp.statPrefix() != null ? resp.statPrefix() : "";
 
             md.append(indent).append("- **[").append(statPrefix).append("] ")
-                .append(skillDisplay).append(" Check** (DC ").append(check.baseDC()).append(") →\n");
+                .append(skillDisplay).append(" Check** (DC ").append(check.tier().dc()).append(") →\n");
 
             // Pass
             if (!visited.contains(check.passNodeId())) {
@@ -471,7 +474,7 @@ public class DialogueDryRun {
         String skillDisplay = check.skill() != null ? check.skill().displayName() : "Unknown";
 
         md.append(indent).append("**Skill Check:** ").append(skillDisplay)
-            .append(" (DC ").append(check.baseDC()).append(")\n");
+            .append(" (DC ").append(check.tier().dc()).append(")\n");
 
         if (!visited.contains(check.passNodeId())) {
             visited.add(check.passNodeId());

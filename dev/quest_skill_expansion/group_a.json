@@ -24,7 +24,6 @@
     "resolutionText": "The stores are full, the {enemy_type_plural} are gone, and {settlement_npc} still thinks I had it all under control. Take {quest_reward}. You saved me from a mess that was half my own making, and I won't forget that.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You could tell, couldn't you, that the numbers I gave {settlement_npc} didn't add up. The truth is I've been skimming from my own rations to keep the public count looking right. I haven't eaten a full meal in four days.",
       "failText": "It's tight, that's all. Every settlement has lean stretches."
     },
@@ -55,7 +54,6 @@
     "resolutionText": "My back's getting better, the debt is settled, and I can look at myself in a mirror again without wincing. Take {quest_reward}. You did the hard parts I couldn't face, and I mean that literally and otherwise.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You picked up on the timing, didn't you. It just any debt. I borrowed the money for medicine for my daughter last winter. If {target_npc} knew it was for that, they'd forgive the whole thing, but then I'd owe them pity, and I'd rather owe them coin.",
       "failText": "It's a debt, everyone has them. Mine is just overdue."
     },
@@ -95,7 +93,6 @@
     "resolutionText": "I moved the feed, rebuilt the fence, and last night was the quietest I can remember. Take {quest_reward}. You gave me answers on top of help, and that's worth more than either one alone.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine, you want the whole picture? I've been sleeping in the pen with them, with a club, because if I lose these animals I lose the only income I have. That's what's actually at stake here, and I haven't told anyone because I don't want their pity.",
       "failText": "It's just a pest problem. A bad one, but that's all."
     },
@@ -128,7 +125,6 @@
     "resolutionText": "The shelves are stocked, the {enemy_type_plural} are handled, and I still have my tools and my chair. Take {quest_reward}. I was ready to sell everything I had, and you kept me from having to.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right, stop looking at me like that. The real problem is that I spent the emergency fund on a gift for my partner's birthday two months ago and thought I'd earn it back before anyone noticed. Everything that's gone wrong since has been piling on top of that one stupid decision.",
       "failText": "Supplies run out, it happens. I'd rather fix it than talk about it."
     },
@@ -159,7 +155,6 @@
     "resolutionText": "I can stand on my own feet again, at least for a while. Take {quest_reward}. I'd write you a song about it if I thought you'd want one, but coin is probably more useful.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "You caught that, did you, the way I frame everything like a story. It's a habit from years of busking, making my problems sound charming because that's the only way anyone ever listens. The truth underneath all the polish is that I haven't eaten properly in a week and I'm scared.",
       "failText": "Everyone has hard stretches. Mine happens to be now."
     },
@@ -197,7 +192,6 @@
     "resolutionText": "I performed the rite last night, the first time anyone has done it in {settlement_name} in twenty years. The air felt different this morning. Take {quest_reward}. You helped me find something I didn't know I'd lost.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 13,
       "passText": "You know the old calendar. Then you understand what I mean when I say we're two seasons overdue. My grandmother never missed an observance in her life, and the year after she died is when the trouble started. I don't think that's a coincidence, and I've been too ashamed of my own neglect to say so until now.",
       "failText": "It's an old tradition. I won't bore you with the details."
     },
@@ -230,7 +224,6 @@
     "resolutionText": "My cousin walked through the door an hour ago, dirty and shaken but whole. I've never been so relieved in my life. Take {quest_reward}. You cleared the way and found the right person to finish it, and I owe you everything.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You can see through me, can't you. I told everyone here that I'm sure my cousin is fine, that they're just delayed. The truth is I found blood on the trail this morning, and I cleaned it up before anyone else saw it because I couldn't bear the look on my aunt's face if she knew.",
       "failText": "They're overdue, that's all. People get delayed out there sometimes."
     },
@@ -268,7 +261,6 @@
     "resolutionText": "{settlement_npc} sat up at the table this morning and complained about the soup being too salty. I nearly knocked the bowl over hugging them. Take {quest_reward}. You gave them back to us.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You noticed I said 'read about' and not 'heard about,' didn't you. I found a journal in my mother's things after she died, and she had the same illness years ago. The {quest_item} was underlined three times. She didn't make it, but she wrote that it gave her more time, and I'm hoping more time is all {settlement_npc} needs.",
       "failText": "I heard it helps. That's enough reason to try."
     },
@@ -299,7 +291,6 @@
     "resolutionText": "The children drank their fill this morning without me measuring the cups. I didn't realize how tense I'd been until I stopped. Take {quest_reward}. You kept this from becoming the kind of story people tell about settlements that didn't make it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine, I'll tell you what I haven't told anyone else. I checked the backup cistern yesterday and it was bone dry too. I'd been telling people we had three days of reserve when we had one, because I thought the truth would start a fight over what was left.",
       "failText": "We're short on water. That's all you need to know to understand why I'm asking."
     },
@@ -330,7 +321,6 @@
     "resolutionText": "The first supply cart from {other_settlement} came through this morning, and the driver didn't even know the bridge had been out. Take {quest_reward}. You reopened a lifeline and I won't forget it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "Since you're pressing. Last week a child tried to cross before I could stop them, and the boards cracked under their feet. I caught them by the collar and pulled them back. I didn't report it because I was afraid they'd close the bridge entirely and we'd starve waiting for a fix.",
       "failText": "The bridge is in bad shape. That's reason enough to act."
     },
@@ -361,7 +351,6 @@
     "resolutionText": "The fields are safe, the air is clean, and {settlement_npc} is back on their feet and grumbling about the weeds, which means everything is normal again. Take {quest_reward}. You figured out something that had us terrified for weeks.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 14,
       "passText": "You can sense it too, can't you. There's something unnatural about the way the air moves down there. It doesn't just smell wrong, it feels wrong, like the ground is exhaling something that shouldn't exist this close to the surface. I've been telling people it's just gas from the rocks, but I don't believe that anymore.",
       "failText": "Something's making people sick down there. That's all I know for certain."
     },
@@ -394,7 +383,6 @@
     "resolutionText": "Three quiet nights in a row. The children are sleeping through, the livestock have calmed down, and I caught {settlement_npc} humming this morning, which hasn't happened in a month. Take {quest_reward}. You gave us back the night.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You have a good ear, then you understand what I mean when I say the sound was breaking us. There's a particular pitch they hit that gets into your bones, and after a week of it you can't tell if the ringing is outside or inside your own head. That's when I knew I had to ask for help.",
       "failText": "It's just noise, terrible noise. That's what I keep telling myself."
     },
@@ -425,7 +413,6 @@
     "resolutionText": "The trade council ruled in my favor and I got every coin back. The look on that merchant's face when {target_npc}'s letter was read aloud was almost worth the trouble. Take {quest_reward}. You helped me prove what I already knew, and sometimes that's the hardest part.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You caught that, didn't you. I almost didn't bring this to anyone because the truth is I should have checked the goods before I paid. I was in a rush and I cut corners, and the merchant saw someone careless and took advantage. That's the part that burns.",
       "failText": "I was cheated, it's straightforward. I just need the proof to make it official."
     },
@@ -461,7 +448,6 @@
     "resolutionText": "I'm back where I was before they came through, and this time the doors are reinforced and the windows are boarded properly. Take {quest_reward}. You helped me reclaim something that felt like it had been taken permanently, and I needed that feeling more than the supplies themselves.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You can tell there's more to it, can't you. The stores they hit weren't just mine, I was holding supplies for three other families who trusted me to keep them safe. I haven't told any of them what happened because I'm trying to replace everything before they find out. If they learn I failed them, I lose more than goods.",
       "failText": "They made a mess and I want it fixed. That covers it."
     },
@@ -499,7 +485,6 @@
     "resolutionText": "Fair trades, full carts, and no more arguments about who's cheating whom. Take {quest_reward}. You gave me back something I'd stopped believing I'd see, which is a level field.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "All right, I'll say the part I've been leaving out. I know exactly who's been tilting the scales, and It some accident of calibration. {settlement_npc} told me months ago who was doing it, and I was too afraid of losing the trade relationship to confront them. Being robbed politely felt safer than being cut off entirely.",
       "failText": "The scales are wrong and I want them fixed. That's the whole of it."
     },
@@ -535,7 +520,6 @@
     "resolutionText": "The first new shoot came up this morning. Small and pale and perfect. Take {quest_reward}. You helped me take back something that was mine, and you helped me believe it was worth taking back.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You want the real reason I'm so upset about a garden? My mother planted the original beds, and every season I tended them was a conversation with her. When the blight took them I didn't just lose vegetables, I lost the closest thing I had to her voice. I haven't told anyone that because I know how it sounds.",
       "failText": "It's a garden that fed my family. That should be reason enough."
     },
@@ -573,7 +557,6 @@
     "resolutionText": "The archive is rebuilt, the formulas are tested, and I can work again without second-guessing every measurement. Take {quest_reward}. You helped me recover something that fire couldn't kill, only scatter.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "You have an artist's eye, then you understand what it means to lose a body of work. Those records weren't just recipes, they were the conversation I had with my craft over twenty years, every mistake and discovery in my own handwriting. Rebuilding them isn't just practical, it's an act of remembering who I am.",
       "failText": "I need my records back to do my job. That's the practical reality."
     },
@@ -615,7 +598,6 @@
     "resolutionText": "We pulled our first proper load today and it's better quality than what we've been buying. Take {quest_reward}. You gave us back our livelihood, and the look on the {other_settlement} merchant's face when I cancelled the next order was a reward all its own.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 13,
       "passText": "You noticed it too, the way they nested, the patterns on the walls. That's not normal territorial behavior, something drew them there specifically. I've seen markings on the deeper stones that don't match any natural formation, and I don't know what it means, but I know It just animals claiming empty space.",
       "failText": "They moved in because it was empty. That's what animals do."
     },
@@ -655,7 +637,6 @@
     "resolutionText": "The first supply run went through this morning and arrived a full day ahead of the old schedule. I'm standing here watching the carts roll in and I can't stop smiling. Take {quest_reward}. You helped build something that will outlast both of us.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You picked up on it, didn't you. I told the council the route was practically proven, but it wasn't. I had sketches and hunches and a desperate wish for it to work. If {target_npc} had said no, I'd have been standing in front of the council with nothing.",
       "failText": "It's a new route. All new routes involve some uncertainty."
     },
@@ -688,7 +669,6 @@
     "resolutionText": "The first batch came out perfect. I held one of the pieces up to the light and I could see my own reflection in the glaze, and behind it, every doubt I ever had about whether I could do this. Take {quest_reward}. You helped me build something I'll be proud of for the rest of my life.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You're wondering why I didn't mention this to the council first. Because {settlement_npc} told me the council would say no. Too expensive, too risky, not enough demand. So I'm building it on my own plot with my own materials, and I'll present them with a working kiln instead of a proposal they can reject.",
       "failText": "It's a project I've been meaning to start. The timing finally felt right."
     },
@@ -729,7 +709,6 @@
     "resolutionText": "I found a valley with water, good soil, and more space than {settlement_name} has used in a generation. I came back with a map and a grin I couldn't wipe off my face for three days. Take {quest_reward}. You made this possible, every step of it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "All right, I'll level with you since you're not the type to accept a polished version. Everyone I've told about this has called me reckless, my partner thinks I've lost my mind, and {settlement_npc} told me to my face that I was going to get myself killed. But I'd rather die finding something than live wondering what was out there.",
       "failText": "It's a survey expedition. Some risk is expected."
     },
@@ -769,7 +748,6 @@
     "resolutionText": "I tempered my first blade this morning, and it held. Clean edge, no warping, and a ring that says I got the carbon right. Take {quest_reward}. You helped me build the place where I'll spend the rest of my working life, and that's not something I'll ever forget.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 13,
       "passText": "You saw the drawings on the wall, didn't you. Those aren't just plans. They're dreams I've been sketching since I was twelve years old, sitting in the back of someone else's forge and wondering if I'd ever have my own. I didn't tell you that because I wanted you to see the ambition, not the longing.",
       "failText": "It's a forge. Every smith needs one eventually."
     },
@@ -804,7 +782,6 @@
     "resolutionText": "The first shoots are up. Green and strong and completely impossible according to everyone who told me it couldn't be done. Take {quest_reward}. You were part of proving something that mattered to me, even if the rest of {settlement_name} thinks I'm eccentric.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 12,
       "passText": "You can sense it too, can't you, the soil in that lower field isn't just well-drained. There's some quality in the mineral content that shouldn't occur naturally this far from the coast, and whatever it is, it's the reason I think this will work when everyone else says it won't. I haven't published my findings because I don't want anyone else claiming the plot.",
       "failText": "The soil is right for what I'm trying to do. I've done my homework."
     },
@@ -842,7 +819,6 @@
     "resolutionText": "The bridge opened today, and I walked across it with nothing to hold onto and nothing to fear. I could see people on both sides watching. Take {quest_reward}. You helped connect two settlements that have been staring at each other across a gap for too long.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "All right, fine. The real reason nobody's built this bridge before is that the landowner on the other side has been blocking proposals for years to protect his ferry toll. I know because he told me to my face that he'd undercut anyone who tried. I've been too afraid of his influence to push back, but if you're backing me, I'm not afraid anymore.",
       "failText": "It's infrastructure. The region needs it and we're the ones in a position to build it."
     },
@@ -873,7 +849,6 @@
     "resolutionText": "I slept with the door unlocked last night. First time in months. Take {quest_reward}. You finished what I've been circling for weeks, and you did it without flinching.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You figured out what I wasn't saying. I've already gone out there twice on my own, and both times I lost my nerve before I got close enough to matter. I've been selling this as strategic patience, but the truth is I was afraid. Putting the job on you is the only way it gets done.",
       "failText": "I've been watching them, studying the pattern. Now it's time to act on what I've learned."
     },
@@ -906,7 +881,6 @@
     "resolutionText": "Three nights in a row with no kills. The farmers stopped sleeping in their barns and started sleeping in their beds. Take {quest_reward}. You turned a mystery into a solved problem, and this whole valley is better for it.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "All right, since you're sharp enough to ask. The reason I'm pushing so hard is that two of those farms are mine. I've been telling people I'm coordinating this for the community, and I am, but I'm also watching my own livelihood get eaten one night at a time. If I'd said that from the start, people would call it self-interest and drag their feet.",
       "failText": "The farms are losing animals. That's everyone's problem."
     },
@@ -944,7 +918,6 @@
     "resolutionText": "The pattern is broken, the source is removed, and for the first time in memory, {settlement_name} isn't bracing for the next wave. Take {quest_reward}. You ended something that nobody else was willing to finish, and that's a different thing entirely.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 14,
       "passText": "You want me to stop dancing around it? Fine. I know exactly who left that lure behind, a trader from {other_settlement} who planted it two years ago to drive the {enemy_type_plural} toward us and away from their own routes. I've been too cautious to accuse them without proof, and the proof is sitting out there in the dirt.",
       "failText": "Something's drawing them. Find it and the rest sorts itself out."
     },
@@ -982,7 +955,6 @@
     "resolutionText": "Two weeks of clean traffic and counting, and the supply prices have already dropped back to normal. Take {quest_reward}. You turned warnings into results, and that's the only language that matters out here.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "You want the truth about the warnings? Two of the three were bluffs. I didn't have the resources for real deterrence, so I made noise and hoped. I've been performing strength I didn't have, and now that someone with actual strength is here, I can stop pretending.",
       "failText": "I've tried everything short of direct action. Now it's time for direct action."
     },
@@ -1015,7 +987,6 @@
     "resolutionText": "The promise is kept. My friend is rebuilding, the things that burned them out are dealt with, and I can finally stop waking up at night thinking about what I owed. Take {quest_reward}. You helped me close a book I've been writing in for too long.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You noticed the way I tell this story, clean, heroic, the loyal friend riding to justice. The truth is I wasn't there when the homestead burned, and I was supposed to visit that week but I put it off. The promise isn't just about justice, it's about guilt I'm trying to work off.",
       "failText": "A friend was wronged and I said I'd see it answered. That's the long and short of it."
     },
@@ -1053,7 +1024,6 @@
     "resolutionText": "The council ruled in our favor. Sanctions, restitution, and a formal warning that will follow that trader to every market in the region. Take {quest_reward}. You helped me prove something everyone suspected but nobody could pin down, and the orchard will bear fruit again because of it.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 14,
       "passText": "You understand why the orchards matter beyond the harvest, don't you. My family planted those trees three generations ago, and in the old tradition, a family orchard is a living covenant with the land. Poisoning It's desecration. That's why I need the response to be complete.",
       "failText": "The orchards were sabotaged and I want justice. The details are for the council."
     },

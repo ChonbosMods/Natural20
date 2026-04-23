@@ -24,7 +24,6 @@
     "resolutionText": "The supplies reached {other_settlement}, and my brother sent word that he's managing, which is the best either of us can say right now. Take {quest_reward}. I owe you for carrying the message I couldn't.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You caught that, did you. I already decided two days ago. The reason I haven't acted is that I keep hoping something will change so I don't have to be the one who chose. Nothing is going to change.",
       "failText": "It's a hard choice. I'll make it when the time comes."
     },
@@ -55,7 +54,6 @@
     "resolutionText": "I put the {quest_item} back where it belongs, and my daughter hasn't asked any questions. The deal is dead and we're no worse for it, thanks to you. Take {quest_reward}. It's the least of what I owe.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You see through the story, don't you. She didn't give it away willingly, I told her it was the only option and framed the whole thing so she'd feel like she was choosing. Really I'd already chosen for her, and that's the part I can't forgive myself for.",
       "failText": "It was a family decision. That's all I'll say about how it happened."
     },
@@ -86,7 +84,6 @@
     "resolutionText": "He's safe and he has something of his mother's. That's the best I can do from here, and it will have to be enough. Take {quest_reward}. You bridged a distance I've been too ashamed to cross myself.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 11,
       "passText": "Fine. You want the truth that keeps me up at night? I had a choice between my son and my daughter, and I picked him because he's older and I thought he'd survive it better. I don't know if I was right, and I never will.",
       "failText": "Times were hard, and we did what we had to."
     },
@@ -124,7 +121,6 @@
     "resolutionText": "He left this morning. He waved from the road and I waved back and then I sat down in the doorway and didn't move for an hour. Take {quest_reward}. You helped me do the thing I knew was right but couldn't face alone.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "You want me to stop circling it, fine. My wife told me if I send him away she won't forgive me, and I'm going to do it anyway because forgiveness won't mean much if he's dead. That's the choice I've made, and I'm making it with my eyes open.",
       "failText": "It's a family matter. We'll sort it out between ourselves."
     },
@@ -155,7 +151,6 @@
     "resolutionText": "They sat together all afternoon and laughed about things I've never heard either of them mention before. She looked peaceful afterward, really peaceful, for the first time in months. Take {quest_reward}. You gave her something no amount of coin could buy, and she wanted you to know it.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You have a way of putting people at ease, and I suppose that's why I'm telling you this. The hardest part isn't losing her. The hardest part is that she's choosing to go, and I have to respect that, because she earned the right to decide. I just wish she'd chosen differently.",
       "failText": "She's old, and she's tired. That's as much as I want to say about it."
     },
@@ -186,7 +181,6 @@
     "resolutionText": "We're going. The house will stand empty or it won't, and either way we'll be alive somewhere else. Take {quest_reward}. It's from the life I'm leaving behind, and I'd rather it go to someone who helped than sit in a house nobody comes back to.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 14,
       "passText": "You understand, then. The homestead isn't just a house, my family consecrated that ground when they first built here. Leaving means breaking a promise my grandmother made to this land. I've spent every night since the decision asking whether the ancestors will forgive me, and I still don't have an answer.",
       "failText": "It's just a house. A hard one to leave, but just a house."
     },
@@ -217,7 +211,6 @@
     "resolutionText": "His list is a little shorter, and his friend knows the truth. That's what I have to show for today, and it's more than I had yesterday. Take {quest_reward}. He'd have wanted to pay properly for the help, and I'd like to honor that.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You noticed I keep talking about what he would have wanted. The truth is I don't know what I want anymore. I've spent so many years thinking in pairs that I've forgotten how to want things alone. The errands give me a reason to get out of the chair in the morning, and I'm afraid of what happens when the list runs out.",
       "failText": "I miss him. That's the simple version, and it's true enough."
     },
@@ -248,7 +241,6 @@
     "resolutionText": "I feel lighter. Not happier, exactly, but like something that was pressing on my chest has eased just enough to breathe around. Take {quest_reward}. She would have insisted on paying for the help, and I'm not about to argue with her, even now.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You caught the part I was leaving out. I haven't visited because of the {enemy_type_plural}, that's true. But even before they came, I was finding excuses. I'm afraid that one of these visits I'll realize I'm starting to forget her voice, and I don't want to be standing at her grave when that happens.",
       "failText": "I just miss her. The rest is my own business."
     },
@@ -281,7 +273,6 @@
     "resolutionText": "The shed is safe, and his teacher knows. That's two things done, and neither of them will bring him back, but they let me set one plate at supper tonight and mean it. Take {quest_reward}. He would have been embarrassed by the fuss, which is exactly why I'm making it.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You want the part nobody asks about, fine. I'm angry, not at anyone in particular, just angry at the way it happened, angry at the season for turning, angry at the plate for being empty. Grief is supposed to be sad, and it is, but underneath that it's the angriest I've ever been in my life and I have nowhere to put it.",
       "failText": "I'm getting by. Some days are longer than others."
     },
@@ -319,7 +310,6 @@
     "resolutionText": "Her list is one item shorter, and her name was spoken kindly by someone who knew her. That's a good day, by the measure I use now. Take {quest_reward}. She'd have paid you properly and probably fed you too, and I'm doing my best to be as generous as she was.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 13,
       "passText": "All right, you pressed and I'll answer. The real reason I'm doing this isn't for her, it's because going through her things is the only way I can still spend time with her. Every drawer I open is another conversation, and when the last one is empty I don't know what I'll do with my hands.",
       "failText": "She left things in order, and I'm following it."
     },
@@ -350,7 +340,6 @@
     "resolutionText": "The grounds are safe and the mantle has something on it again. Small things, both of them, but she lived in small things, and I think that's where I'll keep finding her. Take {quest_reward}. She would have made you sit down for pie first, but I'm not the baker she was.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 14,
       "passText": "You understand the weight of the small things, don't you. Everyone told me the big moments would be the hardest, the holidays, the anniversaries, but they were wrong. Every morning I come downstairs expecting to hear her humming, and every morning the kitchen is just a kitchen. That's the part that's killing me slowly.",
       "failText": "I miss her, and the house is quiet."
     },
@@ -381,7 +370,6 @@
     "resolutionText": "The promise is kept, the debt is settled, and there's a marker at the crossroads that will outlast both of us. Take {quest_reward}. My brother left it with instructions, and you were the hands that carried it through.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 13,
       "passText": "You noticed the mark on the stone he wanted placed. My brother believed the crossroads held a kind of memory, that places where paths split could hold the echo of the people who stood there and chose. I don't know if he was right, but I know he believed it completely, and I'm not going to let that belief go unhonored.",
       "failText": "It was important to him. That's reason enough for me."
     },
@@ -414,7 +402,6 @@
     "resolutionText": "It's happening. The project is underway, the {enemy_type_plural} are handled, and {settlement_name} is looking at me differently. Take {quest_reward}. You helped me earn something I couldn't buy, and I won't forget who was there at the beginning.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 12,
       "passText": "You see through the bluster, don't you. I'm not as confident as I sound, I've failed at two things already this year and both times I smiled and pretended it didn't sting. This one has to work because I'm running out of chances to be taken seriously, and I'm more scared of that than I am of the {enemy_type_plural}.",
       "failText": "I know what I'm doing. That's all you need to know."
     },
@@ -452,7 +439,6 @@
     "resolutionText": "The foundation is laid, the partners are signed, and I can finally stop talking about what I'm going to do and start showing people what I've done. Take {quest_reward}. You weren't just running errands. You helped build something that's going to last.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You caught the part I'm not saying out loud. My father ran this same shop for thirty years and never once tried to make it bigger, and people told me I'd end up the same way, steady but small. Every board I lay is an answer to that prediction, and some mornings I'm not sure if I'm building something real or just building spite into a storefront.",
       "failText": "It's a good opportunity. I don't need a deeper reason than that."
     },
@@ -490,7 +476,6 @@
     "resolutionText": "Everything is in motion. The favor is called, the road is clear, and I'm finally doing the thing I've been planning since I was old enough to plan. Take {quest_reward}. You arrived at the exact right moment, and I believe in rewarding good timing.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "You want the real talk, fine. I've been told no so many times in my life that I stopped counting and started collecting, because every refusal is fuel. The people who laughed at this idea are going to watch it succeed, and I want them to feel exactly what I felt every time they dismissed me.",
       "failText": "I see an opportunity and I'm taking it. Simple as that."
     },
@@ -521,7 +506,6 @@
     "resolutionText": "It's done, and it's the finest thing I've ever made. People are already talking about it, and they're using my name in the same breath as the old masters. Take {quest_reward}. You helped me make something that proves I belong at the top of this craft.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 14,
       "passText": "You see the edge in me, and you're not wrong. There's a {self_role} in {other_settlement} who's been called the finest in the region for years, and their work is competent while mine is inspired. I've been watching them collect praise for mediocrity until it ate at me so badly I couldn't sit still anymore, and this piece is my answer.",
       "failText": "I take my craft seriously. That's all anyone needs to know."
     },
@@ -558,7 +542,6 @@
     "resolutionText": "The land is clear, the backing is real, and the first stones are going down this week. Take {quest_reward}. Fifty years from now, someone will ask who helped build this, and your name will be in the answer.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You have a presence about you, and I think that's why I'm being honest. I'm terrified of being forgotten, not dying, that's just mechanics, but being forgotten. The idea that I'll pass through this world and leave no mark at all has kept me awake more nights than I'll ever admit, and this project is my answer to that fear.",
       "failText": "I want to build something. That's reason enough."
     },
@@ -596,7 +579,6 @@
     "resolutionText": "The meeting is set, the proposal is funded, and I have a letter from {target_npc} that will make them take me seriously for the first time. Take {quest_reward}. Win or lose, you helped me step into the room as someone who belongs there, and that changes everything.",
     "skillCheck": {
       "skill": "RELIGION",
-      "dc": 13,
       "passText": "You understand tradition, then, so you'll understand this. The council has always chosen its leaders from the same three families, and my family isn't one of them. That's not written anywhere but it's understood, and breaking that understanding scares them more than anything I might actually do. I'm breaking a rule nobody will admit exists.",
       "failText": "It's politics. Straightforward enough if you know the game."
     },
@@ -627,7 +609,6 @@
     "resolutionText": "I owe {settlement_npc} an apology I'll probably never give, because giving it would mean admitting I searched their desk. So instead I'll just be a better partner and stop looking for betrayal in every shadow. Take {quest_reward}. You kept me from making an accusation that would have cost me the best person I know.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 13,
       "passText": "You see what I was doing, don't you. I wasn't investigating, I was building a case, going looking for proof of something I'd already decided was true. Every ambiguous detail fed the story I wanted to tell. I've done this before, and every time the answer turns out to be innocent, and every time I promise I'll stop.",
       "failText": "I just want the facts. That's all."
     },
@@ -658,7 +639,6 @@
     "resolutionText": "I gave {settlement_npc} the gift, and they looked at me like I'd said something they needed to hear without either of us speaking. Take {quest_reward}. You saved me from myself, and that's not a debt I take lightly.",
     "skillCheck": {
       "skill": "DECEPTION",
-      "dc": 11,
       "passText": "You can tell I already know I'm wrong, can't you. The truth is I knew three days ago. I checked the mud on their boots and it matched the clay near Margel's house, not the road to {other_settlement}. But knowing wasn't enough to stop the feeling, and the feeling has its own logic that ignores evidence entirely.",
       "failText": "I just need someone to confirm what I'm hoping is true."
     },
@@ -689,7 +669,6 @@
     "resolutionText": "The kitchen will be beautiful, and {settlement_npc} will never know how close I came to ruining it with my own paranoia. Take {quest_reward}. You helped me step back from the edge of something I would have regretted for years.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 14,
       "passText": "You're right that I should just ask them directly, and the fact that I won't tells you something about me I'd rather you didn't know. I'm afraid of the conversation, not because of what they might say but because of what my asking would reveal about me. I don't trust the person I love most in the world, and the distrust comes from nowhere they caused, and I'd rather investigate in secret than face it in the open.",
       "failText": "I just need to understand what's going on. That's all."
     },
@@ -720,7 +699,6 @@
     "resolutionText": "The gathering happened, and it was wonderful, and I sat there surrounded by people who love {settlement_npc} and felt ashamed of every dark thought I'd entertained. Take {quest_reward}. You stopped me from saying something at exactly the wrong moment, and I owe you for that silence.",
     "skillCheck": {
       "skill": "INTIMIDATION",
-      "dc": 12,
       "passText": "Fine, you want the unvarnished version. I wasn't just suspicious, I was rehearsing the confrontation with the words lined up, the accusations organized, the whole performance ready to go. If you hadn't agreed to check first I would have walked in there tonight and blown apart my marriage over a family reunion. That's how close it was.",
       "failText": "I'm probably overreacting. I just want to be sure."
     },
@@ -751,7 +729,6 @@
     "resolutionText": "I walked over to the new {settlement_npc_role}'s shop this morning and introduced myself properly. We talked for an hour, and by the end of it I felt foolish for every unkind thought I'd had. Take {quest_reward}. You showed me that the competition I was afraid of was entirely in my own head.",
     "skillCheck": {
       "skill": "PERFORMANCE",
-      "dc": 12,
       "passText": "You have a way of making people drop their guard, so all right. I was good once, really good, and somewhere in the last few years I stopped trying to be excellent and started just being adequate. I let my customers go by being too comfortable to fight for them, and that's what the jealousy is really about.",
       "failText": "It's a business matter. I'll sort it out."
     },
@@ -786,7 +763,6 @@
     "resolutionText": "I put the letter back in the coat pocket and I'll never mention that I read it. {settlement_npc} deserves their mother's words without my fingerprints on them. Take {quest_reward}. You helped me see the shape of my own worst instinct before it did any real damage.",
     "skillCheck": {
       "skill": "ARCANA",
-      "dc": 12,
       "passText": "You noticed the pressed flower in the envelope. I noticed it too and thought it was a token of something romantic, but you're right that it's silverveil, and it only grows near old family plots. She sends them pressed into every letter because it connects the words to the family ground. I was so busy looking for a betrayal that I missed a blessing sitting right in front of me.",
       "failText": "I just need to know who wrote it. That's all."
     },
