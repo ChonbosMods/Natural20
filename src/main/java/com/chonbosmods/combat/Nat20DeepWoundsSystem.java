@@ -103,8 +103,17 @@ public class Nat20DeepWoundsSystem extends DamageEventSystem {
                 }
 
                 double procChance = parseProcChance(def.procChance());
-                double roll = ThreadLocalRandom.current().nextDouble();
                 if (procChance <= 0) return;
+
+                PlayerStats procStats = attackerPlayer != null ? resolvePlayerStats(attackerRef, store) : null;
+                if (procStats != null && def.statScaling() != null) {
+                    Stat primary = def.statScaling().primary();
+                    int modifier = procStats.getPowerModifier(primary);
+                    procChance *= (1.0 + modifier * def.statScaling().factor());
+                }
+                procChance = Math.min(procChance, 1.0);
+
+                double roll = ThreadLocalRandom.current().nextDouble();
                 if (roll > procChance) return;
 
                 if (!resolveEffect()) {

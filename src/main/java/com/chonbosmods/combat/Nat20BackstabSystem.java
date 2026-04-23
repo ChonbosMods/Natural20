@@ -33,10 +33,9 @@ import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
- * Backstab: bonus damage when the target is not focused on the attacker.
- * Uses angle-based detection: checks if attacker is behind the target
- * (dot product of target's facing direction and direction to attacker).
- * Falls back to always-on bonus against passive targets (no locked target).
+ * Backstab: bonus damage when the attacker hits the target's back. Uses
+ * angle-based detection (dot product of target's facing direction vs.
+ * direction to attacker) with a 120-degree rear arc threshold.
  */
 public class Nat20BackstabSystem extends DamageEventSystem {
 

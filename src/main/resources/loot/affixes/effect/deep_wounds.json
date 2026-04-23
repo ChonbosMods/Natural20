@@ -36,9 +36,9 @@
       "Max": 10.0
     }
   },
-  "Description": "On melee hit, 25% chance to inflict a bleed that deals scaling damage over 5 seconds.",
+  "Description": "On melee hit, chance to inflict a bleed that deals damage over time.",
   "Cooldown": null,
-  "ProcChance": "100%",
+  "ProcChance": "60%",
   "MobEligible": true,
   "AffixSlotCost": 1
 }
