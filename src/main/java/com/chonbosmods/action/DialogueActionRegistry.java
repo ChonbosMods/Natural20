@@ -535,15 +535,20 @@ public class DialogueActionRegistry {
             // tracking-system ordering (T11/T12/T13): save -> gate -> banner.
             saveQuest(questSystem, ctx.playerData(), quest);
 
-            // Party proximity gate: evict accepters who are out of range at
+            // Party proximity gate: identify accepters who are out of range at
             // the TALK-phase completion moment. Anchor on the speaking player's
             // current position (player-position ~= NPC-position since dialogue
-            // requires proximity). No-op for solo / single-accepter quests.
+            // requires proximity). Under Option B (2026-04-22), missed accepters
+            // stay on the quest; the missed set is persisted on the quest so the
+            // CONTINUE_QUEST item-dispense filter can skip them.
             World world = Natural20.getInstance().getDefaultWorld();
+            java.util.Set<java.util.UUID> missed = java.util.Collections.emptySet();
             if (world != null) {
-                Nat20QuestProximityGate.checkAtEntity(quest,
+                missed = Nat20QuestProximityGate.checkAtEntity(quest,
                         ctx.player().getPlayerRef().getUuid(), ctx.playerRef(),
                         ctx.store(), world, Natural20.getInstance());
+                quest.markMissedForPhase(quest.getConflictCount(), missed);
+                saveQuest(questSystem, ctx.playerData(), quest);
             }
 
             // Defer the completion banner until the dialogue UI closes so it doesn't
@@ -551,6 +556,15 @@ public class DialogueActionRegistry {
             // DialogueManager.endSession via QuestInstance.markPhaseReadyForTurnIn().
             Natural20.getInstance().getDialogueManager()
                 .queueBannerOnSessionEnd(ctx.player().getPlayerRef().getUuid(), quest);
+
+            // Multi-accepter per-phase XP + waypoint refresh. Mirrors the KILL /
+            // COLLECT / FETCH tracking systems: every online non-missed accepter
+            // gets questPhaseXp at their own level. Triggering player is always
+            // non-missed (gate invariant).
+            if (world != null) {
+                com.chonbosmods.quest.Nat20QuestRewardDispatcher
+                        .dispenseXpToAccepters(quest, missed, world);
+            }
 
             // Re-evaluate target NPC's particle. target_npc_settlement is the
             // display name; cell-key lookup uses target_npc_settlement_key.
@@ -1240,6 +1254,18 @@ public class DialogueActionRegistry {
         LOGGER.atInfo().log(
             "TURN_IN_V2 dispensed phase %d reward for quest %s: %s x%d to player %s",
             phaseIndex, quest.getQuestId(), itemId, count, playerUuid);
+
+        // Multi-accepter item dispense (2026-04-22 Option B): every online
+        // non-missed accepter OTHER than the triggering player gets a fresh
+        // AffixRewardRoller reroll at the phase's stored tier + ilvl so party
+        // members don't all walk away with identical items. Legacy quests
+        // (rewardTier == null) skip this step with a SEVERE log.
+        com.hypixel.hytale.server.core.universe.world.World world =
+                Natural20.getInstance().getDefaultWorld();
+        if (world != null) {
+            com.chonbosmods.quest.Nat20QuestRewardDispatcher
+                .dispenseItemsToOtherAccepters(quest, phaseIndex, playerUuid, world);
+        }
     }
 
     /**

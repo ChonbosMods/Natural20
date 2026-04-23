@@ -204,10 +204,13 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         boolean firstReady = quest.markPhaseReadyForTurnIn();
         stateManager.saveActiveQuests(playerData, quests);
 
-        // Party proximity gate: evict accepters who are out of range at the
+        // Party proximity gate: identify accepters who are out of range at the
         // phase-completion moment. Anchor on the killer's current position
         // (same pattern as Nat20QuestProximityGate.resolvePosition). No-op for
-        // solo / single-accepter quests.
+        // solo / single-accepter quests. Under Option B (2026-04-22), missed
+        // accepters stay on the quest; the returned set is used to filter
+        // per-phase reward dispense below and persisted on the quest for the
+        // item-dispense filter at CONTINUE_QUEST.
         double[] anchor = null;
         TransformComponent tx = store.getComponent(playerRef, TransformComponent.getComponentType());
         if (tx != null) {
@@ -216,8 +219,12 @@ public class POIKillTrackingSystem extends DamageEventSystem {
                 anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
             }
         }
+        java.util.Set<UUID> missed = java.util.Collections.emptySet();
         if (anchor != null) {
-            Nat20QuestProximityGate.check(quest, ownerUuid, anchor, world, Natural20.getInstance());
+            missed = Nat20QuestProximityGate.check(quest, ownerUuid, anchor, world, Natural20.getInstance());
+            quest.markMissedForPhase(quest.getConflictCount(), missed);
+            // Re-save so the missed set persists across session restarts.
+            stateManager.saveActiveQuests(playerData, quests);
         }
 
         // Set turn-in particle on source NPC so the player knows where to return.
@@ -225,12 +232,15 @@ public class POIKillTrackingSystem extends DamageEventSystem {
 
         Player player = store.getComponent(playerRef, Player.getComponentType());
         if (player != null) {
-            QuestMarkerProvider.refreshMarkers(ownerUuid, playerData);
             if (firstReady) {
                 QuestCompletionBanner.show(player.getPlayerRef(), quest);
-                int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
-                Natural20.getInstance().getXpService().award(player, playerRef, store, xp,
-                        "quest:" + quest.getQuestId());
+                // Multi-accepter XP + waypoint refresh. Triggering player is in
+                // accepters and never in missed (gate invariant).
+                Nat20QuestRewardDispatcher.dispenseXpToAccepters(quest, missed, world);
+            } else {
+                // Waypoint refresh for the triggering player even if banner was
+                // already shown (idempotent cache write).
+                QuestMarkerProvider.refreshMarkers(ownerUuid, playerData);
             }
         }
     }

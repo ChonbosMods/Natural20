@@ -1,6 +1,7 @@
 package com.chonbosmods.quest;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -31,7 +32,19 @@ public class QuestInstance {
 
     // Derived eligibility: accepters evicted by party-proximity rule.
     // Historical `accepters` remains frozen per 2026-04-21 §2.
+    // As of the 2026-04-22 Option B pivot this field is never populated: accepters
+    // stay on the quest for subsequent phases and simply miss individual phases
+    // via {@link #phaseMissedAccepters}. Retained for legacy JSON back-compat.
     private Set<UUID> droppedAccepters = new HashSet<>();
+
+    /** Per-phase missed-accepter tracking. Indexed by phase number (conflictCount).
+     *  Populated by the proximity gate at phase-completion: accepters who were out
+     *  of range or offline at that moment are recorded here so per-phase reward
+     *  dispense (both XP in the tracking systems and item in CONTINUE_QUEST) can
+     *  skip them. They remain on the quest for all other phases. See the 2026-04-22
+     *  Option B pivot: "miss a phase while out-of-range, stay on the quest for
+     *  subsequent phases." */
+    private List<Set<UUID>> phaseMissedAccepters = new ArrayList<>();
 
     /** XP awarded on EVERY phase turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
      *  By design each phase of a multi-phase quest grants full XP ("each phase is its own quest"),
@@ -150,6 +163,36 @@ public class QuestInstance {
         return out;
     }
 
+    /** Record the given accepters as missing phase {@code phaseIndex}. Extends
+     *  the backing list with empty sets as needed to cover the index. Idempotent
+     *  (adds to existing set). */
+    public void markMissedForPhase(int phaseIndex, Set<UUID> missed) {
+        if (missed == null || missed.isEmpty()) return;
+        if (phaseMissedAccepters == null) phaseMissedAccepters = new ArrayList<>();
+        while (phaseMissedAccepters.size() <= phaseIndex) {
+            phaseMissedAccepters.add(new HashSet<>());
+        }
+        Set<UUID> bucket = phaseMissedAccepters.get(phaseIndex);
+        if (bucket == null) {
+            bucket = new HashSet<>();
+            phaseMissedAccepters.set(phaseIndex, bucket);
+        }
+        bucket.addAll(missed);
+    }
+
+    /** Snapshot of accepters who missed phase {@code phaseIndex}. Returns an
+     *  empty set for phases that have not been recorded yet (index past tail,
+     *  or null bucket from legacy deserialization). */
+    public Set<UUID> getMissedForPhase(int phaseIndex) {
+        if (phaseMissedAccepters == null) return Collections.emptySet();
+        if (phaseIndex < 0 || phaseIndex >= phaseMissedAccepters.size()) {
+            return Collections.emptySet();
+        }
+        Set<UUID> bucket = phaseMissedAccepters.get(phaseIndex);
+        if (bucket == null) return Collections.emptySet();
+        return bucket;
+    }
+
     /** Current objective based on conflictCount: index 0 = exposition, 1 = conflict 1, 2 = conflict 2 */
     public ObjectiveInstance getCurrentObjective() {
         if (conflictCount < objectives.size()) return objectives.get(conflictCount);
@@ -187,15 +230,28 @@ public class QuestInstance {
         private int rewardItemCount;
         private String rewardItemDisplayName;
         private String rewardItemDataJson;
+        /** Vanilla Hytale rarity tier used at generation-time roll ("Common" ..
+         *  "Legendary"). Persisted so multi-accepter dispense can reroll a fresh
+         *  item via {@code AffixRewardRoller.roll(tier, ilvl, random)} per
+         *  non-triggering accepter (so party members don't all get identical
+         *  items). Null on legacy saves predating the 2026-04-22 pivot; those
+         *  legacy quests silently skip the non-triggering reroll. */
+        private String rewardTier;
+        /** Item level used at generation-time roll. Zero on legacy saves
+         *  predating the 2026-04-22 pivot. See {@link #rewardTier}. */
+        private int rewardIlvl;
 
         public PhaseReward() {}
 
         public PhaseReward(String rewardItemId, int rewardItemCount,
-                           String rewardItemDisplayName, String rewardItemDataJson) {
+                           String rewardItemDisplayName, String rewardItemDataJson,
+                           String rewardTier, int rewardIlvl) {
             this.rewardItemId = rewardItemId;
             this.rewardItemCount = rewardItemCount;
             this.rewardItemDisplayName = rewardItemDisplayName;
             this.rewardItemDataJson = rewardItemDataJson;
+            this.rewardTier = rewardTier;
+            this.rewardIlvl = rewardIlvl;
         }
 
         public String getRewardItemId() { return rewardItemId; }
@@ -206,5 +262,9 @@ public class QuestInstance {
         public void setRewardItemDisplayName(String rewardItemDisplayName) { this.rewardItemDisplayName = rewardItemDisplayName; }
         public String getRewardItemDataJson() { return rewardItemDataJson; }
         public void setRewardItemDataJson(String rewardItemDataJson) { this.rewardItemDataJson = rewardItemDataJson; }
+        public String getRewardTier() { return rewardTier; }
+        public void setRewardTier(String rewardTier) { this.rewardTier = rewardTier; }
+        public int getRewardIlvl() { return rewardIlvl; }
+        public void setRewardIlvl(int rewardIlvl) { this.rewardIlvl = rewardIlvl; }
     }
 }

@@ -105,22 +105,31 @@ public class FetchItemTrackingSystem extends EntityEventSystem<EntityStore, Inve
                 questSystem.getStateManager().saveActiveQuests(playerData, quests);
                 dirty = false;
 
-                // Party proximity gate: evict accepters who are out of range at
-                // the phase-completion moment. Anchor on the fetching player's
-                // current position. No-op for solo / single-accepter quests.
+                // Party proximity gate: identify accepters who are out of range
+                // at the phase-completion moment. Anchor on the fetching player's
+                // current position. Under Option B (2026-04-22) missed accepters
+                // stay on the quest; missed set persists on the quest for the
+                // item-dispense filter at CONTINUE_QUEST.
                 World world = Natural20.getInstance().getDefaultWorld();
+                java.util.Set<java.util.UUID> missed = java.util.Collections.emptySet();
                 if (world != null) {
-                    Nat20QuestProximityGate.checkAtEntity(quest,
+                    missed = Nat20QuestProximityGate.checkAtEntity(quest,
                             player.getPlayerRef().getUuid(), ref, store, world,
                             Natural20.getInstance());
+                    quest.markMissedForPhase(quest.getConflictCount(), missed);
+                    questSystem.getStateManager().saveActiveQuests(playerData, quests);
                 }
 
                 setTurnInParticle(quest);
                 if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
-                    int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
-                    Natural20.getInstance().getXpService().award(player, ref, store, xp,
-                            "quest:" + quest.getQuestId());
+                    if (world != null) {
+                        Nat20QuestRewardDispatcher.dispenseXpToAccepters(quest, missed, world);
+                    } else {
+                        int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                        Natural20.getInstance().getXpService().award(player, ref, store, xp,
+                                "quest:" + quest.getQuestId());
+                    }
                 }
                 LOGGER.atInfo().log("FETCH_ITEM: player %s picked up %s for quest %s",
                     player.getPlayerRef().getUuid(), fetchItemType, quest.getQuestId());

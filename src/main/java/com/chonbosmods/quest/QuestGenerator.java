@@ -190,7 +190,9 @@ public class QuestGenerator {
                 phaseStack.getItemId(),
                 phaseStack.getQuantity(),
                 phaseDisplayName,
-                REWARD_DATA_GSON.toJson(phaseLootData)));
+                REWARD_DATA_GSON.toJson(phaseLootData),
+                phaseTier,
+                difficulty.rewardIlvl()));
 
             if (isFinal) finalPhaseDisplayName = phaseDisplayName != null ? phaseDisplayName : "";
 

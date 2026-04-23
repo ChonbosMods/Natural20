@@ -122,9 +122,11 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 questSystem.getStateManager().saveActiveQuests(playerData, quests);
                 dirty = false;
 
-                // Party proximity gate: evict accepters who are out of range at
-                // the phase-completion moment. Anchor on the collecting player's
-                // current position. No-op for solo / single-accepter quests.
+                // Party proximity gate: identify accepters who are out of range
+                // at the phase-completion moment. Anchor on the collecting
+                // player's current position. Under Option B (2026-04-22) missed
+                // accepters stay on the quest; missed set persists on the quest
+                // for the item-dispense filter at CONTINUE_QUEST.
                 double[] anchor = null;
                 TransformComponent tx = store.getComponent(ref, TransformComponent.getComponentType());
                 if (tx != null) {
@@ -133,20 +135,25 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                         anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
                     }
                 }
-                if (anchor != null) {
-                    World world = Natural20.getInstance().getDefaultWorld();
-                    if (world != null) {
-                        Nat20QuestProximityGate.check(quest, player.getPlayerRef().getUuid(),
-                                anchor, world, Natural20.getInstance());
-                    }
+                java.util.Set<java.util.UUID> missed = java.util.Collections.emptySet();
+                World world = Natural20.getInstance().getDefaultWorld();
+                if (anchor != null && world != null) {
+                    missed = Nat20QuestProximityGate.check(quest, player.getPlayerRef().getUuid(),
+                            anchor, world, Natural20.getInstance());
+                    quest.markMissedForPhase(quest.getConflictCount(), missed);
+                    questSystem.getStateManager().saveActiveQuests(playerData, quests);
                 }
 
                 setTurnInParticle(quest);
                 if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
-                    int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
-                    Natural20.getInstance().getXpService().award(player, ref, store, xp,
-                            "quest:" + quest.getQuestId());
+                    if (world != null) {
+                        Nat20QuestRewardDispatcher.dispenseXpToAccepters(quest, missed, world);
+                    } else {
+                        int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
+                        Natural20.getInstance().getXpService().award(player, ref, store, xp,
+                                "quest:" + quest.getQuestId());
+                    }
                 }
             } else if (!nowComplete && wasReady) {
                 obj.uncomplete();
