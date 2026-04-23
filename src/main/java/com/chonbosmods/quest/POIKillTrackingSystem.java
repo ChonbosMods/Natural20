@@ -234,14 +234,12 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         if (player != null) {
             if (firstReady) {
                 QuestCompletionBanner.show(player.getPlayerRef(), quest);
-                // Multi-accepter XP + waypoint refresh. Triggering player is in
-                // accepters and never in missed (gate invariant).
-                Nat20QuestRewardDispatcher.dispenseXpToAccepters(quest, missed, world);
-            } else {
-                // Waypoint refresh for the triggering player even if banner was
-                // already shown (idempotent cache write).
-                QuestMarkerProvider.refreshMarkers(ownerUuid, playerData);
             }
+            // Waypoint refresh for every online accepter so phase-ready
+            // propagates to the map / quest log without requiring a /sheet
+            // toggle. XP is NOT awarded here: TURN_IN_V2.dispensePhaseXp owns
+            // the per-phase grant. Idempotent if banner already fired.
+            Nat20QuestRewardDispatcher.refreshMarkersForAccepters(quest, world);
         }
     }
 

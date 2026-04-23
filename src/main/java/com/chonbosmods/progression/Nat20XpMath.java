@@ -1,5 +1,7 @@
 package com.chonbosmods.progression;
 
+import com.chonbosmods.quest.model.DifficultyConfig;
+
 import java.util.Random;
 
 /**
@@ -73,6 +75,21 @@ public final class Nat20XpMath {
     /** XP for completing one quest phase, with the player's current level. */
     public static int questPhaseXp(int level) {
         return (int) Math.floor(7.0 * XP_UNIT * smoothScale(level));
+    }
+
+    /**
+     * Level- AND difficulty-scaled phase XP. Medium (xpAmount=100) is the 1.0x baseline;
+     * easy (xpAmount=50) is 0.5x, hard (xpAmount=200) is 2.0x. Clamped to minimum 1.
+     *
+     * <p>This is the authoritative per-phase XP grant: {@code dispensePhaseXp} at
+     * TURN_IN_V2 routes every online non-missed accepter through it. Objective
+     * tracking systems (KILL / COLLECT / FETCH / TALK) must NOT award XP of
+     * their own: turn-in owns the grant.
+     */
+    public static int questPhaseXp(int level, DifficultyConfig difficulty) {
+        int base = questPhaseXp(level);
+        double multiplier = difficulty.xpAmount() / 100.0;
+        return Math.max(1, (int) Math.floor(base * multiplier));
     }
 
     /** XP for a successful D20 skill check, with the player's current level. */

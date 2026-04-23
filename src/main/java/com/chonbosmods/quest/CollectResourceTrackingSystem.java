@@ -147,13 +147,13 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
                 setTurnInParticle(quest);
                 if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
-                    if (world != null) {
-                        Nat20QuestRewardDispatcher.dispenseXpToAccepters(quest, missed, world);
-                    } else {
-                        int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
-                        Natural20.getInstance().getXpService().award(player, ref, store, xp,
-                                "quest:" + quest.getQuestId());
-                    }
+                }
+                // Refresh waypoints for every online accepter so the phase-ready
+                // transition propagates without a /sheet toggle. XP is NOT
+                // awarded here: TURN_IN_V2.dispensePhaseXp owns the per-phase
+                // grant.
+                if (world != null) {
+                    Nat20QuestRewardDispatcher.refreshMarkersForAccepters(quest, world);
                 }
             } else if (!nowComplete && wasReady) {
                 obj.uncomplete();

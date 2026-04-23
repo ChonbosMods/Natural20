@@ -3,8 +3,6 @@ package com.chonbosmods.quest;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
-import com.chonbosmods.progression.Nat20XpMath;
-import com.chonbosmods.progression.Nat20XpService;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.google.gson.Gson;
 import com.hypixel.hytale.component.Ref;
@@ -22,18 +20,22 @@ import java.util.UUID;
 
 /**
  * Shared per-phase reward dispatcher for multi-accepter quests (2026-04-22
- * Option B pivot). All four objective-completion sites (KILL/COLLECT/FETCH/TALK)
- * plus the CONTINUE_QUEST item-dispense path route through the helpers here
- * instead of awarding only to the triggering player.
+ * Option B pivot). The CONTINUE_QUEST item-dispense path and objective
+ * completion sites route their waypoint / item distribution through the
+ * helpers here instead of only touching the triggering player.
  *
  * <p>Rules:
  * <ul>
- *   <li>XP: every online accepter not in the phase's missed-set gets full
- *       {@link Nat20XpMath#questPhaseXp} for their own level.</li>
+ *   <li>XP: awarded exclusively by {@code DialogueActionRegistry.dispensePhaseXp}
+ *       at TURN_IN_V2 (not here). That path iterates accepters itself so every
+ *       online non-missed player gets level + difficulty-scaled XP.</li>
  *   <li>Items: the triggering player gets the pre-rolled reward (preserved
  *       single-player path); every OTHER online non-missed accepter gets a
  *       fresh reroll via {@link AffixRewardRoller#roll} at the phase's stored
  *       tier + ilvl so party members don't all get identical items.</li>
+ *   <li>Waypoints: {@link #refreshMarkersForAccepters} refreshes the cache for
+ *       every online accepter at phase-ready / accept / phase-advance moments
+ *       so non-triggering party members don't need a /sheet toggle.</li>
  *   <li>Offline accepters and missed accepters are skipped silently.</li>
  *   <li>Legacy quests (rewardTier == null on {@link QuestInstance.PhaseReward})
  *       predate this pivot: the triggering player still gets their stored
@@ -52,52 +54,10 @@ public final class Nat20QuestRewardDispatcher {
     private Nat20QuestRewardDispatcher() {}
 
     /**
-     * Award per-phase XP to every online accepter not in {@code missed}. Each
-     * accepter's level is read from their own {@link Nat20PlayerData} so a
-     * high-level party carrying a low-level accepter doesn't short-change the
-     * low-level player's XP grant (and vice versa).
-     *
-     * <p>Also refreshes the waypoint marker cache for every online accepter so
-     * their map/quest-log reflects the new phase state immediately: fixes the
-     * smoke-test bug where a non-triggering party member's waypoint was stuck
-     * on the previous phase until they toggled /sheet tracking.
-     */
-    public static void dispenseXpToAccepters(QuestInstance quest, Set<UUID> missed, World world) {
-        if (quest == null || world == null) return;
-        Nat20XpService xpService = Natural20.getInstance().getXpService();
-        if (xpService == null) return;
-        Store<EntityStore> store = world.getEntityStore().getStore();
-
-        for (UUID uuid : quest.getAccepters()) {
-            Ref<EntityStore> ref = world.getEntityRef(uuid);
-            if (ref == null) continue; // offline in this world
-
-            Player p = store.getComponent(ref, Player.getComponentType());
-            if (p == null) continue;
-
-            Nat20PlayerData pd = store.getComponent(ref, Natural20.getPlayerDataType());
-            if (pd == null) continue;
-
-            boolean isMissed = missed != null && missed.contains(uuid);
-            if (!isMissed) {
-                int xp = Nat20XpMath.questPhaseXp(pd.getLevel());
-                xpService.award(p, ref, store, xp, "quest:" + quest.getQuestId());
-            }
-
-            // Refresh every online accepter's waypoint cache so the map /
-            // quest-log reflect the phase transition, including missed
-            // accepters (Option B: they stay on the quest and their waypoint
-            // moves to the next phase's target). Fixes smoke-test bug #3:
-            // "faraway player's waypoint got stuck even though Quest Missed
-            // banner triggered and the quest was removed from their log".
-            QuestMarkerProvider.refreshMarkers(uuid, pd);
-        }
-    }
-
-    /**
      * Refresh the quest-marker cache for every online accepter. Used at sites
-     * that don't dispense XP (e.g. quest accept), so every party member's
-     * waypoint updates immediately without requiring them to toggle /sheet.
+     * that don't dispense XP (e.g. quest accept, phase-ready transitions),
+     * so every party member's waypoint updates immediately without requiring
+     * them to toggle /sheet.
      */
     public static void refreshMarkersForAccepters(QuestInstance quest, World world) {
         if (quest == null || world == null) return;

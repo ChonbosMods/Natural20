@@ -6,6 +6,8 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.marker.QuestMarkerManager;
+import com.chonbosmods.progression.Nat20XpMath;
+import com.chonbosmods.progression.Nat20XpService;
 import com.chonbosmods.quest.DirectionUtil;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
@@ -573,13 +575,14 @@ public class DialogueActionRegistry {
             Natural20.getInstance().getDialogueManager()
                 .queueBannerOnSessionEnd(ctx.player().getPlayerRef().getUuid(), quest);
 
-            // Multi-accepter per-phase XP + waypoint refresh. Mirrors the KILL /
-            // COLLECT / FETCH tracking systems: every online non-missed accepter
-            // gets questPhaseXp at their own level. Triggering player is always
-            // non-missed (gate invariant).
+            // Refresh waypoints for every online accepter so the phase-ready
+            // transition propagates without a /sheet toggle. XP is NOT awarded
+            // here: TURN_IN_V2.dispensePhaseXp owns the per-phase grant.
+            // The `missed` set is already persisted above via markMissedForPhase
+            // so the CONTINUE_QUEST item-dispense filter can still skip them.
             if (world != null) {
                 com.chonbosmods.quest.Nat20QuestRewardDispatcher
-                        .dispenseXpToAccepters(quest, missed, world);
+                        .refreshMarkersForAccepters(quest, world);
             }
 
             // Re-evaluate target NPC's particle. target_npc_settlement is the
@@ -1285,17 +1288,68 @@ public class DialogueActionRegistry {
     }
 
     /**
-     * Award the per-phase XP amount via {@link com.chonbosmods.progression.Nat20XpService}.
-     * Each phase of a multi-phase quest grants full {@code DifficultyConfig.xpAmount()} by
-     * design: a 3-phase hard quest awards 3x the amount across its turn-ins.
+     * Award the per-phase XP amount to every online eligible accepter. XP scales
+     * with each recipient's own {@code Nat20PlayerData.getLevel()} multiplied by
+     * the quest's {@code DifficultyConfig.xpAmount()} (medium=1.0x, easy=0.5x,
+     * hard=2.0x) via {@link Nat20XpMath#questPhaseXp(int, com.chonbosmods.quest.model.DifficultyConfig)}.
+     *
+     * <p>Iteration rules (mirrors {@link Nat20QuestRewardDispatcher#dispenseItemsToOtherAccepters}
+     * filter semantics):
+     * <ul>
+     *   <li>Skip accepters in {@code quest.getMissedForPhase(phaseIndex)}.</li>
+     *   <li>Skip accepters who are offline (no entity ref in the world).</li>
+     *   <li>Award to every remaining online accepter, including the triggering
+     *       dialogue-holder: they are in {@code accepters} so their grant comes
+     *       through the loop, not a separate call.</li>
+     * </ul>
+     *
+     * <p>Each phase grants its own scaled amount by design: a 3-phase hard
+     * quest awards 3x the amount across its turn-ins. Falls back to a level-only
+     * grant if the difficulty config cannot be resolved so legacy quests without
+     * a {@code difficultyId} still pay out.
+     *
+     * <p>This is the ONLY per-phase XP award site. Tracking systems (KILL /
+     * COLLECT / FETCH) and the TALK completion path no longer award XP:
+     * TURN_IN_V2 owns the grant. See 2026-04-22 double-XP fix.
      */
     private static void dispensePhaseXp(ActionContext ctx, QuestInstance quest) {
-        int amount = quest.getRewardXp();
-        if (amount <= 0) return;
-        com.chonbosmods.Natural20.getInstance().getXpService().award(
-            ctx.player(), ctx.playerRef(), ctx.store(),
-            amount,
-            "quest:" + quest.getQuestId() + ":phase" + quest.getConflictCount());
+        QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+        if (questSystem == null) return;
+        com.hypixel.hytale.server.core.universe.world.World world =
+                Natural20.getInstance().getDefaultWorld();
+        if (world == null) return;
+
+        com.chonbosmods.quest.model.DifficultyConfig difficulty = null;
+        String difficultyId = quest.getDifficultyId();
+        if (difficultyId != null) {
+            difficulty = questSystem.getDifficultyRegistry().get(difficultyId);
+        }
+
+        int phaseIndex = quest.getConflictCount();
+        java.util.Set<java.util.UUID> missed = quest.getMissedForPhase(phaseIndex);
+        Store<EntityStore> store = world.getEntityStore().getStore();
+        Nat20XpService xpService = Natural20.getInstance().getXpService();
+        if (xpService == null) return;
+
+        String reason = "quest:" + quest.getQuestId() + ":phase" + phaseIndex;
+
+        for (java.util.UUID uuid : quest.getAccepters()) {
+            if (missed.contains(uuid)) continue;
+            Ref<EntityStore> ref = world.getEntityRef(uuid);
+            if (ref == null) continue; // offline; silently skipped
+
+            Player p = store.getComponent(ref, Player.getComponentType());
+            if (p == null) continue;
+
+            Nat20PlayerData pd = store.getComponent(ref, Natural20.getPlayerDataType());
+            if (pd == null) continue;
+
+            int amount = difficulty != null
+                    ? Nat20XpMath.questPhaseXp(pd.getLevel(), difficulty)
+                    : Nat20XpMath.questPhaseXp(pd.getLevel());
+            if (amount <= 0) continue;
+            xpService.award(p, ref, store, amount, reason);
+        }
     }
 
     /**
