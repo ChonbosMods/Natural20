@@ -95,6 +95,7 @@ import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.chonbosmods.party.Nat20PartyInviteRegistry;
 import com.chonbosmods.party.Nat20PartyRegistry;
+import com.chonbosmods.party.Nat20PendingBannerStore;
 import com.chonbosmods.npc.BuilderActionNat20StartDialogue;
 import com.chonbosmods.npc.JiubManager;
 import com.chonbosmods.npc.Nat20NpcManager;
@@ -167,6 +168,7 @@ public class Natural20 extends JavaPlugin {
     private Nat20PartyQuestStore partyQuestStore;
     private Nat20PartyRegistry partyRegistry;
     private Nat20PartyInviteRegistry partyInviteRegistry;
+    private Nat20PendingBannerStore pendingBannerStore;
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
@@ -266,6 +268,10 @@ public class Natural20 extends JavaPlugin {
         return partyInviteRegistry;
     }
 
+    public Nat20PendingBannerStore getPendingBannerStore() {
+        return pendingBannerStore;
+    }
+
     public SettlementRegistry getSettlementRegistry() {
         return settlementRegistry;
     }
@@ -361,6 +367,8 @@ public class Natural20 extends JavaPlugin {
             partyRegistry.load();
             partyInviteRegistry.setSaveDirectory(worldDataDir);
             partyInviteRegistry.load();
+            pendingBannerStore.setSaveDirectory(worldDataDir);
+            pendingBannerStore.load();
 
             // Jiub singleton: rebind and load the persisted UUID (if any).
             // Actual spawn is deferred to the chunk-pre-load hook below so it
@@ -814,10 +822,22 @@ public class Natural20 extends JavaPlugin {
                 }
 
                 // Drain pending Quest-Missed banners queued while offline.
+                // Two sources: (1) the in-component field on Nat20PlayerData
+                // (future online-queue path), and (2) the file-backed
+                // Nat20PendingBannerStore (T10: written by the proximity gate
+                // for offline party members whose PlayerData component is
+                // not resident in the ECS store while they are offline).
                 List<PendingQuestMissedBanner> pending = data.drainPendingQuestMissedBanners();
+                PlayerRef playerRef = event.getPlayer().getPlayerRef();
                 if (!pending.isEmpty()) {
-                    PlayerRef playerRef = event.getPlayer().getPlayerRef();
                     for (PendingQuestMissedBanner b : pending) {
+                        QuestMissedBanner.show(playerRef, b.topicHeader());
+                    }
+                }
+                List<PendingQuestMissedBanner> sidecarPending =
+                    pendingBannerStore.drain(uuid);
+                if (!sidecarPending.isEmpty()) {
+                    for (PendingQuestMissedBanner b : sidecarPending) {
                         QuestMissedBanner.show(playerRef, b.topicHeader());
                     }
                 }
@@ -1049,6 +1069,7 @@ public class Natural20 extends JavaPlugin {
         partyQuestStore = new Nat20PartyQuestStore();
         partyRegistry = new Nat20PartyRegistry();
         partyInviteRegistry = new Nat20PartyInviteRegistry();
+        pendingBannerStore = new Nat20PendingBannerStore();
 
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry, partyQuestStore, scalingConfig);
