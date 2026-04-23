@@ -37,7 +37,7 @@
     }
   },
   "Description": "On melee hit, chance to ignite the target, dealing fire damage over time.",
-  "ProcChance": "100%",
+  "ProcChance": "60%",
   "MobEligible": true,
   "AffixSlotCost": 1
 }
