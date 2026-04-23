@@ -1,8 +1,11 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.background.Background;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.settlement.SettlementRecord;
+import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.logger.HytaleLogger;
 
 import java.util.ArrayList;
@@ -85,6 +88,21 @@ public final class TutorialQuestFactory {
         if (background != null) {
             bindings.put("Background", background.displayName());
         }
+        // npc_x/npc_z anchor the nearest-other-settlement search used by
+        // tryResolveDeferredTalkToNpc at phase 2 turn-in. Seed from Celius's
+        // settlement if the placement already landed; otherwise fall back to
+        // world-origin (spawn is near origin in practice).
+        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+        double anchorX = 0, anchorZ = 0;
+        if (settlements != null) {
+            SettlementRecord spawn = settlements.getByCell(SOURCE_SETTLEMENT_ID);
+            if (spawn != null) {
+                anchorX = spawn.getPosX();
+                anchorZ = spawn.getPosZ();
+            }
+        }
+        bindings.put("npc_x", Double.toString(anchorX));
+        bindings.put("npc_z", Double.toString(anchorZ));
 
         QuestInstance quest = new QuestInstance(
             QUEST_ID, SITUATION_ID, SOURCE_NPC_ID, SOURCE_SETTLEMENT_ID,
@@ -95,7 +113,19 @@ public final class TutorialQuestFactory {
 
         stateManager.addQuest(playerData, quest);
 
-        LOGGER.atInfo().log("Created tutorial quest for %s (background=%s)",
-            playerUuid, background != null ? background.name() : "null");
+        // Best-effort resolve of the phase 2 target NPC at creation time so the
+        // phase-1-turn-in dialogue can interpolate {target_npc}/{target_npc_settlement}
+        // on the player's first visit to Celius. If no other settlement exists
+        // yet, the objective stays deferred and TUTORIAL_TURN_IN_PHASE_1 retries.
+        boolean resolved = DialogueActionRegistry.tryResolveDeferredTalkToNpc(quest, phase2);
+        if (resolved) {
+            bindings.putIfAbsent("target_npc_opener",
+                "You're the one Celius sent. Good. Take back what I'm about to tell you, and tell him I said to move quickly.");
+            bindings.putIfAbsent("target_npc_closer",
+                "Go on, then. Don't keep Celius waiting.");
+        }
+
+        LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, phase2Resolved=%s)",
+            playerUuid, background != null ? background.name() : "null", resolved);
     }
 }

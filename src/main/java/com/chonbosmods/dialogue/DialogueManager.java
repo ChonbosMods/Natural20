@@ -119,8 +119,23 @@ public class DialogueManager {
         graph = graph.mutableCopy();
 
         // Late-resolve any {tokens} that were unresolvable at generation time
-        // (e.g., {other_settlement} when no neighbors existed yet).
-        graph.lateResolve(buildLateBindings(npcData));
+        // (e.g., {other_settlement} when no neighbors existed yet). For Celius
+        // specifically, merge the active tutorial quest's variableBindings so
+        // authored JSON topics interpolate {target_npc}, {target_npc_settlement},
+        // {Background}, etc. Quest bindings win over settlement bindings on
+        // collisions since they describe the live tutorial state.
+        Map<String, String> lateBindings = buildLateBindings(npcData);
+        if (npcData.isCeliusGravus()) {
+            QuestSystem qs = Natural20.getInstance().getQuestSystem();
+            if (qs != null) {
+                QuestInstance tutorial = qs.getStateManager().getQuest(
+                    playerData, com.chonbosmods.quest.TutorialQuestFactory.QUEST_ID);
+                if (tutorial != null && tutorial.getVariableBindings() != null) {
+                    lateBindings.putAll(tutorial.getVariableBindings());
+                }
+            }
+        }
+        graph.lateResolve(lateBindings);
 
         // Inject quest topics: available quests (from NPC's preGeneratedQuest) and turn-in topics.
         // Celius uses fixed tutorial-specific actions instead of the procedural injector path.
