@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.*;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryChangeEvent;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
@@ -14,6 +15,8 @@ import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.inventory.transaction.Transaction;
+import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import com.chonbosmods.data.Nat20NpcData;
@@ -108,17 +111,43 @@ public class CollectResourceTrackingSystem extends EntityEventSystem<EntityStore
 
             if (nowComplete && !wasReady) {
                 obj.markComplete();
-                if (quest.markPhaseReadyForTurnIn()) {
+                boolean firstReady = quest.markPhaseReadyForTurnIn();
+                dirty = true;
+                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
+                    player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
+                    targetItemId, quest.getQuestId());
+
+                // Persist the transition before firing the proximity gate so any
+                // eviction fires against a committed phase-ready state.
+                questSystem.getStateManager().saveActiveQuests(playerData, quests);
+                dirty = false;
+
+                // Party proximity gate: evict accepters who are out of range at
+                // the phase-completion moment. Anchor on the collecting player's
+                // current position. No-op for solo / single-accepter quests.
+                double[] anchor = null;
+                TransformComponent tx = store.getComponent(ref, TransformComponent.getComponentType());
+                if (tx != null) {
+                    Vector3d pos = tx.getPosition();
+                    if (pos != null) {
+                        anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
+                    }
+                }
+                if (anchor != null) {
+                    World world = Natural20.getInstance().getDefaultWorld();
+                    if (world != null) {
+                        Nat20QuestProximityGate.check(quest, player.getPlayerRef().getUuid(),
+                                anchor, world, Natural20.getInstance());
+                    }
+                }
+
+                setTurnInParticle(quest);
+                if (firstReady) {
                     QuestCompletionBanner.show(player.getPlayerRef(), quest);
                     int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(playerData.getLevel());
                     Natural20.getInstance().getXpService().award(player, ref, store, xp,
                             "quest:" + quest.getQuestId());
                 }
-                dirty = true;
-                LOGGER.atInfo().log("COLLECT_RESOURCES: player %s reached %d/%d %s for quest %s",
-                    player.getPlayerRef().getUuid(), totalCount, obj.getRequiredCount(),
-                    targetItemId, quest.getQuestId());
-                setTurnInParticle(quest);
             } else if (!nowComplete && wasReady) {
                 obj.uncomplete();
                 quest.setState(QuestState.ACTIVE_OBJECTIVE);
