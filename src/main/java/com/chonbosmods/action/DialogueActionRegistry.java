@@ -10,6 +10,7 @@ import com.chonbosmods.quest.DirectionUtil;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.POIPopulationListener;
+import com.chonbosmods.quest.Nat20QuestProximityGate;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestDispositionConstants;
 import com.chonbosmods.party.Nat20Party;
@@ -516,14 +517,27 @@ public class DialogueActionRegistry {
             obj.markComplete();
             quest.setState(com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN);
 
+            // Persist the transition before firing the proximity gate so any
+            // eviction fires against a committed phase-ready state. Matches the
+            // tracking-system ordering (T11/T12/T13): save -> gate -> banner.
+            saveQuest(questSystem, ctx.playerData(), quest);
+
+            // Party proximity gate: evict accepters who are out of range at
+            // the TALK-phase completion moment. Anchor on the speaking player's
+            // current position (player-position ~= NPC-position since dialogue
+            // requires proximity). No-op for solo / single-accepter quests.
+            World world = Natural20.getInstance().getDefaultWorld();
+            if (world != null) {
+                Nat20QuestProximityGate.checkAtEntity(quest,
+                        ctx.player().getPlayerRef().getUuid(), ctx.playerRef(),
+                        ctx.store(), world, Natural20.getInstance());
+            }
+
             // Defer the completion banner until the dialogue UI closes so it doesn't
             // render on top of the active dialogue. The flag flip happens in
             // DialogueManager.endSession via QuestInstance.markPhaseReadyForTurnIn().
             Natural20.getInstance().getDialogueManager()
                 .queueBannerOnSessionEnd(ctx.player().getPlayerRef().getUuid(), quest);
-
-            // Save
-            saveQuest(questSystem, ctx.playerData(), quest);
 
             // Re-evaluate target NPC's particle. target_npc_settlement is the
             // display name; cell-key lookup uses target_npc_settlement_key.
