@@ -3,6 +3,7 @@ package com.chonbosmods.quest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -27,6 +28,10 @@ public class QuestInstance {
      *  the party & multiplayer quest design (2026-04-21). A solo player is a
      *  single-element list. */
     private List<UUID> accepters = new ArrayList<>();
+
+    // Derived eligibility: accepters evicted by party-proximity rule.
+    // Historical `accepters` remains frozen per 2026-04-21 §2.
+    private Set<UUID> droppedAccepters = new HashSet<>();
 
     /** XP awarded on EVERY phase turn-in. Sourced from {@link com.chonbosmods.quest.model.DifficultyConfig#xpAmount()}.
      *  By design each phase of a multi-phase quest grants full XP ("each phase is its own quest"),
@@ -122,6 +127,27 @@ public class QuestInstance {
 
     public boolean hasAccepter(UUID player) {
         return getAccepters().contains(player);
+    }
+
+    public Set<UUID> droppedAccepters() {
+        if (droppedAccepters == null) droppedAccepters = new HashSet<>();
+        return droppedAccepters;
+    }
+
+    public void dropAccepter(UUID player) {
+        if (droppedAccepters == null) droppedAccepters = new HashSet<>();
+        droppedAccepters.add(player);
+    }
+
+    public boolean isEligible(UUID player) {
+        if (!accepters.contains(player)) return false;
+        return droppedAccepters == null || !droppedAccepters.contains(player);
+    }
+
+    public Set<UUID> eligibleAccepters() {
+        Set<UUID> out = new LinkedHashSet<>(accepters);
+        if (droppedAccepters != null) out.removeAll(droppedAccepters);
+        return out;
     }
 
     /** Current objective based on conflictCount: index 0 = exposition, 1 = conflict 1, 2 = conflict 2 */
