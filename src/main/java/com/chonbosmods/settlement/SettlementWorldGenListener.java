@@ -148,6 +148,12 @@ public class SettlementWorldGenListener {
 
                     record.setPosY(groundY);
                     record.getNpcs().addAll(spawned);
+                    // Capture every Nat20_Chest_Spawn marker so passive fetch quests can
+                    // claim one and spawn the quest chest at the authored location instead
+                    // of falling back to the settlement center.
+                    for (com.hypixel.hytale.math.vector.Vector3d c : placed.chestSpawnsWorld()) {
+                        record.addChestSpawn((int) c.getX(), (int) c.getY(), (int) c.getZ());
+                    }
                     registry.saveAsync();
 
                     Natural20.getInstance().onSettlementCreated(record, world);

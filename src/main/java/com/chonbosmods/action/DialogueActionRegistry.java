@@ -1084,9 +1084,29 @@ public class DialogueActionRegistry {
             return;
         }
 
-        int sx = (int) target.getPosX();
-        int sy = (int) target.getPosY();
-        int sz = (int) target.getPosZ();
+        // Prefer an authored Nat20_Chest_Spawn marker inside the settlement's pieces
+        // over the settlement center. Each placeholder is one-shot: claimed here so
+        // subsequent passive-fetch quests from the same settlement pick a different
+        // chest location, spreading objectives across authored markers.
+        int sx;
+        int sy;
+        int sz;
+        int[] chestSpawn = target.claimChestSpawn();
+        if (chestSpawn != null) {
+            sx = chestSpawn[0];
+            sy = chestSpawn[1];
+            sz = chestSpawn[2];
+            bindings.put("poi_chest_positions", sx + "," + sy + "," + sz);
+            Natural20.getInstance().getSettlementRegistry().saveAsync();
+        } else {
+            sx = (int) target.getPosX();
+            sy = (int) target.getPosY();
+            sz = (int) target.getPosZ();
+            LOGGER.atWarning().log(
+                "PEACEFUL_FETCH: no chest-spawn markers remain at settlement %s for quest %s; "
+                + "falling back to settlement center",
+                target.getCellKey(), quest.getQuestId());
+        }
 
         bindings.put("poi_x", String.valueOf(sx));
         bindings.put("poi_y", String.valueOf(sy));

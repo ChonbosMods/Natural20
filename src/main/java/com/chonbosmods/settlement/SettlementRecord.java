@@ -24,6 +24,10 @@ public class SettlementRecord {
     private List<NpcRecord> npcs = new ArrayList<>();
     // Pre-placed surface fallback POI positions: [x, y, z] for each prefab placed at settlement creation
     private List<int[]> surfaceFallbackPois = new ArrayList<>();
+    // World-space [x, y, z] for each Nat20_Chest_Spawn marker captured when the settlement pieces were placed.
+    // Consumed by claimChestSpawn() when a passive fetch quest targets this settlement, so every placeholder
+    // block eventually hosts a real quest chest.
+    private List<int[]> chestSpawns = new ArrayList<>();
 
     /** No-arg constructor for Gson deserialization. */
     public SettlementRecord() {}
@@ -91,6 +95,18 @@ public class SettlementRecord {
 
     public void addSurfaceFallbackPoi(int x, int y, int z) {
         surfaceFallbackPois.add(new int[]{x, y, z});
+    }
+
+    public List<int[]> getChestSpawns() { return chestSpawns; }
+
+    /** Claim the next available chest-spawn marker, or null if none remain. */
+    public @Nullable int[] claimChestSpawn() {
+        if (chestSpawns.isEmpty()) return null;
+        return chestSpawns.remove(0);
+    }
+
+    public void addChestSpawn(int x, int y, int z) {
+        chestSpawns.add(new int[]{x, y, z});
     }
 
     /**
