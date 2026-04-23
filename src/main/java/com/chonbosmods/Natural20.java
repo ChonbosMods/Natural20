@@ -86,8 +86,10 @@ import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
 import com.chonbosmods.quest.POIPopulationListener;
 import com.chonbosmods.quest.POIProximitySystem;
+import com.chonbosmods.quest.PendingQuestMissedBanner;
 import com.chonbosmods.quest.QuestChestPlacer;
 import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestMissedBanner;
 import com.chonbosmods.quest.QuestStateManager;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
@@ -118,6 +120,7 @@ import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.util.TargetUtil;
 import com.hypixel.hytale.server.core.event.events.player.PlayerDisconnectEvent;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
 import com.hypixel.hytale.server.core.universe.world.events.ChunkPreLoadProcessEvent;
@@ -807,6 +810,15 @@ public class Natural20 extends JavaPlugin {
                     } catch (java.io.IOException e) {
                         getLogger().atWarning().withCause(e)
                             .log("Failed to persist party-quest store after migration");
+                    }
+                }
+
+                // Drain pending Quest-Missed banners queued while offline.
+                List<PendingQuestMissedBanner> pending = data.drainPendingQuestMissedBanners();
+                if (!pending.isEmpty()) {
+                    PlayerRef playerRef = event.getPlayer().getPlayerRef();
+                    for (PendingQuestMissedBanner b : pending) {
+                        QuestMissedBanner.show(playerRef, b.topicHeader());
                     }
                 }
 
