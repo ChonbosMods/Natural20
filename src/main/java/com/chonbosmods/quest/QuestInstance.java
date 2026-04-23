@@ -140,12 +140,12 @@ public class QuestInstance {
     }
 
     public boolean isEligible(UUID player) {
-        if (!accepters.contains(player)) return false;
+        if (!getAccepters().contains(player)) return false;
         return droppedAccepters == null || !droppedAccepters.contains(player);
     }
 
     public Set<UUID> eligibleAccepters() {
-        Set<UUID> out = new LinkedHashSet<>(accepters);
+        Set<UUID> out = new LinkedHashSet<>(getAccepters());
         if (droppedAccepters != null) out.removeAll(droppedAccepters);
         return out;
     }
