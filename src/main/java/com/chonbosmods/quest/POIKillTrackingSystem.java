@@ -19,7 +19,9 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
@@ -201,6 +203,22 @@ public class POIKillTrackingSystem extends DamageEventSystem {
 
         boolean firstReady = quest.markPhaseReadyForTurnIn();
         stateManager.saveActiveQuests(playerData, quests);
+
+        // Party proximity gate: evict accepters who are out of range at the
+        // phase-completion moment. Anchor on the killer's current position
+        // (same pattern as Nat20QuestProximityGate.resolvePosition). No-op for
+        // solo / single-accepter quests.
+        double[] anchor = null;
+        TransformComponent tx = store.getComponent(playerRef, TransformComponent.getComponentType());
+        if (tx != null) {
+            Vector3d pos = tx.getPosition();
+            if (pos != null) {
+                anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
+            }
+        }
+        if (anchor != null) {
+            Nat20QuestProximityGate.check(quest, ownerUuid, anchor, world, Natural20.getInstance());
+        }
 
         // Set turn-in particle on source NPC so the player knows where to return.
         setTurnInParticle(quest);
