@@ -31,7 +31,13 @@ public final class TutorialQuestFactory {
 
     public static final String QUEST_ID = "tutorial_main";
     public static final String SITUATION_ID = "tutorial";
-    public static final String SOURCE_NPC_ID = "CeliusGravus";
+    /** Matches the generated name set by {@code SettlementWorldGenListener.renameFirstGuardToCelius}.
+     *  Used as {@code QuestInstance.sourceNpcId}, so {@code SettlementRecord.getNpcByName}
+     *  lookups in {@code COMPLETE_TALK_TO_NPC} / {@code POIKillTrackingSystem} find him and
+     *  stamp the turn-in marker. The dialogue-graph key is still {@code "CeliusGravus"}
+     *  (no space) because that's the JSON file's {@code npcId}; the two namespaces are
+     *  intentionally separate. */
+    public static final String SOURCE_NPC_ID = "Celius Gravus";
     public static final String QUEST_TOPIC_HEADER = "A Matter of Urgency";
     /** Difficulty config id used for the tutorial quest. Drives phase-3 mob/boss ilvl,
      *  populationSpec, XP, and reward tier range. "easy" ⇒ Common-Uncommon rewards. */
@@ -118,6 +124,22 @@ public final class TutorialQuestFactory {
         quest.setAccepters(List.of(playerUuid));
 
         stateManager.addQuest(playerData, quest);
+
+        // Stamp the phase-1 turn-in marker on Celius now. The quest is born in
+        // READY_FOR_TURN_IN state (phase 1 is pre-complete), so the "?" should
+        // show from the moment the player walks toward him.
+        if (celiusSettlement != null) {
+            NpcRecord celius = celiusSettlement.getNpcByName(SOURCE_NPC_ID);
+            if (celius != null) {
+                celius.setMarkerState("QUEST_TURN_IN");
+                if (celius.getEntityUUID() != null) {
+                    com.chonbosmods.marker.QuestMarkerManager.INSTANCE.syncMarker(
+                        celius.getEntityUUID(),
+                        com.chonbosmods.data.Nat20NpcData.QuestMarkerState.QUEST_TURN_IN);
+                }
+                settlements.saveAsync();
+            }
+        }
 
         // Best-effort resolve of the phase 2 target NPC at creation time so the
         // phase-1-turn-in dialogue can interpolate {target_npc}/{target_npc_settlement}

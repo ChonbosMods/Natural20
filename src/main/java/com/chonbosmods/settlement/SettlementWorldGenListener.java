@@ -270,10 +270,35 @@ public class SettlementWorldGenListener {
 
             registry.saveAsync();
             Natural20.getInstance().onSettlementCreated(record, world);
+
+            // onSettlementCreated runs TopicGenerator which randomly assigns
+            // pregen quests. Celius must not carry one, because that would
+            // paint a "!" above him before the tutorial quest's "?" even
+            // stamps. Scrub it + re-evaluate his marker from the baseline.
+            scrubCeliusPregenQuest(store, world, spawned);
+
             LOGGER.atInfo().log(
                 "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included)",
                 anchorX, groundY, anchorZ, spawned.size());
         });
+    }
+
+    /** Strip any pregen quest that TopicGenerator accidentally assigned to Celius
+     *  and re-evaluate his in-memory marker so no stale "!" particle fires. */
+    private void scrubCeliusPregenQuest(
+            com.hypixel.hytale.component.Store<EntityStore> store,
+            World world, List<NpcRecord> spawned) {
+        for (NpcRecord npc : spawned) {
+            if (!npc.isCeliusGravus()) continue;
+            if (npc.getPreGeneratedQuest() != null) {
+                npc.setPreGeneratedQuest(null);
+            }
+            if (npc.getEntityUUID() != null) {
+                com.chonbosmods.marker.QuestMarkerManager.INSTANCE
+                    .evaluateAndApply(npc.getEntityUUID(), npc);
+            }
+            return;
+        }
     }
 
     /**
@@ -416,7 +441,7 @@ public class SettlementWorldGenListener {
     }
 
     /**
-     * Rename the first Guard in the spawn settlement to "Celius Gravus" and flag him
+     * Rename the first Guard in the spawn settlement to Celius Gravus and flag him
      * so DialogueManager can short-circuit to his bespoke dialogue graph. Mutates both
      * the persisted NpcRecord and the live Nat20NpcData component for the current
      * world-thread session.
@@ -437,7 +462,7 @@ public class SettlementWorldGenListener {
             return;
         }
 
-        guard.setGeneratedName("Celius Gravus");
+        guard.setGeneratedName(com.chonbosmods.quest.TutorialQuestFactory.SOURCE_NPC_ID);
         guard.setCeliusGravus(true);
 
         if (guard.getEntityUUID() == null) return;
@@ -446,7 +471,7 @@ public class SettlementWorldGenListener {
         var npcData = store.getComponent(guardRef,
             com.chonbosmods.Natural20.getNpcDataType());
         if (npcData == null) return;
-        npcData.setGeneratedName("Celius Gravus");
+        npcData.setGeneratedName(com.chonbosmods.quest.TutorialQuestFactory.SOURCE_NPC_ID);
         npcData.setCeliusGravus(true);
         npcData.setFlags(guard.getFlags());
 

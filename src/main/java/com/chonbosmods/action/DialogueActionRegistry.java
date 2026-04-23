@@ -803,6 +803,12 @@ public class DialogueActionRegistry {
             }
             saveQuest(questSystem, ctx.playerData(), quest);
 
+            // Phase 1 is consumed; Celius's "?" should disappear until phase 2
+            // completes back at him. Uses the generic source-NPC-marker clearer
+            // that keyed off quest.sourceNpcId; works for tutorial now that
+            // TutorialQuestFactory.SOURCE_NPC_ID matches his generated name.
+            clearSourceNpcMarker(quest);
+
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
 
@@ -835,6 +841,10 @@ public class DialogueActionRegistry {
             com.chonbosmods.quest.TutorialPhase3Setup.setupPhase3(quest, phase3Obj);
             quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
             saveQuest(questSystem, ctx.playerData(), quest);
+
+            // Clear Celius's "?" now that phase 2 is consumed. POIKillTrackingSystem
+            // will re-stamp it when the player slays the phase-3 boss.
+            clearSourceNpcMarker(quest);
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
@@ -872,6 +882,10 @@ public class DialogueActionRegistry {
             String bossName = quest.getVariableBindings().getOrDefault("boss_name", "the boss");
             ctx.systemLogger().accept(
                 "Tutorial complete. " + bossName + " falls, and Celius nods you on. Received " + xp + " XP.");
+
+            // Clear Celius's "?" before markQuestCompleted drops the quest from
+            // the active map (clearSourceNpcMarker reads quest.sourceNpcId).
+            clearSourceNpcMarker(quest);
 
             questSystem.getStateManager().markQuestCompleted(ctx.playerData(), quest.getQuestId());
 
