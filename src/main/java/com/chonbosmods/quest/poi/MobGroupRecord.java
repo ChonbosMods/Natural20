@@ -50,6 +50,14 @@ public class MobGroupRecord {
      */
     private long lastSeenMillis;
 
+    /**
+     * Frozen party-size mlvl bump applied at first-spawn. Restored to each slot's
+     * {@link com.chonbosmods.progression.Nat20MobLevel#setPartyBump(int)} on chunk-reload
+     * respawn so the mob keeps its scaling across the session. Zero on legacy records +
+     * solo groups.
+     */
+    private int partyBump;
+
     /** No-arg constructor for Gson. */
     public MobGroupRecord() {}
 
@@ -125,4 +133,7 @@ public class MobGroupRecord {
         return lastSeenMillis > 0 ? lastSeenMillis : createdAtMillis;
     }
     public void setLastSeenMillis(long lastSeenMillis) { this.lastSeenMillis = lastSeenMillis; }
+
+    public int getPartyBump() { return partyBump; }
+    public void setPartyBump(int partyBump) { this.partyBump = Math.max(0, partyBump); }
 }

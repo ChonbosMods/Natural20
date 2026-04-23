@@ -253,6 +253,15 @@ public class Nat20MobGroupSpawner {
         Nat20MobAffixManager affixMgr =
                 Natural20.getInstance().getLootSystem().getMobAffixManager();
 
+        // Restore frozen party-size bump before applyDifficulty so the subsequent
+        // applyStats call inside applyDifficulty reads it. On first-spawn this also
+        // runs (the POI/Ambient coordinators set record.partyBump before calling
+        // spawnFromRecord), so the same code path establishes the bump in both cases.
+        Nat20MobLevel preLevel = store.getComponent(ref, Natural20.getMobLevelType());
+        if (preLevel != null) {
+            preLevel.setPartyBump(record.getPartyBump());
+        }
+
         if (slot.isBoss()) {
             scaleSystem.setTier(ref, store, Tier.BOSS);
             scaleSystem.applyDifficulty(ref, store, store, record.getBossDifficulty());

@@ -30,12 +30,15 @@ public class Nat20MobLevel implements Component<EntityStore> {
             .addField(new KeyedCodec<>("Scaled", Codec.INTEGER), Nat20MobLevel::setScaledFlag, Nat20MobLevel::getScaledFlag)
             .addField(new KeyedCodec<>("Difficulty", DIFFICULTY_CODEC),
                     Nat20MobLevel::setDifficultyTier, Nat20MobLevel::getDifficultyTier)
+            .addField(new KeyedCodec<>("PartyBump", Codec.INTEGER),
+                    Nat20MobLevel::setPartyBump, Nat20MobLevel::getPartyBump)
             .build();
 
     private int areaLevel = 1;
     private Tier tier = Tier.REGULAR;
     private int scaledFlag = 0;
     @Nullable private DifficultyTier difficultyTier = null;
+    private int partyBump = 0;
 
     public Nat20MobLevel() {}
 
@@ -53,6 +56,9 @@ public class Nat20MobLevel implements Component<EntityStore> {
     @Nullable public DifficultyTier getDifficultyTier() { return difficultyTier; }
     public void setDifficultyTier(@Nullable DifficultyTier tier) { this.difficultyTier = tier; }
 
+    public int getPartyBump() { return partyBump; }
+    public void setPartyBump(int partyBump) { this.partyBump = Math.max(0, partyBump); }
+
     @Override
     public Nat20MobLevel clone() {
         Nat20MobLevel copy = new Nat20MobLevel();
@@ -60,6 +66,7 @@ public class Nat20MobLevel implements Component<EntityStore> {
         copy.tier = this.tier;
         copy.scaledFlag = this.scaledFlag;
         copy.difficultyTier = this.difficultyTier;
+        copy.partyBump = this.partyBump;
         return copy;
     }
 }

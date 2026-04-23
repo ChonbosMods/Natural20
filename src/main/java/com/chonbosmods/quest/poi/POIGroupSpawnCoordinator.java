@@ -12,6 +12,7 @@ import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.progression.Tier;
 import com.chonbosmods.quest.ObjectiveInstance;
+import com.chonbosmods.party.Nat20PartyMlvlScaler;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -143,6 +144,11 @@ public class POIGroupSpawnCoordinator {
         record.setBossName(bossName);
         record.setSharedChampionAffixes(sharedChampionAffixes);
         record.setBossAffixes(bossAffixes);
+
+        // Task 17: freeze party-size mlvl bump at spawn. Persisted on the record so
+        // chunk-reload respawns restore the same bump per design §6.
+        int partyBump = Nat20PartyMlvlScaler.computeBump(playerUuid, world);
+        record.setPartyBump(partyBump);
 
         List<SlotRecord> slots = new ArrayList<>(championCount + 1);
         for (int i = 0; i < championCount; i++) slots.add(new SlotRecord(i, false));

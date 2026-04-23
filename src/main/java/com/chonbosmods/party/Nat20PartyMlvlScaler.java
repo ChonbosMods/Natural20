@@ -27,6 +27,16 @@ public final class Nat20PartyMlvlScaler {
     }
 
     /**
+     * Returns just the party-size bump (0 for solo, capped at
+     * {@link Nat20PartyTuning#MLVL_PARTY_CAP}). Live-runtime only: delegates to
+     * {@link #apply(int, UUID, World)} with baseMlvl=0 so the return is the
+     * bump in isolation. Safe on null/offline/missing-transform (returns 0).
+     */
+    public static int computeBump(UUID triggeringPlayer, World world) {
+        return apply(0, triggeringPlayer, world);
+    }
+
+    /**
      * Live-runtime overload. Resolves the triggering player's party + positions
      * from {@link Nat20PartyRegistry} and the ECS store, counts members within
      * {@link Nat20PartyTuning#NAT20_PARTY_PROXIMITY}, and delegates to

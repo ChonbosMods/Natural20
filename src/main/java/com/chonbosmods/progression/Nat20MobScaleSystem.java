@@ -161,7 +161,10 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
         int diffMod = (level.getDifficultyTier() != null)
                 ? config.difficultyMlvlMod(level.getDifficultyTier())
                 : 0;
-        int mlvl = Math.max(1, Math.min(45, baseMlvl + diffMod));
+        // Party-size bump (Task 17): frozen at spawn, folded into mlvl only. Does not
+        // touch areaLevel, so loot/ilvl stay pegged to the trigger player's location.
+        int partyBump = level.getPartyBump();
+        int mlvl = Math.max(1, Math.min(45, baseMlvl + diffMod + partyBump));
         MobScalingConfig.TierMult mult = config.multipliersFor(level.getTier());
 
         double hpMult = config.hpScale(mlvl) * mult.hpMult();

@@ -8,7 +8,7 @@ import java.util.function.Function;
 /**
  * Counts party members that are both online and within a given radius of a
  * reference point (usually a mob-group spawn trigger). Feeds
- * {@link PartyMlvlCurve#apply(int, int)}.
+ * {@link Nat20PartyMlvlScaler#computeEffectiveMlvl(int, int)}.
  *
  * <p>Distance lookup is injected so callers can source it from whatever the
  * current runtime holds (entity store positions, player refs, etc.) without
