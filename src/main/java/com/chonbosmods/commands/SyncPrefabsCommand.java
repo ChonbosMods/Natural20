@@ -36,7 +36,6 @@ public class SyncPrefabsCommand extends AbstractPlayerCommand {
     private static final Map<String, String> SOURCES = Map.of(
         "Natural20.SettlementPiece",  "settlement_pieces",
         "Natural20.SettlementPieces", "settlement_pieces",
-        "Natural20.SettlementFull",   "settlement_full",
         "Natural20.HostilePOI",       "hostile_poi"
     );
 

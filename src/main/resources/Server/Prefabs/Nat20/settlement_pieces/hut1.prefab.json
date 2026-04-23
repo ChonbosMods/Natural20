@@ -6,1274 +6,1170 @@
   "anchorZ": 0,
   "blocks": [
     {
-      "x": -3,
-      "y": 5,
-      "z": 0,
-      "name": "Nat20_Direction"
+      "x": -4,
+      "y": 1,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -4,
+      "y": 2,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
       "y": 3,
       "z": -3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Stone"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 4,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 5,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 6,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 7,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
+      "x": -4,
+      "y": 0,
+      "z": -2,
+      "name": "Rock_Stone"
     },
     {
-      "x": -2,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
+      "x": -4,
+      "y": 1,
+      "z": -2,
+      "name": "Rock_Stone"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 2,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Rock_Stone"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 3,
       "z": -2,
-      "name": "Soil_Grass_Deep"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -4,
       "y": 4,
       "z": -2,
-      "name": "Wood_Oak_Branch_Corner",
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -1,
+      "name": "Soil_Clay_Brick"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 0,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 0,
+      "name": "Soil_Clay_Brick"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 1,
+      "name": "Soil_Clay_Brick"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 2,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Stairs",
       "rotation": 3
     },
     {
-      "x": -2,
-      "y": 5,
-      "z": -2,
-      "name": "Plant_Flower_Bushy_Green",
-      "components": {
-        "Components": {
-          "FarmingBlock": {}
-        }
-      }
-    },
-    {
-      "x": -2,
+      "x": -3,
       "y": 6,
-      "z": -2,
+      "z": -5,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 7,
-      "z": -2,
+      "z": -5,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -2,
-      "y": 8,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": -1,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 3,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": 0,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": 0,
-      "name": "Nat20_Anchor"
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 2,
-      "z": 1,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": -2,
-      "y": 3,
-      "z": 1,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": 1,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": 1,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 1,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
+      "x": -3,
       "y": 0,
-      "z": 2,
-      "name": "Wood_Oak_Trunk"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 1,
-      "z": 2,
-      "name": "Wood_Oak_Trunk"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 2,
-      "z": 2,
-      "name": "Wood_Oak_Trunk_Full"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 3,
-      "z": 2,
-      "name": "Soil_Leaves"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 4,
-      "z": 2,
-      "name": "Plant_Grass_Sharp_Tall"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -2,
+      "x": -3,
       "y": 5,
-      "z": 2,
-      "name": "Plant_Grass_Sharp_Tall",
-      "filler": 1024
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 2,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -2,
-      "y": 3,
-      "z": 3,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": 3,
-      "name": "Plant_Grass_Sharp"
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 3,
-      "z": -3,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": -1,
-      "y": 4,
-      "z": -3,
-      "name": "Furniture_Kweebec_Shelf",
-      "rotation": 2
-    },
-    {
-      "x": -1,
-      "y": 5,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 6,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 7,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 1,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 2,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 3,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 4,
-      "z": -2,
-      "name": "Wood_Oak_Trunk",
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
       "rotation": 5
     },
     {
-      "x": -1,
-      "y": 5,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 6,
-      "z": -2,
+      "z": -4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 7,
-      "z": -2,
+      "z": -4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 0,
-      "z": -1,
-      "name": "Soil_Dirt"
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 1,
-      "z": -1,
-      "name": "Soil_Dirt"
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 3,
-      "z": -1,
-      "name": "Soil_Dirt"
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 4,
-      "z": -1,
-      "name": "Soil_Clay_Brick_Half"
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 5,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 7,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 0,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 3,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 4,
-      "z": 0,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": -1,
-      "y": 5,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 6,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 7,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 0,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 2,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 3,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": -1,
-      "y": 4,
-      "z": 1,
-      "name": "Wood_Oak_Trunk",
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
       "rotation": 4
     },
     {
-      "x": -1,
-      "y": 5,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 6,
-      "z": 1,
+      "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 7,
-      "z": 1,
+      "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 0,
-      "z": 2,
-      "name": "Soil_Dirt"
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 1,
-      "z": 2,
-      "name": "Soil_Dirt"
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 2,
-      "z": 2,
-      "name": "Soil_Dirt"
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 3,
-      "z": 2,
-      "name": "Soil_Leaves"
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 4,
-      "z": 2,
-      "name": "Wood_Oak_Trunk",
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -2,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
       "rotation": 4
     },
     {
-      "x": -1,
-      "y": 5,
-      "z": 2,
-      "name": "Plant_Moss_Rug_Green"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 6,
-      "z": 2,
+      "z": -2,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
+      "x": -3,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick_Wall",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick_Wall",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -1,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 4
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick_Wall",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick_Wall",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 0,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 4
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 1,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 4
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 4
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 2,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": -3,
       "y": 7,
       "z": 2,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
+      "x": -3,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": -1,
+      "x": -3,
       "y": 1,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 2,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 3,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 4,
       "z": 3,
-      "name": "Wood_Oak_Trunk"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 5,
       "z": 3,
-      "name": "Wood_Oak_Trunk"
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 6,
       "z": 3,
-      "name": "Plant_Moss_Rug_Green"
+      "name": "Wood_Softwood_Stairs",
+      "rotation": 1
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 7,
       "z": 3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
+      "x": -3,
+      "y": 0,
+      "z": 4,
+      "name": "Rock_Stone"
     },
     {
-      "x": -1,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
+      "x": -3,
+      "y": 1,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
     },
     {
-      "x": -1,
+      "x": -3,
+      "y": 2,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -3,
       "y": 4,
       "z": 4,
-      "name": "Nat20_Force_Empty"
+      "name": "Wood_Beech_Branch_Long",
+      "support": 15
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 5,
       "z": 4,
-      "name": "Nat20_Force_Empty"
+      "name": "Wood_Softwood_Beam"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 6,
       "z": 4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
+      "x": -3,
       "y": 7,
       "z": 4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
+      "x": -2,
+      "y": 0,
+      "z": -5,
+      "name": "Rock_Stone"
     },
     {
-      "x": -1,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
+      "x": -2,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone"
     },
     {
-      "x": 0,
+      "x": -2,
       "y": 2,
-      "z": -3,
-      "name": "Soil_Dirt"
+      "z": -5,
+      "name": "Rock_Stone"
     },
     {
-      "x": 0,
+      "x": -2,
       "y": 3,
-      "z": -3,
-      "name": "Soil_Leaves"
+      "z": -5,
+      "name": "Rock_Stone"
     },
     {
-      "x": 0,
+      "x": -2,
       "y": 4,
-      "z": -3,
-      "name": "Furniture_Kweebec_Shelf",
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -5,
+      "name": "Deco_Bone_Ribs",
       "rotation": 2
     },
     {
-      "x": 0,
+      "x": -2,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
       "y": 5,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -4,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -3,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": -2,
+      "y": 7,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 0,
-      "y": 6,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
+      "x": -2,
       "y": 0,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 0,
+      "x": -2,
       "y": 1,
       "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": -2,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": -2,
-      "name": "Plant_Fruit_Apple"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 0,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 1,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": -1,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": 0,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 0,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": 1,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 0,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 1,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": 2,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 1,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": 3,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": 3,
-      "name": "Furniture_Kweebec_Chest_Small",
+      "name": "Furniture_Lumberjack_Chest_Small",
       "components": {
         "Components": {
           "ItemContainerBlock": {
             "ItemContainer": {
               "Capacity": 18,
               "Items": {
-                "0": {
-                  "Id": "Wood_Birch_Trunk",
-                  "Quantity": 5,
-                  "Durability": 0.0,
-                  "MaxDurability": 0.0,
-                  "OverrideDroppedItemAnimation": false
-                },
-                "2": {
-                  "Id": "Armor_Kweebec_Head",
-                  "Quantity": 1,
-                  "Durability": 40.0,
-                  "MaxDurability": 40.0,
-                  "OverrideDroppedItemAnimation": false
-                },
                 "7": {
-                  "Id": "Ingredient_Tree_Sap",
-                  "Quantity": 2,
-                  "Durability": 0.0,
-                  "MaxDurability": 0.0,
-                  "OverrideDroppedItemAnimation": false
-                },
-                "6": {
-                  "Id": "Ore_Copper",
-                  "Quantity": 2,
-                  "Durability": 0.0,
-                  "MaxDurability": 0.0,
-                  "OverrideDroppedItemAnimation": false
-                },
-                "4": {
-                  "Id": "Wood_Beech_Trunk",
-                  "Quantity": 4,
-                  "Durability": 0.0,
-                  "MaxDurability": 0.0,
-                  "OverrideDroppedItemAnimation": false
-                },
-                "15": {
-                  "Id": "Plant_Seeds_Wheat",
-                  "Quantity": 1,
-                  "Durability": 0.0,
-                  "MaxDurability": 0.0,
-                  "OverrideDroppedItemAnimation": false
-                },
-                "16": {
                   "Id": "Tool_Hatchet_Crude",
                   "Quantity": 1,
                   "Durability": 150.0,
                   "MaxDurability": 150.0,
                   "OverrideDroppedItemAnimation": false
                 },
-                "17": {
+                "6": {
+                  "Id": "Ingredient_Charcoal",
+                  "Quantity": 7,
+                  "Durability": 0.0,
+                  "MaxDurability": 0.0,
+                  "OverrideDroppedItemAnimation": false
+                },
+                "4": {
                   "Id": "Food_Wildmeat_Cooked",
                   "Quantity": 1,
                   "Durability": 0.0,
@@ -1281,7 +1177,35 @@
                   "OverrideDroppedItemAnimation": false
                 },
                 "12": {
-                  "Id": "Ingredient_Life_Essence",
+                  "Id": "Ingredient_Bar_Silver",
+                  "Quantity": 2,
+                  "Durability": 0.0,
+                  "MaxDurability": 0.0,
+                  "OverrideDroppedItemAnimation": false
+                },
+                "8": {
+                  "Id": "Food_Beef_Raw",
+                  "Quantity": 2,
+                  "Durability": 0.0,
+                  "MaxDurability": 0.0,
+                  "OverrideDroppedItemAnimation": false
+                },
+                "9": {
+                  "Id": "Ore_Copper",
+                  "Quantity": 2,
+                  "Durability": 0.0,
+                  "MaxDurability": 0.0,
+                  "OverrideDroppedItemAnimation": false
+                },
+                "11": {
+                  "Id": "Food_Fish_Grilled",
+                  "Quantity": 2,
+                  "Durability": 0.0,
+                  "MaxDurability": 0.0,
+                  "OverrideDroppedItemAnimation": false
+                },
+                "10": {
+                  "Id": "Plant_Seeds_Carrot",
                   "Quantity": 2,
                   "Durability": 0.0,
                   "MaxDurability": 0.0,
@@ -1293,1742 +1217,3221 @@
           }
         }
       },
-      "rotation": 2
+      "rotation": 1
     },
     {
-      "x": 0,
-      "y": 6,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 6,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 7,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 0,
-      "z": -3,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "z": -3,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "z": -3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 3,
-      "z": -3,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": 1,
-      "y": 4,
-      "z": -3,
-      "name": "Plant_Grass_Sharp"
-    },
-    {
-      "x": 1,
-      "y": 5,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 6,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 7,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 0,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 2,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Furniture_Crude_Shelf"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 3,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Furniture_Tavern_Shelf"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 4,
       "z": -2,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 5,
       "z": -2,
-      "name": "Plant_Fruit_Apple"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 6,
       "z": -2,
-      "name": "Wood_Oak_Branch_Short",
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -1,
+      "name": "Cloth_Roof_Leather",
       "rotation": 3
     },
     {
-      "x": 1,
-      "y": 7,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 8,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 0,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 1,
-      "y": 4,
-      "z": -1,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 1,
-      "y": 5,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 7,
       "z": -1,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 0,
       "z": 0,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 1,
       "z": 0,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 2,
       "z": 0,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 3,
       "z": 0,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 4,
       "z": 0,
-      "name": "Soil_Clay_Brick_Half"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 5,
       "z": 0,
-      "name": "Nat20_Npc_Spawn"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 6,
       "z": 0,
-      "name": "Nat20_Force_Empty"
+      "name": "Cloth_Roof_Leather",
+      "rotation": 3
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 7,
       "z": 0,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 0,
       "z": 1,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 1,
       "z": 1,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 2,
       "z": 1,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 3,
       "z": 1,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 4,
       "z": 1,
-      "name": "Soil_Clay_Brick_Half"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 5,
       "z": 1,
-      "name": "Nat20_Force_Empty"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 6,
       "z": 1,
-      "name": "Nat20_Force_Empty"
+      "name": "Cloth_Roof_Leather",
+      "rotation": 3
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 7,
       "z": 1,
-      "name": "Nat20_Force_Empty"
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 0,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 1,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 2,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 3,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 4,
       "z": 2,
-      "name": "Soil_Clay_Brick_Half"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 5,
       "z": 2,
-      "name": "Nat20_Force_Empty"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 6,
       "z": 2,
-      "name": "Nat20_Force_Empty"
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 7,
       "z": 2,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 1,
+      "x": -2,
       "y": 0,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 1,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 2,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 3,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -2,
       "y": 4,
       "z": 3,
-      "name": "Wood_Oak_Trunk",
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 3,
+      "name": "Wood_Softwood_Stairs",
+      "rotation": 1
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 4,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 4,
+      "name": "Furniture_Crude_Sign"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 4,
+      "name": "Deco_Bone_Ribs",
+      "rotation": 3
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 4,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 5,
+      "name": "Deco_Bone_Ribs_Long",
+      "rotation": 4
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 6,
+      "name": "Deco_Bone_Ribs"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -5,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
       "rotation": 5
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 5,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
+      "z": -5,
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 6,
-      "z": 3,
+      "z": -5,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 7,
-      "z": 3,
+      "z": -5,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
+      "x": -1,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
+      "x": -1,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -1,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
       "y": 4,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 5,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 6,
-      "z": 4,
+      "z": -4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
+      "x": -1,
       "y": 7,
-      "z": 4,
+      "z": -4,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
+      "x": -1,
+      "y": 0,
+      "z": -3,
+      "name": "Rock_Stone"
     },
     {
-      "x": 1,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
+      "x": -1,
       "y": 1,
       "z": -3,
-      "name": "Wood_Oak_Trunk_Full"
+      "name": "Rock_Stone"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 2,
       "z": -3,
-      "name": "Wood_Oak_Trunk_Full"
+      "name": "Nat20_Chest_Spawn"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 3,
       "z": -3,
-      "name": "Soil_Grass_Deep"
+      "name": "Furniture_Village_Shelf_Full"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 4,
       "z": -3,
-      "name": "Plant_Grass_Sharp"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 5,
       "z": -3,
-      "name": "Nat20_Force_Empty"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 6,
       "z": -3,
-      "name": "Nat20_Force_Empty"
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 7,
       "z": -3,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
+      "x": -1,
       "y": 0,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 1,
       "z": -2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 2,
       "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 3,
       "z": -2,
-      "name": "Wood_Oak_Trunk"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
+      "x": -1,
       "y": 4,
-      "z": -2,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": -2,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": -2,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 2,
-      "y": 8,
       "z": -2,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 2,
-      "y": 9,
+      "x": -1,
+      "y": 5,
       "z": -2,
-      "name": "Nat20_Force_Empty"
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 2,
-      "y": 0,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": -1,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 4
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": -1,
-      "name": "Plant_Fruit_Apple"
-    },
-    {
-      "x": 2,
+      "x": -1,
       "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 0,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": 0,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 4
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": 0,
-      "name": "Plant_Fruit_Apple"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 0,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": 1,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 4
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": 1,
-      "name": "Plant_Fruit_Apple"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 0,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": 2,
-      "name": "Soil_Clay_Brick_Half"
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 0,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "z": 3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": 3,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 4,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 5,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 6,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "z": -3,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": -3,
-      "name": "Soil_Grass_Deep"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": -3,
-      "name": "Wood_Oak_Branch_Short",
+      "z": -2,
+      "name": "Cloth_Roof_Leather",
       "rotation": 2
     },
     {
-      "x": 3,
-      "y": 5,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 6,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 7,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 0,
-      "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 3,
-      "y": 1,
-      "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": -2,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 3,
-      "y": 5,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 6,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 7,
       "z": -2,
-      "name": "Wood_Oak_Trunk_Full"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
-      "y": 8,
-      "z": -2,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": -2,
-      "name": "Wood_Oak_Trunk"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 0,
       "z": -1,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 1,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": -1,
-      "name": "Furniture_Kweebec_Shelf",
-      "rotation": 1
-    },
-    {
-      "x": 3,
-      "y": 5,
       "z": -1,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
       "y": 6,
       "z": -1,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 7,
       "z": -1,
-      "name": "Nat20_Force_Empty"
+      "name": "*Cloth_Roof_Leather_State_Definitions_Corner_Right",
+      "rotation": 3
     },
     {
-      "x": 3,
-      "y": 8,
-      "z": -1,
-      "name": "Wood_Oak_Branch_Long",
-      "rotation": 4
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 0,
       "z": 0,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": 0,
-      "name": "Soil_Grass_Deep"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": 0,
-      "name": "Furniture_Kweebec_Shelf",
-      "rotation": 1
-    },
-    {
-      "x": 3,
-      "y": 5,
       "z": 0,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
       "y": 6,
       "z": 0,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 7,
       "z": 0,
-      "name": "Furniture_Kweebec_Lantern"
+      "name": "Cloth_Roof_Leather",
+      "rotation": 3
     },
     {
-      "x": 3,
-      "y": 8,
-      "z": 0,
-      "name": "Wood_Oak_Branch_Corner",
-      "rotation": 10
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 0,
       "z": 1,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "z": 1,
-      "name": "Soil_Grass_Deep"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": 1,
-      "name": "Furniture_Kweebec_Shelf",
-      "rotation": 1
-    },
-    {
-      "x": 3,
-      "y": 5,
       "z": 1,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
       "y": 6,
       "z": 1,
       "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 7,
       "z": 1,
-      "name": "Nat20_Force_Empty"
+      "name": "*Cloth_Roof_Leather_State_Definitions_Corner_Right"
     },
     {
-      "x": 3,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 0,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Soil_Pathway"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 1,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 2,
       "z": 2,
-      "name": "Soil_Dirt"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 3,
       "z": 2,
-      "name": "Soil_Grass_Deep"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 4,
       "z": 2,
-      "name": "Plant_Grass_Sharp_Tall"
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 5,
       "z": 2,
-      "name": "Plant_Grass_Sharp_Tall",
-      "filler": 1024
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 6,
       "z": 2,
-      "name": "Nat20_Force_Empty"
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 7,
       "z": 2,
-      "name": "Nat20_Force_Empty"
+      "name": "Plant_Leaves_Bramble"
     },
     {
-      "x": 3,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
+      "x": -1,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
     },
     {
-      "x": 3,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
+      "x": -1,
       "y": 1,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick_Wall"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 2,
       "z": 3,
-      "name": "Soil_Dirt"
+      "name": "Rock_Volcanic_Brick_Wall"
     },
     {
-      "x": 3,
+      "x": -1,
       "y": 3,
       "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 4,
       "name": "Soil_Dirt"
     },
     {
-      "x": 3,
-      "y": 4,
-      "z": 3,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 3,
-      "y": 5,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 6,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 7,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 5,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 6,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 7,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": -3,
-      "name": "Soil_Grass_Deep"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": -3,
-      "name": "Plant_Grass_Sharp"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": -3,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 2,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": -2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": -2,
-      "name": "Wood_Oak_Trunk",
-      "rotation": 5
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": -2,
-      "name": "Wood_Oak_Branch_Long"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": -2,
-      "name": "Plant_Flower_Bushy_Green",
-      "components": {
-        "Components": {
-          "FarmingBlock": {}
-        }
-      }
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": -2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 2,
-      "z": -1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": -1,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": -1,
-      "name": "Plant_Grass_Sharp"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": -1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
+      "x": -1,
       "y": 1,
-      "z": 0,
-      "name": "Soil_Dirt"
+      "z": 4,
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 4,
+      "x": -1,
       "y": 2,
-      "z": 0,
-      "name": "Soil_Dirt"
+      "z": 4,
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 4,
+      "x": -1,
       "y": 3,
-      "z": 0,
-      "name": "Soil_Leaves"
+      "z": 4,
+      "name": "Nat20_Force_Empty"
     },
     {
-      "x": 4,
+      "x": -1,
       "y": 4,
-      "z": 0,
-      "name": "Plant_Grass_Sharp"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": 0,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 1,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 2,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": 1,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": 1,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 2,
-      "z": 2,
-      "name": "Soil_Dirt"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": 2,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 5,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 6,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": 2,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "z": 3,
-      "name": "Soil_Leaves"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "z": 3,
-      "name": "Wood_Oak_Branch_Corner",
+      "z": 4,
+      "name": "Deco_Bone_Ribs",
       "rotation": 11
     },
     {
+      "x": -1,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -5,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -3,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
+      "name": "Furniture_Tavern_Shelf"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -3,
+      "name": "Furniture_Crude_Shelf"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -3,
+      "name": "Furniture_Village_Shelf_Full"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -2,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Npc_Spawn"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -1,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "name": "Soil_Dirt"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 0,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "name": "Soil_Dirt"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 1,
+      "name": "Cloth_Roof_Leather"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 2,
+      "name": "Cloth_Roof_Leather"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 3,
+      "name": "Nat20_Anchor"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick_Wall"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 3,
+      "name": "Cloth_Roof_Leather_Flat"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Direction"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -5,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -5,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -3,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -3,
+      "name": "Furniture_Tavern_Shelf"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -3,
+      "name": "Furniture_Village_Shelf_Full"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -2,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 2
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -1,
+      "name": "*Cloth_Roof_Leather_State_Definitions_Corner_Right",
+      "rotation": 2
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "name": "Furniture_Village_Counter",
+      "rotation": 2
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 0,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 1
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "name": "Soil_Dirt"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 1,
+      "name": "*Cloth_Roof_Leather_State_Definitions_Corner_Right",
+      "rotation": 1
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 2,
+      "name": "Cloth_Roof_Leather"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick_Wall"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 3,
+      "name": "Cloth_Roof_Leather_Flat"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 4,
+      "name": "Deco_Bone_Ribs",
+      "rotation": 9
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -5,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -5,
+      "name": "Wood_Beech_Trunk",
+      "support": 15,
+      "rotation": 5
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -5,
+      "name": "Deco_Bone_Ribs",
+      "rotation": 2
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -4,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -3,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -3,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -3,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -2,
+      "name": "Furniture_Crude_Shelf"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -2,
+      "name": "Furniture_Crude_Shelf"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -2,
+      "name": "Furniture_Village_Shelf_Full"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -2,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -1,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -1,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "name": "Furniture_Village_Counter",
+      "filler": 1,
+      "rotation": 2
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "name": "Furniture_Crude_Candle"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 0,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 1
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "name": "Soil_Dirt"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 1,
+      "name": "Cloth_Roof_Leather",
+      "rotation": 1
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "name": "Soil_Dirt"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "name": "Deco_Pot_Clay_Broken"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 2,
+      "name": "*Cloth_Roof_Leather_State_Definitions_Corner_Right",
+      "rotation": 1
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick_Wall"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick_Wall"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 3,
+      "name": "Wood_Softwood_Stairs",
+      "rotation": 3
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 4,
+      "name": "Deco_Bone_Ribs",
+      "rotation": 1
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 4,
+      "name": "Deco_Bone_Full",
+      "rotation": 4
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 5,
+      "name": "Deco_Bone_Ribs_Long",
+      "rotation": 4
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 6,
+      "name": "Deco_Bone_Ribs"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -5,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 6
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -5,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 6
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -5,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 6
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -5,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 5
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -5,
+      "name": "Wood_Softwood_Stairs",
+      "rotation": 1
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -4,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -2,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -1,
+      "name": "Plant_Leaves_Bramble"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 0,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 1,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 2,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 3,
+      "name": "Rock_Volcanic_Brick"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "name": "Wood_Beech_Branch_Long",
+      "support": 15
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Beech_Branch_Long",
+      "support": 15
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 5,
+      "name": "Furniture_Crude_Sign",
+      "rotation": 3
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -5,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -3,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -3,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 5
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -3,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 5
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -3,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 5
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -3,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -2,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -2,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -2,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -1,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -1,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 5
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -1,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -1,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -1,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "name": "Soil_Pathway"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "name": "Rock_Stone_Cobble_Half",
+      "rotation": 5
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 0,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 1,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 1,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "name": "Rock_Stone_Cobble"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 1,
+      "name": "Wood_Hardwood_Planks_Half"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 2,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 3,
+      "name": "Rock_Stone"
+    },
+    {
       "x": 4,
       "y": 5,
       "z": 3,
@@ -3048,14 +4451,20 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": 3,
+      "y": 1,
+      "z": 4,
       "name": "Nat20_Force_Empty"
     },
     {
       "x": 4,
-      "y": 9,
-      "z": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
       "name": "Nat20_Force_Empty"
     },
     {
@@ -3079,23 +4488,879 @@
     {
       "x": 4,
       "y": 7,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": 4,
-      "name": "Nat20_Force_Empty"
-    },
-    {
-      "x": 4,
-      "y": 9,
       "z": 4,
       "name": "Nat20_Force_Empty"
     }
   ],
   "fluids": [
+    {
+      "x": -4,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
     {
       "x": -3,
       "y": 5,
@@ -3104,6 +5369,377 @@
       "level": 0
     },
     {
+      "x": -3,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
       "x": -2,
       "y": 3,
       "z": -3,
@@ -3140,15 +5776,15 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": -3,
+      "y": 0,
+      "z": -2,
       "name": "Empty",
       "level": 0
     },
     {
       "x": -2,
-      "y": 9,
-      "z": -3,
+      "y": 1,
+      "z": -2,
       "name": "Empty",
       "level": 0
     },
@@ -3196,15 +5832,15 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": -2,
+      "y": 0,
+      "z": -1,
       "name": "Empty",
       "level": 0
     },
     {
       "x": -2,
-      "y": 9,
-      "z": -2,
+      "y": 1,
+      "z": -1,
       "name": "Empty",
       "level": 0
     },
@@ -3252,15 +5888,8 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": -1,
+      "y": 0,
+      "z": 0,
       "name": "Empty",
       "level": 0
     },
@@ -3315,15 +5944,8 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 9,
-      "z": 0,
+      "y": 0,
+      "z": 1,
       "name": "Empty",
       "level": 0
     },
@@ -3372,20 +5994,6 @@
     {
       "x": -2,
       "y": 7,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 9,
       "z": 1,
       "name": "Empty",
       "level": 0
@@ -3448,15 +6056,15 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": 2,
+      "y": 0,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
     {
       "x": -2,
-      "y": 9,
-      "z": 2,
+      "y": 1,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
@@ -3470,48 +6078,6 @@
     {
       "x": -2,
       "y": 3,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 4,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 5,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 6,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 7,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 8,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -2,
-      "y": 9,
       "z": 3,
       "name": "Empty",
       "level": 0
@@ -3519,6 +6085,62 @@
     {
       "x": -2,
       "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
       "z": 4,
       "name": "Empty",
       "level": 0
@@ -3546,15 +6168,148 @@
     },
     {
       "x": -2,
-      "y": 8,
-      "z": 4,
+      "y": 5,
+      "z": 5,
       "name": "Empty",
       "level": 0
     },
     {
       "x": -2,
-      "y": 9,
-      "z": 4,
+      "y": 5,
+      "z": 6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -3,
       "name": "Empty",
       "level": 0
     },
@@ -3595,15 +6350,8 @@
     },
     {
       "x": -1,
-      "y": 8,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": -3,
+      "y": 0,
+      "z": -2,
       "name": "Empty",
       "level": 0
     },
@@ -3652,20 +6400,6 @@
     {
       "x": -1,
       "y": 7,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 8,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
       "z": -2,
       "name": "Empty",
       "level": 0
@@ -3728,20 +6462,6 @@
     },
     {
       "x": -1,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
       "y": 0,
       "z": 0,
       "name": "Empty",
@@ -3792,20 +6512,6 @@
     {
       "x": -1,
       "y": 7,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
       "z": 0,
       "name": "Empty",
       "level": 0
@@ -3868,20 +6574,6 @@
     },
     {
       "x": -1,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
       "y": 0,
       "z": 2,
       "name": "Empty",
@@ -3938,15 +6630,8 @@
     },
     {
       "x": -1,
-      "y": 8,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": 2,
+      "y": 0,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
@@ -4001,27 +6686,41 @@
     },
     {
       "x": -1,
-      "y": 8,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 9,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": -1,
-      "y": 4,
+      "y": 0,
       "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": -1,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
       "y": 5,
       "z": 4,
       "name": "Empty",
@@ -4042,16 +6741,128 @@
       "level": 0
     },
     {
-      "x": -1,
-      "y": 8,
-      "z": 4,
+      "x": 0,
+      "y": 0,
+      "z": -5,
       "name": "Empty",
       "level": 0
     },
     {
-      "x": -1,
-      "y": 9,
-      "z": 4,
+      "x": 0,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
       "name": "Empty",
       "level": 0
     },
@@ -4093,20 +6904,6 @@
     {
       "x": 0,
       "y": 7,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
       "z": -3,
       "name": "Empty",
       "level": 0
@@ -4169,20 +6966,6 @@
     },
     {
       "x": 0,
-      "y": 8,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
       "y": 0,
       "z": -1,
       "name": "Empty",
@@ -4233,20 +7016,6 @@
     {
       "x": 0,
       "y": 7,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
       "z": -1,
       "name": "Empty",
       "level": 0
@@ -4309,20 +7078,6 @@
     },
     {
       "x": 0,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
       "y": 0,
       "z": 1,
       "name": "Empty",
@@ -4373,20 +7128,6 @@
     {
       "x": 0,
       "y": 7,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
       "z": 1,
       "name": "Empty",
       "level": 0
@@ -4449,15 +7190,8 @@
     },
     {
       "x": 0,
-      "y": 8,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 2,
+      "y": 0,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
@@ -4512,27 +7246,41 @@
     },
     {
       "x": 0,
-      "y": 8,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 0,
-      "y": 4,
+      "y": 0,
       "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
       "y": 5,
       "z": 4,
       "name": "Empty",
@@ -4553,16 +7301,114 @@
       "level": 0
     },
     {
-      "x": 0,
-      "y": 8,
-      "z": 4,
+      "x": 1,
+      "y": 0,
+      "z": -5,
       "name": "Empty",
       "level": 0
     },
     {
-      "x": 0,
-      "y": 9,
-      "z": 4,
+      "x": 1,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -4,
       "name": "Empty",
       "level": 0
     },
@@ -4624,20 +7470,6 @@
     },
     {
       "x": 1,
-      "y": 8,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
       "y": 0,
       "z": -2,
       "name": "Empty",
@@ -4688,20 +7520,6 @@
     {
       "x": 1,
       "y": 7,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 8,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
       "z": -2,
       "name": "Empty",
       "level": 0
@@ -4764,20 +7582,6 @@
     },
     {
       "x": 1,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
       "y": 0,
       "z": 0,
       "name": "Empty",
@@ -4828,20 +7632,6 @@
     {
       "x": 1,
       "y": 7,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
       "z": 0,
       "name": "Empty",
       "level": 0
@@ -4904,20 +7694,6 @@
     },
     {
       "x": 1,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
       "y": 0,
       "z": 2,
       "name": "Empty",
@@ -4968,20 +7744,6 @@
     {
       "x": 1,
       "y": 7,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 8,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
       "z": 2,
       "name": "Empty",
       "level": 0
@@ -5044,27 +7806,41 @@
     },
     {
       "x": 1,
-      "y": 8,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 9,
-      "z": 3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 1,
-      "y": 4,
+      "y": 0,
       "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 1,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
       "y": 5,
       "z": 4,
       "name": "Empty",
@@ -5085,16 +7861,121 @@
       "level": 0
     },
     {
-      "x": 1,
-      "y": 8,
-      "z": 4,
+      "x": 2,
+      "y": 0,
+      "z": -5,
       "name": "Empty",
       "level": 0
     },
     {
-      "x": 1,
-      "y": 9,
-      "z": 4,
+      "x": 2,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -3,
       "name": "Empty",
       "level": 0
     },
@@ -5143,20 +8024,6 @@
     {
       "x": 2,
       "y": 7,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
       "z": -3,
       "name": "Empty",
       "level": 0
@@ -5219,20 +8086,6 @@
     },
     {
       "x": 2,
-      "y": 8,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
       "y": 0,
       "z": -1,
       "name": "Empty",
@@ -5283,20 +8136,6 @@
     {
       "x": 2,
       "y": 7,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
       "z": -1,
       "name": "Empty",
       "level": 0
@@ -5359,20 +8198,6 @@
     },
     {
       "x": 2,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
       "y": 0,
       "z": 1,
       "name": "Empty",
@@ -5423,20 +8248,6 @@
     {
       "x": 2,
       "y": 7,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
       "z": 1,
       "name": "Empty",
       "level": 0
@@ -5499,20 +8310,6 @@
     },
     {
       "x": 2,
-      "y": 8,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
-      "y": 9,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 2,
       "y": 0,
       "z": 3,
       "name": "Empty",
@@ -5569,15 +8366,29 @@
     },
     {
       "x": 2,
-      "y": 8,
-      "z": 3,
+      "y": 0,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 2,
-      "y": 9,
-      "z": 3,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
@@ -5611,15 +8422,134 @@
     },
     {
       "x": 2,
-      "y": 8,
-      "z": 4,
+      "y": 5,
+      "z": 5,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 2,
-      "y": 9,
-      "z": 4,
+      "y": 5,
+      "z": 6,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -3,
       "name": "Empty",
       "level": 0
     },
@@ -5661,20 +8591,6 @@
     {
       "x": 3,
       "y": 7,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": -3,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
       "z": -3,
       "name": "Empty",
       "level": 0
@@ -5737,20 +8653,6 @@
     },
     {
       "x": 3,
-      "y": 8,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": -2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
       "y": 0,
       "z": -1,
       "name": "Empty",
@@ -5801,20 +8703,6 @@
     {
       "x": 3,
       "y": 7,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
       "z": -1,
       "name": "Empty",
       "level": 0
@@ -5877,20 +8765,6 @@
     },
     {
       "x": 3,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
       "y": 0,
       "z": 1,
       "name": "Empty",
@@ -5941,20 +8815,6 @@
     {
       "x": 3,
       "y": 7,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "z": 1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
       "z": 1,
       "name": "Empty",
       "level": 0
@@ -6017,15 +8877,8 @@
     },
     {
       "x": 3,
-      "y": 8,
-      "z": 2,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "z": 2,
+      "y": 0,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
@@ -6080,15 +8933,29 @@
     },
     {
       "x": 3,
-      "y": 8,
-      "z": 3,
+      "y": 0,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 3,
-      "y": 9,
-      "z": 3,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
@@ -6122,15 +8989,127 @@
     },
     {
       "x": 3,
-      "y": 8,
-      "z": 4,
+      "y": 2,
+      "z": 5,
       "name": "Empty",
       "level": 0
     },
     {
-      "x": 3,
-      "y": 9,
-      "z": 4,
+      "x": 4,
+      "y": 1,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -5,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -3,
       "name": "Empty",
       "level": 0
     },
@@ -6171,15 +9150,15 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": -3,
+      "y": 0,
+      "z": -2,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 4,
-      "y": 9,
-      "z": -3,
+      "y": 1,
+      "z": -2,
       "name": "Empty",
       "level": 0
     },
@@ -6227,15 +9206,15 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": -2,
+      "y": 0,
+      "z": -1,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 4,
-      "y": 9,
-      "z": -2,
+      "y": 1,
+      "z": -1,
       "name": "Empty",
       "level": 0
     },
@@ -6283,15 +9262,8 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": -1,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": -1,
+      "y": 0,
+      "z": 0,
       "name": "Empty",
       "level": 0
     },
@@ -6346,15 +9318,8 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": 0,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 4,
-      "y": 9,
-      "z": 0,
+      "y": 0,
+      "z": 1,
       "name": "Empty",
       "level": 0
     },
@@ -6409,15 +9374,15 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": 1,
+      "y": 0,
+      "z": 2,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 4,
-      "y": 9,
-      "z": 1,
+      "y": 1,
+      "z": 2,
       "name": "Empty",
       "level": 0
     },
@@ -6465,15 +9430,22 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": 2,
+      "y": 0,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 4,
-      "y": 9,
-      "z": 2,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 3,
       "name": "Empty",
       "level": 0
     },
@@ -6514,15 +9486,22 @@
     },
     {
       "x": 4,
-      "y": 8,
-      "z": 3,
+      "y": 1,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
     {
       "x": 4,
-      "y": 9,
-      "z": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
       "name": "Empty",
       "level": 0
     },
@@ -6550,20 +9529,6 @@
     {
       "x": 4,
       "y": 7,
-      "z": 4,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "z": 4,
-      "name": "Empty",
-      "level": 0
-    },
-    {
-      "x": 4,
-      "y": 9,
       "z": 4,
       "name": "Empty",
       "level": 0

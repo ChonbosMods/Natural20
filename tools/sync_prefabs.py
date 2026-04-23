@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Sync author-pack prefabs into the Natural20 mod's resources.
 
-Reads .prefab.json files from the three Nat20 author packs that PrefabMaker
+Reads .prefab.json files from the Nat20 author packs that PrefabMaker
 writes via `/prefab save`:
 
     devserver/mods/Natural20.SettlementPiece(s)/Server/Prefabs/
-    devserver/mods/Natural20.SettlementFull/Server/Prefabs/
     devserver/mods/Natural20.HostilePOI/Server/Prefabs/
 
 …and copies each into the mod's shippable + dev-loadable locations:
@@ -16,7 +15,6 @@ writes via `/prefab save`:
 Category layout:
 
     Natural20.SettlementPiece / .SettlementPieces  ->  Nat20/settlement_pieces/
-    Natural20.SettlementFull                       ->  Nat20/settlement_full/
     Natural20.HostilePOI                           ->  Nat20/hostile_poi/
 
 Idempotent: running twice is a no-op. Skips files whose content is unchanged.
@@ -37,7 +35,6 @@ from pathlib import Path
 SOURCES: dict[str, str] = {
     "Natural20.SettlementPiece":  "settlement_pieces",
     "Natural20.SettlementPieces": "settlement_pieces",
-    "Natural20.SettlementFull":   "settlement_full",
     "Natural20.HostilePOI":       "hostile_poi",
 }
 

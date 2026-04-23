@@ -28,13 +28,6 @@ public class SettlementWorldGenListener {
     private static final double JITTER_MAX = 0.75;
     private static final long SEED_OFFSET = 827364510L;
 
-    /**
-     * Per-cell probability that the settlement is an OUTPOST instead of a TOWN.
-     * 0.0 = always TOWN, 1.0 = always OUTPOST. Rolled deterministically from the
-     * per-cell seed so reloading the world produces the same settlement types.
-     */
-    private static final double OUTPOST_SPAWN_CHANCE = 0.5;
-
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
 
@@ -92,10 +85,7 @@ public class SettlementWorldGenListener {
             return;
         }
 
-        // Per-cell type roll: OUTPOST_SPAWN_CHANCE of the time use OUTPOST, else TOWN.
-        SettlementType type = rng.nextDouble() < OUTPOST_SPAWN_CHANCE
-            ? SettlementType.OUTPOST
-            : SettlementType.TOWN;
+        SettlementType type = SettlementType.TOWN;
 
         LOGGER.atInfo().log("Placing %s at cell %s position %d, %d",
             type, cellKey, settlementX, settlementZ);
@@ -140,13 +130,6 @@ public class SettlementWorldGenListener {
             }
             int groundY = centerSample.y();
             Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
-
-            if (!placer.hasPrefab(type)) {
-                LOGGER.atSevere().log("No prefab for %s, skipping settlement at cell %s", type, cellKey);
-                registry.unregister(cellKey);
-                failedCells.add(cellKey);
-                return;
-            }
 
             placer.place(world, anchorPos, type, Rotation.None, store, new Random(seed))
                 .whenComplete((placed, error) -> world.execute(() -> {

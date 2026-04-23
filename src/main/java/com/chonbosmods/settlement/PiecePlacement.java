@@ -21,7 +21,7 @@ public record PiecePlacement(
     int maxPieces,
     int outerRadius,
     int minSpacing
-) implements SettlementPlacement {
+) {
     public PiecePlacement {
         if (minPieces < 1 || maxPieces < minPieces) {
             throw new IllegalArgumentException(

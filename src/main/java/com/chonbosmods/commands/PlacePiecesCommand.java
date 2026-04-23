@@ -9,7 +9,6 @@ import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.PiecePlacement;
 import com.chonbosmods.settlement.SettlementNpcFanOut;
 import com.chonbosmods.settlement.SettlementPieceAssembler;
-import com.chonbosmods.settlement.SettlementPlacement;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementType;
 import com.hypixel.hytale.component.Ref;
@@ -54,11 +53,7 @@ public class PlacePiecesCommand extends AbstractPlayerCommand {
                            @Nonnull Ref<EntityStore> ref,
                            @Nonnull PlayerRef playerRef,
                            @Nonnull World world) {
-        SettlementPlacement placement = SettlementType.TOWN.getPlacement();
-        if (!(placement instanceof PiecePlacement piece)) {
-            ctx.sendMessage(Message.raw("SettlementType.TOWN is not PIECE mode; aborting."));
-            return;
-        }
+        PiecePlacement piece = SettlementType.TOWN.getPlacement();
 
         TransformComponent tf = store.getComponent(ref, TransformComponent.getComponentType());
         if (tf == null || tf.getPosition() == null) {

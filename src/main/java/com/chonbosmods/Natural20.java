@@ -901,7 +901,6 @@ public class Natural20 extends JavaPlugin {
         Nat20PrefabConstants.resolve();
 
         // Load prefabs: assets are available by start()
-        placer.init();
 
         // Settlement registry. Save path is bound to the world-scoped directory in
         // the first-chunk-load hook below; any save/load before that throws.
