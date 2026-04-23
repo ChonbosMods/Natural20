@@ -85,25 +85,16 @@ public class SettlementWorldGenListener {
 
         int cellOriginX = cellX * CELL_SIZE;
         int cellOriginZ = cellZ * CELL_SIZE;
-        int settlementX;
-        int settlementZ;
-        if (resolveSpawnCellKey(world).equals(cellKey)) {
-            // Spawn settlement anchors to world spawn so the tutorial NPC is walkable from drop-in.
-            int[] spawnXZ = resolveSpawnCellAnchor(world);
-            if (spawnXZ != null) {
-                settlementX = spawnXZ[0];
-                settlementZ = spawnXZ[1];
-                // Consume the same two rng draws so any downstream seeded work matches normal cells.
-                rng.nextDouble();
-                rng.nextDouble();
-            } else {
-                settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
-                settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
-            }
-        } else {
-            settlementX = cellOriginX + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
-            settlementZ = cellOriginZ + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
-        }
+        // All cells (including the spawn cell) use the standard jitter position.
+        // Earlier we tried to snap the spawn cell to world-spawn x/z, but that
+        // routinely landed on terrain where only 2 of 8 settlement pieces could
+        // paste: the anchor's footprint-check passed while individual piece
+        // offsets in the 32-block footprint hit cliffs or floated. Jitter picks
+        // a less contrived point in the cell where pieces fit.
+        int settlementX = cellOriginX
+            + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
+        int settlementZ = cellOriginZ
+            + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
 
         // Only the chunk containing the settlement center triggers placement
         if (!isChunkContaining(chunkBlockX, chunkBlockZ, settlementX, settlementZ)) {
@@ -301,20 +292,6 @@ public class SettlementWorldGenListener {
     private boolean isChunkContaining(int chunkBlockX, int chunkBlockZ, int blockX, int blockZ) {
         return chunkBlockX <= blockX && blockX < chunkBlockX + CHUNK_BLOCK_SIZE &&
                chunkBlockZ <= blockZ && blockZ < chunkBlockZ + CHUNK_BLOCK_SIZE;
-    }
-
-    /** Resolve the world-spawn x/z anchor for the spawn cell. Null on failure. */
-    private int[] resolveSpawnCellAnchor(World world) {
-        try {
-            Transform t = world.getWorldConfig().getSpawnProvider()
-                .getSpawnPoint(world, new UUID(0L, 0L));
-            Vector3d p = t.getPosition();
-            return new int[]{(int) p.getX(), (int) p.getZ()};
-        } catch (Exception e) {
-            LOGGER.atWarning().withCause(e).log(
-                "Failed to resolve world spawn anchor; falling back to jitter");
-            return null;
-        }
     }
 
     /**
