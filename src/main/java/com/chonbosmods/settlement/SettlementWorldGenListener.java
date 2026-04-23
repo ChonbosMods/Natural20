@@ -224,8 +224,20 @@ public class SettlementWorldGenListener {
             return;
         }
 
-        int anchorX = (int) spawnPos.getX() + SPAWN_SETTLEMENT_OFFSET_X;
-        int anchorZ = (int) spawnPos.getZ() + SPAWN_SETTLEMENT_OFFSET_Z;
+        // Push the anchor offset toward the cell's interior so it can't straddle
+        // a cell boundary. If the spawn is in the upper half of the cell, offset
+        // negatively; otherwise positively. This keeps the anchor in the same
+        // cell as world spawn regardless of where the spawn lands.
+        int spawnX = (int) spawnPos.getX();
+        int spawnZ = (int) spawnPos.getZ();
+        int spawnCellX = Math.floorDiv(spawnX, CELL_SIZE);
+        int spawnCellZ = Math.floorDiv(spawnZ, CELL_SIZE);
+        int localX = spawnX - spawnCellX * CELL_SIZE;
+        int localZ = spawnZ - spawnCellZ * CELL_SIZE;
+        int offsetX = localX < CELL_SIZE / 2 ? SPAWN_SETTLEMENT_OFFSET_X : -SPAWN_SETTLEMENT_OFFSET_X;
+        int offsetZ = localZ < CELL_SIZE / 2 ? SPAWN_SETTLEMENT_OFFSET_Z : -SPAWN_SETTLEMENT_OFFSET_Z;
+        int anchorX = spawnX + offsetX;
+        int anchorZ = spawnZ + offsetZ;
         if (!isChunkContaining(chunkBlockX, chunkBlockZ, anchorX, anchorZ)) {
             return;
         }
