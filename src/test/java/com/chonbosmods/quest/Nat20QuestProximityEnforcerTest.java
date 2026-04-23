@@ -37,16 +37,20 @@ class Nat20QuestProximityEnforcerTest {
             Optional.empty();
         Predicate<UUID> online = u -> true;  // both online
 
+        List<PendingQuestMissedBanner> onlinePending = new ArrayList<>();
         Nat20QuestProximityEnforcer.sweepForPhaseCompletion(
             q, alice, new double[]{0,0,0},
             positions, online,
             store,
-            (uuid, topicHeader) -> onlineBannersFired.add(uuid),
+            (uuid, pending) -> { onlineBannersFired.add(uuid); onlinePending.add(pending); },
             (uuid, pending) -> offlineBannersQueued.add(uuid));
 
         assertTrue(q.droppedAccepters().contains(bob));
         assertEquals(List.of(bob), onlineBannersFired);
         assertTrue(offlineBannersQueued.isEmpty());
+        assertEquals(1, onlinePending.size());
+        assertEquals("Saving the Orchard", onlinePending.get(0).topicHeader());
+        assertEquals("q1", onlinePending.get(0).questId());
     }
 
     @Test
@@ -64,7 +68,7 @@ class Nat20QuestProximityEnforcerTest {
             q, alice, new double[]{0,0,0},
             positions, online,
             store,
-            (uuid, topicHeader) -> onlineBannersFired.add(uuid),
+            (uuid, pending) -> onlineBannersFired.add(uuid),
             (uuid, pending) -> offlineBannersQueued.add(uuid));
 
         assertEquals(List.of(bob), offlineBannersQueued);

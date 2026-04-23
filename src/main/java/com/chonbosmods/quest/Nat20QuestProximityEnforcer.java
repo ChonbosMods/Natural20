@@ -10,7 +10,7 @@ public final class Nat20QuestProximityEnforcer {
 
     @FunctionalInterface
     public interface OnlineBannerDispatcher {
-        void fire(UUID playerUuid, String topicHeader);
+        void fire(UUID playerUuid, PendingQuestMissedBanner pending);
     }
 
     @FunctionalInterface
@@ -44,11 +44,12 @@ public final class Nat20QuestProximityEnforcer {
                 .getOrDefault("quest_topic_header", "Quest");
         for (UUID uuid : toEvict) {
             store.dropAccepter(quest.getQuestId(), uuid);
+            PendingQuestMissedBanner pending = new PendingQuestMissedBanner(
+                    quest.getQuestId(), topicHeader, System.currentTimeMillis());
             if (isOnline.test(uuid)) {
-                online.fire(uuid, topicHeader);
+                online.fire(uuid, pending);
             } else {
-                offline.queue(uuid, new PendingQuestMissedBanner(
-                        quest.getQuestId(), topicHeader, System.currentTimeMillis()));
+                offline.queue(uuid, pending);
             }
         }
     }

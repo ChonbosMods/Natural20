@@ -71,7 +71,7 @@ public final class Nat20QuestProximityGate {
                 uuid -> resolvePosition(uuid, world),
                 registry::isOnline,
                 store,
-                (uuid, topicHeader) -> firePlayerBanner(uuid, topicHeader, world),
+                (uuid, pending) -> firePlayerBanner(uuid, pending, world, plugin),
                 (uuid, pending) -> queueOfflineBanner(uuid, pending, plugin));
     }
 
@@ -99,15 +99,21 @@ public final class Nat20QuestProximityGate {
      * {@code world.getPlayerRefs()} to resolve the {@link PlayerRef}, matching
      * the pattern used by {@code CharacterSheetPage.findPlayerRef} (lines 714-719).
      * Null-guarded against the race where the player disconnects between the
-     * sweep decision and the banner dispatch: the offline branch will have
-     * already queued a pending banner if the player was flagged offline, but
-     * an online-at-decision-time / offline-at-dispatch player simply misses
-     * this banner (acceptable; the quest-dropped state is the durable signal).
+     * enforcer's {@code isOnline} check and this dispatch: in that window the
+     * {@link PlayerRef} lookup returns null, so we fall through to
+     * {@link #queueOfflineBanner} to preserve the banner on the side-car store.
+     * The player will see it on next login via Task 8's PlayerReadyEvent drain.
      */
-    private static void firePlayerBanner(UUID uuid, String topicHeader, World world) {
+    private static void firePlayerBanner(
+            UUID uuid, PendingQuestMissedBanner pending, World world, Natural20 plugin) {
         PlayerRef ref = findPlayerRef(world, uuid);
-        if (ref == null) return;
-        QuestMissedBanner.show(ref, topicHeader);
+        if (ref == null) {
+            // Player went offline between enforcer's isOnline check and this dispatch.
+            // Preserve banner via offline queue so they see it on next login.
+            queueOfflineBanner(uuid, pending, plugin);
+            return;
+        }
+        QuestMissedBanner.show(ref, pending.topicHeader());
     }
 
     /**
