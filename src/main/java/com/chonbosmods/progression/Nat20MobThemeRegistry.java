@@ -35,6 +35,7 @@ public final class Nat20MobThemeRegistry {
     private final List<BiomeKeyword> biomeKeywords = new ArrayList<>();
     private WeightedPool defaultPool;
     private List<String> outlierDrawPool = List.of();
+    private Set<String> poiBlacklist = Set.of();
     private double outlierChance = 0.05;
     private boolean initialized = false;
 
@@ -72,6 +73,13 @@ public final class Nat20MobThemeRegistry {
         }
         this.outlierDrawPool = Collections.unmodifiableList(outlierDraw);
 
+        JsonElement bl = root.get("poi_blacklist");
+        if (bl != null && bl.isJsonArray()) {
+            Set<String> blacklist = new HashSet<>();
+            bl.getAsJsonArray().forEach(e -> blacklist.add(e.getAsString()));
+            this.poiBlacklist = Collections.unmodifiableSet(blacklist);
+        }
+
         JsonElement db = root.get("default_biome");
         if (db != null && db.isJsonObject()) {
             this.defaultPool = parsePool(db.getAsJsonObject().getAsJsonObject("weights"));
@@ -103,8 +111,8 @@ public final class Nat20MobThemeRegistry {
             }
         }
 
-        LOGGER.atInfo().log("Theme registry loaded: %d zones, %d biome keywords, outlier_pool=%d, outlier_chance=%.2f",
-            zonePools.size(), biomeKeywords.size(), outlierDrawPool.size(), outlierChance);
+        LOGGER.atInfo().log("Theme registry loaded: %d zones, %d biome keywords, outlier_pool=%d, outlier_chance=%.2f, poi_blacklist=%d",
+            zonePools.size(), biomeKeywords.size(), outlierDrawPool.size(), outlierChance, poiBlacklist.size());
     }
 
     @Nullable
@@ -149,6 +157,26 @@ public final class Nat20MobThemeRegistry {
             }
         }
         return pool.roles().get(pool.roles().size() - 1);
+    }
+
+    /** Like {@link #pickMob} but rejects any role in the POI blacklist (rejection sampling).
+     *  Use at POI-style spawn sites (quest encounters, dungeon populations) where mobs whose
+     *  behavior (e.g. flee-on-sight) make them unsuitable for fixed-location combat should be
+     *  excluded. Ambient spawns keep calling {@link #pickMob} so blacklisted mobs still appear
+     *  in the overworld. Returns null if every retry lands on a blacklisted pick; caller should
+     *  have its own fallback (QuestGenerator keeps the uniform fallback pick). */
+    @Nullable
+    public String pickMobForPOI(@Nullable String zoneName, @Nullable String biomeName, Random random) {
+        if (poiBlacklist.isEmpty()) return pickMob(zoneName, biomeName, random);
+        for (int i = 0; i < 8; i++) {
+            String candidate = pickMob(zoneName, biomeName, random);
+            if (candidate == null || !poiBlacklist.contains(candidate)) return candidate;
+        }
+        return null;
+    }
+
+    public boolean isPOIBlacklisted(String role) {
+        return poiBlacklist.contains(role);
     }
 
     /** Cascade:

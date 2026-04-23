@@ -90,6 +90,10 @@
     "Outlander_Priest",
     "Outlander_Sorcerer"
   ],
+  "poi_blacklist": [
+    "Goblin_Thief",
+    "Goblin_Thief_Patrol"
+  ],
   "default_biome": {
     "weights": {
       "Zombie": 2,

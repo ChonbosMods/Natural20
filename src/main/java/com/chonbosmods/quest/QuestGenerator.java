@@ -568,7 +568,7 @@ public class QuestGenerator {
                     com.chonbosmods.world.Nat20BiomeLookup.getZoneAndBiome(world, cx, cz);
                 com.chonbosmods.progression.Nat20MobThemeRegistry themeReg =
                     Natural20.getInstance().getMobThemeRegistry();
-                String themed = themeReg.pickMob(zb.zone(), zb.biome(), random);
+                String themed = themeReg.pickMobForPOI(zb.zone(), zb.biome(), random);
                 if (themed != null) {
                     QuestPoolRegistry.ItemEntry match = poolRegistry.findHostileMob(themed);
                     bindings.put("enemy_type_id", themed);
