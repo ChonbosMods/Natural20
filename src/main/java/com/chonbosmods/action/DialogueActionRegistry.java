@@ -492,6 +492,19 @@ public class DialogueActionRegistry {
                         }
                     }
                 }
+                // T15: purge side-car Quest-Missed banners queued for dropped
+                // accepters. Runs AFTER markQuestCompleted durably removes the
+                // quest from the active store, so a crash mid-turnin can't leave
+                // banners orphaned on a quest that still exists. Fires exactly
+                // once per turn-in (NOT per-accepter, NOT per-reward row, NOT on
+                // phase transitions, NOT on non-turn-in quest removals like
+                // legacy debug drops: those genuinely evict and the banner
+                // SHOULD fire on next login).
+                com.chonbosmods.party.Nat20PendingBannerStore pendingBannerStore =
+                        Natural20.getInstance().getPendingBannerStore();
+                if (pendingBannerStore != null) {
+                    pendingBannerStore.removeForQuestAllPlayers(quest.getQuestId());
+                }
                 // User-facing "Quest completed" line fires from TURN_IN_V2 (with
                 // item + XP context), not here: by this point the player has already
                 // clicked CONTINUE past the dialogue and the message would be
