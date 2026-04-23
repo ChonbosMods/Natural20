@@ -1,7 +1,6 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.quest.model.QuestTemplateV2;
-import com.chonbosmods.quest.model.QuestVariant;
 import com.chonbosmods.quest.model.SkillCheckAdapter;
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.*;
