@@ -76,6 +76,28 @@ public final class Nat20QuestProximityGate {
     }
 
     /**
+     * Convenience overload for objective-completion sites that already have the
+     * triggering player's Ref and Store in scope. Resolves the anchor from
+     * TransformComponent internally and short-circuits cleanly on missing components.
+     * Intended for the four tracking-system wire-ins (KILL/COLLECT/FETCH/TALK).
+     */
+    public static void checkAtEntity(
+            QuestInstance quest,
+            UUID triggeringPlayer,
+            Ref<EntityStore> entityRef,
+            Store<EntityStore> store,
+            World world,
+            Natural20 plugin) {
+        if (entityRef == null || store == null || world == null) return;
+        TransformComponent tx = store.getComponent(entityRef, TransformComponent.getComponentType());
+        if (tx == null) return;
+        Vector3d pos = tx.getPosition();
+        if (pos == null) return;
+        double[] anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
+        check(quest, triggeringPlayer, anchor, world, plugin);
+    }
+
+    /**
      * Resolve an online player's current world-space position. Mirrors
      * {@code AmbientSpawnSystem.collectPlayerPositions()} (lines 112-122) and
      * {@code POIKillTrackingSystem} (lines 156-160): walk {@code world.getEntityRef(uuid)}
