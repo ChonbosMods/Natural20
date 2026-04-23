@@ -372,7 +372,16 @@ public class DialogueActionRegistry {
             String itemDisplay = phaseReward != null && phaseReward.getRewardItemDisplayName() != null
                 ? phaseReward.getRewardItemDisplayName()
                 : (phaseReward != null ? phaseReward.getRewardItemId() : "nothing");
-            int phaseXp = quest.getRewardXp();
+            // Display the actual amount dispensePhaseXp will award to this player:
+            // their level x quest difficulty, with the same level-only fallback.
+            com.chonbosmods.quest.model.DifficultyConfig displayDifficulty = null;
+            String displayDifficultyId = quest.getDifficultyId();
+            if (questSystem != null && displayDifficultyId != null) {
+                displayDifficulty = questSystem.getDifficultyRegistry().get(displayDifficultyId);
+            }
+            int phaseXp = displayDifficulty != null
+                ? Nat20XpMath.questPhaseXp(ctx.playerData().getLevel(), displayDifficulty)
+                : Nat20XpMath.questPhaseXp(ctx.playerData().getLevel());
             String prefix = quest.hasMoreConflicts() ? "Phase complete" : "Quest completed";
             ctx.systemLogger().accept(
                 prefix + ": " + turnInLabel + ". Received " + itemDisplay + " and " + phaseXp + " XP");
