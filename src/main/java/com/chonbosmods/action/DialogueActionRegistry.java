@@ -281,9 +281,16 @@ public class DialogueActionRegistry {
                     com.chonbosmods.data.Nat20NpcData.QuestMarkerState.NONE);
             }
 
-            // Update waypoint marker cache
+            // Update waypoint marker cache for the accepter AND every other
+            // online party member who was added as an accepter. Fixes the
+            // smoke-test bug where a second out-of-range party member's
+            // waypoint didn't appear until they toggled /sheet tracking off/on.
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+            if (world != null) {
+                com.chonbosmods.quest.Nat20QuestRewardDispatcher
+                    .refreshMarkersForAccepters(quest, world);
+            }
         });
 
         register(TURN_IN_V2, (ctx, params) -> {
@@ -514,6 +521,15 @@ public class DialogueActionRegistry {
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+            // Refresh waypoints for every online accepter so phase-advance
+            // (or quest completion) propagates to party members without them
+            // having to toggle /sheet tracking. Covers smoke-test bug #2.
+            com.hypixel.hytale.server.core.universe.world.World contWorld =
+                Natural20.getInstance().getDefaultWorld();
+            if (contWorld != null) {
+                com.chonbosmods.quest.Nat20QuestRewardDispatcher
+                    .refreshMarkersForAccepters(quest, contWorld);
+            }
         });
 
         register(COMPLETE_TALK_TO_NPC, (ctx, params) -> {

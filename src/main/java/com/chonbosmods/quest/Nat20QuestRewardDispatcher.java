@@ -69,8 +69,6 @@ public final class Nat20QuestRewardDispatcher {
         Store<EntityStore> store = world.getEntityStore().getStore();
 
         for (UUID uuid : quest.getAccepters()) {
-            if (missed != null && missed.contains(uuid)) continue;
-
             Ref<EntityStore> ref = world.getEntityRef(uuid);
             if (ref == null) continue; // offline in this world
 
@@ -80,11 +78,18 @@ public final class Nat20QuestRewardDispatcher {
             Nat20PlayerData pd = store.getComponent(ref, Natural20.getPlayerDataType());
             if (pd == null) continue;
 
-            int xp = Nat20XpMath.questPhaseXp(pd.getLevel());
-            xpService.award(p, ref, store, xp, "quest:" + quest.getQuestId());
+            boolean isMissed = missed != null && missed.contains(uuid);
+            if (!isMissed) {
+                int xp = Nat20XpMath.questPhaseXp(pd.getLevel());
+                xpService.award(p, ref, store, xp, "quest:" + quest.getQuestId());
+            }
 
-            // Refresh this player's waypoint cache so the map / quest-log
-            // reflect the phase transition.
+            // Refresh every online accepter's waypoint cache so the map /
+            // quest-log reflect the phase transition, including missed
+            // accepters (Option B: they stay on the quest and their waypoint
+            // moves to the next phase's target). Fixes smoke-test bug #3:
+            // "faraway player's waypoint got stuck even though Quest Missed
+            // banner triggered and the quest was removed from their log".
             QuestMarkerProvider.refreshMarkers(uuid, pd);
         }
     }
