@@ -85,6 +85,11 @@ public class DialogueActionRegistry {
      *  GIVE_QUEST fires, so TURN_IN_V2 can apply the skillcheck pass reward bonus.
      *  Fired from the pass branch of a quest's accept-phase skill check. */
     public static final String MARK_SKILLCHECK_PASSED = "MARK_SKILLCHECK_PASSED";
+    /** Tutorial phase-1 turn-in: advances {@code tutorial_main} from the pre-marked
+     *  ready-to-turn-in state to phase 2. No rewards per design 3. Piece 1B stub
+     *  rewrites the objective summary to "More coming soon."; Piece 2 replaces it
+     *  with real phase-2 setup. */
+    public static final String TUTORIAL_TURN_IN_PHASE_1 = "TUTORIAL_TURN_IN_PHASE_1";
 
     private final Map<String, DialogueAction> actions = new HashMap<>();
 
@@ -650,6 +655,37 @@ public class DialogueActionRegistry {
             }
             npcRecord.getPreGeneratedQuest().setSkillcheckPassed(true);
             LOGGER.atInfo().log("MARK_SKILLCHECK_PASSED: stamped pass flag on pre-generated quest for NPC %s", ctx.npcId());
+        });
+
+        register(TUTORIAL_TURN_IN_PHASE_1, (ctx, params) -> {
+            QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
+            if (questSystem == null) return;
+            QuestInstance quest = questSystem.getStateManager().getQuest(
+                ctx.playerData(), com.chonbosmods.quest.TutorialQuestFactory.QUEST_ID);
+            if (quest == null) {
+                LOGGER.atWarning().log("TUTORIAL_TURN_IN_PHASE_1: tutorial_main not found for %s",
+                    ctx.player().getPlayerRef().getUuid());
+                return;
+            }
+            if (quest.getConflictCount() != 0
+                    || quest.getState() != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN) {
+                LOGGER.atWarning().log(
+                    "TUTORIAL_TURN_IN_PHASE_1: unexpected quest state cc=%d state=%s",
+                    quest.getConflictCount(), quest.getState());
+                return;
+            }
+
+            quest.incrementConflictCount();
+            quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
+            quest.getVariableBindings().put("quest_objective_summary", "More coming soon.");
+            saveQuest(questSystem, ctx.playerData(), quest);
+
+            QuestMarkerProvider.refreshMarkers(
+                ctx.player().getPlayerRef().getUuid(), ctx.playerData());
+
+            LOGGER.atInfo().log(
+                "TUTORIAL_TURN_IN_PHASE_1: advanced tutorial_main to phase 2 for %s",
+                ctx.player().getPlayerRef().getUuid());
         });
     }
 
