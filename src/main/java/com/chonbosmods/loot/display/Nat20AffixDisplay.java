@@ -128,7 +128,6 @@ public final class Nat20AffixDisplay {
             Map.entry("LightFoot",        Entry.percentEl("Lightweight",       Stat.DEX.color())),
             Map.entry("Resilience",       Entry.percentEl("Resilience",        WHITE)),
             Map.entry("ViciousMockery",   Entry.percentEl("Vicious Mockery",   BLEED)),
-            Map.entry("PhysicalResistance", Entry.percentEl("Physical Resistance", WHITE)),
 
             // Attack speed — Hytale's internal stat name is InteractionSpeed.
             Map.entry("InteractionSpeed", Entry.percentEl("Attack Speed",      WHITE))

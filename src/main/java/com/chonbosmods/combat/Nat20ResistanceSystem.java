@@ -29,9 +29,11 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Elemental + Physical Resistance: Filter Group system.
- * On incoming damage to player, scans armor for matching resistance affixes
- * and reduces damage by the effective percentage. Handles all 5 resistance types.
+ * Elemental Resistance: Filter Group system.
+ * On incoming elemental damage to player, scans armor for matching resistance
+ * affixes and reduces damage by the effective percentage. Covers fire, frost,
+ * poison, and void. Physical resistance is intentionally not implemented here
+ * because it conflicts with Hytale's native physical reduction.
  */
 public class Nat20ResistanceSystem extends DamageEventSystem {
 
@@ -43,7 +45,6 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
     private static final String FROST_RESIST_ID = "nat20:frost_resistance";
     private static final String VOID_RESIST_ID = "nat20:void_resistance";
     private static final String POISON_RESIST_ID = "nat20:poison_resistance";
-    private static final String PHYSICAL_RESIST_ID = "nat20:physical_resistance";
 
     private final Nat20LootSystem lootSystem;
 
@@ -51,7 +52,6 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
     private int iceCauseIdx = Integer.MIN_VALUE;
     private int poisonCauseIdx = Integer.MIN_VALUE;
     private int voidCauseIdx = Integer.MIN_VALUE;
-    private int physicalCauseIdx = Integer.MIN_VALUE;
     // Vanilla elemental causes
     private int vanillaFireIdx = Integer.MIN_VALUE;
     private int vanillaIceIdx = Integer.MIN_VALUE;
@@ -86,7 +86,6 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
             iceCauseIdx = assetMap.getIndex("Nat20Ice");
             poisonCauseIdx = assetMap.getIndex("Nat20Poison");
             voidCauseIdx = assetMap.getIndex("Nat20Void");
-            physicalCauseIdx = assetMap.getIndex("Physical");
             vanillaFireIdx = assetMap.getIndex("Fire");
             vanillaIceIdx = assetMap.getIndex("Ice");
             vanillaPoisonIdx = assetMap.getIndex("Poison");
@@ -107,8 +106,6 @@ public class Nat20ResistanceSystem extends DamageEventSystem {
             resistAffixId = POISON_RESIST_ID;
         } else if (causeIdx == voidCauseIdx && voidCauseIdx >= 0) {
             resistAffixId = VOID_RESIST_ID;
-        } else if (causeIdx == physicalCauseIdx && physicalCauseIdx >= 0) {
-            resistAffixId = PHYSICAL_RESIST_ID;
         } else {
             return;
         }
