@@ -4,6 +4,7 @@ import com.chonbosmods.background.Background;
 import com.chonbosmods.dialogue.DispositionBracket;
 import com.chonbosmods.dialogue.model.ExhaustionState;
 import com.chonbosmods.quest.CompletedQuestRecord;
+import com.chonbosmods.quest.PendingQuestMissedBanner;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
@@ -36,6 +37,9 @@ public class Nat20PlayerData implements Component<EntityStore> {
     private static final ArrayCodec<CompletedQuestRecord> COMPLETED_QUESTS_CODEC =
             ArrayCodec.ofBuilderCodec(CompletedQuestRecord.CODEC, CompletedQuestRecord[]::new);
 
+    private static final ArrayCodec<PendingQuestMissedBanner.Builder> PENDING_QUEST_MISSED_BANNERS_CODEC =
+            ArrayCodec.ofBuilderCodec(PendingQuestMissedBanner.Builder.CODEC, PendingQuestMissedBanner.Builder[]::new);
+
     public static final BuilderCodec<Nat20PlayerData> CODEC = BuilderCodec.builder(Nat20PlayerData.class, Nat20PlayerData::new)
             .addField(new KeyedCodec<>("Stats", Codec.INT_ARRAY), Nat20PlayerData::setStats, Nat20PlayerData::getStats)
             .addField(new KeyedCodec<>("Level", Codec.INTEGER), Nat20PlayerData::setLevel, Nat20PlayerData::getLevel)
@@ -58,6 +62,8 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("Perception", Codec.FLOAT), Nat20PlayerData::setPerception, Nat20PlayerData::getPerception)
             .addField(new KeyedCodec<>("CompletedQuests", COMPLETED_QUESTS_CODEC),
                     Nat20PlayerData::setCompletedQuestsRaw, Nat20PlayerData::getCompletedQuestsRaw)
+            .addField(new KeyedCodec<>("PendingQuestMissedBanners", PENDING_QUEST_MISSED_BANNERS_CODEC),
+                    Nat20PlayerData::setPendingQuestMissedBannersRaw, Nat20PlayerData::getPendingQuestMissedBannersRaw)
             .addField(new KeyedCodec<>("FirstJoinSeen", Codec.BOOLEAN), Nat20PlayerData::setFirstJoinSeen, Nat20PlayerData::isFirstJoinSeen)
             .addField(new KeyedCodec<>("Background", Codec.STRING), Nat20PlayerData::setBackgroundName, Nat20PlayerData::getBackgroundName)
             .build();
@@ -105,6 +111,12 @@ public class Nat20PlayerData implements Component<EntityStore> {
     // comma-separated `completed_quest_ids` string flag.
     // Most-recent-first; QuestStateManager.markQuestCompleted prepends.
     private List<CompletedQuestRecord> completedQuests = new ArrayList<>();
+
+    // Quest-Missed banners queued while this player was offline. Drained on the
+    // next PlayerReadyEvent (Task 8) and surfaced via the standard banner flow.
+    // Denormalized topicHeader handles the ghost case where the originating
+    // QuestInstance has since left the party-quest store.
+    private List<PendingQuestMissedBanner> pendingQuestMissedBanners = new ArrayList<>();
 
     /** Runtime-only reference to the owning player's UUID. Populated by the
      *  plugin after the component is loaded from the entity store, so that
@@ -598,6 +610,47 @@ public class Nat20PlayerData implements Component<EntityStore> {
         completedQuests = raw != null ? new ArrayList<>(Arrays.asList(raw)) : new ArrayList<>();
     }
 
+    // --- Pending Quest-Missed Banners ---
+
+    public List<PendingQuestMissedBanner> getPendingQuestMissedBanners() {
+        if (pendingQuestMissedBanners == null) pendingQuestMissedBanners = new ArrayList<>();
+        return pendingQuestMissedBanners;
+    }
+
+    public void addPendingQuestMissedBanner(PendingQuestMissedBanner b) {
+        getPendingQuestMissedBanners().add(b);
+    }
+
+    public List<PendingQuestMissedBanner> drainPendingQuestMissedBanners() {
+        List<PendingQuestMissedBanner> drained = new ArrayList<>(getPendingQuestMissedBanners());
+        getPendingQuestMissedBanners().clear();
+        return drained;
+    }
+
+    public void removePendingQuestMissedBanner(String questId) {
+        getPendingQuestMissedBanners().removeIf(b -> b.questId().equals(questId));
+    }
+
+    /** Codec adapter: expose the record list as a mutable-Builder array for {@link ArrayCodec}. */
+    PendingQuestMissedBanner.Builder[] getPendingQuestMissedBannersRaw() {
+        List<PendingQuestMissedBanner> src = getPendingQuestMissedBanners();
+        PendingQuestMissedBanner.Builder[] out = new PendingQuestMissedBanner.Builder[src.size()];
+        for (int i = 0; i < src.size(); i++) {
+            out[i] = PendingQuestMissedBanner.Builder.fromRecord(src.get(i));
+        }
+        return out;
+    }
+
+    /** Codec adapter: rebuild the record list from the decoded Builder array. */
+    void setPendingQuestMissedBannersRaw(PendingQuestMissedBanner.Builder[] raw) {
+        pendingQuestMissedBanners = new ArrayList<>();
+        if (raw != null) {
+            for (PendingQuestMissedBanner.Builder b : raw) {
+                if (b != null) pendingQuestMissedBanners.add(b.toRecord());
+            }
+        }
+    }
+
     @Override
     public Nat20PlayerData clone() {
         Nat20PlayerData copy = new Nat20PlayerData();
@@ -637,6 +690,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
         copy.perception = this.perception;
         copy.firstJoinSeen = this.firstJoinSeen;
         copy.completedQuests = new ArrayList<>(this.completedQuests);
+        copy.pendingQuestMissedBanners = new ArrayList<>(this.getPendingQuestMissedBanners());
         return copy;
     }
 }
