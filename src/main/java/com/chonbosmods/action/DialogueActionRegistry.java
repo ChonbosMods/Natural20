@@ -337,6 +337,22 @@ public class DialogueActionRegistry {
                 return;
             }
 
+            // Option B missed-phase guard (2026-04-23): a player who was out
+            // of range at this phase's completion moment must not be able to
+            // claim the reward by racing to the source NPC. The topic is
+            // already hidden for them in DialogueManager.injectQuestTurnInTopics,
+            // but we gate here too in case a stale client still surfaces the
+            // option (dialogue graphs are cached per session). Short-circuit
+            // silently: the missed player already saw the Quest Missed banner
+            // at phase completion, no further feedback needed.
+            java.util.UUID triggerUuid = ctx.player().getPlayerRef().getUuid();
+            if (quest.getMissedForPhase(quest.getConflictCount()).contains(triggerUuid)) {
+                LOGGER.atWarning().log(
+                    "TURN_IN_V2: blocking player %s from turning in quest %s phase %d: missed set contains them",
+                    triggerUuid, quest.getQuestId(), quest.getConflictCount());
+                return;
+            }
+
             // Consume items for the current objective
             ObjectiveInstance currentObj = quest.getCurrentObjective();
             if (currentObj != null) {

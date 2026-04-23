@@ -600,6 +600,24 @@ public class DialogueManager {
             if (qs != com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN
                     && qs != com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION) continue;
 
+            // Option B missed-phase gate (2026-04-23): a player who was out of
+            // range at the current phase's completion moment must NOT see the
+            // turn-in topic. Without this filter, the missed player could walk
+            // to the source NPC, trigger TURN_IN_V2 before the eligible player,
+            // and claim the stored pre-rolled item from under them. The missed
+            // set is indexed by conflictCount: for READY_FOR_TURN_IN the current
+            // phase is the one that was just completed; for AWAITING_CONTINUATION
+            // the triggering player has already run TURN_IN_V2 and missed players
+            // shouldn't see the re-opened turn-in narration either.
+            java.util.UUID viewerUuid = playerData.getPlayerUuid();
+            if (viewerUuid != null
+                    && quest.getMissedForPhase(quest.getConflictCount()).contains(viewerUuid)) {
+                LOGGER.atFine().log(
+                    "Skipping turn-in topic injection for quest %s on NPC %s: player %s missed phase %d",
+                    quest.getQuestId(), npcId, viewerUuid, quest.getConflictCount());
+                continue;
+            }
+
             String questId = quest.getQuestId();
             Map<String, String> b = quest.getVariableBindings();
             int cc = quest.getConflictCount();

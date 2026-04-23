@@ -120,19 +120,33 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
             boolean objectivesComplete = qs == com.chonbosmods.quest.QuestState.READY_FOR_TURN_IN
                     || qs == com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION;
             boolean hasPoi = "true".equals(b.get("poi_available"));
+            // Option B missed-phase gate (2026-04-23): suppress the return marker
+            // for accepters who missed the current phase. Otherwise they'd be
+            // led to the source NPC only to find the turn-in topic is also
+            // filtered out (see DialogueManager.injectQuestTurnInTopics), which
+            // is a confusing dead-end. They regain eligibility on phase advance.
+            boolean missedCurrentPhase = playerUuid != null
+                    && quest.getMissedForPhase(quest.getConflictCount()).contains(playerUuid);
             // Use named POI subject as waypoint label, fall back to objective summary
             String questName = b.getOrDefault("subject_name",
                 b.getOrDefault("quest_objective_summary",
                     b.getOrDefault("quest_title", quest.getSituationId())));
 
             if (objectivesComplete) {
-                // Return marker at settlement origin
-                SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-                if (settlements != null && quest.getSourceSettlementId() != null) {
-                    SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
-                    if (settlement != null) {
-                        entries.add(new MarkerEntry(quest.getQuestId(), questName,
-                            settlement.getPosX(), settlement.getPosZ(), MarkerType.RETURN));
+                // Return marker at settlement origin. Hidden for players in the
+                // missed-set of the current phase per the Option B gate above.
+                if (missedCurrentPhase) {
+                    LOGGER.atFine().log(
+                        "Suppressing return marker for quest %s, player %s: missed phase %d",
+                        quest.getQuestId(), playerUuid, quest.getConflictCount());
+                } else {
+                    SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
+                    if (settlements != null && quest.getSourceSettlementId() != null) {
+                        SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
+                        if (settlement != null) {
+                            entries.add(new MarkerEntry(quest.getQuestId(), questName,
+                                settlement.getPosX(), settlement.getPosZ(), MarkerType.RETURN));
+                        }
                     }
                 }
             } else {
