@@ -16,6 +16,7 @@ import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
 import com.hypixel.hytale.server.core.universe.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -31,10 +32,23 @@ public class SettlementWorldGenListener {
 
     /**
      * Cached cell key containing the world spawn point. The settlement placed there
-     * snaps to world spawn x/z (no jitter) and has its first Guard promoted to
-     * Celius. Resolved lazily from the world's SpawnProvider on first chunk load.
+     * is hand-rolled (see {@link #tryPlaceSpawnSettlement}): the piece placer is
+     * skipped and NPCs are spawned directly so the tutorial is guaranteed to start.
+     * Resolved lazily from the world's SpawnProvider on first chunk load.
      */
     private volatile String cachedSpawnCellKey;
+
+    /** Diagonal offset from world spawn for the guaranteed tutorial settlement anchor.
+     *  Far enough that the player isn't standing inside the NPC ring, close enough
+     *  that the NPCs are immediately visible on drop-in. */
+    private static final int SPAWN_SETTLEMENT_OFFSET_X = 40;
+    private static final int SPAWN_SETTLEMENT_OFFSET_Z = 40;
+
+    /** Number of NPC spawn markers synthesised in a ring around the spawn anchor. */
+    private static final int SPAWN_SETTLEMENT_NPC_COUNT = 5;
+
+    /** Radius of the NPC ring (blocks) around the spawn anchor. */
+    private static final double SPAWN_SETTLEMENT_RING_RADIUS = 8.0;
 
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
@@ -79,18 +93,21 @@ public class SettlementWorldGenListener {
             return;
         }
 
+        // Spawn cell takes a dedicated guaranteed path: NPCs (including Celius)
+        // are placed directly at a fixed offset from world spawn, skipping the
+        // piece placer + slope check so the tutorial always has somewhere to go.
+        // Non-spawn cells keep the normal jitter + piece-placement flow below.
+        if (resolveSpawnCellKey(world).equals(cellKey)) {
+            tryPlaceSpawnSettlement(world, worldUUID, cellKey, chunkBlockX, chunkBlockZ);
+            return;
+        }
+
         // Compute deterministic settlement position for this cell
         long seed = (long) cellX * 341873128712L + (long) cellZ * 132897987541L + SEED_OFFSET;
         Random rng = new Random(seed);
 
         int cellOriginX = cellX * CELL_SIZE;
         int cellOriginZ = cellZ * CELL_SIZE;
-        // All cells (including the spawn cell) use the standard jitter position.
-        // Earlier we tried to snap the spawn cell to world-spawn x/z, but that
-        // routinely landed on terrain where only 2 of 8 settlement pieces could
-        // paste: the anchor's footprint-check passed while individual piece
-        // offsets in the 32-block footprint hit cliffs or floated. Jitter picks
-        // a less contrived point in the cell where pieces fit.
         int settlementX = cellOriginX
             + (int) (CELL_SIZE * (JITTER_MIN + rng.nextDouble() * (JITTER_MAX - JITTER_MIN)));
         int settlementZ = cellOriginZ
@@ -165,9 +182,9 @@ public class SettlementWorldGenListener {
                     record.setPosY(groundY);
                     record.getNpcs().addAll(spawned);
 
-                    if (resolveSpawnCellKey(world).equals(cellKey)) {
-                        renameFirstGuardToCelius(store, world, spawned);
-                    }
+                    // Celius rename belongs to the spawn cell exclusively, which is
+                    // handled by tryPlaceSpawnSettlement above. Non-spawn cells
+                    // never reach this branch with a Celius flag.
                     // Capture every Nat20_Chest_Spawn marker so passive fetch quests can
                     // claim one and spawn the quest chest at the authored location instead
                     // of falling back to the settlement center.
@@ -180,6 +197,82 @@ public class SettlementWorldGenListener {
                     LOGGER.atFine().log("Settlement placed at %d, %d, %d with %d NPCs",
                         settlementX, groundY, settlementZ, spawned.size());
                 }));
+        });
+    }
+
+    /**
+     * Guaranteed spawn-cell settlement: skip the piece placer and spawn NPCs
+     * directly in a ring around a fixed offset from world spawn. This path is
+     * tolerant of any terrain because each NPC's ground Y is sampled individually;
+     * there's no all-or-nothing piece assembly. Celius is the first Guard in the
+     * returned list (promoted before the record is saved).
+     *
+     * <p>Only the chunk containing the anchor point triggers placement. If that
+     * chunk isn't the one firing this callback, we early-return and let the
+     * correct chunk load later.
+     */
+    private void tryPlaceSpawnSettlement(World world, UUID worldUUID, String cellKey,
+                                         int chunkBlockX, int chunkBlockZ) {
+        Vector3d spawnPos;
+        try {
+            Transform t = world.getWorldConfig().getSpawnProvider()
+                .getSpawnPoint(world, new UUID(0L, 0L));
+            spawnPos = t.getPosition();
+        } catch (Exception e) {
+            LOGGER.atWarning().withCause(e).log(
+                "Spawn settlement: failed to resolve world spawn; skipping cell %s", cellKey);
+            return;
+        }
+
+        int anchorX = (int) spawnPos.getX() + SPAWN_SETTLEMENT_OFFSET_X;
+        int anchorZ = (int) spawnPos.getZ() + SPAWN_SETTLEMENT_OFFSET_Z;
+        if (!isChunkContaining(chunkBlockX, chunkBlockZ, anchorX, anchorZ)) {
+            return;
+        }
+
+        SettlementType type = SettlementType.TOWN;
+        LOGGER.atInfo().log(
+            "Placing guaranteed spawn settlement at cell %s anchor (%d, %d)",
+            cellKey, anchorX, anchorZ);
+
+        SettlementRecord record = new SettlementRecord(
+            cellKey, worldUUID, anchorX, 0, anchorZ, type);
+        record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(), registry.getUsedNames()));
+        registry.register(record);
+
+        world.execute(() -> {
+            var store = world.getEntityStore().getStore();
+
+            Nat20HeightmapSampler.SampleResult centerSample = Nat20HeightmapSampler.sample(
+                world, anchorX, anchorZ, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
+            int groundY = centerSample.y() > 0 ? centerSample.y() : (int) spawnPos.getY();
+
+            // Ring of N NPC spawn markers around the anchor; each marker's Y is
+            // sampled locally so NPCs stand on the real surface.
+            List<Vector3d> markers = new ArrayList<>(SPAWN_SETTLEMENT_NPC_COUNT);
+            for (int i = 0; i < SPAWN_SETTLEMENT_NPC_COUNT; i++) {
+                double theta = 2.0 * Math.PI * i / SPAWN_SETTLEMENT_NPC_COUNT;
+                int mx = anchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
+                    world, mx, mz, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
+                int my = mSample.y() > 0 ? mSample.y() : groundY;
+                markers.add(new Vector3d(mx, my, mz));
+            }
+
+            record.setPosY(groundY);
+
+            List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                store, world, type, markers, cellKey, record.getPlacedAt());
+            record.getNpcs().addAll(spawned);
+
+            renameFirstGuardToCelius(store, world, spawned);
+
+            registry.saveAsync();
+            Natural20.getInstance().onSettlementCreated(record, world);
+            LOGGER.atInfo().log(
+                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included)",
+                anchorX, groundY, anchorZ, spawned.size());
         });
     }
 
