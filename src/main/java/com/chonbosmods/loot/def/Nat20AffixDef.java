@@ -23,8 +23,7 @@ public record Nat20AffixDef(
     @Nullable String procChance,
     @Nullable Set<String> exclusiveWith,
     int frequency,
-    boolean mobEligible,
-    int affixSlotCost
+    boolean mobEligible
 ) {
     public AffixValueRange getValuesForRarity(String rarityId) {
         return valuesPerRarity.get(rarityId);

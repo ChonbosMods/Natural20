@@ -13,9 +13,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Rolls mob-eligible gear affixes for a spawning mob with a slot budget.
- * Picks entries until the budget (tier-driven from mob_scaling.json) is spent.
- * Slot-2 affixes (thorns, life_leech, evasion) consume two of the available slots.
+ * Rolls mob-eligible gear affixes for a spawning mob. Picks N distinct affixes
+ * from the shuffled pool, where N is the role × difficulty count from mob_scaling.json.
  */
 public final class Nat20MobAffixRoller {
 
@@ -28,13 +27,13 @@ public final class Nat20MobAffixRoller {
     /**
      * Roll affixes for a mob.
      *
-     * @param slotBudget total affix slots available (from MobScalingConfig.affixCountFor).
+     * @param affixCount how many distinct affixes to pick (from MobScalingConfig.affixCountFor).
      * @param difficulty rarity band to pick values from.
      * @param rng        shared RNG.
      * @return rolled affix entries, empty if no eligible affixes in the pool.
      */
-    public List<RolledAffix> roll(int slotBudget, DifficultyTier difficulty, Random rng) {
-        if (slotBudget <= 0) return List.of();
+    public List<RolledAffix> roll(int affixCount, DifficultyTier difficulty, Random rng) {
+        if (affixCount <= 0) return List.of();
 
         String rarityKey = rarityKeyFor(difficulty);
         List<Nat20AffixDef> pool = new ArrayList<>();
@@ -48,17 +47,14 @@ public final class Nat20MobAffixRoller {
 
         Collections.shuffle(pool, rng);
 
-        List<RolledAffix> rolled = new ArrayList<>();
-        int budget = slotBudget;
-        for (Nat20AffixDef def : pool) {
-            int cost = Math.max(1, def.affixSlotCost());
-            if (cost > budget) continue;
+        int take = Math.min(affixCount, pool.size());
+        List<RolledAffix> rolled = new ArrayList<>(take);
+        for (int i = 0; i < take; i++) {
+            Nat20AffixDef def = pool.get(i);
             AffixValueRange range = def.getValuesForRarity(rarityKey);
             double duration = Nat20DotAffix.isDotAffix(def.id())
                     ? Nat20DotAffix.rollDuration(rng) : 0.0;
             rolled.add(new RolledAffix(def.id(), range.min(), range.max(), duration));
-            budget -= cost;
-            if (budget == 0) break;
         }
         return rolled;
     }

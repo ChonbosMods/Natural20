@@ -37,6 +37,5 @@
     }
   },
   "Description": "On hit, deals a percentage of the target's current HP as bonus damage. More effective against high-health targets.",
-  "MobEligible": true,
-  "AffixSlotCost": 1
+  "MobEligible": true
 }
