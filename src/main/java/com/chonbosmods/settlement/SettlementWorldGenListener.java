@@ -38,17 +38,24 @@ public class SettlementWorldGenListener {
      */
     private volatile String cachedSpawnCellKey;
 
-    /** Diagonal offset from world spawn for the guaranteed tutorial settlement anchor.
-     *  Far enough that the player isn't standing inside the NPC ring, close enough
-     *  that the NPCs are immediately visible on drop-in. */
-    private static final int SPAWN_SETTLEMENT_OFFSET_X = 40;
-    private static final int SPAWN_SETTLEMENT_OFFSET_Z = 40;
+    /** Diagonal offset from world spawn for the guaranteed tutorial settlement
+     *  anchor. Large enough to clear Hytale's precreated spawn building that
+     *  surrounds Jiub (earlier 40-block offset was landing the anchor inside
+     *  or on the edge of it), close enough that the NPCs are immediately
+     *  visible from spawn. */
+    private static final int SPAWN_SETTLEMENT_OFFSET_X = 50;
+    private static final int SPAWN_SETTLEMENT_OFFSET_Z = 50;
 
     /** Number of NPC spawn markers synthesised in a ring around the spawn anchor. */
     private static final int SPAWN_SETTLEMENT_NPC_COUNT = 5;
 
     /** Radius of the NPC ring (blocks) around the spawn anchor. */
     private static final double SPAWN_SETTLEMENT_RING_RADIUS = 8.0;
+
+    /** Minimum pasted pieces for the spawn settlement. Non-spawn cells use
+     *  the default (4). We drop to 1 for the tutorial so even a handful of
+     *  pieces is accepted instead of the whole settlement aborting. */
+    private static final int SPAWN_SETTLEMENT_MIN_PIECES = 1;
 
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
@@ -201,15 +208,15 @@ public class SettlementWorldGenListener {
     }
 
     /**
-     * Guaranteed spawn-cell settlement: skip the piece placer and spawn NPCs
-     * directly in a ring around a fixed offset from world spawn. This path is
-     * tolerant of any terrain because each NPC's ground Y is sampled individually;
-     * there's no all-or-nothing piece assembly. Celius is the first Guard in the
-     * returned list (promoted before the record is saved).
+     * Guaranteed spawn-cell settlement: try to paste the normal piece-mode
+     * settlement first (with a minimum-pieces floor lowered to 1 so it "forces
+     * the buildings down" even on bad terrain), and if zero pieces paste, fall
+     * back to a hand-rolled NPC ring at the same anchor so Celius is always in
+     * the world. The offset is 50 blocks from world spawn — far enough to
+     * clear Hytale's precreated spawn building that surrounds Jiub, close
+     * enough that NPCs are immediately visible on drop-in.
      *
-     * <p>Only the chunk containing the anchor point triggers placement. If that
-     * chunk isn't the one firing this callback, we early-return and let the
-     * correct chunk load later.
+     * <p>Only the chunk containing the anchor point triggers placement.
      */
     private void tryPlaceSpawnSettlement(World world, UUID worldUUID, String cellKey,
                                          int chunkBlockX, int chunkBlockZ) {
@@ -226,8 +233,7 @@ public class SettlementWorldGenListener {
 
         // Push the anchor offset toward the cell's interior so it can't straddle
         // a cell boundary. If the spawn is in the upper half of the cell, offset
-        // negatively; otherwise positively. This keeps the anchor in the same
-        // cell as world spawn regardless of where the spawn lands.
+        // negatively; otherwise positively.
         int spawnX = (int) spawnPos.getX();
         int spawnZ = (int) spawnPos.getZ();
         int spawnCellX = Math.floorDiv(spawnX, CELL_SIZE);
@@ -236,79 +242,115 @@ public class SettlementWorldGenListener {
         int localZ = spawnZ - spawnCellZ * CELL_SIZE;
         int offsetX = localX < CELL_SIZE / 2 ? SPAWN_SETTLEMENT_OFFSET_X : -SPAWN_SETTLEMENT_OFFSET_X;
         int offsetZ = localZ < CELL_SIZE / 2 ? SPAWN_SETTLEMENT_OFFSET_Z : -SPAWN_SETTLEMENT_OFFSET_Z;
-        int anchorX = spawnX + offsetX;
-        int anchorZ = spawnZ + offsetZ;
-        if (!isChunkContaining(chunkBlockX, chunkBlockZ, anchorX, anchorZ)) {
+        int baseAnchorX = spawnX + offsetX;
+        int baseAnchorZ = spawnZ + offsetZ;
+        if (!isChunkContaining(chunkBlockX, chunkBlockZ, baseAnchorX, baseAnchorZ)) {
             return;
         }
 
         SettlementType type = SettlementType.TOWN;
         LOGGER.atInfo().log(
-            "Placing guaranteed spawn settlement at cell %s anchor (%d, %d)",
-            cellKey, anchorX, anchorZ);
+            "Placing spawn settlement at cell %s base anchor (%d, %d)",
+            cellKey, baseAnchorX, baseAnchorZ);
 
         SettlementRecord record = new SettlementRecord(
-            cellKey, worldUUID, anchorX, 0, anchorZ, type);
+            cellKey, worldUUID, baseAnchorX, 0, baseAnchorZ, type);
         record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(), registry.getUsedNames()));
         registry.register(record);
+
+        long seed = (long) cellKey.hashCode() + SEED_OFFSET;
 
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
 
-            // Find the flattest ground within a small search area around the
-            // initial offset so we avoid landing the anchor on a cliff, a
-            // pillar, a tree, or right on a water surface. The search tries
-            // the base point plus 8 compass candidates at a 20-block radius
-            // and picks the lowest-slope option with a valid Y.
-            AnchorChoice chosen = findFlattestAnchor(world, anchorX, anchorZ);
+            // Pick the flattest of 9 candidate points near the base offset so
+            // a single unlucky probe (tree, cliff, water column) can't wreck
+            // the whole settlement.
+            AnchorChoice chosen = findFlattestAnchor(world, baseAnchorX, baseAnchorZ);
             int finalAnchorX = chosen.x;
             int finalAnchorZ = chosen.z;
             int groundY = chosen.y > 0 ? chosen.y : Math.max(1, (int) spawnPos.getY() - 1);
-
-            // Build the NPC ring. Each marker's Y samples a 5x5 neighborhood
-            // (halfX=halfZ=2) with MEDIAN so a single bad probe (tree, cave
-            // opening, fluid) can't drag the spawn down to Y=0. If the sample
-            // is unusable or too steep for that marker, fall back to the
-            // anchor pad Y so the NPC stands at a consistent height with the
-            // rest of the group.
-            List<Vector3d> markers = new ArrayList<>(SPAWN_SETTLEMENT_NPC_COUNT);
-            for (int i = 0; i < SPAWN_SETTLEMENT_NPC_COUNT; i++) {
-                double theta = 2.0 * Math.PI * i / SPAWN_SETTLEMENT_NPC_COUNT;
-                int mx = finalAnchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
-                int mz = finalAnchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
-                Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
-                    world, mx, mz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
-                int my;
-                if (mSample.y() <= 0 || mSample.tooSteep()) {
-                    my = groundY;
-                } else {
-                    my = mSample.y();
-                }
-                markers.add(new Vector3d(mx, my, mz));
-            }
+            Vector3i anchorPos = new Vector3i(finalAnchorX, groundY, finalAnchorZ);
 
             record.setPosY(groundY);
 
-            List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
-                store, world, type, markers, cellKey, record.getPlacedAt());
-            record.getNpcs().addAll(spawned);
+            // Try piece placement with a minimum of 1 pasted piece (normal
+            // cells require 4). Even a partial settlement is better than
+            // zero: we ship whatever pieces grounded, plus NPCs at the
+            // placer-generated markers.
+            placer.place(world, anchorPos, type, Rotation.None, store, new Random(seed),
+                    SPAWN_SETTLEMENT_MIN_PIECES)
+                .whenComplete((placed, error) -> world.execute(() -> {
+                    if (error != null) {
+                        LOGGER.atWarning().withCause(error).log(
+                            "Spawn settlement piece placement threw for cell %s; falling back to NPC ring",
+                            cellKey);
+                    }
+                    if (placed == null) {
+                        fallbackNpcRing(world, store, record, type, cellKey,
+                            finalAnchorX, finalAnchorZ, groundY);
+                        return;
+                    }
 
-            renameFirstGuardToCelius(store, world, spawned);
+                    List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                        store, world, type, placed.npcSpawnsWorld(),
+                        cellKey, record.getPlacedAt());
+                    record.getNpcs().addAll(spawned);
 
-            registry.saveAsync();
-            Natural20.getInstance().onSettlementCreated(record, world);
+                    renameFirstGuardToCelius(store, world, spawned);
 
-            // onSettlementCreated runs TopicGenerator which randomly assigns
-            // pregen quests. Celius must not carry one, because that would
-            // paint a "!" above him before the tutorial quest's "?" even
-            // stamps. Scrub it + re-evaluate his marker from the baseline.
-            scrubCeliusPregenQuest(store, world, spawned);
+                    for (Vector3d c : placed.chestSpawnsWorld()) {
+                        record.addChestSpawn((int) c.getX(), (int) c.getY(), (int) c.getZ());
+                    }
+                    registry.saveAsync();
 
-            LOGGER.atInfo().log(
-                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included, anchorShift=(%d,%d))",
-                finalAnchorX, groundY, finalAnchorZ, spawned.size(),
-                finalAnchorX - anchorX, finalAnchorZ - anchorZ);
+                    Natural20.getInstance().onSettlementCreated(record, world);
+                    scrubCeliusPregenQuest(store, world, spawned);
+
+                    LOGGER.atInfo().log(
+                        "Spawn settlement placed (pieces) at (%d, %d, %d) with %d NPCs (Celius included, anchorShift=(%d,%d))",
+                        finalAnchorX, groundY, finalAnchorZ, spawned.size(),
+                        finalAnchorX - baseAnchorX, finalAnchorZ - baseAnchorZ);
+                }));
         });
+    }
+
+    /**
+     * Last-resort: no pieces grounded, synthesize an NPC ring so Celius is
+     * still in the world. Reuses the same anchor + groundY that piece
+     * placement was attempted at.
+     */
+    private void fallbackNpcRing(World world, com.hypixel.hytale.component.Store<EntityStore> store,
+                                 SettlementRecord record, SettlementType type, String cellKey,
+                                 int anchorX, int anchorZ, int groundY) {
+        LOGGER.atWarning().log(
+            "Spawn settlement: piece placement returned null at cell %s; synthesizing NPC ring",
+            cellKey);
+
+        List<Vector3d> markers = new ArrayList<>(SPAWN_SETTLEMENT_NPC_COUNT);
+        for (int i = 0; i < SPAWN_SETTLEMENT_NPC_COUNT; i++) {
+            double theta = 2.0 * Math.PI * i / SPAWN_SETTLEMENT_NPC_COUNT;
+            int mx = anchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+            int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+            Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
+                world, mx, mz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
+            int my = (mSample.y() <= 0 || mSample.tooSteep()) ? groundY : mSample.y();
+            markers.add(new Vector3d(mx, my, mz));
+        }
+
+        List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+            store, world, type, markers, cellKey, record.getPlacedAt());
+        record.getNpcs().addAll(spawned);
+
+        renameFirstGuardToCelius(store, world, spawned);
+
+        registry.saveAsync();
+        Natural20.getInstance().onSettlementCreated(record, world);
+        scrubCeliusPregenQuest(store, world, spawned);
+
+        LOGGER.atInfo().log(
+            "Spawn settlement placed (ring-fallback) at (%d, %d, %d) with %d NPCs (Celius included)",
+            anchorX, groundY, anchorZ, spawned.size());
     }
 
     /** Simple tuple result for the anchor-search helper. */

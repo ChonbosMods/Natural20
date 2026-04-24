@@ -46,8 +46,10 @@ public final class SettlementPieceAssembler {
     /** Extra pieces planned above target to absorb paste-time rejections (terrain). */
     private static final int OVERPROVISION = 2;
 
-    /** If fewer than this many pieces actually paste, the settlement is not worth keeping. */
-    private static final int MIN_PASTED_PIECES = 4;
+    /** Default floor: fewer than this many pieces actually pasted → settlement
+     *  is not worth keeping. Tutorial uses an override (usually 1) so its
+     *  always-placed spawn settlement never aborts. */
+    public static final int DEFAULT_MIN_PASTED_PIECES = 4;
 
     /** Four cardinal rotations used for per-piece yaw. */
     private static final Rotation[] CARDINAL_ROTATIONS = {
@@ -59,6 +61,19 @@ public final class SettlementPieceAssembler {
     public static CompletableFuture<PlacedMarkers> assemble(
             World world, Vector3i center, PiecePlacement config,
             ComponentAccessor<EntityStore> store, Random rng) {
+        return assemble(world, center, config, store, rng, DEFAULT_MIN_PASTED_PIECES);
+    }
+
+    /**
+     * Assemble with an explicit minimum-pasted-pieces threshold. Use the
+     * default {@link #DEFAULT_MIN_PASTED_PIECES} for regular procedural
+     * settlements; the tutorial spawn settlement passes a lower value (usually
+     * 1) so it never aborts when terrain is uncooperative.
+     */
+    public static CompletableFuture<PlacedMarkers> assemble(
+            World world, Vector3i center, PiecePlacement config,
+            ComponentAccessor<EntityStore> store, Random rng,
+            int minPastedPieces) {
 
         List<Path> pool = com.chonbosmods.prefab.Nat20PrefabPath.enumeratePool(config.poolCategory());
         if (pool.isEmpty()) {
@@ -89,7 +104,7 @@ public final class SettlementPieceAssembler {
         }
         return CompletableFuture
             .allOf(futures.toArray(new CompletableFuture[0]))
-            .thenApply(v -> merge(center, futures));
+            .thenApply(v -> merge(center, futures, minPastedPieces));
     }
 
     /**
@@ -281,7 +296,8 @@ public final class SettlementPieceAssembler {
         return true;
     }
 
-    private static PlacedMarkers merge(Vector3i center, List<CompletableFuture<PlacedMarkers>> futures) {
+    private static PlacedMarkers merge(Vector3i center, List<CompletableFuture<PlacedMarkers>> futures,
+                                       int minPastedPieces) {
         List<Vector3d> npcs = new ArrayList<>();
         List<Vector3d> mobGroups = new ArrayList<>();
         List<Vector3d> chests = new ArrayList<>();
@@ -294,11 +310,11 @@ public final class SettlementPieceAssembler {
             mobGroups.addAll(pm.mobGroupSpawnsWorld());
             chests.addAll(pm.chestSpawnsWorld());
         }
-        if (pasted < MIN_PASTED_PIECES) {
+        if (pasted < minPastedPieces) {
             LOGGER.atWarning().log(
                 "Only %d/%d pieces pasted at %s (min required: %d); abandoning settlement. "
                     + "Any pasted pieces remain in the world as orphan ruins.",
-                pasted, futures.size(), center, MIN_PASTED_PIECES);
+                pasted, futures.size(), center, minPastedPieces);
             return null;
         }
         LOGGER.atInfo().log("Piece settlement at %s: pieces=%d/%d npcs=%d mobGroups=%d chests=%d",

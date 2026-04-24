@@ -27,4 +27,16 @@ public class SettlementPlacer {
         return SettlementPieceAssembler.assemble(
             world, desiredAnchorWorld, type.getPlacement(), store, random);
     }
+
+    /**
+     * Same as {@link #place}, but with an explicit minimum-pasted-pieces floor.
+     * Used by the tutorial spawn settlement (minPasted=1) so it never aborts
+     * when the terrain is hostile to piece placement.
+     */
+    public CompletableFuture<PlacedMarkers> place(
+            World world, Vector3i desiredAnchorWorld, SettlementType type, Rotation yaw,
+            ComponentAccessor<EntityStore> store, Random random, int minPastedPieces) {
+        return SettlementPieceAssembler.assemble(
+            world, desiredAnchorWorld, type.getPlacement(), store, random, minPastedPieces);
+    }
 }
