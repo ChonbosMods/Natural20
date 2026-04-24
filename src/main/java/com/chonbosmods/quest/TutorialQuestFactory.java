@@ -153,6 +153,12 @@ public final class TutorialQuestFactory {
         // references {boss_name}; without this it would render as "".
         TutorialPhase3Setup.preRollBoss(quest, phase3);
 
+        // Commit the quest to the party-quest store. Without this the quest
+        // exists only as a local object; getActiveQuests returns empty and
+        // refreshMarkers caches zero markers. (Regression from e4c173a8 where
+        // adding rollTutorialRewards accidentally replaced the addQuest line.)
+        stateManager.addQuest(playerData, quest);
+
         // Stamp the phase-1 turn-in marker on Celius now. The quest is born in
         // READY_FOR_TURN_IN state (phase 1 is pre-complete), so the "?" should
         // show from the moment the player walks toward him.
