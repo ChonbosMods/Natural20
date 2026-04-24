@@ -96,7 +96,7 @@
     },
     "node_affixes_2": {
       "type": "DIALOGUE",
-      "speakerText": "Gear comes in five rarity tiers: \u0001Common\u0002, \u0001Uncommon\u0002, \u0001Rare\u0002, \u0001Epic\u0002, and \u0001Legendary\u0002. Higher tiers carry more affixes at once, and each individual affix rolls in a higher value range. An Epic piece will almost always outperform an Uncommon piece of the same type, but exactly what it does for you is still a product of the rolls.",
+      "speakerText": "Gear comes in five rarity tiers: \u0001#FFFFFF\u001fCommon\u0002, \u0001#3e9049\u001fUncommon\u0002, \u0001#2770b7\u001fRare\u0002, \u0001#8b339e\u001fEpic\u0002, and \u0001#FF8C1A\u001fLegendary\u0002. Higher tiers carry more affixes at once, and each individual affix rolls in a higher value range. An Epic piece will almost always outperform an Uncommon piece of the same type, but exactly what it does for you is still a product of the rolls.",
       "responses": [
         {
           "id": "continue",
@@ -184,7 +184,7 @@
     },
     "node_parties_2": {
       "type": "DIALOGUE",
-      "speakerText": "The world answers your numbers, and \u0001champion\u0002 enemies spawning near a larger party rise in strength to meet the group facing them. Leadership transfers on its own if the leader has gone silent for a week, so a stale invite never strands an active group. The quests you agreed to together stay on the sheet of every member who was there at acceptance, whether your paths later diverge or hold.",
+      "speakerText": "The world answers your numbers, and champion enemies spawning near a larger party rise in strength to meet the group facing them. Leadership transfers on its own if the leader has gone silent for a week, so a stale invite never strands an active group. The quests you agreed to together stay on the sheet of every member who was there at acceptance, whether your paths later diverge or hold.",
       "responses": [
         {
           "id": "continue",
@@ -215,7 +215,7 @@
     },
     "node_mobs_2": {
       "type": "DIALOGUE",
-      "speakerText": "Every group rolls a single difficulty tier that colors the whole pack: \u0001Uncommon\u0002, \u0001Rare\u0002, \u0001Epic\u0002, and \u0001Legendary\u0002. Higher tiers hit harder, carry more affixes, and drop better loot, the bigger the fight and the bigger the payoff. Legendary is boss-only and rare, a group's champions cap at Epic even when their boss is gold.",
+      "speakerText": "Every group rolls a single difficulty tier that colors the whole pack: \u0001#3e9049\u001fUncommon\u0002, \u0001#2770b7\u001fRare\u0002, \u0001#8b339e\u001fEpic\u0002, and \u0001#FF8C1A\u001fLegendary\u0002. Higher tiers hit harder, carry more affixes, and drop better loot, the bigger the fight and the bigger the payoff. Legendary is boss-only and rare, a group's champions cap at Epic even when their boss is \u0001#FF8C1A\u001flegendary\u0002.",
       "responses": [
         {
           "id": "continue",
