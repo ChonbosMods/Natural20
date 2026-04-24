@@ -38,16 +38,17 @@ public class SettlementWorldGenListener {
      */
     private volatile String cachedSpawnCellKey;
 
-    /** Diagonal offset from world spawn for the tutorial settlement anchor.
-     *  Far enough that the player isn't standing inside the settlement, close
-     *  enough that the buildings are immediately visible on drop-in. */
+    /** Diagonal offset from world spawn for the guaranteed tutorial settlement anchor.
+     *  Far enough that the player isn't standing inside the NPC ring, close enough
+     *  that the NPCs are immediately visible on drop-in. */
     private static final int SPAWN_SETTLEMENT_OFFSET_X = 40;
     private static final int SPAWN_SETTLEMENT_OFFSET_Z = 40;
 
-    /** Padding added to the piece placer's outer radius when flattening the tutorial
-     *  pad. Covers the worst-case piece structure extent (pieces anchor within
-     *  outerRadius but their own bounds can poke out further). */
-    private static final int SPAWN_SETTLEMENT_PAD_PADDING = 16;
+    /** Number of NPC spawn markers synthesised in a ring around the spawn anchor. */
+    private static final int SPAWN_SETTLEMENT_NPC_COUNT = 5;
+
+    /** Radius of the NPC ring (blocks) around the spawn anchor. */
+    private static final double SPAWN_SETTLEMENT_RING_RADIUS = 8.0;
 
     /** Hytale chunks are 32x32 blocks. */
     private static final int CHUNK_BLOCK_SIZE = 32;
@@ -200,15 +201,15 @@ public class SettlementWorldGenListener {
     }
 
     /**
-     * Guaranteed spawn-cell settlement: compute a stable anchor near world
-     * spawn, <em>flatten</em> a pad that fully contains the piece-placer's
-     * outer radius, and then delegate to the same {@link SettlementPlacer}
-     * every other cell uses. Non-flat terrain is the reason the un-flattened
-     * version failed repeatedly (see piece-assembly "only N/M pasted" logs);
-     * pre-flattening guarantees every piece grounds at the pad Y. Celius is
-     * promoted in the fan-out result, matching the non-spawn flow.
+     * Guaranteed spawn-cell settlement: skip the piece placer and spawn NPCs
+     * directly in a ring around a fixed offset from world spawn. This path is
+     * tolerant of any terrain because each NPC's ground Y is sampled individually;
+     * there's no all-or-nothing piece assembly. Celius is the first Guard in the
+     * returned list (promoted before the record is saved).
      *
-     * <p>Only the chunk containing the anchor point triggers placement.
+     * <p>Only the chunk containing the anchor point triggers placement. If that
+     * chunk isn't the one firing this callback, we early-return and let the
+     * correct chunk load later.
      */
     private void tryPlaceSpawnSettlement(World world, UUID worldUUID, String cellKey,
                                          int chunkBlockX, int chunkBlockZ) {
@@ -225,7 +226,8 @@ public class SettlementWorldGenListener {
 
         // Push the anchor offset toward the cell's interior so it can't straddle
         // a cell boundary. If the spawn is in the upper half of the cell, offset
-        // negatively; otherwise positively.
+        // negatively; otherwise positively. This keeps the anchor in the same
+        // cell as world spawn regardless of where the spawn lands.
         int spawnX = (int) spawnPos.getX();
         int spawnZ = (int) spawnPos.getZ();
         int spawnCellX = Math.floorDiv(spawnX, CELL_SIZE);
@@ -241,79 +243,55 @@ public class SettlementWorldGenListener {
         }
 
         SettlementType type = SettlementType.TOWN;
-        // Flatten a pad wider than the piece placer's outer radius so every
-        // candidate piece anchor (randomAnchor picks within outerRadius of the
-        // center) + the piece's own structure extent sits on the flat surface.
-        int padRadius = type.getPlacement().outerRadius() + SPAWN_SETTLEMENT_PAD_PADDING;
-
         LOGGER.atInfo().log(
-            "Placing spawn settlement at cell %s anchor (%d, %d) padRadius=%d",
-            cellKey, anchorX, anchorZ, padRadius);
+            "Placing guaranteed spawn settlement at cell %s anchor (%d, %d)",
+            cellKey, anchorX, anchorZ);
 
         SettlementRecord record = new SettlementRecord(
             cellKey, worldUUID, anchorX, 0, anchorZ, type);
         record.setName(Nat20PlaceNameGenerator.generate(cellKey.hashCode(), registry.getUsedNames()));
         registry.register(record);
 
-        long seed = (long) cellKey.hashCode() + SEED_OFFSET;
-
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
 
-            // Pick a pad Y. MEDIAN over half-pad probes gives a stable mid-terrain
-            // Y; fall back to world spawn Y - 1 if the sampler returns nothing.
-            int sampleHalf = Math.max(8, padRadius / 2);
             Nat20HeightmapSampler.SampleResult centerSample = Nat20HeightmapSampler.sample(
-                world, anchorX, anchorZ, sampleHalf, sampleHalf,
-                Nat20HeightmapSampler.Mode.MEDIAN);
-            int groundY = centerSample.y() > 0
-                ? centerSample.y()
-                : Math.max(1, (int) spawnPos.getY() - 1);
+                world, anchorX, anchorZ, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
+            int groundY = centerSample.y() > 0 ? centerSample.y() : (int) spawnPos.getY();
 
-            // Flatten, THEN place pieces so every piece grounds at the pad Y.
-            TutorialTerrainFlattener.flattenPad(world, anchorX, groundY, anchorZ, padRadius)
-                .whenComplete((ignored, flattenErr) -> world.execute(() -> {
-                    if (flattenErr != null) {
-                        LOGGER.atSevere().withCause(flattenErr).log(
-                            "Spawn settlement flatten failed for cell %s", cellKey);
-                        registry.unregister(cellKey);
-                        failedCells.add(cellKey);
-                        return;
-                    }
+            // Ring of N NPC spawn markers around the anchor; each marker's Y is
+            // sampled locally so NPCs stand on the real surface.
+            List<Vector3d> markers = new ArrayList<>(SPAWN_SETTLEMENT_NPC_COUNT);
+            for (int i = 0; i < SPAWN_SETTLEMENT_NPC_COUNT; i++) {
+                double theta = 2.0 * Math.PI * i / SPAWN_SETTLEMENT_NPC_COUNT;
+                int mx = anchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
+                    world, mx, mz, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
+                int my = mSample.y() > 0 ? mSample.y() : groundY;
+                markers.add(new Vector3d(mx, my, mz));
+            }
 
-                    Vector3i anchorPos = new Vector3i(anchorX, groundY, anchorZ);
-                    placer.place(world, anchorPos, type, Rotation.None, store, new Random(seed))
-                        .whenComplete((placed, error) -> world.execute(() -> {
-                            if (error != null || placed == null) {
-                                LOGGER.atSevere().withCause(error).log(
-                                    "Spawn settlement piece placement failed for cell %s", cellKey);
-                                registry.unregister(cellKey);
-                                failedCells.add(cellKey);
-                                return;
-                            }
+            record.setPosY(groundY);
 
-                            List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
-                                store, world, type, placed.npcSpawnsWorld(),
-                                cellKey, record.getPlacedAt());
+            List<NpcRecord> spawned = SettlementNpcFanOut.spawn(
+                store, world, type, markers, cellKey, record.getPlacedAt());
+            record.getNpcs().addAll(spawned);
 
-                            record.setPosY(groundY);
-                            record.getNpcs().addAll(spawned);
+            renameFirstGuardToCelius(store, world, spawned);
 
-                            renameFirstGuardToCelius(store, world, spawned);
+            registry.saveAsync();
+            Natural20.getInstance().onSettlementCreated(record, world);
 
-                            for (Vector3d c : placed.chestSpawnsWorld()) {
-                                record.addChestSpawn((int) c.getX(), (int) c.getY(), (int) c.getZ());
-                            }
-                            registry.saveAsync();
+            // onSettlementCreated runs TopicGenerator which randomly assigns
+            // pregen quests. Celius must not carry one, because that would
+            // paint a "!" above him before the tutorial quest's "?" even
+            // stamps. Scrub it + re-evaluate his marker from the baseline.
+            scrubCeliusPregenQuest(store, world, spawned);
 
-                            Natural20.getInstance().onSettlementCreated(record, world);
-                            scrubCeliusPregenQuest(store, world, spawned);
-
-                            LOGGER.atInfo().log(
-                                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included)",
-                                anchorX, groundY, anchorZ, spawned.size());
-                        }));
-                }));
+            LOGGER.atInfo().log(
+                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included)",
+                anchorX, groundY, anchorZ, spawned.size());
         });
     }
 
