@@ -48,7 +48,6 @@ public final class MobScalingConfig {
     private final Map<Tier, Map<DifficultyTier, Integer>> affixCounts;
     private final int groupMinChampions;
     private final int groupMaxChampions;
-    private final int groupDefaultChampions;
 
     private MobScalingConfig(List<Band> bands, int defaultAreaLevel,
                              Map<Tier, Integer> mlvlOffsets, Map<Tier, TierMult> tierMultipliers,
@@ -61,7 +60,7 @@ public final class MobScalingConfig {
                              Map<DifficultyTier, Integer> difficultyMlvlMods,
                              int bossLegendaryChance,
                              Map<Tier, Map<DifficultyTier, Integer>> affixCounts,
-                             int groupMinChampions, int groupMaxChampions, int groupDefaultChampions) {
+                             int groupMinChampions, int groupMaxChampions) {
         this.bands = List.copyOf(bands);
         this.defaultAreaLevel = defaultAreaLevel;
         this.mlvlOffsets = Map.copyOf(mlvlOffsets);
@@ -85,7 +84,6 @@ public final class MobScalingConfig {
         this.affixCounts = Map.copyOf(frozenAffix);
         this.groupMinChampions = groupMinChampions;
         this.groupMaxChampions = groupMaxChampions;
-        this.groupDefaultChampions = groupDefaultChampions;
     }
 
     public static MobScalingConfig load() {
@@ -171,7 +169,6 @@ public final class MobScalingConfig {
             JsonObject gs = diff.getAsJsonObject("group_size");
             int gMin = gs.get("min_champions").getAsInt();
             int gMax = gs.get("max_champions").getAsInt();
-            int gDefault = gs.get("default_champions").getAsInt();
 
             LOGGER.atInfo().log("Loaded mob_scaling.json: %d bands, default_area_level=%d",
                     bands.size(), defaultAreaLevel);
@@ -179,7 +176,7 @@ public final class MobScalingConfig {
                     baseHp, baseDmg, hpGrowth, dmgGrowth,
                     tierWeights, questWeight, d20Weight, normalMult,
                     pBaseHp, pHpPerLevel,
-                    weightsMap, mlvlMods, bossLegendary, affixes, gMin, gMax, gDefault);
+                    weightsMap, mlvlMods, bossLegendary, affixes, gMin, gMax);
         } catch (Exception e) {
             throw new RuntimeException("Failed to load " + RESOURCE_PATH, e);
         }
@@ -223,9 +220,28 @@ public final class MobScalingConfig {
     public int affixCountFor(Tier t, DifficultyTier d) {
         return affixCounts.getOrDefault(t, Map.of()).getOrDefault(d, 0);
     }
-    public int groupMinChampions()     { return groupMinChampions; }
-    public int groupMaxChampions()     { return groupMaxChampions; }
-    public int groupDefaultChampions() { return groupDefaultChampions; }
+    public int groupMinChampions() { return groupMinChampions; }
+    public int groupMaxChampions() { return groupMaxChampions; }
+
+    /**
+     * Area-level-biased random champion count across the full [min, max] range.
+     *
+     * <p>Rolls two uniform values in [min, max] and blends between taking the minimum
+     * (small-pack bias) and the maximum (large-pack bias) by area level. At AL 1 every
+     * draw takes the min; at the highest AL every draw takes the max; the midpoint AL
+     * flattens to a uniform roll. So every rarity can still produce a 7-champion
+     * warband, but low-level zones see those heavily skewed toward 3-4, and high-level
+     * zones skew toward 6-7.
+     */
+    public int championCountFor(int areaLevel, java.util.Random rng) {
+        int alMax = defaultAreaLevel;
+        for (Band b : bands) if (b.areaLevelEnd > alMax) alMax = b.areaLevelEnd;
+        int span = alMax - 1;
+        double t = span > 0 ? (Math.max(1, Math.min(areaLevel, alMax)) - 1) / (double) span : 0.0;
+        int a = rng.nextInt(groupMinChampions, groupMaxChampions + 1);
+        int b = rng.nextInt(groupMinChampions, groupMaxChampions + 1);
+        return rng.nextDouble() < t ? Math.max(a, b) : Math.min(a, b);
+    }
 
     /** HP scale factor for {@code mlvl}: {@code 1 + (mlvl-1)*hp_growth}. */
     public double hpScale(int mlvl) { return 1.0 + (mlvl - 1) * hpGrowth; }

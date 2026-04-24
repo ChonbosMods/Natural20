@@ -48,10 +48,6 @@ public class SpawnGroupCommand extends AbstractPlayerCommand {
             return;
         }
 
-        int count = context.provided(countArg)
-                ? countArg.get(context)
-                : Natural20.getInstance().getScalingConfig().groupDefaultChampions();
-
         TransformComponent tf = store.getComponent(ref, TransformComponent.getComponentType());
         if (tf == null) {
             context.sendMessage(Message.raw("No position."));
@@ -60,6 +56,16 @@ public class SpawnGroupCommand extends AbstractPlayerCommand {
 
         Vector3d pos = tf.getPosition();
         Vector3d anchor = new Vector3d(pos.getX() + 4, pos.getY(), pos.getZ());
+
+        var config = Natural20.getInstance().getScalingConfig();
+        int count;
+        if (context.provided(countArg)) {
+            count = countArg.get(context);
+        } else {
+            double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+            int anchorAreaLevel = config.areaLevelForDistance(anchorDist);
+            count = config.championCountFor(anchorAreaLevel, java.util.concurrent.ThreadLocalRandom.current());
+        }
 
         Nat20MobGroupSpawner spawner = Natural20.getInstance().getMobGroupSpawner();
         Nat20MobGroupSpawner.SpawnResult r = spawner.spawnGroup(

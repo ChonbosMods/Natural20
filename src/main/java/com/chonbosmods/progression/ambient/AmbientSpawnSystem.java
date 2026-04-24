@@ -247,8 +247,9 @@ public final class AmbientSpawnSystem {
 
         Random rng = ThreadLocalRandom.current();
 
-        int championCount = rng.nextInt(
-                scalingCfg.groupMinChampions(), scalingCfg.groupMaxChampions() + 1);
+        double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+        int anchorAreaLevel = scalingCfg.areaLevelForDistance(anchorDist);
+        int championCount = scalingCfg.championCountFor(anchorAreaLevel, rng);
 
         DifficultyTier groupDiff = scaleSystem.rollDifficultyWeighted(rng);
         DifficultyTier bossDiff = groupDiff;

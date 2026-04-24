@@ -62,9 +62,6 @@ public class Nat20MobGroupSpawner {
                                   Vector3d anchor,
                                   @Nullable DifficultyTier forcedDifficulty,
                                   boolean isDungeonBoss) {
-        int clampedCount = Math.max(config.groupMinChampions(),
-                Math.min(config.groupMaxChampions(), championCount));
-
         int roleIndex = NPCPlugin.get().getIndex(mobRole);
         if (roleIndex < 0) {
             LOGGER.atWarning().log("Unknown mob role '%s'", mobRole);
@@ -76,6 +73,9 @@ public class Nat20MobGroupSpawner {
         DifficultyTier groupDiff = (forcedDifficulty != null)
                 ? forcedDifficulty
                 : Natural20.getInstance().getMobScaleSystem().rollDifficultyWeighted(rng);
+
+        int clampedCount = Math.max(config.groupMinChampions(),
+                Math.min(config.groupMaxChampions(), championCount));
 
         DifficultyTier bossDiff = groupDiff;
         if (groupDiff == DifficultyTier.EPIC

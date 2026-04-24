@@ -78,12 +78,15 @@ public class POIGroupSpawnCoordinator {
         Nat20MobAffixManager affixMgr = lootSystem.getMobAffixManager();
         Map<String, String> questBindings = quest.getVariableBindings();
 
-        // 2. Roll championCount. group/boss difficulty may be pre-rolled at
-        //    quest generation for KILL_BOSS objectives; in that case reuse the
-        //    pre-rolled values verbatim so {boss_name} (already bound and shown
-        //    in exposition) matches the actual spawn.
-        int championCount = ThreadLocalRandom.current().nextInt(
-                config.groupMinChampions(), config.groupMaxChampions() + 1);
+        // 2. Champion count is biased by area level: low-AL zones skew packs small
+        //    (heavy 3-4), high-AL zones skew them large (heavy 6-7), midpoint is uniform.
+        //    Every rarity still rolls across the full 3-7 range.
+        //    group/boss difficulty may be pre-rolled at quest generation for KILL_BOSS
+        //    objectives; in that case reuse the pre-rolled values verbatim so
+        //    {boss_name} (already bound and shown in exposition) matches the actual spawn.
+        double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+        int anchorAreaLevel = config.areaLevelForDistance(anchorDist);
+        int championCount = config.championCountFor(anchorAreaLevel, ThreadLocalRandom.current());
 
         DifficultyTier groupDiff = readPreRolledTier(questBindings, "group_difficulty_prerolled");
         if (groupDiff == null) groupDiff = scaleSystem.rollDifficultyWeighted(scaleRng);
