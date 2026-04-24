@@ -146,19 +146,7 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                         if (settlement != null) {
                             entries.add(new MarkerEntry(quest.getQuestId(), questName,
                                 settlement.getPosX(), settlement.getPosZ(), MarkerType.RETURN));
-                            LOGGER.atInfo().log(
-                                "refreshMarkers: RETURN marker for quest %s at settlement %s (%.0f, %.0f)",
-                                quest.getQuestId(), quest.getSourceSettlementId(),
-                                settlement.getPosX(), settlement.getPosZ());
-                        } else {
-                            LOGGER.atWarning().log(
-                                "refreshMarkers: quest %s has sourceSettlementId='%s' but registry.getByCell returned null",
-                                quest.getQuestId(), quest.getSourceSettlementId());
                         }
-                    } else {
-                        LOGGER.atWarning().log(
-                            "refreshMarkers: quest %s objectivesComplete but sourceSettlementId=%s",
-                            quest.getQuestId(), quest.getSourceSettlementId());
                     }
                 }
             } else {
@@ -213,8 +201,7 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
             }
         }
 
-        LOGGER.atInfo().log("refreshMarkers: caching %d markers for player %s (quests=%d)",
-            entries.size(), playerUuid, quests.size());
+        LOGGER.atFine().log("refreshMarkers: caching %d markers for player %s", entries.size(), playerUuid);
         INSTANCE.updatePlayer(playerUuid, entries);
     }
 

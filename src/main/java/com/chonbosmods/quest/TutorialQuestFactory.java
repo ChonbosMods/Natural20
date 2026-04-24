@@ -71,8 +71,6 @@ public final class TutorialQuestFactory {
         // and BackgroundCommitter.commit in case the earlier bind didn't run.
         if (playerData.getPlayerUuid() == null) {
             playerData.setPlayerUuid(playerUuid);
-            LOGGER.atInfo().log("createAndAssign: bound playerUuid=%s on playerData (was null)",
-                playerUuid);
         }
 
         if (stateManager.getQuest(playerData, QUEST_ID) != null) {
