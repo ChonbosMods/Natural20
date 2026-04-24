@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.fortified",
   "NamePosition": "PREFIX",
   "Categories": ["tool", "melee_weapon", "ranged_weapon", "armor"],
-  "StatRequirement": { "CON": 12 },
   "StatScaling": null,
   "TargetStat": null,
   "ModifierType": null,
@@ -15,7 +14,7 @@
     "Epic":      { "Min": 0.30, "Max": 0.45 },
     "Legendary": { "Min": 0.45, "Max": 0.60 }
   },
-  "Description": "Percent chance to avoid losing durability on use. Requires CON 12+.",
+  "Description": "Percent chance to avoid losing durability on use.",
   "Cooldown": null,
   "ProcChance": null,
   "ExclusiveWith": ["nat20:indestructible"]

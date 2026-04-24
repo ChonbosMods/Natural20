@@ -209,13 +209,6 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
             if (def == null) return 0f;
 
             PlayerStats playerStats = resolvePlayerStats(playerRef, store);
-            if (def.statRequirement() != null && playerStats != null) {
-                for (var req : def.statRequirement().entrySet()) {
-                    if (playerStats.stats()[req.getKey().index()] < req.getValue()) {
-                        return 0f;
-                    }
-                }
-            }
 
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return 0f;
@@ -225,8 +218,13 @@ public class Nat20AttackSpeedSystem extends EntityTickingSystem<EntityStore> {
 
             if (playerStats != null && def.statScaling() != null) {
                 Stat primary = def.statScaling().primary();
-                int modifier = playerStats.getPowerModifier(primary);
-                effectiveValue = baseValue * (1.0 + modifier * def.statScaling().factor());
+                // Fractional modifier: raw score / 3.0 matches the integer getPowerModifier
+                // at bracket points (DEX 3→1, 6→2, ... 30→10) but gives DEX 1 and 2 a tiny
+                // non-zero bump instead of folding to 0. Attack Speed uses this smooth path
+                // because the SDK throttles the ceiling low enough that throttling low DEX
+                // further isn't interesting: every point of investment should move the needle.
+                double fractionalModifier = playerStats.getStat(primary) / 3.0;
+                effectiveValue = baseValue * (1.0 + fractionalModifier * def.statScaling().factor());
             }
 
             return (float) Nat20Softcap.softcap(effectiveValue, SOFTCAP_K);

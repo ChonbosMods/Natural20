@@ -5,8 +5,7 @@
   "DisplayName": "server.nat20.affix.haste",
   "NamePosition": "PREFIX",
   "Categories": ["tool"],
-  "StatRequirement": { "DEX": 12 },
-  "StatScaling": { "Primary": "DEX", "Factor": 0.08 },
+  "StatScaling": { "Primary": "STR", "Factor": 0.08 },
   "TargetStat": null,
   "ModifierType": null,
   "ValuesPerRarity": {
@@ -16,7 +15,7 @@
     "Epic":      { "Min": 0.30, "Max": 0.40 },
     "Legendary": { "Min": 0.40, "Max": 0.55 }
   },
-  "Description": "Increases mining speed by a percentage. Requires DEX 12+.",
+  "Description": "Increases mining speed by a percentage.",
   "Cooldown": null,
   "ProcChance": null
 }

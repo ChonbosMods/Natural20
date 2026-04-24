@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.rend",
   "NamePosition": "PREFIX",
   "Categories": ["tool"],
-  "StatRequirement": { "STR": 12 },
   "StatScaling": null,
   "TargetStat": null,
   "ModifierType": null,
@@ -14,7 +13,7 @@
     "Epic":      { "Min": 3.0, "Max": 3.0 },
     "Legendary": { "Min": 3.0, "Max": 5.0 }
   },
-  "Description": "Breaks a vertical strip: the block hit plus those directly above or below it. Requires STR 12+.",
+  "Description": "Breaks a vertical strip: the block hit plus those directly above or below it.",
   "Cooldown": null,
   "ProcChance": null,
   "ExclusiveWith": ["nat20:quake", "nat20:delve", "nat20:fissure", "nat20:resonance"]

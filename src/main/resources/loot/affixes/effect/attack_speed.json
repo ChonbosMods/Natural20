@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.attack_speed",
   "NamePosition": "PREFIX",
   "Categories": ["melee_weapon"],
-  "StatRequirement": { "DEX": 12 },
   "StatScaling": { "Primary": "DEX", "Factor": 0.10 },
   "TargetStat": "InteractionSpeed",
   "ModifierType": "MULTIPLICATIVE",

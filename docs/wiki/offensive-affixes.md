@@ -93,8 +93,6 @@ finalDamage = originalDamage × critMultiplier
 
 **When it triggers**: Passive. While wielding a melee weapon with the Attack Speed affix, every server tick nudges the player's interaction timing to complete faster. This translates to faster swings, faster tool use, and tighter attack chains.
 
-**Stat requirement**: **DEX 12** minimum. If the wielder's raw DEX is below 12, the affix silently does nothing. This is an absolute stat check, not a modifier check.
-
 **Rarity roll**:
 
 | Rarity    | Min | Max  |

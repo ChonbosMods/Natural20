@@ -1,9 +1,6 @@
 package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.effects.EffectHandlerRegistry;
-import com.chonbosmods.loot.effects.FortifiedHandler;
-import com.chonbosmods.loot.effects.HasteHandler;
-import com.chonbosmods.loot.effects.IndestructibleHandler;
 import com.chonbosmods.loot.effects.Nat20AffixEventListener;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
@@ -50,13 +47,6 @@ public class Nat20LootSystem {
         this.itemRegistry = new Nat20ItemRegistry(itemRenderer);
         this.garbageCollector = new Nat20ItemGarbageCollector(itemRegistry);
         this.pipeline = new Nat20LootPipeline(rarityRegistry, affixRegistry, itemRegistry, namePoolRegistry);
-        registerEffectHandlers();
-    }
-
-    private void registerEffectHandlers() {
-        effectHandlerRegistry.register("nat20:haste", new HasteHandler());
-        effectHandlerRegistry.register("nat20:fortified", new FortifiedHandler());
-        effectHandlerRegistry.register("nat20:indestructible", new IndestructibleHandler());
     }
 
     /**

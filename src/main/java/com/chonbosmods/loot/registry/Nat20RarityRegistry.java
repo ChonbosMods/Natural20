@@ -94,7 +94,6 @@ public class Nat20RarityRegistry {
             obj.get("BaseWeight").getAsInt(),
             obj.get("MaxAffixes").getAsInt(),
             obj.get("MaxSockets").getAsInt(),
-            obj.has("StatRequirement") ? obj.get("StatRequirement").getAsInt() : 0,
             obj.has("TooltipTexture") ? obj.get("TooltipTexture").getAsString() : "",
             obj.has("TooltipArrowTexture") ? obj.get("TooltipArrowTexture").getAsString() : "",
             obj.has("SlotTexture") ? obj.get("SlotTexture").getAsString() : "",

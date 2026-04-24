@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.telekinesis",
   "NamePosition": "SUFFIX",
   "Categories": ["tool"],
-  "StatRequirement": { "INT": 12 },
   "StatScaling": null,
   "TargetStat": null,
   "ModifierType": null,
@@ -15,7 +14,7 @@
     "Epic":      { "Min": 1.0, "Max": 1.0 },
     "Legendary": { "Min": 1.0, "Max": 1.0 }
   },
-  "Description": "Nearby dropped items teleport into your inventory. Requires INT 12+.",
+  "Description": "Nearby dropped items teleport into your inventory.",
   "Cooldown": null,
   "ProcChance": null
 }

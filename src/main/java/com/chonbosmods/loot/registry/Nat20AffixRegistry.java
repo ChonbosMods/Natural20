@@ -93,15 +93,6 @@ public class Nat20AffixRegistry {
             }
         }
 
-        Map<Stat, Integer> statReq = null;
-        if (obj.has("StatRequirement") && !obj.get("StatRequirement").isJsonNull()) {
-            statReq = new HashMap<>();
-            JsonObject reqObj = obj.getAsJsonObject("StatRequirement");
-            for (var entry : reqObj.entrySet()) {
-                statReq.put(Stat.valueOf(entry.getKey()), entry.getValue().getAsInt());
-            }
-        }
-
         StatScaling scaling = null;
         if (obj.has("StatScaling") && !obj.get("StatScaling").isJsonNull()) {
             JsonObject sc = obj.getAsJsonObject("StatScaling");
@@ -155,7 +146,6 @@ public class Nat20AffixRegistry {
             obj.has("DisplayName") ? obj.get("DisplayName").getAsString() : id,
             obj.has("NamePosition") ? NamePosition.valueOf(obj.get("NamePosition").getAsString()) : NamePosition.NONE,
             categories,
-            statReq,
             scaling,
             procScaling,
             obj.has("TargetStat") && !obj.get("TargetStat").isJsonNull() ? obj.get("TargetStat").getAsString() : null,

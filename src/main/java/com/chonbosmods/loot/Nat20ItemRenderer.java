@@ -7,7 +7,6 @@ import com.chonbosmods.loot.def.Nat20GemDef;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.display.AffixLine;
 import com.chonbosmods.loot.display.Nat20AffixDisplay;
-import com.chonbosmods.loot.display.RequirementLine;
 import com.chonbosmods.loot.display.SocketLine;
 import com.chonbosmods.loot.registry.Nat20AffixRegistry;
 import com.chonbosmods.loot.registry.Nat20GemRegistry;
@@ -99,23 +98,6 @@ public class Nat20ItemRenderer {
             }
         }
 
-        // Rarity requirement: "Any X+" rule: met if ANY of the player's six stats meets the threshold
-        RequirementLine requirement = null;
-        if (rarity.statRequirement() > 0) {
-            boolean met = true;
-            if (playerStats != null) {
-                met = false;
-                for (Stat stat : Stat.values()) {
-                    if (playerStats.stats()[stat.index()] >= rarity.statRequirement()) {
-                        met = true;
-                        break;
-                    }
-                }
-            }
-            String text = "Any " + rarity.statRequirement() + "+";
-            requirement = new RequirementLine(text, met);
-        }
-
         return new Nat20ItemDisplayData(
                 lootData.getGeneratedName(),
                 lootData.getRarity(),
@@ -124,7 +106,6 @@ public class Nat20ItemRenderer {
                 rarity.slotTexture(),
                 affixes,
                 sockets,
-                requirement,
                 lootData.getDescription()
         );
     }

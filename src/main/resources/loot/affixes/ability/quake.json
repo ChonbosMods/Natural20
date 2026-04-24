@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.quake",
   "NamePosition": "PREFIX",
   "Categories": ["tool"],
-  "StatRequirement": { "STR": 14 },
   "StatScaling": null,
   "TargetStat": null,
   "ModifierType": null,
@@ -14,7 +13,7 @@
     "Epic":      { "Min": 3.0, "Max": 3.0 },
     "Legendary": { "Min": 3.0, "Max": 5.0 }
   },
-  "Description": "Breaks a 3x3 area centered on the target block. Requires STR 14+.",
+  "Description": "Breaks a 3x3 area centered on the target block.",
   "Cooldown": null,
   "ProcChance": null,
   "ExclusiveWith": ["nat20:delve", "nat20:rend", "nat20:fissure", "nat20:resonance"]

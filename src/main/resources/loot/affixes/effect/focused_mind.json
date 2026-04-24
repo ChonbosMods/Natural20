@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.focused_mind",
   "NamePosition": "PREFIX",
   "Categories": ["melee_weapon", "armor"],
-  "StatRequirement": null,
   "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
   "TargetStat": "ManaRegen",
   "ModifierType": "MULTIPLICATIVE",

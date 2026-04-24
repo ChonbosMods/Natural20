@@ -2,7 +2,6 @@ package com.chonbosmods.loot.def;
 
 import com.chonbosmods.loot.AffixType;
 import com.chonbosmods.loot.NamePosition;
-import com.chonbosmods.stats.Stat;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -14,7 +13,6 @@ public record Nat20AffixDef(
     String displayName,
     NamePosition namePosition,
     Set<String> categories,
-    @Nullable Map<Stat, Integer> statRequirement,
     @Nullable StatScaling statScaling,
     @Nullable StatScaling procScaling,
     String targetStat,

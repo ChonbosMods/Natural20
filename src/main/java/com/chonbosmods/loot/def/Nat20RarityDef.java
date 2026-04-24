@@ -10,7 +10,6 @@ public record Nat20RarityDef(
     int baseWeight,
     int maxAffixes,
     int maxSockets,
-    int statRequirement,
     String tooltipTexture,
     String tooltipArrowTexture,
     String slotTexture,

@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.resonance",
   "NamePosition": "PREFIX",
   "Categories": ["tool"],
-  "StatRequirement": { "INT": 14 },
   "StatScaling": null,
   "TargetStat": null,
   "ModifierType": null,
@@ -14,7 +13,7 @@
     "Epic":      { "Min": 32.0, "Max": 32.0 },
     "Legendary": { "Min": 48.0, "Max": 64.0 }
   },
-  "Description": "Vein-mines connected blocks of the same type, up to the value cap. Requires INT 14+.",
+  "Description": "Vein-mines connected blocks of the same type, up to the value cap.",
   "Cooldown": null,
   "ProcChance": null,
   "ExclusiveWith": ["nat20:quake", "nat20:delve", "nat20:rend", "nat20:fissure"]

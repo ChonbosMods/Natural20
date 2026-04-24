@@ -162,22 +162,6 @@ public class Nat20ModifierManager {
                 continue;
             }
 
-            // Check stat requirements: skip modifier if player doesn't meet minimums
-            if (affixDef.statRequirement() != null && playerStats != null) {
-                boolean requirementsMet = true;
-                for (var req : affixDef.statRequirement().entrySet()) {
-                    if (playerStats.stats()[req.getKey().index()] < req.getValue()) {
-                        requirementsMet = false;
-                        break;
-                    }
-                }
-                if (!requirementsMet) {
-                    LOGGER.atFine().log("Affix '%s' stat requirement not met, skipping modifier",
-                            rolledAffix.id());
-                    continue;
-                }
-            }
-
             AffixValueRange range = affixDef.getValuesForRarity(lootData.getRarity());
             if (range == null) continue;
 

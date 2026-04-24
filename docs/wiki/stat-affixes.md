@@ -33,7 +33,7 @@ What the stats themselves actually *do* — skill checks, damage scaling, affix 
 
 **Stacking**: Every equipped/held piece with a score affix contributes. A full set of armor plus a weapon with matching score affixes can push a single stat by 15-20+ points over what your base character sheet provides. Multiple different score affixes on one set stack across stats (e.g. +STR on chest, +DEX on boots, +INT on weapon).
 
-**Activation**: Purely equip-based. No proc, no cooldown, no stat requirement. Bonus applies the moment the item is equipped, removes the moment it's unequipped. Switching loadouts changes your stat profile in real time.
+**Activation**: Purely equip-based. No proc, no cooldown. Bonus applies the moment the item is equipped, removes the moment it's unequipped. Switching loadouts changes your stat profile in real time.
 
 **Notes**:
 - Each affix adds a flat score value. The derived *modifier* (used in most affix formulas) is recalculated automatically from the new score.

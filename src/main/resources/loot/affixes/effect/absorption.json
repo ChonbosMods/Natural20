@@ -5,7 +5,6 @@
   "DisplayName": "server.nat20.affix.absorption",
   "NamePosition": "PREFIX",
   "Categories": ["armor"],
-  "StatRequirement": null,
   "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
   "TargetStat": "DamageAbsorption",
   "ModifierType": "MULTIPLICATIVE",
