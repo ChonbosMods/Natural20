@@ -809,6 +809,13 @@ public class DialogueActionRegistry {
             // TutorialQuestFactory.SOURCE_NPC_ID matches his generated name.
             clearSourceNpcMarker(quest);
 
+            // Paint "?" on the phase-2 target so the turn-in marker wins over
+            // whatever random pregen-quest "!" the target NPC happens to carry.
+            // QuestMarkerManager.syncMarker enforces "? takes priority over !".
+            if (resolved) {
+                setTargetNpcParticle(quest.getVariableBindings(), ctx.store());
+            }
+
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
 
@@ -838,7 +845,11 @@ public class DialogueActionRegistry {
             quest.incrementConflictCount();
             List<ObjectiveInstance> objectives = quest.getObjectives();
             ObjectiveInstance phase3Obj = objectives.size() > 2 ? objectives.get(2) : null;
-            com.chonbosmods.quest.TutorialPhase3Setup.setupPhase3(quest, phase3Obj);
+            World phase3World = Natural20.getInstance().getDefaultWorld();
+            if (phase3World != null) {
+                com.chonbosmods.quest.TutorialPhase3Setup.setupPhase3(
+                    quest, phase3Obj, phase3World, ctx.store());
+            }
             quest.setState(com.chonbosmods.quest.QuestState.ACTIVE_OBJECTIVE);
             saveQuest(questSystem, ctx.playerData(), quest);
 
@@ -1627,7 +1638,7 @@ public class DialogueActionRegistry {
      * Set QUEST_TURN_IN ("?") particle on the target NPC for a TALK_TO_NPC objective.
      * Persists to NpcRecord so marker survives chunk reload.
      */
-    private static void setTargetNpcParticle(Map<String, String> bindings, Store<EntityStore> store) {
+    public static void setTargetNpcParticle(Map<String, String> bindings, Store<EntityStore> store) {
         // target_npc_settlement is the human-readable display name; the cell key
         // (used for registry lookup) lives in target_npc_settlement_key.
         String targetSettlementKey = bindings.get("target_npc_settlement_key");

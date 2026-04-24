@@ -63,33 +63,76 @@
       "speakerText": "Stay sharp out there. The road past the gate has a way of sorting the prepared from the hopeful.",
       "responses": []
     },
+
     "node_tutorial_phase1_entry": {
       "type": "DIALOGUE",
-      "speakerText": "Good, Jiub told me to expect you. Ride out to {target_npc_settlement} and find {target_npc}, they'll have something for you to bring back.",
-      "responses": [],
+      "speakerText": "Good, Jiub told me to expect you. Glad you came when you did.",
+      "responses": [
+        {
+          "id": "phase1_continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_tutorial_phase1_assign",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ],
       "onEnter": [
         { "type": "TUTORIAL_TURN_IN_PHASE_1" }
-      ],
+      ]
+    },
+    "node_tutorial_phase1_assign": {
+      "type": "DIALOGUE",
+      "speakerText": "Ride out to {target_npc_settlement} and find {target_npc}, they'll have something for you to bring back to me.",
+      "responses": [],
       "exhaustsTopic": true
     },
+
     "node_tutorial_phase2_entry": {
       "type": "DIALOGUE",
-      "speakerText": "Back already. Good. Whatever {target_npc} told you, hold onto it, there's one more thing I'll need your hands for.",
-      "responses": [],
+      "speakerText": "Back already. Good. Whatever {target_npc} told you, hold onto it.",
+      "responses": [
+        {
+          "id": "phase2_continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_tutorial_phase2_assign",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ],
       "onEnter": [
         { "type": "TUTORIAL_TURN_IN_PHASE_2" }
-      ],
+      ]
+    },
+    "node_tutorial_phase2_assign": {
+      "type": "DIALOGUE",
+      "speakerText": "There's one more thing I'll need your hands for. Check your quest log, I've marked the spot.",
+      "responses": [],
       "exhaustsTopic": true
     },
+
     "node_tutorial_phase3_entry": {
       "type": "DIALOGUE",
-      "speakerText": "You found {boss_name} and put them down. That's the sort of work this town remembers. Go on, your road's your own from here.",
-      "responses": [],
+      "speakerText": "You found {boss_name} and put them down. Heard the work from here.",
+      "responses": [
+        {
+          "id": "phase3_continue",
+          "displayText": "Continue",
+          "targetNodeId": "node_tutorial_phase3_close",
+          "mode": "DECISIVE",
+          "responseType": "CONTINUE"
+        }
+      ],
       "onEnter": [
         { "type": "TUTORIAL_TURN_IN_PHASE_3" }
-      ],
+      ]
+    },
+    "node_tutorial_phase3_close": {
+      "type": "DIALOGUE",
+      "speakerText": "That's the sort of work this town remembers. Go on, your road's your own from here.",
+      "responses": [],
       "exhaustsTopic": true
     },
+
     "node_watch_1": {
       "type": "DIALOGUE",
       "speakerText": "The gate keeps the worst of it out. The rest of us do the rest.",

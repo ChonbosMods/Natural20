@@ -131,7 +131,24 @@ public class DialogueManager {
                 QuestInstance tutorial = qs.getStateManager().getQuest(
                     playerData, com.chonbosmods.quest.TutorialQuestFactory.QUEST_ID);
                 if (tutorial != null && tutorial.getVariableBindings() != null) {
-                    lateBindings.putAll(tutorial.getVariableBindings());
+                    // Wrap entity-style vars so Celius's authored JSON text paints
+                    // them in the same highlight color procedural quest dialogue
+                    // uses. DialogueGraph.lateResolve calls DialogueResolver.resolve
+                    // (the non-wrapping variant), so we pre-wrap at merge time for
+                    // these known keys.
+                    java.util.Set<String> highlightKeys = java.util.Set.of(
+                        "target_npc", "target_npc_settlement", "boss_name",
+                        "quest_item", "quest_item_full", "enemy_type", "enemy_type_plural");
+                    for (var entry : tutorial.getVariableBindings().entrySet()) {
+                        String k = entry.getKey();
+                        String v = entry.getValue();
+                        if (v == null || v.isEmpty()) continue;
+                        if (highlightKeys.contains(k)
+                                && v.indexOf(EntityHighlight.MARK_START) < 0) {
+                            v = EntityHighlight.wrap(v);
+                        }
+                        lateBindings.put(k, v);
+                    }
                 }
             }
         }
