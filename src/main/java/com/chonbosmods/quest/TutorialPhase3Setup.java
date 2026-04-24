@@ -5,8 +5,6 @@ import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
 import com.chonbosmods.progression.DifficultyTier;
-import com.chonbosmods.progression.MobScalingConfig;
-import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.quest.model.DifficultyConfig;
 import com.chonbosmods.quest.poi.PoiGroupDirection;
 import com.chonbosmods.quest.poi.PoiPlacer;
@@ -21,6 +19,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Phase 3 setup for the tutorial quest. Pre-rolls the boss (synchronous), then
@@ -81,18 +80,37 @@ public final class TutorialPhase3Setup {
      */
     public static void preRollBoss(QuestInstance quest, ObjectiveInstance phase3Obj) {
         Map<String, String> bindings = quest.getVariableBindings();
+
+        // True idempotency: re-use the previously-bound name rather than regenerating.
+        // The name generator shares a dedup Deque across all callers, so a second
+        // generate() call with the same seed produces a DIFFERENT name whenever anything
+        // (ambient mobs, other quests) has added names in between. That would silently
+        // rewrite boss_name after the phase-2 assign dialogue already showed it,
+        // causing the spawned boss and phase-3 turn-in to disagree with phase-2 assign.
+        String existingName = bindings.get("boss_name");
+        if (existingName != null && !existingName.isEmpty()) {
+            // Stamp objective fields in case this quest predates creation-time pre-roll
+            // or the phase-3 stub was never rewritten.
+            if (phase3Obj.getTargetId() == null || "deferred_boss".equals(phase3Obj.getTargetId())) {
+                phase3Obj.setTargetId(existingName);
+                phase3Obj.setTargetLabel(existingName);
+                phase3Obj.setTargetLabelPlural(existingName);
+                phase3Obj.setForcedPoiDirection(PoiGroupDirection.KILL_BOSS);
+                phase3Obj.setRequiredCount(1);
+            }
+            return;
+        }
+
         Natural20 plugin = Natural20.getInstance();
-        MobScalingConfig scalingConfig = plugin.getScalingConfig();
-        Nat20MobScaleSystem scaleSystem = plugin.getMobScaleSystem();
         Nat20MobNameGenerator nameGen = plugin.getLootSystem().getMobNameGenerator();
 
-        Random rng = new Random(quest.getQuestId().hashCode() ^ 0xB055L);
-        DifficultyTier groupDiff = scaleSystem.rollDifficultyWeighted(rng);
-        DifficultyTier bossDiff = groupDiff;
-        if (groupDiff == DifficultyTier.EPIC
-                && rng.nextInt(100) < scalingConfig.bossLegendaryChance()) {
-            bossDiff = DifficultyTier.LEGENDARY;
-        }
+        // Tutorial is an introductory flow: lock the group + boss to UNCOMMON so
+        // new players face the gentlest tier on their first encounter. The name is
+        // still rolled fresh per player via ThreadLocalRandom; the idempotency
+        // guard above keeps that first roll stable for the rest of the quest's life.
+        Random rng = ThreadLocalRandom.current();
+        DifficultyTier groupDiff = DifficultyTier.UNCOMMON;
+        DifficultyTier bossDiff = DifficultyTier.UNCOMMON;
         String bossName = nameGen.generate(bossDiff, rng);
         if (bossName == null || bossName.isEmpty()) bossName = "Unnamed";
 
@@ -112,8 +130,6 @@ public final class TutorialPhase3Setup {
         phase3Obj.setTargetLabelPlural(bossName);
         phase3Obj.setForcedPoiDirection(PoiGroupDirection.KILL_BOSS);
         phase3Obj.setRequiredCount(1);
-
-        LOGGER.atInfo().log("Tutorial phase-3 pre-roll: boss=%s tier=%s", bossName, bossDiff);
     }
 
     private static void placePoi(QuestInstance quest, ObjectiveInstance phase3Obj,

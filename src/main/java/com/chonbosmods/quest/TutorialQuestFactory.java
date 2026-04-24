@@ -213,7 +213,10 @@ public final class TutorialQuestFactory {
         }
         quest.setRewardXp(difficulty.xpAmount());
 
-        Random rng = new Random((QUEST_ID + "|" + playerUuid).hashCode());
+        // Fresh roll per playthrough. A seeded RNG keyed on questId+playerUuid
+        // gave the same affixes on the same item every time for a given UUID,
+        // which removed any loot surprise from replaying the tutorial.
+        Random rng = java.util.concurrent.ThreadLocalRandom.current();
         List<QuestInstance.PhaseReward> rewards = new ArrayList<>(3);
         rewards.add(null); // phase 1: narrative-only, no item
 

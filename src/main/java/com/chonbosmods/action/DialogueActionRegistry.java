@@ -892,9 +892,23 @@ public class DialogueActionRegistry {
             dispensePhaseReward(ctx, quest, 2);
             dispensePhaseXp(ctx, quest);
 
-            String bossName = quest.getVariableBindings().getOrDefault("boss_name", "the boss");
+            // Standard turn-in system message (mirrors TURN_IN_V2) so the tutorial
+            // ending reads exactly like any other quest's final turn-in.
+            QuestInstance.PhaseReward phaseReward = quest.getPhaseReward(2);
+            String turnInLabel = quest.getVariableBindings()
+                .getOrDefault("quest_topic_header", quest.getSituationId());
+            String itemDisplay = phaseReward != null && phaseReward.getRewardItemDisplayName() != null
+                ? phaseReward.getRewardItemDisplayName()
+                : (phaseReward != null ? phaseReward.getRewardItemId() : "nothing");
+            com.chonbosmods.quest.model.DifficultyConfig displayDifficulty =
+                quest.getDifficultyId() != null
+                    ? questSystem.getDifficultyRegistry().get(quest.getDifficultyId())
+                    : null;
+            int phaseXp = displayDifficulty != null
+                ? Nat20XpMath.questPhaseXp(ctx.playerData().getLevel(), displayDifficulty)
+                : Nat20XpMath.questPhaseXp(ctx.playerData().getLevel());
             ctx.systemLogger().accept(
-                "Tutorial complete. " + bossName + " falls, and Celius nods you on.");
+                "Quest completed: " + turnInLabel + ". Received " + itemDisplay + " and " + phaseXp + " XP");
 
             // Clear Celius's "?" before markQuestCompleted drops the quest from
             // the active map (clearSourceNpcMarker reads quest.sourceNpcId).
