@@ -141,6 +141,12 @@ public final class TutorialQuestFactory {
             }
         }
 
+        // Refresh the player's map waypoints so Celius's settlement lights up
+        // with the blue RETURN marker as soon as Jiub hands them off. Without
+        // this, the marker only appears after the next refresh trigger (login,
+        // quest-log toggle, etc.) and the first tutorial leg feels silent.
+        com.chonbosmods.waypoint.QuestMarkerProvider.refreshMarkers(playerUuid, playerData);
+
         // Best-effort resolve of the phase 2 target NPC at creation time so the
         // phase-1-turn-in dialogue can interpolate {target_npc}/{target_npc_settlement}
         // on the player's first visit to Celius. If no other settlement exists

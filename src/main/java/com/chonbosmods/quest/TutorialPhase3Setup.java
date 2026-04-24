@@ -4,35 +4,29 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
-import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.progression.DifficultyTier;
 import com.chonbosmods.progression.MobScalingConfig;
 import com.chonbosmods.progression.Nat20MobScaleSystem;
 import com.chonbosmods.quest.model.DifficultyConfig;
 import com.chonbosmods.quest.poi.PoiGroupDirection;
+import com.chonbosmods.quest.poi.PoiPlacer;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.chonbosmods.world.Nat20HeightmapSampler;
+import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 /**
  * Phase 3 setup for the tutorial quest. Pre-rolls the boss (synchronous), then
- * kicks off async POI placement: a nearby cave void is claimed and a hostile-POI
- * dungeon prefab is pasted into it so the mob group spawns in a carved-out room
- * rather than inside solid rock. Falls back to a surface anchor when no void is
- * near. Produces the same binding surface as {@code QuestGenerator}'s
- * {@code applyBossPreRoll} + {@code resolveAndPlacePoi} so downstream systems
- * (POIProximitySystem, POIGroupSpawnCoordinator, POIKillTrackingSystem) pick
- * it up unchanged.
+ * delegates POI placement to {@link PoiPlacer} so the tutorial and the
+ * procedural quest flow share the same dungeon-paste + finalization path.
+ * Falls back to a surface anchor when no void is near.
  */
 public final class TutorialPhase3Setup {
 
@@ -54,7 +48,7 @@ public final class TutorialPhase3Setup {
      * quest whose phase-3 objective is already set up (re-entry is a no-op).
      */
     public static void setupPhase3(QuestInstance quest, ObjectiveInstance phase3Obj,
-                                   World world, Store<EntityStore> store) {
+                                   Store<EntityStore> store, Ref<EntityStore> playerRef) {
         if (phase3Obj == null) return;
         if (!"deferred_boss".equals(phase3Obj.getTargetId())
                 && phase3Obj.hasPoi()) {
@@ -63,7 +57,7 @@ public final class TutorialPhase3Setup {
 
         preRollBoss(quest, phase3Obj);
         String populationSpec = buildPopulationSpec(quest);
-        placePoi(quest, phase3Obj, populationSpec, world, store);
+        placePoi(quest, phase3Obj, populationSpec, store, playerRef);
     }
 
     private static void preRollBoss(QuestInstance quest, ObjectiveInstance phase3Obj) {
@@ -104,7 +98,8 @@ public final class TutorialPhase3Setup {
     }
 
     private static void placePoi(QuestInstance quest, ObjectiveInstance phase3Obj,
-                                 String populationSpec, World world, Store<EntityStore> store) {
+                                 String populationSpec,
+                                 Store<EntityStore> store, Ref<EntityStore> playerRef) {
         Natural20 plugin = Natural20.getInstance();
         int[] anchor = resolveSpawnAnchor(quest);
         int anchorX = anchor[0], anchorZ = anchor[1];
@@ -120,52 +115,16 @@ public final class TutorialPhase3Setup {
         }
 
         voidRegistry.claimVoid(void_, quest.getSourceSettlementId());
-        LOGGER.atInfo().log("Tutorial phase-3: claimed cave void at (%d,%d,%d)",
+        LOGGER.atInfo().log("Tutorial phase-3: claimed cave void at (%d,%d,%d); delegating to PoiPlacer",
             void_.getCenterX(), void_.getCenterY(), void_.getCenterZ());
 
-        // Paste the dungeon prefab so the mob group has a carved-out room to
-        // spawn in. placeAtVoid is async; on completion we rebind the POI to
-        // the dungeon's entrance and write the mob-group / chest marker
-        // positions so POIGroupSpawnCoordinator scatters at real floor tiles
-        // rather than inside stone walls.
-        plugin.getStructurePlacer()
-            .placeAtVoid(world, void_, store)
-            .whenComplete((placed, error) -> world.execute(() -> {
-                if (error != null || placed == null) {
-                    if (error != null) {
-                        LOGGER.atWarning().withCause(error).log(
-                            "Tutorial phase-3: dungeon placement failed; surface fallback");
-                    } else {
-                        LOGGER.atWarning().log(
-                            "Tutorial phase-3: dungeon placement returned null; surface fallback");
-                    }
-                    applySurfaceFallback(quest, phase3Obj, populationSpec, anchor);
-                    return;
-                }
+        // Also pre-set populationSpec on objective so the coordinator has it
+        // even if the async paste finishes in a different world-thread task
+        // than the caller's saveQuest. PoiPlacer.finalizePlacement re-saves
+        // after the paste.
+        phase3Obj.setPoi(void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(), populationSpec);
 
-                Vector3i entrance = placed.anchorWorld();
-                phase3Obj.setPoi(entrance.getX(), entrance.getY(), entrance.getZ(), populationSpec);
-
-                Map<String, String> bindings = quest.getVariableBindings();
-                bindings.put("poi_x", String.valueOf(entrance.getX()));
-                bindings.put("poi_y", String.valueOf(entrance.getY()));
-                bindings.put("poi_z", String.valueOf(entrance.getZ()));
-                bindings.put("poi_center_x", String.valueOf(entrance.getX()));
-                bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
-                bindings.put("poi_mob_group_positions",
-                    serializeVec3dList(placed.mobGroupSpawnsWorld()));
-                bindings.put("poi_chest_positions",
-                    serializeVec3dList(placed.chestSpawnsWorld()));
-                bindings.put("poi_available", "true");
-                bindings.putIfAbsent("marker_offset_x", "0");
-                bindings.putIfAbsent("marker_offset_z", "0");
-
-                QuestGenerator.buildObjectiveSummary(phase3Obj, bindings);
-                LOGGER.atInfo().log(
-                    "Tutorial phase-3 dungeon pasted; POI anchored at (%d,%d,%d) with %d mob markers",
-                    entrance.getX(), entrance.getY(), entrance.getZ(),
-                    placed.mobGroupSpawnsWorld().size());
-            }));
+        PoiPlacer.placePoiAtVoid(quest, phase3Obj, void_, store, playerRef);
     }
 
     private static void applySurfaceFallback(QuestInstance quest, ObjectiveInstance phase3Obj,
@@ -232,17 +191,5 @@ public final class TutorialPhase3Setup {
             LOGGER.atWarning().withCause(e).log("sampleSurfaceY failed at (%d,%d)", x, z);
             return fallbackY > 0 ? fallbackY : 64;
         }
-    }
-
-    private static String serializeVec3dList(List<Vector3d> positions) {
-        if (positions == null || positions.isEmpty()) return "";
-        StringBuilder sb = new StringBuilder();
-        for (Vector3d v : positions) {
-            if (sb.length() > 0) sb.append(';');
-            sb.append((int) Math.floor(v.getX()))
-              .append(',').append((int) Math.floor(v.getY()))
-              .append(',').append((int) Math.floor(v.getZ()));
-        }
-        return sb.toString();
     }
 }
