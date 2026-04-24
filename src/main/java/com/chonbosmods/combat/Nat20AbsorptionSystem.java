@@ -83,17 +83,10 @@ public class Nat20AbsorptionSystem extends DamageEventSystem {
         // Resolve player stats for WIS scaling
         PlayerStats playerStats = resolvePlayerStats(targetRef, store);
 
-        // Scan all equipped items for the absorption affix
+        // Scan equipped armor (including shields) for the absorption affix
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
         double totalRaw = 0.0;
 
-        // Weapon in hand
-        ItemStack weapon = InventoryComponent.getItemInHand(store, targetRef);
-        if (weapon != null && !weapon.isEmpty()) {
-            totalRaw += scanItemForAbsorption(weapon, affixRegistry, playerStats);
-        }
-
-        // All armor slots
         @SuppressWarnings("unchecked")
         CombinedItemContainer armorContainer = InventoryComponent.getCombined(
                 store, targetRef, new ComponentType[]{InventoryComponent.Armor.getComponentType()});

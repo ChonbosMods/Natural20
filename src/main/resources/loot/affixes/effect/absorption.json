@@ -4,7 +4,7 @@
   "Type": "EFFECT",
   "DisplayName": "server.nat20.affix.absorption",
   "NamePosition": "PREFIX",
-  "Categories": ["armor", "melee_weapon"],
+  "Categories": ["armor"],
   "StatRequirement": null,
   "StatScaling": { "Primary": "WIS", "Factor": 0.15 },
   "TargetStat": "DamageAbsorption",
