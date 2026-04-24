@@ -94,6 +94,12 @@ public final class TutorialPhase3Setup {
         phase3Obj.setForcedPoiDirection(PoiGroupDirection.KILL_BOSS);
         phase3Obj.setRequiredCount(1);
 
+        // Rebuild the objective summary synchronously so the POI waypoint reads
+        // "Kill {bossName}" on the next refresh, even before the async dungeon
+        // paste lands. Otherwise the label would linger on phase-2's
+        // "Speak with X in Y" string until finalizePlacement completes.
+        QuestGenerator.buildObjectiveSummary(phase3Obj, bindings);
+
         LOGGER.atInfo().log("Tutorial phase-3 pre-roll: boss=%s tier=%s", bossName, bossDiff);
     }
 

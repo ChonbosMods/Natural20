@@ -842,6 +842,11 @@ public class DialogueActionRegistry {
                 return;
             }
 
+            // Dispense phase-2 rewards BEFORE advancing conflictCount so
+            // dispensePhaseXp's reason string tags the correct phase.
+            dispensePhaseReward(ctx, quest, 1);
+            dispensePhaseXp(ctx, quest);
+
             quest.incrementConflictCount();
             List<ObjectiveInstance> objectives = quest.getObjectives();
             ObjectiveInstance phase3Obj = objectives.size() > 2 ? objectives.get(2) : null;
@@ -880,16 +885,16 @@ public class DialogueActionRegistry {
                 return;
             }
 
-            int xp = com.chonbosmods.progression.Nat20XpMath.questPhaseXp(ctx.playerData().getLevel());
-            if (xp > 0) {
-                Natural20.getInstance().getXpService().award(
-                    ctx.player(), ctx.playerRef(), ctx.store(),
-                    xp, "quest:" + quest.getQuestId() + ":phase2");
-            }
+            // Dispense phase-3 reward + XP via the shared helpers so the tutorial
+            // gets the same affix-rolled item + level-scaled XP that procedural
+            // quests dispense at TURN_IN_V2. Reason string is set by
+            // dispensePhaseXp to "quest:tutorial_main:phase2" (cc=2).
+            dispensePhaseReward(ctx, quest, 2);
+            dispensePhaseXp(ctx, quest);
 
             String bossName = quest.getVariableBindings().getOrDefault("boss_name", "the boss");
             ctx.systemLogger().accept(
-                "Tutorial complete. " + bossName + " falls, and Celius nods you on. Received " + xp + " XP.");
+                "Tutorial complete. " + bossName + " falls, and Celius nods you on.");
 
             // Clear Celius's "?" before markQuestCompleted drops the quest from
             // the active map (clearSourceNpcMarker reads quest.sourceNpcId).
@@ -901,8 +906,8 @@ public class DialogueActionRegistry {
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
 
             LOGGER.atInfo().log(
-                "TUTORIAL_TURN_IN_PHASE_3: tutorial_main completed for %s (xp=%d)",
-                ctx.player().getPlayerRef().getUuid(), xp);
+                "TUTORIAL_TURN_IN_PHASE_3: tutorial_main completed for %s",
+                ctx.player().getPlayerRef().getUuid());
         });
     }
 
@@ -1290,7 +1295,7 @@ public class DialogueActionRegistry {
      * logged at SEVERE with quest id, phase index, item id, and player UUID so
      * gaps are loud. Not silently dropped or retried.
      */
-    private static void dispensePhaseReward(ActionContext ctx, QuestInstance quest, int phaseIndex) {
+    public static void dispensePhaseReward(ActionContext ctx, QuestInstance quest, int phaseIndex) {
         QuestInstance.PhaseReward reward = quest.getPhaseReward(phaseIndex);
         java.util.UUID playerUuid = ctx.player().getPlayerRef().getUuid();
 
@@ -1397,7 +1402,7 @@ public class DialogueActionRegistry {
      * COLLECT / FETCH) and the TALK completion path no longer award XP:
      * TURN_IN_V2 owns the grant. See 2026-04-22 double-XP fix.
      */
-    private static void dispensePhaseXp(ActionContext ctx, QuestInstance quest) {
+    public static void dispensePhaseXp(ActionContext ctx, QuestInstance quest) {
         QuestSystem questSystem = Natural20.getInstance().getQuestSystem();
         if (questSystem == null) return;
         com.hypixel.hytale.server.core.universe.world.World world =

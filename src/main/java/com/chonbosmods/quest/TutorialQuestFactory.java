@@ -4,15 +4,20 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.background.Background;
 import com.chonbosmods.data.Nat20PlayerData;
+import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.quest.model.DifficultyConfig;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
+import com.google.gson.Gson;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -28,6 +33,7 @@ import java.util.UUID;
 public final class TutorialQuestFactory {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|TutorialQuestFactory");
+    private static final Gson REWARD_DATA_GSON = new Gson();
 
     public static final String QUEST_ID = "tutorial_main";
     public static final String SITUATION_ID = "tutorial";
@@ -123,7 +129,11 @@ public final class TutorialQuestFactory {
         quest.setState(QuestState.READY_FOR_TURN_IN);
         quest.setAccepters(List.of(playerUuid));
 
-        stateManager.addQuest(playerData, quest);
+        // Pre-roll rewards. Phase 1 stays null per design (narrative-only
+        // acknowledgement). Phase 2 and phase 3 each roll their own item via
+        // AffixRewardRoller at the quest's "easy" difficulty: Common-Uncommon
+        // tier range, ilvl 5. dispensePhaseReward consumes these at turn-in.
+        rollTutorialRewards(quest, playerUuid);
 
         // Stamp the phase-1 turn-in marker on Celius now. The quest is born in
         // READY_FOR_TURN_IN state (phase 1 is pre-complete), so the "?" should
@@ -162,6 +172,55 @@ public final class TutorialQuestFactory {
         LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, celiusCell=%s, phase2Resolved=%s)",
             playerUuid, background != null ? background.name() : "null",
             sourceSettlementId, resolved);
+    }
+
+    /**
+     * Roll per-phase rewards for the tutorial so {@code dispensePhaseReward}
+     * has something to hand the player at each turn-in. Phase 1 gets no reward
+     * (narrative-only, per design 3). Phase 2 rolls at the "easy" difficulty's
+     * rewardTierMin (Common). Phase 3 rolls at the full rewardTierMin..Max range
+     * (Common..Uncommon), matching a procedural final-phase combat reward.
+     */
+    private static void rollTutorialRewards(QuestInstance quest, UUID playerUuid) {
+        DifficultyConfig difficulty = Natural20.getInstance().getQuestSystem()
+            .getDifficultyRegistry().get(DIFFICULTY_ID);
+        if (difficulty == null) {
+            LOGGER.atWarning().log("rollTutorialRewards: DifficultyConfig '%s' not found; no rewards",
+                DIFFICULTY_ID);
+            return;
+        }
+        quest.setRewardXp(difficulty.xpAmount());
+
+        Random rng = new Random((QUEST_ID + "|" + playerUuid).hashCode());
+        List<QuestInstance.PhaseReward> rewards = new ArrayList<>(3);
+        rewards.add(null); // phase 1: narrative-only, no item
+
+        // Phase 2: Common-tier starter-feel item.
+        rewards.add(rollPhaseItem(difficulty.rewardTierMin(), difficulty.rewardIlvl(), rng));
+        // Phase 3: full range, up to Uncommon per the easy config.
+        String phase3Tier = rng.nextBoolean()
+            ? difficulty.rewardTierMax()
+            : difficulty.rewardTierMin();
+        rewards.add(rollPhaseItem(phase3Tier, difficulty.rewardIlvl(), rng));
+
+        quest.setPhaseRewards(rewards);
+    }
+
+    private static QuestInstance.PhaseReward rollPhaseItem(String tier, int ilvl, Random rng) {
+        ItemStack stack = AffixRewardRoller.roll(tier, ilvl, rng);
+        Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (lootData == null) {
+            throw new IllegalStateException(
+                "AffixRewardRoller produced a stack without Nat20LootData metadata "
+                    + "(tier=" + tier + ", ilvl=" + ilvl + ", itemId=" + stack.getItemId() + ")");
+        }
+        return new QuestInstance.PhaseReward(
+            stack.getItemId(),
+            stack.getQuantity(),
+            lootData.getGeneratedName(),
+            REWARD_DATA_GSON.toJson(lootData),
+            tier,
+            ilvl);
     }
 
     /**
