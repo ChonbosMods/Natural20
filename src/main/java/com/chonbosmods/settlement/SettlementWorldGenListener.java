@@ -590,6 +590,10 @@ public class SettlementWorldGenListener {
         npcData.setCeliusGravus(true);
         npcData.setFlags(guard.getFlags());
 
+        // Celius is a tutorial NPC, not a combat entity: mark him invulnerable
+        // so player attacks can't damage or kill him. Mirrors JiubManager.
+        store.putComponent(guardRef, Invulnerable.getComponentType(), Invulnerable.INSTANCE);
+
         LOGGER.atInfo().log("Spawn settlement: Guard promoted to Celius Gravus (UUID %s)",
             guard.getEntityUUID());
     }

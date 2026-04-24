@@ -120,7 +120,7 @@ public final class TutorialQuestFactory {
 
         Map<String, String> bindings = new LinkedHashMap<>();
         bindings.put("quest_topic_header", QUEST_TOPIC_HEADER);
-        bindings.put("quest_objective_summary", "Return to Celius Gravus");
+        bindings.put("quest_objective_summary", "Speak with Celius Gravus");
         if (background != null) {
             bindings.put("Background", background.displayName());
         }

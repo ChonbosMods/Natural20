@@ -231,6 +231,15 @@ public class Nat20NpcManager {
         npcData.setDefaultDisposition(record.getDisposition());
         npcData.setDialogueState(record.getDialogueState());
         npcData.setFlags(record.getFlags());
+        npcData.setCeliusGravus(record.isCeliusGravus());
+
+        // Celius is a tutorial NPC, not a combat entity. Re-stamp invulnerability
+        // on every spawn / reattach / respawn so chunk reloads can't strip it.
+        if (record.isCeliusGravus()) {
+            store.putComponent(npcRef,
+                com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.getComponentType(),
+                com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.INSTANCE);
+        }
 
         // Sync quest marker state from persisted NpcRecord (survives chunk reload/respawn)
         QuestMarkerManager.INSTANCE.syncFromRecord(npcEntity.getUuid(), record);

@@ -190,6 +190,12 @@ public final class JiubManager {
         store.putComponent(newRef, PlayerSkinComponent.getComponentType(),
             new PlayerSkinComponent(baseSkin));
 
+        // Jiub is a tutorial NPC, not a combat entity: mark him invulnerable so
+        // player attacks can't damage or kill him.
+        store.putComponent(newRef,
+            com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.getComponentType(),
+            com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.INSTANCE);
+
         this.jiubUuid = npcEntity.getUuid();
         this.jiubRef = newRef;
         save();
@@ -263,6 +269,11 @@ public final class JiubManager {
             new PlayerSkinComponent(skin));
         store.putComponent(ref, Nameplate.getComponentType(),
             new Nameplate(DISPLAY_NAME));
+        // Re-stamp invulnerability across chunk reloads so player attacks can't
+        // ever land on Jiub even if the native serializer drops the component.
+        store.putComponent(ref,
+            com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.getComponentType(),
+            com.hypixel.hytale.server.core.modules.entity.component.Invulnerable.INSTANCE);
     }
 
     /**
