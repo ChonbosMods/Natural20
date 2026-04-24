@@ -63,6 +63,18 @@ public final class TutorialQuestFactory {
         }
         QuestStateManager stateManager = questSystem.getStateManager();
 
+        // Ensure the runtime playerUuid is bound to the player data BEFORE any
+        // quest-state read. getActiveQuests routes through
+        // data.getPlayerUuid() to filter the party-quest store; if that field
+        // is null we silently get an empty quest list and refreshMarkers
+        // caches zero markers. Mirrors the pattern in DialogueManager.startSession
+        // and BackgroundCommitter.commit in case the earlier bind didn't run.
+        if (playerData.getPlayerUuid() == null) {
+            playerData.setPlayerUuid(playerUuid);
+            LOGGER.atInfo().log("createAndAssign: bound playerUuid=%s on playerData (was null)",
+                playerUuid);
+        }
+
         if (stateManager.getQuest(playerData, QUEST_ID) != null) {
             LOGGER.atInfo().log("createAndAssign: %s already active for %s, skipping",
                 QUEST_ID, playerUuid);
