@@ -15,13 +15,18 @@ import org.objectweb.asm.*;
  * <h2>Patch 2: Nat20 durability intercept (inline)</h2>
  * Transforms {@code LivingEntity.updateItemStackDurability} to inline a BSON-metadata check
  * at method entry. If the held tool's {@code Nat20Loot.AffixData} contains
- * {@code nat20:indestructible} the {@code durabilityChange} arg is zeroed; if it contains
- * {@code nat20:fortified} we zero on a 50% roll.
+ * {@code nat20:indestructible} the {@code durabilityChange} arg is zeroed. If it contains
+ * {@code nat20:fortified} we parse the rolled {@code <lo>-<hi>} range, read {@code Nat20Loot.Rarity},
+ * interpolate the per-rarity {@code ValuesPerRarity} range from the JSON into an effective skip
+ * chance using {@code midLevel = (lo + hi) * 0.5}, and zero durability on
+ * {@code random < skipChance}. The rarity → VPR table is hardcoded here to mirror
+ * {@code src/main/resources/loot/affixes/ability/fortified.json} (Uncommon 15-25, Rare 25-40,
+ * Epic 45-60, no Legendary). Keep the two in sync.
  *
  * <p>We inline the check rather than calling a static helper, because the early-plugin JAR
  * lives in a sibling classloader that the {@code TransformingClassLoader} can't resolve.
  * All types referenced here ({@code ItemStack}, {@code org.bson.*}, {@code String},
- * {@code ThreadLocalRandom}) resolve natively in the server classloader.
+ * {@code Double}, {@code ThreadLocalRandom}) resolve natively in the server classloader.
  */
 public class DurabilityFix implements ClassTransformer {
 
@@ -93,8 +98,18 @@ public class DurabilityFix implements ClassTransformer {
      *   updateItemStackDurability(Ref, ItemStack, ItemContainer, int, double, ComponentAccessor)
      * Local layout:
      *   0=this, 1=ref, 2=itemStack, 3=container, 4=slotId, 5-6=durabilityChange, 7=componentAccessor
-     * Scratch locals (added, 3 aref slots):
-     *   8=temp Bson ref, 9=temp Bson ref, 10=affixStr
+     * Scratch locals (added):
+     *   8  = BsonDocument scratch (meta, then lootDoc)
+     *   9  = BsonValue scratch
+     *   10 = affixStr (String)
+     *   11 = rarity (String)
+     *   12 = forIdx / valStart (int, reused)
+     *   13 = valEnd (int)
+     *   14 = valStr (String)
+     *   15 = dash (int)
+     *   16-17 = midLevel (double)
+     *   18-19 = vprMin (double)
+     *   20-21 = vprMax (double)
      */
     private byte[] patchDurabilityUpdate(byte[] classBytes) {
         ClassReader cr = new ClassReader(classBytes);
@@ -122,8 +137,14 @@ public class DurabilityFix implements ClassTransformer {
                         injected = true;
 
                         Label done = new Label();
-                        Label checkFortified = new Label();
                         Label zeroDurability = new Label();
+                        Label haveValEnd = new Label();
+                        Label noRange = new Label();
+                        Label mergeRange = new Label();
+                        Label isUncommon = new Label();
+                        Label isRare = new Label();
+                        Label isEpic = new Label();
+                        Label rarityMerge = new Label();
 
                         // if (durabilityChange >= 0) goto done
                         mv.visitVarInsn(Opcodes.DLOAD, 5);
@@ -194,22 +215,165 @@ public class DurabilityFix implements ClassTransformer {
                                 "(Ljava/lang/CharSequence;)Z", false);
                         mv.visitJumpInsn(Opcodes.IFNE, zeroDurability);
 
-                        // if (!affixStr.contains("nat20:fortified")) goto done
+                        // ---- Fortified branch ----
+                        // idx = affixStr.indexOf("nat20:fortified=")  (16 chars)
                         mv.visitVarInsn(Opcodes.ALOAD, 10);
-                        mv.visitLdcInsn("nat20:fortified");
-                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "contains",
-                                "(Ljava/lang/CharSequence;)Z", false);
-                        mv.visitJumpInsn(Opcodes.IFEQ, done);
+                        mv.visitLdcInsn("nat20:fortified=");
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "indexOf",
+                                "(Ljava/lang/String;)I", false);
+                        mv.visitInsn(Opcodes.DUP);
+                        mv.visitVarInsn(Opcodes.ISTORE, 12);
+                        // if (idx < 0) goto done
+                        mv.visitJumpInsn(Opcodes.IFLT, done);
 
-                        // if (ThreadLocalRandom.current().nextDouble() >= 0.5) goto done
+                        // rarityVal = lootDoc.get("Rarity")
+                        mv.visitVarInsn(Opcodes.ALOAD, 8);
+                        mv.visitLdcInsn("Rarity");
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, BSON_DOCUMENT, "get",
+                                "(Ljava/lang/Object;)L" + BSON_VALUE + ";", false);
+                        mv.visitInsn(Opcodes.DUP);
+                        mv.visitVarInsn(Opcodes.ASTORE, 9);
+                        mv.visitJumpInsn(Opcodes.IFNULL, done);
+                        // if (!rarityVal.isString()) goto done
+                        mv.visitVarInsn(Opcodes.ALOAD, 9);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, BSON_VALUE, "isString", "()Z", false);
+                        mv.visitJumpInsn(Opcodes.IFEQ, done);
+                        // rarity = rarityVal.asString().getValue()
+                        mv.visitVarInsn(Opcodes.ALOAD, 9);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, BSON_VALUE, "asString",
+                                "()L" + BSON_STRING + ";", false);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, BSON_STRING, "getValue",
+                                "()L" + STRING + ";", false);
+                        mv.visitVarInsn(Opcodes.ASTORE, 11);
+
+                        // valStart = idx + 16  (length of "nat20:fortified=")
+                        mv.visitVarInsn(Opcodes.ILOAD, 12);
+                        mv.visitIntInsn(Opcodes.BIPUSH, 16);
+                        mv.visitInsn(Opcodes.IADD);
+                        mv.visitVarInsn(Opcodes.ISTORE, 12);
+
+                        // valEnd = affixStr.indexOf(',', valStart); if < 0 then affixStr.length()
+                        mv.visitVarInsn(Opcodes.ALOAD, 10);
+                        mv.visitIntInsn(Opcodes.BIPUSH, ',');
+                        mv.visitVarInsn(Opcodes.ILOAD, 12);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "indexOf", "(II)I", false);
+                        mv.visitInsn(Opcodes.DUP);
+                        mv.visitVarInsn(Opcodes.ISTORE, 13);
+                        mv.visitJumpInsn(Opcodes.IFGE, haveValEnd);
+                        mv.visitVarInsn(Opcodes.ALOAD, 10);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "length", "()I", false);
+                        mv.visitVarInsn(Opcodes.ISTORE, 13);
+                        mv.visitLabel(haveValEnd);
+
+                        // valStr = affixStr.substring(valStart, valEnd)
+                        mv.visitVarInsn(Opcodes.ALOAD, 10);
+                        mv.visitVarInsn(Opcodes.ILOAD, 12);
+                        mv.visitVarInsn(Opcodes.ILOAD, 13);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "substring",
+                                "(II)Ljava/lang/String;", false);
+                        mv.visitVarInsn(Opcodes.ASTORE, 14);
+
+                        // dash = valStr.indexOf('-')
+                        mv.visitVarInsn(Opcodes.ALOAD, 14);
+                        mv.visitIntInsn(Opcodes.BIPUSH, '-');
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "indexOf", "(I)I", false);
+                        mv.visitInsn(Opcodes.DUP);
+                        mv.visitVarInsn(Opcodes.ISTORE, 15);
+                        // if (dash <= 0) single-value; else range
+                        mv.visitJumpInsn(Opcodes.IFLE, noRange);
+
+                        // Range branch: midLevel = (parseDouble(valStr.substring(0, dash))
+                        //                          + parseDouble(valStr.substring(dash + 1))) * 0.5
+                        mv.visitVarInsn(Opcodes.ALOAD, 14);
+                        mv.visitInsn(Opcodes.ICONST_0);
+                        mv.visitVarInsn(Opcodes.ILOAD, 15);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "substring",
+                                "(II)Ljava/lang/String;", false);
+                        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "parseDouble",
+                                "(Ljava/lang/String;)D", false);
+                        mv.visitVarInsn(Opcodes.ALOAD, 14);
+                        mv.visitVarInsn(Opcodes.ILOAD, 15);
+                        mv.visitInsn(Opcodes.ICONST_1);
+                        mv.visitInsn(Opcodes.IADD);
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "substring",
+                                "(I)Ljava/lang/String;", false);
+                        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "parseDouble",
+                                "(Ljava/lang/String;)D", false);
+                        // stack: (min, max)
+                        mv.visitInsn(Opcodes.DADD);
+                        mv.visitLdcInsn(0.5D);
+                        mv.visitInsn(Opcodes.DMUL);
+                        mv.visitJumpInsn(Opcodes.GOTO, mergeRange);
+
+                        // No-range branch: midLevel = parseDouble(valStr)
+                        mv.visitLabel(noRange);
+                        mv.visitVarInsn(Opcodes.ALOAD, 14);
+                        mv.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Double", "parseDouble",
+                                "(Ljava/lang/String;)D", false);
+
+                        mv.visitLabel(mergeRange);
+                        // stack: midLevel
+                        mv.visitVarInsn(Opcodes.DSTORE, 16);
+
+                        // Rarity switch — VPR table must mirror fortified.json.
+                        mv.visitVarInsn(Opcodes.ALOAD, 11);
+                        mv.visitLdcInsn("Uncommon");
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "equals",
+                                "(Ljava/lang/Object;)Z", false);
+                        mv.visitJumpInsn(Opcodes.IFNE, isUncommon);
+
+                        mv.visitVarInsn(Opcodes.ALOAD, 11);
+                        mv.visitLdcInsn("Rare");
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "equals",
+                                "(Ljava/lang/Object;)Z", false);
+                        mv.visitJumpInsn(Opcodes.IFNE, isRare);
+
+                        mv.visitVarInsn(Opcodes.ALOAD, 11);
+                        mv.visitLdcInsn("Epic");
+                        mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, STRING, "equals",
+                                "(Ljava/lang/Object;)Z", false);
+                        mv.visitJumpInsn(Opcodes.IFNE, isEpic);
+
+                        // No rarity match (e.g., Common, Legendary, missing). Fail closed.
+                        mv.visitJumpInsn(Opcodes.GOTO, done);
+
+                        mv.visitLabel(isUncommon);
+                        mv.visitLdcInsn(0.15D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 18);
+                        mv.visitLdcInsn(0.25D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 20);
+                        mv.visitJumpInsn(Opcodes.GOTO, rarityMerge);
+
+                        mv.visitLabel(isRare);
+                        mv.visitLdcInsn(0.25D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 18);
+                        mv.visitLdcInsn(0.40D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 20);
+                        mv.visitJumpInsn(Opcodes.GOTO, rarityMerge);
+
+                        mv.visitLabel(isEpic);
+                        mv.visitLdcInsn(0.45D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 18);
+                        mv.visitLdcInsn(0.60D);
+                        mv.visitVarInsn(Opcodes.DSTORE, 20);
+                        // fall through
+
+                        mv.visitLabel(rarityMerge);
+                        // random on stack first, then skipChance on top.
                         mv.visitMethodInsn(Opcodes.INVOKESTATIC, THREAD_LOCAL_RANDOM, "current",
                                 "()L" + THREAD_LOCAL_RANDOM + ";", false);
                         mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, THREAD_LOCAL_RANDOM, "nextDouble",
                                 "()D", false);
-                        mv.visitLdcInsn(0.5D);
-                        // DCMPG: stack=(random, 0.5). 1 if random > 0.5, 0 if equal, -1 if less.
-                        // We want to skip durability when random < 0.5, i.e., result == -1.
-                        // IFLT jumps if result < 0.
+                        // skipChance = vprMin + (vprMax - vprMin) * midLevel
+                        mv.visitVarInsn(Opcodes.DLOAD, 18);
+                        mv.visitVarInsn(Opcodes.DLOAD, 20);
+                        mv.visitVarInsn(Opcodes.DLOAD, 18);
+                        mv.visitInsn(Opcodes.DSUB);
+                        mv.visitVarInsn(Opcodes.DLOAD, 16);
+                        mv.visitInsn(Opcodes.DMUL);
+                        mv.visitInsn(Opcodes.DADD);
+                        // Stack: (random, skipChance). DCMPG: 1 if random > skip, -1 if random < skip.
+                        // IFGE: jump to done when random >= skip (roll failed).
                         mv.visitInsn(Opcodes.DCMPG);
                         mv.visitJumpInsn(Opcodes.IFGE, done);
 

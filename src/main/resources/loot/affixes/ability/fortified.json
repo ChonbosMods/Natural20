@@ -9,10 +9,9 @@
   "TargetStat": null,
   "ModifierType": null,
   "ValuesPerRarity": {
-    "Uncommon":  { "Min": 0.15, "Max": 0.20 },
-    "Rare":      { "Min": 0.20, "Max": 0.30 },
-    "Epic":      { "Min": 0.30, "Max": 0.45 },
-    "Legendary": { "Min": 0.45, "Max": 0.60 }
+    "Uncommon":  { "Min": 0.15, "Max": 0.25 },
+    "Rare":      { "Min": 0.25, "Max": 0.40 },
+    "Epic":      { "Min": 0.45, "Max": 0.60 }
   },
   "Description": "Percent chance to avoid losing durability on use.",
   "Cooldown": null,

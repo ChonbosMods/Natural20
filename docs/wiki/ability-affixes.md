@@ -61,16 +61,16 @@ Indestructible rolls only on Epic and Legendary items. Lower-rarity items cannot
 
 | Rarity    | Min | Max |
 |-----------|-----|-----|
-| Uncommon  | 15% | 20% |
-| Rare      | 20% | 30% |
-| Epic      | 30% | 45% |
-| Legendary | 45% | 60% |
+| Uncommon  | 15% | 25% |
+| Rare      | 25% | 40% |
+| Epic      | 45% | 60% |
 
-**No scaling, no softcap**: the rolled value IS the percentage. There's no stat multiplier pushing it past the Legendary 60% cap.
+**No scaling, no softcap**: the rolled value IS the percentage. There's no stat multiplier pushing it past the Epic 60% cap.
 
 **Mutually exclusive with**: Indestructible. Choose between a chance-based save and a guaranteed save.
 
 **Notes**:
+- Fortified tops out at Epic. Legendary gear always gets Indestructible instead, which is why the Fortified curve ends at Epic 45-60%.
 - Fortified is weaker per-use but available on more rarity tiers (Uncommon+ vs. Indestructible's Epic+).
 - A Fortified item at 60% with heavy use still takes damage about 2 of every 5 swings, so durability will deplete over time. It stretches the item's lifespan ~2.5x, not forever.
 - Implementation shares the same bytecode-patched intercept as Indestructible.

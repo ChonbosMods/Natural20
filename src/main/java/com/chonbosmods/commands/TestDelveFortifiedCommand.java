@@ -17,14 +17,18 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
- * Debug command: gives a Legendary Iron Pickaxe with {@code nat20:delve} AND
+ * Debug command: gives an Epic Iron Pickaxe with {@code nat20:delve} AND
  * {@code nat20:fortified}. Verifies that shape mining cascade interacts correctly with
- * the Fortified bytecode patch (each cascade block rolls its own 50% skip chance for durability).
+ * the Fortified bytecode patch (each cascade block rolls its own skip chance for durability,
+ * interpolated from Fortified's Epic ValuesPerRarity range with midLevel = 1.0 → 60%).
+ *
+ * <p>Epic is used instead of Legendary because Fortified's ValuesPerRarity intentionally
+ * tops out at Epic; Legendary gear always rolls Indestructible instead.
  */
 public class TestDelveFortifiedCommand extends AbstractPlayerCommand {
 
     public TestDelveFortifiedCommand() {
-        super("testdelvefort", "Give a Legendary Iron Pickaxe with Delve + Fortified");
+        super("testdelvefort", "Give an Epic Iron Pickaxe with Delve + Fortified");
     }
 
     @Override
@@ -34,7 +38,7 @@ public class TestDelveFortifiedCommand extends AbstractPlayerCommand {
                            @Nonnull PlayerRef playerRef,
                            @Nonnull World world) {
         Nat20LootData lootData = new Nat20LootData();
-        lootData.setRarity("Legendary");
+        lootData.setRarity("Epic");
         lootData.setLootLevel(1.0);
         lootData.setAffixes(List.of(
             new RolledAffix("nat20:delve", 1.0),
@@ -55,6 +59,6 @@ public class TestDelveFortifiedCommand extends AbstractPlayerCommand {
 
         player.giveItem(stack, ref, store);
         context.sendMessage(Message.raw("Gave: " + lootData.getGeneratedName()
-            + " [Legendary] (Delve cascade + ~50% durability skip per block)"));
+            + " [Epic] (Delve cascade + 60% durability skip per block)"));
     }
 }
