@@ -255,20 +255,35 @@ public class SettlementWorldGenListener {
         world.execute(() -> {
             var store = world.getEntityStore().getStore();
 
-            Nat20HeightmapSampler.SampleResult centerSample = Nat20HeightmapSampler.sample(
-                world, anchorX, anchorZ, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
-            int groundY = centerSample.y() > 0 ? centerSample.y() : (int) spawnPos.getY();
+            // Find the flattest ground within a small search area around the
+            // initial offset so we avoid landing the anchor on a cliff, a
+            // pillar, a tree, or right on a water surface. The search tries
+            // the base point plus 8 compass candidates at a 20-block radius
+            // and picks the lowest-slope option with a valid Y.
+            AnchorChoice chosen = findFlattestAnchor(world, anchorX, anchorZ);
+            int finalAnchorX = chosen.x;
+            int finalAnchorZ = chosen.z;
+            int groundY = chosen.y > 0 ? chosen.y : Math.max(1, (int) spawnPos.getY() - 1);
 
-            // Ring of N NPC spawn markers around the anchor; each marker's Y is
-            // sampled locally so NPCs stand on the real surface.
+            // Build the NPC ring. Each marker's Y samples a 5x5 neighborhood
+            // (halfX=halfZ=2) with MEDIAN so a single bad probe (tree, cave
+            // opening, fluid) can't drag the spawn down to Y=0. If the sample
+            // is unusable or too steep for that marker, fall back to the
+            // anchor pad Y so the NPC stands at a consistent height with the
+            // rest of the group.
             List<Vector3d> markers = new ArrayList<>(SPAWN_SETTLEMENT_NPC_COUNT);
             for (int i = 0; i < SPAWN_SETTLEMENT_NPC_COUNT; i++) {
                 double theta = 2.0 * Math.PI * i / SPAWN_SETTLEMENT_NPC_COUNT;
-                int mx = anchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
-                int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                int mx = finalAnchorX + (int) Math.round(Math.cos(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
+                int mz = finalAnchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
                 Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
-                    world, mx, mz, 0, 0, Nat20HeightmapSampler.Mode.MEDIAN);
-                int my = mSample.y() > 0 ? mSample.y() : groundY;
+                    world, mx, mz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
+                int my;
+                if (mSample.y() <= 0 || mSample.tooSteep()) {
+                    my = groundY;
+                } else {
+                    my = mSample.y();
+                }
                 markers.add(new Vector3d(mx, my, mz));
             }
 
@@ -290,9 +305,55 @@ public class SettlementWorldGenListener {
             scrubCeliusPregenQuest(store, world, spawned);
 
             LOGGER.atInfo().log(
-                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included)",
-                anchorX, groundY, anchorZ, spawned.size());
+                "Spawn settlement placed at (%d, %d, %d) with %d NPCs (Celius included, anchorShift=(%d,%d))",
+                finalAnchorX, groundY, finalAnchorZ, spawned.size(),
+                finalAnchorX - anchorX, finalAnchorZ - anchorZ);
         });
+    }
+
+    /** Simple tuple result for the anchor-search helper. */
+    private record AnchorChoice(int x, int z, int y, int slope) {}
+
+    /** Candidate offsets (in blocks) probed around the base anchor. 0,0 is the
+     *  base; the eight compass directions at 20-block radius are the fallbacks. */
+    private static final int[][] ANCHOR_SEARCH_OFFSETS = {
+        {  0,   0},
+        { 20,   0}, {-20,   0}, {  0,  20}, {  0, -20},
+        { 14,  14}, {-14,  14}, { 14, -14}, {-14, -14}
+    };
+
+    /**
+     * Probe the base anchor and eight compass candidates for ground quality,
+     * returning the option with the lowest slope delta (and a positive Y).
+     * Each probe samples a 5x5 neighborhood via MEDIAN. If no probe returns a
+     * positive Y, returns the base with y=0 so the caller's fallback kicks in.
+     */
+    private AnchorChoice findFlattestAnchor(World world, int baseX, int baseZ) {
+        AnchorChoice best = null;
+        for (int[] off : ANCHOR_SEARCH_OFFSETS) {
+            int px = baseX + off[0];
+            int pz = baseZ + off[1];
+            Nat20HeightmapSampler.SampleResult r = Nat20HeightmapSampler.sample(
+                world, px, pz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
+            if (r.y() <= 0) continue;
+            AnchorChoice option = new AnchorChoice(px, pz, r.y(), r.slopeDelta());
+            if (best == null || option.slope < best.slope) {
+                best = option;
+                if (best.slope == 0) break; // perfect flat, stop early
+            }
+        }
+        if (best == null) {
+            LOGGER.atWarning().log(
+                "Spawn settlement anchor search found no valid ground near (%d,%d); using base",
+                baseX, baseZ);
+            return new AnchorChoice(baseX, baseZ, 0, Integer.MAX_VALUE);
+        }
+        if (best.x != baseX || best.z != baseZ) {
+            LOGGER.atInfo().log(
+                "Spawn settlement anchor shifted from (%d,%d) to (%d,%d) (slope=%d)",
+                baseX, baseZ, best.x, best.z, best.slope);
+        }
+        return best;
     }
 
     /** Strip any pregen quest that TopicGenerator accidentally assigned to Celius
