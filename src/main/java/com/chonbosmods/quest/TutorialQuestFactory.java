@@ -135,6 +135,12 @@ public final class TutorialQuestFactory {
         // tier range, ilvl 5. dispensePhaseReward consumes these at turn-in.
         rollTutorialRewards(quest, playerUuid);
 
+        // Pre-roll the phase-3 boss now so {boss_name} is bound before the
+        // player opens any Celius dialogue session. DialogueGraph.lateResolve
+        // runs once at session start and the phase-2 assign node's speakerText
+        // references {boss_name}; without this it would render as "".
+        TutorialPhase3Setup.preRollBoss(quest, phase3);
+
         // Stamp the phase-1 turn-in marker on Celius now. The quest is born in
         // READY_FOR_TURN_IN state (phase 1 is pre-complete), so the "?" should
         // show from the moment the player walks toward him.
@@ -164,9 +170,9 @@ public final class TutorialQuestFactory {
         boolean resolved = DialogueActionRegistry.tryResolveDeferredTalkToNpc(quest, phase2);
         if (resolved) {
             bindings.putIfAbsent("target_npc_opener",
-                "You're the one Celius sent. Good. Take back what I'm about to tell you, and tell him I said to move quickly.");
+                "You're the one Celius sent. Good. I've been tracking the one terrorizing his village for weeks, and I finally have an idea where their lair lies.");
             bindings.putIfAbsent("target_npc_closer",
-                "Go on, then. Don't keep Celius waiting.");
+                "Take word back to Celius, and tell him I said to move on it quickly.");
         }
 
         LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, celiusCell=%s, phase2Resolved=%s)",

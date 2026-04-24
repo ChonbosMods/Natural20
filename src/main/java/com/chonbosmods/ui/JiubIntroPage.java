@@ -65,10 +65,10 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     private static final String INTRO1_TEXT =
             "Stand up. There you go. You were dreaming. Not even last night's storm could wake you.";
     private static final String INTRO2_TEXT =
-            "Somewhere behind you is the life you came from. I'd like to hear what it looked like.";
+            "What you were before this carries forward with you, whether you mean it to or not. Best I know what I'm working with.";
     /** {0} is substituted with the player's Background displayName prefixed with "a" or "an". */
     private static final String INTRO3_TEMPLATE =
-            "Go talk to Celius Gravus. He has been looking for help with something urgent and could use {0} of your caliber.";
+            "Go find Celius Gravus. He has urgent work on his hands, and he could use {0} of your caliber.";
 
     public static final BuilderCodec<PageEventData> EVENT_CODEC =
             BuilderCodec.builder(PageEventData.class, PageEventData::new)

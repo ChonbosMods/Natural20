@@ -781,9 +781,9 @@ public class DialogueActionRegistry {
                 // same ones DialogueManager.injectTalkToNpcTopics reads for any
                 // TALK_TO_NPC objective, so the target NPC delivers our text.
                 bindings.putIfAbsent("target_npc_opener",
-                    "You're the one Celius sent. Good. Take back what I'm about to tell you, and tell him I said to move quickly.");
+                    "You're the one Celius sent. Good. I've been tracking the one terrorizing his village for weeks, and I finally have an idea where their lair lies.");
                 bindings.putIfAbsent("target_npc_closer",
-                    "Go on, then. Don't keep Celius waiting.");
+                    "Take word back to Celius, and tell him I said to move on it quickly.");
                 bindings.put("quest_objective_summary",
                     "Speak with " + bindings.getOrDefault("target_npc", phase2Obj.getTargetLabel())
                         + " in " + bindings.getOrDefault("target_npc_settlement", "a nearby settlement"));

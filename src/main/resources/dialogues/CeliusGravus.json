@@ -66,7 +66,7 @@
 
     "node_tutorial_phase1_entry": {
       "type": "DIALOGUE",
-      "speakerText": "Good, Jiub told me to expect you. Glad you came when you did.",
+      "speakerText": "Good, Jiub sent word. That man has an eye for who's useful, and he says you are.",
       "responses": [
         {
           "id": "phase1_continue",
@@ -82,14 +82,14 @@
     },
     "node_tutorial_phase1_assign": {
       "type": "DIALOGUE",
-      "speakerText": "Ride out to {target_npc_settlement} and find {target_npc}, they'll have something for you to bring back to me.",
+      "speakerText": "Head to {target_npc_settlement} and find {target_npc}. I've marked their location on your map. They have valuable information concerning a great threat to our village.",
       "responses": [],
       "exhaustsTopic": true
     },
 
     "node_tutorial_phase2_entry": {
       "type": "DIALOGUE",
-      "speakerText": "Back already. Good. Whatever {target_npc} told you, hold onto it.",
+      "speakerText": "Back already, good. Now we know who we're facing, and {target_npc} has given us the ground to meet them on.",
       "responses": [
         {
           "id": "phase2_continue",
@@ -105,14 +105,14 @@
     },
     "node_tutorial_phase2_assign": {
       "type": "DIALOGUE",
-      "speakerText": "There's one more thing I'll need your hands for. Check your quest log, I've marked the spot.",
+      "speakerText": "This threat ends with {boss_name}'s death. Go to their lair and finish what they started, I've marked the general area on your map, you'll have to search underground for the exact spot.",
       "responses": [],
       "exhaustsTopic": true
     },
 
     "node_tutorial_phase3_entry": {
       "type": "DIALOGUE",
-      "speakerText": "You found {boss_name} and put them down. Heard the work from here.",
+      "speakerText": "You found {boss_name} and put them in the ground. We heard the work from here.",
       "responses": [
         {
           "id": "phase3_continue",
@@ -135,7 +135,7 @@
 
     "node_watch_1": {
       "type": "DIALOGUE",
-      "speakerText": "The gate keeps the worst of it out. The rest of us do the rest.",
+      "speakerText": "There's always something moving in the treeline after dark. My job is to know whether it means us harm or just wants the same warmth we do.",
       "responses": []
     }
   }

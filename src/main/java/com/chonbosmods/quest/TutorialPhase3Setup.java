@@ -55,12 +55,31 @@ public final class TutorialPhase3Setup {
             return;
         }
 
+        // preRollBoss is idempotent (deterministic RNG seeded on questId), so it's
+        // a no-op if the factory already called it at creation time. We still
+        // invoke it here as a safety net for legacy quests that predate the
+        // creation-time pre-roll.
         preRollBoss(quest, phase3Obj);
+        // Summary lives here (not in preRollBoss) so the creation-time call
+        // doesn't clobber phase-1's "Return to Celius" summary while phase 1
+        // is still the active phase.
+        QuestGenerator.buildObjectiveSummary(phase3Obj, quest.getVariableBindings());
         String populationSpec = buildPopulationSpec(quest);
         placePoi(quest, phase3Obj, populationSpec, store, playerRef);
     }
 
-    private static void preRollBoss(QuestInstance quest, ObjectiveInstance phase3Obj) {
+    /**
+     * Roll the tutorial boss (name, difficulty tier) + write the binding surface
+     * + stamp the phase-3 objective's target fields. Deterministic (keyed on
+     * {@code questId}) so creation-time and turn-in-time calls produce the same
+     * result; the latter is a harmless re-roll for legacy quests.
+     *
+     * <p>Does NOT rebuild {@code quest_objective_summary}: creation-time calls
+     * would clobber the phase-1 "Return to Celius" summary. That happens in
+     * {@link #setupPhase3} at phase-2 turn-in, when the advance to phase 3 is
+     * actually the active state.
+     */
+    public static void preRollBoss(QuestInstance quest, ObjectiveInstance phase3Obj) {
         Map<String, String> bindings = quest.getVariableBindings();
         Natural20 plugin = Natural20.getInstance();
         MobScalingConfig scalingConfig = plugin.getScalingConfig();
@@ -93,12 +112,6 @@ public final class TutorialPhase3Setup {
         phase3Obj.setTargetLabelPlural(bossName);
         phase3Obj.setForcedPoiDirection(PoiGroupDirection.KILL_BOSS);
         phase3Obj.setRequiredCount(1);
-
-        // Rebuild the objective summary synchronously so the POI waypoint reads
-        // "Kill {bossName}" on the next refresh, even before the async dungeon
-        // paste lands. Otherwise the label would linger on phase-2's
-        // "Speak with X in Y" string until finalizePlacement completes.
-        QuestGenerator.buildObjectiveSummary(phase3Obj, bindings);
 
         LOGGER.atInfo().log("Tutorial phase-3 pre-roll: boss=%s tier=%s", bossName, bossDiff);
     }
