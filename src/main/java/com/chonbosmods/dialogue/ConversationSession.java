@@ -501,6 +501,8 @@ public class ConversationSession {
 
             // Quest-accept crit consequences (nat20 grant + nat1 disposition/blacklist)
             // only fire inside a quest topic; free-roam and turn-in checks are unaffected.
+            // Assumes one skill check per quest topic (the accept gate); if mid-quest
+            // checks ever land, gate further on checkNode identity or pass-action.
             if (isActiveTopicQuestTopic() && (result.naturalRoll() == 20 || result.naturalRoll() == 1)) {
                 handleQuestAcceptCrit(result.naturalRoll());
             }
@@ -582,16 +584,17 @@ public class ConversationSession {
             plugin.getDefaultWorld().execute(() -> {
                 try {
                     future.complete(DialogueActionRegistry.rollAndGrantPreQuestReward(ctx, quest));
-                } catch (Throwable t) {
-                    future.completeExceptionally(t);
+                } catch (Exception e) {
+                    future.completeExceptionally(e);
                 }
             });
             com.hypixel.hytale.server.core.inventory.ItemStack granted;
             try {
-                granted = future.get();
+                granted = future.get(3, java.util.concurrent.TimeUnit.SECONDS);
             } catch (Exception e) {
                 LOGGER.atWarning().withCause(e).log(
-                        "nat20 pre-quest reward await failed for quest %s", quest.getQuestId());
+                        "nat20 grant await failed (giveItem may have timed out or world unloaded mid-dialogue); "
+                            + "skipping pre-quest item suffix");
                 granted = null;
             }
             if (granted != null) {
