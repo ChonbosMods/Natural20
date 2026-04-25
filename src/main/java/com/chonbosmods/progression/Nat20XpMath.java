@@ -98,13 +98,29 @@ public final class Nat20XpMath {
     }
 
     /**
-     * ilvl -> affix-value scale multiplier, per spec §3.2 of the ilvl/mlvl doc.
+     * ilvl x rarity to affix-value scale multiplier.
+     * Two-component curve: {@code endgameScale(qv) x spread(ilvl)}.
+     * <ul>
+     *   <li>{@code endgameScale(qv)}: constant per rarity, equals today's ilvl-45 value
+     *       (Common=2.10 ... Legendary=2.628).</li>
+     *   <li>{@code spread(ilvl)}: linear from 0.30 at ilvl 1 to 1.00 at ilvl 45.</li>
+     * </ul>
+     * Endgame ceiling preserved: {@code ilvlScale(45, qv)} returns the same value
+     * as the prior linear-from-1.0 formula. Low-ilvl values are dampened to 30% of endgame.
+     *
      * @param ilvl item level (1..45)
      * @param qualityValue rarity tier (Common=1 .. Legendary=5)
      */
     public static double ilvlScale(int ilvl, int qualityValue) {
-        double perIlvl = 0.025 + (qualityValue - 1) * 0.003;
-        return 1.0 + (ilvl - 1) * perIlvl;
+        return endgameScale(qualityValue) * spread(ilvl);
+    }
+
+    private static double endgameScale(int qualityValue) {
+        return 1.0 + 44 * (0.025 + (qualityValue - 1) * 0.003);
+    }
+
+    private static double spread(int ilvl) {
+        return 0.30 + 0.70 * (ilvl - 1) / 44.0;
     }
 
     /** Per-tier integer bonus range for COLLECT_RESOURCES count scaling.

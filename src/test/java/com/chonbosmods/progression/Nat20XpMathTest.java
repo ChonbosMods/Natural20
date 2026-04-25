@@ -78,4 +78,46 @@ class Nat20XpMathTest {
         assertTrue(low >= 6 && low <= 8, "tier 0 should clamp to T1 range [6,8]");
         assertTrue(high >= 1 && high <= 3, "tier 9 should clamp to T4 range [1,3]");
     }
+
+    private static final double EPS = 1e-9;
+
+    @Test
+    void ilvlScaleFloorAtIlvl1IsThirtyPercentOfEndgameForCommon() {
+        // qv=1 (Common), ilvl=1 -> spread=0.30 x endgameScale=2.10 = 0.630
+        assertEquals(0.630, Nat20XpMath.ilvlScale(1, 1), EPS);
+    }
+
+    @Test
+    void ilvlScaleFloorAtIlvl1IsThirtyPercentOfEndgameForLegendary() {
+        // qv=5 (Legendary), ilvl=1 -> spread=0.30 x endgameScale=2.628 = 0.7884
+        assertEquals(0.7884, Nat20XpMath.ilvlScale(1, 5), EPS);
+    }
+
+    @Test
+    void ilvlScaleAtIlvl45MatchesTodaysValueForCommon() {
+        // qv=1, ilvl=45 -> spread=1.0 x endgameScale=2.10 = 2.10 (today's value preserved)
+        assertEquals(2.100, Nat20XpMath.ilvlScale(45, 1), EPS);
+    }
+
+    @Test
+    void ilvlScaleAtIlvl45MatchesTodaysValueForLegendary() {
+        // qv=5, ilvl=45 -> spread=1.0 x endgameScale=2.628 (today's value preserved)
+        assertEquals(2.628, Nat20XpMath.ilvlScale(45, 5), EPS);
+    }
+
+    @Test
+    void ilvlScaleMidpointIsLinearBetweenFloorAndCeiling() {
+        // qv=1, ilvl=23 -> spread = 0.30 + 0.70 x 22/44 = 0.65
+        // scale = 0.65 x 2.10 = 1.365
+        assertEquals(1.365, Nat20XpMath.ilvlScale(23, 1), EPS);
+    }
+
+    @Test
+    void ilvlScaleHigherRarityScalesProportionallyHigher() {
+        // At ilvl 1, Legendary should be exactly endgameScale_legendary / endgameScale_common
+        // higher than Common: 0.7884 / 0.630 = 2.628 / 2.10 = 1.252
+        double common = Nat20XpMath.ilvlScale(1, 1);
+        double legendary = Nat20XpMath.ilvlScale(1, 5);
+        assertEquals(2.628 / 2.100, legendary / common, EPS);
+    }
 }
