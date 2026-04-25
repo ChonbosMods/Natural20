@@ -9,6 +9,7 @@ import com.chonbosmods.party.Nat20PartyInviteRegistry;
 import com.chonbosmods.party.Nat20PartyRegistry;
 import com.chonbosmods.party.PartyInvite;
 import com.chonbosmods.party.PartyInviteBanner;
+import com.chonbosmods.party.PartyJoinedBanner;
 import com.chonbosmods.progression.Nat20XpMath;
 import com.chonbosmods.quest.CompletedQuestRecord;
 import com.chonbosmods.quest.QuestInstance;
@@ -816,7 +817,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
                 if (isButtonA) handleInviteClicked(store, target);
             }
             case INVITES -> {
-                if (isButtonA) handleAcceptInviteClicked(target);
+                if (isButtonA) handleAcceptInviteClicked(store, target);
                 else handleDeclineInviteClicked(target);
             }
         }
@@ -885,14 +886,33 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         rebuild();
     }
 
-    private void handleAcceptInviteClicked(UUID inviter) {
+    private void handleAcceptInviteClicked(Store<EntityStore> store, UUID inviter) {
         Nat20PartyRegistry partyReg = Natural20.getInstance().getPartyRegistry();
         Nat20PartyInviteRegistry inviteReg = Natural20.getInstance().getPartyInviteRegistry();
         if (partyReg == null || inviteReg == null) return;
+        UUID joiner = this.playerRef.getUuid();
+        boolean accepted = false;
         try {
-            partyReg.acceptPendingInvite(inviteReg, this.playerRef.getUuid());
+            partyReg.acceptPendingInvite(inviteReg, joiner);
+            accepted = true;
         } catch (RuntimeException e) {
             LOGGER.atWarning().log("Accept failed: %s", e.getMessage());
+        }
+        if (accepted) {
+            World world = Natural20.getInstance().getDefaultWorld();
+            Nat20Party party = partyReg.getParty(joiner);
+            if (world != null && party != null) {
+                String joinerName = resolveDisplayName(store, joiner);
+                if (joinerName == null) joinerName = "Someone";
+                for (UUID memberId : party.getMembers()) {
+                    if (memberId.equals(joiner)) continue;
+                    if (!partyReg.isOnline(memberId)) continue;
+                    PlayerRef memberRef = findPlayerRef(world, memberId);
+                    if (memberRef != null) {
+                        PartyJoinedBanner.show(memberRef, joinerName);
+                    }
+                }
+            }
         }
         currentPartyTab = PartyTab.PARTY;
         persistPartyState();
