@@ -1,5 +1,6 @@
 package com.chonbosmods.loot.chest;
 
+import com.chonbosmods.loot.CategoryWeightedPicker;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootPipeline;
 import com.chonbosmods.loot.Nat20LootSystem;
@@ -10,6 +11,7 @@ import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.hypixel.hytale.logger.HytaleLogger;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
@@ -17,14 +19,13 @@ import java.util.Random;
  * Chest-side loot picker bridging the gear-item pool to {@link Nat20LootPipeline}.
  *
  * <p>Mirrors {@link com.chonbosmods.loot.mob.Nat20MobLootListener}'s per-drop logic
- * (sample itemId → infer category → resolve display name → pipeline.generate) but
+ * (sample itemId : infer category : resolve display name : pipeline.generate) but
  * parameterised on an explicit {@code ilvl} instead of reading a mob component.
  *
- * <p>Chests have no native drop-list context, so only the global gear pool is used
- * (the mob-side 8% native bias does not apply). The pool is built per call from
- * {@link Nat20LootEntryRegistry#getAllItemIds()} filtered by
- * {@link Nat20ItemTierResolver#isGearItem(String)} +
- * {@link Nat20ItemTierResolver#allowsIlvl(String, int)}.
+ * <p>Chests have no role context, so no native bias applies (the mob-side value
+ * is {@link Nat20MobLootPool#NATIVE_LIST_BIAS} = 5%). Selection delegates to
+ * {@link CategoryWeightedPicker} for category-weighted random pick over the
+ * bucketed global pool built from {@link Nat20MobLootPool#buildGlobalBuckets}.
  */
 public final class Nat20ChestLootPicker {
 
@@ -69,8 +70,10 @@ public final class Nat20ChestLootPicker {
             return Optional.empty();
         }
 
-        List<String> pool = Nat20MobLootPool.buildGlobalPool(lootSystem.getLootEntryRegistry(), ilvl);
-        if (pool.isEmpty()) {
+        Map<String, List<String>> buckets = Nat20MobLootPool.buildGlobalBuckets(
+                lootSystem.getLootEntryRegistry(), ilvl);
+        boolean allEmpty = buckets.values().stream().allMatch(List::isEmpty);
+        if (allEmpty) {
             LOGGER.atWarning().log("Empty chest loot pool at ilvl=%d; nothing to generate", ilvl);
             return Optional.empty();
         }
@@ -78,7 +81,8 @@ public final class Nat20ChestLootPicker {
         Nat20LootPipeline pipeline = lootSystem.getPipeline();
 
         for (int attempt = 0; attempt < MAX_PICK_ATTEMPTS; attempt++) {
-            String itemId = pool.get(rng.nextInt(pool.size()));
+            String itemId = CategoryWeightedPicker.pick(buckets, rng);
+            if (itemId == null) break;
             String categoryKey = Nat20ItemTierResolver.inferCategory(itemId);
             if (categoryKey == null) continue;
             String baseName = resolveDisplayName(itemId);
