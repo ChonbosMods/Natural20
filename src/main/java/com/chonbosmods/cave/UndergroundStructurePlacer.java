@@ -7,11 +7,13 @@ import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.prefab.YawAlignment;
+import com.chonbosmods.world.Nat20FluidSweeper;
 import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
+import com.hypixel.hytale.server.core.prefab.PrefabRotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
@@ -212,6 +214,17 @@ public class UndergroundStructurePlacer {
                     }
                     LOGGER.atFine().log("Cave POI placed at (%d, %d, %d) rotation=%s",
                             floorX, floorY, floorZ, rotation);
+
+                    PrefabRotation rot = PrefabRotation.fromRotation(rotation);
+                    int swMinX = buffer.getMinX(rot) + floorX - 2;
+                    int swMaxX = buffer.getMaxX(rot) + floorX + 2;
+                    int swMinY = buffer.getMinY()    + floorY - 2;
+                    int swMaxY = buffer.getMaxY()    + floorY + 2;
+                    int swMinZ = buffer.getMinZ(rot) + floorZ - 2;
+                    int swMaxZ = buffer.getMaxZ(rot) + floorZ + 2;
+                    Nat20FluidSweeper.clearLavaInVolume(world,
+                            swMinX, swMinY, swMinZ, swMaxX, swMaxY, swMaxZ);
+
                     result.complete(placed);
                 });
 
