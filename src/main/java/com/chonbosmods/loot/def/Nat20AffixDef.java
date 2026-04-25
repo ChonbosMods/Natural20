@@ -18,6 +18,7 @@ public record Nat20AffixDef(
     String targetStat,
     String modifierType,
     Map<String, AffixValueRange> valuesPerRarity,
+    boolean ilvlScalable,
     @Nullable String description,
     @Nullable String cooldown,
     @Nullable String procChance,

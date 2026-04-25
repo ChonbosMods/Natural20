@@ -138,6 +138,7 @@ public class Nat20AffixRegistry {
 
         int frequency = obj.has("Frequency") ? obj.get("Frequency").getAsInt() : 10;
         boolean mobEligible = obj.has("MobEligible") && obj.get("MobEligible").getAsBoolean();
+        boolean ilvlScalable = !obj.has("IlvlScalable") || obj.get("IlvlScalable").getAsBoolean();
 
         return new Nat20AffixDef(
             id,
@@ -150,6 +151,7 @@ public class Nat20AffixRegistry {
             obj.has("TargetStat") && !obj.get("TargetStat").isJsonNull() ? obj.get("TargetStat").getAsString() : null,
             obj.has("ModifierType") && !obj.get("ModifierType").isJsonNull() ? obj.get("ModifierType").getAsString() : "ADDITIVE",
             valuesPerRarity,
+            ilvlScalable,
             description,
             cooldown,
             procChance,
