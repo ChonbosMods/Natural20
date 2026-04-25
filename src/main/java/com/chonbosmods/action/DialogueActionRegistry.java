@@ -42,7 +42,6 @@ import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
 import com.chonbosmods.loot.Nat20LootData;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -383,11 +382,10 @@ public class DialogueActionRegistry {
             // design: a 3-phase hard quest awards 3 x difficulty.xpAmount. Skillcheck
             // pass is preserved on the quest for future hooks but no longer multiplies.
             int phaseIndex = quest.getConflictCount();
-            QuestInstance.PhaseReward phaseReward = quest.getPhaseReward(phaseIndex);
             quest.claimReward(phaseIndex);
             ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_PHASE_TURNED_IN);
 
-            dispensePhaseReward(ctx, quest, phaseIndex);
+            String rolledName = dispensePhaseReward(ctx, quest, phaseIndex);
             dispensePhaseXp(ctx, quest);
 
             // Dialogue-UI feedback. Uses the authored flavor title (quest_topic_header,
@@ -397,9 +395,7 @@ public class DialogueActionRegistry {
             // WHAT TO DO. A 1-phase quest's only message is the "Quest completed" form.
             String turnInLabel = quest.getVariableBindings()
                 .getOrDefault("quest_topic_header", quest.getSituationId());
-            String itemDisplay = phaseReward != null && phaseReward.getRewardItemDisplayName() != null
-                ? phaseReward.getRewardItemDisplayName()
-                : (phaseReward != null ? phaseReward.getRewardItemId() : "nothing");
+            String itemDisplay = rolledName != null ? rolledName : "nothing";
             // Display the actual amount dispensePhaseXp will award to this player:
             // their level x quest difficulty, with the same level-only fallback.
             com.chonbosmods.quest.model.DifficultyConfig displayDifficulty = null;
@@ -889,17 +885,14 @@ public class DialogueActionRegistry {
             // gets the same affix-rolled item + level-scaled XP that procedural
             // quests dispense at TURN_IN_V2. Reason string is set by
             // dispensePhaseXp to "quest:tutorial_main:phase2" (cc=2).
-            dispensePhaseReward(ctx, quest, 2);
+            String rolledName = dispensePhaseReward(ctx, quest, 2);
             dispensePhaseXp(ctx, quest);
 
             // Standard turn-in system message (mirrors TURN_IN_V2) so the tutorial
             // ending reads exactly like any other quest's final turn-in.
-            QuestInstance.PhaseReward phaseReward = quest.getPhaseReward(2);
             String turnInLabel = quest.getVariableBindings()
                 .getOrDefault("quest_topic_header", quest.getSituationId());
-            String itemDisplay = phaseReward != null && phaseReward.getRewardItemDisplayName() != null
-                ? phaseReward.getRewardItemDisplayName()
-                : (phaseReward != null ? phaseReward.getRewardItemId() : "nothing");
+            String itemDisplay = rolledName != null ? rolledName : "nothing";
             com.chonbosmods.quest.model.DifficultyConfig displayDifficulty =
                 quest.getDifficultyId() != null
                     ? questSystem.getDifficultyRegistry().get(quest.getDifficultyId())
@@ -1276,19 +1269,23 @@ public class DialogueActionRegistry {
             sx, sy, sz, quest.getQuestId());
     }
 
-    private static final Gson REWARD_DATA_GSON = new Gson();
-
     /**
      * Dispense the {@link QuestInstance.PhaseReward} for the given phase index. Each phase
-     * of a multi-phase quest holds its own rolled reward; this is called once per
-     * phase turn-in (not just the final one). Rehydrates the stored Nat20LootData
-     * JSON and reattaches it so affix metadata round-trips onto the ItemStack.
+     * of a multi-phase quest holds its own reward DEFINITION (tier + areaLevelAtSpawn +
+     * ilvlBonus); the actual {@link ItemStack} is rolled FRESH at this dispense
+     * site via {@link com.chonbosmods.quest.AffixRewardRoller#roll} using the
+     * triggering player's mlvl through
+     * {@link com.chonbosmods.quest.QuestRewardIlvl#reward(int, int, int)}.
      *
-     * <p>Failure modes (missing reward, JSON parse failure, full inventory) are
-     * logged at SEVERE with quest id, phase index, item id, and player UUID so
-     * gaps are loud. Not silently dropped or retried.
+     * <p>Returns the rolled item's display name (preferring the {@link Nat20LootData}
+     * generated name, falling back to the base item id) on success, or {@code null}
+     * on any failure so callers can show "Received [name]" in dialogue feedback.
+     *
+     * <p>Failure modes (missing reward, invalid PhaseReward, roll exception, full
+     * inventory) are logged at SEVERE with quest id, phase index, and player UUID
+     * so gaps are loud. Not silently dropped or retried.
      */
-    public static void dispensePhaseReward(ActionContext ctx, QuestInstance quest, int phaseIndex) {
+    public static String dispensePhaseReward(ActionContext ctx, QuestInstance quest, int phaseIndex) {
         QuestInstance.PhaseReward reward = quest.getPhaseReward(phaseIndex);
         java.util.UUID playerUuid = ctx.player().getPlayerRef().getUuid();
 
@@ -1296,42 +1293,36 @@ public class DialogueActionRegistry {
             LOGGER.atSevere().log(
                 "TURN_IN_V2 dispense skipped for quest %s phase %d, player %s: no phase reward at index",
                 quest.getQuestId(), phaseIndex, playerUuid);
-            return;
+            return null;
         }
 
-        String itemId = reward.getRewardItemId();
-        int count = reward.getRewardItemCount();
-        String dataJson = reward.getRewardItemDataJson();
+        String tier = reward.getRewardTier();
+        int areaLevel = reward.getAreaLevelAtSpawn();
+        int ilvlBonus = reward.getIlvlBonus();
 
-        if (itemId == null || itemId.isEmpty() || count <= 0 || dataJson == null || dataJson.isEmpty()) {
+        if (tier == null || tier.isBlank() || areaLevel <= 0) {
             LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense skipped for quest %s phase %d, player %s: missing reward fields "
-                    + "(itemId=%s, count=%d, hasJson=%s)",
-                quest.getQuestId(), phaseIndex, playerUuid, itemId, count,
-                dataJson != null && !dataJson.isEmpty());
-            return;
+                "TURN_IN_V2 dispense skipped for quest %s phase %d, player %s: invalid PhaseReward "
+                    + "(tier=%s, areaLevel=%d, ilvlBonus=%d)",
+                quest.getQuestId(), phaseIndex, playerUuid, tier, areaLevel, ilvlBonus);
+            return null;
         }
 
-        Nat20LootData lootData;
+        Nat20PlayerData playerData = ctx.store().getComponent(ctx.playerRef(), Natural20.getPlayerDataType());
+        int playerLevel = playerData != null ? playerData.getLevel() : 1;
+        int ilvl = com.chonbosmods.quest.QuestRewardIlvl.reward(playerLevel, areaLevel, ilvlBonus);
+
+        ItemStack stack;
         try {
-            lootData = REWARD_DATA_GSON.fromJson(dataJson, Nat20LootData.class);
+            stack = com.chonbosmods.quest.AffixRewardRoller.roll(tier, ilvl, new Random());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log(
-                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: "
-                    + "could not parse stored Nat20LootData JSON",
-                quest.getQuestId(), phaseIndex, itemId, playerUuid);
-            return;
+                "TURN_IN_V2 reward roll failed for quest %s phase %d, player %s "
+                    + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
+                quest.getQuestId(), phaseIndex, playerUuid, tier, ilvl,
+                playerLevel, areaLevel, ilvlBonus);
+            return null;
         }
-        if (lootData == null) {
-            LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: "
-                    + "Nat20LootData JSON deserialized to null",
-                quest.getQuestId(), phaseIndex, itemId, playerUuid);
-            return;
-        }
-
-        ItemStack stack = new ItemStack(itemId, count)
-            .withMetadata(Nat20LootData.METADATA_KEY, lootData);
 
         ItemStackTransaction tx;
         try {
@@ -1339,35 +1330,46 @@ public class DialogueActionRegistry {
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log(
                 "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: giveItem threw",
-                quest.getQuestId(), phaseIndex, itemId, playerUuid);
-            return;
+                quest.getQuestId(), phaseIndex, stack.getItemId(), playerUuid);
+            return null;
         }
 
         if (tx == null || !tx.succeeded()) {
             ItemStack remainder = tx != null ? tx.getRemainder() : null;
-            int remainderQty = remainder != null ? remainder.getQuantity() : count;
+            int remainderQty = remainder != null ? remainder.getQuantity() : stack.getQuantity();
             LOGGER.atSevere().log(
                 "TURN_IN_V2 dispense REFUSED for quest %s phase %d, item %s, player %s: giveItem "
                     + "returned !succeeded (remainder=%d). Inventory likely full; reward NOT delivered.",
-                quest.getQuestId(), phaseIndex, itemId, playerUuid, remainderQty);
-            return;
+                quest.getQuestId(), phaseIndex, stack.getItemId(), playerUuid, remainderQty);
+            return null;
+        }
+
+        String displayName = stack.getItemId();
+        Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+        if (lootData != null && lootData.getGeneratedName() != null
+                && !lootData.getGeneratedName().isBlank()) {
+            displayName = lootData.getGeneratedName();
         }
 
         LOGGER.atInfo().log(
-            "TURN_IN_V2 dispensed phase %d reward for quest %s: %s x%d to player %s",
-            phaseIndex, quest.getQuestId(), itemId, count, playerUuid);
+            "TURN_IN_V2 dispensed phase %d reward for quest %s: %s x%d to player %s "
+                + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
+            phaseIndex, quest.getQuestId(), stack.getItemId(), stack.getQuantity(),
+            playerUuid, tier, ilvl, playerLevel, areaLevel, ilvlBonus);
 
         // Multi-accepter item dispense (2026-04-22 Option B): every online
-        // non-missed accepter OTHER than the triggering player gets a fresh
-        // AffixRewardRoller reroll at the phase's stored tier + ilvl so party
-        // members don't all walk away with identical items. Legacy quests
-        // (rewardTier == null) skip this step with a SEVERE log.
+        // non-missed accepter OTHER than the triggering player gets their own
+        // FRESH per-player roll at the phase's stored tier and an ilvl computed
+        // from THEIR mlvl. Legacy quests (rewardTier null/blank or areaLevel<=0)
+        // skip this step with a SEVERE log.
         com.hypixel.hytale.server.core.universe.world.World world =
                 Natural20.getInstance().getDefaultWorld();
         if (world != null) {
             com.chonbosmods.quest.Nat20QuestRewardDispatcher
                 .dispenseItemsToOtherAccepters(quest, phaseIndex, playerUuid, world);
         }
+
+        return displayName;
     }
 
     /**

@@ -4,7 +4,6 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
-import com.google.gson.Gson;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -29,18 +28,21 @@ import java.util.UUID;
  *   <li>XP: awarded exclusively by {@code DialogueActionRegistry.dispensePhaseXp}
  *       at TURN_IN_V2 (not here). That path iterates accepters itself so every
  *       online non-missed player gets level + difficulty-scaled XP.</li>
- *   <li>Items: the triggering player gets the pre-rolled reward (preserved
- *       single-player path); every OTHER online non-missed accepter gets a
- *       fresh reroll via {@link AffixRewardRoller#roll} at the phase's stored
- *       tier + ilvl so party members don't all get identical items.</li>
+ *   <li>Items: every online non-missed accepter OTHER than the triggering
+ *       player gets a FRESH per-player roll via {@link AffixRewardRoller#roll}
+ *       at the phase's stored tier and a per-player ilvl computed by
+ *       {@link QuestRewardIlvl#reward(int, int, int)} from each recipient's
+ *       own mlvl, the quest's {@code areaLevelAtSpawn}, and {@code ilvlBonus}.
+ *       The triggering player is rolled separately by DAR's
+ *       {@code dispensePhaseReward}. Party members get distinct items AND
+ *       distinct ilvls scaled to their own level.</li>
  *   <li>Waypoints: {@link #refreshMarkersForAccepters} refreshes the cache for
  *       every online accepter at phase-ready / accept / phase-advance moments
  *       so non-triggering party members don't need a /sheet toggle.</li>
  *   <li>Offline accepters and missed accepters are skipped silently.</li>
- *   <li>Legacy quests (rewardTier == null on {@link QuestInstance.PhaseReward})
- *       predate this pivot: the triggering player still gets their stored
- *       pre-rolled item, but other accepters are skipped with a SEVERE log
- *       (no tier/ilvl to reroll against).</li>
+ *   <li>Legacy quests (rewardTier null/blank or areaLevel &lt;= 0 on
+ *       {@link QuestInstance.PhaseReward}) predate this pivot: other accepters
+ *       are skipped with a SEVERE log (no tier/area to roll against).</li>
  * </ul>
  *
  * <p>All methods must be invoked on the world thread (ECS component reads and
@@ -49,7 +51,6 @@ import java.util.UUID;
 public final class Nat20QuestRewardDispatcher {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestReward");
-    private static final Gson REWARD_DATA_GSON = new Gson();
 
     private Nat20QuestRewardDispatcher() {}
 
@@ -73,14 +74,15 @@ public final class Nat20QuestRewardDispatcher {
 
     /**
      * Dispense the per-phase item reward to every online non-missed accepter
-     * OTHER than the triggering player. The triggering player is assumed to
-     * have already received the stored pre-rolled reward via the legacy path
-     * ({@code dispensePhaseReward} in {@code DialogueActionRegistry}). Each
-     * non-triggering accepter gets a FRESH reroll at the phase's stored
-     * tier + ilvl so party members don't all get identical weapons.
+     * OTHER than the triggering player. The triggering player is rolled by
+     * DAR's {@code dispensePhaseReward}. Each non-triggering accepter gets a
+     * FRESH per-player roll at the phase's stored tier and a per-player ilvl
+     * computed by {@link QuestRewardIlvl#reward(int, int, int)} from each
+     * recipient's own mlvl, so party members get distinct items AND distinct
+     * ilvls scaled to their own level.
      *
-     * <p>Legacy quests (rewardTier == null) predate this pivot: other
-     * accepters are skipped with a SEVERE log line.
+     * <p>Legacy quests (rewardTier null/blank or areaLevel &lt;= 0) predate
+     * this pivot: other accepters are skipped with a SEVERE log line.
      */
     public static void dispenseItemsToOtherAccepters(QuestInstance quest,
                                                      int phaseIndex,
@@ -93,8 +95,9 @@ public final class Nat20QuestRewardDispatcher {
         Set<UUID> missed = quest.getMissedForPhase(phaseIndex);
         Store<EntityStore> store = world.getEntityStore().getStore();
         String tier = reward.getRewardTier();
-        int ilvl = reward.getRewardIlvl();
-        boolean legacy = (tier == null || tier.isBlank() || ilvl <= 0);
+        int areaLevel = reward.getAreaLevelAtSpawn();
+        int ilvlBonus = reward.getIlvlBonus();
+        boolean legacy = (tier == null || tier.isBlank() || areaLevel <= 0);
 
         Random random = new Random();
 
@@ -110,12 +113,16 @@ public final class Nat20QuestRewardDispatcher {
 
             if (legacy) {
                 LOGGER.atSevere().log(
-                    "Legacy quest %s phase %d has null/zero tier/ilvl (tier=%s, ilvl=%d); "
-                        + "skipping multi-accepter reroll for player %s. "
-                        + "Only the dialogue-holder gets the stored pre-rolled item on this quest.",
-                    quest.getQuestId(), phaseIndex, tier, ilvl, uuid);
+                    "Legacy quest %s phase %d has null/blank tier or non-positive areaLevel "
+                        + "(tier=%s, areaLevel=%d, ilvlBonus=%d); skipping multi-accepter "
+                        + "roll for player %s.",
+                    quest.getQuestId(), phaseIndex, tier, areaLevel, ilvlBonus, uuid);
                 continue;
             }
+
+            Nat20PlayerData peerData = store.getComponent(ref, Natural20.getPlayerDataType());
+            int peerLevel = peerData != null ? peerData.getLevel() : 1;
+            int ilvl = QuestRewardIlvl.reward(peerLevel, areaLevel, ilvlBonus);
 
             ItemStack rerolled;
             try {
@@ -123,8 +130,10 @@ public final class Nat20QuestRewardDispatcher {
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log(
                     "AffixRewardRoller.roll threw for quest %s phase %d, player %s "
-                        + "(tier=%s, ilvl=%d); skipping reroll dispense",
-                    quest.getQuestId(), phaseIndex, uuid, tier, ilvl);
+                        + "(tier=%s, ilvl=%d, peerLevel=%d, areaLevel=%d, ilvlBonus=%d); "
+                        + "skipping per-player roll dispense",
+                    quest.getQuestId(), phaseIndex, uuid, tier, ilvl,
+                    peerLevel, areaLevel, ilvlBonus);
                 continue;
             }
 
@@ -149,14 +158,16 @@ public final class Nat20QuestRewardDispatcher {
             }
 
             String peerItemName = "";
-            Nat20LootData peerData = rerolled.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (peerData != null && peerData.getGeneratedName() != null) {
-                peerItemName = peerData.getGeneratedName();
+            Nat20LootData peerLootData = rerolled.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+            if (peerLootData != null && peerLootData.getGeneratedName() != null) {
+                peerItemName = peerLootData.getGeneratedName();
             }
             LOGGER.atInfo().log(
-                "Multi-accepter dispensed phase %d reroll for quest %s: %s x%d to player %s (%s)",
+                "Multi-accepter dispensed phase %d roll for quest %s: %s x%d to player %s "
+                    + "(%s; tier=%s, ilvl=%d, peerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
                 phaseIndex, quest.getQuestId(), rerolled.getItemId(),
-                rerolled.getQuantity(), uuid, peerItemName);
+                rerolled.getQuantity(), uuid, peerItemName, tier, ilvl,
+                peerLevel, areaLevel, ilvlBonus);
         }
     }
 }
