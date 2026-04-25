@@ -1,0 +1,15 @@
+{
+  "blocklist": ["Weapon_Banned_Item"],
+  "allowlist": {
+    "Mod:Custom_Plasma": { "ilvl": [22, 38], "category": "ranged_weapon" }
+  },
+  "tier_tokens": {
+    "iron":        [8, 26],
+    "silversteel": [22, 38],
+    "silver":      [4, 20],
+    "tribal":      [3, 18]
+  },
+  "tier_item_overrides": {
+    "Weapon_Sword_Cutlass": [8, 22]
+  }
+}
