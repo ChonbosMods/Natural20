@@ -25,4 +25,20 @@ public final class Nat20AffixScaling {
         int qv = qualityValueOf(lootData, rarityRegistry);
         return range.interpolate(lootLevel, lootData.getItemLevel(), qv);
     }
+
+    /**
+     * Branching variant: skip ilvl scaling when {@code ilvlScalable} is false.
+     * Used by stat-score affixes where integer stability matters more than scaling.
+     *
+     * <p>When {@code ilvlScalable} is false, returns the unscaled lerp
+     * {@code range.interpolate(lootLevel)}; the {@code lootData} and
+     * {@code rarityRegistry} parameters are ignored.
+     */
+    public static double interpolate(AffixValueRange range, double lootLevel,
+                                      Nat20LootData lootData, Nat20RarityRegistry rarityRegistry,
+                                      boolean ilvlScalable) {
+        if (!ilvlScalable) return range.interpolate(lootLevel);
+        int qv = qualityValueOf(lootData, rarityRegistry);
+        return range.interpolate(lootLevel, lootData.getItemLevel(), qv);
+    }
 }
