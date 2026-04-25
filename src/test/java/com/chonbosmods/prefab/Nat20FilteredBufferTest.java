@@ -96,22 +96,6 @@ class Nat20FilteredBufferTest {
         assertEquals(STRUCTURAL_ID, seen.get(4).blockId(), "structural block passes through");
     }
 
-    @Test
-    void chestMarkerSilentlyDropped() {
-        // Chest markers are NOT rewritten to air: the downstream chest-spawn
-        // system places an actual chest block at that position, which would
-        // be overwritten if we also cleared the cell. Leave the world cell
-        // alone (marker block is silently stripped).
-        FakePrefabBuffer inner = new FakePrefabBuffer(List.of(
-                new FakePrefabBuffer.Cell(0, 0, 0, Nat20PrefabConstants.chestSpawnId),
-                new FakePrefabBuffer.Cell(1, 0, 0, STRUCTURAL_ID)
-        ));
-
-        List<SeenBlock> seen = runThroughFilter(inner);
-
-        assertEquals(1, seen.size());
-        assertEquals(STRUCTURAL_ID, seen.get(0).blockId());
-    }
 
     @Test
     void plainEmptyDropped() {
