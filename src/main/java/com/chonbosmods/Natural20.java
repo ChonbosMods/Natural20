@@ -37,6 +37,7 @@ import com.chonbosmods.combat.Nat20ResistanceSystem;
 import com.chonbosmods.combat.Nat20FocusedMindSystem;
 import com.chonbosmods.combat.Nat20MobDmgScaleSystem;
 import com.chonbosmods.combat.Nat20MovementSpeedSystem;
+import com.chonbosmods.combat.Nat20PartyPvpFilter;
 import com.chonbosmods.combat.Nat20ScoreBonusSystem;
 import com.chonbosmods.combat.Nat20ScoreDamageSystem;
 import com.chonbosmods.combat.Nat20ScoreDirtyFlag;
@@ -1070,6 +1071,10 @@ public class Natural20 extends JavaPlugin {
         partyRegistry = new Nat20PartyRegistry();
         partyInviteRegistry = new Nat20PartyInviteRegistry();
         pendingBannerStore = new Nat20PendingBannerStore();
+
+        // Cancel damage between members of the same Nat20 party (Filter Group).
+        // Registered here because partyRegistry must be constructed first.
+        getEntityStoreRegistry().registerSystem(new Nat20PartyPvpFilter(partyRegistry));
 
         // Initialize quest system
         questSystem = new QuestSystem(settlementRegistry, partyQuestStore, scalingConfig);
