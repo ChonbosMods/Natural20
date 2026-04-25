@@ -145,26 +145,26 @@ public final class Nat20HeightmapSampler {
 
     /**
      * Counts contiguous fluid cells starting AT {@code groundY} and walking up. Stops at the first
-     * non-fluid cell, at {@code groundY + maxDepth}, or at {@code canopyY}, whichever comes first.
+     * non-fluid cell or at {@code groundY + maxDepth}, whichever comes first.
      *
      * <p>Used by {@link #probeGroundY} to detect submersion. The walker that produces {@code groundY}
      * starts at {@link WorldChunk#getHeight} and walks DOWN, but the heightmap skips Empty cells
-     * (Hytale's fluid cells are blockId=Empty with fluidId in a separate palette), so the walker
-     * lands on the seabed below an ocean column and the in-walk fluid check never fires. This upward
-     * scan covers that gap: after grounding, look up for fluid that the heightmap stepped over.
+     * (Hytale's fluid cells are blockId=Empty with fluidId in a separate palette). For an ocean
+     * column the heightmap therefore lands on the seabed top, the walker lands on the same block,
+     * and {@code groundY = canopyY + 1}: i.e. the water column is ENTIRELY ABOVE the heightmap.
+     * This upward scan starts at {@code groundY} and walks up unconditionally, bounded only by
+     * {@code maxDepth}, so it can find that water.
      *
      * @param groundY first buildable Y above solid (the value returned by walkDownToSolidGround)
-     * @param canopyY chunk heightmap value, inclusive upper bound on the scan
      * @param maxDepth cap on the returned count; caller passes wetThreshold + 1 to short-circuit
      * @param isFluidAt fluid predicate (chunk.getFluidId(lx, y, lz) != 0)
      * @return contiguous fluid count in [0, maxDepth]
      */
     static int scanFluidDepthAbove(int groundY,
-                                   int canopyY,
                                    int maxDepth,
                                    java.util.function.IntPredicate isFluidAt) {
         int depth = 0;
-        for (int y = groundY; y < groundY + maxDepth && y <= canopyY; y++) {
+        for (int y = groundY; y < groundY + maxDepth; y++) {
             if (isFluidAt.test(y)) depth++;
             else break;
         }
@@ -213,7 +213,7 @@ public final class Nat20HeightmapSampler {
 
         if (groundY <= 0) return new ProbeResult(0, 0);
 
-        int submerged = scanFluidDepthAbove(groundY, canopyY, DEFAULT_WET_THRESHOLD + 1, isFluidAt);
+        int submerged = scanFluidDepthAbove(groundY, DEFAULT_WET_THRESHOLD + 1, isFluidAt);
         return new ProbeResult(groundY, submerged);
     }
 }
