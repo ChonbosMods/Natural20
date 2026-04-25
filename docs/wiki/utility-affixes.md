@@ -10,6 +10,8 @@ Utility affixes don't deal damage, debuff enemies, or directly help you win a fi
 
 All three can roll on armor. Focused Mind can also roll on melee weapons. Each one stacks across multiple pieces of gear and is passive: no procs, no chance rolls, no cooldowns. They're quality-of-life affixes that make exploration and downtime smoother.
 
+**Item-level scaling.** The Min and Max values shown below are the endgame ceiling at ilvl 45. Affix values scale linearly from 30% of the listed value at ilvl 1 to 100% at ilvl 45, so a roll on a low-ilvl drop will be smaller than what you see here.
+
 ---
 
 ## Detailed Explanation

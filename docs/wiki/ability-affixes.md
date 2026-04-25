@@ -19,6 +19,8 @@ Ability affixes change **what an item can do**, not just its numbers. They add n
 - **Fissure** : horizontal strip perpendicular to aim.
 - **Resonance** : vein miner for same-type blocks.
 
+**Item-level scaling.** The Min and Max values shown below are the endgame ceiling at ilvl 45. Affix values scale linearly from 30% of the listed value at ilvl 1 to 100% at ilvl 45, so a roll on a low-ilvl drop will be smaller than what you see here. (Indestructible is a binary always-on flag and does not ilvl-scale.)
+
 ---
 
 ## Detailed Explanation

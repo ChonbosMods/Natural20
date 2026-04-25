@@ -134,7 +134,17 @@ When a Nat20 mob dies with kill credit (see below), it rolls drops from the Nat2
 
 Champions drop **occasionally** : roughly one in six Champion kills produces a single piece. Bosses drop **reliably**: always at least one piece, plus a chance at additional bonus pieces, with higher tiers rolling more bonus chances. A Legendary Boss often hands out three or more pieces in one kill.
 
-Each drop slot independently picks from the **global Nat20 gear pool** (most of the time) or the **mob's native drop list** (a small fraction of slots). The native bias tilts some drops toward thematic gear: iron weapons from goblins, bone tools from skeletons, and so on.
+Each drop slot independently picks from the **global Nat20 gear pool** (95% of slots) or the **mob's native drop list** (5% of slots). The native bias tilts some drops toward thematic gear: iron weapons from goblins, bone tools from skeletons, and so on.
+
+Within the global pool, item categories are weighted so weapons and armor land more often than tools or ranged sidearms. The final per-slot probabilities work out to:
+
+| Source       | Category       | Per-slot chance |
+| ------------ | -------------- | --------------- |
+| Global pool  | Melee weapon   | 28.5%           |
+| Global pool  | Armor          | 28.5%           |
+| Global pool  | Ranged weapon  | 19.0%           |
+| Global pool  | Tool           | 19.0%           |
+| Native list  | (mob-specific) | 5.0%            |
 
 Drop rarity is gated by the mob's mlvl. Uncommon mobs in starter zones can't drop Legendaries, no matter how lucky the roll. Legendary bosses in endgame zones can drop the full range, weighted toward the higher rarities.
 

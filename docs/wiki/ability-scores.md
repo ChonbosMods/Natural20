@@ -10,9 +10,18 @@ That modifier is the universal input to almost every other system:
 - **Non-affix baselines** (extra HP, extra mana, faster regen, movement speed, flat melee and elemental damage)
 - **Dialogue skill checks** (d20 + modifier + proficiency bonus)
 
-Each stat has its own identity: raw damage and crit ceiling (STR), speed and precision (DEX), raw survivability (CON), mana and magical output (INT), effect reliability and sensing (WIS), party support and social play (CHA). You don't need to specialize: the modifier curve is strictly linear, so every 3 points of any stat gives you roughly the same step of progression in whatever that stat does.
+Each stat's non-affix baselines on your underlying Hytale stats:
 
-The rest of this page lists every effect each stat has. Affix math is not duplicated here: follow the cross-references to the affix wikis for rarity ranges, softcap knees, and full formulas.
+| Stat |   |   |   |
+| ---- | - | - | - |
+| STR  | Flat melee damage     | Crit damage baseline   | Stamina regeneration |
+| DEX  | Crit chance baseline  | Movement speed         | Fall damage reduction |
+| CON  | Max HP                | Max Stamina            | —                    |
+| INT  | Max Mana              | Flat elemental damage  | DoT per-tick scaling |
+| WIS  | Perception            | Mana regeneration      | —                    |
+| CHA  | —                     | —                      | —                    |
+
+Charisma has no non-affix baselines: every CHA effect routes through a party-support or enemy-debuff affix (Rally, Vicious Mockery, Gallant).
 
 ---
 
@@ -24,16 +33,20 @@ STR is the muscle stat. It drives your raw melee output and rewards aggressive c
 
 **Non-affix baselines**:
 
-- **Flat melee damage**: every melee swing deals an extra `10 × STR_modifier` flat damage on top of the weapon's base damage and any affix contributions. A STR 15 character (modifier +5) adds `+50` to every hit.
-- **Crit damage baseline**: the base crit multiplier is 1.5×. STR adds `0.15 × STR_modifier` directly to that multiplier, outside any softcap. STR 18 (modifier +6) pushes the base crit from 1.5× to 2.4× all by itself, before any `Crit Damage` affix is involved.
-- **Stamina regeneration**: every tick of natural stamina regen is boosted by `STR_modifier × 0.18`. STR 15 recovers stamina roughly 90% faster than STR 0, making sustained sprinting and chained swings much cheaper.
+| Effect               | Formula                                                       | Example (mod +5)              |
+| -------------------- | ------------------------------------------------------------- | ----------------------------- |
+| Flat melee damage    | `+10 × mod` per swing                                         | +50 damage per hit            |
+| Crit damage baseline | `+0.15 × mod` added to base 1.5× multiplier (outside softcap) | base crit becomes 2.25×       |
+| Stamina regeneration | regen tick `× (1 + 0.18 × mod)`                               | ~90% faster stamina recovery  |
 
 **Affix scaling** (see Offensive Affixes and Defense Affixes wikis):
 
-- **Deep Wounds** : proc chance *and* per-tick damage both scale with factor 0.18.
-- **Crushing Blow** : percent-of-current-HP drain scales with factor 0.15.
-- **Block Proficiency** : stamina-drain reduction on blocked hits scales with factor 0.15.
-- **Haste** : tool mining speed scales with factor 0.08.
+| Affix             | What scales                                  | Factor |
+| ----------------- | -------------------------------------------- | ------ |
+| Deep Wounds       | proc chance *and* per-tick damage both scale | 0.18   |
+| Crushing Blow     | percent-of-current-HP drain                  | 0.15   |
+| Block Proficiency | stamina-drain reduction on blocked hits      | 0.15   |
+| Haste             | tool mining speed                            | 0.08   |
 
 **Skill check coverage**: Athletics.
 
@@ -45,18 +58,22 @@ DEX is the speed stat. It governs how often you hit, how fast you move, and whet
 
 **Non-affix baselines**:
 
-- **Crit chance baseline**: every point of DEX modifier adds `0.015` (1.5%) to your crit chance on every melee hit. This baseline is linear and sits outside the crit-chance softcap. DEX 18 (modifier +6) gives a flat 9% baseline crit chance even on an unaffixed weapon.
-- **Movement speed**: your base movement speed is multiplied by `1 + (0.04 × DEX_modifier)`. DEX 15 (modifier +5) is 20% faster than DEX 0. Only positive modifiers count, and the modifier is always non-negative anyway, so the effect only ever adds speed.
-- **Fall damage reduction**: fall damage is reduced by a flat `10 × DEX_modifier` points, floored at zero. A DEX 18 character (modifier +6) shrugs off the first 60 damage of any fall before any other mitigation.
+| Effect                | Formula                                       | Example (mod +5)                    |
+| --------------------- | --------------------------------------------- | ----------------------------------- |
+| Crit chance baseline  | `+0.015 × mod` to crit chance (outside softcap) | +7.5% baseline crit               |
+| Movement speed        | base speed `× (1 + 0.04 × mod)`               | +20% movement speed                 |
+| Fall damage reduction | fall damage `-10 × mod` (floored at 0)        | first 50 damage of any fall negated |
 
 **Affix scaling** (see Offensive, Defense, Ability, and Utility Affix wikis):
 
-- **Backstab** : rear-arc damage bonus scales with factor 0.15.
-- **Precision** : armor-penetration percentage scales with factor 0.12.
-- **Life Leech** : percent-damage-to-HP scales with factor 0.12.
-- **Attack Speed** : swing-speed boost scales with factor 0.10.
-- **Evasion** : melee dodge chance scales with factor 0.10 (total dodge is hard-capped at 50%).
-- **Lightweight** : sprint stamina-drain compensation scales with factor 0.12.
+| Affix         | What scales                                          | Factor |
+| ------------- | ---------------------------------------------------- | ------ |
+| Backstab      | rear-arc damage bonus                                | 0.15   |
+| Precision     | armor-penetration percentage                         | 0.12   |
+| Life Leech    | percent-damage-to-HP                                 | 0.12   |
+| Attack Speed  | swing-speed boost                                    | 0.10   |
+| Evasion       | melee dodge chance (total dodge hard-capped at 50%)  | 0.10   |
+| Lightweight   | sprint stamina-drain compensation                    | 0.12   |
 
 **Skill check coverage**: Stealth, Sleight of Hand, Acrobatics.
 
@@ -68,13 +85,17 @@ CON is the survival stat. Every point makes your pools deeper and your defensive
 
 **Non-affix baselines**:
 
-- **Max HP**: your max health is increased by `10 × CON_modifier`, applied as an additive modifier to the Health stat. CON 15 (modifier +5) adds 50 to the HP pool.
-- **Max Stamina**: your max stamina is increased by `5 × CON_modifier`, half the HP rate. CON 15 adds 25 to the stamina pool.
+| Effect      | Formula                  | Example (mod +5) |
+| ----------- | ------------------------ | ---------------- |
+| Max HP      | `+10 × mod` to Health    | +50 HP           |
+| Max Stamina | `+5 × mod` to Stamina    | +25 stamina      |
 
 **Affix scaling** (see Defense Affixes wiki):
 
-- **Thorns** : reflected damage scales with factor 0.18, among the highest in the game.
-- **Resilience** : rate at which debuffs tick down scales with factor 0.12.
+| Affix      | What scales                                        | Factor |
+| ---------- | -------------------------------------------------- | ------ |
+| Thorns     | reflected damage (among the highest in the game)   | 0.18   |
+| Resilience | rate at which debuffs tick down                    | 0.12   |
 
 **Skill check coverage**: none. CON matters in combat and gear, not in conversation.
 
@@ -86,16 +107,20 @@ INT is the mind stat. It drives mana, elemental damage output, and the widest sl
 
 **Non-affix baselines**:
 
-- **Max Mana**: your max mana is increased by `10 × INT_modifier`. INT 15 (modifier +5) adds 50 to the mana pool.
-- **Flat elemental damage**: every elemental hit (Fire, Frost, Poison, Void) deals an extra `10 × INT_modifier` flat damage on top of the affix's rolled value. This applies to direct hits only, not to DoT ticks: the DoT gets its INT boost a different way (see next line).
-- **DoT per-tick scaling**: Ignite, Cold, Infect, and Corrupt ticks are multiplied by `1 + (0.15 × INT_modifier)` at the moment the DoT is applied. The value is captured once, so changing INT mid-fight doesn't retroactively change ticks already in flight.
+| Effect                | Formula                                                                | Example (mod +5)             |
+| --------------------- | ---------------------------------------------------------------------- | ---------------------------- |
+| Max Mana              | `+10 × mod` to Mana                                                    | +50 mana                     |
+| Flat elemental damage | `+10 × mod` per elemental hit (direct hits only, not DoT ticks)        | +50 damage per elemental hit |
+| DoT per-tick scaling  | tick value `× (1 + 0.15 × mod)`, captured once at apply time           | DoT ticks deal +75%          |
 
 **Affix scaling** (see Elemental Resistances, Offensive Affixes wikis):
 
-- **Fire / Frost / Poison / Void Resistance** (on armor and shields) : all four scale with factor 0.12.
-- **Mana Leech** : percent-damage-to-mana scales with factor 0.12.
+| Affix                                                          | What scales      | Factor |
+| -------------------------------------------------------------- | ---------------- | ------ |
+| Fire / Frost / Poison / Void Resistance (on armor and shields) | all four scale   | 0.12   |
+| Mana Leech                                                     | percent-damage-to-mana | 0.12 |
 
-**Skill check coverage**: Investigation, Arcana, Religion, History, Nature. 
+**Skill check coverage**: Investigation, Arcana, Religion, History, Nature.
 
 ---
 
@@ -105,22 +130,28 @@ WIS is the awareness stat. It governs how reliably your effects land on enemies,
 
 **Non-affix baselines**:
 
-- **Perception**: your Nat20 Perception value is increased by `10 × WIS_modifier`. Perception gates sense-based features (noticing hidden details, awareness range).
-- **Mana regeneration**: every tick of natural mana regen is boosted by `WIS_modifier × 0.025`. This is a much gentler multiplier than STR's stamina boost: WIS isn't meant to be the primary mana economy (that's Focused Mind and Mana Leech). It's a trickle, not a firehose.
+| Effect            | Formula                          | Example (mod +5)              |
+| ----------------- | -------------------------------- | ----------------------------- |
+| Perception        | `+10 × mod` to Nat20 Perception  | +50 Perception                |
+| Mana regeneration | regen tick `× (1 + 0.025 × mod)` | ~12.5% faster mana recovery   |
 
 **Affix scaling, *value side*** (how hard the effect hits when it lands):
 
-- **Fire / Frost / Poison / Void Weakness** (on weapons) : all four scale with factor 0.15.
-- **Hex** : one-shot curse amplification scales with factor 0.18, the highest scaling factor of any weapon affix.
-- **Absorption** : damage-to-mana conversion scales with factor 0.15.
-- **Focused Mind** : idle mana-regen boost scales with factor 0.15.
-- **Water Breathing** : max-oxygen bonus scales with factor 0.15.
+| Affix                                              | What scales                                                          | Factor |
+| -------------------------------------------------- | -------------------------------------------------------------------- | ------ |
+| Fire / Frost / Poison / Void Weakness (on weapons) | all four scale                                                       | 0.15   |
+| Hex                                                | one-shot curse amplification (highest scaling factor of any weapon affix) | 0.18 |
+| Absorption                                         | damage-to-mana conversion                                            | 0.15   |
+| Focused Mind                                       | idle mana-regen boost                                                | 0.15   |
+| Water Breathing                                    | max-oxygen bonus                                                     | 0.15   |
 
 **Affix scaling, *proc side*** (how reliably the effect fires):
 
-- **Ignite / Cold / Infect / Corrupt** : proc chance on each hit scales with factor 0.15.
-- **Vicious Mockery** : proc chance scales with factor 0.15.
-- **Gallant** : the on-being-hit proc scales with factor 0.15.
+| Affix                            | What scales              | Factor |
+| -------------------------------- | ------------------------ | ------ |
+| Ignite / Cold / Infect / Corrupt | proc chance on each hit  | 0.15   |
+| Vicious Mockery                  | proc chance              | 0.15   |
+| Gallant                          | on-being-hit proc        | 0.15   |
 
 This split is deliberate. WIS lands the effect; a partner stat does the damage. Elemental DoTs pair WIS (proc) with INT (damage). Vicious Mockery and Gallant pair WIS (proc) with CHA (value). A caster build naturally wants WIS plus whichever damage stat their playstyle prefers.
 
@@ -132,13 +163,13 @@ This split is deliberate. WIS lands the effect; a partner stat does the damage. 
 
 CHA is the social stat. The most heavily used stat in dialogue, it owns the most commonly rolled checks. Every CHA effect in combat routes through a party-support or enemy-debuff affix.
 
-**Non-affix baselines**: none.
-
 **Affix scaling** (see Offensive and Defense Affixes wikis):
 
-- **Rally** : on-kill party damage buff scales with factor 0.15.
-- **Vicious Mockery** : damage-amplify value on the debuffed target scales with factor 0.15 (WIS handles its proc side).
-- **Gallant** : attacker-damage-reduction value scales with factor 0.12 (WIS handles its proc side).
+| Affix           | What scales                                                          | Factor |
+| --------------- | -------------------------------------------------------------------- | ------ |
+| Rally           | on-kill party damage buff                                            | 0.15   |
+| Vicious Mockery | damage-amplify value on the debuffed target (WIS handles its proc side) | 0.15 |
+| Gallant         | attacker-damage-reduction value (WIS handles its proc side)          | 0.12   |
 
 **Skill check coverage**: Persuasion, Deception, Intimidation, Performance. Four checks, found more in dialogue than any other stat.
 
@@ -167,7 +198,7 @@ One formula, used for both skill checks and combat math: `modifier = floor(score
 | 27–29 | +9       |
 | 30    | +10      |
 
-Ability-score affixes on gear (`+1 STR`, `+2 DEX`, and so on) are flat additions to the raw score, so their impact depends on whether they push you into a new bracket. A `+2 STR` piece takes you from STR 9 (mod +3) to STR 11 (still +3), but the same `+2` on a STR 13 character takes you from +4 to +5, which is a real step. Planning gear around the `/ 3` bracket thresholds (3, 6, 9, 12, 15, 18, 21, 24, 27) is how min-maxers squeeze extra mileage out of every affix roll.
+Ability-score affixes on gear (`+1` on Rare and Epic, `+2` on Legendary; Common and Uncommon never roll one) are flat additions to the raw score, so their impact depends on whether they push you into a new bracket. A `+2 STR` piece takes you from STR 9 (mod +3) to STR 11 (still +3), but the same `+2` on a STR 13 character takes you from +4 to +5, which is a real step. Planning gear around the `/ 3` bracket thresholds (3, 6, 9, 12, 15, 18, 21, 24, 27) is how min-maxers squeeze extra mileage out of every affix roll.
 
 ---
 
@@ -206,6 +237,6 @@ None of these are locked in: any stat investment feeds the same formulas. But ce
 Two things tie the stat system together:
 
 1. **One modifier curve for everything.** Skill checks, gear scaling, flat bonuses, regen, all read the same `floor(score / 3)`. There's no separate "combat mod" and "dialogue mod" to juggle. Invest once, benefit everywhere that stat matters.
-2. **Additive score affixes on gear.** Every `+STR` / `+DEX` / etc. roll is a flat addition to the raw score, which recomputes the modifier, which cascades into every baseline and every scaled affix simultaneously. Swapping in a Legendary `+4 STR` weapon visibly raises your flat melee damage, your crit multiplier, your stamina regen, your Deep Wounds output, your Crushing Blow scaling, and your Block Proficiency all at once.
+2. **Additive score affixes on gear.** Every `+STR` / `+DEX` / etc. roll is a flat addition to the raw score, which recomputes the modifier, which cascades into every baseline and every scaled affix simultaneously. Swapping in a Legendary `+2 STR` weapon visibly raises your flat melee damage, your crit multiplier, your stamina regen, your Deep Wounds output, your Crushing Blow scaling, and your Block Proficiency all at once.
 
 A mature character has thoughtful stat investment, takes advantage of the linear modifier curve, uses ability-score affixes to cross the `/ 3` bracket thresholds, and picks up gear whose affixes scale with whichever stats they've committed to.

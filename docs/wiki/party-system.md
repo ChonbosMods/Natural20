@@ -49,6 +49,12 @@ When the last non-leader member leaves a party, the party quietly collapses back
 
 There is no cap on party size. A party of 12 is as valid as a party of 2. Monster difficulty scaling (see **Monster scaling** below) is the primary balancing lever for large groups, not a hard cap.
 
+### Friendly fire and PVP
+
+Party members cannot damage each other, period. Even on a server with PVP enabled, friendly fire is blocked between members of the same party: melee swings, projectiles, AoE bursts, reflected damage, and DoT splash all pass straight through. Joining a party is the cleanest way to make another player un-attackable to you regardless of server settings.
+
+Players outside your party follow the server's normal PVP rules. On a PVP-enabled server, you can engage non-party players as usual; on a PVE server, no one is attackable. The party shield only protects the people listed on your party tab.
+
 ---
 
 ## Quest Sharing
@@ -151,6 +157,7 @@ Loot rolls continue to scale off the zone's regular item level, independent of h
 - Every player is in a party; solo is a party of one.
 - Invite and accept through the Character Sheet's Party tab.
 - Leaders can kick; anyone can leave; ghost leaders auto-transfer after 7 days offline.
+- Party members cannot damage each other, even on PVP-enabled servers; non-party players follow the server's PVP setting.
 - The party at the moment of accept becomes the quest's accepters, locked in forever.
 - All accepters share one quest; any one of them ticking the objective advances it for everyone.
 - Be within 80 blocks of the phase-completer, or be online for a Collect Resources phase, to collect that phase's rewards.

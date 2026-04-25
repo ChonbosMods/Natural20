@@ -13,6 +13,8 @@ Defense affixes keep you alive. Some reduce incoming damage, some dodge it entir
 
 All six are armor-only (shields included, since shields share the armor category). They never compete with weapon affixes for roll slots. Most of these stack across multiple pieces of gear, rewarding committed defensive builds.
 
+**Item-level scaling.** The Min and Max values shown below are the endgame ceiling at ilvl 45. Affix values scale linearly from 30% of the listed value at ilvl 1 to 100% at ilvl 45, so a roll on a low-ilvl drop will be smaller than what you see here.
+
 ---
 
 ## Detailed Explanation

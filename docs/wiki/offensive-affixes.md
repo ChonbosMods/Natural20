@@ -19,6 +19,8 @@ Offensive affixes roll on weapons (mostly melee, some ranged) and change how you
 
 Some of these are passive (always active while wielding), some are conditional (only under specific circumstances), some are chance-based (roll every hit), and some are consumable (applied on hit, consumed by follow-up damage). They stack with each other freely, and many of them scale with ability scores: DEX, STR, WIS, INT, and CHA all feed into the effective numbers depending on the affix. A few (Rally, Vicious Mockery, Hex) are party-facing — they amplify damage for allies or mark targets for the whole group — so they slot in as support offense for group play.
 
+**Item-level scaling.** The Min and Max values shown below are the endgame ceiling at ilvl 45. Affix values scale linearly from 30% of the listed value at ilvl 1 to 100% at ilvl 45, so a roll on a low-ilvl drop will be smaller than what you see here.
+
 ---
 
 ## Detailed Explanation

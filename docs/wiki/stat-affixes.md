@@ -19,23 +19,25 @@ What the stats themselves actually *do* — skill checks, damage scaling, affix 
 
 ## Details
 
-**Where they roll**: Melee weapons, ranged weapons, armor (shields included), and tools. Any equippable or wieldable item can carry one.
+**Where they roll**: Melee weapons, ranged weapons, armor (shields included), and tools. Any equippable or wieldable item can carry one, but only on Rare or better gear. Common and Uncommon items never roll a stat-score affix.
 
 **Rarity roll** (flat score points added; identical across all six ability scores):
 
-| Rarity    | Min | Max |
-|-----------|-----|-----|
-| Common    | 1   | 1   |
-| Uncommon  | 1   | 2   |
-| Rare      | 2   | 2   |
-| Epic      | 2   | 3   |
-| Legendary | 3   | 4   |
+| Rarity    | Value |
+|-----------|-------|
+| Common    | —     |
+| Uncommon  | —     |
+| Rare      | +1    |
+| Epic      | +1    |
+| Legendary | +2    |
 
-**Stacking**: Every equipped/held piece with a score affix contributes. A full set of armor plus a weapon with matching score affixes can push a single stat by 15-20+ points over what your base character sheet provides. Multiple different score affixes on one set stack across stats (e.g. +STR on chest, +DEX on boots, +INT on weapon).
+Stat-score affixes do **not** scale with item level. A Rare +1 STR roll on an ilvl-1 drop carries the same +1 as a Rare +1 STR on an ilvl-45 drop. Item level is for the magnitude curves on damage, regen, resistance, and the like; stat scores are deliberately a flat integer so they always cleanly cross or miss the `/ 3` modifier brackets.
+
+**Stacking**: Every equipped/held piece with a score affix contributes. A full set of Legendary gear with matching score affixes can push a single stat by 8-10+ points over your base character sheet. Multiple different score affixes on one set stack across stats (e.g. +STR on chest, +DEX on boots, +INT on weapon).
 
 **Activation**: Purely equip-based. No proc, no cooldown. Bonus applies the moment the item is equipped, removes the moment it's unequipped. Switching loadouts changes your stat profile in real time.
 
 **Notes**:
 - Each affix adds a flat score value. The derived *modifier* (used in most affix formulas) is recalculated automatically from the new score.
-- Items with a score affix essentially bake a mini stat build into themselves. A Legendary weapon with +4 STR is worth a full stat point-buy's worth of investment in STR alone.
+- A Legendary weapon with +2 STR is a meaningful chunk of one stat's investment, and crossing one of the `/ 3` modifier thresholds (3, 6, 9, 12, 15, 18, 21, 24, 27) with that +2 is the difference between a real upgrade and a wasted roll. Plan equipment around the threshold you're trying to hit.
 - There is no affix to increase HP directly on player gear. (The `hp` affix exists in the codebase but is mob-only: mobs use it for health-scaled difficulty tiers.)
