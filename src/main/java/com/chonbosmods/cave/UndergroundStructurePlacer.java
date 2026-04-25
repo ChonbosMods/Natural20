@@ -216,12 +216,13 @@ public class UndergroundStructurePlacer {
                             floorX, floorY, floorZ, rotation);
 
                     PrefabRotation rot = PrefabRotation.fromRotation(rotation);
-                    int swMinX = buffer.getMinX(rot) + floorX - 2;
-                    int swMaxX = buffer.getMaxX(rot) + floorX + 2;
-                    int swMinY = buffer.getMinY()    + floorY - 2;
-                    int swMaxY = buffer.getMaxY()    + floorY + 2;
-                    int swMinZ = buffer.getMinZ(rot) + floorZ - 2;
-                    int swMaxZ = buffer.getMaxZ(rot) + floorZ + 2;
+                    Vector3i t = placed.translation();
+                    int swMinX = buffer.getMinX(rot) + t.getX() - 2;
+                    int swMaxX = buffer.getMaxX(rot) + t.getX() + 2;
+                    int swMinY = buffer.getMinY()    + t.getY() - 2;
+                    int swMaxY = buffer.getMaxY()    + t.getY() + 2;
+                    int swMinZ = buffer.getMinZ(rot) + t.getZ() - 2;
+                    int swMaxZ = buffer.getMaxZ(rot) + t.getZ() + 2;
                     Nat20FluidSweeper.clearLavaInVolume(world,
                             swMinX, swMinY, swMinZ, swMaxX, swMaxY, swMaxZ);
 

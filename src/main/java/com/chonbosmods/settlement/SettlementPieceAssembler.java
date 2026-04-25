@@ -328,10 +328,14 @@ public final class SettlementPieceAssembler {
             center, pasted, futures.size(), npcs.size(), mobGroups.size(), chests.size());
 
         // The merged settlement's anchor is the shared center; direction is
-        // arbitrary (pieces face different ways).
+        // arbitrary (pieces face different ways). Translation is meaningless for
+        // a multi-piece merge (each piece had its own), so report zero; callers
+        // that need per-piece bounds must use the per-piece PlacedMarkers, not
+        // this aggregate.
         return new PlacedMarkers(
             center,
             new Vector3i(0, 0, 1),
+            new Vector3i(0, 0, 0),
             Collections.unmodifiableList(npcs),
             Collections.unmodifiableList(mobGroups),
             Collections.unmodifiableList(chests)

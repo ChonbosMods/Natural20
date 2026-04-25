@@ -57,7 +57,7 @@ public final class Nat20FluidSweeper {
                     }
                     if (fs == null) continue;
 
-                    if (chunk.getFluidId(lx, y, lz) == lavaFluidId) {
+                    if (fs.getFluidId(lx, y, lz) == lavaFluidId) {
                         fs.setFluid(lx, y, lz, 0, (byte) 0);
                     }
                 }
