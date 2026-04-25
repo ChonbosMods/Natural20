@@ -499,14 +499,9 @@ public class ConversationSession {
 
             String nextNodeId = result.passed() ? checkNode.passNodeId() : checkNode.failNodeId();
 
-            // Quest-accept skill-check crit consequences. Scoped to checks whose pass
-            // branch fires GIVE_QUEST (i.e. quest accept). Free-roam / turn-in checks
-            // land here too but their pass/fail nodes don't fire GIVE_QUEST, so the
-            // nat1 blacklist add is a no-op (the quest id from the NPC's pre-generated
-            // quest is harmless to blacklist in those cases). The nat20 grant only
-            // matters when the NPC has a pre-generated quest with a phase-0 reward;
-            // otherwise rollAndGrantPreQuestReward returns null and no suffix is set.
-            if (result.naturalRoll() == 20 || result.naturalRoll() == 1) {
+            // Quest-accept crit consequences (nat20 grant + nat1 disposition/blacklist)
+            // only fire inside a quest topic; free-roam and turn-in checks are unaffected.
+            if (isActiveTopicQuestTopic() && (result.naturalRoll() == 20 || result.naturalRoll() == 1)) {
                 handleQuestAcceptCrit(result.naturalRoll());
             }
 
