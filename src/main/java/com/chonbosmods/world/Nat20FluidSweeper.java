@@ -1,10 +1,14 @@
 package com.chonbosmods.world;
 
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.asset.type.fluid.Fluid;
 import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.chunk.ChunkColumn;
 import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.chunk.section.FluidSection;
+import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 
 /**
  * Clears fluid cells inside a world-coordinate volume. Used post-paste by hostile POI placement
@@ -21,23 +25,39 @@ public final class Nat20FluidSweeper {
     public static void clearLavaInVolume(World world,
                                          int minX, int minY, int minZ,
                                          int maxX, int maxY, int maxZ) {
+        // FluidSection is per-section (10 sections of 32 blocks each per chunk), not per-chunk.
+        // Mirror WorldChunk.getFluidId's pattern: resolve section via ChunkColumn for each Y.
+        // Cache lava id once: avoids 38k hash + string compares per sweep.
+        int lavaFluidId = Fluid.getAssetMap().getIndex("Fluid_Lava");
+        if (lavaFluidId == 0) return;  // lava not registered, nothing to clear
+
         for (int x = minX; x <= maxX; x++) {
             for (int z = minZ; z <= maxZ; z++) {
                 long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
                 WorldChunk chunk = world.getNonTickingChunk(chunkKey);
                 if (chunk == null) continue;
 
-                FluidSection fs = chunk.getBlockComponentHolder(0, 0, 0)
-                    .getComponent(FluidSection.getComponentType());
-                if (fs == null) continue;
+                Ref<ChunkStore> columnRef = chunk.getReference();
+                Store<ChunkStore> store = columnRef.getStore();
+                ChunkColumn column = store.getComponent(columnRef, ChunkColumn.getComponentType());
+                if (column == null) continue;
 
                 int lx = Math.floorMod(x, ChunkUtil.SIZE);
                 int lz = Math.floorMod(z, ChunkUtil.SIZE);
+
+                FluidSection fs = null;
+                int currentSection = Integer.MIN_VALUE;
                 for (int y = minY; y <= maxY; y++) {
-                    int fluidId = chunk.getFluidId(lx, y, lz);
-                    if (fluidId == 0) continue;
-                    Fluid fluid = Fluid.getAssetMap().getAsset(fluidId);
-                    if (fluid != null && "Fluid_Lava".equals(fluid.getId())) {
+                    int sectionIdx = ChunkUtil.chunkCoordinate(y);
+                    if (sectionIdx != currentSection) {
+                        currentSection = sectionIdx;
+                        Ref<ChunkStore> sectionRef = column.getSection(sectionIdx);
+                        fs = (sectionRef == null) ? null
+                            : store.getComponent(sectionRef, FluidSection.getComponentType());
+                    }
+                    if (fs == null) continue;
+
+                    if (chunk.getFluidId(lx, y, lz) == lavaFluidId) {
                         fs.setFluid(lx, y, lz, 0, (byte) 0);
                     }
                 }
