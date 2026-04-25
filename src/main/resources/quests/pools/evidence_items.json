@@ -13,7 +13,7 @@
     {"id": "evidence_correspondence","noun": "encoded correspondence", "nounPlural": "encoded correspondence",  "epithet": null,                        "fetchItemType": "quest_scroll"},
     {"id": "evidence_deed",          "noun": "deed",                   "nounPlural": "deeds",                   "epithet": "the original",              "fetchItemType": "quest_scroll"},
     {"id": "evidence_blueprint",     "noun": "stolen plans",           "nounPlural": "stolen plans",            "epithet": null,                        "fetchItemType": "quest_letter"},
-    {"id": "evidence_signet",        "noun": "signet ring",            "nounPlural": "signet rings",            "epithet": null,                        "fetchItemType": "quest_treasure"},
+    {"id": "evidence_signet",        "noun": "engraved seal",          "nounPlural": "engraved seals",          "epithet": "pressed in dark wax",       "fetchItemType": "quest_treasure"},
     {"id": "evidence_logbook",       "noun": "guard's logbook",        "nounPlural": "guard logbooks",          "epithet": null,                        "fetchItemType": "quest_book"}
   ]
 }

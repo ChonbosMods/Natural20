@@ -2,7 +2,7 @@
   "values": [
     {"id": "keepsake_journal",   "noun": "leather journal",   "nounPlural": "leather journals",   "epithet": "worn smooth by years",          "fetchItemType": "quest_book"},
     {"id": "keepsake_doll",      "noun": "stuffed toy",       "nounPlural": "stuffed toys",       "epithet": "slept with every night",        "fetchItemType": "quest_keepsake"},
-    {"id": "keepsake_ring",      "noun": "ring",              "nounPlural": "rings",              "epithet": "never off their hand",          "fetchItemType": "quest_treasure"},
+    {"id": "keepsake_statue",    "noun": "carved Kweebec statue", "nounPlural": "carved Kweebec statues", "epithet": "passed down through generations", "fetchItemType": "quest_statue"},
     {"id": "keepsake_plush",     "noun": "hand-stitched plushie", "nounPlural": "hand-stitched plushies", "epithet": "carried everywhere",    "fetchItemType": "quest_keepsake"},
     {"id": "keepsake_pendant",   "noun": "carved pendant",    "nounPlural": "carved pendants",    "epithet": "on a leather cord",             "fetchItemType": "quest_treasure"},
     {"id": "keepsake_toy",       "noun": "child's toy",       "nounPlural": "old toys",           "epithet": "kept since childhood",          "fetchItemType": "quest_keepsake"},
@@ -10,7 +10,7 @@
     {"id": "keepsake_portrait",  "noun": "small portrait",    "nounPlural": "small portraits",    "epithet": "wrapped in cloth",              "fetchItemType": "quest_document"},
     {"id": "keepsake_compass",   "noun": "battered compass",  "nounPlural": "battered compasses", "epithet": "that still points true",        "fetchItemType": "quest_treasure"},
     {"id": "keepsake_bones",     "noun": "remains",           "nounPlural": "remains",            "epithet": "of someone they lost",          "fetchItemType": "quest_remains"},
-    {"id": "keepsake_locket",    "noun": "tin locket",        "nounPlural": "tin lockets",        "epithet": "with a lock inside",    "fetchItemType": "quest_treasure"},
+    {"id": "keepsake_figurine",  "noun": "carved Kweebec statue", "nounPlural": "carved Kweebec statues", "epithet": "kept above the hearth",        "fetchItemType": "quest_statue"},
     {"id": "keepsake_tonic",     "noun": "tonic",             "nounPlural": "tonics",             "epithet": "brewed every morning",          "fetchItemType": "quest_vial"}
   ]
 }
