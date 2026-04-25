@@ -1,14 +1,16 @@
 package com.chonbosmods.quest;
 
 import com.chonbosmods.Natural20;
+import com.chonbosmods.loot.CategoryWeightedPicker;
 import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.def.Nat20RarityDef;
+import com.chonbosmods.loot.mob.Nat20MobLootPool;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -20,7 +22,9 @@ import java.util.Set;
  *
  * <p>Composition path (matches {@code LootCommand}):
  * <ol>
- *   <li>Pick a base item uniformly at random from {@link Nat20LootEntryRegistry}.</li>
+ *   <li>Pick a base item via {@link Nat20MobLootPool#buildGlobalBuckets} +
+ *       {@link CategoryWeightedPicker#pick} so the gear filter (blocklist + tokens
+ *       + overrides) and category weights apply (same path as mob/chest loot).</li>
  *   <li>Resolve its category + display name from the same registry.</li>
  *   <li>Resolve {@code tier} ({@code "Common"}..{@code "Legendary"}) to a {@code qualityValue}
  *       via {@code Nat20RarityRegistry}.</li>
@@ -57,15 +61,13 @@ public final class AffixRewardRoller {
         }
 
         Nat20LootEntryRegistry entryRegistry = lootSystem.getLootEntryRegistry();
-        List<String> itemIds = new ArrayList<>(entryRegistry.getAllItemIds());
-        if (itemIds.isEmpty()) {
+        Map<String, List<String>> buckets = Nat20MobLootPool.buildGlobalBuckets(entryRegistry, ilvl);
+        String itemId = CategoryWeightedPicker.pick(buckets, random);
+        if (itemId == null) {
             throw new IllegalStateException(
-                    "Nat20LootEntryRegistry has no entries; cannot roll reward (tier="
+                    "Gear-filter buckets empty for quest reward; cannot roll (tier="
                             + tier + ", ilvl=" + ilvl + ")");
         }
-        // Item ids in the registry match the keys used by LootCommand (which passes
-        // item.getId() straight into the same registry lookups), so use them as-is.
-        String itemId = itemIds.get(random.nextInt(itemIds.size()));
 
         return rollFor(itemId, tier, ilvl, random);
     }
