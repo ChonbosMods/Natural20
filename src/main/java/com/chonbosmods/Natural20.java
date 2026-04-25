@@ -462,11 +462,6 @@ public class Natural20 extends JavaPlugin {
             scanVoidsAroundSettlement(settlement, world);
         }
 
-        // Pre-place surface fallback POI prefabs near the settlement
-        if (world != null) {
-            placeSurfaceFallbackPois(settlement, world);
-        }
-
         if (questSystem != null) {
             var topicGraphs = questSystem.getTopicGenerator().generate(settlement, deriveNearbyNames(settlement));
             dialogueLoader.registerGeneratedGraphs(topicGraphs);
@@ -508,39 +503,6 @@ public class Natural20 extends JavaPlugin {
             settlement.getCellKey(), found, scanRadius);
     }
 
-    /**
-     * Pre-place 2 surface fallback POI prefabs 200-400 blocks from the settlement.
-     * These are placed at settlement creation so they exist before players arrive.
-     * Positions are stored on the SettlementRecord and consumed by quests that can't find a cave void.
-     */
-    private void placeSurfaceFallbackPois(SettlementRecord settlement, World world) {
-        int count = 2;
-        int centerX = (int) settlement.getPosX();
-        int centerZ = (int) settlement.getPosZ();
-        java.util.Random rng = new java.util.Random(settlement.getCellKey().hashCode());
-
-        Store<EntityStore> store = world.getEntityStore().getStore();
-
-        for (int i = 0; i < count; i++) {
-            final int poiIndex = i;
-            double angle = rng.nextDouble() * 2 * Math.PI;
-            double dist = 200 + rng.nextDouble() * 200;
-            int targetX = centerX + (int) (dist * Math.cos(angle));
-            int targetZ = centerZ + (int) (dist * Math.sin(angle));
-
-            getStructurePlacer().placeAtSurface(world, targetX, targetZ, store)
-                .whenComplete((placed, error) -> {
-                    if (error != null || placed == null) {
-                        getLogger().atWarning().log("Surface fallback POI %d failed near settlement %s at (%d, %d)",
-                            poiIndex, settlement.getCellKey(), targetX, targetZ);
-                        return;
-                    }
-                    Vector3i entrance = placed.anchorWorld();
-                    settlement.addSurfaceFallbackPoi(entrance.getX(), entrance.getY(), entrance.getZ());
-                    settlementRegistry.saveAsync();
-                });
-        }
-    }
 
     public static ComponentType<EntityStore, Nat20NpcData> getNpcDataType() {
         return npcDataType;

@@ -1134,8 +1134,10 @@ public class DialogueActionRegistry {
     }
 
     /**
-     * Surface POI fallback: use a pre-placed fallback POI from the settlement if available,
-     * otherwise place the surfaceFallbackPrefab at a random point 200-400 blocks away.
+     * Surface POI fallback: place the surfaceFallbackPrefab at a random point 200-400
+     * blocks away. Used only when no cave void can be found by either pre-claim or
+     * runtime discovery: in practice this branch has never fired in observed sessions,
+     * but is retained as a graceful-degradation safety net.
      */
     private void placeSurfacePoi(QuestInstance quest, ObjectiveInstance objective,
                                   Store<EntityStore> store, Ref<EntityStore> playerRef,
@@ -1170,29 +1172,6 @@ public class DialogueActionRegistry {
             objective.setPoi(0, 0, 0, populationSpec);
         }
 
-        // Try to claim a pre-placed surface fallback POI from the settlement
-        SettlementRegistry settlements = Natural20.getInstance().getSettlementRegistry();
-        if (settlements != null && quest.getSourceSettlementId() != null) {
-            SettlementRecord settlement = settlements.getByCell(quest.getSourceSettlementId());
-            if (settlement != null) {
-                int[] prePlaced = settlement.claimSurfaceFallbackPoi();
-                if (prePlaced != null) {
-                    LOGGER.atInfo().log("placeSurfacePoi: using pre-placed fallback at (%d,%d,%d) for quest %s",
-                        prePlaced[0], prePlaced[1], prePlaced[2], quest.getQuestId());
-                    settlements.saveAsync();
-                    Vector3i entrance = new Vector3i(prePlaced[0], prePlaced[1], prePlaced[2]);
-                    objective.setPoi(prePlaced[0], prePlaced[1], prePlaced[2], objective.getPopulationSpec());
-                    bindings.put("poi_available", "true");
-                    bindings.put("poi_center_x", String.valueOf(prePlaced[0]));
-                    bindings.put("poi_center_z", String.valueOf(prePlaced[2]));
-                    com.chonbosmods.quest.poi.PoiPlacer.finalizePlacement(
-                        quest, objective, entrance, null, store, playerRef);
-                    return;
-                }
-            }
-        }
-
-        // No pre-placed POI available: place one now at a random surface point
         Random rng = new Random(quest.getQuestId().hashCode() + quest.getConflictCount());
         double angle = rng.nextDouble() * 2 * Math.PI;
         double dist = 200 + rng.nextDouble() * 200;
