@@ -342,7 +342,7 @@ public class SettlementWorldGenListener {
             int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
             Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
                 world, mx, mz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
-            int my = (mSample.y() <= 0 || mSample.tooSteep()) ? groundY : mSample.y();
+            int my = (mSample.y() <= 0 || mSample.tooSteep() || mSample.tooWet()) ? groundY : mSample.y();
             markers.add(new Vector3d(mx, my, mz));
         }
 
@@ -385,7 +385,7 @@ public class SettlementWorldGenListener {
             int pz = baseZ + off[1];
             Nat20HeightmapSampler.SampleResult r = Nat20HeightmapSampler.sample(
                 world, px, pz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
-            if (r.y() <= 0) continue;
+            if (r.y() <= 0 || r.tooWet()) continue;
             AnchorChoice option = new AnchorChoice(px, pz, r.y(), r.slopeDelta());
             if (best == null || option.slope < best.slope) {
                 best = option;
