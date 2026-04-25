@@ -7,6 +7,7 @@ import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
@@ -142,19 +143,26 @@ public final class Nat20QuestRewardDispatcher {
                 tx = peer.giveItem(rerolled, ref, store);
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log(
-                    "Multi-accepter giveItem threw for quest %s phase %d, player %s",
+                    "Multi-accepter giveItem threw for quest %s phase %d peer %s; falling back to ground drop",
                     quest.getQuestId(), phaseIndex, uuid);
-                continue;
+                tx = null;
             }
 
-            if (tx == null || !tx.succeeded()) {
-                ItemStack remainder = tx != null ? tx.getRemainder() : null;
-                int remainderQty = remainder != null ? remainder.getQuantity() : rerolled.getQuantity();
-                LOGGER.atSevere().log(
-                    "Multi-accepter dispense REFUSED for quest %s phase %d, item %s, player %s: "
-                        + "giveItem !succeeded (remainder=%d). Inventory likely full.",
-                    quest.getQuestId(), phaseIndex, rerolled.getItemId(), uuid, remainderQty);
-                continue;
+            boolean fullyDelivered = (tx != null && tx.succeeded());
+            if (!fullyDelivered) {
+                ItemStack toDrop = (tx != null && tx.getRemainder() != null) ? tx.getRemainder() : rerolled;
+                try {
+                    ItemUtils.dropItem(ref, toDrop, store);
+                    LOGGER.atInfo().log(
+                        "Multi-accepter dropped reward at peer %s feet for quest %s phase %d (item=%s x%d): inventory was full",
+                        uuid, quest.getQuestId(), phaseIndex, toDrop.getItemId(), toDrop.getQuantity());
+                } catch (Exception e) {
+                    LOGGER.atSevere().withCause(e).log(
+                        "Multi-accepter ground drop FAILED for quest %s phase %d peer %s; reward LOST (item=%s)",
+                        quest.getQuestId(), phaseIndex, uuid, toDrop.getItemId());
+                }
+                // Fall through to success-side logging below; ground drop is a delivery success
+                // from the player's perspective.
             }
 
             String peerItemName = "";

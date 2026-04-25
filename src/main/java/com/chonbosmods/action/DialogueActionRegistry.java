@@ -36,6 +36,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
@@ -1364,19 +1365,27 @@ public class DialogueActionRegistry {
             tx = ctx.player().giveItem(stack, ctx.playerRef(), ctx.store());
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log(
-                "TURN_IN_V2 dispense failed for quest %s phase %d, item %s, player %s: giveItem threw",
-                quest.getQuestId(), phaseIndex, stack.getItemId(), playerUuid);
-            return null;
+                "TURN_IN_V2 giveItem threw for quest %s phase %d player %s; falling back to ground drop",
+                quest.getQuestId(), phaseIndex, playerUuid);
+            tx = null;
         }
 
-        if (tx == null || !tx.succeeded()) {
-            ItemStack remainder = tx != null ? tx.getRemainder() : null;
-            int remainderQty = remainder != null ? remainder.getQuantity() : stack.getQuantity();
-            LOGGER.atSevere().log(
-                "TURN_IN_V2 dispense REFUSED for quest %s phase %d, item %s, player %s: giveItem "
-                    + "returned !succeeded (remainder=%d). Inventory likely full; reward NOT delivered.",
-                quest.getQuestId(), phaseIndex, stack.getItemId(), playerUuid, remainderQty);
-            return null;
+        boolean fullyDelivered = (tx != null && tx.succeeded());
+        if (!fullyDelivered) {
+            // Inventory full or giveItem threw: drop the (remaining) item at player's feet.
+            // Player can pick it up; reward is not lost.
+            ItemStack toDrop = (tx != null && tx.getRemainder() != null) ? tx.getRemainder() : stack;
+            try {
+                ItemUtils.dropItem(ctx.playerRef(), toDrop, ctx.store());
+                LOGGER.atInfo().log(
+                    "TURN_IN_V2 dropped reward at player %s feet for quest %s phase %d (item=%s x%d): inventory was full",
+                    playerUuid, quest.getQuestId(), phaseIndex, toDrop.getItemId(), toDrop.getQuantity());
+            } catch (Exception e) {
+                LOGGER.atSevere().withCause(e).log(
+                    "TURN_IN_V2 ground drop FAILED for quest %s phase %d player %s; reward LOST (item=%s)",
+                    quest.getQuestId(), phaseIndex, playerUuid, toDrop.getItemId());
+                // Continue: still return success-style display name. Peer dispatch must not be blocked.
+            }
         }
 
         String displayName = stack.getItemId();
