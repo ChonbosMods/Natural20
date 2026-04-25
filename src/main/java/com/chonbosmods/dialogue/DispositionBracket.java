@@ -50,6 +50,10 @@ public enum DispositionBracket {
         this.maxDisposition = max;
     }
 
+    public int getMaxDisposition() {
+        return maxDisposition;
+    }
+
     public static DispositionBracket fromDisposition(int disposition) {
         int clamped = Math.clamp(disposition, 0, 100);
         for (DispositionBracket bracket : values()) {

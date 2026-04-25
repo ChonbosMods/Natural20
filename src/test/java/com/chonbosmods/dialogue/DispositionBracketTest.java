@@ -41,4 +41,9 @@ class DispositionBracketTest {
         assertEquals("loyal", DispositionBracket.textPoolFromDisposition(80));
         assertEquals("loyal", DispositionBracket.textPoolFromDisposition(100));
     }
+
+    @Test
+    void hostile_maxDisposition_isTopOfHostileBand() {
+        assertEquals(10, DispositionBracket.HOSTILE.getMaxDisposition());
+    }
 }
