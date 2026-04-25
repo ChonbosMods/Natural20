@@ -27,6 +27,19 @@ public class Nat20RarityRegistry {
         "Common.json", "Uncommon.json", "Rare.json", "Epic.json", "Legendary.json"
     };
 
+    /** Per-rarity weight multiplier applied to non-Common rarities on RARE+ champion mobs. */
+    private static final double NON_COMMON_DIFFICULTY_BOOST = 1.5;
+
+    /**
+     * EPIC/LEGENDARY-difficulty Common-weight redistribution.
+     * Common is zeroed at these difficulties; its full BaseWeight redistributes upward
+     * to higher tiers via this table. Indexed by qualityValue:
+     * {@code [unused(0), Common(1), Uncommon(2), Rare(3), Epic(4), Legendary(5)]}.
+     * The sum of indexes 2-5 must equal Common's {@code BaseWeight} in
+     * {@code Common.json} (currently 250); keep in sync.
+     */
+    private static final double[] EPIC_TIER_COMMON_REDIST = {0.0, 0.0, 80.0, 130.0, 30.0, 10.0};
+
     private final Map<String, Nat20RarityDef> raritiesById = new LinkedHashMap<>();
     private final List<Nat20RarityDef> raritiesByValue = new ArrayList<>();
 
@@ -195,17 +208,13 @@ public class Nat20RarityRegistry {
             if (isCommon && zeroCommon) {
                 w = 0.0;
             } else if (!isCommon) {
-                w *= 1.5;
+                w *= NON_COMMON_DIFFICULTY_BOOST;
             }
-            // EPIC/LEGENDARY: redistribute Common's original 250 weight upward.
+            // EPIC/LEGENDARY: redistribute Common's BaseWeight upward via EPIC_TIER_COMMON_REDIST.
             if (zeroCommon) {
-                // 80 + 130 + 30 + 10 = 250 = Common's BaseWeight in Common.json; keep in sync.
-                switch (def.qualityValue()) {
-                    case 2 -> w += 80.0;  // Uncommon
-                    case 3 -> w += 130.0; // Rare
-                    case 4 -> w += 30.0;  // Epic
-                    case 5 -> w += 10.0;  // Legendary
-                    default -> {}
+                int qv = def.qualityValue();
+                if (qv >= 0 && qv < EPIC_TIER_COMMON_REDIST.length) {
+                    w += EPIC_TIER_COMMON_REDIST[qv];
                 }
             }
             if (w <= 0.0) continue;
