@@ -307,6 +307,12 @@ public class UndergroundStructurePlacer {
                         result.complete(null);
                         return;
                     }
+                    if (sample.tooWet()) {
+                        LOGGER.atFine().log("Surface placement: submerged (depth=%d) at (%d, %d); skipping",
+                            sample.maxSubmergedDepth(), targetX, targetZ);
+                        result.complete(null);
+                        return;
+                    }
 
                     final int surfaceY = sample.y();
                     Vector3i pastePos = new Vector3i(targetX, surfaceY, targetZ);

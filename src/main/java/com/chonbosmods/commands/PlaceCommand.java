@@ -71,6 +71,11 @@ public class PlaceCommand extends AbstractPlayerCommand {
             Nat20HeightmapSampler.Mode.ENTRY_ANCHOR,
             Integer.MAX_VALUE);
         int py = ground.y() > 0 ? ground.y() : (int) pos.getY();
+        if (ground.tooWet()) {
+            context.sendMessage(Message.raw(String.format(
+                "Warning: candidate is submerged (depth=%d), placing anyway.",
+                ground.maxSubmergedDepth())));
+        }
         Vector3i blockPos = new Vector3i(px, py, pz);
 
         context.sendMessage(Message.raw("Placing " + type + " at " +
