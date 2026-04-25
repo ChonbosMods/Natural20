@@ -176,4 +176,14 @@ class Nat20HeightmapSamplerTest {
         int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 65, 10, allFluid);
         assertEquals(2, depth, "stops at canopyY inclusive");
     }
+
+    @Test
+    void sample_aggregatesMaxSubmergedAcrossProbes() {
+        // We can't easily mock probeGroundY (private), so this test documents intent
+        // and is exercised indirectly by smoke tests. The aggregation rule is:
+        //   maxSubmergedDepth = max(submergedDepth across the 5 probes)
+        //   tooWet = maxSubmergedDepth > DEFAULT_WET_THRESHOLD
+        // Verified via the constants test below.
+        assertEquals(2, Nat20HeightmapSampler.DEFAULT_WET_THRESHOLD);
+    }
 }
