@@ -165,6 +165,13 @@ public final class SettlementPieceAssembler {
                         out.complete(null);
                         return;
                     }
+                    if (ground.tooWet()) {
+                        LOGGER.atFine().log(
+                            "Piece grounding: submerged (depth=%d) at (%d, %d); skipping",
+                            ground.maxSubmergedDepth(), placement.anchor.getX(), placement.anchor.getZ());
+                        out.complete(null);
+                        return;
+                    }
                     Vector3i groundedAnchor = new Vector3i(
                         placement.anchor.getX(), ground.y(), placement.anchor.getZ());
                     // Nat20PrefabPaster.paste validates markers synchronously and throws
