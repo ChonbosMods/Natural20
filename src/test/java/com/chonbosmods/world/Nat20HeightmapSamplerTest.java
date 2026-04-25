@@ -138,4 +138,42 @@ class Nat20HeightmapSamplerTest {
         assertEquals(5, Nat20HeightmapSampler.slopeDelta(new int[]{64, 65, 68, 63, 66}));
         assertEquals(0, Nat20HeightmapSampler.slopeDelta(new int[]{70, 70, 70, 70, 70}));
     }
+
+    @Test
+    void scanFluidDepthAbove_returnsZero_whenAirAboveGround() {
+        java.util.function.IntPredicate noFluid = y -> false;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 100, 3, noFluid);
+        assertEquals(0, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_returnsOne_whenSingleFluidBlockAbove() {
+        java.util.function.IntPredicate fluidAt64 = y -> y == 64;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 100, 3, fluidAt64);
+        assertEquals(1, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_returnsThree_whenColumnExceedsCap() {
+        // cap is maxDepth = 3, fluid extends well past
+        java.util.function.IntPredicate deepFluid = y -> y >= 64 && y <= 80;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 100, 3, deepFluid);
+        assertEquals(3, depth, "scan caps at maxDepth and stops");
+    }
+
+    @Test
+    void scanFluidDepthAbove_shortCircuitsAtFirstAir() {
+        // fluid, fluid, air, fluid -> depth=2 (column ends at first air)
+        java.util.function.IntPredicate broken = y -> y == 64 || y == 65 || y == 67;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 100, 5, broken);
+        assertEquals(2, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_respectsCanopyCeiling() {
+        // canopyY=65 means we can only check y=64 and y=65
+        java.util.function.IntPredicate allFluid = y -> true;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 65, 10, allFluid);
+        assertEquals(2, depth, "stops at canopyY inclusive");
+    }
 }

@@ -136,6 +136,34 @@ public final class Nat20HeightmapSampler {
         return sample(world, centerX, centerZ, halfX, halfZ, mode, DEFAULT_SLOPE_THRESHOLD);
     }
 
+    /**
+     * Counts contiguous fluid cells starting AT {@code groundY} and walking up. Stops at the first
+     * non-fluid cell, at {@code groundY + maxDepth}, or at {@code canopyY + 1}, whichever comes first.
+     *
+     * <p>Used by {@link #probeGroundY} to detect submersion. The walker that produces {@code groundY}
+     * starts at {@link WorldChunk#getHeight} and walks DOWN, but the heightmap skips Empty cells
+     * (Hytale's fluid cells are blockId=Empty with fluidId in a separate palette), so the walker
+     * lands on the seabed below an ocean column and the in-walk fluid check never fires. This upward
+     * scan covers that gap: after grounding, look up for fluid that the heightmap stepped over.
+     *
+     * @param groundY first buildable Y above solid (the value returned by walkDownToSolidGround)
+     * @param canopyY chunk heightmap value, inclusive upper bound on the scan
+     * @param maxDepth cap on the returned count; caller passes wetThreshold + 1 to short-circuit
+     * @param isFluidAt fluid predicate (chunk.getFluidId(lx, y, lz) != 0)
+     * @return contiguous fluid count in [0, maxDepth]
+     */
+    static int scanFluidDepthAbove(int groundY,
+                                   int canopyY,
+                                   int maxDepth,
+                                   java.util.function.IntPredicate isFluidAt) {
+        int depth = 0;
+        for (int y = groundY; y < groundY + maxDepth && y <= canopyY; y++) {
+            if (isFluidAt.test(y)) depth++;
+            else break;
+        }
+        return depth;
+    }
+
     /** Probe a single XZ: get canopy Y from the chunk heightmap, walk down past trees. */
     private static int probeGroundY(World world, int x, int z) {
         long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
