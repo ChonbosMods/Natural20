@@ -2,6 +2,8 @@ package com.chonbosmods.loot;
 
 import com.chonbosmods.loot.effects.EffectHandlerRegistry;
 import com.chonbosmods.loot.effects.Nat20AffixEventListener;
+import com.chonbosmods.loot.filter.Nat20GearFilter;
+import com.chonbosmods.loot.mob.Nat20ItemTierResolver;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
 import com.chonbosmods.loot.mob.Nat20MobLootListener;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
@@ -29,6 +31,7 @@ public class Nat20LootSystem {
     private final Nat20NamePoolRegistry namePoolRegistry = new Nat20NamePoolRegistry();
     private final EffectHandlerRegistry effectHandlerRegistry = new EffectHandlerRegistry();
     private final Nat20MobNameGenerator mobNameGenerator = new Nat20MobNameGenerator();
+    private final Nat20GearFilter gearFilter;
     private final Nat20MobAffixManager mobAffixManager;
     private final Nat20MobLootListener mobLootListener;
     private final Nat20AffixEventListener affixEventListener;
@@ -39,6 +42,12 @@ public class Nat20LootSystem {
     private final Nat20ItemGarbageCollector garbageCollector;
 
     public Nat20LootSystem() {
+        // Load gear filter once at startup and install it on the static resolver
+        // before any caller (mob loot pool, chest picker, etc.) could ask for tier info.
+        this.gearFilter = Nat20GearFilter.loadFrom(
+            getClass().getResourceAsStream("/loot/gear_filter.json"));
+        Nat20ItemTierResolver.setFilter(this.gearFilter);
+
         this.mobAffixManager = new Nat20MobAffixManager(affixRegistry, mobNameGenerator);
         this.mobLootListener = new Nat20MobLootListener(this);
         this.affixEventListener = new Nat20AffixEventListener(this);
@@ -86,6 +95,7 @@ public class Nat20LootSystem {
     public Nat20AffixRegistry getAffixRegistry() { return affixRegistry; }
     public Nat20GemRegistry getGemRegistry() { return gemRegistry; }
     public Nat20LootEntryRegistry getLootEntryRegistry() { return lootEntryRegistry; }
+    public Nat20GearFilter getGearFilter() { return gearFilter; }
     public Nat20NamePoolRegistry getNamePoolRegistry() { return namePoolRegistry; }
     public EffectHandlerRegistry getEffectHandlerRegistry() { return effectHandlerRegistry; }
     public Nat20MobAffixManager getMobAffixManager() { return mobAffixManager; }
