@@ -27,7 +27,7 @@ Collect Resources is the only objective type that **ignores the 80-block party-p
 
 #### Kill Mobs
 
-Defeat a target count of a specific mob type. Credit goes to every party member who dealt damage to the mob within a short window before its death, which means environmental kills, pet kills, and AI-on-AI all count if you softened the target first. The phase auto-completes the instant the counter hits the target.
+Defeat a target count of a specific mob type. Only champion mobs at the quest's hostile POI count: kills elsewhere, including ambient surface spawns of the same role, don't tick the counter. Credit goes to every party member who dealt damage to the mob within a short window before its death, which means environmental kills, pet kills, and AI-on-AI all count if you softened the target first. The phase auto-completes the instant the counter hits the target.
 
 #### Kill Boss
 
@@ -37,15 +37,15 @@ Defeat a single named boss. Same damage-contribution rule as Kill Mobs, but ther
 
 Retrieve a specific item and keep it in your inventory. Unlike Collect Resources, a fetch is binary: one qualifying item is enough. Dropping the item reverts the phase to active until you pick it back up. After a successful fetch you return to the quest-giver to turn it in.
 
-There is also a **peaceful fetch** variant for storylines that deliberately avoid combat — mechanically identical, but used in scenarios where the fetch target is guarded by dialogue rather than hostile mobs.
+There is also a **peaceful fetch** variant for storylines that deliberately avoid combat — mechanically identical, but used in scenarios where the fetch target sits in a chest tucked away inside a settlement rather than guarded by hostile mobs.
 
 #### Talk to NPC
 
-Hold a conversation with a designated NPC. The objective completes the moment you finish the prompted dialogue with the right target. Unlike the other types, you do **not** need to return to the quest-giver separately: the conversation itself closes the phase.
+Hold a conversation with a designated NPC. The objective ticks the moment you finish the prompted dialogue with the right target, then you return to the quest-giver to turn the phase in.
 
 ### Phase-to-phase flow
 
-Every phase rolls its own XP and its own item reward. A three-phase quest pays three separate rewards, one per phase, rather than a single bundle at the end. After you finish a phase's objective, the game points you at either the source NPC for turn-in (Collect / Kill / Fetch) or directly at the next phase's target (Talk). The source NPC shows a blue question mark while they have a turn-in waiting.
+Every phase rolls its own XP and its own item reward. A three-phase quest pays three separate rewards, one per phase, rather than a single bundle at the end. After you finish a phase's objective, the game points you back at the source NPC for turn-in. The source NPC shows a blue question mark while they have a turn-in waiting.
 
 Rewards are always level-and-difficulty scaled (see the Party System wiki for the multipliers), and items are freshly rolled for each eligible accepter so multiple party members never walk away with identical loot.
 

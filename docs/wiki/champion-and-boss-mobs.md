@@ -2,7 +2,7 @@
 
 ## Overview
 
-Natural 20 never spawns mobs one at a time. Every Nat20 mob encounter is a **group**: a pack of **champion** minions around exactly one **boss**. Each group rolls a single **difficulty tier** : Uncommon, Rare, Epic, or Legendary : that colours the whole pack, amplifies their HP and damage, stacks them with affixes, and decides how hard they drop gear.
+Natural 20 never spawns mobs one at a time. Every Nat20 mob encounter is a **group**: a pack of **champion** minions around exactly one **boss**. Each group rolls a single **difficulty tier** (Uncommon, Rare, Epic, or Legendary) that colours the whole pack, amplifies their HP and damage, stacks them with affixes, and decides how hard they drop gear.
 
 A typical encounter is:
 
