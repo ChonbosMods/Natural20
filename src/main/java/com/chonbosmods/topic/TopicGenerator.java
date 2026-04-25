@@ -134,35 +134,31 @@ public class TopicGenerator {
             questBearerNpcs.remove(names[random.nextInt(names.length)]);
         }
 
-        // Step 2: Roll smalltalk topic budgets per NPC. Role-based ranges with
-        // guard / functional / social tiers. Quest bearers get their budget
-        // capped so total topics (smalltalk + quest) <= MAX_TOTAL_TOPICS_PER_NPC;
-        // they also get a floor of 1 so the quest generator has a subject to
-        // read affinities from.
+        // Step 2: Roll smalltalk topic budgets per NPC. Two tiers: Guard (0-1)
+        // and Villager (everything else, 2-3). Quest bearers get their budget
+        // capped so total topics (smalltalk + quest) <= MAX_TOTAL_TOPICS_PER_NPC.
         Map<String, Integer> topicBudgets = new LinkedHashMap<>();
         for (NpcRecord npc : npcs) {
             int min, max;
-            String role = npc.getRole();
-            if (TopicConstants.GUARD_ROLES.contains(role)) {
+            if (TopicConstants.GUARD_ROLES.contains(npc.getRole())) {
                 min = TopicConstants.GUARD_MIN_TOPICS;
                 max = TopicConstants.GUARD_MAX_TOPICS;
-            } else if (isSocialRole(role)) {
-                min = TopicConstants.SOCIAL_MIN_TOPICS;
-                max = TopicConstants.SOCIAL_MAX_TOPICS;
             } else {
-                min = TopicConstants.FUNCTIONAL_MIN_TOPICS;
-                max = TopicConstants.FUNCTIONAL_MAX_TOPICS;
+                min = TopicConstants.VILLAGER_MIN_TOPICS;
+                max = TopicConstants.VILLAGER_MAX_TOPICS;
             }
             int budget = min + random.nextInt(max - min + 1);
             boolean isQuestBearer = questBearerNpcs.contains(npc.getGeneratedName());
             int maxSmalltalk = TopicConstants.MAX_TOTAL_TOPICS_PER_NPC - (isQuestBearer ? 1 : 0);
             if (budget > maxSmalltalk) budget = maxSmalltalk;
-            if (isQuestBearer && budget < 1) budget = 1;
             topicBudgets.put(npc.getGeneratedName(), budget);
         }
 
-        // Step 3: Each NPC gets 2-3 topic labels based on role, then draws
-        // categories from those labels to fill their topic budget.
+        // Step 3: Each NPC samples its labels without replacement, then draws
+        // a category from each. Guard pulls from GUARD_LABELS (watch-themed);
+        // Villager pulls from ALL_LABELS, shuffled per-NPC, so labels are
+        // distributed uniformly across the settlement and never duplicated on
+        // the same NPC.
         List<SubjectFocus> allSubjects = new ArrayList<>();
         Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
         Map<String, NpcRecord> npcByName = new LinkedHashMap<>();
@@ -173,21 +169,20 @@ public class TopicGenerator {
             String npcName = npc.getGeneratedName();
             int budget = topicBudgets.get(npcName);
 
-            // Per-NPC seeded random for deterministic label/category selection
             Random deckRandom = new Random(baseSeed ^ ((long) npcIdx * 31));
 
-            // Select 2-3 labels based on role
-            List<String> roleLabels = TopicConstants.ROLE_LABELS.getOrDefault(
-                npc.getRole(), TopicConstants.DEFAULT_LABELS);
-            int labelCount = Math.min(budget, Math.min(3, roleLabels.size()));
-            List<String> selectedLabels = new ArrayList<>(roleLabels.subList(0, labelCount));
+            List<String> labelPool = new ArrayList<>(
+                TopicConstants.GUARD_ROLES.contains(npc.getRole())
+                    ? TopicConstants.GUARD_LABELS
+                    : TopicConstants.ALL_LABELS);
+            Collections.shuffle(labelPool, deckRandom);
+            int labelCount = Math.min(budget, labelPool.size());
 
             List<SubjectFocus> npcTopics = new ArrayList<>();
             int subjectBase = allSubjects.size();
 
-            for (int i = 0; i < budget; i++) {
-                // Round-robin across selected labels
-                String label = selectedLabels.get(i % selectedLabels.size());
+            for (int i = 0; i < labelCount; i++) {
+                String label = labelPool.get(i);
                 List<String> categories = TopicConstants.LABEL_CATEGORIES.get(label);
                 String category = categories.get(deckRandom.nextInt(categories.size()));
 
@@ -201,38 +196,23 @@ public class TopicGenerator {
             npcSubjects.put(npcName, npcTopics);
         }
 
-        // Step 4: Generate quests for pre-selected bearers. Each bearer's
-        // first subject is used as the affinity hook; if that subject is not
-        // quest-eligible, swap it for one that is. Quest bearers were chosen
-        // in Step 1 and always have >=1 smalltalk subject due to the budget
-        // floor in Step 2.
+        // Step 4: Generate quests for pre-selected bearers. Quest subject
+        // selection is independent of smalltalk slots: pulling here MUST NOT
+        // mutate npcSubjects, or the quest pool's category bias would skew the
+        // role-derived smalltalk labels. The quest topic itself is injected
+        // into the dialogue graph at runtime by
+        // DialogueManager.injectQuestAvailableTopics.
         for (String bearerName : questBearerNpcs) {
-            List<SubjectFocus> ownerTopics = npcSubjects.get(bearerName);
-            if (ownerTopics == null || ownerTopics.isEmpty()) {
-                LOGGER.atWarning().log("Quest bearer %s has no subjects; skipping quest generation", bearerName);
-                continue;
-            }
-            SubjectFocus focus = ownerTopics.get(0);
-            if (!focus.isQuestEligible()) {
-                TopicPoolRegistry.SubjectEntry eligible = topicPool.randomQuestEligibleSubject(random);
-                String newId = "subj_" + sanitize(bearerName) + "_" + sanitize(eligible.value());
-                SubjectFocus replacement = new SubjectFocus(newId, eligible.value(), eligible.plural(),
-                    eligible.proper(), eligible.questEligible(), eligible.concrete(),
-                    eligible.categories(), eligible.poiType(), eligible.questAffinities());
-                ownerTopics.set(0, replacement);
-                int allIdx = allSubjects.indexOf(focus);
-                if (allIdx >= 0) allSubjects.set(allIdx, replacement);
-                focus = replacement;
-            }
             NpcRecord bearerRecord = npcByName.get(bearerName);
+            TopicPoolRegistry.SubjectEntry questSubject = topicPool.randomQuestEligibleSubject(random);
             QuestInstance preQuest = questGenerator.generate(
                 bearerRecord.getRole(), bearerName,
                 settlement.getCellKey(),
                 bearerRecord.getSpawnX(), bearerRecord.getSpawnZ(),
                 Set.of(),
-                focus.getQuestAffinities(),
-                focus.getPoiType(),
-                focus.getSubjectValue()
+                questSubject.questAffinities(),
+                questSubject.poiType(),
+                questSubject.value()
             );
 
             if (preQuest != null) {
@@ -244,7 +224,7 @@ public class TopicGenerator {
                     (int) bearerRecord.getSpawnY(),
                     (int) bearerRecord.getSpawnZ());
             } else {
-                LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest, demoting to normal topic", bearerName);
+                LOGGER.atWarning().log("  QUEST BEARER: %s failed to generate quest", bearerName);
             }
         }
 
@@ -459,24 +439,8 @@ public class TopicGenerator {
         return bindings;
     }
 
-    /**
-     * Sanitize a subject value into a safe ID component: lowercase alphanumeric with underscores.
-     */
-    private static String sanitize(String value) {
-        return value.toLowerCase().replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");
-    }
-
-    private static boolean isSocialRole(String role) {
-        return TopicConstants.SOCIAL_ROLES.contains(role);
-    }
-
     private static String dispositionBracket(int disposition) {
         return DispositionBracket.textPoolFromDisposition(disposition);
-    }
-
-    private static String capitalizeFirst(String text) {
-        if (text == null || text.isEmpty()) return text;
-        return Character.toUpperCase(text.charAt(0)) + text.substring(1);
     }
 
     /**

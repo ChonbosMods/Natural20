@@ -28,13 +28,12 @@ import java.util.*;
  */
 public class DialogueDryRun {
 
-    // Topic constants shared with TopicGenerator
-    private static final int SOCIAL_MIN_TOPICS = TopicConstants.SOCIAL_MIN_TOPICS;
-    private static final int SOCIAL_MAX_TOPICS = TopicConstants.SOCIAL_MAX_TOPICS;
-    private static final int FUNCTIONAL_MIN_TOPICS = TopicConstants.FUNCTIONAL_MIN_TOPICS;
-    private static final int FUNCTIONAL_MAX_TOPICS = TopicConstants.FUNCTIONAL_MAX_TOPICS;
-    private static final Set<String> SOCIAL_ROLES = TopicConstants.SOCIAL_ROLES;
-    // Label system constants are accessed directly from TopicConstants
+    // Topic constants shared with TopicGenerator (Guard vs Villager tier).
+    private static final int GUARD_MIN_TOPICS = TopicConstants.GUARD_MIN_TOPICS;
+    private static final int GUARD_MAX_TOPICS = TopicConstants.GUARD_MAX_TOPICS;
+    private static final int VILLAGER_MIN_TOPICS = TopicConstants.VILLAGER_MIN_TOPICS;
+    private static final int VILLAGER_MAX_TOPICS = TopicConstants.VILLAGER_MAX_TOPICS;
+    private static final Set<String> GUARD_ROLES = TopicConstants.GUARD_ROLES;
 
     public static void main(String[] args) {
         // Parse CLI args
@@ -117,16 +116,16 @@ public class DialogueDryRun {
         Random random = new Random(seed);
         PercentageDedup dedup = new PercentageDedup();
 
-        // Step 1: Roll topic budgets
+        // Step 1: Roll topic budgets (Guard vs Villager).
         Map<String, Integer> topicBudgets = new LinkedHashMap<>();
         for (NpcRecord npc : npcs) {
             int min, max;
-            if (SOCIAL_ROLES.contains(npc.getRole())) {
-                min = SOCIAL_MIN_TOPICS;
-                max = SOCIAL_MAX_TOPICS;
+            if (GUARD_ROLES.contains(npc.getRole())) {
+                min = GUARD_MIN_TOPICS;
+                max = GUARD_MAX_TOPICS;
             } else {
-                min = FUNCTIONAL_MIN_TOPICS;
-                max = FUNCTIONAL_MAX_TOPICS;
+                min = VILLAGER_MIN_TOPICS;
+                max = VILLAGER_MAX_TOPICS;
             }
             int budget = min + random.nextInt(max - min + 1);
             topicBudgets.put(npc.getGeneratedName(), budget);
@@ -134,7 +133,7 @@ public class DialogueDryRun {
                 + "): budget=" + budget);
         }
 
-        // Step 2: Assign topic labels and categories per NPC
+        // Step 2: Sample labels without replacement, then draw a category from each.
         Map<String, List<SubjectFocus>> npcSubjects = new LinkedHashMap<>();
 
         int subjectIdx = 0;
@@ -145,16 +144,17 @@ public class DialogueDryRun {
 
             Random deckRandom = new Random(seed ^ ((long) npcIdx * 31));
 
-            // Select 2-3 labels based on role
-            List<String> roleLabels = TopicConstants.ROLE_LABELS.getOrDefault(
-                npc.getRole(), TopicConstants.DEFAULT_LABELS);
-            int labelCount = Math.min(budget, Math.min(3, roleLabels.size()));
-            List<String> selectedLabels = new ArrayList<>(roleLabels.subList(0, labelCount));
+            List<String> labelPool = new ArrayList<>(
+                GUARD_ROLES.contains(npc.getRole())
+                    ? TopicConstants.GUARD_LABELS
+                    : TopicConstants.ALL_LABELS);
+            Collections.shuffle(labelPool, deckRandom);
+            int labelCount = Math.min(budget, labelPool.size());
 
             List<SubjectFocus> npcTopics = new ArrayList<>();
 
-            for (int i = 0; i < budget; i++) {
-                String label = selectedLabels.get(i % selectedLabels.size());
+            for (int i = 0; i < labelCount; i++) {
+                String label = labelPool.get(i);
                 List<String> categories = TopicConstants.LABEL_CATEGORIES.get(label);
                 String category = categories.get(deckRandom.nextInt(categories.size()));
 

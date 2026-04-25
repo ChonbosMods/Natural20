@@ -11,6 +11,7 @@ public final class TopicConstants {
     private TopicConstants() {}
 
     // --- Role-based topic budgets ---
+    // Two tiers: Guard (terse, watch-themed) and Villager (everything else).
     // Total topics per NPC (smalltalk + injected quest topic) must never exceed
     // MAX_TOTAL_TOPICS_PER_NPC. TopicGenerator caps smalltalk budgets against
     // this when an NPC is selected as a quest bearer.
@@ -18,15 +19,10 @@ public final class TopicConstants {
 
     public static final int GUARD_MIN_TOPICS = 0;
     public static final int GUARD_MAX_TOPICS = 1;
-    public static final int FUNCTIONAL_MIN_TOPICS = 1;
-    public static final int FUNCTIONAL_MAX_TOPICS = 2;
-    public static final int SOCIAL_MIN_TOPICS = 2;
-    public static final int SOCIAL_MAX_TOPICS = 3;
+    public static final int VILLAGER_MIN_TOPICS = 2;
+    public static final int VILLAGER_MAX_TOPICS = 3;
 
     public static final Set<String> GUARD_ROLES = Set.of("Guard");
-    public static final Set<String> SOCIAL_ROLES = Set.of(
-        "TavernKeeper", "ArtisanAlchemist", "ArtisanBlacksmith", "ArtisanCook", "Traveler"
-    );
 
     // --- Topic label system ---
     // 6 broad Morrowind-style labels shown in the dialogue UI.
@@ -52,18 +48,12 @@ public final class TopicConstants {
         LABEL_LOCAL, LABEL_PEOPLE, LABEL_RUMORS, LABEL_ADVICE, LABEL_WORK, LABEL_HISTORY
     );
 
-    // Role -> preferred labels in priority order. NPCs get 2-3 from their list.
-    public static final Map<String, List<String>> ROLE_LABELS = Map.of(
-        "Guard",            List.of(LABEL_LOCAL, LABEL_RUMORS, LABEL_PEOPLE),
-        "TavernKeeper",     List.of(LABEL_PEOPLE, LABEL_RUMORS, LABEL_LOCAL),
-        "ArtisanBlacksmith", List.of(LABEL_WORK, LABEL_LOCAL, LABEL_PEOPLE),
-        "ArtisanCook",      List.of(LABEL_WORK, LABEL_PEOPLE, LABEL_ADVICE),
-        "ArtisanAlchemist", List.of(LABEL_WORK, LABEL_ADVICE, LABEL_LOCAL),
-        "Villager",         List.of(LABEL_LOCAL, LABEL_PEOPLE, LABEL_HISTORY),
-        "Traveler",         List.of(LABEL_RUMORS, LABEL_HISTORY, LABEL_ADVICE)
+    // Guard's narrow watch-themed pool. Villagers (everything non-Guard) sample
+    // from ALL_LABELS uniformly, so each villager-tier NPC gets a random subset
+    // of 2-3 distinct labels and no role inflates a single label.
+    public static final List<String> GUARD_LABELS = List.of(
+        LABEL_LOCAL, LABEL_RUMORS, LABEL_PEOPLE
     );
-
-    public static final List<String> DEFAULT_LABELS = List.of(LABEL_LOCAL, LABEL_PEOPLE, LABEL_RUMORS);
 
     // Category -> parent topic label (reverse lookup, computed from LABEL_CATEGORIES)
     public static final Map<String, String> CATEGORY_LABEL;
