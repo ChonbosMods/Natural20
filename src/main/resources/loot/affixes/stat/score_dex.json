@@ -8,12 +8,11 @@
   "StatScaling": null,
   "TargetStat": "Score_DEX",
   "ModifierType": "ADDITIVE",
+  "IlvlScalable": false,
   "ValuesPerRarity": {
-    "Common":    { "Min": 1.0, "Max": 1.0 },
-    "Uncommon":  { "Min": 1.0, "Max": 2.0 },
-    "Rare":      { "Min": 2.0, "Max": 2.0 },
-    "Epic":      { "Min": 2.0, "Max": 3.0 },
-    "Legendary": { "Min": 3.0, "Max": 4.0 }
+    "Rare":      { "Min": 1.0, "Max": 1.0 },
+    "Epic":      { "Min": 1.0, "Max": 1.0 },
+    "Legendary": { "Min": 2.0, "Max": 2.0 }
   },
   "Description": "Increases Dexterity score."
 }
