@@ -12,7 +12,13 @@ public final class Nat20HeightmapSampler {
 
     public enum Mode { MIN, MEDIAN, ENTRY_ANCHOR }
 
-    public record SampleResult(int y, int slopeDelta, boolean tooSteep) {}
+    public record SampleResult(
+        int y,
+        int slopeDelta,
+        boolean tooSteep,
+        int maxSubmergedDepth,
+        boolean tooWet
+    ) {}
 
     private static final int DOWNWALK_MAX_STEPS = 20;
     private static final int DEFAULT_SLOPE_THRESHOLD = 4;
@@ -119,7 +125,7 @@ public final class Nat20HeightmapSampler {
         }
         int delta = slopeDelta(heights);
         int y = reduce(heights, mode);
-        return new SampleResult(y, delta, delta > slopeThreshold);
+        return new SampleResult(y, delta, delta > slopeThreshold, 0, false);
     }
 
     /** Convenience overload: uses the default slope threshold ({@value DEFAULT_SLOPE_THRESHOLD}). */

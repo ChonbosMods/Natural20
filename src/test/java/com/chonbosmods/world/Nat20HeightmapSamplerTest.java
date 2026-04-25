@@ -6,11 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class Nat20HeightmapSamplerTest {
 
     @Test
-    void sampleResult_exposesYAndSlope() {
-        Nat20HeightmapSampler.SampleResult r = new Nat20HeightmapSampler.SampleResult(64, 2, false);
+    void sampleResult_exposesYSlopeAndWet() {
+        Nat20HeightmapSampler.SampleResult r =
+            new Nat20HeightmapSampler.SampleResult(64, 2, false, 0, false);
         assertEquals(64, r.y());
         assertEquals(2, r.slopeDelta());
         assertFalse(r.tooSteep());
+        assertEquals(0, r.maxSubmergedDepth());
+        assertFalse(r.tooWet());
     }
 
     @Test
