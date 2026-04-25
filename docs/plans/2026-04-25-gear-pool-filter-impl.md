@@ -34,7 +34,7 @@
 
 **Step 1: Write the JSON resource**
 
-Migrate every existing material token from `Nat20ItemTierResolver.MATERIAL_ILVL` (drop unused `silver`, `bark`, `flint`), add the 9 new thematic tokens, and place the 25 per-item overrides for true one-offs. `_NPC`-suffixed items go to blocklist.
+Migrate every existing material token from `Nat20ItemTierResolver.MATERIAL_ILVL` (drop unused `silver`, `bark`, `flint`), add the 9 new thematic tokens, place the 19 per-item overrides for true one-offs, and seed the blocklist with `_NPC`-suffixed items plus `Wand_Root` and all 5 spellbooks.
 
 ```json
 {

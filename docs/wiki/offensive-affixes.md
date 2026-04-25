@@ -535,3 +535,9 @@ Attack Speed is orthogonal to everything else: it changes how often all of the a
 **Self-facing vs. party-facing**: Crit, Backstab, Deep Wounds, Crushing Blow, Precision, Attack Speed, Life Leech, and Mana Leech all affect the wielder's own damage / sustain directly. Vicious Mockery, Hex, and Rally are party-facing: they amplify damage dealt by *anyone* hitting the debuffed target (Mockery, Hex) or by *other* players near a kill (Rally). A support-leaning wielder can effectively multiply a whole party's DPS without needing to top damage charts personally.
 
 A well-stacked melee build mixes categories: Crit (burst), Backstab (positional multiplier), Deep Wounds (sustain DPS), Crushing Blow (anti-boss), Attack Speed (rate), Precision (anti-armor), Life Leech (self-sustain), Mana Leech (resource), Vicious Mockery + Hex (setup debuffs), Rally (party support on kill). No two offensive affixes are strictly redundant with each other.
+
+---
+
+## Coming Soon
+
+**Affixed consumable stacks**: today affixes roll on durable equipment only. A future pass extends affixes to consumable / projectile drops, where a single drop can be a stack of N (e.g., 10 throwing spears or 20 bombs sharing the same affix). Schema for stack-quantity drops is already reserved on the gear-filter allowlist (`"quantity": [min, max]`); pipeline plumbing and per-stack-vs-per-item affix semantics are deferred.

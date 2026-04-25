@@ -127,9 +127,9 @@ These cover the leak audit's natural groupings. Numbers are starting points; tun
 | `scarab`     | [22, 38] | 2  | Desert-themed weapons |
 | `zombie`     | [3, 14]  | 6  | Zombie limb clubs (low-tier flavor) |
 | `crystal`    | [22, 40] | 5  | Magic crystal staffs |
-| `spectral`   | [28, 45] | 1  | Endgame flavor longsword |
 | `void`       | [28, 45] | 2  | Endgame flavor weapons |
-| `flame`      | [22, 38] | 2  | Mid-high flavor (excluding Crystal_Flame, which matches `crystal` first) |
+
+(`flame` and `spectral` collapsed into per-item overrides during authoring — only 1-2 items each, not enough to justify a token.)
 
 ### Per-item overrides
 
@@ -215,7 +215,7 @@ resolveTier(itemId):
 | Action | File | Purpose |
 |---|---|---|
 | Create | `src/main/resources/loot/gear_filter.json` | Single source of truth for tier bands + lists |
-| Create | `loot/mob/Nat20GearFilter.java` | Loads gear_filter.json once at startup; exposes `resolveTier(itemId)`, `isAllowed(itemId, ilvl)` |
+| Create | `loot/filter/Nat20GearFilter.java` | Loads gear_filter.json once at startup; exposes `resolveTier(itemId)`, `isAllowed(itemId, ilvl)` |
 | Modify | `loot/mob/Nat20ItemTierResolver.java` | Strip `MATERIAL_ILVL`; delegate to `Nat20GearFilter`. Keep `inferCategory()` (prefix-based) for non-allowlist items |
 | Modify | `loot/mob/Nat20MobLootPool.java` | Bucket pool by category at build; weight pick; `NATIVE_LIST_BIAS` = 0.05f |
 | Modify | `loot/chest/Nat20ChestLootPicker.java` | Use shared category-weighted picker |
