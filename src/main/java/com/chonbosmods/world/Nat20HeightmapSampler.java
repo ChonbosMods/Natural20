@@ -12,10 +12,17 @@ public final class Nat20HeightmapSampler {
 
     public enum Mode { MIN, MEDIAN, ENTRY_ANCHOR }
 
-    public record SampleResult(int y, int slopeDelta, boolean tooSteep) {}
+    public record SampleResult(
+        int y,
+        int slopeDelta,
+        boolean tooSteep,
+        int maxSubmergedDepth,
+        boolean tooWet
+    ) {}
 
     private static final int DOWNWALK_MAX_STEPS = 20;
     private static final int DEFAULT_SLOPE_THRESHOLD = 4;
+    static final int DEFAULT_WET_THRESHOLD = 2;
 
     static boolean isTreeBlockName(String name) {
         if (name == null) return false;
@@ -90,6 +97,8 @@ public final class Nat20HeightmapSampler {
         return max - min;
     }
 
+    private record ProbeResult(int groundY, int submergedDepth) {}
+
     /**
      * Sample the terrain surface at an axis-aligned footprint centered on (centerX, centerZ).
      * Probes 5 points (center + 4 corners) via WorldChunk.getHeight(), walks each result down
@@ -114,12 +123,16 @@ public final class Nat20HeightmapSampler {
         int[] xs = { centerX, centerX - halfX, centerX + halfX, centerX - halfX, centerX + halfX };
         int[] zs = { centerZ, centerZ - halfZ, centerZ - halfZ, centerZ + halfZ, centerZ + halfZ };
         int[] heights = new int[5];
+        int maxSubmerged = 0;
         for (int i = 0; i < 5; i++) {
-            heights[i] = probeGroundY(world, xs[i], zs[i]);
+            ProbeResult p = probeGroundY(world, xs[i], zs[i]);
+            heights[i] = p.groundY();
+            if (p.submergedDepth() > maxSubmerged) maxSubmerged = p.submergedDepth();
         }
         int delta = slopeDelta(heights);
         int y = reduce(heights, mode);
-        return new SampleResult(y, delta, delta > slopeThreshold);
+        boolean tooWet = maxSubmerged > DEFAULT_WET_THRESHOLD;
+        return new SampleResult(y, delta, delta > slopeThreshold, maxSubmerged, tooWet);
     }
 
     /** Convenience overload: uses the default slope threshold ({@value DEFAULT_SLOPE_THRESHOLD}). */
@@ -130,15 +143,44 @@ public final class Nat20HeightmapSampler {
         return sample(world, centerX, centerZ, halfX, halfZ, mode, DEFAULT_SLOPE_THRESHOLD);
     }
 
-    /** Probe a single XZ: get canopy Y from the chunk heightmap, walk down past trees. */
-    private static int probeGroundY(World world, int x, int z) {
+    /**
+     * Counts contiguous fluid cells starting AT {@code groundY} and walking up. Stops at the first
+     * non-fluid cell or at {@code groundY + maxDepth}, whichever comes first.
+     *
+     * <p>Used by {@link #probeGroundY} to detect submersion. The walker that produces {@code groundY}
+     * starts at {@link WorldChunk#getHeight} and walks DOWN, but the heightmap skips Empty cells
+     * (Hytale's fluid cells are blockId=Empty with fluidId in a separate palette). For an ocean
+     * column the heightmap therefore lands on the seabed top, the walker lands on the same block,
+     * and {@code groundY = canopyY + 1}: i.e. the water column is ENTIRELY ABOVE the heightmap.
+     * This upward scan starts at {@code groundY} and walks up unconditionally, bounded only by
+     * {@code maxDepth}, so it can find that water.
+     *
+     * @param groundY first buildable Y above solid (the value returned by walkDownToSolidGround)
+     * @param maxDepth cap on the returned count; caller passes wetThreshold + 1 to short-circuit
+     * @param isFluidAt fluid predicate (chunk.getFluidId(lx, y, lz) != 0)
+     * @return contiguous fluid count in [0, maxDepth]
+     */
+    static int scanFluidDepthAbove(int groundY,
+                                   int maxDepth,
+                                   java.util.function.IntPredicate isFluidAt) {
+        int depth = 0;
+        for (int y = groundY; y < groundY + maxDepth; y++) {
+            if (isFluidAt.test(y)) depth++;
+            else break;
+        }
+        return depth;
+    }
+
+    /** Probe a single XZ: get canopy Y from the chunk heightmap, walk down past trees,
+     *  then scan upward for fluid above the ground. */
+    private static ProbeResult probeGroundY(World world, int x, int z) {
         long chunkKey = ChunkUtil.indexChunkFromBlock(x, z);
         WorldChunk chunk = world.getNonTickingChunk(chunkKey);
-        if (chunk == null) return 0;
+        if (chunk == null) return new ProbeResult(0, 0);
         int lx = Math.floorMod(x, ChunkUtil.SIZE);
         int lz = Math.floorMod(z, ChunkUtil.SIZE);
         int canopyY = chunk.getHeight(lx, lz);
-        if (canopyY <= 0) return 0;
+        if (canopyY <= 0) return new ProbeResult(0, 0);
 
         // Single-slot cache so blockNameAt and isSolidAt share one BlockType lookup per Y.
         // The walk always calls blockNameAt(y) first, then isSolidAt(y) on the same y — so
@@ -153,7 +195,12 @@ public final class Nat20HeightmapSampler {
             return cachedBt[0];
         };
 
-        return walkDownToSolidGround(canopyY, DOWNWALK_MAX_STEPS,
+        // Hytale tracks fluids in a separate palette on the chunk, not as blockIds:
+        // water cells have blockId=Empty but fluidId > 0. Without this check the walk
+        // would descend through water and land on the seabed, sinking prefabs.
+        java.util.function.IntPredicate isFluidAt = y -> chunk.getFluidId(lx, y, lz) != 0;
+
+        int groundY = walkDownToSolidGround(canopyY, DOWNWALK_MAX_STEPS,
             y -> {
                 BlockType bt = lookup.apply(y);
                 return bt == null ? "" : bt.getId();
@@ -162,9 +209,11 @@ public final class Nat20HeightmapSampler {
                 BlockType bt = lookup.apply(y);
                 return bt != null && bt.getMaterial() == BlockMaterial.Solid;
             },
-            // Hytale tracks fluids in a separate palette on the chunk, not as blockIds:
-            // water cells have blockId=Empty but fluidId > 0. Without this check the walk
-            // would descend through water and land on the seabed, sinking prefabs.
-            y -> chunk.getFluidId(lx, y, lz) != 0);
+            isFluidAt);
+
+        if (groundY <= 0) return new ProbeResult(0, 0);
+
+        int submerged = scanFluidDepthAbove(groundY, DEFAULT_WET_THRESHOLD + 1, isFluidAt);
+        return new ProbeResult(groundY, submerged);
     }
 }

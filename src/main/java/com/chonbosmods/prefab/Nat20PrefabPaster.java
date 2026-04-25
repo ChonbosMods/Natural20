@@ -166,6 +166,7 @@ public final class Nat20PrefabPaster {
         return new PlacedMarkers(
                 anchorWorld,
                 directionWorld,
+                t,
                 rotateAndTranslate(scan.npcSpawnsLocal(), rot, t),
                 rotateAndTranslate(scan.mobGroupSpawnsLocal(), rot, t),
                 rotateAndTranslate(scan.chestSpawnsLocal(), rot, t));

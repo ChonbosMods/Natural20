@@ -168,6 +168,14 @@ public class SettlementWorldGenListener {
                 failedCells.add(cellKey);
                 return;
             }
+            if (centerSample.tooWet()) {
+                LOGGER.atInfo().log(
+                    "Settlement center (%d, %d) submerged (depth=%d) for cell %s; skipping",
+                    settlementX, settlementZ, centerSample.maxSubmergedDepth(), cellKey);
+                registry.unregister(cellKey);
+                failedCells.add(cellKey);
+                return;
+            }
             int groundY = centerSample.y();
             Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
@@ -334,7 +342,7 @@ public class SettlementWorldGenListener {
             int mz = anchorZ + (int) Math.round(Math.sin(theta) * SPAWN_SETTLEMENT_RING_RADIUS);
             Nat20HeightmapSampler.SampleResult mSample = Nat20HeightmapSampler.sample(
                 world, mx, mz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
-            int my = (mSample.y() <= 0 || mSample.tooSteep()) ? groundY : mSample.y();
+            int my = (mSample.y() <= 0 || mSample.tooSteep() || mSample.tooWet()) ? groundY : mSample.y();
             markers.add(new Vector3d(mx, my, mz));
         }
 
@@ -377,7 +385,7 @@ public class SettlementWorldGenListener {
             int pz = baseZ + off[1];
             Nat20HeightmapSampler.SampleResult r = Nat20HeightmapSampler.sample(
                 world, px, pz, 2, 2, Nat20HeightmapSampler.Mode.MEDIAN);
-            if (r.y() <= 0) continue;
+            if (r.y() <= 0 || r.tooWet()) continue;
             AnchorChoice option = new AnchorChoice(px, pz, r.y(), r.slopeDelta());
             if (best == null || option.slope < best.slope) {
                 best = option;

@@ -165,6 +165,13 @@ public final class SettlementPieceAssembler {
                         out.complete(null);
                         return;
                     }
+                    if (ground.tooWet()) {
+                        LOGGER.atFine().log(
+                            "Piece grounding: submerged (depth=%d) at (%d, %d); skipping",
+                            ground.maxSubmergedDepth(), placement.anchor.getX(), placement.anchor.getZ());
+                        out.complete(null);
+                        return;
+                    }
                     Vector3i groundedAnchor = new Vector3i(
                         placement.anchor.getX(), ground.y(), placement.anchor.getZ());
                     // Nat20PrefabPaster.paste validates markers synchronously and throws
@@ -321,10 +328,14 @@ public final class SettlementPieceAssembler {
             center, pasted, futures.size(), npcs.size(), mobGroups.size(), chests.size());
 
         // The merged settlement's anchor is the shared center; direction is
-        // arbitrary (pieces face different ways).
+        // arbitrary (pieces face different ways). Translation is meaningless for
+        // a multi-piece merge (each piece had its own), so report zero; callers
+        // that need per-piece bounds must use the per-piece PlacedMarkers, not
+        // this aggregate.
         return new PlacedMarkers(
             center,
             new Vector3i(0, 0, 1),
+            new Vector3i(0, 0, 0),
             Collections.unmodifiableList(npcs),
             Collections.unmodifiableList(mobGroups),
             Collections.unmodifiableList(chests)

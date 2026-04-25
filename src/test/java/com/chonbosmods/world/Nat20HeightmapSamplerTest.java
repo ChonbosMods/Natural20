@@ -6,11 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class Nat20HeightmapSamplerTest {
 
     @Test
-    void sampleResult_exposesYAndSlope() {
-        Nat20HeightmapSampler.SampleResult r = new Nat20HeightmapSampler.SampleResult(64, 2, false);
+    void sampleResult_exposesYSlopeAndWet() {
+        Nat20HeightmapSampler.SampleResult r =
+            new Nat20HeightmapSampler.SampleResult(64, 2, false, 0, false);
         assertEquals(64, r.y());
         assertEquals(2, r.slopeDelta());
         assertFalse(r.tooSteep());
+        assertEquals(0, r.maxSubmergedDepth());
+        assertFalse(r.tooWet());
     }
 
     @Test
@@ -134,5 +137,52 @@ class Nat20HeightmapSamplerTest {
     void slopeDelta_isMaxMinusMin() {
         assertEquals(5, Nat20HeightmapSampler.slopeDelta(new int[]{64, 65, 68, 63, 66}));
         assertEquals(0, Nat20HeightmapSampler.slopeDelta(new int[]{70, 70, 70, 70, 70}));
+    }
+
+    @Test
+    void scanFluidDepthAbove_returnsZero_whenAirAboveGround() {
+        java.util.function.IntPredicate noFluid = y -> false;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 3, noFluid);
+        assertEquals(0, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_returnsOne_whenSingleFluidBlockAbove() {
+        java.util.function.IntPredicate fluidAt64 = y -> y == 64;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 3, fluidAt64);
+        assertEquals(1, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_returnsThree_whenColumnExceedsCap() {
+        // cap is maxDepth = 3, fluid extends well past
+        java.util.function.IntPredicate deepFluid = y -> y >= 64 && y <= 80;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 3, deepFluid);
+        assertEquals(3, depth, "scan caps at maxDepth and stops");
+    }
+
+    @Test
+    void scanFluidDepthAbove_shortCircuitsAtFirstAir() {
+        // fluid, fluid, air, fluid -> depth=2 (column ends at first air)
+        java.util.function.IntPredicate broken = y -> y == 64 || y == 65 || y == 67;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(64, 5, broken);
+        assertEquals(2, depth);
+    }
+
+    @Test
+    void scanFluidDepthAbove_detectsOceanColumnAboveSeabed() {
+        // Canonical ocean case: heightmap skipped fluid cells and landed on seabed,
+        // walker returned groundY = seabedY + 1, water column is entirely above.
+        // Verify the scan finds the water.
+        int seabedTop = 60;
+        int groundY = seabedTop + 1;          // y=61
+        java.util.function.IntPredicate water = y -> y >= 61 && y <= 64;
+        int depth = Nat20HeightmapSampler.scanFluidDepthAbove(groundY, 3, water);
+        assertEquals(3, depth, "deep ocean column above the seabed must be detected");
+    }
+
+    @Test
+    void defaultWetThreshold_isTwo() {
+        assertEquals(2, Nat20HeightmapSampler.DEFAULT_WET_THRESHOLD);
     }
 }

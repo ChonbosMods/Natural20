@@ -11,6 +11,8 @@ import java.util.List;
  *
  * @param anchorWorld           world position of the anchor block (integer cell).
  * @param directionVectorWorld  cardinal unit vector, post-rotation (horizontal).
+ * @param translation           paste translation in world coords (desiredAnchor - rotatedAnchor).
+ *                              Add to {@code buffer.getMin/MaxX/Y/Z(rotation)} to get prefab world bounds.
  * @param npcSpawnsWorld        world positions for NPC spawns (block-centered doubles).
  * @param mobGroupSpawnsWorld   world positions for hostile mob-group anchors.
  * @param chestSpawnsWorld      world positions for fetch-quest chest candidates.
@@ -18,6 +20,7 @@ import java.util.List;
 public record PlacedMarkers(
     Vector3i anchorWorld,
     Vector3i directionVectorWorld,
+    Vector3i translation,
     List<Vector3d> npcSpawnsWorld,
     List<Vector3d> mobGroupSpawnsWorld,
     List<Vector3d> chestSpawnsWorld

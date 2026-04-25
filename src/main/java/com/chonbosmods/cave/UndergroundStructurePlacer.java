@@ -7,11 +7,13 @@ import com.chonbosmods.prefab.Nat20PrefabPath;
 import com.chonbosmods.prefab.Nat20PrefabPaster;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.chonbosmods.prefab.YawAlignment;
+import com.chonbosmods.world.Nat20FluidSweeper;
 import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
+import com.hypixel.hytale.server.core.prefab.PrefabRotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
@@ -212,6 +214,18 @@ public class UndergroundStructurePlacer {
                     }
                     LOGGER.atFine().log("Cave POI placed at (%d, %d, %d) rotation=%s",
                             floorX, floorY, floorZ, rotation);
+
+                    PrefabRotation rot = PrefabRotation.fromRotation(rotation);
+                    Vector3i t = placed.translation();
+                    int swMinX = buffer.getMinX(rot) + t.getX() - 2;
+                    int swMaxX = buffer.getMaxX(rot) + t.getX() + 2;
+                    int swMinY = buffer.getMinY()    + t.getY() - 2;
+                    int swMaxY = buffer.getMaxY()    + t.getY() + 2;
+                    int swMinZ = buffer.getMinZ(rot) + t.getZ() - 2;
+                    int swMaxZ = buffer.getMaxZ(rot) + t.getZ() + 2;
+                    Nat20FluidSweeper.clearLavaInVolume(world,
+                            swMinX, swMinY, swMinZ, swMaxX, swMaxY, swMaxZ);
+
                     result.complete(placed);
                 });
 
@@ -304,6 +318,12 @@ public class UndergroundStructurePlacer {
                     if (sample.tooSteep()) {
                         LOGGER.atFine().log("Surface placement: slope %d too steep at (%d, %d); skipping",
                             sample.slopeDelta(), targetX, targetZ);
+                        result.complete(null);
+                        return;
+                    }
+                    if (sample.tooWet()) {
+                        LOGGER.atFine().log("Surface placement: submerged (depth=%d) at (%d, %d); skipping",
+                            sample.maxSubmergedDepth(), targetX, targetZ);
                         result.complete(null);
                         return;
                     }
