@@ -128,7 +128,7 @@ public class Nat20WeaknessApplySystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) continue;
 
-            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
             double effectiveValue = baseValue;
             PlayerStats stats = resolvePlayerStats(attackerRef, store);
             if (stats != null && def.statScaling() != null) {

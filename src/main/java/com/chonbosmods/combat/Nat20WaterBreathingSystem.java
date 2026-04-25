@@ -160,7 +160,7 @@ public class Nat20WaterBreathingSystem extends EntityTickingSystem<EntityStore> 
                 AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
                 if (range == null) continue;
 
-                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+                double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
                 double effectiveValue = baseValue;
                 PlayerStats stats = resolvePlayerStats(playerRef, store);
                 if (stats != null && def.statScaling() != null) {

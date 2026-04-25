@@ -58,4 +58,21 @@ class Nat20AffixScalingTest {
         assertEquals(2.0, v1, EPS);
         assertEquals(2.0, v45, EPS);
     }
+
+    @Test
+    void interpolateScalableTrueScalesAcrossIlvls() {
+        // Sanity: scalable=true at ilvl 1 vs ilvl 45 should differ (with the new ilvlScale curve).
+        // Common rarity (qv=1), range [1.0, 1.0]:
+        //   ilvl 1 -> 1.0 x ilvlScale(1, 1) = 1.0 x 0.630 = 0.630
+        //   ilvl 45 -> 1.0 x ilvlScale(45, 1) = 1.0 x 2.100 = 2.100
+        AffixValueRange range = new AffixValueRange(1.0, 1.0);
+        Nat20LootData ilvl1 = new Nat20LootData(); ilvl1.setItemLevel(1); ilvl1.setRarity("Common");
+        Nat20LootData ilvl45 = new Nat20LootData(); ilvl45.setItemLevel(45); ilvl45.setRarity("Common");
+
+        double v1 = Nat20AffixScaling.interpolate(range, 0.5, ilvl1, RARITY, true);
+        double v45 = Nat20AffixScaling.interpolate(range, 0.5, ilvl45, RARITY, true);
+
+        assertEquals(0.630, v1, EPS);
+        assertEquals(2.100, v45, EPS);
+    }
 }

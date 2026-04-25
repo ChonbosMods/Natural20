@@ -55,8 +55,8 @@ public class Nat20ItemRenderer {
             if (range == null) continue;
 
             // Interpolate at both ends of the rolled level range to get the per-item display range.
-            double minValue = Nat20AffixScaling.interpolate(range, rolledAffix.minLevel(), lootData, rarityRegistry);
-            double maxValue = Nat20AffixScaling.interpolate(range, rolledAffix.maxLevel(), lootData, rarityRegistry);
+            double minValue = Nat20AffixScaling.interpolate(range, rolledAffix.minLevel(), lootData, rarityRegistry, affixDef.ilvlScalable());
+            double maxValue = Nat20AffixScaling.interpolate(range, rolledAffix.maxLevel(), lootData, rarityRegistry, affixDef.ilvlScalable());
             double midValue = (minValue + maxValue) * 0.5;
 
             String renderedText = renderAffixLine(affixDef, rolledAffix, minValue, maxValue, midValue, rarity.color());

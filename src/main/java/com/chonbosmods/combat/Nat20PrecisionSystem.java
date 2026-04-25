@@ -100,7 +100,7 @@ public class Nat20PrecisionSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
             double effectiveValue = baseValue;
             PlayerStats stats = resolvePlayerStats(attackerRef, store);
             if (stats != null && def.statScaling() != null) {

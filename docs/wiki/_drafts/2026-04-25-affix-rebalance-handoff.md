@@ -109,6 +109,7 @@ All paths are relative to the repo root.
 - **`docs/wiki/stat-affixes.md`**: replace the existing stat-score tables with the fixed-value scheme. Rare = +1, Epic = +1, Legendary = +2. Note that Common and Uncommon items cannot roll stat scores. The HP affix on this page is unaffected; keep its existing description but include the shared spread note.
 - **`docs/wiki/utility-affixes.md`**: add the same intro spread note. Tables are unchanged.
 - **`docs/wiki/ability-affixes.md`**: add the same intro spread note. Tables are unchanged.
+- `docs/wiki/ability-scores.md`: has stale "+4 STR" / "+2 DEX" examples (lines 170, 209, 211 reference old stat-score caps); update to the new +1/+1/+2 scheme.
 
 A reusable intro paragraph you can paste into each affix page (tweak per page voice):
 

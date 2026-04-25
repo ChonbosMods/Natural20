@@ -129,7 +129,7 @@ public class Nat20ShapeMiningSystem extends EntityEventSystem<EntityStore, Break
         if (range == null) return;
 
         int size = Math.max(1, (int) Math.round(
-                Nat20AffixScaling.interpolate(range, shape.midLevel(), lootData, lootSystem.getRarityRegistry())));
+                Nat20AffixScaling.interpolate(range, shape.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable())));
 
         Ref<EntityStore> playerRef = chunk.getReferenceTo(entityIndex);
         Vector3i origin = event.getTargetBlock();

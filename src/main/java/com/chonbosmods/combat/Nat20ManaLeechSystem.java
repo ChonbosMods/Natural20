@@ -95,7 +95,7 @@ public class Nat20ManaLeechSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double basePercent = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+            double basePercent = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
             double effectivePercent = basePercent;
 
             PlayerStats stats = resolvePlayerStats(attackerRef, store);

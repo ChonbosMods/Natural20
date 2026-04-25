@@ -159,7 +159,7 @@ public class Nat20AbsorptionSystem extends DamageEventSystem {
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return 0.0;
 
-            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
             double effectiveValue = baseValue;
 
             if (playerStats != null && def.statScaling() != null) {

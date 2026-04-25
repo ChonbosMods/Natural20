@@ -92,7 +92,7 @@ public class Nat20HasteSystem extends EntityEventSystem<EntityStore, DamageBlock
             AffixValueRange range = def.getValuesForRarity(lootData.getRarity());
             if (range == null) return;
 
-            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry());
+            double baseValue = Nat20AffixScaling.interpolate(range, rolledAffix.midLevel(), lootData, lootSystem.getRarityRegistry(), def.ilvlScalable());
             double effectiveValue = baseValue;
 
             Ref<EntityStore> playerRef = chunk.getReferenceTo(entityIndex);
