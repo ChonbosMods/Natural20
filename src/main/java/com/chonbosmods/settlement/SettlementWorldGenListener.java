@@ -168,6 +168,14 @@ public class SettlementWorldGenListener {
                 failedCells.add(cellKey);
                 return;
             }
+            if (centerSample.tooWet()) {
+                LOGGER.atInfo().log(
+                    "Settlement center (%d, %d) submerged (depth=%d) for cell %s; skipping",
+                    settlementX, settlementZ, centerSample.maxSubmergedDepth(), cellKey);
+                registry.unregister(cellKey);
+                failedCells.add(cellKey);
+                return;
+            }
             int groundY = centerSample.y();
             Vector3i anchorPos = new Vector3i(settlementX, groundY, settlementZ);
 
