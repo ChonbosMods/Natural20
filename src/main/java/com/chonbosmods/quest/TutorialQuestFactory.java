@@ -4,21 +4,18 @@ import com.chonbosmods.Natural20;
 import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.background.Background;
 import com.chonbosmods.data.Nat20PlayerData;
-import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.quest.model.DifficultyConfig;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
-import com.google.gson.Gson;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Builds and assigns the tutorial quest ("tutorial_main") to a player immediately
@@ -33,7 +30,6 @@ import java.util.UUID;
 public final class TutorialQuestFactory {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|TutorialQuestFactory");
-    private static final Gson REWARD_DATA_GSON = new Gson();
 
     public static final String QUEST_ID = "tutorial_main";
     public static final String SITUATION_ID = "tutorial";
@@ -139,11 +135,11 @@ public final class TutorialQuestFactory {
         quest.setState(QuestState.READY_FOR_TURN_IN);
         quest.setAccepters(List.of(playerUuid));
 
-        // Pre-roll rewards. Phase 1 stays null per design (narrative-only
-        // acknowledgement). Phase 2 and phase 3 each roll their own item via
-        // AffixRewardRoller at the quest's "easy" difficulty: Common-Uncommon
-        // tier range, ilvl 5. dispensePhaseReward consumes these at turn-in.
-        rollTutorialRewards(quest, playerUuid);
+        // Set up per-phase rewards. Phase 1 stays null per design (narrative-only
+        // acknowledgement). Phase 2 and 3 store rewardTier + areaLevel + ilvlBonus
+        // and defer the actual AffixRewardRoller call to dispensePhaseReward at
+        // turn-in (Q6: per-player roll using the recipient's playerLevel).
+        rollTutorialRewards(quest);
 
         // Pre-roll the phase-3 boss now so {boss_name} is bound before the
         // player opens any Celius dialogue session. DialogueGraph.lateResolve
@@ -197,13 +193,18 @@ public final class TutorialQuestFactory {
     }
 
     /**
-     * Roll per-phase rewards for the tutorial so {@code dispensePhaseReward}
-     * has something to hand the player at each turn-in. Phase 1 gets no reward
-     * (narrative-only, per design 3). Phase 2 rolls at the "easy" difficulty's
-     * rewardTierMin (Common). Phase 3 rolls at the full rewardTierMin..Max range
-     * (Common..Uncommon), matching a procedural final-phase combat reward.
+     * Set up per-phase rewards for the tutorial so {@code dispensePhaseReward}
+     * can roll an item per recipient at each turn-in. Phase 1 gets no reward
+     * (narrative-only, per design 3). Phase 2 stores the "easy" difficulty's
+     * rewardTierMin (Common). Phase 3 50/50s between rewardTierMin and rewardTierMax
+     * (Common..Uncommon), matching the original "full range, up to Uncommon" feel.
+     *
+     * <p>Tutorial uses a hardcoded {@code areaLevel = 1} (starter zone) since the
+     * tutorial happens at the player's spawn point. Per Q6 the actual AffixRewardRoller
+     * call is deferred to {@code dispensePhaseReward} so each accepter rolls fresh
+     * with their own playerLevel clamped against (areaLevel - 5, areaLevel) + ilvlBonus.
      */
-    private static void rollTutorialRewards(QuestInstance quest, UUID playerUuid) {
+    private static void rollTutorialRewards(QuestInstance quest) {
         DifficultyConfig difficulty = Natural20.getInstance().getQuestSystem()
             .getDifficultyRegistry().get(DIFFICULTY_ID);
         if (difficulty == null) {
@@ -213,39 +214,24 @@ public final class TutorialQuestFactory {
         }
         quest.setRewardXp(difficulty.xpAmount());
 
-        // Fresh roll per playthrough. A seeded RNG keyed on questId+playerUuid
-        // gave the same affixes on the same item every time for a given UUID,
-        // which removed any loot surprise from replaying the tutorial.
-        Random rng = java.util.concurrent.ThreadLocalRandom.current();
+        int areaLevel = 1; // tutorial spawns in the starter zone
+        int ilvlBonus = difficulty.ilvlBonus();
+
         List<QuestInstance.PhaseReward> rewards = new ArrayList<>(3);
         rewards.add(null); // phase 1: narrative-only, no item
 
         // Phase 2: Common-tier starter-feel item.
-        rewards.add(rollPhaseItem(difficulty.rewardTierMin(), difficulty.rewardIlvl(), rng));
-        // Phase 3: full range, up to Uncommon per the easy config.
-        String phase3Tier = rng.nextBoolean()
+        rewards.add(new QuestInstance.PhaseReward(
+            difficulty.rewardTierMin(), areaLevel, ilvlBonus));
+
+        // Phase 3: 50/50 between tierMin and tierMax (preserves the old
+        // "full range, up to Uncommon" final-phase feel).
+        String phase3Tier = ThreadLocalRandom.current().nextBoolean()
             ? difficulty.rewardTierMax()
             : difficulty.rewardTierMin();
-        rewards.add(rollPhaseItem(phase3Tier, difficulty.rewardIlvl(), rng));
+        rewards.add(new QuestInstance.PhaseReward(phase3Tier, areaLevel, ilvlBonus));
 
         quest.setPhaseRewards(rewards);
-    }
-
-    private static QuestInstance.PhaseReward rollPhaseItem(String tier, int ilvl, Random rng) {
-        ItemStack stack = AffixRewardRoller.roll(tier, ilvl, rng);
-        Nat20LootData lootData = stack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-        if (lootData == null) {
-            throw new IllegalStateException(
-                "AffixRewardRoller produced a stack without Nat20LootData metadata "
-                    + "(tier=" + tier + ", ilvl=" + ilvl + ", itemId=" + stack.getItemId() + ")");
-        }
-        return new QuestInstance.PhaseReward(
-            stack.getItemId(),
-            stack.getQuantity(),
-            lootData.getGeneratedName(),
-            REWARD_DATA_GSON.toJson(lootData),
-            tier,
-            ilvl);
     }
 
     /**

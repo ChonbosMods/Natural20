@@ -191,8 +191,14 @@ public final class TutorialPhase3Setup {
                 "Tutorial phase-3: missing DifficultyConfig '" + difficultyId + "'");
         }
         int spawnCount = 4;
+        // Tutorial fires at the player's spawn point (starter zone), so we hardcode
+        // areaLevel = 1 instead of computing from POI distance. Encounter ilvl is
+        // areaLevel + ilvlBonus per the Q5 design (replacing the retired
+        // difficulty.mobIlvl() field).
+        int areaLevel = 1;
+        int mobIlvl = QuestRewardIlvl.encounter(areaLevel, difficulty.ilvlBonus());
         return "KILL_MOBS:" + ENEMY_TYPE_ID + ":" + spawnCount
-            + ":" + difficulty.mobIlvl()
+            + ":" + mobIlvl
             + ":" + difficulty.mobBoss()
             + ":" + difficulty.bossIlvlOffset();
     }

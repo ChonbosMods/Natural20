@@ -12,8 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class Nat20XpMathTest {
 
     private static DifficultyConfig difficulty(int xpAmount) {
+        // Q4 dropped the mobIlvl/rewardIlvl ints from DifficultyConfig in favor
+        // of a single ilvlBonus. The 9-arg shape is:
+        // (id, xpAmount, rewardTierMin, rewardTierMax, ilvlBonus, mobBoss,
+        //  bossIlvlOffset, mobCountMultiplier, gatherCountMultiplier).
         return new DifficultyConfig("test-" + xpAmount, xpAmount,
-                "Common", "Common", 1, 1, false, 0, 1.0, 1.0);
+                "Common", "Common", 1, false, 0, 1.0, 1.0);
     }
 
     @Test

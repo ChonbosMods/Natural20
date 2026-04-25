@@ -1102,8 +1102,21 @@ public class DialogueActionRegistry {
                     throw new IllegalStateException("resolveAndPlacePoi: quest " + quest.getQuestId()
                         + " references unknown difficultyId '" + difficultyId + "'");
                 }
+                // Encounter ilvl is now derived from the POI's actual area (centerX,centerZ
+                // distance to origin) plus the difficulty's ilvlBonus. Pre-Q5 we used the
+                // hardcoded difficulty.mobIlvl() which gave every POI the same ilvl
+                // regardless of where it spawned; per the encounter-scaling design that
+                // value is gone and ilvl now scales with distance from origin.
+                com.chonbosmods.progression.MobScalingConfig scalingConfig =
+                    Natural20.getInstance().getScalingConfig();
+                double poiDistance = Math.sqrt(
+                    void_.getCenterX() * (double) void_.getCenterX()
+                    + void_.getCenterZ() * (double) void_.getCenterZ());
+                int areaLevel = scalingConfig.areaLevelForDistance(poiDistance);
+                int mobIlvl = com.chonbosmods.quest.QuestRewardIlvl.encounter(
+                    areaLevel, difficulty.ilvlBonus());
                 String populationSpec = "KILL_MOBS:" + enemyTypeId + ":" + spawnCount
-                    + ":" + difficulty.mobIlvl()
+                    + ":" + mobIlvl
                     + ":" + difficulty.mobBoss()
                     + ":" + difficulty.bossIlvlOffset();
                 objective.setPoi(void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(),
@@ -1158,8 +1171,25 @@ public class DialogueActionRegistry {
                 throw new IllegalStateException("placeSurfacePoi: quest " + quest.getQuestId()
                     + " references unknown difficultyId '" + difficultyId + "'");
             }
+            // Encounter ilvl now scales with distance from origin (Q5/Q7). The actual
+            // surface POI position is claimed/randomized later in this method, so we use
+            // the questing NPC's settlement as the area-level reference: it's the
+            // closest stable position available at populationSpec build time, and the
+            // surface POI ends up within ~200-400 blocks of npcX/npcZ anyway.
+            com.chonbosmods.progression.MobScalingConfig scalingConfig =
+                Natural20.getInstance().getScalingConfig();
+            SettlementRegistry sourceSettlements = Natural20.getInstance().getSettlementRegistry();
+            SettlementRecord sourceSettle = (sourceSettlements != null && quest.getSourceSettlementId() != null)
+                ? sourceSettlements.getByCell(quest.getSourceSettlementId()) : null;
+            double settleDistance = sourceSettle != null
+                ? Math.sqrt(sourceSettle.getPosX() * sourceSettle.getPosX()
+                    + sourceSettle.getPosZ() * sourceSettle.getPosZ())
+                : 0.0;
+            int areaLevel = scalingConfig.areaLevelForDistance(settleDistance);
+            int mobIlvl = com.chonbosmods.quest.QuestRewardIlvl.encounter(
+                areaLevel, difficulty.ilvlBonus());
             String populationSpec = "KILL_MOBS:" + enemyTypeId + ":" + spawnCount
-                + ":" + difficulty.mobIlvl()
+                + ":" + mobIlvl
                 + ":" + difficulty.mobBoss()
                 + ":" + difficulty.bossIlvlOffset();
             objective.setPoi(0, 0, 0, populationSpec);
