@@ -138,7 +138,7 @@ public final class Nat20HeightmapSampler {
 
     /**
      * Counts contiguous fluid cells starting AT {@code groundY} and walking up. Stops at the first
-     * non-fluid cell, at {@code groundY + maxDepth}, or at {@code canopyY + 1}, whichever comes first.
+     * non-fluid cell, at {@code groundY + maxDepth}, or at {@code canopyY}, whichever comes first.
      *
      * <p>Used by {@link #probeGroundY} to detect submersion. The walker that produces {@code groundY}
      * starts at {@link WorldChunk#getHeight} and walks DOWN, but the heightmap skips Empty cells
