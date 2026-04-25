@@ -72,6 +72,12 @@ public class ConversationSession {
      *  pass/fail dialogue node without mutating authored quest data. */
     private String pendingNpcLineSuffix = null;
 
+    /** One-shot flag set by the nat1 quest-accept handler to suppress response
+     *  buttons on the fail node. Consumed and cleared by the next DialogueTextNode
+     *  render. Empty responses then trigger the existing returnCheck() path,
+     *  which returns the player to topic selection. */
+    private boolean suppressNextNodeResponses = false;
+
     // Callbacks
     private final DialoguePresenter presenter;
     private final Runnable onSessionEnd;
@@ -412,7 +418,13 @@ public class ConversationSession {
                 conversationLog.add(new LogEntry.NpcSpeech(displayText));
                 ValenceType lineValence = textNode.valence() != null ? textNode.valence() : ValenceType.NEUTRAL;
                 valenceTracker.recordNpcLine(lineValence);
-                filterAndDisplayResponses(textNode);
+                if (suppressNextNodeResponses) {
+                    pendingFollowUpIds.clear();
+                    activeFollowUps = new ArrayList<>();
+                    suppressNextNodeResponses = false;
+                } else {
+                    filterAndDisplayResponses(textNode);
+                }
 
                 if (textNode.exhaustsTopic() && activeTopicId != null) {
                     playerData.setTopicExhaustion(npcId, activeTopicId, ExhaustionState.HIDDEN);
@@ -606,6 +618,9 @@ public class ConversationSession {
                     DispositionBracket.HOSTILE.getMaxDisposition());
             playerData.addBlacklistedQuest(quest.getQuestId());
             pendingNpcLineSuffix = npcDisplayName + " is insulted and no longer wants your help.";
+            playerData.setTopicExhaustion(npcId, activeTopicId,
+                    com.chonbosmods.dialogue.model.ExhaustionState.HIDDEN);
+            suppressNextNodeResponses = true;
         }
     }
 
