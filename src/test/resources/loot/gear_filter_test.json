@@ -1,7 +1,8 @@
 {
-  "blocklist": ["Weapon_Banned_Item"],
+  "blocklist": ["Weapon_Banned_Item", "Mod:Disputed_Item"],
   "allowlist": {
-    "Mod:Custom_Plasma": { "ilvl": [22, 38], "category": "ranged_weapon" }
+    "Mod:Custom_Plasma": { "ilvl": [22, 38], "category": "ranged_weapon" },
+    "Mod:Disputed_Item": { "ilvl": [10, 20], "category": "armor" }
   },
   "tier_tokens": {
     "iron":        [8, 26],

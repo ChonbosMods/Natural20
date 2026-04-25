@@ -18,50 +18,50 @@ class Nat20GearFilterTest {
     }
 
     @Test
-    void blocklist_rejects() {
+    void blocklistRejects() {
         assertTrue(filter.resolveTier("Weapon_Banned_Item").isEmpty());
     }
 
     @Test
-    void per_item_override_wins_over_token() {
+    void perItemOverrideWinsOverToken() {
         Nat20GearFilter.TierResolution r = filter.resolveTier("Weapon_Sword_Cutlass").orElseThrow();
-        assertArrayEquals(new int[]{8, 22}, r.ilvlBand());
+        assertEquals(new Nat20GearFilter.IlvlBand(8, 22), r.ilvlBand());
         assertEquals("melee_weapon", r.category());
     }
 
     @Test
-    void allowlist_supplies_explicit_category() {
+    void allowlistSuppliesExplicitCategory() {
         Nat20GearFilter.TierResolution r = filter.resolveTier("Mod:Custom_Plasma").orElseThrow();
-        assertArrayEquals(new int[]{22, 38}, r.ilvlBand());
+        assertEquals(new Nat20GearFilter.IlvlBand(22, 38), r.ilvlBand());
         assertEquals("ranged_weapon", r.category());
     }
 
     @Test
-    void token_match_uses_prefix_inferred_category() {
+    void tokenMatchUsesPrefixInferredCategory() {
         Nat20GearFilter.TierResolution r = filter.resolveTier("Weapon_Sword_Iron").orElseThrow();
-        assertArrayEquals(new int[]{8, 26}, r.ilvlBand());
+        assertEquals(new Nat20GearFilter.IlvlBand(8, 26), r.ilvlBand());
         assertEquals("melee_weapon", r.category());
     }
 
     @Test
-    void longest_token_wins() {
+    void longestTokenWins() {
         Nat20GearFilter.TierResolution r = filter.resolveTier("Armor_Silversteel_Chest").orElseThrow();
-        assertArrayEquals(new int[]{22, 38}, r.ilvlBand());
+        assertEquals(new Nat20GearFilter.IlvlBand(22, 38), r.ilvlBand());
     }
 
     @Test
-    void no_match_rejects() {
+    void noMatchRejects() {
         assertTrue(filter.resolveTier("Weapon_Mystery_Item").isEmpty());
     }
 
     @Test
-    void shield_categorised_as_armor_via_prefix_inference() {
+    void shieldCategorisedAsArmorViaPrefixInference() {
         Nat20GearFilter.TierResolution r = filter.resolveTier("Weapon_Shield_Tribal").orElseThrow();
         assertEquals("armor", r.category());
     }
 
     @Test
-    void allows_ilvl_in_band() {
+    void allowsIlvlInBand() {
         assertTrue(filter.isAllowed("Weapon_Sword_Iron", 8));
         assertTrue(filter.isAllowed("Weapon_Sword_Iron", 26));
         assertFalse(filter.isAllowed("Weapon_Sword_Iron", 7));
@@ -69,10 +69,15 @@ class Nat20GearFilterTest {
     }
 
     @Test
-    void fail_closed_on_parse_error() {
+    void failClosedOnParseError() {
         InputStream broken = new java.io.ByteArrayInputStream("{ not valid json".getBytes());
         Nat20GearFilter f = Nat20GearFilter.loadFrom(broken);
         assertFalse(f.isAllowed("Weapon_Sword_Iron", 10));
         assertTrue(f.resolveTier("Weapon_Sword_Iron").isEmpty());
+    }
+
+    @Test
+    void blocklistBeatsAllowlist() {
+        assertTrue(filter.resolveTier("Mod:Disputed_Item").isEmpty());
     }
 }
