@@ -134,7 +134,8 @@ public final class Nat20FilteredBuffer implements IPrefabBuffer {
                                 || blockId == Nat20PrefabConstants.anchorId
                                 || blockId == Nat20PrefabConstants.directionId
                                 || blockId == Nat20PrefabConstants.npcSpawnId
-                                || blockId == Nat20PrefabConstants.mobGroupSpawnId) {
+                                || blockId == Nat20PrefabConstants.mobGroupSpawnId
+                                || blockId == Nat20PrefabConstants.chestSpawnId) {
                             blockConsumer.accept(x, y, z, 0, holder,
                                     supportValue, rotation, filler,
                                     c, fluidId, fluidLevel);
