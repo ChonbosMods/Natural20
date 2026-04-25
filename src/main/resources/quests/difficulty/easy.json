@@ -1,10 +1,9 @@
 {
   "id": "easy",
   "xpAmount": 50,
-  "rewardTierMin": "Common",
-  "rewardTierMax": "Uncommon",
-  "rewardIlvl": 5,
-  "mobIlvl": 5,
+  "rewardTierMin": "Uncommon",
+  "rewardTierMax": "Rare",
+  "ilvlBonus": 0,
   "mobBoss": true,
   "bossIlvlOffset": 3,
   "mobCountMultiplier": 0.8,

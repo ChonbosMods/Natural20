@@ -84,11 +84,8 @@ public class QuestDifficultyRegistry {
         if (c.xpAmount() <= 0) {
             fail(resource, c.id(), "xpAmount must be > 0 (got " + c.xpAmount() + ")");
         }
-        if (c.rewardIlvl() <= 0) {
-            fail(resource, c.id(), "rewardIlvl must be > 0 (got " + c.rewardIlvl() + ")");
-        }
-        if (c.mobIlvl() <= 0) {
-            fail(resource, c.id(), "mobIlvl must be > 0 (got " + c.mobIlvl() + ")");
+        if (c.ilvlBonus() < 0) {
+            fail(resource, c.id(), "ilvlBonus must be >= 0 (got " + c.ilvlBonus() + ")");
         }
         if (c.bossIlvlOffset() < 0) {
             fail(resource, c.id(),
