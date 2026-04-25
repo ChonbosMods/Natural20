@@ -3,7 +3,6 @@ package com.chonbosmods.quest;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.cave.CaveVoidRecord;
 import com.chonbosmods.cave.CaveVoidRegistry;
-import com.chonbosmods.loot.Nat20LootData;
 import com.chonbosmods.loot.mob.naming.Nat20MobNameGenerator;
 import com.chonbosmods.progression.DifficultyTier;
 import com.chonbosmods.progression.MobScalingConfig;
@@ -14,8 +13,6 @@ import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.google.common.flogger.FluentLogger;
-import com.google.gson.Gson;
-import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -24,7 +21,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class QuestGenerator {
 
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
-    private static final Gson REWARD_DATA_GSON = new Gson();
     /** Vanilla Hytale rarity tier order, ascending. {@link #rollTierInRange} uses this to validate
      *  a difficulty's [rewardTierMin, rewardTierMax] interval and to roll uniformly within it. */
     private static final List<String> TIER_ORDER = List.of("Common", "Uncommon", "Rare", "Epic", "Legendary");
@@ -68,6 +64,12 @@ public class QuestGenerator {
         // If the registry is empty, random() throws: a misconfigured registry
         // should block quest generation, not silently degrade.
         DifficultyConfig difficulty = difficultyRegistry.random(random);
+
+        // Resolve area level from NPC position. Used for both encounter (KILL_MOBS) and
+        // reward (per-player formula at turn-in via QuestRewardIlvl.reward).
+        MobScalingConfig scalingConfig = Natural20.getInstance().getScalingConfig();
+        double npcDistance = Math.sqrt(npcX * npcX + npcZ * npcZ);
+        int areaLevelAtSpawn = scalingConfig.areaLevelForDistance(npcDistance);
 
         // Resolve world bindings (settlement, target NPC, gather items, enemy mobs, POI)
         Map<String, String> bindings = resolveWorldBindings(npcRole, npcX, npcZ, npcSettlementCellKey, npcId, random);
@@ -137,7 +139,7 @@ public class QuestGenerator {
         for (int i = 0; i < totalObjectives; i++) {
             ObjectiveConfig config = objConfigs.get(i);
             ObjectiveType type = config.type() != null ? config.type() : ObjectiveType.COLLECT_RESOURCES;
-            ObjectiveInstance obj = createObjective(type, config, bindings, random, difficulty);
+            ObjectiveInstance obj = createObjective(type, config, bindings, random, difficulty, areaLevelAtSpawn);
             if (obj != null) objectives.add(obj);
         }
 
@@ -158,15 +160,16 @@ public class QuestGenerator {
         quest.setMaxConflicts(maxConflicts);
         quest.setDifficultyId(difficulty.id());
 
-        // Per-phase reward rolls. Each phase rolls independently via AffixRewardRoller
-        // at the quest's ilvl. A phase is "dampened" if it is non-final OR its objective
-        // type is TALK_TO_NPC / COLLECT_RESOURCES (talking and gathering quests are
-        // slightly lower-reward by design). Dampened phases roll at rewardTierMin only
-        // (collapsed range), with a 5% chance to bypass the dampener and roll the full
-        // rewardTierMin..rewardTierMax range anyway. Non-dampened phases (final + combat/
-        // fetch objective) always roll the full range.
+        // Per-phase reward inputs. Each phase persists the inputs (tier + areaLevelAtSpawn +
+        // ilvlBonus) needed for the per-player turn-in roll; the actual AffixRewardRoller call
+        // happens at phase turn-in (Nat20QuestRewardDispatcher / DialogueActionRegistry.TURN_IN_V2)
+        // using QuestRewardIlvl.reward(playerLevel, areaLevelAtSpawn, ilvlBonus). A phase is
+        // "dampened" if it is non-final OR its objective type is TALK_TO_NPC / COLLECT_RESOURCES
+        // (talking and gathering quests are slightly lower-reward by design). Dampened phases
+        // roll at rewardTierMin only (collapsed range), with a 5% chance to bypass the dampener
+        // and roll the full rewardTierMin..rewardTierMax range anyway. Non-dampened phases
+        // (final + combat/fetch objective) always roll the full range.
         List<QuestInstance.PhaseReward> phaseRewards = new ArrayList<>(objectives.size());
-        String finalPhaseDisplayName = "";
         for (int i = 0; i < objectives.size(); i++) {
             boolean isFinal = (i == objectives.size() - 1);
             ObjectiveType objType = objectives.get(i).getType();
@@ -177,41 +180,24 @@ public class QuestGenerator {
             String tierMax = (!dampened || bypass) ? difficulty.rewardTierMax() : tierMin;
             String phaseTier = rollTierInRange(tierMin, tierMax, random);
 
-            ItemStack phaseStack = AffixRewardRoller.roll(phaseTier, difficulty.rewardIlvl(), random);
-            Nat20LootData phaseLootData = phaseStack.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
-            if (phaseLootData == null) {
-                throw new IllegalStateException(
-                    "AffixRewardRoller produced a stack without Nat20LootData metadata "
-                        + "(phase=" + i + ", itemId=" + phaseStack.getItemId()
-                        + ", tier=" + phaseTier + ", ilvl=" + difficulty.rewardIlvl() + ")");
-            }
-            String phaseDisplayName = phaseLootData.getGeneratedName();
             phaseRewards.add(new QuestInstance.PhaseReward(
-                phaseStack.getItemId(),
-                phaseStack.getQuantity(),
-                phaseDisplayName,
-                REWARD_DATA_GSON.toJson(phaseLootData),
-                phaseTier,
-                difficulty.rewardIlvl()));
-
-            if (isFinal) finalPhaseDisplayName = phaseDisplayName != null ? phaseDisplayName : "";
+                phaseTier, areaLevelAtSpawn, difficulty.ilvlBonus()));
 
             LOGGER.atFine().log(
-                "Quest %s phase %d roll: type=%s dampened=%s bypass=%s tier=%s[%s..%s] item=%s",
+                "Quest %s phase %d roll inputs: type=%s dampened=%s bypass=%s tier=%s[%s..%s] areaLevel=%d ilvlBonus=%d",
                 questId, i, objType, dampened, bypass, phaseTier, tierMin, tierMax,
-                phaseStack.getItemId());
+                areaLevelAtSpawn, difficulty.ilvlBonus());
         }
 
-        // {reward_item} resolves to the final phase's rolled item since that's the phase
-        // whose resolutionText references the reward by name. Intermediate phase turn-in
-        // texts (authored to not mention {reward_item}) would otherwise point at a stale
-        // value if this bound something other than the final roll.
-        bindings.put("reward_item", finalPhaseDisplayName);
+        // {reward_item} historically resolved to the final phase's pre-rolled display name,
+        // but rewards are now rolled per-player at turn-in. Bind a generic placeholder so any
+        // exposition/resolution text that references {reward_item} renders cleanly until the
+        // turn-in dispatcher swaps in the freshly-rolled item name.
+        bindings.put("reward_item", "a fitting reward");
 
-        // Persist the rolled rewards on the QuestInstance so TURN_IN_V2 can dispense each
-        // phase's item at its own turn-in. The Nat20LootData JSON round-trips cleanly because
-        // every field on the class is a primitive (affixes/gems serialize to '=' delimited strings).
-        // rewardXp is the per-phase amount (full XP at every turn-in by design).
+        // Persist the per-phase reward inputs on the QuestInstance so TURN_IN_V2 can roll each
+        // phase's item per-player at its own turn-in. rewardXp is the per-phase amount (full
+        // XP at every turn-in by design).
         quest.setRewardXp(difficulty.xpAmount());
         quest.setPhaseRewards(phaseRewards);
 
@@ -381,7 +367,7 @@ public class QuestGenerator {
 
     private @Nullable ObjectiveInstance createObjective(ObjectiveType type, ObjectiveConfig config,
                                                          Map<String, String> bindings, Random random,
-                                                         DifficultyConfig difficulty) {
+                                                         DifficultyConfig difficulty, int areaLevelAtSpawn) {
         String npcId = bindings.getOrDefault("quest_giver_name", "unknown");
 
         return switch (type) {
@@ -449,7 +435,7 @@ public class QuestGenerator {
                 // The difficulty mob multiplier is applied inside rollKillCount() so both the
                 // POI path and the deferred fallback path scale identically, and the
                 // populationSpec spawn-buffer invariant in createPOIObjective is preserved.
-                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random, difficulty);
+                ObjectiveInstance killObj = createPOIObjective(type, bindings, config, random, difficulty, areaLevelAtSpawn);
                 if (killObj == null) {
                     LOGGER.atFine().log("KILL_MOBS for %s: no void at generation, deferring POI to runtime", npcId);
                     int killCount = rollKillCount(config, random, difficulty.mobCountMultiplier());
@@ -465,7 +451,7 @@ public class QuestGenerator {
                 // objective with forcedPoiDirection=KILL_BOSS + requiredCount=1 + the
                 // pre-rolled boss name. Pre-roll always runs (even on the deferred path)
                 // so {boss_name} is bound for exposition text before the player travels.
-                ObjectiveInstance bossObj = createPOIObjective(type, bindings, config, random, difficulty);
+                ObjectiveInstance bossObj = createPOIObjective(type, bindings, config, random, difficulty, areaLevelAtSpawn);
                 if (bossObj == null) {
                     LOGGER.atFine().log("KILL_BOSS for %s: no void at generation, deferring POI to runtime", npcId);
                     bossObj = new ObjectiveInstance(type, "deferred_poi", bindings.get("enemy_type"),
@@ -491,7 +477,7 @@ public class QuestGenerator {
                 bindings.put("fetch_item_type", fetchItemType);
                 bindings.put("fetch_item_label", fetchEntry.noun());
 
-                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random, difficulty);
+                ObjectiveInstance fetchObj = createPOIObjective(type, bindings, config, random, difficulty, areaLevelAtSpawn);
                 if (fetchObj != null) {
                     fetchObj.setTargetEpithet(fetchEntry.epithet());
                     yield fetchObj;
@@ -542,7 +528,7 @@ public class QuestGenerator {
 
     private ObjectiveInstance createPOIObjective(ObjectiveType type, Map<String, String> bindings,
                                                   ObjectiveConfig config, Random random,
-                                                  DifficultyConfig difficulty) {
+                                                  DifficultyConfig difficulty, int areaLevelAtSpawn) {
         // Find and claim a unique void for this objective
         double npcX = 0, npcZ = 0;
         try {
@@ -612,13 +598,14 @@ public class QuestGenerator {
             default -> 3; // FETCH_ITEM guards
         };
         // populationSpec format: KILL_MOBS:<enemyId>:<spawnCount>:<mobIlvl>:<mobBoss>:<bossIlvlOffset>
-        // The trailing three fields propagate difficulty so the spawn-side can apply
-        // iLvl scaling and boss promotion when the player arrives at the POI.
-        // Downstream spawn code does not yet read those fields (Task D-future).
+        // mobIlvl is computed from the NPC's areaLevelAtSpawn plus the difficulty's ilvlBonus
+        // via QuestRewardIlvl.encounter(...). The trailing three fields propagate to the
+        // spawn-side so iLvl scaling and boss promotion apply when the player arrives at the POI.
         // The KILL_MOBS prefix is retained for KILL_BOSS: POIProximitySystem.extractMobRole
         // reads parts[1] only, so the prefix is inert. Kept uniform to avoid a parser branch.
+        int mobIlvl = QuestRewardIlvl.encounter(areaLevelAtSpawn, difficulty.ilvlBonus());
         String populationSpec = "KILL_MOBS:" + bindings.get("enemy_type_id") + ":" + spawnCount
-            + ":" + difficulty.mobIlvl()
+            + ":" + mobIlvl
             + ":" + difficulty.mobBoss()
             + ":" + difficulty.bossIlvlOffset();
 
