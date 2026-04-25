@@ -53,6 +53,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             .addField(new KeyedCodec<>("NpcDispositions", INT_MAP_CODEC), Nat20PlayerData::setNpcDispositions, Nat20PlayerData::getNpcDispositions)
             .addField(new KeyedCodec<>("ExhaustedTopics", STRING_MAP_CODEC), Nat20PlayerData::setExhaustedTopicsRaw, Nat20PlayerData::getExhaustedTopicsRaw)
             .addField(new KeyedCodec<>("LearnedGlobalTopics", STRING_SET_CODEC), Nat20PlayerData::setLearnedGlobalTopics, Nat20PlayerData::getLearnedGlobalTopics)
+            .addField(new KeyedCodec<>("BlacklistedQuestIds", STRING_SET_CODEC), Nat20PlayerData::setBlacklistedQuestIds, Nat20PlayerData::getBlacklistedQuestIds)
             .addField(new KeyedCodec<>("SavedSessions", STRING_MAP_CODEC), Nat20PlayerData::setSavedSessions, Nat20PlayerData::getSavedSessions)
             .addField(new KeyedCodec<>("ConsumedDecisives", STRING_MAP_CODEC), Nat20PlayerData::setConsumedDecisivesRaw, Nat20PlayerData::getConsumedDecisivesRaw)
             .addField(new KeyedCodec<>("TopicEntryOverrides", STRING_MAP_CODEC), Nat20PlayerData::setTopicEntryOverridesRaw, Nat20PlayerData::getTopicEntryOverridesRaw)
@@ -82,6 +83,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
     private Map<String, Integer> npcDispositions = new HashMap<>();                // NPC ID -> disposition
     private Map<String, Map<String, ExhaustionState>> exhaustedTopics = new HashMap<>(); // NPC ID -> topic ID -> state
     private Set<String> learnedGlobalTopics = new HashSet<>();                     // global topic IDs learned
+    private Set<String> blacklistedQuestIds = new HashSet<>();                     // quest IDs blacklisted (e.g. via nat1 on quest accept)
     private Map<String, Map<String, Set<String>>> consumedDecisives = new HashMap<>();  // NPC ID -> topic ID -> response IDs
     private Map<String, Map<String, String>> topicEntryOverrides = new HashMap<>();     // NPC ID -> topic ID -> entry node ID
     private Map<String, Map<String, String>> topicRecapNodes = new HashMap<>();         // NPC ID -> topic ID -> last node ID
@@ -329,6 +331,27 @@ public class Nat20PlayerData implements Component<EntityStore> {
 
     public void learnGlobalTopic(String topicId) {
         learnedGlobalTopics.add(topicId);
+    }
+
+    // --- Blacklisted Quest IDs ---
+
+    public Set<String> getBlacklistedQuestIds() {
+        return java.util.Collections.unmodifiableSet(blacklistedQuestIds);
+    }
+
+    public void setBlacklistedQuestIds(Set<String> blacklistedQuestIds) {
+        this.blacklistedQuestIds = blacklistedQuestIds != null
+                ? new HashSet<>(blacklistedQuestIds)
+                : new HashSet<>();
+    }
+
+    public void addBlacklistedQuest(String questId) {
+        if (questId == null || questId.isEmpty()) return;
+        blacklistedQuestIds.add(questId);
+    }
+
+    public boolean isQuestBlacklisted(String questId) {
+        return questId != null && blacklistedQuestIds.contains(questId);
     }
 
     // --- Saved Sessions ---
@@ -684,6 +707,7 @@ public class Nat20PlayerData implements Component<EntityStore> {
             copy.topicRecapNodes.put(entry.getKey(), new HashMap<>(entry.getValue()));
         }
         copy.learnedGlobalTopics = new HashSet<>(this.learnedGlobalTopics);
+        copy.blacklistedQuestIds = new HashSet<>(this.blacklistedQuestIds);
         copy.savedSessions = new HashMap<>(this.savedSessions);
         copy.npcClosingValences = new HashMap<>(this.npcClosingValences);
         copy.discoveredSettlements = new HashSet<>(this.discoveredSettlements);
