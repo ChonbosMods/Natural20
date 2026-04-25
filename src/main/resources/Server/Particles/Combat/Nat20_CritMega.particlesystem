@@ -1,15 +1,15 @@
 {
   "Spawners": [
     { "SpawnerId": "Explosion_Medium_Flash", "PositionOffset": { "Y": 0.9 }, "FixedRotation": false },
-    { "SpawnerId": "Explosio_Medium_Flash_Glow", "PositionOffset": { "Y": 0.9 } },
-    { "SpawnerId": "Explosion_Medium_Shockwave", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false },
-    { "SpawnerId": "Explosion_Medium_Sparks_Out", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false },
-    { "SpawnerId": "Explosion_Medium_Sparks_Linger", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false },
-    { "SpawnerId": "Explosion_Medium_Glow", "PositionOffset": { "Y": 0.5 } },
-    { "SpawnerId": "MAgic_Hit_DustGold", "PositionOffset": { "Y": 0.9 } },
-    { "SpawnerId": "MagicHit_Flair", "PositionOffset": { "Y": 0.9 } },
-    { "SpawnerId": "Impact_Critical_Sparks", "PositionOffset": { "Y": 0.8 }, "StartDelay": 0.01 },
-    { "SpawnerId": "Impact_Critical_Sparks_Red", "PositionOffset": { "Y": 0.8 }, "StartDelay": 0.01 }
+    { "SpawnerId": "Explosio_Medium_Flash_Glow", "PositionOffset": { "Y": 0.9 }, "StartDelay": 0.05 },
+    { "SpawnerId": "Explosion_Medium_Glow", "PositionOffset": { "Y": 0.5 }, "StartDelay": 0.05 },
+    { "SpawnerId": "Explosion_Medium_Shockwave", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false, "StartDelay": 0.10 },
+    { "SpawnerId": "Explosion_Medium_Sparks_Out", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false, "StartDelay": 0.10 },
+    { "SpawnerId": "MAgic_Hit_DustGold", "PositionOffset": { "Y": 0.9 }, "StartDelay": 0.15 },
+    { "SpawnerId": "MagicHit_Flair", "PositionOffset": { "Y": 0.9 }, "StartDelay": 0.15 },
+    { "SpawnerId": "Explosion_Medium_Sparks_Linger", "PositionOffset": { "Y": 0.5 }, "FixedRotation": false, "StartDelay": 0.20 },
+    { "SpawnerId": "Impact_Critical_Sparks", "PositionOffset": { "Y": 0.8 }, "StartDelay": 0.30 },
+    { "SpawnerId": "Impact_Critical_Sparks_Red", "PositionOffset": { "Y": 0.8 }, "StartDelay": 0.30 }
   ],
   "BoundingRadius": 100,
   "CullDistance": 150,

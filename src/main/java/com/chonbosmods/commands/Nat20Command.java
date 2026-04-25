@@ -22,6 +22,7 @@ public class Nat20Command extends AbstractCommandCollection {
 
         // Loot inspection
         addSubCommand(new LootCommand());
+        addSubCommand(new TestCritWeaponCommand());
 
         // Quest tooling
         addSubCommand(new QuestTpCommand());

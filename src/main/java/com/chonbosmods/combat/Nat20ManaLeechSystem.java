@@ -18,17 +18,14 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
-import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
-import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
 import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap;
 import com.hypixel.hytale.server.core.modules.entitystats.asset.EntityStatType;
-import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
@@ -43,9 +40,7 @@ public class Nat20ManaLeechSystem extends DamageEventSystem {
     private static final FluentLogger LOGGER = FluentLogger.forEnclosingClass();
     private static final Query<EntityStore> QUERY = Query.any();
     private static final String AFFIX_ID = "nat20:mana_leech";
-    private static final String PARTICLE = "Nat20_ManaLeech";
     private static final double SOFTCAP_K = 0.20;
-    private static final float TORSO_OFFSET_Y = 0.9f;
 
     private final Nat20LootSystem lootSystem;
     private int manaIdx = Integer.MIN_VALUE;
@@ -124,18 +119,6 @@ public class Nat20ManaLeechSystem extends DamageEventSystem {
             if (statMap == null) return;
 
             statMap.addStatValue(manaIdx, restoreAmount);
-
-            // Particle on attacker
-            TransformComponent transform = store.getComponent(attackerRef, TransformComponent.getComponentType());
-            if (transform != null) {
-                Vector3d pos = transform.getPosition();
-                try {
-                    ParticleUtil.spawnParticleEffect(PARTICLE,
-                            new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
-                } catch (Exception e) {
-                    LOGGER.atSevere().withCause(e).log("[ManaLeech] particle failed");
-                }
-            }
 
             UUID attackerUuid = attackerPlayer.getPlayerRef().getUuid();
             if (CombatDebugSystem.isEnabled(attackerUuid)) {
