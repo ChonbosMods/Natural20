@@ -350,16 +350,20 @@ public class Nat20LootPipeline {
     }
 
     /**
-     * Derive min/max rarity quality values from item level (per design doc §5.1).
-     * ilvl 1-8:   Common-Rare,           ilvl 9-15:  Common-Epic,
-     * ilvl 16-25: Uncommon-Legendary,    ilvl 26+:   all rarities (Common-Legendary).
-     * @return int[2] = {minQualityValue, maxQualityValue}
+     * Returns the rarity tier clamp {@code {minQv, maxQv}} for the given item level.
+     *
+     * <p>Post-2026-04-25: always returns {@code {1, 5}}. The prior ilvl-banded rarity
+     * gate (ilvl 1-8 = Common-Rare, ilvl 9-15 = Common-Epic, ilvl 16-25 = Uncommon-Legendary,
+     * ilvl 26+ = all rarities) was retired after the {@code ilvlScale} value-curve change
+     * lets every ilvl roll every rarity safely. ilvl-driven progression now lives in
+     * {@link com.chonbosmods.progression.Nat20XpMath#ilvlScale(int, int)}.
+     *
+     * <p>The {@code ilvl} parameter is preserved for caller-signature compatibility but is unused.
+     *
+     * @return {@code int[2] = {1, 5}} unconditionally.
      */
     public static int[] rarityGateForIlvl(int ilvl) {
-        if (ilvl <= 8)  return new int[]{1, 3};   // Common-Rare
-        if (ilvl <= 15) return new int[]{1, 4};   // Common-Epic
-        if (ilvl <= 25) return new int[]{2, 5};   // Uncommon-Legendary
-        return new int[]{1, 5};                   // All rarities
+        return new int[]{1, 5};
     }
 
     private int rollSockets(Nat20RarityDef rarity, Random random) {
