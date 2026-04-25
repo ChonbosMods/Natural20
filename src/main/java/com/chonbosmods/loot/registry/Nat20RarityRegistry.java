@@ -197,13 +197,13 @@ public class Nat20RarityRegistry {
             } else if (!isCommon) {
                 w *= 1.5;
             }
-            // EPIC/LEGENDARY: redistribute Common's original 300 weight upward.
+            // EPIC/LEGENDARY: redistribute Common's original 250 weight upward.
             if (zeroCommon) {
-                // 100 + 150 + 40 + 10 = 300 = Common's BaseWeight in Common.json; keep in sync.
+                // 80 + 130 + 30 + 10 = 250 = Common's BaseWeight in Common.json; keep in sync.
                 switch (def.qualityValue()) {
-                    case 2 -> w += 100.0; // Uncommon
-                    case 3 -> w += 150.0; // Rare
-                    case 4 -> w += 40.0;  // Epic
+                    case 2 -> w += 80.0;  // Uncommon
+                    case 3 -> w += 130.0; // Rare
+                    case 4 -> w += 30.0;  // Epic
                     case 5 -> w += 10.0;  // Legendary
                     default -> {}
                 }
