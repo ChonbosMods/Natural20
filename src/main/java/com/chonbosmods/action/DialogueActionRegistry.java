@@ -43,6 +43,9 @@ import com.hypixel.hytale.server.core.inventory.container.CombinedItemContainer;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.transaction.ItemStackTransaction;
 import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.quest.AffixRewardRoller;
+import com.chonbosmods.quest.Nat20QuestRewardDispatcher;
+import com.chonbosmods.quest.QuestRewardIlvl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1298,6 +1301,82 @@ public class DialogueActionRegistry {
 
         LOGGER.atInfo().log("PEACEFUL_FETCH: POI set at settlement (%d, %d, %d) for quest %s",
             sx, sy, sz, quest.getQuestId());
+    }
+
+    /**
+     * Roll and grant a fresh pre-quest item to the dialogue holder using
+     * {@code quest.getPhaseReward(0)}'s tier + areaLevel + ilvlBonus. Mirrors
+     * the fresh reroll path in
+     * {@link Nat20QuestRewardDispatcher#dispenseItemsToOtherAccepters}: per-player
+     * ilvl is computed via {@link QuestRewardIlvl#reward(int, int, int)} from the
+     * dialogue holder's mlvl. Player gets a same-quality item NOW without consuming
+     * the eventual phase-1 turn-in reward (which rolls fresh per accepter at turn-in).
+     *
+     * <p>Returns the granted {@link ItemStack} on success, or {@code null} if the
+     * quest has no phase-1 reward stored, the stored fields are legacy/zero, the
+     * roller throws, or {@code giveItem} refuses the stack. Failures are logged
+     * at SEVERE; callers should treat {@code null} as "no item granted, skip the
+     * appended success line."
+     */
+    public static ItemStack rollAndGrantPreQuestReward(ActionContext ctx, QuestInstance quest) {
+        if (quest == null) return null;
+        QuestInstance.PhaseReward phase1 = quest.getPhaseReward(0);
+        if (phase1 == null) {
+            LOGGER.atSevere().log(
+                "Nat20 pre-quest reward skipped for quest %s: no phase-0 reward stored",
+                quest.getQuestId());
+            return null;
+        }
+        String tier = phase1.getRewardTier();
+        int areaLevel = phase1.getAreaLevelAtSpawn();
+        int ilvlBonus = phase1.getIlvlBonus();
+        if (tier == null || tier.isBlank() || areaLevel <= 0) {
+            LOGGER.atSevere().log(
+                "Nat20 pre-quest reward skipped for quest %s: legacy phase-0 reward "
+                    + "(tier=%s, areaLevel=%d, ilvlBonus=%d); skipping fresh roll",
+                quest.getQuestId(), tier, areaLevel, ilvlBonus);
+            return null;
+        }
+        int playerLevel = ctx.playerData() != null ? ctx.playerData().getLevel() : 1;
+        int ilvl = QuestRewardIlvl.reward(playerLevel, areaLevel, ilvlBonus);
+
+        ItemStack rolled;
+        try {
+            rolled = AffixRewardRoller.roll(tier, ilvl, new java.util.Random());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "Nat20 pre-quest reward roll threw for quest %s "
+                    + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
+                quest.getQuestId(), tier, ilvl, playerLevel, areaLevel, ilvlBonus);
+            return null;
+        }
+
+        ItemStackTransaction tx;
+        try {
+            tx = ctx.player().giveItem(rolled, ctx.playerRef(), ctx.store());
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log(
+                "Nat20 pre-quest reward giveItem threw for quest %s, item %s",
+                quest.getQuestId(), rolled.getItemId());
+            return null;
+        }
+        if (tx == null || !tx.succeeded()) {
+            ItemStack remainder = tx != null ? tx.getRemainder() : null;
+            int remainderQty = remainder != null ? remainder.getQuantity() : rolled.getQuantity();
+            LOGGER.atSevere().log(
+                "Nat20 pre-quest reward REFUSED for quest %s, item %s, player %s: giveItem "
+                    + "!succeeded (remainder=%d). Inventory likely full.",
+                quest.getQuestId(), rolled.getItemId(),
+                ctx.player().getPlayerRef().getUuid(), remainderQty);
+            return null;
+        }
+
+        LOGGER.atInfo().log(
+            "Nat20 pre-quest reward granted for quest %s: %s x%d to player %s "
+                + "(tier=%s, ilvl=%d)",
+            quest.getQuestId(), rolled.getItemId(), rolled.getQuantity(),
+            ctx.player().getPlayerRef().getUuid(), tier, ilvl);
+        return rolled;
     }
 
     /**
