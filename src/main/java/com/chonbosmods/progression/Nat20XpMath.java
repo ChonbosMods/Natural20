@@ -108,6 +108,11 @@ public final class Nat20XpMath {
      * Endgame ceiling preserved: {@code ilvlScale(45, qv)} returns the same value
      * as the prior linear-from-1.0 formula. Low-ilvl values are dampened to 30% of endgame.
      *
+     * <p>The {@code ilvl} parameter is documented as 1..45 but no clamp is applied:
+     * out-of-range values produce linear extrapolation (e.g. ilvl 0 yields below-floor,
+     * ilvl 50 yields above-ceiling). Production callers always pass clamped ilvls,
+     * so this is documented behavior rather than a defect.
+     *
      * @param ilvl item level (1..45)
      * @param qualityValue rarity tier (Common=1 .. Legendary=5)
      */

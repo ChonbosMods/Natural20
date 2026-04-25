@@ -56,11 +56,13 @@ public final class Nat20XpMathHarness {
         assertEq("d20SuccessXp(1)",  150, Nat20XpMath.d20SuccessXp(1));
         assertEq("d20SuccessXp(11)", 465, Nat20XpMath.d20SuccessXp(11));
 
-        // ilvlScale: ilvl spec §3.2 table. Legendary at ilvl 40 ~= 2.44.
-        assertNear("ilvlScale(1, 1)",   1.0,  Nat20XpMath.ilvlScale(1, 1),  0.001);
-        assertNear("ilvlScale(10, 5)",  1.33, Nat20XpMath.ilvlScale(10, 5), 0.01);
-        assertNear("ilvlScale(40, 5)",  2.44, Nat20XpMath.ilvlScale(40, 5), 0.01);
-        assertNear("ilvlScale(45, 5)",  2.63, Nat20XpMath.ilvlScale(45, 5), 0.01);
+        // ilvlScale: see Nat20XpMath.ilvlScale Javadoc + design doc
+        // 2026-04-25-affix-ilvl-scaling-and-stat-score-tightening-design.md.
+        // Two-component curve: endgameScale(qv) × spread(ilvl).
+        assertNear("ilvlScale(1, 1)",   0.630, Nat20XpMath.ilvlScale(1, 1),  0.001);
+        assertNear("ilvlScale(10, 5)",  1.165, Nat20XpMath.ilvlScale(10, 5), 0.01);
+        assertNear("ilvlScale(40, 5)",  2.419, Nat20XpMath.ilvlScale(40, 5), 0.01);
+        assertNear("ilvlScale(45, 5)",  2.628, Nat20XpMath.ilvlScale(45, 5), 0.001);
 
         System.out.printf("%n=== Nat20XpMathHarness: %d/%d passed ===%n", passed, total);
         System.exit(passed == total ? 0 : 1);

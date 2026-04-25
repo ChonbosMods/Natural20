@@ -13,10 +13,12 @@ public record AffixValueRange(double min, double max) {
     }
 
     /**
-     * Interpolate with ilvl + quality scaling per design doc §11.5:
-     * {@code scale = 1 + (ilvl-1) * (0.025 + (qualityValue-1) * 0.003)}.
-     * Applied uniformly to both endpoints, so the final value is
-     * {@code scale * (min + (max-min) * lootLevel)}.
+     * Interpolate with ilvl + quality scaling. The scale factor is
+     * {@link com.chonbosmods.progression.Nat20XpMath#ilvlScale(int, int)}, applied
+     * uniformly to both endpoints, so the final value is
+     * {@code scale × (min + (max-min) × lootLevel)}.
+     *
+     * <p>See design doc: {@code docs/plans/2026-04-25-affix-ilvl-scaling-and-stat-score-tightening-design.md}.
      */
     public double interpolate(double lootLevel, int ilvl, int qualityValue) {
         double scale = Nat20XpMath.ilvlScale(ilvl, qualityValue);
