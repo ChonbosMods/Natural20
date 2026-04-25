@@ -220,51 +220,41 @@ public class QuestInstance {
     }
 
     /**
-     * Per-phase rolled reward. Captured at quest generation and dispensed when
-     * the player turns in the matching phase. The Gson-serialized
-     * {@link com.chonbosmods.loot.Nat20LootData} in {@link #rewardItemDataJson} is
-     * rehydrated at dispense so affix metadata round-trips onto the ItemStack.
+     * Per-phase reward inputs, captured at quest generation. The actual item is rolled
+     * at phase turn-in via {@link com.chonbosmods.quest.AffixRewardRoller#roll}, using a per-player ilvl
+     * derived from {@link com.chonbosmods.quest.QuestRewardIlvl#reward}.
+     *
+     * <p>Stores only the inputs needed at dispense time:
+     * <ul>
+     *   <li>{@code rewardTier}: rolled at quest gen with the dampener applied.
+     *       Reused per accepter so all party members share the same rarity tier
+     *       (different items, same rarity).</li>
+     *   <li>{@code areaLevelAtSpawn}: snapshotted at quest gen. Used as the area
+     *       baseline in the per-player reward formula.</li>
+     *   <li>{@code ilvlBonus}: copy of difficulty's ilvlBonus (Easy=0, Medium=2,
+     *       Hard=5). Constant across all phases of a single quest.</li>
+     * </ul>
+     *
+     * <p>See design: {@code docs/plans/2026-04-25-quest-reward-encounter-scaling-design.md}.
      */
     public static class PhaseReward {
-        private String rewardItemId;
-        private int rewardItemCount;
-        private String rewardItemDisplayName;
-        private String rewardItemDataJson;
-        /** Vanilla Hytale rarity tier used at generation-time roll ("Common" ..
-         *  "Legendary"). Persisted so multi-accepter dispense can reroll a fresh
-         *  item via {@code AffixRewardRoller.roll(tier, ilvl, random)} per
-         *  non-triggering accepter (so party members don't all get identical
-         *  items). Null on legacy saves predating the 2026-04-22 pivot; those
-         *  legacy quests silently skip the non-triggering reroll. */
         private String rewardTier;
-        /** Item level used at generation-time roll. Zero on legacy saves
-         *  predating the 2026-04-22 pivot. See {@link #rewardTier}. */
-        private int rewardIlvl;
+        private int areaLevelAtSpawn;
+        private int ilvlBonus;
 
         public PhaseReward() {}
 
-        public PhaseReward(String rewardItemId, int rewardItemCount,
-                           String rewardItemDisplayName, String rewardItemDataJson,
-                           String rewardTier, int rewardIlvl) {
-            this.rewardItemId = rewardItemId;
-            this.rewardItemCount = rewardItemCount;
-            this.rewardItemDisplayName = rewardItemDisplayName;
-            this.rewardItemDataJson = rewardItemDataJson;
+        public PhaseReward(String rewardTier, int areaLevelAtSpawn, int ilvlBonus) {
             this.rewardTier = rewardTier;
-            this.rewardIlvl = rewardIlvl;
+            this.areaLevelAtSpawn = areaLevelAtSpawn;
+            this.ilvlBonus = ilvlBonus;
         }
 
-        public String getRewardItemId() { return rewardItemId; }
-        public void setRewardItemId(String rewardItemId) { this.rewardItemId = rewardItemId; }
-        public int getRewardItemCount() { return rewardItemCount; }
-        public void setRewardItemCount(int rewardItemCount) { this.rewardItemCount = rewardItemCount; }
-        public String getRewardItemDisplayName() { return rewardItemDisplayName; }
-        public void setRewardItemDisplayName(String rewardItemDisplayName) { this.rewardItemDisplayName = rewardItemDisplayName; }
-        public String getRewardItemDataJson() { return rewardItemDataJson; }
-        public void setRewardItemDataJson(String rewardItemDataJson) { this.rewardItemDataJson = rewardItemDataJson; }
         public String getRewardTier() { return rewardTier; }
         public void setRewardTier(String rewardTier) { this.rewardTier = rewardTier; }
-        public int getRewardIlvl() { return rewardIlvl; }
-        public void setRewardIlvl(int rewardIlvl) { this.rewardIlvl = rewardIlvl; }
+        public int getAreaLevelAtSpawn() { return areaLevelAtSpawn; }
+        public void setAreaLevelAtSpawn(int areaLevelAtSpawn) { this.areaLevelAtSpawn = areaLevelAtSpawn; }
+        public int getIlvlBonus() { return ilvlBonus; }
+        public void setIlvlBonus(int ilvlBonus) { this.ilvlBonus = ilvlBonus; }
     }
 }
