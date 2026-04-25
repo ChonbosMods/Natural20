@@ -184,6 +184,12 @@ public class DialogueActionRegistry {
                 LOGGER.atInfo().log("GIVE_QUEST: player already has quest %s", quest.getQuestId());
                 return;
             }
+            if (ctx.playerData().isQuestBlacklisted(quest.getQuestId())) {
+                LOGGER.atInfo().log(
+                    "GIVE_QUEST: quest %s is blacklisted for player %s (nat1); skipping accept",
+                    quest.getQuestId(), ctx.player().getPlayerRef().getUuid());
+                return;
+            }
 
             // Set state BEFORE saving so it persists correctly
             quest.setState(com.chonbosmods.quest.QuestState.OBJECTIVE_PENDING);
