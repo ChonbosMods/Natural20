@@ -2,6 +2,8 @@ package com.chonbosmods.loot.mob;
 
 import com.chonbosmods.loot.filter.Nat20GearFilter;
 
+import java.util.Optional;
+
 /**
  * Gear-category resolver and ilvl-gating facade for Hytale item IDs.
  * Category inference (armor / tool / melee_weapon / ranged_weapon) is heuristic
@@ -23,6 +25,18 @@ public final class Nat20ItemTierResolver {
     public static boolean allowsIlvl(String itemId, int ilvl) {
         Nat20GearFilter f = filter;
         return f != null && f.isAllowed(itemId, ilvl);
+    }
+
+    /**
+     * Resolve an item's tier band + category through the gear filter. Unlike
+     * {@link #inferCategory(String)}, this honors allowlist entries with explicit
+     * categories, so mod-namespaced items (e.g. {@code SomeMod:Plasma_Sword})
+     * resolve correctly. Returns empty when no filter is installed or the item
+     * is not recognized by the filter (blocklisted or no matching token/override).
+     */
+    public static Optional<Nat20GearFilter.TierResolution> resolve(String itemId) {
+        Nat20GearFilter f = filter;
+        return f == null ? Optional.empty() : f.resolveTier(itemId);
     }
 
     /**

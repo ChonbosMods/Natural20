@@ -26,7 +26,7 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * <p>Drop count comes from {@link Nat20MobDropCount} keyed by {@link Tier} +
  * {@link DifficultyTier}. Each drop slot samples {@link Nat20MobLootPool}, which
- * returns an item from the mob's native drop list (12% bias) or from the global
+ * returns an item from the mob's native drop list (5% bias) or from the global
  * gear pool filtered to the mob's ilvl band. Sampled items run through
  * {@link Nat20LootPipeline} for rarity/affix/name rolls and spawn via
  * {@link ItemUtils#throwItem}.

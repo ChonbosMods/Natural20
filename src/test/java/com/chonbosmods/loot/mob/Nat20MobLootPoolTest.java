@@ -1,5 +1,7 @@
 package com.chonbosmods.loot.mob;
 
+import com.chonbosmods.loot.filter.Nat20GearFilter;
+import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -55,5 +57,38 @@ class Nat20MobLootPoolTest {
         assertEquals(0.30, counts.get("armor")         / (double) N, 0.02);
         assertEquals(0.20, counts.get("ranged_weapon") / (double) N, 0.02);
         assertEquals(0.20, counts.get("tool")          / (double) N, 0.02);
+    }
+
+    @Test
+    void buildGlobalBucketsHonorsAllowlistCategoryForModItems() {
+        // This test verifies that mod-namespaced items registered via the gear filter's
+        // allowlist (with explicit category) make it into the right bucket even though
+        // their prefix wouldn't match Nat20ItemTierResolver.inferCategory.
+        //
+        // Uses the test-resource gear_filter_test.json fixture (already shipped in Task 3).
+        // That fixture has Mod:Custom_Plasma allowlisted as ranged_weapon at ilvl [22, 38].
+
+        // Set up the static filter facade to use the test fixture.
+        Nat20GearFilter filter = Nat20GearFilter.loadFrom(
+            getClass().getResourceAsStream("/loot/gear_filter_test.json"));
+        Nat20ItemTierResolver.setFilter(filter);
+
+        try {
+            // Build a fake registry that returns only the mod itemId.
+            Nat20LootEntryRegistry registry = new Nat20LootEntryRegistry() {
+                @Override public Set<String> getAllItemIds() {
+                    return Set.of("Mod:Custom_Plasma");
+                }
+            };
+
+            Map<String, List<String>> buckets = Nat20MobLootPool.buildGlobalBuckets(registry, 30);
+            assertEquals(List.of("Mod:Custom_Plasma"), buckets.get("ranged_weapon"));
+            assertTrue(buckets.get("melee_weapon").isEmpty());
+            assertTrue(buckets.get("armor").isEmpty());
+            assertTrue(buckets.get("tool").isEmpty());
+        } finally {
+            // Clear the static filter so it doesn't pollute later tests.
+            Nat20ItemTierResolver.setFilter(null);
+        }
     }
 }

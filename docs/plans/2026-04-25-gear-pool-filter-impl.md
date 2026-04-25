@@ -897,7 +897,7 @@ git commit -m "feat(loot): bucket gear pool by category, weight {30/30/20/20}, d
 **Step 1: Start devserver**
 
 Run: `./gradlew devServer`
-Expected: log line "gear_filter.json loaded: 1 blocklist, 0 allowlist, 36 tokens, 25 overrides" (or similar).
+Expected: log line "gear_filter.json loaded: 8 blocklist, 0 allowlist, 36 tokens, 19 overrides" (or similar).
 
 If you see "Failed to parse gear_filter.json — failing closed", stop and re-validate the JSON.
 

@@ -1,6 +1,7 @@
 package com.chonbosmods.loot.mob;
 
 import com.chonbosmods.loot.CategoryWeightedPicker;
+import com.chonbosmods.loot.filter.Nat20GearFilter;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -105,19 +107,23 @@ public final class Nat20MobLootPool {
 
     /**
      * Build the category-bucketed global gear pool. Each registered Nat20 gear
-     * item is dropped into its inferred category bucket if its tier band allows
-     * the supplied ilvl.
+     * item is resolved through {@link Nat20ItemTierResolver#resolve(String)},
+     * which routes through the gear filter so allowlist entries with explicit
+     * categories (e.g. mod-namespaced items like {@code SomeMod:Plasma_Sword})
+     * land in the correct bucket. Items rejected by the filter or outside the
+     * resolved ilvl band are skipped.
      */
     public static Map<String, List<String>> buildGlobalBuckets(Nat20LootEntryRegistry registry, int ilvl) {
         Map<String, List<String>> b = new HashMap<>();
         for (String cat : CategoryWeightedPicker.WEIGHTS.keySet()) b.put(cat, new ArrayList<>());
         for (String itemId : registry.getAllItemIds()) {
-            String cat = Nat20ItemTierResolver.inferCategory(itemId);
-            if (cat == null) continue;
-            if (!Nat20ItemTierResolver.allowsIlvl(itemId, ilvl)) continue;
-            List<String> bucket = b.get(cat);
-            if (bucket == null) continue;
-            bucket.add(itemId);
+            Optional<Nat20GearFilter.TierResolution> tier = Nat20ItemTierResolver.resolve(itemId);
+            if (tier.isEmpty()) continue;
+            Nat20GearFilter.IlvlBand band = tier.get().ilvlBand();
+            if (ilvl < band.min() || ilvl > band.max()) continue;
+            List<String> bucket = b.get(tier.get().category());
+            // null guard: filter category outside our 4-bucket WEIGHTS set
+            if (bucket != null) bucket.add(itemId);
         }
         return b;
     }

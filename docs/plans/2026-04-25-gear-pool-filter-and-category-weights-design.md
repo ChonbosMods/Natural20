@@ -41,7 +41,7 @@ if bucket[category] empty: renormalize over non-empty buckets and re-roll
 pick uniformly within bucket
 ```
 
-Empty-bucket fallback should be rare (≥9 entries per category at every ilvl in the audited pool) but is defensive.
+Empty-bucket fallback should be rare (≥8 entries per category at every ilvl in the audited pool) but is defensive.
 
 ### Native-list bias
 
