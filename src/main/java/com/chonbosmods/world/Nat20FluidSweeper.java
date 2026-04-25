@@ -29,7 +29,7 @@ public final class Nat20FluidSweeper {
         // Mirror WorldChunk.getFluidId's pattern: resolve section via ChunkColumn for each Y.
         // Cache lava id once: avoids 38k hash + string compares per sweep.
         int lavaFluidId = Fluid.getAssetMap().getIndex("Fluid_Lava");
-        if (lavaFluidId == 0) return;  // lava not registered, nothing to clear
+        if (lavaFluidId < 0) return;  // unregistered (getIndex returns Integer.MIN_VALUE)
 
         for (int x = minX; x <= maxX; x++) {
             for (int z = minZ; z <= maxZ; z++) {
