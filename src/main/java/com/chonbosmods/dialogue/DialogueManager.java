@@ -5,11 +5,14 @@ import com.chonbosmods.action.DialogueActionRegistry;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.data.Nat20PlayerData;
 import com.chonbosmods.dialogue.model.*;
+import com.chonbosmods.loot.Nat20LootData;
+import com.chonbosmods.quest.AffixRewardRoller;
 import com.chonbosmods.quest.DialogueResolver;
 import com.chonbosmods.quest.ObjectiveInstance;
 import com.chonbosmods.quest.ObjectiveType;
 import com.chonbosmods.quest.QuestCompletionBanner;
 import com.chonbosmods.quest.QuestInstance;
+import com.chonbosmods.quest.QuestRewardIlvl;
 import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.settlement.NpcRecord;
 import com.chonbosmods.settlement.SettlementRecord;
@@ -21,6 +24,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import java.util.*;
@@ -665,6 +669,40 @@ public class DialogueManager {
             String questId = quest.getQuestId();
             Map<String, String> b = quest.getVariableBindings();
             int cc = quest.getConflictCount();
+
+            // Pre-roll the reward for the trigger so {reward_item} substitutes to the rolled
+            // item's display name in resolution text. The same item is dispensed at TURN_IN_V2
+            // via QuestInstance.consumePreRolledReward: no double-roll. (DialogueActionRegistry
+            // falls back to a fresh roll if the cache is missing: defensive only.)
+            QuestInstance.PhaseReward phaseReward = quest.getPhaseReward(cc);
+            if (phaseReward != null
+                    && phaseReward.getRewardTier() != null && !phaseReward.getRewardTier().isBlank()
+                    && phaseReward.getAreaLevelAtSpawn() > 0
+                    && viewerUuid != null) {
+                int playerLevel = playerData.getLevel();
+                int ilvl = QuestRewardIlvl.reward(
+                    playerLevel,
+                    phaseReward.getAreaLevelAtSpawn(),
+                    phaseReward.getIlvlBonus());
+                try {
+                    ItemStack preRolled = AffixRewardRoller.roll(
+                        phaseReward.getRewardTier(), ilvl, new java.util.Random());
+                    quest.cachePreRolledReward(cc, viewerUuid, preRolled);
+
+                    // Resolve display name: prefer Nat20LootData.generatedName, fall back to itemId.
+                    Nat20LootData lootData = preRolled.getFromMetadataOrNull(Nat20LootData.METADATA_KEY);
+                    String displayName = (lootData != null && lootData.getGeneratedName() != null
+                                          && !lootData.getGeneratedName().isBlank())
+                        ? lootData.getGeneratedName()
+                        : preRolled.getItemId();
+                    b.put("reward_item", displayName);
+                } catch (Exception e) {
+                    LOGGER.atSevere().withCause(e).log(
+                        "Pre-roll for {reward_item} failed (quest=%s phase=%d player=%s tier=%s ilvl=%d); "
+                            + "leaving placeholder. TURN_IN_V2 will roll fresh as fallback.",
+                        questId, cc, viewerUuid, phaseReward.getRewardTier(), ilvl);
+                }
+            }
 
             // The current objective backs the turn-in text; the NEXT objective (if a
             // conflict is queued) backs the inline conflict text shown after [Turn in].

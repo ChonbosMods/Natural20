@@ -1342,16 +1342,21 @@ public class DialogueActionRegistry {
         int playerLevel = playerData != null ? playerData.getLevel() : 1;
         int ilvl = com.chonbosmods.quest.QuestRewardIlvl.reward(playerLevel, areaLevel, ilvlBonus);
 
-        ItemStack stack;
-        try {
-            stack = com.chonbosmods.quest.AffixRewardRoller.roll(tier, ilvl, new Random());
-        } catch (Exception e) {
-            LOGGER.atSevere().withCause(e).log(
-                "TURN_IN_V2 reward roll failed for quest %s phase %d, player %s "
-                    + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
-                quest.getQuestId(), phaseIndex, playerUuid, tier, ilvl,
-                playerLevel, areaLevel, ilvlBonus);
-            return null;
+        // Prefer the pre-rolled item from the dialogue session so dispensed item matches
+        // what the player saw in the resolution text. Falls back to a fresh roll if cache
+        // missed (legacy sessions, race conditions, exception paths).
+        ItemStack stack = quest.consumePreRolledReward(phaseIndex, playerUuid);
+        if (stack == null) {
+            try {
+                stack = com.chonbosmods.quest.AffixRewardRoller.roll(tier, ilvl, new Random());
+            } catch (Exception e) {
+                LOGGER.atSevere().withCause(e).log(
+                    "TURN_IN_V2 reward roll failed for quest %s phase %d, player %s "
+                        + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
+                    quest.getQuestId(), phaseIndex, playerUuid, tier, ilvl,
+                    playerLevel, areaLevel, ilvlBonus);
+                return null;
+            }
         }
 
         ItemStackTransaction tx;

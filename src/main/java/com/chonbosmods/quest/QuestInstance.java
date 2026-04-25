@@ -1,5 +1,7 @@
 package com.chonbosmods.quest;
 
+import com.hypixel.hytale.server.core.inventory.ItemStack;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -59,6 +61,20 @@ public class QuestInstance {
      *  range; the final phase always rolls the full range unless dampened by objective type
      *  (TALK_TO_NPC / COLLECT_RESOURCES, same 5% bypass). */
     private List<PhaseReward> phaseRewards = new ArrayList<>();
+
+    /**
+     * Per-player pre-rolled reward cache. Populated when the turn-in dialogue
+     * session is built in DialogueManager.injectQuestTurnInTopics so {@code
+     * {reward_item}} can substitute to the rolled item's display name in the
+     * resolution text. Consumed by DialogueActionRegistry.dispensePhaseReward
+     * to dispense the same item the player saw in the dialogue.
+     *
+     * <p>Transient: not serialized. If a dialogue session opens, the player
+     * walks away, and reopens, the cache is overwritten by the new roll.
+     *
+     * <p>Outer key = phaseIndex; inner key = player UUID.
+     */
+    private transient Map<Integer, Map<UUID, ItemStack>> preRolledRewards = new HashMap<>();
 
     /** True once the completion banner has fired for the current phase.
      *  Reset to false on phase advance (incrementConflictCount).
@@ -217,6 +233,28 @@ public class QuestInstance {
     public PhaseReward getPhaseReward(int index) {
         if (index < 0 || index >= phaseRewards.size()) return null;
         return phaseRewards.get(index);
+    }
+
+    /**
+     * Cache a pre-rolled reward for the given phase + player. Overwrites any
+     * prior entry for that key. Called from DialogueManager when the turn-in
+     * topic is built.
+     */
+    public void cachePreRolledReward(int phaseIndex, UUID playerUuid, ItemStack stack) {
+        if (preRolledRewards == null) preRolledRewards = new HashMap<>();
+        preRolledRewards.computeIfAbsent(phaseIndex, k -> new HashMap<>()).put(playerUuid, stack);
+    }
+
+    /**
+     * Consume (read + remove) the pre-rolled reward for this phase + player.
+     * Returns null if no cached entry exists. Called from
+     * {@code DialogueActionRegistry.dispensePhaseReward}.
+     */
+    public ItemStack consumePreRolledReward(int phaseIndex, UUID playerUuid) {
+        if (preRolledRewards == null) return null;
+        Map<UUID, ItemStack> phaseMap = preRolledRewards.get(phaseIndex);
+        if (phaseMap == null) return null;
+        return phaseMap.remove(playerUuid);
     }
 
     /**
