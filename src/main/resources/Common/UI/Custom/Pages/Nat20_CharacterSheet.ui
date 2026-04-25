@@ -49,7 +49,7 @@ $C.@Container {
         Padding: (Right: 12);
 
         Label #CSLeftHeader {
-          Text: "Character Stats";
+          Text: "Ability Scores";
           Anchor: (Height: 24);
           Padding: (Bottom: 4);
           Style: (TextColor: #cccccc(1), FontSize: 16, RenderBold: true, HorizontalAlignment: Center);
