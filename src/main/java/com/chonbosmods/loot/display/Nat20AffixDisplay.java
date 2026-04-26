@@ -1,5 +1,6 @@
 package com.chonbosmods.loot.display;
 
+import com.chonbosmods.combat.Nat20Softcap;
 import com.chonbosmods.stats.Stat;
 
 import javax.annotation.Nullable;
@@ -160,7 +161,9 @@ public final class Nat20AffixDisplay {
             case "nat20:resonance"      -> "+" + intVal + " Resonance";
             case "nat20:telekinesis"    -> "+" + intVal + " Telekinesis";
             case "nat20:indestructible" -> "Indestructible";
-            case "nat20:haste"          -> "+" + pctVal + "% Haste";
+            // Haste is softcapped at runtime (K=0.40 in Nat20HasteSystem); display the
+            // post-softcap value so the tooltip matches the felt mining-speed bonus.
+            case "nat20:haste"          -> "+" + (int) Math.round(Nat20Softcap.softcap(midFlatValue, 0.40) * 100.0) + "% Haste";
             case "nat20:fortified"      -> "+" + pctVal + "% Fortified";
             default -> affixId;
         };
