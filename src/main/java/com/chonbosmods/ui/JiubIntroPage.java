@@ -63,7 +63,15 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     });
 
     private static final String INTRO1_TEXT =
-            "Stand up. There you go. You were dreaming. Not even last night's storm could wake you.";
+            "... Stand up. There you go. You were dreaming. Not even last night's storm could wake you.";
+
+    /**
+     * INTRO1 holds on the leading "..." for this many ms before continuing.
+     * Absorbs Hytale's client-side load time on first-spawn so the player doesn't
+     * miss the start of the line. INTRO2 + INTRO3 don't need it (player is settled
+     * by then).
+     */
+    private static final long INTRO1_LOAD_BUFFER_PAUSE_MS = 3000;
     private static final String INTRO2_TEXT =
             "What you were before this carries forward with you, whether you mean it to or not. Best I know what I'm working with.";
     /** {0} is substituted with the player's Background displayName prefixed with "a" or "an". */
@@ -126,9 +134,10 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         if (activeTypewriter != null) {
             activeTypewriter.cancel();
         }
+        long leadingPause = (state == State.INTRO1) ? INTRO1_LOAD_BUFFER_PAUSE_MS : 0L;
         activeTypewriter = new DialogueTypewriter(
                 text, TYPEWRITER_COLOR, "#JiubIntroLine", this::pushUpdate,
-                null, null);
+                null, null, leadingPause);
         activeTypewriter.start();
     }
 

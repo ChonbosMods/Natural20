@@ -39,10 +39,12 @@ public class DialogueTypewriter {
     private final Consumer<UICommandBuilder> pushUpdate;
     private final Runnable onTickSound;
     private final Runnable onComplete;
+    private final long leadingEllipsisPauseMs;
 
     private final int totalVisible;
     private int visibleRevealed;
     private volatile boolean complete;
+    private boolean leadingEllipsisConsumed;
     private ScheduledFuture<?> pendingFuture;
 
     /**
@@ -57,12 +59,27 @@ public class DialogueTypewriter {
     public DialogueTypewriter(String fullText, String color, String selector,
                               Consumer<UICommandBuilder> pushUpdate,
                               Runnable onTickSound, Runnable onComplete) {
+        this(fullText, color, selector, pushUpdate, onTickSound, onComplete, 0L);
+    }
+
+    /**
+     * Constructor with a one-shot leading-ellipsis pause. When {@code leadingEllipsisPauseMs > 0},
+     * the FIRST {@code "..."} encountered in the text holds for that duration instead of the
+     * default {@link #DELAY_ELLIPSIS}. Used to absorb client-side load time on first-spawn
+     * dialogue (see {@link com.chonbosmods.ui.JiubIntroPage}); subsequent ellipses use the
+     * default pause. Pass 0 to disable.
+     */
+    public DialogueTypewriter(String fullText, String color, String selector,
+                              Consumer<UICommandBuilder> pushUpdate,
+                              Runnable onTickSound, Runnable onComplete,
+                              long leadingEllipsisPauseMs) {
         this.fullText = (fullText != null) ? fullText : "";
         this.color = color;
         this.selector = selector;
         this.pushUpdate = pushUpdate;
         this.onTickSound = onTickSound;
         this.onComplete = onComplete;
+        this.leadingEllipsisPauseMs = Math.max(0L, leadingEllipsisPauseMs);
         this.totalVisible = EntityHighlight.visibleLength(this.fullText);
     }
 
@@ -180,6 +197,10 @@ public class DialogueTypewriter {
             if (revealed == '.' && revealedIndex >= 2
                     && stripped.charAt(revealedIndex - 1) == '.'
                     && stripped.charAt(revealedIndex - 2) == '.') {
+                if (leadingEllipsisPauseMs > 0L && !leadingEllipsisConsumed) {
+                    leadingEllipsisConsumed = true;
+                    return leadingEllipsisPauseMs;
+                }
                 return DELAY_ELLIPSIS;
             }
             return DELAY_SENTENCE_END;
