@@ -93,20 +93,20 @@ class Nat20XpMathTest {
 
     @Test
     void ilvlScaleFloorAtIlvl1IsThirtyPercentOfEndgameForLegendary() {
-        // qv=5 (Legendary), ilvl=1 -> spread=0.30 x endgameScale=2.628 = 0.7884
-        assertEquals(0.7884, Nat20XpMath.ilvlScale(1, 5), EPS);
+        // qv=5 (Legendary), ilvl=1 -> spread=0.30 x endgameScale=2.2056 = 0.66168
+        assertEquals(0.66168, Nat20XpMath.ilvlScale(1, 5), EPS);
     }
 
     @Test
-    void ilvlScaleAtIlvl45MatchesTodaysValueForCommon() {
-        // qv=1, ilvl=45 -> spread=1.0 x endgameScale=2.10 = 2.10 (today's value preserved)
+    void ilvlScaleAtIlvl45ForCommon() {
+        // qv=1, ilvl=45 -> spread=1.0 x endgameScale=2.10
         assertEquals(2.100, Nat20XpMath.ilvlScale(45, 1), EPS);
     }
 
     @Test
-    void ilvlScaleAtIlvl45MatchesTodaysValueForLegendary() {
-        // qv=5, ilvl=45 -> spread=1.0 x endgameScale=2.628 (today's value preserved)
-        assertEquals(2.628, Nat20XpMath.ilvlScale(45, 5), EPS);
+    void ilvlScaleAtIlvl45ForLegendary() {
+        // qv=5, ilvl=45 -> spread=1.0 x endgameScale=2.2056 (5% spread above Common)
+        assertEquals(2.2056, Nat20XpMath.ilvlScale(45, 5), EPS);
     }
 
     @Test
@@ -119,9 +119,9 @@ class Nat20XpMathTest {
     @Test
     void ilvlScaleHigherRarityScalesProportionallyHigher() {
         // At ilvl 1, Legendary should be exactly endgameScale_legendary / endgameScale_common
-        // higher than Common: 0.7884 / 0.630 = 2.628 / 2.10 = 1.252
+        // higher than Common: 0.66168 / 0.630 = 2.2056 / 2.100 = 1.0503
         double common = Nat20XpMath.ilvlScale(1, 1);
         double legendary = Nat20XpMath.ilvlScale(1, 5);
-        assertEquals(2.628 / 2.100, legendary / common, EPS);
+        assertEquals(2.2056 / 2.100, legendary / common, EPS);
     }
 }

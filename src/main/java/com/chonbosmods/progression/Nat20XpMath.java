@@ -101,12 +101,13 @@ public final class Nat20XpMath {
      * ilvl x rarity to affix-value scale multiplier.
      * Two-component curve: {@code endgameScale(qv) x spread(ilvl)}.
      * <ul>
-     *   <li>{@code endgameScale(qv)}: constant per rarity, equals today's ilvl-45 value
-     *       (Common=2.10 ... Legendary=2.628).</li>
+     *   <li>{@code endgameScale(qv)}: per-rarity ilvl-45 value
+     *       (Common=2.100 ... Legendary=2.206). 5% Common-to-Legendary spread.</li>
      *   <li>{@code spread(ilvl)}: linear from 0.30 at ilvl 1 to 1.00 at ilvl 45.</li>
      * </ul>
-     * Endgame ceiling preserved: {@code ilvlScale(45, qv)} returns the same value
-     * as the prior linear-from-1.0 formula. Low-ilvl values are dampened to 30% of endgame.
+     * Tier moves affix VALUES only slightly (5% spread); breadth (slot count) and
+     * stat scores are what really differentiate tiers. ilvl drives almost all of
+     * affix-value depth (3.33x range from ilvl 1 to ilvl 45).
      *
      * <p>The {@code ilvl} parameter is documented as 1..45 but no clamp is applied:
      * out-of-range values produce linear extrapolation (e.g. ilvl 0 yields below-floor,
@@ -121,7 +122,7 @@ public final class Nat20XpMath {
     }
 
     private static double endgameScale(int qualityValue) {
-        return 1.0 + 44 * (0.025 + (qualityValue - 1) * 0.003);
+        return 1.0 + 44 * (0.025 + (qualityValue - 1) * 0.0006);
     }
 
     private static double spread(int ilvl) {
