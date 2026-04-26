@@ -358,11 +358,6 @@ public final class JiubManager {
         com.hypixel.hytale.server.core.cosmetics.CosmeticRegistry registry =
             CosmeticsModule.get().getRegistry();
 
-        LOGGER.atInfo().log(
-            "JiubSkin: random base before overrides → body=%s face=%s mouth=%s eyes=%s ears=%s eyebrows=%s haircut=%s facialHair=%s underwear=%s overtop=%s",
-            skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
-            skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
-
         // Skin tone "19" = #8aacfb (pale blue); body sets the tint, face
         // and mouth inherit it (they don't take their own color suffix).
         skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "19",     skin.bodyCharacteristic);
@@ -375,11 +370,6 @@ public final class JiubManager {
         skin.underwear          = orKeep(registry.getUnderwear(),           "Boxer",            "Purple", skin.underwear);
         skin.overtop            = orKeep(registry.getOvertops(),            "Adventurer_Dress", "Brown",  skin.overtop);
         skin.shoes              = null;  // barefoot
-
-        LOGGER.atInfo().log(
-            "JiubSkin: final after overrides → body=%s face=%s mouth=%s eyes=%s ears=%s eyebrows=%s haircut=%s facialHair=%s underwear=%s overtop=%s",
-            skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
-            skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
         return skin;
     }
 
