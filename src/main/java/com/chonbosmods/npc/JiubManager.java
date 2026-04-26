@@ -24,7 +24,8 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Random;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -149,12 +150,10 @@ public final class JiubManager {
         Vector3f rotation = new Vector3f(0f, FACING_SOUTH_YAW, 0f);
 
         // Build the Model up-front and pass as the 5th arg to avoid the
-        // ModelComponent scale=0 chunk-reload crash. Deterministic RNG so Jiub
-        // keeps the same face across respawns (unlikely to be observed here,
-        // but matches Nat20NpcManager's pattern).
-        Random skinRng = new Random(DISPLAY_NAME.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin baseSkin =
-            CosmeticsModule.get().generateRandomSkin(skinRng);
+        // ModelComponent scale=0 chunk-reload crash. Skin is deterministic
+        // (see buildJiubSkin) so Jiub's appearance is stable across respawns
+        // and reattach.
+        com.hypixel.hytale.protocol.PlayerSkin baseSkin = buildJiubSkin();
         com.hypixel.hytale.server.core.asset.type.model.config.Model model =
             CosmeticsModule.get().createModel(baseSkin, 1.0f);
 
@@ -259,12 +258,9 @@ public final class JiubManager {
         // Cache the live ref in case it wasn't yet resolved this session.
         this.jiubRef = ref;
 
-        // Re-apply the skin deterministically from the display name so Jiub's
-        // appearance is stable across reloads. Matches the Random(name.hashCode())
-        // pattern Nat20NpcManager.applyNpcComponents uses.
-        Random skinRng = new Random(DISPLAY_NAME.hashCode());
-        com.hypixel.hytale.protocol.PlayerSkin skin =
-            CosmeticsModule.get().generateRandomSkin(skinRng);
+        // Re-apply the deterministic skin so Jiub's appearance is stable across
+        // chunk reloads / world restarts (see buildJiubSkin).
+        com.hypixel.hytale.protocol.PlayerSkin skin = buildJiubSkin();
         store.putComponent(ref, PlayerSkinComponent.getComponentType(),
             new PlayerSkinComponent(skin));
         store.putComponent(ref, Nameplate.getComponentType(),
@@ -326,5 +322,78 @@ public final class JiubManager {
         } catch (IOException e) {
             LOGGER.atSevere().withCause(e).log("Failed to save jiub.json");
         }
+    }
+
+    /**
+     * Build Jiub's deterministic appearance: black hair + eyebrows + beard,
+     * green eyes, brown overcoat, purple undergarment. Body, face, and mouth
+     * fall through to the first available color in their gradient sets.
+     */
+    private static com.hypixel.hytale.protocol.PlayerSkin buildJiubSkin() {
+        com.hypixel.hytale.server.core.cosmetics.CosmeticRegistry registry =
+            CosmeticsModule.get().getRegistry();
+
+        com.hypixel.hytale.protocol.PlayerSkin skin = new com.hypixel.hytale.protocol.PlayerSkin();
+        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          null);
+        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        null);
+        skin.mouth              = partOrFirst(registry.getMouths(),              "Default",          null);
+        skin.eyes               = partOrFirst(registry.getEyes(),                "Goat_Eyes",        "Green");
+        skin.eyebrows           = partOrFirst(registry.getEyebrows(),            "Medium",           "Black");
+        skin.haircut            = partOrFirst(registry.getHaircuts(),            "ShortDreads",      "Black");
+        skin.facialHair         = partOrFirst(registry.getFacialHairs(),         "CurlyLongBeard",   "Black");
+        skin.underwear          = partOrFirst(registry.getUnderwear(),           "Boxer",            "Purple");
+        skin.overtop            = partOrFirst(registry.getOvertops(),            "Adventurer_Dress", "Brown");
+        return skin;
+    }
+
+    /**
+     * Resolve a {@code "PartId.TextureKey"} string against a part registry. If
+     * the requested color isn't a key in the part's gradient set (or is null),
+     * falls back to the gradient set's first available key with a WARNING.
+     * Returns {@code null} (and logs SEVERE) if the part itself isn't found.
+     */
+    private static String partOrFirst(
+            Map<String, com.hypixel.hytale.server.core.cosmetics.PlayerSkinPart> parts,
+            String partId,
+            String requestedColor) {
+        com.hypixel.hytale.server.core.cosmetics.PlayerSkinPart part = parts.get(partId);
+        if (part == null) {
+            LOGGER.atSevere().log(
+                "JiubSkin: part '%s' not found in registry; available: %s",
+                partId, parts.keySet());
+            return null;
+        }
+        String gradientSetId = part.getGradientSet();
+        if (gradientSetId == null) {
+            LOGGER.atWarning().log(
+                "JiubSkin: part '%s' has no gradient set; cannot resolve color",
+                partId);
+            return null;
+        }
+        com.hypixel.hytale.server.core.cosmetics.PlayerSkinGradientSet gradientSet =
+            CosmeticsModule.get().getRegistry().getGradientSets().get(gradientSetId);
+        if (gradientSet == null) {
+            LOGGER.atSevere().log(
+                "JiubSkin: gradient set '%s' referenced by part '%s' not found",
+                gradientSetId, partId);
+            return null;
+        }
+        Set<String> colors = gradientSet.getGradients().keySet();
+        if (requestedColor != null && colors.contains(requestedColor)) {
+            return partId + "." + requestedColor;
+        }
+        if (colors.isEmpty()) {
+            LOGGER.atSevere().log(
+                "JiubSkin: gradient set '%s' for part '%s' has no colors",
+                gradientSetId, partId);
+            return null;
+        }
+        String fallback = colors.iterator().next();
+        if (requestedColor != null) {
+            LOGGER.atWarning().log(
+                "JiubSkin: color '%s' not in gradient set '%s' for part '%s'; available: %s; using '%s'",
+                requestedColor, gradientSetId, partId, colors, fallback);
+        }
+        return partId + "." + fallback;
     }
 }
