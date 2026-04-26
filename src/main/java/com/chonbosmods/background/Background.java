@@ -11,24 +11,25 @@ import java.util.List;
  * pair of the 6 stats (6 choose 2 = 15).
  */
 public enum Background {
-    SOLDIER     ("Soldier",     Stat.STR, Stat.CON, List.of(weapon("Weapon_Sword_Crude"), weapon("Weapon_Shield_Wood"))),
-    SAILOR      ("Sailor",      Stat.STR, Stat.DEX, List.of(weapon("Weapon_Spear_Crude"))),
-    VETERAN     ("Veteran",     Stat.STR, Stat.INT, List.of(weapon("Weapon_Battleaxe_Crude"))),
-    FOLK_HERO   ("Folk Hero",   Stat.STR, Stat.WIS, List.of(weapon("Weapon_Longsword_Crude"))),
-    NOBLE       ("Noble",       Stat.STR, Stat.CHA, List.of(weapon("Weapon_Longsword_Crude"))),
-    CRIMINAL    ("Criminal",    Stat.DEX, Stat.CON, List.of(weapon("Weapon_Daggers_Crude"))),
-    ARTISAN     ("Artisan",     Stat.DEX, Stat.INT, List.of(weapon("Weapon_Club_Crude"))),
-    SCOUT       ("Scout",       Stat.DEX, Stat.WIS, List.of(weapon("Weapon_Shortbow_Crude"), arrows())),
-    ENTERTAINER ("Entertainer", Stat.DEX, Stat.CHA, List.of(weapon("Weapon_Crossbow_Iron"),  arrows())),
-    HERMIT      ("Hermit",      Stat.CON, Stat.INT, List.of(weapon("Weapon_Staff_Bo_Bamboo"))),
-    OUTLANDER   ("Outlander",   Stat.CON, Stat.WIS, List.of(weapon("Weapon_Axe_Crude"))),
-    URCHIN      ("Urchin",      Stat.CON, Stat.CHA, List.of(weapon("Weapon_Club_Crude"))),
-    SAGE        ("Sage",        Stat.INT, Stat.WIS, List.of(weapon("Weapon_Staff_Bone"))),
-    CHARLATAN   ("Charlatan",   Stat.INT, Stat.CHA, List.of(weapon("Weapon_Staff_Onion"))),
-    ACOLYTE     ("Acolyte",     Stat.WIS, Stat.CHA, List.of(weapon("Weapon_Mace_Crude")));
+    SOLDIER     ("Soldier",     Stat.STR, Stat.CON, List.of(weapon("Weapon_Sword_Iron"),       armor("Weapon_Shield_Wood"))),
+    SAILOR      ("Sailor",      Stat.STR, Stat.DEX, List.of(weapon("Weapon_Sword_Cutlass"),    armor("Armor_Cloth_Linen_Chest"))),
+    VETERAN     ("Veteran",     Stat.STR, Stat.INT, List.of(weapon("Weapon_Battleaxe_Iron"),   armor("Armor_Leather_Medium_Chest"))),
+    FOLK_HERO   ("Folk Hero",   Stat.STR, Stat.WIS, List.of(weapon("Weapon_Longsword_Iron"),   armor("Armor_Leather_Light_Chest"))),
+    NOBLE       ("Noble",       Stat.STR, Stat.CHA, List.of(weapon("Weapon_Longsword_Iron"),   armor("Armor_Cloth_Silk_Chest"))),
+    CRIMINAL    ("Criminal",    Stat.DEX, Stat.CON, List.of(weapon("Weapon_Daggers_Iron"),     armor("Armor_Leather_Light_Head"))),
+    ARTISAN     ("Artisan",     Stat.DEX, Stat.INT, List.of(weapon("Weapon_Club_Iron"),        armor("Armor_Cloth_Cotton_Hands"))),
+    SCOUT       ("Scout",       Stat.DEX, Stat.WIS, List.of(weapon("Weapon_Shortbow_Iron"),    arrows(), armor("Armor_Leather_Soft_Head"))),
+    ENTERTAINER ("Entertainer", Stat.DEX, Stat.CHA, List.of(weapon("Weapon_Crossbow_Iron"),    arrows(), armor("Armor_Cloth_Cotton_Chest"))),
+    HERMIT      ("Hermit",      Stat.CON, Stat.INT, List.of(weapon("Weapon_Staff_Bo_Bamboo"),  armor("Armor_Wool_Chest"))),
+    OUTLANDER   ("Outlander",   Stat.CON, Stat.WIS, List.of(weapon("Weapon_Axe_Iron"),         armor("Armor_Leather_Heavy_Legs"))),
+    URCHIN      ("Urchin",      Stat.CON, Stat.CHA, List.of(weapon("Weapon_Club_Iron"),        armor("Armor_Cloth_Cotton_Legs"))),
+    SAGE        ("Sage",        Stat.INT, Stat.WIS, List.of(weapon("Weapon_Staff_Bone"),       armor("Armor_Cloth_Linen_Chest"))),
+    CHARLATAN   ("Charlatan",   Stat.INT, Stat.CHA, List.of(weapon("Weapon_Staff_Onion"),      armor("Armor_Cloth_Cotton_Chest"))),
+    ACOLYTE     ("Acolyte",     Stat.WIS, Stat.CHA, List.of(weapon("Weapon_Mace_Iron"),        armor("Armor_Wool_Head")));
 
     private static KitItem weapon(String itemId) { return new KitItem(itemId, 1, true); }
-    private static KitItem arrows() { return new KitItem("Weapon_Arrow_Crude", 50, false); }
+    private static KitItem armor(String itemId)  { return new KitItem(itemId, 1, true); }
+    private static KitItem arrows() { return new KitItem("Weapon_Arrow_Crude", 75, false); }
 
     private final String displayName;
     private final Stat primary;
