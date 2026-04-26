@@ -364,8 +364,11 @@ public final class JiubManager {
             skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
 
         skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "01",     skin.bodyCharacteristic);
-        skin.face               = orKeep(registry.getFaces(),               "Face_Aged",        "01",     skin.face);
-        skin.mouth              = orKeep(registry.getMouths(),              "Mouth_Default",    "01",     skin.mouth);
+        // face / mouth / ears are validated via plain containsKey(wholeString)
+        // (NOT dotted "Id.Color" format) — they inherit skin color from body's
+        // gradient, so the field is just the part Id with no suffix.
+        skin.face               = orKeepIdOnly(registry.getFaces(),         "Face_Aged",        skin.face);
+        skin.mouth              = orKeepIdOnly(registry.getMouths(),        "Mouth_Default",    skin.mouth);
         skin.eyes               = orKeep(registry.getEyes(),                "Goat_Eyes",        "Green",  skin.eyes);
         skin.eyebrows           = orKeep(registry.getEyebrows(),            "Medium",           "Black",  skin.eyebrows);
         skin.haircut            = orKeep(registry.getHaircuts(),            "ShortDreads",      "Black",  skin.haircut);
@@ -378,6 +381,22 @@ public final class JiubManager {
             skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
             skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
         return skin;
+    }
+
+    /**
+     * Resolve a part-id-only override (face / mouth / ears use this format —
+     * no color suffix; they inherit color from the body's skin gradient).
+     * Returns {@code partId} if the part exists, else {@code keepIfFail}.
+     */
+    private static String orKeepIdOnly(
+            Map<String, com.hypixel.hytale.server.core.cosmetics.PlayerSkinPart> parts,
+            String partId,
+            String keepIfFail) {
+        if (parts.containsKey(partId)) return partId;
+        LOGGER.atWarning().log(
+            "JiubSkin: part '%s' not found; keeping base value '%s'. Available: %s",
+            partId, keepIfFail, parts.keySet());
+        return keepIfFail;
     }
 
     /**
