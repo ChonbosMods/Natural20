@@ -71,7 +71,7 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
      * the player doesn't miss the start of the line. INTRO2 + INTRO3 don't need
      * it (player is settled by then).
      */
-    private static final long INTRO1_LOAD_BUFFER_PAUSE_MS = 6000;
+    private static final long INTRO1_LOAD_BUFFER_PAUSE_MS = 4000;
     private static final String INTRO2_TEXT =
             "What you were before this carries forward with you, whether you mean it to or not. Best I know what I'm working with.";
     /** {0} is substituted with the player's Background displayName prefixed with "a" or "an". */
