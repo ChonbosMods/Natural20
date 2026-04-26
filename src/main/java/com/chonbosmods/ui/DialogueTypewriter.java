@@ -39,12 +39,11 @@ public class DialogueTypewriter {
     private final Consumer<UICommandBuilder> pushUpdate;
     private final Runnable onTickSound;
     private final Runnable onComplete;
-    private final long leadingEllipsisPauseMs;
+    private final long initialDelayMs;
 
     private final int totalVisible;
     private int visibleRevealed;
     private volatile boolean complete;
-    private boolean leadingEllipsisConsumed;
     private ScheduledFuture<?> pendingFuture;
 
     /**
@@ -63,34 +62,36 @@ public class DialogueTypewriter {
     }
 
     /**
-     * Constructor with a one-shot leading-ellipsis pause. When {@code leadingEllipsisPauseMs > 0},
-     * the FIRST {@code "..."} encountered in the text holds for that duration instead of the
-     * default {@link #DELAY_ELLIPSIS}. Used to absorb client-side load time on first-spawn
-     * dialogue (see {@link com.chonbosmods.ui.JiubIntroPage}); subsequent ellipses use the
-     * default pause. Pass 0 to disable.
+     * Constructor with a pre-roll delay before the first character reveals. Used to
+     * absorb client-side load time on first-spawn dialogue (see {@link
+     * com.chonbosmods.ui.JiubIntroPage}). Page renders empty until the delay elapses,
+     * then the typewriter begins. Pass 0 to start immediately.
      */
     public DialogueTypewriter(String fullText, String color, String selector,
                               Consumer<UICommandBuilder> pushUpdate,
                               Runnable onTickSound, Runnable onComplete,
-                              long leadingEllipsisPauseMs) {
+                              long initialDelayMs) {
         this.fullText = (fullText != null) ? fullText : "";
         this.color = color;
         this.selector = selector;
         this.pushUpdate = pushUpdate;
         this.onTickSound = onTickSound;
         this.onComplete = onComplete;
-        this.leadingEllipsisPauseMs = Math.max(0L, leadingEllipsisPauseMs);
+        this.initialDelayMs = Math.max(0L, initialDelayMs);
         this.totalVisible = EntityHighlight.visibleLength(this.fullText);
     }
 
-    /** Schedule the first tick immediately. If the text is empty, completes right away. */
+    /**
+     * Schedule the first tick. With a non-zero {@code initialDelayMs} the page renders
+     * empty until the delay elapses. If the text is empty, completes right away.
+     */
     public void start() {
         if (fullText.isEmpty()) {
             complete = true;
             if (onComplete != null) onComplete.run();
             return;
         }
-        pendingFuture = SCHEDULER.schedule(this::tick, 0, TimeUnit.MILLISECONDS);
+        pendingFuture = SCHEDULER.schedule(this::tick, initialDelayMs, TimeUnit.MILLISECONDS);
     }
 
     /** Reveal the next visible character(s), push the partial text update, and schedule the next tick. */
@@ -197,10 +198,6 @@ public class DialogueTypewriter {
             if (revealed == '.' && revealedIndex >= 2
                     && stripped.charAt(revealedIndex - 1) == '.'
                     && stripped.charAt(revealedIndex - 2) == '.') {
-                if (leadingEllipsisPauseMs > 0L && !leadingEllipsisConsumed) {
-                    leadingEllipsisConsumed = true;
-                    return leadingEllipsisPauseMs;
-                }
                 return DELAY_ELLIPSIS;
             }
             return DELAY_SENTENCE_END;
