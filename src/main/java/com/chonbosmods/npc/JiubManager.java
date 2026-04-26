@@ -264,8 +264,22 @@ public final class JiubManager {
         // Cache the live ref in case it wasn't yet resolved this session.
         this.jiubRef = ref;
 
-        // Re-apply the deterministic skin so Jiub's appearance is stable across
-        // chunk reloads / world restarts (see buildJiubSkin).
+        // Re-apply the model after chunk reload: PersistentModel reconstructs a
+        // bare Player model that lacks skin data and attachments, leaving void
+        // around the head (no mouth, ears, etc.). Same pattern Nat20NpcManager
+        // uses to recover from the bare-model regression. Built from a
+        // deterministic random base skin matching the spawn-time Model so
+        // geometry stays consistent across reloads.
+        Random skinRng = new Random(DISPLAY_NAME.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+            CosmeticsModule.get().generateRandomSkin(skinRng);
+        com.hypixel.hytale.server.core.asset.type.model.config.Model model =
+            CosmeticsModule.get().createModel(baseSkin, 1.0f);
+        store.putComponent(ref,
+            com.hypixel.hytale.server.core.modules.entity.component.ModelComponent.getComponentType(),
+            new com.hypixel.hytale.server.core.modules.entity.component.ModelComponent(model));
+
+        // Re-apply the deterministic customised skin overlay (see buildJiubSkin).
         com.hypixel.hytale.protocol.PlayerSkin skin = buildJiubSkin();
         store.putComponent(ref, PlayerSkinComponent.getComponentType(),
             new PlayerSkinComponent(skin));
