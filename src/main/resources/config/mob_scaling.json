@@ -17,7 +17,7 @@
   "tier_multipliers": {
     "REGULAR":      { "hp_mult": 1.0,  "dmg_mult": 0.769 },
     "CHAMPION":     { "hp_mult": 2.5,  "dmg_mult": 1.0 },
-    "BOSS":         { "hp_mult": 5.0,  "dmg_mult": 1.385 },
+    "BOSS":         { "hp_mult": 4.0,  "dmg_mult": 1.385 },
     "DUNGEON_BOSS": { "hp_mult": 20.0, "dmg_mult": 1.923 }
   },
   "monster_scaling": {
