@@ -363,10 +363,9 @@ public final class JiubManager {
             skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
             skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
 
-        skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "01",     skin.bodyCharacteristic);
-        // face / mouth / ears are validated via plain containsKey(wholeString)
-        // (NOT dotted "Id.Color" format) — they inherit skin color from body's
-        // gradient, so the field is just the part Id with no suffix.
+        // Skin tone "45" = #d5f0a0 (pale yellow-green); body sets the tint, face
+        // and mouth inherit it (they don't take their own color suffix).
+        skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "45",     skin.bodyCharacteristic);
         skin.face               = orKeepIdOnly(registry.getFaces(),         "Face_Aged",        skin.face);
         skin.mouth              = orKeepIdOnly(registry.getMouths(),        "Mouth_Default",    skin.mouth);
         skin.eyes               = orKeep(registry.getEyes(),                "Goat_Eyes",        "Green",  skin.eyes);
@@ -375,6 +374,7 @@ public final class JiubManager {
         skin.facialHair         = orKeep(registry.getFacialHairs(),         "CurlyLongBeard",   "Black",  skin.facialHair);
         skin.underwear          = orKeep(registry.getUnderwear(),           "Boxer",            "Purple", skin.underwear);
         skin.overtop            = orKeep(registry.getOvertops(),            "Adventurer_Dress", "Brown",  skin.overtop);
+        skin.shoes              = null;  // barefoot
 
         LOGGER.atInfo().log(
             "JiubSkin: final after overrides → body=%s face=%s mouth=%s eyes=%s ears=%s eyebrows=%s haircut=%s facialHair=%s underwear=%s overtop=%s",
