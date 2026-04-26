@@ -4,6 +4,8 @@
   "Parameters": {
     "MaxHealth": { "Value": 100 },
     "WanderRadius": { "Value": 0 },
+    "IdleWanderSpeed": { "Value": 0 },
+    "IdleWanderMaxHeadingChange": { "Value": 0 },
     "NameTranslationKey": { "Value": "nat20.npc.jiub" }
   }
 }

@@ -54,6 +54,14 @@
       "Value": 6,
       "Description": "General wander radius for idle behavior."
     },
+    "IdleWanderSpeed": {
+      "Value": 0.15,
+      "Description": "Idle WanderInCircle relative speed. Set to 0 to keep the NPC fully stationary."
+    },
+    "IdleWanderMaxHeadingChange": {
+      "Value": 60,
+      "Description": "Idle WanderInCircle max per-tick heading change (degrees). Set to 0 to keep facing fixed."
+    },
     "AttitudeGroup": {
       "Value": "Nat20_Settlement",
       "Description": "This NPC's attitude group."
@@ -227,8 +235,8 @@
                     "Motion": {
                       "Type": "WanderInCircle",
                       "Radius": { "Compute": "WanderRadius" },
-                      "MaxHeadingChange": 60,
-                      "RelativeSpeed": 0.15
+                      "MaxHeadingChange": { "Compute": "IdleWanderMaxHeadingChange" },
+                      "RelativeSpeed": { "Compute": "IdleWanderSpeed" }
                     }
                   }
                 ]
