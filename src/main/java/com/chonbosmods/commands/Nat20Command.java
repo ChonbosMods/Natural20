@@ -27,6 +27,10 @@ public class Nat20Command extends AbstractCommandCollection {
         // Quest tooling
         addSubCommand(new QuestTpCommand());
 
+        // Debug: forces the next d20 kept die. Remove once nat20/nat1 quest-accept
+        // smoke tests are confirmed.
+        addSubCommand(new ForceRollCommand());
+
         // World inspection
         addSubCommand(new SettlementsCommand());
     }
