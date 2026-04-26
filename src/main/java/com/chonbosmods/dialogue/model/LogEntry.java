@@ -31,6 +31,11 @@ public sealed interface LogEntry {
         int xpGained
     ) implements LogEntry {}
 
+    /** Rendered immediately under a SkillCheckResult in the same green (passed) or
+     *  red (failed) color. Used by nat20/nat1 quest-accept consequences to surface
+     *  the granted item or the disposition fallout next to the roll outcome. */
+    record CritConsequence(String text, boolean passed) implements LogEntry {}
+
     /** Serialize any LogEntry to JSON with a discriminator "type" field. */
     static JsonObject toJson(LogEntry entry) {
         var obj = new JsonObject();
@@ -68,6 +73,11 @@ public sealed interface LogEntry {
                 obj.addProperty("critical", r.critical());
                 obj.addProperty("xpGained", r.xpGained());
             }
+            case CritConsequence c -> {
+                obj.addProperty("type", "CritConsequence");
+                obj.addProperty("text", c.text());
+                obj.addProperty("passed", c.passed());
+            }
         }
         return obj;
     }
@@ -95,6 +105,9 @@ public sealed interface LogEntry {
                 obj.get("passed").getAsBoolean(),
                 obj.has("critical") && obj.get("critical").getAsBoolean(),
                 obj.has("xpGained") ? obj.get("xpGained").getAsInt() : 0);
+            case "CritConsequence" -> new CritConsequence(
+                obj.get("text").getAsString(),
+                obj.get("passed").getAsBoolean());
             default -> null;
         };
     }

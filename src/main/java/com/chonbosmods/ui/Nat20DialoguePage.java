@@ -230,6 +230,8 @@ public class Nat20DialoguePage extends InteractiveCustomUIPage<Nat20DialoguePage
                     }
                     lines.add(new LogLine(text.toString(), color, false));
                 }
+                case LogEntry.CritConsequence c ->
+                    lines.add(new LogLine(c.text(), c.passed() ? "#66BB77" : "#CC4444", false));
             }
         }
 

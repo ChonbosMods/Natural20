@@ -435,6 +435,15 @@ public class DialogueManager {
         if (npcRecord == null || npcRecord.getPreGeneratedQuest() == null) return;
 
         QuestInstance quest = npcRecord.getPreGeneratedQuest();
+        // Per-player blacklist: nat1 on the accept-gate skill check permanently blocks
+        // this quest from being offered to this player by this NPC. Skip injection so
+        // the quest topic does not appear in the topic list at all.
+        if (playerData != null && playerData.isQuestBlacklisted(quest.getQuestId())) {
+            LOGGER.atInfo().log(
+                "Quest %s is blacklisted for player; skipping topic injection on NPC %s",
+                quest.getQuestId(), npcId);
+            return;
+        }
         Map<String, String> b = quest.getVariableBindings();
         String questId = quest.getQuestId();
         int playerLevel = playerData != null ? playerData.getLevel() : 1;

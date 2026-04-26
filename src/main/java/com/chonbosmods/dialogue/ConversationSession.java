@@ -66,12 +66,6 @@ public class ConversationSession {
     private String statCheckResponseId;
     private String statCheckResumeNodeId;
 
-    /** One-shot suffix appended to the next DialogueTextNode's display text and
-     *  cleared after consumption. Used by nat20 / nat1 quest-accept handlers to
-     *  inject "[NPC] hands you [Item]." or "[NPC] is insulted..." onto the
-     *  pass/fail dialogue node without mutating authored quest data. */
-    private String pendingNpcLineSuffix = null;
-
     /** One-shot flag set by the nat1 quest-accept handler to suppress response
      *  buttons on the fail node. Consumed and cleared by the next DialogueTextNode
      *  render. Empty responses then trigger the existing returnCheck() path,
@@ -411,10 +405,6 @@ public class ConversationSession {
                 } else {
                     displayText = textNode.speakerText();
                 }
-                if (pendingNpcLineSuffix != null) {
-                    displayText = displayText + "\n" + pendingNpcLineSuffix;
-                    pendingNpcLineSuffix = null;
-                }
                 conversationLog.add(new LogEntry.NpcSpeech(displayText));
                 ValenceType lineValence = textNode.valence() != null ? textNode.valence() : ValenceType.NEUTRAL;
                 valenceTracker.recordNpcLine(lineValence);
@@ -516,7 +506,10 @@ public class ConversationSession {
             // Assumes one skill check per quest topic (the accept gate); if mid-quest
             // checks ever land, gate further on checkNode identity or pass-action.
             if (isActiveTopicQuestTopic() && (result.naturalRoll() == 20 || result.naturalRoll() == 1)) {
-                handleQuestAcceptCrit(result.naturalRoll());
+                String consequenceText = handleQuestAcceptCrit(result.naturalRoll());
+                if (consequenceText != null) {
+                    conversationLog.add(new LogEntry.CritConsequence(consequenceText, result.passed()));
+                }
             }
 
             processNode(nextNodeId);
@@ -561,34 +554,35 @@ public class ConversationSession {
      * where there is no quest to grant or blacklist.
      *
      * <p>The nat20 grant runs on the world thread via {@link com.hypixel.hytale.server.core.universe.world.World#execute}
-     * and we await the result so {@code pendingNpcLineSuffix} is set before
-     * {@code processNode} renders the pass node on this thread.
+     * and we await the result so the consequence text reflects the granted item.
+     * Returns the text to render as a {@link LogEntry.CritConsequence} immediately
+     * under the {@link LogEntry.SkillCheckResult} (or {@code null} if there is no
+     * pre-generated quest, the nat20 grant failed, or anything else short-circuits).
      */
-    private void handleQuestAcceptCrit(int naturalRoll) {
-        if (npcData == null || playerData == null) return;
+    private String handleQuestAcceptCrit(int naturalRoll) {
+        if (npcData == null || playerData == null) return null;
         com.chonbosmods.settlement.SettlementRegistry settlements =
                 com.chonbosmods.Natural20.getInstance().getSettlementRegistry();
-        if (settlements == null) return;
+        if (settlements == null) return null;
 
         String cellKey = npcData.getSettlementCellKey();
-        if (cellKey == null || cellKey.isEmpty()) return;
+        if (cellKey == null || cellKey.isEmpty()) return null;
 
         com.chonbosmods.settlement.SettlementRecord settlement = settlements.getByCell(cellKey);
-        if (settlement == null) return;
+        if (settlement == null) return null;
         com.chonbosmods.settlement.NpcRecord npcRecord = settlement.getNpcByName(npcId);
-        if (npcRecord == null) return;
+        if (npcRecord == null) return null;
         com.chonbosmods.quest.QuestInstance quest = npcRecord.getPreGeneratedQuest();
-        if (quest == null) return;
+        if (quest == null) return null;
 
         String npcDisplayName = npcRecord.getGeneratedName() != null
                 ? npcRecord.getGeneratedName() : npcId;
 
         if (naturalRoll == 20) {
             // giveItem touches the entity store, which asserts the world thread.
-            // handleSkillCheckResult runs on Nat20-PageTransition (per the comment
-            // above the XP grant), so dispatch the grant via world.execute and
-            // await the resulting ItemStack so the suffix is set before
-            // processNode(nextNodeId) renders the pass node on this thread.
+            // handleSkillCheckResult runs on Nat20-PageTransition, so dispatch the
+            // grant via world.execute and await the resulting ItemStack so the
+            // consequence text can name the granted item.
             ActionContext ctx = buildActionContext();
             com.chonbosmods.Natural20 plugin = com.chonbosmods.Natural20.getInstance();
             java.util.concurrent.CompletableFuture<com.hypixel.hytale.server.core.inventory.ItemStack> future
@@ -606,22 +600,25 @@ public class ConversationSession {
             } catch (Exception e) {
                 LOGGER.atWarning().withCause(e).log(
                         "nat20 grant await failed (giveItem may have timed out or world unloaded mid-dialogue); "
-                            + "skipping pre-quest item suffix");
-                granted = null;
+                            + "skipping pre-quest item consequence");
+                return null;
             }
-            if (granted != null) {
-                String itemName = resolveItemDisplayName(granted);
-                pendingNpcLineSuffix = npcDisplayName + " hands you " + itemName + ".";
-            }
-        } else { // naturalRoll == 1
-            playerData.setDispositionFor(npcId,
-                    DispositionBracket.HOSTILE.getMaxDisposition());
-            playerData.addBlacklistedQuest(quest.getQuestId());
-            pendingNpcLineSuffix = npcDisplayName + " is insulted and no longer wants your help.";
-            playerData.setTopicExhaustion(npcId, activeTopicId,
-                    com.chonbosmods.dialogue.model.ExhaustionState.HIDDEN);
-            suppressNextNodeResponses = true;
+            if (granted == null) return null;
+            return npcDisplayName + " hands you " + resolveItemDisplayName(granted) + ".";
         }
+
+        // naturalRoll == 1
+        playerData.setDispositionFor(npcId,
+                DispositionBracket.HOSTILE.getMaxDisposition());
+        playerData.addBlacklistedQuest(quest.getQuestId());
+        playerData.setTopicExhaustion(npcId, activeTopicId,
+                com.chonbosmods.dialogue.model.ExhaustionState.HIDDEN);
+        // exhaustTopicFired makes returnCheck() take the Step 1 early-return path
+        // so the entry node's ACCEPT/DECLINE responses are not redisplayed when the
+        // suppressed fail-node render falls through to returnCheck().
+        exhaustTopicFired = true;
+        suppressNextNodeResponses = true;
+        return npcDisplayName + " is insulted and no longer wants your help.";
     }
 
     private static String resolveItemDisplayName(
