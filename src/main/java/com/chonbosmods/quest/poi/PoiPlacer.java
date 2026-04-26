@@ -160,7 +160,7 @@ public final class PoiPlacer {
             }
         }
 
-        LOGGER.atInfo().log("POI placed for quest %s at (%d, %d, %d)",
+        LOGGER.atInfo().log("POI placed for quest %s | /tp %d %d %d",
             quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
     }
 
