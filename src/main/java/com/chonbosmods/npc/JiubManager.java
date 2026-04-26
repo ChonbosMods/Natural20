@@ -340,9 +340,9 @@ public final class JiubManager {
             CosmeticsModule.get().getRegistry();
 
         com.hypixel.hytale.protocol.PlayerSkin skin = new com.hypixel.hytale.protocol.PlayerSkin();
-        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          "Light");
-        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        "Light");
-        skin.mouth              = partOrFirst(registry.getMouths(),              "Default",          "Light");
+        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          "01");
+        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        "01");
+        skin.mouth              = partOrFirst(registry.getMouths(),              "Mouth_Default",    "01");
         skin.eyes               = partOrFirst(registry.getEyes(),                "Goat_Eyes",        "Green");
         skin.eyebrows           = partOrFirst(registry.getEyebrows(),            "Medium",           "Black");
         skin.haircut            = partOrFirst(registry.getHaircuts(),            "ShortDreads",      "Black");
