@@ -25,6 +25,7 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
@@ -149,11 +150,15 @@ public final class JiubManager {
         );
         Vector3f rotation = new Vector3f(0f, FACING_SOUTH_YAW, 0f);
 
-        // Build the Model up-front and pass as the 5th arg to avoid the
-        // ModelComponent scale=0 chunk-reload crash. Skin is deterministic
-        // (see buildJiubSkin) so Jiub's appearance is stable across respawns
-        // and reattach.
-        com.hypixel.hytale.protocol.PlayerSkin baseSkin = buildJiubSkin();
+        // Build the Model from a deterministic random "base" skin so the entity
+        // geometry has full part coverage (no gaps if our customised Jiub skin
+        // omits a part). The actual customised appearance is layered on via
+        // PlayerSkinComponent below — same pattern Nat20NpcManager uses.
+        // Passing the Model as the 5th arg avoids the ModelComponent scale=0
+        // chunk-reload crash.
+        Random skinRng = new Random(DISPLAY_NAME.hashCode());
+        com.hypixel.hytale.protocol.PlayerSkin baseSkin =
+            CosmeticsModule.get().generateRandomSkin(skinRng);
         com.hypixel.hytale.server.core.asset.type.model.config.Model model =
             CosmeticsModule.get().createModel(baseSkin, 1.0f);
 
@@ -183,11 +188,12 @@ public final class JiubManager {
         // settlement NPCs; his graph also says his name in the first line).
         store.putComponent(newRef, Nameplate.getComponentType(), new Nameplate(DISPLAY_NAME));
 
-        // Apply the same skin as display (Nat20NpcManager splits
-        // Model-vs-PlayerSkinComponent for cosmetic modifications, but Jiub
-        // uses the base random skin unmodified).
+        // Layer Jiub's customised skin on top of the base random model so any
+        // omitted parts in buildJiubSkin fall through to the base model's
+        // geometry (no missing-piece gaps). Mirrors Nat20NpcManager's split
+        // Model-vs-PlayerSkinComponent pattern.
         store.putComponent(newRef, PlayerSkinComponent.getComponentType(),
-            new PlayerSkinComponent(baseSkin));
+            new PlayerSkinComponent(buildJiubSkin()));
 
         // Jiub is a tutorial NPC, not a combat entity: mark him invulnerable so
         // player attacks can't damage or kill him.
@@ -325,18 +331,18 @@ public final class JiubManager {
     }
 
     /**
-     * Build Jiub's deterministic appearance: black hair + eyebrows + beard,
-     * green eyes, brown overcoat, purple undergarment. Body, face, and mouth
-     * fall through to the first available color in their gradient sets.
+     * Build Jiub's deterministic appearance: light skin, black hair + eyebrows
+     * + beard, green eyes, brown overcoat, purple undergarment. Layered on top
+     * of a random base Model so any missing-color fallback can't leave gaps.
      */
     private static com.hypixel.hytale.protocol.PlayerSkin buildJiubSkin() {
         com.hypixel.hytale.server.core.cosmetics.CosmeticRegistry registry =
             CosmeticsModule.get().getRegistry();
 
         com.hypixel.hytale.protocol.PlayerSkin skin = new com.hypixel.hytale.protocol.PlayerSkin();
-        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          null);
-        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        null);
-        skin.mouth              = partOrFirst(registry.getMouths(),              "Default",          null);
+        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          "Light");
+        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        "Light");
+        skin.mouth              = partOrFirst(registry.getMouths(),              "Default",          "Light");
         skin.eyes               = partOrFirst(registry.getEyes(),                "Goat_Eyes",        "Green");
         skin.eyebrows           = partOrFirst(registry.getEyebrows(),            "Medium",           "Black");
         skin.haircut            = partOrFirst(registry.getHaircuts(),            "ShortDreads",      "Black");
