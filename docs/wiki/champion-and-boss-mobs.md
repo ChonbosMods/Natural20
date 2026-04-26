@@ -89,9 +89,8 @@ Names don't repeat within a short rolling window, so you won't see the same boss
 
 ### Affixes
 
-Champions and bosses roll affixes from a **21-affix subset** of the gear affix pool:
+Champions and bosses roll affixes from a **20-affix subset** of the gear affix pool:
 
-- **HP** : multiplicative health boost. Exclusive to mobs; gear can't roll it.
 - **Crit Chance**, **Crit Damage**, **Crushing Blow**, **Deep Wounds**, **Life Leech** : offensive combat affixes.
 - **Fire**, **Frost**, **Poison**, **Void**, **Cold** : flat elemental damage on hit.
 - **Ignite**, **Infect**, **Corrupt** : elemental DOT applications.

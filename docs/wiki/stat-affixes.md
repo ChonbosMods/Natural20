@@ -40,4 +40,4 @@ Stat-score affixes do **not** scale with item level. A Rare +1 STR roll on an il
 **Notes**:
 - Each affix adds a flat score value. The derived *modifier* (used in most affix formulas) is recalculated automatically from the new score.
 - A Legendary weapon with +2 STR is a meaningful chunk of one stat's investment, and crossing one of the `/ 3` modifier thresholds (3, 6, 9, 12, 15, 18, 21, 24, 27) with that +2 is the difference between a real upgrade and a wasted roll. Plan equipment around the threshold you're trying to hit.
-- There is no affix to increase HP directly on player gear. (The `hp` affix exists in the codebase but is mob-only: mobs use it for health-scaled difficulty tiers.)
+- There is no affix to increase HP directly on gear. CON is the lever for raw health.
