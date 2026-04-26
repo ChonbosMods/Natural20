@@ -363,9 +363,9 @@ public final class JiubManager {
             skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
             skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
 
-        // Skin tone "45" = #d5f0a0 (pale yellow-green); body sets the tint, face
+        // Skin tone "19" = #8aacfb (pale blue); body sets the tint, face
         // and mouth inherit it (they don't take their own color suffix).
-        skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "45",     skin.bodyCharacteristic);
+        skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "19",     skin.bodyCharacteristic);
         skin.face               = orKeepIdOnly(registry.getFaces(),         "Face_Aged",        skin.face);
         skin.mouth              = orKeepIdOnly(registry.getMouths(),        "Mouth_Default",    skin.mouth);
         skin.eyes               = orKeep(registry.getEyes(),                "Goat_Eyes",        "Green",  skin.eyes);
