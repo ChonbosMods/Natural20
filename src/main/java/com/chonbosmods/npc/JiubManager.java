@@ -358,6 +358,11 @@ public final class JiubManager {
         com.hypixel.hytale.server.core.cosmetics.CosmeticRegistry registry =
             CosmeticsModule.get().getRegistry();
 
+        LOGGER.atInfo().log(
+            "JiubSkin: random base before overrides → body=%s face=%s mouth=%s eyes=%s ears=%s eyebrows=%s haircut=%s facialHair=%s underwear=%s overtop=%s",
+            skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
+            skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
+
         skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "01",     skin.bodyCharacteristic);
         skin.face               = orKeep(registry.getFaces(),               "Face_Aged",        "01",     skin.face);
         skin.mouth              = orKeep(registry.getMouths(),              "Mouth_Default",    "01",     skin.mouth);
@@ -367,6 +372,11 @@ public final class JiubManager {
         skin.facialHair         = orKeep(registry.getFacialHairs(),         "CurlyLongBeard",   "Black",  skin.facialHair);
         skin.underwear          = orKeep(registry.getUnderwear(),           "Boxer",            "Purple", skin.underwear);
         skin.overtop            = orKeep(registry.getOvertops(),            "Adventurer_Dress", "Brown",  skin.overtop);
+
+        LOGGER.atInfo().log(
+            "JiubSkin: final after overrides → body=%s face=%s mouth=%s eyes=%s ears=%s eyebrows=%s haircut=%s facialHair=%s underwear=%s overtop=%s",
+            skin.bodyCharacteristic, skin.face, skin.mouth, skin.eyes, skin.ears,
+            skin.eyebrows, skin.haircut, skin.facialHair, skin.underwear, skin.overtop);
         return skin;
     }
 
