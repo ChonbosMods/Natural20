@@ -331,75 +331,62 @@ public final class JiubManager {
     }
 
     /**
-     * Build Jiub's deterministic appearance: light skin, black hair + eyebrows
-     * + beard, green eyes, brown overcoat, purple undergarment. Layered on top
-     * of a random base Model so any missing-color fallback can't leave gaps.
+     * Build Jiub's deterministic appearance by starting from a deterministic
+     * random skin (which populates every required slot — ears, pants, undertop,
+     * shoes, etc. — so the model has full coverage), then overriding the
+     * customised parts: light skin, black hair + eyebrows + beard, green eyes,
+     * brown overcoat, purple undergarment. If an override fails (part or color
+     * not in registry), the base random value stays — never a null/void slot.
      */
     private static com.hypixel.hytale.protocol.PlayerSkin buildJiubSkin() {
+        com.hypixel.hytale.protocol.PlayerSkin skin = CosmeticsModule.get()
+            .generateRandomSkin(new Random(DISPLAY_NAME.hashCode()));
         com.hypixel.hytale.server.core.cosmetics.CosmeticRegistry registry =
             CosmeticsModule.get().getRegistry();
 
-        com.hypixel.hytale.protocol.PlayerSkin skin = new com.hypixel.hytale.protocol.PlayerSkin();
-        skin.bodyCharacteristic = partOrFirst(registry.getBodyCharacteristics(), "Default",          "01");
-        skin.face               = partOrFirst(registry.getFaces(),               "Face_Aged",        "01");
-        skin.mouth              = partOrFirst(registry.getMouths(),              "Mouth_Default",    "01");
-        skin.eyes               = partOrFirst(registry.getEyes(),                "Goat_Eyes",        "Green");
-        skin.eyebrows           = partOrFirst(registry.getEyebrows(),            "Medium",           "Black");
-        skin.haircut            = partOrFirst(registry.getHaircuts(),            "ShortDreads",      "Black");
-        skin.facialHair         = partOrFirst(registry.getFacialHairs(),         "CurlyLongBeard",   "Black");
-        skin.underwear          = partOrFirst(registry.getUnderwear(),           "Boxer",            "Purple");
-        skin.overtop            = partOrFirst(registry.getOvertops(),            "Adventurer_Dress", "Brown");
+        skin.bodyCharacteristic = orKeep(registry.getBodyCharacteristics(), "Default",          "01",     skin.bodyCharacteristic);
+        skin.face               = orKeep(registry.getFaces(),               "Face_Aged",        "01",     skin.face);
+        skin.mouth              = orKeep(registry.getMouths(),              "Mouth_Default",    "01",     skin.mouth);
+        skin.eyes               = orKeep(registry.getEyes(),                "Goat_Eyes",        "Green",  skin.eyes);
+        skin.eyebrows           = orKeep(registry.getEyebrows(),            "Medium",           "Black",  skin.eyebrows);
+        skin.haircut            = orKeep(registry.getHaircuts(),            "ShortDreads",      "Black",  skin.haircut);
+        skin.facialHair         = orKeep(registry.getFacialHairs(),         "CurlyLongBeard",   "Black",  skin.facialHair);
+        skin.underwear          = orKeep(registry.getUnderwear(),           "Boxer",            "Purple", skin.underwear);
+        skin.overtop            = orKeep(registry.getOvertops(),            "Adventurer_Dress", "Brown",  skin.overtop);
         return skin;
     }
 
     /**
-     * Resolve a {@code "PartId.TextureKey"} string against a part registry. If
-     * the requested color isn't a key in the part's gradient set (or is null),
-     * falls back to the gradient set's first available key with a WARNING.
-     * Returns {@code null} (and logs SEVERE) if the part itself isn't found.
+     * Resolve a {@code "PartId.TextureKey"} override. If the part exists AND
+     * the color is valid in its gradient set, returns {@code "PartId.Color"}.
+     * Otherwise logs WARNING and returns {@code keepIfFail} so the base random
+     * skin's value stays in place (no void slot).
      */
-    private static String partOrFirst(
+    private static String orKeep(
             Map<String, com.hypixel.hytale.server.core.cosmetics.PlayerSkinPart> parts,
             String partId,
-            String requestedColor) {
+            String requestedColor,
+            String keepIfFail) {
         com.hypixel.hytale.server.core.cosmetics.PlayerSkinPart part = parts.get(partId);
         if (part == null) {
-            LOGGER.atSevere().log(
-                "JiubSkin: part '%s' not found in registry; available: %s",
-                partId, parts.keySet());
-            return null;
+            LOGGER.atWarning().log(
+                "JiubSkin: part '%s' not found; keeping base skin value '%s'. Available: %s",
+                partId, keepIfFail, parts.keySet());
+            return keepIfFail;
         }
         String gradientSetId = part.getGradientSet();
         if (gradientSetId == null) {
-            LOGGER.atWarning().log(
-                "JiubSkin: part '%s' has no gradient set; cannot resolve color",
-                partId);
-            return null;
+            return partId;
         }
         com.hypixel.hytale.server.core.cosmetics.PlayerSkinGradientSet gradientSet =
             CosmeticsModule.get().getRegistry().getGradientSets().get(gradientSetId);
-        if (gradientSet == null) {
-            LOGGER.atSevere().log(
-                "JiubSkin: gradient set '%s' referenced by part '%s' not found",
-                gradientSetId, partId);
-            return null;
-        }
-        Set<String> colors = gradientSet.getGradients().keySet();
-        if (requestedColor != null && colors.contains(requestedColor)) {
-            return partId + "." + requestedColor;
-        }
-        if (colors.isEmpty()) {
-            LOGGER.atSevere().log(
-                "JiubSkin: gradient set '%s' for part '%s' has no colors",
-                gradientSetId, partId);
-            return null;
-        }
-        String fallback = colors.iterator().next();
-        if (requestedColor != null) {
+        if (gradientSet == null || !gradientSet.getGradients().containsKey(requestedColor)) {
+            Set<String> colors = gradientSet == null ? Set.of() : gradientSet.getGradients().keySet();
             LOGGER.atWarning().log(
-                "JiubSkin: color '%s' not in gradient set '%s' for part '%s'; available: %s; using '%s'",
-                requestedColor, gradientSetId, partId, colors, fallback);
+                "JiubSkin: color '%s' not in gradient '%s' for part '%s'; keeping base skin value '%s'. Available: %s",
+                requestedColor, gradientSetId, partId, keepIfFail, colors);
+            return keepIfFail;
         }
-        return partId + "." + fallback;
+        return partId + "." + requestedColor;
     }
 }
