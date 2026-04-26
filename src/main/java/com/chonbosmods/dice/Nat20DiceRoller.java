@@ -8,15 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public final class Nat20DiceRoller {
 
-    /** DEBUG ONLY: one-shot override of the kept die. Set via {@link #setForcedNextRoll(int)}
-     *  for /nat20 forceroll testing of nat20/nat1 quest-accept consequences. Remove once
-     *  smoke tests confirm the feature works. */
-    private static volatile int forcedNextRoll = -1;
-
-    public static void setForcedNextRoll(int kept) {
-        forcedNextRoll = kept;
-    }
-
     private Nat20DiceRoller() {
     }
 
@@ -44,12 +35,6 @@ public final class Nat20DiceRoller {
                 kept = first;
                 other = -1;
             }
-        }
-
-        int forced = forcedNextRoll;
-        if (forced >= 1 && forced <= 20) {
-            kept = forced;
-            forcedNextRoll = -1;
         }
 
         Stat effectiveStat = request.stat() != null ? request.stat() : request.skill().getAssociatedStat();
