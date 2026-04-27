@@ -94,17 +94,12 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
         // CantClose = the client cannot dismiss this page through any user input
         // (Esc, click-out, etc). Server-initiated close() still works.
         super(playerRef, CustomPageLifetime.CantClose, EVENT_CODEC);
-        LOGGER.atInfo().log("Constructed BackgroundPickerPage for player %s",
-                playerRef.getUuid());
     }
 
     @Override
     public void build(Ref<EntityStore> ref, UICommandBuilder cmd, UIEventBuilder events,
                       Store<EntityStore> store) {
         boolean onDetail = selectedBackground != null;
-        LOGGER.atInfo().log("Build: onDetail=%s selected=%s",
-                onDetail,
-                selectedBackground == null ? "null" : selectedBackground.name());
         cmd.append(PAGE_LAYOUT);
 
         cmd.set("#BgGridGroup.Visible", !onDetail);
@@ -180,10 +175,6 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
         String id = data.getId();
-        LOGGER.atInfo().log("handleDataEvent: type=%s id=%s selected=%s",
-                type == null ? "null" : type,
-                id == null ? "null" : id,
-                selectedBackground == null ? "null" : selectedBackground.name());
         if (type == null || type.isEmpty()) {
             LOGGER.atWarning().log("Empty event type; ignoring");
             return;
@@ -196,12 +187,10 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     LOGGER.atWarning().log("Background pick: unknown id '%s'", id);
                     return;
                 }
-                LOGGER.atInfo().log("Pick: %s (%s) -> detail screen", bg.name(), bg.displayName());
                 selectedBackground = bg;
                 rebuild();
             }
             case "back" -> {
-                LOGGER.atInfo().log("Back: returning to grid");
                 selectedBackground = null;
                 rebuild();
             }
@@ -211,10 +200,8 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                     return;
                 }
                 Background bg = selectedBackground;
-                LOGGER.atInfo().log("Confirm: committing %s (%s)", bg.name(), bg.displayName());
                 try {
                     BackgroundCommitter.commit(ref, store, bg, new Random());
-                    LOGGER.atInfo().log("Background committed: %s (%s)", bg.name(), bg.displayName());
                 } catch (RuntimeException e) {
                     LOGGER.atSevere().withCause(e).log(
                             "BackgroundCommitter.commit failed for '%s'", bg.name());
@@ -271,10 +258,7 @@ public class BackgroundPickerPage extends InteractiveCustomUIPage<BackgroundPick
                 LOGGER.atWarning().log("Post-commit INTRO3: default world unavailable; skipping");
                 return;
             }
-            world.execute(() -> {
-                LOGGER.atInfo().log("Opening post-commit JiubIntroPage.INTRO3");
-                JiubIntroPage.openIntro3(ref, store);
-            });
+            world.execute(() -> JiubIntroPage.openIntro3(ref, store));
         }, PAGE_TRANSITION_DELAY_MS, TimeUnit.MILLISECONDS);
     }
 

@@ -203,11 +203,6 @@ public class MobGroupChunkListener {
                 ghostsRemoved++;
             } catch (Exception ignored) {}
         }
-        if (ghostsRemoved > 0) {
-            LOGGER.atInfo().log("Ghost-revival sweep: removed %d naked %s entities near %s",
-                    ghostsRemoved, expectedRole, record.getGroupKey());
-        }
-
         // Primary member-scan: map component-tagged entities by slot.
         for (Ref<EntityStore> ref : nearby) {
             if (!ref.isValid()) continue;
@@ -307,15 +302,6 @@ public class MobGroupChunkListener {
 
         if (respawned > 0 || sweptDuplicates > 0) {
             registry.saveAsync();
-        }
-        // Activation log: group now has live entities in the world. Fires once per
-        // reconcile pass when any slot was matched or respawned. Initial spawn is
-        // logged separately at spawn time ("AmbientSpawn role=..." in AmbientSpawnSystem).
-        if (matched > 0 || respawned > 0) {
-            LOGGER.atInfo().log("Group active key=%s anchor=(%.0f,%.0f,%.0f) matched=%d respawned=%d",
-                    record.getGroupKey(),
-                    record.getAnchorX(), record.getAnchorY(), record.getAnchorZ(),
-                    matched, respawned);
         }
     }
 

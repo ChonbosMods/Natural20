@@ -118,15 +118,11 @@ public class DialogueActionRegistry {
         });
 
         register(GIVE_ITEM, (ctx, params) -> {
-            String itemId = params.get("itemId");
-            int quantity = Integer.parseInt(params.getOrDefault("quantity", "1"));
-            LOGGER.atInfo().log("GIVE_ITEM stub: %s x%d to %s", itemId, quantity, ctx.player().getPlayerRef().getUuid());
+            // stub: real grant happens in dispensePhaseReward
         });
 
         register(REMOVE_ITEM, (ctx, params) -> {
-            String itemId = params.get("itemId");
-            int quantity = Integer.parseInt(params.getOrDefault("quantity", "1"));
-            LOGGER.atInfo().log("REMOVE_ITEM stub: %s x%d from %s", itemId, quantity, ctx.player().getPlayerRef().getUuid());
+            // stub
         });
 
         register(UNLOCK_TOPIC, (ctx, params) -> {
@@ -134,14 +130,11 @@ public class DialogueActionRegistry {
             String scope = params.getOrDefault("scope", "LOCAL");
             if ("GLOBAL".equals(scope)) {
                 ctx.globalTopicUnlocker().accept(topicId);
-                LOGGER.atInfo().log("UNLOCK_TOPIC: player %s learned global topic '%s' (via NPC %s)",
-                    ctx.player().getPlayerRef().getUuid(), topicId, ctx.npcId());
             }
         });
 
         register(EXECUTE_COMMAND, (ctx, params) -> {
-            String command = params.getOrDefault("command", "");
-            LOGGER.atInfo().log("EXECUTE_COMMAND stub: %s", command);
+            // stub
         });
 
         register(GIVE_QUEST, (ctx, params) -> {
@@ -177,17 +170,12 @@ public class DialogueActionRegistry {
             // Check if player already has this quest or completed it
             Set<String> completedIds = questSystem.getStateManager().getCompletedQuestIds(ctx.playerData());
             if (completedIds.contains(quest.getQuestId())) {
-                LOGGER.atInfo().log("GIVE_QUEST: player already completed quest %s", quest.getQuestId());
                 return;
             }
             if (questSystem.getStateManager().getQuest(ctx.playerData(), quest.getQuestId()) != null) {
-                LOGGER.atInfo().log("GIVE_QUEST: player already has quest %s", quest.getQuestId());
                 return;
             }
             if (ctx.playerData().isQuestBlacklisted(quest.getQuestId())) {
-                LOGGER.atInfo().log(
-                    "GIVE_QUEST: quest %s is blacklisted for player %s (nat1); skipping accept",
-                    quest.getQuestId(), ctx.player().getPlayerRef().getUuid());
                 return;
             }
 
@@ -266,8 +254,6 @@ public class DialogueActionRegistry {
             String questLabel = quest.getVariableBindings().getOrDefault("quest_objective_summary",
                 quest.getSituationId());
             ctx.systemLogger().accept("Quest accepted: " + questLabel);
-            LOGGER.atInfo().log("GIVE_QUEST: player %s received quest '%s' from NPC %s (accepters=%s)",
-                accepterUuid, quest.getQuestId(), npcName, quest.getAccepters());
 
             // Fire a "Quest Accepted" banner to every online party member OTHER
             // than the accepter. The accepter already sees the inline "Quest
@@ -424,8 +410,6 @@ public class DialogueActionRegistry {
             // return waypoint stays on the map until CONTINUE_QUEST runs.
             quest.setState(com.chonbosmods.quest.QuestState.AWAITING_CONTINUATION);
             saveQuest(questSystem, ctx.playerData(), quest);
-            LOGGER.atInfo().log("TURN_IN_V2: quest %s phase %d turned in, awaiting continuation",
-                quest.getQuestId(), phaseIndex);
         });
 
         register(CONTINUE_QUEST, (ctx, params) -> {
@@ -546,8 +530,6 @@ public class DialogueActionRegistry {
                 }
 
                 saveQuest(questSystem, ctx.playerData(), quest);
-                LOGGER.atInfo().log("CONTINUE_QUEST: quest %s advanced to conflict %d/%d",
-                    quest.getQuestId(), quest.getConflictCount(), quest.getMaxConflicts());
             } else {
                 quest.setState(com.chonbosmods.quest.QuestState.COMPLETED);
                 ctx.dispositionUpdater().accept(QuestDispositionConstants.QUEST_COMPLETED);
@@ -588,8 +570,7 @@ public class DialogueActionRegistry {
                 // User-facing "Quest completed" line fires from TURN_IN_V2 (with
                 // item + XP context), not here: by this point the player has already
                 // clicked CONTINUE past the dialogue and the message would be
-                // duplicative. Server log retained for traceability.
-                LOGGER.atInfo().log("CONTINUE_QUEST: quest %s completed", quest.getQuestId());
+                // duplicative.
             }
 
             QuestMarkerProvider.refreshMarkers(
@@ -694,13 +675,10 @@ public class DialogueActionRegistry {
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
-
-            LOGGER.atInfo().log("COMPLETE_TALK_TO_NPC: quest %s objective complete, return to %s",
-                questId, quest.getSourceNpcId());
         });
 
         register(OPEN_SHOP, (ctx, params) -> {
-            LOGGER.atInfo().log("OPEN_SHOP stub for %s", ctx.player().getPlayerRef().getUuid());
+            // stub
         });
 
         register(CHANGE_REPUTATION, (ctx, params) -> {
@@ -753,7 +731,6 @@ public class DialogueActionRegistry {
                 return;
             }
             npcRecord.getPreGeneratedQuest().setSkillcheckPassed(true);
-            LOGGER.atInfo().log("MARK_SKILLCHECK_PASSED: stamped pass flag on pre-generated quest for NPC %s", ctx.npcId());
         });
 
         register(TUTORIAL_TURN_IN_PHASE_1, (ctx, params) -> {
@@ -824,10 +801,6 @@ public class DialogueActionRegistry {
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
-
-            LOGGER.atInfo().log(
-                "TUTORIAL_TURN_IN_PHASE_1: tutorial_main advanced to phase 2 (resolved=%s) for %s",
-                resolved, ctx.player().getPlayerRef().getUuid());
         });
 
         register(TUTORIAL_TURN_IN_PHASE_2, (ctx, params) -> {
@@ -867,10 +840,6 @@ public class DialogueActionRegistry {
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
-
-            LOGGER.atInfo().log(
-                "TUTORIAL_TURN_IN_PHASE_2: tutorial_main advanced to phase 3 for %s",
-                ctx.player().getPlayerRef().getUuid());
         });
 
         register(TUTORIAL_TURN_IN_PHASE_3, (ctx, params) -> {
@@ -921,10 +890,6 @@ public class DialogueActionRegistry {
 
             QuestMarkerProvider.refreshMarkers(
                 ctx.player().getPlayerRef().getUuid(), ctx.playerData());
-
-            LOGGER.atInfo().log(
-                "TUTORIAL_TURN_IN_PHASE_3: tutorial_main completed for %s",
-                ctx.player().getPlayerRef().getUuid());
         });
     }
 
@@ -1050,10 +1015,6 @@ public class DialogueActionRegistry {
         bindings.put("target_npc_settlement", chosenSettlement.deriveName());
         bindings.put("target_npc_settlement_key", chosenSettlement.getCellKey());
 
-        boolean fellBackToSource = chosenSettlement.getCellKey().equals(quest.getSourceSettlementId());
-        LOGGER.atInfo().log("tryResolveDeferredTalkToNpc: resolved quest %s target=%s settlement=%s%s",
-            quest.getQuestId(), chosenNpc.getGeneratedName(), chosenSettlement.getCellKey(),
-            fellBackToSource ? " (same-settlement fallback)" : "");
         return true;
     }
 
@@ -1131,15 +1092,11 @@ public class DialogueActionRegistry {
                     + ":" + difficulty.bossIlvlOffset();
                 objective.setPoi(void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(),
                     populationSpec);
-                LOGGER.atInfo().log("resolveAndPlacePoi: runtime void at (%d,%d,%d) for quest %s",
-                    void_.getCenterX(), void_.getCenterY(), void_.getCenterZ(), quest.getQuestId());
             }
         }
 
         // --- Strategy 3: surface fallback ---
         if (void_ == null) {
-            LOGGER.atInfo().log("resolveAndPlacePoi: no void found, using surface fallback for quest %s",
-                quest.getQuestId());
             placeSurfacePoi(quest, objective, store, playerRef, npcX, npcZ);
             return;
         }
@@ -1304,9 +1261,6 @@ public class DialogueActionRegistry {
                 QuestMarkerProvider.refreshMarkers(player.getPlayerRef().getUuid(), pd);
             }
         }
-
-        LOGGER.atInfo().log("PEACEFUL_FETCH: POI set at settlement (%d, %d, %d) for quest %s",
-            sx, sy, sz, quest.getQuestId());
     }
 
     /**
@@ -1376,12 +1330,6 @@ public class DialogueActionRegistry {
                 ctx.player().getPlayerRef().getUuid(), remainderQty);
             return null;
         }
-
-        LOGGER.atInfo().log(
-            "Nat20 pre-quest reward granted for quest %s: %s x%d to player %s "
-                + "(tier=%s, ilvl=%d)",
-            quest.getQuestId(), rolled.getItemId(), rolled.getQuantity(),
-            ctx.player().getPlayerRef().getUuid(), tier, ilvl);
         return rolled;
     }
 
@@ -1462,9 +1410,6 @@ public class DialogueActionRegistry {
             ItemStack toDrop = (tx != null && tx.getRemainder() != null) ? tx.getRemainder() : stack;
             try {
                 ItemUtils.dropItem(ctx.playerRef(), toDrop, ctx.store());
-                LOGGER.atInfo().log(
-                    "TURN_IN_V2 dropped reward at player %s feet for quest %s phase %d (item=%s x%d): inventory was full",
-                    playerUuid, quest.getQuestId(), phaseIndex, toDrop.getItemId(), toDrop.getQuantity());
             } catch (Exception e) {
                 LOGGER.atSevere().withCause(e).log(
                     "TURN_IN_V2 ground drop FAILED for quest %s phase %d player %s; reward LOST (item=%s)",
@@ -1480,11 +1425,6 @@ public class DialogueActionRegistry {
             displayName = lootData.getGeneratedName();
         }
 
-        LOGGER.atInfo().log(
-            "TURN_IN_V2 dispensed phase %d reward for quest %s: %s x%d to player %s "
-                + "(tier=%s, ilvl=%d, playerLevel=%d, areaLevel=%d, ilvlBonus=%d)",
-            phaseIndex, quest.getQuestId(), stack.getItemId(), stack.getQuantity(),
-            playerUuid, tier, ilvl, playerLevel, areaLevel, ilvlBonus);
 
         // Multi-accepter item dispense (2026-04-22 Option B): every online
         // non-missed accepter OTHER than the triggering player gets their own

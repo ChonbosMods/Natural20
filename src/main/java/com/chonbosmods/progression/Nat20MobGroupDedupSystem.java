@@ -130,14 +130,6 @@ public class Nat20MobGroupDedupSystem extends RefSystem<EntityStore> {
                 if (!ref.isValid()) return;
                 Store<EntityStore> s = world.getEntityStore().getStore();
                 s.removeEntity(ref, RemoveReason.REMOVE);
-                if (canonicalUuid != null) {
-                    LOGGER.atInfo().log(
-                            "Removed %s: %s slot=%d revivalUuid=%s canonicalUuid=%s",
-                            reasonLabel, groupKey, slotIndex, entityUuid, canonicalUuid);
-                } else {
-                    LOGGER.atInfo().log("Removed %s: %s slot=%d uuid=%s",
-                            reasonLabel, groupKey, slotIndex, entityUuid);
-                }
             } catch (Exception e) {
                 LOGGER.atWarning().withCause(e).log("Dedup removal failed: %s slot=%d",
                         groupKey, slotIndex);
