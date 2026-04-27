@@ -48,13 +48,15 @@ public final class Nat20XpMathHarness {
         assertEq("mobKillXp(11, 1.0)", 46,  Nat20XpMath.mobKillXp(11, 1.0));
         assertEq("mobKillXp(31, 1.0)", 449, Nat20XpMath.mobKillXp(31, 1.0));
 
-        // questPhaseXp: spec §7.2.
+        // questPhaseXp: spec §7.2 baseline at L1 (playerProgressScale(1)==1.0);
+        // higher levels are dampened by PLAYER_PROGRESS_DAMP=0.90.
         assertEq("questPhaseXp(1)",  105, Nat20XpMath.questPhaseXp(1));
-        assertEq("questPhaseXp(20)", 944, Nat20XpMath.questPhaseXp(20));
+        assertEq("questPhaseXp(20)", 758, Nat20XpMath.questPhaseXp(20));
 
         // d20SuccessXp: doubled to 10U (was 5U) to make skill checks competitive with kill XP.
+        // Dampened by PLAYER_PROGRESS_DAMP for L>1 (identity at L1).
         assertEq("d20SuccessXp(1)",  150, Nat20XpMath.d20SuccessXp(1));
-        assertEq("d20SuccessXp(11)", 465, Nat20XpMath.d20SuccessXp(11));
+        assertEq("d20SuccessXp(11)", 415, Nat20XpMath.d20SuccessXp(11));
 
         // ilvlScale: see Nat20XpMath.ilvlScale Javadoc + design doc
         // 2026-04-25-affix-ilvl-scaling-and-stat-score-tightening-design.md.

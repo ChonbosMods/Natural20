@@ -17,6 +17,19 @@ public final class Nat20XpMath {
     public static final int    LEVELS_PER_ZONE = 10;
     public static final int    TOTAL_ZONES     = 4;
 
+    /** Exponent applied to {@link #smoothScale(int)} for player-level rewards
+     *  (skill-check successes and quest-phase grants). Mob kills keep the raw
+     *  {@code smoothScale} because their input is mlvl, a content-tier signal,
+     *  not a player-progression signal.
+     *
+     *  <p>Reason: the {@code xpToNextLevel} curve grows at compound 12% per level
+     *  while {@code smoothScale} grows ~12% per level too, so checks-per-level
+     *  was nearly flat across L1–L30 and the increasing requirement felt
+     *  irrelevant. Dampening reward growth makes the climb pay off: at k=0.90
+     *  L40 takes ~3.1× more checks than L1 (was 2.2×). Dial down toward 0.80
+     *  for a steeper climb, up toward 1.00 to disable the dampening. */
+    public static final double PLAYER_PROGRESS_DAMP = 0.90;
+
     private Nat20XpMath() {}
 
     /** XP required to advance from {@code level} to {@code level + 1}. */
@@ -67,6 +80,14 @@ public final class Nat20XpMath {
         return currentScale * (1 + progress * (nextScale / currentScale - 1));
     }
 
+    /** Dampened scale used for player-progression rewards. Identity at L1
+     *  ({@code smoothScale(1) == 1.0}); diverges from {@link #smoothScale(int)} as
+     *  level grows so per-level rewards lag the {@code xpToNextLevel} curve and
+     *  the climb keeps paying off. See {@link #PLAYER_PROGRESS_DAMP}. */
+    public static double playerProgressScale(int level) {
+        return Math.pow(smoothScale(level), PLAYER_PROGRESS_DAMP);
+    }
+
     /** XP awarded for killing a mob at {@code mlvl} with the given tier weight (units of U). */
     public static int mobKillXp(int mlvl, double tierWeight) {
         return (int) Math.floor(tierWeight * XP_UNIT * smoothScale(mlvl));
@@ -74,7 +95,7 @@ public final class Nat20XpMath {
 
     /** XP for completing one quest phase, with the player's current level. */
     public static int questPhaseXp(int level) {
-        return (int) Math.floor(7.0 * XP_UNIT * smoothScale(level));
+        return (int) Math.floor(7.0 * XP_UNIT * playerProgressScale(level));
     }
 
     /**
@@ -94,7 +115,7 @@ public final class Nat20XpMath {
 
     /** XP for a successful D20 skill check, with the player's current level. */
     public static int d20SuccessXp(int level) {
-        return (int) Math.floor(10.0 * XP_UNIT * smoothScale(level));
+        return (int) Math.floor(10.0 * XP_UNIT * playerProgressScale(level));
     }
 
     /**
