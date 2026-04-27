@@ -1,0 +1,65 @@
+name: Bug Report
+description: Something is broken or behaving wrong in-game.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill out the fields below so we can reproduce it.
+
+  - type: input
+    id: nat20-version
+    attributes:
+      label: Natural 20 version
+      description: The version shown in the bundle filename, e.g. `0.1.0-alpha`.
+      placeholder: "0.1.0-alpha"
+    validations:
+      required: true
+
+  - type: input
+    id: hytale-version
+    attributes:
+      label: Hytale version
+      placeholder: "e.g. 0.1.x"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Singleplayer
+        - Self-hosted server
+        - Hosted server (BisectHosting, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe what went wrong, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Do ...
+        3. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste any relevant log output or attach screenshots. Logs will be formatted automatically.
+      render: shell
+    validations:
+      required: false
