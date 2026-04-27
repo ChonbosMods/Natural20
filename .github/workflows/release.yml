@@ -40,8 +40,21 @@ jobs:
           fi
           echo "VERSION=$FILE_VERSION" >> "$GITHUB_ENV"
 
+      - name: Stub Hytale Assets.zip
+        run: |
+          # Scaffoldit's HytaleDevServerRun.bootstrapAssets() runs at project
+          # configuration time and aborts if Assets.zip is missing, even though
+          # bundleZip never reads the file (only runServer does). Drop a
+          # 22-byte empty-but-valid zip at the path Scaffoldit resolves so the
+          # configure phase passes on the runner.
+          STUB_ROOT="$RUNNER_TEMP/hytale-stub"
+          ASSETS_DIR="$STUB_ROOT/install/release/package/game/2026.03.26-89796e57b"
+          mkdir -p "$ASSETS_DIR"
+          python3 -c "import zipfile; zipfile.ZipFile('$ASSETS_DIR/Assets.zip', 'w').close()"
+          echo "HYTALE_STUB_ROOT=$STUB_ROOT" >> "$GITHUB_ENV"
+
       - name: Build bundle
-        run: ./gradlew bundleZip
+        run: ./gradlew bundleZip -Phytale.home_path="$HYTALE_STUB_ROOT"
 
       - name: Extract changelog section
         run: |
