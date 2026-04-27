@@ -87,7 +87,7 @@ val bundleReadme = tasks.register("bundleReadme") {
 tasks.register<Zip>("bundleZip") {
     description = "Assembles the published CurseForge artifact bundling main + patches jars."
     group = "distribution"
-    dependsOn("jar", buildPatchesJar, bundleReadme)
+    dependsOn("jar", buildPatchesJar, bundleReadme, "processResources")
 
     archiveFileName.set("Natural20-Bundle-${project.version}.zip")
     destinationDirectory.set(layout.buildDirectory.dir("libs"))
@@ -101,6 +101,12 @@ tasks.register<Zip>("bundleZip") {
         into("earlyplugins")
     }
     from(bundleReadme.map { it.outputs.files.singleFile })
+    // CurseForge requires manifest.json at zip root (their reviewer reads metadata
+    // without unpacking jars). Sourced from processResources so Version stays in
+    // sync with gradle.properties via ScaffoldIt's generateManifest. The loose copy
+    // post-extract is harmless: Hytale's plugin loader only reads manifest.json
+    // from inside jars in mods/, never the server root.
+    from(layout.buildDirectory.file("resources/main/manifest.json"))
 }
 // ──────────────────────────────────────────────────────────────────────────────
 

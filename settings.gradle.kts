@@ -20,5 +20,6 @@ hytale {
         Group = "chonbosmods"
         Name = "Natural20"
         Main = "com.chonbosmods.Natural20"
+        Version = settings.providers.gradleProperty("version").get()
     }
 }
