@@ -514,22 +514,32 @@ public class ConversationSession {
 
             processNode(nextNodeId);
 
-            // CONTINUE chain: inject CONTINUE on the pass/fail node to resume the chain
+            // CONTINUE chain: inject CONTINUE on the pass/fail node to resume the chain.
+            // Wrapped in try/catch so any future "responses list is unmodifiable" regression
+            // (or any other in-place graph-mutation throw) surfaces in the log instead of
+            // silently aborting handleSkillCheckResult before refreshTopics + flushUpdates.
             if (continueChainNodeIds != null && statCheckResumeNodeId != null) {
-                DialogueNode passFailNode = graph.getNode(nextNodeId);
-                if (passFailNode instanceof DialogueNode.DialogueTextNode pfText) {
-                    @SuppressWarnings("unchecked")
-                    List<ResponseOption> pfResponses = (List<ResponseOption>) pfText.responses();
-                    if (pfResponses.isEmpty()) {
-                        pfResponses.add(new ResponseOption(
-                            "stat_check_resume", "CONTINUE", null, statCheckResumeNodeId,
-                            ResponseMode.DECISIVE, null, null, null, null,
-                            ResponseType.CONTINUE
-                        ));
-                        // Re-display responses since we just added one
-                        filterAndDisplayResponses(pfText);
-                        presenter.refreshFollowUps(activeFollowUps);
+                try {
+                    DialogueNode passFailNode = graph.getNode(nextNodeId);
+                    if (passFailNode instanceof DialogueNode.DialogueTextNode pfText) {
+                        @SuppressWarnings("unchecked")
+                        List<ResponseOption> pfResponses = (List<ResponseOption>) pfText.responses();
+                        if (pfResponses.isEmpty()) {
+                            pfResponses.add(new ResponseOption(
+                                "stat_check_resume", "CONTINUE", null, statCheckResumeNodeId,
+                                ResponseMode.DECISIVE, null, null, null, null,
+                                ResponseType.CONTINUE
+                            ));
+                            // Re-display responses since we just added one
+                            filterAndDisplayResponses(pfText);
+                            presenter.refreshFollowUps(activeFollowUps);
+                        }
                     }
+                } catch (Throwable t) {
+                    LOGGER.atSevere().withCause(t).log(
+                            "Failed to inject CONTINUE response on smalltalk pass/fail node %s; "
+                                    + "dialogue page reopen will still proceed",
+                            nextNodeId);
                 }
                 statCheckResumeNodeId = null;
             }

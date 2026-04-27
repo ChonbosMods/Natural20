@@ -26,6 +26,7 @@ public class Nat20Command extends AbstractCommandCollection {
 
         // Quest tooling
         addSubCommand(new QuestTpCommand());
+        addSubCommand(new SkillCheckTpCommand());
 
         // World inspection
         addSubCommand(new SettlementsCommand());

@@ -43,13 +43,19 @@ public record DialogueGraph(
                 List<String> resolvedReactions = text.reactionPool() != null
                     ? text.reactionPool().stream().map(r -> DialogueResolver.resolve(r, bindings)).toList()
                     : null;
+                // ArrayList collector (NOT Stream.toList()) preserves the mutable-list
+                // invariant TopicGraphBuilder set up. ConversationSession's CONTINUE-chain
+                // inject branch in handleSkillCheckResult mutates this list with .add(...);
+                // an immutable Stream.toList() result throws UnsupportedOperationException
+                // there, aborting the call before refreshTopics + flushUpdates run and
+                // leaving the player stuck on the dismissed dice page.
                 List<ResponseOption> resolvedResponses = text.responses().stream()
                     .map(r -> new ResponseOption(
                         r.id(), DialogueResolver.resolve(r.displayText(), bindings),
                         r.logText() != null ? DialogueResolver.resolve(r.logText(), bindings) : null,
                         r.targetNodeId(), r.mode(), r.condition(),
                         r.skillCheckRef(), r.statPrefix(), r.linkedResponses(), r.responseType()))
-                    .toList();
+                    .collect(java.util.stream.Collectors.toCollection(java.util.ArrayList::new));
                 nodes.put(entry.getKey(), new DialogueNode.DialogueTextNode(
                     resolvedSpeaker, resolvedReactions, resolvedResponses,
                     text.onEnter(), text.exhaustsTopic(), text.locksConversation(), text.valence()));
