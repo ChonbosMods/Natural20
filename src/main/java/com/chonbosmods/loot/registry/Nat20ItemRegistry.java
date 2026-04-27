@@ -55,6 +55,10 @@ public class Nat20ItemRegistry {
     @Nullable
     private Field itemRecipeToGenerateField;
     @Nullable
+    private Field itemMaxDurabilityField;
+    @Nullable
+    private Field itemDurabilityLossOnHitField;
+    @Nullable
     private java.lang.reflect.Method processConfigMethod;
 
     public Nat20ItemRegistry(Nat20ItemRenderer itemRenderer) {
@@ -91,7 +95,7 @@ public class Nat20ItemRegistry {
         injectI18n("en-US", descKey, description);
 
         Item variant = new Item(baseItem);
-        if (!setItemFields(variant, uniqueId, rarityQualityId, itemName, descKey)) {
+        if (!setItemFields(variant, baseItem, uniqueId, rarityQualityId, itemName, descKey)) {
             LOGGER.atSevere().log("Failed to set fields on item variant: %s", uniqueId);
             return null;
         }
@@ -155,7 +159,7 @@ public class Nat20ItemRegistry {
             injectI18n("en-US", descKey, entry.description);
 
             Item variant = new Item(baseItem);
-            if (!setItemFields(variant, uniqueId, entry.qualityId, entry.generatedName, descKey)) {
+            if (!setItemFields(variant, baseItem, uniqueId, entry.qualityId, entry.generatedName, descKey)) {
                 LOGGER.atWarning().log("Failed to set fields on rehydrated item: %s", uniqueId);
                 continue;
             }
@@ -239,6 +243,13 @@ public class Nat20ItemRegistry {
             itemVariantField.setAccessible(true);
             itemRecipeToGenerateField = Item.class.getDeclaredField("recipeToGenerate");
             itemRecipeToGenerateField.setAccessible(true);
+            // Item(Item) copy constructor drops these two fields, so the variant ends up with
+            // maxDurability=0 (→ isUnbreakable()==true) and durabilityLossOnHit=0. Restore from
+            // the base item in setItemFields so rolled gear loses durability like vanilla.
+            itemMaxDurabilityField = Item.class.getDeclaredField("maxDurability");
+            itemMaxDurabilityField.setAccessible(true);
+            itemDurabilityLossOnHitField = Item.class.getDeclaredField("durabilityLossOnHit");
+            itemDurabilityLossOnHitField.setAccessible(true);
             processConfigMethod = Item.class.getDeclaredMethod("processConfig");
             processConfigMethod.setAccessible(true);
             LOGGER.atInfo().log("Item field reflection initialized successfully");
@@ -250,10 +261,12 @@ public class Nat20ItemRegistry {
             itemCategoriesField = null;
             itemVariantField = null;
             itemRecipeToGenerateField = null;
+            itemMaxDurabilityField = null;
+            itemDurabilityLossOnHitField = null;
         }
     }
 
-    private boolean setItemFields(Item item, String id, String qualityId, String displayName, String description) {
+    private boolean setItemFields(Item item, Item baseItem, String id, String qualityId, String displayName, String description) {
         if (itemIdField == null || itemQualityIdField == null || itemTranslationPropertiesField == null) return false;
         try {
             itemIdField.set(item, id);
@@ -277,6 +290,13 @@ public class Nat20ItemRegistry {
             // output is OUR uniqueId (see Item.java:1123-1127 factory). Null here skips that.
             if (itemRecipeToGenerateField != null) {
                 itemRecipeToGenerateField.set(item, null);
+            }
+            // Restore durability fields the Item(Item) copy constructor silently drops.
+            if (itemMaxDurabilityField != null) {
+                itemMaxDurabilityField.setDouble(item, baseItem.getMaxDurability());
+            }
+            if (itemDurabilityLossOnHitField != null) {
+                itemDurabilityLossOnHitField.setDouble(item, baseItem.getDurabilityLossOnHit());
             }
             // processConfig resolves qualityId → qualityIndex for client rendering
             if (processConfigMethod != null) {
