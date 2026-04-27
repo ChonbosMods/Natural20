@@ -1,0 +1,12697 @@
+{
+  "version": 8,
+  "blockIdVersion": 11,
+  "anchorX": 0,
+  "anchorY": 0,
+  "anchorZ": 0,
+  "blocks": [
+    {
+      "x": -4,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Beech_Trunk",
+      "support": 15
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -3,
+      "name": "Deco_Rope_Diagonal",
+      "rotation": 2
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -2,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -2,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -2,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -2,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -2,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -1,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 0,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 0,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 1,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 2,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 2,
+      "name": "Furniture_Tavern_Barrel"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 2,
+      "name": "Deco_Rope_Diagonal"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 2,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -4,
+      "name": "Deco_Rope_Diagonal",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 1,
+      "name": "Rubble_Stone_Medium"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 2,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 2,
+      "name": "Plant_Moss_Rug_Green"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 3,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 3,
+      "name": "Deco_Rope_Diagonal",
+      "rotation": 3
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -4,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -1,
+      "name": "Plant_Moss_Rug_Green"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 0,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 0,
+      "name": "Plant_Moss_Rug_Green"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Chest_Spawn"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 3,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Flat",
+      "rotation": 2
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -4,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Npc_Spawn"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 3,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -3,
+      "name": "Furniture_Tavern_Barrel"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Hollow",
+      "rotation": 2
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -4,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -4,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Flat"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -3,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -3,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -3,
+      "name": "Plant_Moss_Rug_Green"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -2,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 3,
+      "name": "*Wood_Softwood_Planks_Half_State_Definitions_Block",
+      "rotation": 8
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -4,
+      "name": "Deco_Rope_Diagonal",
+      "rotation": 1
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -3,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -3,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -3,
+      "name": "Furniture_Tavern_Barrel"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -2,
+      "name": "Furniture_Village_Crate"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -2,
+      "name": "Plant_Moss_Rug_Green"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Anchor"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 2,
+      "name": "Furniture_Tavern_Barrel"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 3,
+      "name": "Deco_Rope_Diagonal",
+      "rotation": 1
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Flat"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -4,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -4,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -4,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -4,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -4,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -4,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -3,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -3,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -2,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -2,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "rotation": 2
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -1,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -1,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 32,
+      "rotation": 2
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "name": "Rail",
+      "rotation": 1
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 0,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 0,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 0,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 0,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 1,
+      "name": "Nat20_Direction"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 1,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 1,
+      "name": "Wood_Softwood_Beam"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 1,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 1,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 2,
+      "name": "Wood_Softwood_Planks_Half",
+      "rotation": 8
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 2,
+      "name": "Wood_Deadwood_Roof_Shallow",
+      "filler": 992
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 2,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "name": "Wood_Softwood_Planks"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 3,
+      "name": "Wood_Beech_Trunk"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 3,
+      "name": "Wood_Deadwood_Roof_Shallow"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 3,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 4,
+      "name": "Wood_Deadwood_Roof_Hollow"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 4,
+      "name": "Nat20_Force_Empty"
+    }
+  ],
+  "fluids": [
+    {
+      "x": -4,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -4,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -3,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -1,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 0,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 2,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 3,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "z": 4,
+      "name": "Empty",
+      "level": 0
+    }
+  ]
+}
