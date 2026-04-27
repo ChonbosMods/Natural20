@@ -17,11 +17,27 @@ dependencies {
     implementation("org.ow2.asm:asm:9.7.1")
 }
 
+// Shared version with the main Natural20 jar. This is a separate root project (its own
+// settings.gradle.kts), so we read the parent repo's gradle.properties directly rather
+// than rely on multi-project version inheritance.
+val sharedVersion = file("../../gradle.properties").readLines()
+    .firstOrNull { it.startsWith("version=") }
+    ?.substringAfter("=")
+    ?.trim()
+    ?: error("version= line missing from ../../gradle.properties")
+
+version = sharedVersion
+
 tasks.jar {
-    archiveBaseName.set("nat20-patches")
-    archiveVersion.set("1.0.0")
+    archiveBaseName.set("Natural20-Patches")
+    archiveVersion.set(sharedVersion)
 
     // Bundle ASM into the JAR (fat jar) since early plugins use an isolated classloader
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // Belt-and-suspenders: early plugins are discovered via META-INF/services, not
+    // manifest.json. If something on the runtime classpath ever shipped one, exclude it
+    // so the patches jar stays cleanly identifiable.
+    exclude("manifest.json")
 }
