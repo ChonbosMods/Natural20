@@ -1,55 +1,63 @@
-# Hytale Plugin Template
+<p align="center">
+  <img src="nat20Logo_v02.png" alt="Natural 20 logo" width="200" />
+</p>
 
-A ready-to-use starting point for creating Hytale server plugins with Java, _or Kotlin_. If you've
-been using the Asset Editor and want to start writing server-side logic — custom commands, event
-handling, gameplay systems — this is the simplest place to begin.
+<h1 align="center">Natural 20</h1>
 
-## How to start?
+<p align="center">
+  <em>Diablo loot. Skyrim dialogue. The d20 has the final word.</em>
+</p>
 
-1. Copy the template by downloading it or using the "Use this template" button.
-2. [Configure or Install the Java SDK](https://hytalemodding.dev/en/docs/guides/plugin/setting-up-env)
-   to use the latest 25 from JetBrains or similar.
-3. Open the project in your favorite IDE, we
-   recommend [IntelliJ IDEA](https://www.jetbrains.com/idea/download).
-4. Optionally, run `./gradlew` if your IDE does not automtically synchronizes.
-5. Run the devserver with the Run Configuration created, or `./gradlew devServer`.
+<p align="center">
+  <a href="https://nat20mod.com">Website</a> ·
+  <a href="https://nat20mod.com/wiki/">Wiki</a> ·
+  <a href="https://www.curseforge.com/hytale/mods/natural20">CurseForge</a> ·
+  <a href="https://discord.gg/FXwCmw8muw">Discord</a>
+</p>
 
-> On Windows, use `.\gradlew.bat` instead of `./gradlew`, this script is here to run the
-> Gradle without you needing to install the tooling itself, only the Java is required.
+---
 
-With that you will be prompted in the output to authorize your server, and then you can start
-developing your plugin while the server is live reloading the code changes.
+## What is Natural 20?
 
-From here,
-the [HytaleModding guides](https://hytalemodding.dev/en/docs/guides/plugin/build-and-test) cover
-more details!
+Natural 20 is an RPG mod for Hytale that combines D&D-style quests and dialogue with ARPG-style loot and progression. Multi-phase quests with d20 skill checks are the core gameplay loop. Leveling, loot, and tiered encounters scale to support questing.
 
-## Scaffoldit Plugin
+## Features
 
-While there are multiple plugins made for Hytale, the template currently uses a zero-boilerplate one
-where you only need the absolute minimum to start. However, you do have access to everything as
-normal if you know what you are doing.
+- **Multi-Phase Quests**: each phase pays its own XP and a freshly rolled item; six objective types including bosses and peaceful fetches.
+  - **Skill Checks**: pick a `[Persuasion]` or `[Intimidation]` response, roll a d20 against a DC, see the dice land in-world.
+  - **Disposition**: per-NPC, per-player attitude (0-100) that swings skill checks into advantage or disadvantage.
+- **Ability Scores**: STR/DEX/CON/INT/WIS/CHA (0-30) drive every dice roll, gear affix, and combat formula.
+- **Randomized Loot**: ARPG-style itemization across five rarity tiers, item-level scaling, 40+ affixes covering offense, defense, abilities, elemental damage, resistances, and stat boosts.
+- **Champion & Boss Encounters**: themed mob packs across four difficulty tiers with stacking affixes and named bosses.
+- **Settlements & Hostile POIs**: generated as new chunks load; existing systems work on already-explored worlds.
 
-For in-depth configuration, you can visit the [ScaffoldIt Plugin Docs](https://scaffoldit.dev).
+For the full breakdown, see [the wiki](https://nat20mod.com/wiki/) or the [CurseForge page](https://www.curseforge.com/hytale/mods/natural20).
 
-## Troubleshooting
+## Install (server admins)
 
-- **Gradle sync fails in IntelliJ** –
-  _Check that Java 25 is installed and configured under File → Project Structure → SDKs._
-- **Build fails with missing dependencies** –
-  _Run `./gradlew build --refresh-dependencies`. Make sure you have internet access!_
-- **Permission denied on `./gradlew`** –
-  _Run `chmod +x gradlew` (macOS/Linux)._
-- **Hot-reload doesn't work** –
-  _Verify you're using JetBrains Runtime, not a regular JDK._
+1. Download `Natural20-Bundle-<version>.zip` from [CurseForge](https://www.curseforge.com/hytale/mods/natural20).
+2. Extract it at your server root: `mods/` and `earlyplugins/` populate automatically.
+3. Add `--accept-early-plugins` to your server start command and restart.
 
-## Resources
+Full instructions, hosted-panel notes, and the singleplayer install paths live in the [install guide](https://nat20mod.com/wiki/getting-started/installation/).
 
-- [Hytale Modding Guides](https://hytalemodding.dev)
-- [Hytale Modding Discord](https://discord.gg/hytalemodding)
-- [ScaffoldIt Plugin Docs](https://scaffoldit.dev)
+## Build from source (devs)
+
+Requires Java 25 and a Hytale dev environment.
+
+```bash
+git clone https://github.com/ChonbosMods/Natural20.git
+cd Natural20
+./gradlew bundleZip
+```
+
+Output lands at `build/libs/Natural20-Bundle-<version>.zip`. The task also produces both intermediate jars (`build/libs/Natural20-<version>.jar` and `tools/nat20-patches/build/libs/Natural20-Patches-<version>.jar`) for dev iteration. Version is set once in the root `gradle.properties`. To run a live dev server, copy the patches jar into `devserver/earlyplugins/` (the only thing that lives there), then `./gradlew devServer`. It adds `--accept-early-plugins` for you.
+
+## Community
+
+- [Discord](https://discord.gg/FXwCmw8muw) for support, feedback, and patch notes.
+- Issues and feature requests welcome on the [GitHub tracker](https://github.com/ChonbosMods/Natural20/issues).
 
 ## License
 
-Add your own after copying the template, though we recommend using MIT, BSD, or Apache to keep
-the modding community open!
+Proprietary. See [LICENSE](LICENSE).
