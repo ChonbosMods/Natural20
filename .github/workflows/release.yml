@@ -43,9 +43,21 @@ jobs:
       - name: Build bundle
         run: ./gradlew bundleZip
 
+      - name: Extract changelog section
+        run: |
+          awk -v ver="v${VERSION}" '
+            $0 ~ "^## "ver"([[:space:]]|$)" {flag=1; next}
+            flag && /^## v/ {exit}
+            flag {print}
+          ' CHANGELOG.md > RELEASE_NOTES.md
+          if [ ! -s RELEASE_NOTES.md ]; then
+            echo "::error::No CHANGELOG.md section found for v${VERSION} (add a '## v${VERSION}' heading before tagging)"
+            exit 1
+          fi
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: build/libs/Natural20-Bundle-${{ env.VERSION }}.zip
-          generate_release_notes: true
+          body_path: RELEASE_NOTES.md
           fail_on_unmatched_files: true
