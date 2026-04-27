@@ -7,6 +7,7 @@ import com.chonbosmods.loot.Nat20LootSystem;
 import com.chonbosmods.loot.def.Nat20RarityDef;
 import com.chonbosmods.loot.mob.Nat20MobLootPool;
 import com.chonbosmods.loot.registry.Nat20LootEntryRegistry;
+import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 
 import java.util.List;
@@ -143,7 +144,16 @@ public final class AffixRewardRoller {
         String stackItemId = lootData.getUniqueItemId() != null
                 ? lootData.getUniqueItemId()
                 : itemId;
+        // Nat20ItemRegistry.registerItem schedules loadAssets() on a SCHEDULED_EXECUTOR
+        // (deadlock-avoidance), so the variant Item is not yet in Item.getAssetMap() when we
+        // get here. new ItemStack(uniqueId, 1) would fall back to Item.UNKNOWN and bake
+        // maxDurability=0 into the stack — which the ItemStack codec then persists per stack
+        // across save/load. Read durability from the base item (already loaded) and stamp it
+        // onto the stack via withRestoredDurability so we don't depend on the executor.
+        Item baseItem = Item.getAssetMap().getAsset(itemId);
+        double baseMax = baseItem != null ? baseItem.getMaxDurability() : 0.0;
         return new ItemStack(stackItemId, 1)
+                .withRestoredDurability(baseMax)
                 .withMetadata(Nat20LootData.METADATA_KEY, lootData);
     }
 

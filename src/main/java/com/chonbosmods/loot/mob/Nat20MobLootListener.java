@@ -11,6 +11,7 @@ import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.entity.ItemUtils;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -143,7 +144,14 @@ public class Nat20MobLootListener {
                 : baseItemId;
         if (stackItemId == null || stackItemId.isEmpty()) return null;
         try {
-            return new ItemStack(stackItemId, 1).withMetadata(Nat20LootData.METADATA_KEY, data);
+            // Bypass the Nat20ItemRegistry async-loadAssets race: pull the base item's
+            // maxDurability directly and stamp it onto the stack. See AffixRewardRoller#rollFor
+            // for the full explanation.
+            Item baseItem = Item.getAssetMap().getAsset(baseItemId);
+            double baseMax = baseItem != null ? baseItem.getMaxDurability() : 0.0;
+            return new ItemStack(stackItemId, 1)
+                    .withRestoredDurability(baseMax)
+                    .withMetadata(Nat20LootData.METADATA_KEY, data);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to build ItemStack for drop: itemId=%s", stackItemId);
             return null;

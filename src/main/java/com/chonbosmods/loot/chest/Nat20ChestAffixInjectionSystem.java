@@ -11,6 +11,7 @@ import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.protocol.InteractionType;
+import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.event.events.ecs.UseBlockEvent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -154,7 +155,17 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
             return null;
         }
         try {
-            return new ItemStack(stackItemId, 1).withMetadata(Nat20LootData.METADATA_KEY, data);
+            // Bypass the Nat20ItemRegistry async-loadAssets race: resolve the base item id
+            // via the registry (only data.getUniqueItemId() is in scope here) and stamp the
+            // base item's maxDurability onto the stack. See AffixRewardRoller#rollFor for
+            // the full explanation.
+            String baseItemId = Natural20.getInstance().getLootSystem()
+                    .getItemRegistry().getBaseItemId(data.getUniqueItemId());
+            Item baseItem = baseItemId != null ? Item.getAssetMap().getAsset(baseItemId) : null;
+            double baseMax = baseItem != null ? baseItem.getMaxDurability() : 0.0;
+            return new ItemStack(stackItemId, 1)
+                    .withRestoredDurability(baseMax)
+                    .withMetadata(Nat20LootData.METADATA_KEY, data);
         } catch (Exception e) {
             LOGGER.atSevere().withCause(e).log("Failed to build chest ItemStack for itemId=%s", stackItemId);
             return null;

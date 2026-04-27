@@ -109,7 +109,11 @@ public class Nat20ItemRegistry {
 
         // Register on a separate thread to avoid deadlock:
         // loadAssets() acquires AssetRegistry.ASSET_LOCK which conflicts with
-        // the ECS thread context that commands execute on.
+        // the ECS thread context that commands execute on. Stack-side durability
+        // does NOT depend on this completing before the caller mints the ItemStack:
+        // the three Nat20 mint sites read maxDurability straight off the base item
+        // and stamp it via withRestoredDurability, so the variant's late arrival
+        // here only matters for tooltip lookups, salvage, and the repair UI.
         HytaleServer.SCHEDULED_EXECUTOR.submit(() -> {
             try {
                 // Send just our new description key to connected clients
@@ -190,6 +194,17 @@ public class Nat20ItemRegistry {
 
     public boolean isRegistered(String uniqueId) {
         return registered.containsKey(uniqueId);
+    }
+
+    /**
+     * Resolve the base item id for a registered Nat20 unique id. Used by mint sites
+     * that only carry {@link Nat20LootData} (no original itemId in scope) but need
+     * the base Item to copy maxDurability onto the freshly-built ItemStack.
+     */
+    @Nullable
+    public String getBaseItemId(String uniqueId) {
+        RegistryEntry entry = registered.get(uniqueId);
+        return entry != null ? entry.baseItemId() : null;
     }
 
     public Set<String> getRegisteredIds() {
