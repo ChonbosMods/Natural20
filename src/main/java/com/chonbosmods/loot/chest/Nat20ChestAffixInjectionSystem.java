@@ -86,14 +86,20 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
 
         registry.markRolled(pos.getX(), pos.getY(), pos.getZ());
 
+        World world = Natural20.getInstance().getDefaultWorld();
+        if (world == null) return;
+
+        // Clamp any vanilla pre-populated tool/weapon/armor stacks to qty=1 — once,
+        // before the affix roll. Even if the primary roll fails below, the clamp has
+        // already run for this chest and the registry is marked.
+        Nat20ChestContainerWriter.clampNonStackableQuantities(
+                world, pos.getX(), pos.getY(), pos.getZ());
+
         Random rng = ThreadLocalRandom.current();
         if (!roller.rollPrimary(rng)) return;
 
         double dist = Math.hypot(pos.getX(), pos.getZ());
         int areaLevel = scalingConfig.areaLevelForDistance(dist);
-
-        World world = Natural20.getInstance().getDefaultWorld();
-        if (world == null) return;
 
         boolean anyInjected = injectOne(world, pos, areaLevel, rng, null, "primary");
         if (!anyInjected) return;
