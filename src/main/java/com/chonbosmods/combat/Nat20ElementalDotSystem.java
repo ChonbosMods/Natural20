@@ -26,7 +26,6 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -107,11 +106,8 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
             infectEffect = EntityEffect.getAssetMap().getAsset(INFECT_EFFECT);
             corruptEffect = EntityEffect.getAssetMap().getAsset(CORRUPT_EFFECT);
             effectsResolved = true;
-            LOGGER.atInfo().log("[ElemDot] resolved effects: ignite=%s cold=%s infect=%s corrupt=%s",
-                    igniteEffect != null, coldEffect != null, infectEffect != null, corruptEffect != null);
         }
 
-        UUID attackerUuid = attackerPlayer != null ? attackerPlayer.getPlayerRef().getUuid() : null;
         Nat20AffixRegistry affixRegistry = lootSystem.getAffixRegistry();
 
         for (EffectAffixSource.Source src : sources) {
@@ -193,11 +189,6 @@ public class Nat20ElementalDotSystem extends DamageEventSystem {
 
                 if (isNew) {
                     Nat20EntityEffectUtil.applyOnce(effectCtrl, targetRef, effect, duration, commandBuffer);
-                }
-
-                if (attackerUuid != null && CombatDebugSystem.isEnabled(attackerUuid)) {
-                    LOGGER.atInfo().log("[ElemDot] %s new=%s target=%s duration=%.1fs perTick=%.2f",
-                            id, isNew, targetRef, duration, damagePerTick);
                 }
             }
         }

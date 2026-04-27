@@ -108,7 +108,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     @Override
     public void build(Ref<EntityStore> ref, UICommandBuilder cmd, UIEventBuilder events,
                       Store<EntityStore> store) {
-        LOGGER.atInfo().log("Build: state=%s", state);
         cmd.append(PAGE_LAYOUT);
 
         String text = switch (state) {
@@ -149,7 +148,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
     @Override
     public void handleDataEvent(Ref<EntityStore> ref, Store<EntityStore> store, PageEventData data) {
         String type = data.getType();
-        LOGGER.atInfo().log("handleDataEvent: type=%s state=%s", type, state);
         if (!"continue".equals(type)) {
             LOGGER.atWarning().log("Unknown event type '%s'", type);
             return;
@@ -158,14 +156,12 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         // Continue mid-typewriter = skip the reveal, don't advance state.
         // Matches the dialogue page's click-to-skip pattern.
         if (activeTypewriter != null && !activeTypewriter.isComplete()) {
-            LOGGER.atInfo().log("Skipping typewriter for state=%s", state);
             activeTypewriter.skip();
             return;
         }
 
         if (state == State.INTRO1) {
             state = State.INTRO2;
-            LOGGER.atInfo().log("Advancing to INTRO2");
             rebuild();
             return;
         }
@@ -190,7 +186,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             // replaces it through the page manager automatically. Calling close()
             // first was observed to cause stale state on the next page (proven
             // out in BackgroundPickerPage's Confirm path).
-            LOGGER.atInfo().log("INTRO2 Continue; scheduling picker open");
             Player player = store.getComponent(ref, Player.getComponentType());
             if (player == null) {
                 LOGGER.atWarning().log("Continue from intro2 but Player component is null; picker not opened");
@@ -204,7 +199,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
                     return;
                 }
                 world.execute(() -> {
-                    LOGGER.atInfo().log("Opening BackgroundPickerPage after intro");
                     BackgroundPickerPage picker = new BackgroundPickerPage(pRef);
                     player.getPageManager().openCustomPage(ref, store, picker);
                 });
@@ -214,7 +208,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
 
         // INTRO3 Continue: create the tutorial quest on the player's data, then
         // schedule the standard post-commit Jiub dialogue session.
-        LOGGER.atInfo().log("INTRO3 Continue; creating tutorial quest and scheduling Jiub session");
         Nat20PlayerData playerData = store.getComponent(ref, Natural20.getPlayerDataType());
         Player player = store.getComponent(ref, Player.getComponentType());
         if (playerData == null || player == null) {
@@ -246,10 +239,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
             LOGGER.atWarning().log("JiubIntroPage.open: Player component is null; intro not opened");
             return;
         }
-        LOGGER.atInfo().log(
-                "Opening JiubIntroPage for player %s (jiubRef=%s)",
-                player.getPlayerRef().getUuid(),
-                jiubRef == null ? "null" : "present");
         JiubIntroPage page = new JiubIntroPage(player.getPlayerRef());
         player.getPageManager().openCustomPage(playerRef, store, page);
     }
@@ -268,8 +257,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
         }
         Nat20PlayerData playerData = store.getComponent(playerRef, Natural20.getPlayerDataType());
         Background bg = playerData != null ? playerData.getBackground() : null;
-        LOGGER.atInfo().log("openIntro3: background=%s for player %s",
-            bg == null ? "null" : bg.name(), player.getPlayerRef().getUuid());
         JiubIntroPage page = new JiubIntroPage(player.getPlayerRef(), State.INTRO3, bg);
         player.getPageManager().openCustomPage(playerRef, store, page);
     }
@@ -313,7 +300,6 @@ public class JiubIntroPage extends InteractiveCustomUIPage<JiubIntroPage.PageEve
                         "Post-commit dialogue: Jiub not spawned; player can F-interact later");
                     return;
                 }
-                LOGGER.atInfo().log("Opening post-commit DialogueManager session");
                 Natural20.getInstance().getDialogueManager()
                     .startSession(ref, jiub, store, () -> {});
             });

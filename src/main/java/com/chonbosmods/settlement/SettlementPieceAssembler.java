@@ -84,8 +84,6 @@ public final class SettlementPieceAssembler {
         int targetCount = config.minPieces()
                 + rng.nextInt(config.maxPieces() - config.minPieces() + 1);
         int planCount = targetCount + OVERPROVISION;
-        LOGGER.atInfo().log("Assembling %d pieces (plan %d) from '%s' (pool size=%d) at %s",
-            targetCount, planCount, config.poolCategory(), pool.size(), center);
 
         List<Placement> placements = planPlacements(planCount, pool, center, config, rng);
         if (placements.isEmpty()) {
@@ -324,8 +322,6 @@ public final class SettlementPieceAssembler {
                 pasted, futures.size(), center, minPastedPieces);
             return null;
         }
-        LOGGER.atInfo().log("Piece settlement at %s: pieces=%d/%d npcs=%d mobGroups=%d chests=%d",
-            center, pasted, futures.size(), npcs.size(), mobGroups.size(), chests.size());
 
         // The merged settlement's anchor is the shared center; direction is
         // arbitrary (pieces face different ways). Translation is meaningless for

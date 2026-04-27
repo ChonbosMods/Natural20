@@ -237,7 +237,6 @@ public class DialogueManager {
                 }
 
                 playerData.clearSavedSession(graph.npcId());
-                LOGGER.atInfo().log("Resuming saved session for %s with NPC '%s'", playerUuid, npcId);
                 session.startFromSaved(savedLog, savedActiveNodeId, savedActiveTopicId,
                         savedPendingFollowUps, savedGrayedExploratories);
             } catch (Exception e) {
@@ -246,7 +245,6 @@ public class DialogueManager {
                 session.start();
             }
         } else {
-            LOGGER.atInfo().log("Started dialogue session for %s with NPC '%s' (role: %s)", playerUuid, displayName, npcId);
             session.start();
         }
     }
@@ -315,7 +313,6 @@ public class DialogueManager {
         activeSessions.entrySet().removeIf(entry -> {
             if (entry.getValue().getNpcRef().equals(npcRef)) {
                 entry.getValue().endDialogue();
-                LOGGER.atInfo().log("Ended session due to NPC removal for player %s", entry.getKey());
                 return true;
             }
             return false;
@@ -439,9 +436,6 @@ public class DialogueManager {
         // this quest from being offered to this player by this NPC. Skip injection so
         // the quest topic does not appear in the topic list at all.
         if (playerData != null && playerData.isQuestBlacklisted(quest.getQuestId())) {
-            LOGGER.atInfo().log(
-                "Quest %s is blacklisted for player; skipping topic injection on NPC %s",
-                quest.getQuestId(), npcId);
             return;
         }
         Map<String, String> b = quest.getVariableBindings();
@@ -472,16 +466,6 @@ public class DialogueManager {
             b.getOrDefault("quest_topic_header", quest.getSituationId()), b);
         String expositionTemplate = b.getOrDefault("quest_exposition_text", "I need your help with something.");
         String expositionText = DialogueResolver.resolveQuestText(expositionTemplate, b, expositionObj, playerLevel);
-
-        // Diagnostic: trace highlight marker presence in exposition text
-        boolean expoHasMarkers = expositionText != null && expositionText.indexOf(EntityHighlight.MARK_START) >= 0;
-        LOGGER.atInfo().log(
-            "EXPO_DIAG quest=%s template_has_vars=%s resolved_has_markers=%s " +
-            "enemy_type_plural=%s expositionObj=%s",
-            questId, expositionTemplate.contains("{"),
-            expoHasMarkers,
-            b.containsKey("enemy_type_plural") ? b.get("enemy_type_plural") : "MISSING",
-            expositionObj != null ? expositionObj.getType() + ":" + expositionObj.getTargetLabel() : "null");
 
         String acceptText = DialogueResolver.resolveQuestText(
             b.getOrDefault("quest_accept_text", "Thank you. Here's what I need."), b, expositionObj, playerLevel);
@@ -625,9 +609,6 @@ public class DialogueManager {
             topicId, topicHeader, entryNodeId,
             TopicScope.LOCAL, null, true, null, -1, null, true
         ));
-
-        LOGGER.atInfo().log("Injected quest available topic '%s' for quest %s on NPC %s",
-            topicHeader, questId, npcId);
     }
 
     /**
@@ -745,18 +726,6 @@ public class DialogueManager {
             String turnInTemplate = b.getOrDefault(turnInTextKey, "You're back. Tell me what happened.");
             String turnInText = DialogueResolver.resolveQuestText(turnInTemplate, b, currentObj);
 
-            // Diagnostic: trace highlight marker presence in resolved turn-in text
-            boolean hasMarkers = turnInText != null && turnInText.indexOf(EntityHighlight.MARK_START) >= 0;
-            LOGGER.atInfo().log(
-                "TURNIN_DIAG quest=%s cc=%d template_key=%s has_target_npc=%s has_enemy_type=%s " +
-                "currentObj=%s template_has_vars=%s resolved_has_markers=%s",
-                questId, cc, turnInTextKey,
-                b.containsKey("target_npc") ? EntityHighlight.stripMarkers(b.get("target_npc")) : "MISSING",
-                b.containsKey("enemy_type") ? EntityHighlight.stripMarkers(b.get("enemy_type")) : "MISSING",
-                currentObj != null ? currentObj.getType() + ":" + currentObj.getTargetLabel() : "null",
-                turnInTemplate.contains("{"),
-                hasMarkers);
-
             // Conflict text (for the NEXT conflict, if triggered)
             String conflictTextKey = switch (cc) {
                 case 0 -> "quest_conflict1_text";
@@ -767,18 +736,6 @@ public class DialogueManager {
             };
             String conflictTemplate = b.getOrDefault(conflictTextKey, "");
             String conflictText = DialogueResolver.resolveQuestText(conflictTemplate, b, nextObj);
-
-            // Diagnostic: trace conflict text too
-            boolean conflictHasMarkers = conflictText != null && conflictText.indexOf(EntityHighlight.MARK_START) >= 0;
-            if (!conflictTemplate.isEmpty()) {
-                LOGGER.atInfo().log(
-                    "CONFLICT_DIAG quest=%s cc=%d template_key=%s nextObj=%s " +
-                    "template_has_vars=%s resolved_has_markers=%s",
-                    questId, cc, conflictTextKey,
-                    nextObj != null ? nextObj.getType() + ":" + nextObj.getTargetLabel() : "null",
-                    conflictTemplate.contains("{"),
-                    conflictHasMarkers);
-            }
 
             String resolutionText = DialogueResolver.resolveQuestText(
                 b.getOrDefault("quest_resolution_text", "Thank you. You've done well."), b, currentObj);
@@ -836,9 +793,6 @@ public class DialogueManager {
                 topicId, topicHeader, entryNodeId,
                 TopicScope.LOCAL, null, true, null, -1, null, true
             ));
-
-            LOGGER.atInfo().log("Injected turn-in topic for quest %s (conflict %d) on NPC %s",
-                questId, cc, npcId);
         }
     }
 
@@ -913,9 +867,6 @@ public class DialogueManager {
                     topicId, topicLabel, entryNodeId,
                     TopicScope.LOCAL, null, true, null, 0, null, true
                 ));
-
-            LOGGER.atInfo().log("Injected TALK_TO_NPC topic for quest %s on NPC %s",
-                questId, npcId);
         }
     }
 

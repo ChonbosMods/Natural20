@@ -70,13 +70,9 @@ public final class TutorialQuestFactory {
         }
 
         if (stateManager.getQuest(playerData, QUEST_ID) != null) {
-            LOGGER.atInfo().log("createAndAssign: %s already active for %s, skipping",
-                QUEST_ID, playerUuid);
             return;
         }
         if (stateManager.getCompletedQuestIds(playerData).contains(QUEST_ID)) {
-            LOGGER.atInfo().log("createAndAssign: %s already completed for %s, skipping",
-                QUEST_ID, playerUuid);
             return;
         }
 
@@ -186,10 +182,6 @@ public final class TutorialQuestFactory {
             bindings.putIfAbsent("target_npc_closer",
                 "Take word back to Celius, and tell him I said to move on it quickly.");
         }
-
-        LOGGER.atInfo().log("Created tutorial quest for %s (background=%s, celiusCell=%s, phase2Resolved=%s)",
-            playerUuid, background != null ? background.name() : "null",
-            sourceSettlementId, resolved);
     }
 
     /**
