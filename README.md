@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://nat20mod.com">Website</a> ·
-  <a href="https://nat20mod.com/wiki/">Wiki</a> ·
+  <a href="https://nat20mod.com/wiki/getting-started/installation/">Wiki</a> ·
   <a href="https://www.curseforge.com/hytale/mods/natural20">CurseForge</a> ·
   <a href="https://discord.gg/FXwCmw8muw">Discord</a>
 </p>
@@ -31,7 +31,7 @@ Natural 20 is an RPG mod for Hytale that combines D&D-style quests and dialogue 
 - **Champion & Boss Encounters**: themed mob packs across four difficulty tiers with stacking affixes and named bosses.
 - **Settlements & Hostile POIs**: generated as new chunks load; existing systems work on already-explored worlds.
 
-For the full breakdown, see [the wiki](https://nat20mod.com/wiki/) or the [CurseForge page](https://www.curseforge.com/hytale/mods/natural20).
+For the full breakdown, see [the wiki](https://nat20mod.com/wiki/getting-started/installation/) or the [CurseForge page](https://www.curseforge.com/hytale/mods/natural20).
 
 ## Install (server admins)
 
