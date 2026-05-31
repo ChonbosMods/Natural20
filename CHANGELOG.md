@@ -4,6 +4,23 @@ All notable changes to Natural 20 are documented here. The project follows [Sema
 
 ---
 
+## v1.1.0
+
+**May 2026 - Hytale Update 5 compatibility**
+
+Natural 20 now runs on Hytale Update 5. This is a compatibility release: the focus is supporting the latest Hytale version, with no new gameplay systems.
+
+### Changed
+
+- Updated for Hytale Update 5 (server SDK 0.5.3). v1.1.0 requires an Update 5 server and is not compatible with Update 4.
+- Rebuilt the Natural20-Patches early plugin for Update 5's Java 25 runtime. Self-hosted servers must deploy the new patches jar alongside the mod.
+
+### Fixed
+
+- Quest area markers (the ring outlining a quest's location) again appear only while the world map is open, not on the compass. Update 5 removed the signal the mod used to detect an open map; the early plugin now restores it.
+
+---
+
 ## v1.0.0
 
 **April 2026 - Initial Release**
