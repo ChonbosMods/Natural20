@@ -17,6 +17,7 @@ Natural 20 now runs on Hytale Update 5. This is a compatibility release: the foc
 
 ### Fixed
 
+- Longswords, clubs, and one-handed axes can now block on right-click, with the proper guard reticle and stamina cost. Hytale ships these three weapon groups without a wired-up block (only the guard animation played, with no actual damage reduction); Natural 20 binds them to the standard melee guard.
 - Quest area markers (the ring outlining a quest's location) again appear only while the world map is open, not on the compass. Update 5 removed the signal the mod used to detect an open map; the early plugin now restores it.
 
 ---
