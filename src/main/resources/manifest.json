@@ -2,7 +2,7 @@
     "Group": "chonbosmods",
     "Name": "Natural20",
     "Version": "1.0.0",
-    "Description": "Diablo loot. Skyrim dialogue. The d20 has the final word. A D&D-themed RPG mod for Hytale: ability scores, skill checks, NPC dialogue, randomized loot, quests, and settlements.",
+    "Description": "Natural 20 is an RPG mod for Hytale that combines D&D-style quests and dialogue with ARPG-style loot and progression. Multi-phase quests with d20 skill checks are the core gameplay loop. Leveling, loot, and tiered encounters scale to support questing.",
     "Authors": [
         {
             "Name": "Chonbo",
@@ -16,6 +16,6 @@
         "Hytale:NPC": "*"
     },
     "OptionalDependencies": {},
-    "ServerVersion": "2026.03.26-89796e57b",
+    "ServerVersion": "0.5.3",
     "Main": "com.chonbosmods.Natural20"
 }
