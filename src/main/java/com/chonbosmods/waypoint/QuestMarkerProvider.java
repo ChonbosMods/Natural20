@@ -60,25 +60,30 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
     /** Cached marker data for one quest. */
     public record MarkerEntry(String questId, String questName, double x, double z, MarkerType type) {}
 
-    // Reflection handle for WorldMapTracker.clientHasWorldMapVisible
+    // Reflection handle for WorldMapTracker.nat20MapVisible, an instance field injected by the
+    // WorldMapVisibleFix early plugin. Update 5 removed the engine's own clientHasWorldMapVisible
+    // field, so the patch re-adds a per-player map-open flag and populates it from the
+    // UpdateWorldMapVisible packet. If the patch isn't loaded the field is absent and we default
+    // to "map closed" so the map-only area-ring markers never leak onto the compass.
     private static final Field MAP_VISIBLE_FIELD;
     static {
         Field f = null;
         try {
-            f = WorldMapTracker.class.getDeclaredField("clientHasWorldMapVisible");
+            f = WorldMapTracker.class.getDeclaredField("nat20MapVisible");
             f.setAccessible(true);
         } catch (NoSuchFieldException e) {
-            LOGGER.atWarning().log("Could not find clientHasWorldMapVisible field");
+            LOGGER.atWarning().log("nat20MapVisible field not found (WorldMapVisibleFix patch not loaded); "
+                    + "area-ring markers will stay hidden");
         }
         MAP_VISIBLE_FIELD = f;
     }
 
     private static boolean isMapOpen(Player player) {
-        if (MAP_VISIBLE_FIELD == null) return true;
+        if (MAP_VISIBLE_FIELD == null) return false;
         try {
             return MAP_VISIBLE_FIELD.getBoolean(player.getWorldMapTracker());
         } catch (Exception e) {
-            return true;
+            return false;
         }
     }
 
