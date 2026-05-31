@@ -287,11 +287,12 @@ public class Nat20ItemRegistry {
             itemIdField.set(item, id);
             itemQualityIdField.set(item, qualityId);
             itemTranslationPropertiesField.set(item, new ItemTranslationProperties(displayName, description));
-            // Blank out categories: second-line defense against our variants surfacing in
-            // creative library tabs. (The copy constructor inherits base-item categories.)
-            if (itemCategoriesField != null) {
-                itemCategoriesField.set(item, new String[0]);
-            }
+            // Do NOT blank categories. Weapon/tool capabilities are gated on the item's
+            // categories (e.g. Items.Weapons drives the right-click guard/block) — wiping them
+            // makes looted weapons unguardable. The copy constructor already inherits the base
+            // item's categories, so we leave them intact. Hiding variants from the creative
+            // library is handled by the variant=true flag below, which filters them out of the
+            // item library menu regardless of category.
             // Mark as a variant so the creative library menu hides it by default.
             // Doc on the field: "If this item is marked as a variant, then we filter it out of
             // the item library menu by default, unless the player chooses to display variants."
