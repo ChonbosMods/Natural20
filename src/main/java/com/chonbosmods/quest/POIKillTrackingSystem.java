@@ -19,7 +19,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
@@ -216,7 +216,7 @@ public class POIKillTrackingSystem extends DamageEventSystem {
         if (tx != null) {
             Vector3d pos = tx.getPosition();
             if (pos != null) {
-                anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
+                anchor = new double[]{pos.x(), pos.y(), pos.z()};
             }
         }
         java.util.Set<UUID> missed = java.util.Collections.emptySet();

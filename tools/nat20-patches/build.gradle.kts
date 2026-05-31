@@ -13,8 +13,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.hypixel.hytale:Server:2026.03.26-89796e57b")
-    implementation("org.ow2.asm:asm:9.7.1")
+    compileOnly("com.hypixel.hytale:Server:0.5.3")
+    implementation("org.ow2.asm:asm:9.10.1")
 }
 
 // Shared version with the main Natural20 jar. This is a separate root project (its own

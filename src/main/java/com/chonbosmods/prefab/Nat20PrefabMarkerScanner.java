@@ -1,6 +1,6 @@
 package com.chonbosmods.prefab;
 
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.prefab.PrefabRotation;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferCall;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
@@ -112,17 +112,17 @@ public final class Nat20PrefabMarkerScanner {
         Vector3i anchor = anchors.get(0);
         Vector3i direction = directions.get(0);
         Vector3i directionVector = DirectionVector.snapToCardinal(
-                direction.getX() - anchor.getX(),
-                direction.getY() - anchor.getY(),
-                direction.getZ() - anchor.getZ());
+                direction.x() - anchor.x(),
+                direction.y() - anchor.y(),
+                direction.z() - anchor.z());
 
         // Structure bounds fall back to a 1x1 at the anchor if the prefab has no
         // structural blocks at all (only markers). Won't happen for real prefabs;
         // defensive so downstream bound math never sees Integer.MAX_VALUE.
-        int sMinX = structureMinX[0] == Integer.MAX_VALUE ? anchor.getX() : structureMinX[0];
-        int sMaxX = structureMaxX[0] == Integer.MIN_VALUE ? anchor.getX() : structureMaxX[0];
-        int sMinZ = structureMinZ[0] == Integer.MAX_VALUE ? anchor.getZ() : structureMinZ[0];
-        int sMaxZ = structureMaxZ[0] == Integer.MIN_VALUE ? anchor.getZ() : structureMaxZ[0];
+        int sMinX = structureMinX[0] == Integer.MAX_VALUE ? anchor.x() : structureMinX[0];
+        int sMaxX = structureMaxX[0] == Integer.MIN_VALUE ? anchor.x() : structureMaxX[0];
+        int sMinZ = structureMinZ[0] == Integer.MAX_VALUE ? anchor.z() : structureMinZ[0];
+        int sMaxZ = structureMaxZ[0] == Integer.MIN_VALUE ? anchor.z() : structureMaxZ[0];
 
         return new MarkerScan(anchor, direction, directionVector, npcs, mobGroups, chests,
                 sMinX, sMaxX, sMinZ, sMaxZ);

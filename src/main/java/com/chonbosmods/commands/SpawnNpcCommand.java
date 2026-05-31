@@ -1,5 +1,6 @@
 package com.chonbosmods.commands;
 
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.npc.Nat20NameGenerator;
@@ -8,8 +9,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.server.core.asset.type.model.config.Model;
 import com.hypixel.hytale.server.core.modules.entity.component.PersistentModel;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.RequiredArg;
@@ -83,8 +84,8 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
         }
 
         Vector3d pos = transform.getPosition();
-        Vector3d spawnPos = new Vector3d(pos.getX() + 2, pos.getY(), pos.getZ());
-        Vector3f rotation = new Vector3f(0, 0, 0);
+        Vector3d spawnPos = new Vector3d(pos.x() + 2, pos.y(), pos.z());
+        Rotation3f rotation = new Rotation3f(0, 0, 0);
 
         // Create model from unmodified skin: engine serialization breaks
         // on modified skins (beard/hair changes cause scale=0 on chunk reload)
@@ -117,7 +118,7 @@ public class SpawnNpcCommand extends AbstractPlayerCommand {
                     new PlayerSkinComponent(displaySkin));
 
             context.sendMessage(Message.raw("Spawned " + displayName + " at " +
-                (int) spawnPos.getX() + ", " + (int) spawnPos.getY() + ", " + (int) spawnPos.getZ()));
+                (int) spawnPos.x() + ", " + (int) spawnPos.y() + ", " + (int) spawnPos.z()));
         } else {
             context.sendMessage(Message.raw("Failed to spawn " + roleName + "."));
         }

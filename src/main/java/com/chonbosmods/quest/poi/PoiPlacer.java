@@ -11,8 +11,8 @@ import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -101,11 +101,11 @@ public final class PoiPlacer {
                                          Store<EntityStore> store,
                                          Ref<EntityStore> playerRef) {
         Map<String, String> bindings = quest.getVariableBindings();
-        bindings.put("poi_x", String.valueOf(entrance.getX()));
-        bindings.put("poi_y", String.valueOf(entrance.getY()));
-        bindings.put("poi_z", String.valueOf(entrance.getZ()));
-        bindings.put("poi_center_x", String.valueOf(entrance.getX()));
-        bindings.put("poi_center_z", String.valueOf(entrance.getZ()));
+        bindings.put("poi_x", String.valueOf(entrance.x()));
+        bindings.put("poi_y", String.valueOf(entrance.y()));
+        bindings.put("poi_z", String.valueOf(entrance.z()));
+        bindings.put("poi_center_x", String.valueOf(entrance.x()));
+        bindings.put("poi_center_z", String.valueOf(entrance.z()));
 
         if (placed != null) {
             bindings.put("poi_mob_group_positions", serializeVec3dList(placed.mobGroupSpawnsWorld()));
@@ -161,7 +161,7 @@ public final class PoiPlacer {
         }
 
         LOGGER.atInfo().log("POI placed for quest %s | /tp %d %d %d",
-            quest.getQuestId(), entrance.getX(), entrance.getY(), entrance.getZ());
+            quest.getQuestId(), entrance.x(), entrance.y(), entrance.z());
     }
 
     /**
@@ -175,9 +175,9 @@ public final class PoiPlacer {
         StringBuilder sb = new StringBuilder();
         for (Vector3d v : positions) {
             if (sb.length() > 0) sb.append(';');
-            sb.append((int) Math.floor(v.getX()))
-              .append(',').append((int) Math.floor(v.getY()))
-              .append(',').append((int) Math.floor(v.getZ()));
+            sb.append((int) Math.floor(v.x()))
+              .append(',').append((int) Math.floor(v.y()))
+              .append(',').append((int) Math.floor(v.z()));
         }
         return sb.toString();
     }

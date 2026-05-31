@@ -57,8 +57,8 @@ public class SettlementDiscoverySystem {
             TransformComponent transform = store.getComponent(entityRef, TransformComponent.getComponentType());
             if (transform == null) continue;
 
-            double px = transform.getPosition().getX();
-            double pz = transform.getPosition().getZ();
+            double px = transform.getPosition().x();
+            double pz = transform.getPosition().z();
 
             for (SettlementRecord settlement : settlements.values()) {
                 String cellKey = settlement.getCellKey();

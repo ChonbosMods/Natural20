@@ -9,8 +9,8 @@ import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferUtil;
@@ -116,8 +116,8 @@ public final class SettlementPieceAssembler {
             Placement placement, World world, Random rng,
             ComponentAccessor<EntityStore> store) {
         Bounds b = rotatedStructureBoundsAt(placement.scan, placement.anchor, placement.yaw);
-        int halfX = Math.max(placement.anchor.getX() - b.minX, b.maxX - placement.anchor.getX());
-        int halfZ = Math.max(placement.anchor.getZ() - b.minZ, b.maxZ - placement.anchor.getZ());
+        int halfX = Math.max(placement.anchor.x() - b.minX, b.maxX - placement.anchor.x());
+        int halfZ = Math.max(placement.anchor.z() - b.minZ, b.maxZ - placement.anchor.z());
 
         // Preload the chunks the sampler's 5 probes will read. The probe corners
         // sit at the edges of the rotated footprint, so preload the footprint's
@@ -141,37 +141,37 @@ public final class SettlementPieceAssembler {
                 if (err != null) {
                     LOGGER.atWarning().withCause(err).log(
                         "Piece grounding: chunk preload failed at (%d, %d); skipping",
-                        placement.anchor.getX(), placement.anchor.getZ());
+                        placement.anchor.x(), placement.anchor.z());
                     out.complete(null);
                     return;
                 }
                 world.execute(() -> {
                     Nat20HeightmapSampler.SampleResult ground = Nat20HeightmapSampler.sample(
-                        world, placement.anchor.getX(), placement.anchor.getZ(),
+                        world, placement.anchor.x(), placement.anchor.z(),
                         halfX, halfZ, Nat20HeightmapSampler.Mode.MEDIAN);
                     if (ground.y() <= 0) {
                         LOGGER.atFine().log(
                             "Piece grounding: no ground at (%d, %d); skipping",
-                            placement.anchor.getX(), placement.anchor.getZ());
+                            placement.anchor.x(), placement.anchor.z());
                         out.complete(null);
                         return;
                     }
                     if (ground.tooSteep()) {
                         LOGGER.atFine().log(
                             "Piece grounding: slope %d too steep at (%d, %d); skipping",
-                            ground.slopeDelta(), placement.anchor.getX(), placement.anchor.getZ());
+                            ground.slopeDelta(), placement.anchor.x(), placement.anchor.z());
                         out.complete(null);
                         return;
                     }
                     if (ground.tooWet()) {
                         LOGGER.atFine().log(
                             "Piece grounding: submerged (depth=%d) at (%d, %d); skipping",
-                            ground.maxSubmergedDepth(), placement.anchor.getX(), placement.anchor.getZ());
+                            ground.maxSubmergedDepth(), placement.anchor.x(), placement.anchor.z());
                         out.complete(null);
                         return;
                     }
                     Vector3i groundedAnchor = new Vector3i(
-                        placement.anchor.getX(), ground.y(), placement.anchor.getZ());
+                        placement.anchor.x(), ground.y(), placement.anchor.z());
                     // Nat20PrefabPaster.paste validates markers synchronously and throws
                     // IllegalArgumentException if the prefab is missing a required anchor
                     // or direction marker. Catch here so one malformed piece doesn't
@@ -191,8 +191,8 @@ public final class SettlementPieceAssembler {
                         if (pasteErr != null) {
                             LOGGER.atSevere().withCause(pasteErr).log(
                                 "Piece paste failed at (%d, %d, %d) source=%s",
-                                groundedAnchor.getX(), groundedAnchor.getY(),
-                                groundedAnchor.getZ(), placement.source);
+                                groundedAnchor.x(), groundedAnchor.y(),
+                                groundedAnchor.z(), placement.source);
                             out.complete(null);
                             return;
                         }
@@ -259,7 +259,7 @@ public final class SettlementPieceAssembler {
         double dist = rng.nextDouble() * outerRadius;
         int dx = (int) Math.round(Math.cos(angle) * dist);
         int dz = (int) Math.round(Math.sin(angle) * dist);
-        return new Vector3i(center.getX() + dx, center.getY(), center.getZ() + dz);
+        return new Vector3i(center.x() + dx, center.y(), center.z() + dz);
     }
 
     /**
@@ -276,8 +276,8 @@ public final class SettlementPieceAssembler {
         int minZ = Integer.MAX_VALUE, maxZ = Integer.MIN_VALUE;
         for (int k = 0; k < 4; k++) {
             int[] r = rotateXZ(cornersX[k], cornersZ[k], yaw);
-            int wx = anchor.getX() + r[0];
-            int wz = anchor.getZ() + r[1];
+            int wx = anchor.x() + r[0];
+            int wz = anchor.z() + r[1];
             minX = Math.min(minX, wx); maxX = Math.max(maxX, wx);
             minZ = Math.min(minZ, wz); maxZ = Math.max(maxZ, wz);
         }

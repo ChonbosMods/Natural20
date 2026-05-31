@@ -12,7 +12,7 @@ import com.chonbosmods.quest.poi.POIGroupSpawnCoordinator;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -85,8 +85,8 @@ public class POIProximitySystem {
 
             TransformComponent transform = store.getComponent(entityRef, TransformComponent.getComponentType());
             if (transform == null) continue;
-            double px = transform.getPosition().getX();
-            double pz = transform.getPosition().getZ();
+            double px = transform.getPosition().x();
+            double pz = transform.getPosition().z();
 
             Map<String, QuestInstance> quests = questSystem.getStateManager().getActiveQuests(playerData);
             boolean dirty = false;
@@ -101,8 +101,8 @@ public class POIProximitySystem {
                 // center (underground) while poi_x/y/z is the surface entrance.
                 Vector3d anchor = resolvePoiAnchor(quest.getVariableBindings(), currentObj);
 
-                double dx = px - anchor.getX();
-                double dz = pz - anchor.getZ();
+                double dx = px - anchor.x();
+                double dz = pz - anchor.z();
                 double distSq = dx * dx + dz * dz;
                 if (distSq > SPAWN_RADIUS_SQ) continue;
 
@@ -149,8 +149,8 @@ public class POIProximitySystem {
         // chunk may still be loading when the proximity tick fires. Spawning into an
         // unloaded chunk reports success but the entities get clobbered when the chunk
         // later loads from disk. Defer until the chunk is ready; the next tick will retry.
-        int anchorChunkX = (int) Math.floor(anchor.getX() / 32.0);
-        int anchorChunkZ = (int) Math.floor(anchor.getZ() / 32.0);
+        int anchorChunkX = (int) Math.floor(anchor.x() / 32.0);
+        int anchorChunkZ = (int) Math.floor(anchor.z() / 32.0);
         long anchorChunkKey = ((long) anchorChunkX << 32) | (anchorChunkZ & 0xFFFFFFFFL);
         if (world.getChunkIfLoaded(anchorChunkKey) == null) {
             return false;
@@ -189,7 +189,7 @@ public class POIProximitySystem {
 
         LOGGER.atInfo().log("First-spawn trigger: quest=%s objective=%s anchor=(%d,%d,%d) mobRole=%s",
                 quest.getQuestId(), objective.getType(),
-                (int) spawnAnchor.getX(), (int) spawnAnchor.getY(), (int) spawnAnchor.getZ(), mobRole);
+                (int) spawnAnchor.x(), (int) spawnAnchor.y(), (int) spawnAnchor.z(), mobRole);
 
         coordinator.firstSpawn(world, spawnAnchor, mobRole, playerUuid,
                 quest.getQuestId(), poiSlotIdx, quest, objective, playerData);
@@ -240,19 +240,19 @@ public class POIProximitySystem {
                 } catch (NumberFormatException e) {
                     LOGGER.atWarning().log("Malformed poi_chest_positions '%s' for quest %s; using entrance anchor",
                             chestPositions, quest.getQuestId());
-                    ax = (int) anchor.getX();
-                    ay = (int) anchor.getY();
-                    az = (int) anchor.getZ();
+                    ax = (int) anchor.x();
+                    ay = (int) anchor.y();
+                    az = (int) anchor.z();
                 }
             } else {
-                ax = (int) anchor.getX();
-                ay = (int) anchor.getY();
-                az = (int) anchor.getZ();
+                ax = (int) anchor.x();
+                ay = (int) anchor.y();
+                az = (int) anchor.z();
             }
         } else {
-            ax = (int) anchor.getX();
-            ay = (int) anchor.getY();
-            az = (int) anchor.getZ();
+            ax = (int) anchor.x();
+            ay = (int) anchor.y();
+            az = (int) anchor.z();
         }
 
         boolean placed = QuestChestPlacer.placeQuestChest(world, ax, ay, az,

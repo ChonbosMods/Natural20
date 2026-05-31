@@ -21,7 +21,7 @@ import com.chonbosmods.world.Nat20BiomeLookup;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.protocol.BlockMaterial;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
@@ -120,7 +120,7 @@ public final class AmbientSpawnSystem {
             if (transform == null) continue;
             Vector3d pos = transform.getPosition();
             if (pos == null) continue;
-            out.add(new PlayerXZ(pos.getX(), pos.getZ()));
+            out.add(new PlayerXZ(pos.x(), pos.z()));
         }
         return out;
     }
@@ -191,15 +191,15 @@ public final class AmbientSpawnSystem {
             Vector3d pos = transform.getPosition();
             if (pos == null) continue;
 
-            double px = pos.getX();
-            double pz = pos.getZ();
+            double px = pos.x();
+            double pz = pos.z();
             double dx = px - cx;
             double dz = pz - cz;
             if (dx * dx + dz * dz > maxDSq) continue;
 
             if (!cooldowns.canRoll(playerUuid, now)) continue;
 
-            if (trySpawnForPlayer(world, playerUuid, new Vector3d(px, pos.getY(), pz), now)) {
+            if (trySpawnForPlayer(world, playerUuid, new Vector3d(px, pos.y(), pz), now)) {
                 return; // At most one ambient spawn per chunk-load event.
             }
         }
@@ -221,7 +221,7 @@ public final class AmbientSpawnSystem {
         Vector3d anchor = anchorOpt.get();
 
         Nat20BiomeLookup.ZoneAndBiome zb =
-            Nat20BiomeLookup.getZoneAndBiome(world, anchor.getX(), anchor.getZ());
+            Nat20BiomeLookup.getZoneAndBiome(world, anchor.x(), anchor.z());
         Nat20MobThemeRegistry themes = Natural20.getInstance().getMobThemeRegistry();
         String mobRole = themes.pickMob(zb.zone(), zb.biome(), rng);
         if (mobRole == null) {
@@ -247,7 +247,7 @@ public final class AmbientSpawnSystem {
 
         Random rng = ThreadLocalRandom.current();
 
-        double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+        double anchorDist = Math.sqrt(anchor.x() * anchor.x() + anchor.z() * anchor.z());
         int anchorAreaLevel = scalingCfg.areaLevelForDistance(anchorDist);
         int championCount = scalingCfg.championCountFor(anchorAreaLevel, rng);
 
@@ -263,8 +263,8 @@ public final class AmbientSpawnSystem {
         List<RolledAffix> sharedChampionAffixes = affixMgr.rollAffixes(Tier.CHAMPION, championDiff);
         List<RolledAffix> bossAffixes = affixMgr.rollAffixes(Tier.BOSS, bossDiff);
 
-        int anchorChunkX = (int) Math.floor(anchor.getX() / 32.0);
-        int anchorChunkZ = (int) Math.floor(anchor.getZ() / 32.0);
+        int anchorChunkX = (int) Math.floor(anchor.x() / 32.0);
+        int anchorChunkZ = (int) Math.floor(anchor.z() / 32.0);
         long generationId = now;
         long worldSeed = world.getWorldConfig().getSeed();
         String groupKey = "ambient:" + worldSeed + ":" + anchorChunkX + ":" + anchorChunkZ
@@ -280,7 +280,7 @@ public final class AmbientSpawnSystem {
         record.setQuestId(null);
         record.setPoiSlotIdx(-1);
         record.setMobRole(mobRole);
-        record.setAnchor(anchor.getX(), anchor.getY(), anchor.getZ());
+        record.setAnchor(anchor.x(), anchor.y(), anchor.z());
         record.setSpawnGenerationId(generationId);
         record.setGroupDifficulty(groupDiff);
         record.setBossDifficulty(bossDiff);
@@ -321,7 +321,7 @@ public final class AmbientSpawnSystem {
         LOGGER.atInfo().log(
                 "AmbientSpawn role=%s groupDiff=%s bossDiff=%s champions=%d anchor=(%d,%d,%d) player=%s",
                 mobRole, groupDiff, bossDiff, championCount,
-                (int) anchor.getX(), (int) anchor.getY(), (int) anchor.getZ(), playerUuid);
+                (int) anchor.x(), (int) anchor.y(), (int) anchor.z(), playerUuid);
     }
 
     /**

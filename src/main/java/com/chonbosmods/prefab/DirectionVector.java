@@ -1,6 +1,6 @@
 package com.chonbosmods.prefab;
 
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3i;
 
 /**
  * Utilities for the anchor+direction marker pair. A prefab's horizontal facing

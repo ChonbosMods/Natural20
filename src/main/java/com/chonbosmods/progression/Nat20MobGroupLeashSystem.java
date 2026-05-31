@@ -12,7 +12,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -136,9 +136,9 @@ public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
         Vector3d bossPos = bossT.getPosition();
         if (champPos == null || bossPos == null) return;
 
-        double dx = bossPos.getX() - champPos.getX();
-        double dy = bossPos.getY() - champPos.getY();
-        double dz = bossPos.getZ() - champPos.getZ();
+        double dx = bossPos.x() - champPos.x();
+        double dy = bossPos.y() - champPos.y();
+        double dz = bossPos.z() - champPos.z();
         double distSq = dx * dx + dy * dy + dz * dz;
 
         if (distSq <= TELEPORT_RADIUS_SQ) {
@@ -173,7 +173,7 @@ public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
         LOGGER.atFine().log(
                 "Leash teleport: group=%s slot=%d distSq=%.0f to (%.1f,%.1f,%.1f)",
                 member.getGroupKey(), member.getSlotIndex(), distSq,
-                target.getX(), target.getY(), target.getZ());
+                target.x(), target.y(), target.z());
     }
 
     private boolean anyPlayerNearby(Vector3d champPos, Store<EntityStore> store) {
@@ -196,6 +196,6 @@ public class Nat20MobGroupLeashSystem extends EntityTickingSystem<EntityStore> {
     private Vector3d scatterAround(Vector3d center, double radius) {
         double dx = (rng.nextDouble() - 0.5) * 2 * radius;
         double dz = (rng.nextDouble() - 0.5) * 2 * radius;
-        return new Vector3d(center.getX() + dx, center.getY(), center.getZ() + dz);
+        return new Vector3d(center.x() + dx, center.y(), center.z() + dz);
     }
 }

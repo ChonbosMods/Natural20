@@ -4,8 +4,8 @@ import com.chonbosmods.dialogue.DialogueManager;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.corecomponents.ActionBase;
@@ -55,15 +55,15 @@ public class ActionNat20StartDialogue extends ActionBase {
             if (npcTransform != null && playerTransform != null) {
                 Vector3d npcPos = npcTransform.getPosition();
                 Vector3d playerPos = playerTransform.getPosition();
-                double dx = playerPos.getX() - npcPos.getX();
-                double dz = playerPos.getZ() - npcPos.getZ();
-                Vector3f currentRotation = npcTransform.getRotation();
+                double dx = playerPos.x() - npcPos.x();
+                double dz = playerPos.z() - npcPos.z();
+                Rotation3f currentRotation = npcTransform.getRotation();
                 float newYaw = NPCPhysicsMath.headingFromDirection(
-                        dx, dz, currentRotation.getYaw());
-                // Vector3f rotation order: (pitch, yaw, roll) == (x, y, z).
+                        dx, dz, currentRotation.yaw());
+                // Rotation3f order: (pitch, yaw, roll) == (x, y, z).
                 // Preserve pitch and roll, only update yaw.
-                npcTransform.teleportRotation(new Vector3f(
-                        currentRotation.getPitch(), newYaw, currentRotation.getRoll()));
+                npcTransform.teleportRotation(new Rotation3f(
+                        currentRotation.pitch(), newYaw, currentRotation.roll()));
             }
         } catch (Exception e) {
             LOGGER.atWarning().withCause(e)

@@ -57,8 +57,8 @@ public class Nat20MobScaleSystem extends RefSystem<EntityStore> {
 
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) return;
-        double x = transform.getPosition().getX();
-        double z = transform.getPosition().getZ();
+        double x = transform.getPosition().x();
+        double z = transform.getPosition().z();
         double distance = Math.sqrt(x * x + z * z);
         int areaLevel = config.areaLevelForDistance(distance);
 

@@ -6,7 +6,7 @@ import com.chonbosmods.party.Nat20PendingBannerStore;
 import com.chonbosmods.quest.party.Nat20PartyQuestStore;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -97,7 +97,7 @@ public final class Nat20QuestProximityGate {
         if (tx == null) return Collections.emptySet();
         Vector3d pos = tx.getPosition();
         if (pos == null) return Collections.emptySet();
-        double[] anchor = new double[]{pos.getX(), pos.getY(), pos.getZ()};
+        double[] anchor = new double[]{pos.x(), pos.y(), pos.z()};
         return check(quest, triggeringPlayer, anchor, world, plugin);
     }
 
@@ -117,7 +117,7 @@ public final class Nat20QuestProximityGate {
         if (tx == null) return Optional.empty();
         Vector3d pos = tx.getPosition();
         if (pos == null) return Optional.empty();
-        return Optional.of(new double[]{pos.getX(), pos.getY(), pos.getZ()});
+        return Optional.of(new double[]{pos.x(), pos.y(), pos.z()});
     }
 
     /**

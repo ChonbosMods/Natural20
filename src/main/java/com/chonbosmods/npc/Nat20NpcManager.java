@@ -1,13 +1,14 @@
 package com.chonbosmods.npc;
 
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.chonbosmods.marker.QuestMarkerManager;
 import com.chonbosmods.settlement.NpcRecord;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
@@ -71,7 +72,7 @@ public class Nat20NpcManager {
         }
 
         // Random yaw rotation so NPCs don't all face the same direction.
-        Vector3f rotation = new Vector3f(0, (float) (ThreadLocalRandom.current().nextDouble() * 360.0), 0);
+        Rotation3f rotation = new Rotation3f(0, (float) (ThreadLocalRandom.current().nextDouble() * 360.0), 0);
 
         // Generate name deterministically from settlement + NPC index + world-unique salt
         int npcIndex = npcIndexByCell
@@ -92,7 +93,7 @@ public class Nat20NpcManager {
 
         if (result == null) {
             LOGGER.atWarning().log("[Nat20] Failed to spawn " + roleName + " at " +
-                (int) worldPos.getX() + ", " + (int) worldPos.getY() + ", " + (int) worldPos.getZ());
+                (int) worldPos.x() + ", " + (int) worldPos.y() + ", " + (int) worldPos.z());
             return null;
         }
 
@@ -101,8 +102,8 @@ public class Nat20NpcManager {
 
         NpcRecord npcRecord = new NpcRecord(
             roleName, npcEntity.getUuid(),
-            worldPos.getX(), worldPos.getY(), worldPos.getZ(),
-            rotation.getX(), rotation.getY(), rotation.getZ(),
+            worldPos.x(), worldPos.y(), worldPos.z(),
+            rotation.x(), rotation.y(), rotation.z(),
             role.leashRadius(), name);
         int dispMin = Math.max(0, role.dispositionMin());
         int dispMax = Math.min(100, role.dispositionMax());
@@ -114,7 +115,7 @@ public class Nat20NpcManager {
         applyNpcComponents(store, npcRef, npcEntity, npcRecord, cellKey, false, world);
 
         LOGGER.atFine().log("[Nat20] Spawned " + formatDisplayName(name, roleName) + " at " +
-            (int) worldPos.getX() + ", " + (int) worldPos.getY() + ", " + (int) worldPos.getZ());
+            (int) worldPos.x() + ", " + (int) worldPos.y() + ", " + (int) worldPos.z());
 
         return npcRecord;
     }
@@ -146,7 +147,7 @@ public class Nat20NpcManager {
         }
 
         Vector3d spawnPos = new Vector3d(record.getSpawnX(), record.getSpawnY(), record.getSpawnZ());
-        Vector3f rotation = new Vector3f(record.getRotX(), record.getRotY(), record.getRotZ());
+        Rotation3f rotation = new Rotation3f(record.getRotX(), record.getRotY(), record.getRotZ());
 
         // Create model from unmodified skin: engine serialization breaks
         // on modified skins (beard/hair changes cause scale=0 on chunk reload)

@@ -5,7 +5,7 @@ import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
@@ -44,14 +44,14 @@ public class SettlementsCommand extends AbstractPlayerCommand {
 
         all.values().stream()
             .sorted(Comparator.comparingDouble(r -> {
-                double dx = r.getPosX() - playerPos.getX();
-                double dz = r.getPosZ() - playerPos.getZ();
+                double dx = r.getPosX() - playerPos.x();
+                double dz = r.getPosZ() - playerPos.z();
                 return dx * dx + dz * dz;
             }))
             .limit(10)
             .forEach(r -> {
-                double dx = r.getPosX() - playerPos.getX();
-                double dz = r.getPosZ() - playerPos.getZ();
+                double dx = r.getPosX() - playerPos.x();
+                double dz = r.getPosZ() - playerPos.z();
                 int dist = (int) Math.sqrt(dx * dx + dz * dz);
 
                 // Use NPC Y if settlement Y is 0 (legacy records)

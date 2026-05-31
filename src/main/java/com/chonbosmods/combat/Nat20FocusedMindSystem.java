@@ -84,9 +84,9 @@ public class Nat20FocusedMindSystem extends EntityTickingSystem<EntityStore> {
         TransformComponent transform = store.getComponent(ref, TransformComponent.getComponentType());
         if (transform == null) return;
 
-        double x = transform.getPosition().getX();
-        double y = transform.getPosition().getY();
-        double z = transform.getPosition().getZ();
+        double x = transform.getPosition().x();
+        double y = transform.getPosition().y();
+        double z = transform.getPosition().z();
 
         EntityStatMap statMap = store.getComponent(ref, EntityStatMap.getComponentType());
         if (statMap == null) return;

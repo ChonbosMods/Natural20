@@ -18,7 +18,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.inventory.InventoryComponent;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
@@ -141,15 +141,15 @@ public class Nat20BackstabSystem extends DamageEventSystem {
         Vector3d targetPos = targetTransform.getPosition();
 
         // Direction from target to attacker (XZ plane)
-        double dx = attackerPos.getX() - targetPos.getX();
-        double dz = attackerPos.getZ() - targetPos.getZ();
+        double dx = attackerPos.x() - targetPos.x();
+        double dz = attackerPos.z() - targetPos.z();
         double dist = Math.sqrt(dx * dx + dz * dz);
         if (dist < 0.01) return false;
         double toAttackerX = dx / dist;
         double toAttackerZ = dz / dist;
 
         // Target's facing direction from yaw (radians)
-        float yaw = targetTransform.getRotation().getYaw();
+        float yaw = targetTransform.getRotation().yaw();
         double facingX = -Math.sin(Math.toRadians(yaw));
         double facingZ = Math.cos(Math.toRadians(yaw));
 

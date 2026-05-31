@@ -13,6 +13,13 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+// ScaffoldIt's plugin still pins devtools 0.2.14, whose manifest requires a date-string
+// Universe version (>=2026.02.18) and so refuses to load under U5's SemVer (0.5.3). Force
+// devtools 0.2.16, which declares its dependency as Hytale:Universe >= 0.5.2.
+configurations.configureEach {
+    resolutionStrategy.force("dev.scaffoldit:devtools:0.2.16")
+}
+
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
     // HytaleLogger refuses to initialize unless java.util.logging uses its custom

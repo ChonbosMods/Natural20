@@ -27,8 +27,8 @@ import com.hypixel.hytale.component.Ref;
 import com.google.common.flogger.FluentLogger;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.chonbosmods.prefab.PlacedMarkers;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -262,7 +262,7 @@ public class DialogueActionRegistry {
             com.hypixel.hytale.server.core.universe.world.World world =
                 Natural20.getInstance().getDefaultWorld();
             if (world != null && acceptingParty.getMembers().size() > 1) {
-                String accepterName = ctx.player().getDisplayName();
+                String accepterName = ctx.player().getPlayerRef().getUsername();
                 for (java.util.UUID peerUuid : acceptingParty.getMembers()) {
                     if (peerUuid.equals(accepterUuid)) continue;
                     if (!partyRegistry.isOnline(peerUuid)) continue;
@@ -514,7 +514,7 @@ public class DialogueActionRegistry {
                     Natural20.getInstance().getDefaultWorld();
                 if (advanceWorld != null && quest.getAccepters().size() > 1) {
                     java.util.UUID triggerUuid = ctx.player().getPlayerRef().getUuid();
-                    String accepterName = ctx.player().getDisplayName();
+                    String accepterName = ctx.player().getPlayerRef().getUsername();
                     String bannerLabel = summary;
                     Nat20PartyRegistry partyRegistry = Natural20.getInstance().getPartyRegistry();
                     for (java.util.UUID peerUuid : quest.getAccepters()) {

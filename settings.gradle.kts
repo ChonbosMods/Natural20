@@ -2,13 +2,15 @@ rootProject.name = "Natural20"
 
 plugins {
     // See documentation on https://scaffoldit.dev
-    id("dev.scaffoldit") version "0.2.+"
+    // 0.2.16+ declares its devtools dependency on Hytale:Universe with SemVer
+    // (>=0.5.2); 0.2.14 used the old date-string and won't load under U5.
+    id("dev.scaffoldit") version "0.2.16"
 }
 
 hytale {
     usePatchline("release")
-    // Update 4 (2026-03-26). Devtools 0.2.14 may emit version mismatch warnings.
-    useVersion("2026.03.26-89796e57b")
+    // Update 5 stable. SDK switched to SemVer; 0.5.3 is the U5 hotfix line (2026-05-29).
+    useVersion("0.5.3")
 
     repositories {
     }

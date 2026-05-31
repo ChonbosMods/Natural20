@@ -1,5 +1,6 @@
 package com.chonbosmods.progression;
 
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.loot.RolledAffix;
 import com.chonbosmods.loot.mob.Nat20MobAffixManager;
@@ -10,8 +11,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.RemoveReason;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -121,7 +122,7 @@ public class Nat20MobGroupSpawner {
     @Nullable
     private Ref<EntityStore> spawnOne(World world, int roleIndex, Vector3d pos) {
         Store<EntityStore> store = world.getEntityStore().getStore();
-        Vector3f rotation = new Vector3f(0, (float) (rng.nextDouble() * 360), 0);
+        Rotation3f rotation = new Rotation3f(0, (float) (rng.nextDouble() * 360), 0);
         Pair<Ref<EntityStore>, NPCEntity> result =
                 NPCPlugin.get().spawnEntity(store, roleIndex, pos, rotation, null, null);
         return (result != null) ? result.first() : null;
@@ -153,7 +154,7 @@ public class Nat20MobGroupSpawner {
     private Vector3d spreadAround(Vector3d anchor, double radius) {
         double dx = (rng.nextDouble() - 0.5) * radius * 2;
         double dz = (rng.nextDouble() - 0.5) * radius * 2;
-        return new Vector3d(anchor.getX() + dx, anchor.getY(), anchor.getZ() + dz);
+        return new Vector3d(anchor.x() + dx, anchor.y(), anchor.z() + dz);
     }
 
     // ── Record-driven spawn paths (persistent group registry + reconciliation) ────
@@ -230,7 +231,7 @@ public class Nat20MobGroupSpawner {
         Store<EntityStore> store = world.getEntityStore().getStore();
         Vector3d anchor = new Vector3d(record.getAnchorX(), record.getAnchorY(), record.getAnchorZ());
         Vector3d pos = spreadAround(anchor, slot.isBoss() ? 1.5 : 3.0);
-        Vector3f rotation = new Vector3f(0, (float) (rng.nextDouble() * 360), 0);
+        Rotation3f rotation = new Rotation3f(0, (float) (rng.nextDouble() * 360), 0);
 
         Pair<Ref<EntityStore>, NPCEntity> result =
                 NPCPlugin.get().spawnEntity(store, roleIndex, pos, rotation, null, null);

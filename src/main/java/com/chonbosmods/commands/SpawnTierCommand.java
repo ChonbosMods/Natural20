@@ -5,7 +5,7 @@ import com.chonbosmods.progression.DifficultyTier;
 import com.chonbosmods.progression.Nat20MobGroupSpawner;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
@@ -72,14 +72,14 @@ public class SpawnTierCommand extends AbstractPlayerCommand {
             return;
         }
         Vector3d pos = tf.getPosition();
-        Vector3d anchor = new Vector3d(pos.getX() + 4, pos.getY(), pos.getZ());
+        Vector3d anchor = new Vector3d(pos.x() + 4, pos.y(), pos.z());
 
         var config = Natural20.getInstance().getScalingConfig();
         int count;
         if (context.provided(countArg)) {
             count = countArg.get(context);
         } else {
-            double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+            double anchorDist = Math.sqrt(anchor.x() * anchor.x() + anchor.z() * anchor.z());
             int anchorAreaLevel = config.areaLevelForDistance(anchorDist);
             count = config.championCountFor(anchorAreaLevel, java.util.concurrent.ThreadLocalRandom.current());
         }

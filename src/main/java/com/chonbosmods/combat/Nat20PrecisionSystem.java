@@ -29,7 +29,7 @@ import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageEventSystem;
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageModule;
-import com.hypixel.hytale.server.core.modules.entitystats.modifier.StaticModifier;
+import com.hypixel.hytale.server.core.modules.entity.damage.ResistanceModifier;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nullable;
@@ -157,16 +157,16 @@ public class Nat20PrecisionSystem extends DamageEventSystem {
             ItemArmor armor = item.getArmor();
             if (armor == null) continue;
 
-            Map<DamageCause, StaticModifier[]> resistances = armor.getDamageResistanceValues();
+            Map<DamageCause, ResistanceModifier[]> resistances = armor.getDamageResistanceValues();
             if (resistances == null) continue;
 
-            StaticModifier[] mods = resistances.get(damageCause);
+            ResistanceModifier[] mods = resistances.get(damageCause);
             if (mods == null) continue;
 
             double flatResistance = armor.getBaseDamageResistance();
 
-            for (StaticModifier mod : mods) {
-                if (mod.getCalculationType() == StaticModifier.CalculationType.ADDITIVE) {
+            for (ResistanceModifier mod : mods) {
+                if (mod.getCalculationType() == ResistanceModifier.ResistanceCalculationType.FLAT) {
                     flatTotal += (int) mod.getAmount();
                 } else {
                     multTotal += mod.getAmount();

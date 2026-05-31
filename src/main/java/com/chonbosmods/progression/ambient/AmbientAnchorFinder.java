@@ -4,7 +4,7 @@ import com.chonbosmods.cave.CaveVoidRegistry;
 import com.chonbosmods.quest.poi.MobGroupRecord;
 import com.chonbosmods.quest.poi.Nat20MobGroupRegistry;
 import com.chonbosmods.settlement.SettlementRegistry;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 
 import java.util.Optional;
 import java.util.Random;
@@ -55,8 +55,8 @@ public final class AmbientAnchorFinder {
             double bearing = rng.nextDouble() * 2.0 * Math.PI;
             int distBand = cfg.maxDistanceFromPlayer() - cfg.minDistanceFromPlayer();
             double dist = cfg.minDistanceFromPlayer() + rng.nextDouble() * distBand;
-            int x = (int) Math.round(playerPos.getX() + Math.cos(bearing) * dist);
-            int z = (int) Math.round(playerPos.getZ() + Math.sin(bearing) * dist);
+            int x = (int) Math.round(playerPos.x() + Math.cos(bearing) * dist);
+            int z = (int) Math.round(playerPos.z() + Math.sin(bearing) * dist);
 
             // Rule 1
             int y = surface.findSurfaceY(x, z);

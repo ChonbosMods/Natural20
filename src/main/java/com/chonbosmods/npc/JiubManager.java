@@ -1,5 +1,6 @@
 package com.chonbosmods.npc;
 
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.chonbosmods.Natural20;
 import com.chonbosmods.data.Nat20NpcData;
 import com.google.gson.Gson;
@@ -8,8 +9,8 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import com.hypixel.hytale.server.core.cosmetics.CosmeticsModule;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.modules.entity.player.PlayerSkinComponent;
@@ -144,11 +145,11 @@ public final class JiubManager {
 
         Vector3d basePos = spawnTransform.getPosition();
         Vector3d spawnPos = new Vector3d(
-            basePos.getX() + OFFSET_X,
-            basePos.getY() + OFFSET_Y,
-            basePos.getZ() + OFFSET_Z
+            basePos.x() + OFFSET_X,
+            basePos.y() + OFFSET_Y,
+            basePos.z() + OFFSET_Z
         );
-        Vector3f rotation = new Vector3f(0f, FACING_SOUTH_YAW, 0f);
+        Rotation3f rotation = new Rotation3f(0f, FACING_SOUTH_YAW, 0f);
 
         // Build the Model from a deterministic random "base" skin so the entity
         // geometry has full part coverage (no gaps if our customised Jiub skin
@@ -207,7 +208,7 @@ public final class JiubManager {
 
         LOGGER.atInfo().log(
             "Spawned Jiub at (%.1f, %.1f, %.1f) yaw=%.0f uuid=%s",
-            spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(),
+            spawnPos.x(), spawnPos.y(), spawnPos.z(),
             FACING_SOUTH_YAW, jiubUuid);
         return jiubRef;
     }

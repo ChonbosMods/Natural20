@@ -17,7 +17,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage;
@@ -125,7 +125,7 @@ public class Nat20LifeLeechSystem extends DamageEventSystem {
                     Vector3d pos = transform.getPosition();
                     try {
                         ParticleUtil.spawnParticleEffect(PARTICLE,
-                                new Vector3d(pos.getX(), pos.getY() + TORSO_OFFSET_Y, pos.getZ()), store);
+                                new Vector3d(pos.x(), pos.y() + TORSO_OFFSET_Y, pos.z()), store);
                     } catch (Exception e) {
                         LOGGER.atSevere().withCause(e).log("[LifeLeech] particle failed");
                     }

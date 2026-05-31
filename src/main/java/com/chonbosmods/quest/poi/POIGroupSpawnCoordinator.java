@@ -16,7 +16,7 @@ import com.chonbosmods.party.Nat20PartyMlvlScaler;
 import com.chonbosmods.quest.QuestInstance;
 import com.chonbosmods.waypoint.QuestMarkerProvider;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.universe.world.World;
 
 import java.util.ArrayList;
@@ -84,7 +84,7 @@ public class POIGroupSpawnCoordinator {
         //    group/boss difficulty may be pre-rolled at quest generation for KILL_BOSS
         //    objectives; in that case reuse the pre-rolled values verbatim so
         //    {boss_name} (already bound and shown in exposition) matches the actual spawn.
-        double anchorDist = Math.sqrt(anchor.getX() * anchor.getX() + anchor.getZ() * anchor.getZ());
+        double anchorDist = Math.sqrt(anchor.x() * anchor.x() + anchor.z() * anchor.z());
         int anchorAreaLevel = config.areaLevelForDistance(anchorDist);
         int championCount = config.championCountFor(anchorAreaLevel, ThreadLocalRandom.current());
 
@@ -138,7 +138,7 @@ public class POIGroupSpawnCoordinator {
         record.setQuestId(questId);
         record.setPoiSlotIdx(poiSlotIdx);
         record.setMobRole(mobRole);
-        record.setAnchor(anchor.getX(), anchor.getY(), anchor.getZ());
+        record.setAnchor(anchor.x(), anchor.y(), anchor.z());
         record.setSpawnGenerationId(System.currentTimeMillis());
         record.setGroupDifficulty(groupDiff);
         record.setBossDifficulty(bossDiff);

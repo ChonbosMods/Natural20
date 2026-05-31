@@ -3,8 +3,8 @@ package com.chonbosmods.prefab;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabRotation;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
@@ -89,17 +89,17 @@ public final class Nat20PrefabPaster {
         PrefabRotation rot = PrefabRotation.fromRotation(yaw);
         Vector3i rotatedAnchor = rotateInt(rot, scan.anchorLocal());
         Vector3i translation = new Vector3i(
-                desiredAnchorWorld.getX() - rotatedAnchor.getX(),
-                desiredAnchorWorld.getY() - rotatedAnchor.getY(),
-                desiredAnchorWorld.getZ() - rotatedAnchor.getZ());
+                desiredAnchorWorld.x() - rotatedAnchor.x(),
+                desiredAnchorWorld.y() - rotatedAnchor.y(),
+                desiredAnchorWorld.z() - rotatedAnchor.z());
 
         // 3. Pre-load every chunk the rotated footprint touches, as non-ticking.
         //    IPrefabBuffer exposes rotation-aware min/max accessors, so we don't
         //    need to rotate corners ourselves.
-        int minX = buffer.getMinX(rot) + translation.getX();
-        int maxX = buffer.getMaxX(rot) + translation.getX();
-        int minZ = buffer.getMinZ(rot) + translation.getZ();
-        int maxZ = buffer.getMaxZ(rot) + translation.getZ();
+        int minX = buffer.getMinX(rot) + translation.x();
+        int maxX = buffer.getMaxX(rot) + translation.x();
+        int minZ = buffer.getMinZ(rot) + translation.z();
+        int maxZ = buffer.getMaxZ(rot) + translation.z();
         int minCX = ChunkUtil.chunkCoordinate(minX);
         int maxCX = ChunkUtil.chunkCoordinate(maxX);
         int minCZ = ChunkUtil.chunkCoordinate(minZ);
@@ -125,7 +125,7 @@ public final class Nat20PrefabPaster {
                     if (error != null) {
                         LOGGER.atSevere().withCause(error).log(
                                 "Chunk preload failed for Nat20 prefab paste at (%d, %d, %d); aborting",
-                                desiredAnchorWorld.getX(), desiredAnchorWorld.getY(), desiredAnchorWorld.getZ());
+                                desiredAnchorWorld.x(), desiredAnchorWorld.y(), desiredAnchorWorld.z());
                         result.complete(null);
                         return;
                     }
@@ -135,13 +135,13 @@ public final class Nat20PrefabPaster {
                             PrefabUtil.paste(filtered, world, translation, yaw, true, random, 0, store);
                             LOGGER.atFine().log(
                                     "Nat20 prefab pasted: translation=(%d,%d,%d) rot=%s anchorWorld=(%d,%d,%d)",
-                                    translation.getX(), translation.getY(), translation.getZ(), yaw,
-                                    desiredAnchorWorld.getX(), desiredAnchorWorld.getY(), desiredAnchorWorld.getZ());
+                                    translation.x(), translation.y(), translation.z(), yaw,
+                                    desiredAnchorWorld.x(), desiredAnchorWorld.y(), desiredAnchorWorld.z());
                             result.complete(buildPlacedMarkers(scan, rot, translation));
                         } catch (Exception e) {
                             LOGGER.atSevere().withCause(e).log(
                                     "Nat20 prefab paste failed at (%d, %d, %d)",
-                                    desiredAnchorWorld.getX(), desiredAnchorWorld.getY(), desiredAnchorWorld.getZ());
+                                    desiredAnchorWorld.x(), desiredAnchorWorld.y(), desiredAnchorWorld.z());
                             result.complete(null);
                         }
                     });
@@ -159,9 +159,9 @@ public final class Nat20PrefabPaster {
     private static PlacedMarkers buildPlacedMarkers(MarkerScan scan, PrefabRotation rot, Vector3i t) {
         Vector3i anchorRot = rotateInt(rot, scan.anchorLocal());
         Vector3i anchorWorld = new Vector3i(
-                anchorRot.getX() + t.getX(),
-                anchorRot.getY() + t.getY(),
-                anchorRot.getZ() + t.getZ());
+                anchorRot.x() + t.x(),
+                anchorRot.y() + t.y(),
+                anchorRot.z() + t.z());
         Vector3i directionWorld = rotateInt(rot, scan.directionVector());
         return new PlacedMarkers(
                 anchorWorld,
@@ -177,9 +177,9 @@ public final class Nat20PrefabPaster {
         for (Vector3i v : locals) {
             Vector3i r = rotateInt(rot, v);
             out.add(new Vector3d(
-                    r.getX() + t.getX() + 0.5,
-                    r.getY() + t.getY() + 0.5,
-                    r.getZ() + t.getZ() + 0.5));
+                    r.x() + t.x() + 0.5,
+                    r.y() + t.y() + 0.5,
+                    r.z() + t.z() + 0.5));
         }
         return out;
     }
@@ -191,12 +191,12 @@ public final class Nat20PrefabPaster {
      * positions, keeping marker placement consistent with block placement.
      */
     private static Vector3i rotateInt(PrefabRotation rot, Vector3i v) {
-        Vector3d tmp = new Vector3d(v.getX(), v.getY(), v.getZ());
+        Vector3d tmp = new Vector3d(v.x(), v.y(), v.z());
         rot.rotate(tmp);
         return new Vector3i(
-                (int) Math.round(tmp.getX()),
-                (int) Math.round(tmp.getY()),
-                (int) Math.round(tmp.getZ()));
+                (int) Math.round(tmp.x()),
+                (int) Math.round(tmp.y()),
+                (int) Math.round(tmp.z()));
     }
 
     private static void deferTicks(World world, int ticks, Runnable action) {

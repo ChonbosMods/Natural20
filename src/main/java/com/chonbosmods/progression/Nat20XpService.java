@@ -35,14 +35,14 @@ public final class Nat20XpService {
         int levelDelta = data.addXp(amount);
 
         // Transient text feedback (replace with floaty numbers in a later sprint).
-        player.sendMessage(Message.raw("+" + amount + " XP"));
+        player.getPlayerRef().sendMessage(Message.raw("+" + amount + " XP"));
 
         LOGGER.atInfo().log("+%d XP (%s) -> total=%d lvl=%d (+%d)",
                 amount, reason, data.getTotalXp(), data.getLevel(), levelDelta);
 
         if (levelDelta > 0) {
             hpSystem.updatePlayerMaxHp(playerRef, store);
-            LevelUpBanner.show(player.getPlayerRef(), player.getDisplayName(), data.getLevel());
+            LevelUpBanner.show(player.getPlayerRef(), player.getPlayerRef().getUsername(), data.getLevel());
             // Re-render the Character Sheet if open (Task 20). Fires once per
             // level cross, not per XP grant, because addXp returned a positive
             // delta. Same world-thread context as the rest of award().

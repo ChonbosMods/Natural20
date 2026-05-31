@@ -1,6 +1,6 @@
 package com.chonbosmods.prefab;
 
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 
 /**
@@ -34,13 +34,13 @@ public final class YawAlignment {
 
     /** Cardinal indices: 0=+X, 1=+Z, 2=-X, 3=-Z. Counterclockwise ordering. */
     private static int axisIndex(Vector3i v) {
-        if (v.getY() != 0) {
+        if (v.y() != 0) {
             throw new IllegalArgumentException("Direction must be horizontal; got " + v);
         }
-        if (v.getX() ==  1 && v.getZ() ==  0) return 0;
-        if (v.getX() ==  0 && v.getZ() ==  1) return 1;
-        if (v.getX() == -1 && v.getZ() ==  0) return 2;
-        if (v.getX() ==  0 && v.getZ() == -1) return 3;
+        if (v.x() ==  1 && v.z() ==  0) return 0;
+        if (v.x() ==  0 && v.z() ==  1) return 1;
+        if (v.x() == -1 && v.z() ==  0) return 2;
+        if (v.x() ==  0 && v.z() == -1) return 3;
         throw new IllegalArgumentException("Not a cardinal horizontal unit vector: " + v);
     }
 }

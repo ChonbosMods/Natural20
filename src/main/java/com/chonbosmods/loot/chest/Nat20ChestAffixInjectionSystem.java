@@ -9,7 +9,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.EntityEventSystem;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3i;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.asset.type.item.config.Item;
 import com.hypixel.hytale.server.core.event.events.ecs.UseBlockEvent;
@@ -82,9 +82,9 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
 
         Vector3i pos = event.getTargetBlock();
         if (pos == null) return;
-        if (registry.hasBeenRolled(pos.getX(), pos.getY(), pos.getZ())) return;
+        if (registry.hasBeenRolled(pos.x(), pos.y(), pos.z())) return;
 
-        registry.markRolled(pos.getX(), pos.getY(), pos.getZ());
+        registry.markRolled(pos.x(), pos.y(), pos.z());
 
         World world = Natural20.getInstance().getDefaultWorld();
         if (world == null) return;
@@ -93,12 +93,12 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         // before the affix roll. Even if the primary roll fails below, the clamp has
         // already run for this chest and the registry is marked.
         Nat20ChestContainerWriter.clampNonStackableQuantities(
-                world, pos.getX(), pos.getY(), pos.getZ());
+                world, pos.x(), pos.y(), pos.z());
 
         Random rng = ThreadLocalRandom.current();
         if (!roller.rollPrimary(rng)) return;
 
-        double dist = Math.hypot(pos.getX(), pos.getZ());
+        double dist = Math.hypot(pos.x(), pos.z());
         int areaLevel = scalingConfig.areaLevelForDistance(dist);
 
         boolean anyInjected = injectOne(world, pos, areaLevel, rng, null, "primary");
@@ -141,10 +141,10 @@ public class Nat20ChestAffixInjectionSystem extends EntityEventSystem<EntityStor
         if (stack == null) return false;
 
         boolean injected = Nat20ChestContainerWriter.injectIntoFirstEmptySlot(
-                world, pos.getX(), pos.getY(), pos.getZ(), stack);
+                world, pos.x(), pos.y(), pos.z(), stack);
         if (injected) {
             LOGGER.atInfo().log("Chest inject (%s) at %d,%d,%d areaLevel=%d -> %s [%s]",
-                    tag, pos.getX(), pos.getY(), pos.getZ(), areaLevel,
+                    tag, pos.x(), pos.y(), pos.z(), areaLevel,
                     data.getGeneratedName(), data.getRarity());
         }
         return injected;

@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * method delegates straight through to the wrapped buffer.
  *
  * <p>This wrapper is read-only: it never writes back into the inner buffer.
- * Callers must still invoke {@link #release()} when done, which propagates to
- * the inner buffer.
+ * Every {@link IPrefabBuffer} method delegates straight through to the wrapped
+ * buffer.
  */
 public final class Nat20FilteredBuffer implements IPrefabBuffer {
 
@@ -183,8 +183,8 @@ public final class Nat20FilteredBuffer implements IPrefabBuffer {
     }
 
     @Override
-    public void release() {
-        inner.release();
+    public <T> void forEachEntity(@Nullable EntityConsumer<T> entityConsumer, @Nullable T call) {
+        inner.forEachEntity(entityConsumer, call);
     }
 
     @Override

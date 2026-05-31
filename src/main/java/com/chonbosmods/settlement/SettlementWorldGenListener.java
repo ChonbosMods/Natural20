@@ -7,8 +7,8 @@ import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.modules.entity.component.Invulnerable;
@@ -203,8 +203,8 @@ public class SettlementWorldGenListener {
                     // Capture every Nat20_Chest_Spawn marker so passive fetch quests can
                     // claim one and spawn the quest chest at the authored location instead
                     // of falling back to the settlement center.
-                    for (com.hypixel.hytale.math.vector.Vector3d c : placed.chestSpawnsWorld()) {
-                        record.addChestSpawn((int) c.getX(), (int) c.getY(), (int) c.getZ());
+                    for (org.joml.Vector3d c : placed.chestSpawnsWorld()) {
+                        record.addChestSpawn((int) c.x(), (int) c.y(), (int) c.z());
                     }
                     registry.saveAsync();
 
@@ -242,8 +242,8 @@ public class SettlementWorldGenListener {
         // Push the anchor offset toward the cell's interior so it can't straddle
         // a cell boundary. If the spawn is in the upper half of the cell, offset
         // negatively; otherwise positively.
-        int spawnX = (int) spawnPos.getX();
-        int spawnZ = (int) spawnPos.getZ();
+        int spawnX = (int) spawnPos.x();
+        int spawnZ = (int) spawnPos.z();
         int spawnCellX = Math.floorDiv(spawnX, CELL_SIZE);
         int spawnCellZ = Math.floorDiv(spawnZ, CELL_SIZE);
         int localX = spawnX - spawnCellX * CELL_SIZE;
@@ -277,7 +277,7 @@ public class SettlementWorldGenListener {
             AnchorChoice chosen = findFlattestAnchor(world, baseAnchorX, baseAnchorZ);
             int finalAnchorX = chosen.x;
             int finalAnchorZ = chosen.z;
-            int groundY = chosen.y > 0 ? chosen.y : Math.max(1, (int) spawnPos.getY() - 1);
+            int groundY = chosen.y > 0 ? chosen.y : Math.max(1, (int) spawnPos.y() - 1);
             Vector3i anchorPos = new Vector3i(finalAnchorX, groundY, finalAnchorZ);
 
             record.setPosY(groundY);
@@ -308,7 +308,7 @@ public class SettlementWorldGenListener {
                     renameFirstGuardToCelius(store, world, spawned);
 
                     for (Vector3d c : placed.chestSpawnsWorld()) {
-                        record.addChestSpawn((int) c.getX(), (int) c.getY(), (int) c.getZ());
+                        record.addChestSpawn((int) c.x(), (int) c.y(), (int) c.z());
                     }
                     registry.saveAsync();
 
@@ -548,12 +548,12 @@ public class SettlementWorldGenListener {
             Transform t = world.getWorldConfig().getSpawnProvider()
                 .getSpawnPoint(world, new UUID(0L, 0L));
             Vector3d p = t.getPosition();
-            int sx = Math.floorDiv((int) p.getX(), CELL_SIZE);
-            int sz = Math.floorDiv((int) p.getZ(), CELL_SIZE);
+            int sx = Math.floorDiv((int) p.x(), CELL_SIZE);
+            int sz = Math.floorDiv((int) p.z(), CELL_SIZE);
             String key = sx + "," + sz;
             cachedSpawnCellKey = key;
             LOGGER.atInfo().log("Spawn cell resolved to %s (world spawn at %.0f, %.0f, %.0f)",
-                key, p.getX(), p.getY(), p.getZ());
+                key, p.x(), p.y(), p.z());
             return key;
         } catch (Exception e) {
             LOGGER.atWarning().withCause(e).log(

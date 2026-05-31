@@ -7,7 +7,7 @@ import com.chonbosmods.quest.QuestSystem;
 import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.math.vector.Transform;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.Universe;
@@ -225,26 +225,26 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                     // Return marker: always visible on compass + map, no ring
                     collector.addIgnoreViewDistance(
                             new MapMarkerBuilder("nat20_return_" + entry.questId, RETURN_ICON,
-                                    new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                    new Transform(new Vector3d(entry.x, playerPos.y(), entry.z)))
                                     .withCustomName(entry.questName)
                                     .build());
                 } else if (entry.type == MarkerType.TARGET_NPC) {
                     // Target NPC marker: always visible on compass + map, no ring
                     collector.addIgnoreViewDistance(
                             new MapMarkerBuilder("nat20_target_" + entry.questId, TARGET_ICON,
-                                    new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                    new Transform(new Vector3d(entry.x, playerPos.y(), entry.z)))
                                     .withCustomName(entry.questName)
                                     .build());
                 } else {
                     // POI marker: center icon hides within radius, ring on map only
-                    double dx = playerPos.getX() - entry.x;
-                    double dz = playerPos.getZ() - entry.z;
+                    double dx = playerPos.x() - entry.x;
+                    double dz = playerPos.z() - entry.z;
                     boolean insideRadius = dx * dx + dz * dz <= HIDE_RADIUS_SQ;
 
                     if (!insideRadius) {
                         collector.addIgnoreViewDistance(
                                 new MapMarkerBuilder("nat20_quest_" + entry.questId, CENTER_ICON,
-                                        new Transform(new Vector3d(entry.x, playerPos.getY(), entry.z)))
+                                        new Transform(new Vector3d(entry.x, playerPos.y(), entry.z)))
                                         .withCustomName(entry.questName)
                                         .build());
                     }
@@ -256,7 +256,7 @@ public class QuestMarkerProvider implements WorldMapManager.MarkerProvider {
                             double rz = entry.z + HIDE_RADIUS * Math.sin(angle);
                             collector.addIgnoreViewDistance(
                                     new MapMarkerBuilder("nat20_ring_" + entry.questId + "_" + i, RING_ICON,
-                                            new Transform(new Vector3d(rx, playerPos.getY(), rz)))
+                                            new Transform(new Vector3d(rx, playerPos.y(), rz)))
                                             .withCustomName(".")
                                             .build());
                         }

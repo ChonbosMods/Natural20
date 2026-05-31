@@ -3,7 +3,7 @@ package com.chonbosmods.party;
 import com.chonbosmods.Natural20;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -76,7 +76,7 @@ public final class Nat20PartyMlvlScaler {
                 uuid -> {
                     Vector3d pos = resolvePosition(uuid, world, entityStore);
                     if (pos == null) return null;
-                    return pos.distanceTo(anchor);
+                    return pos.distance(anchor);
                 },
                 Nat20PartyTuning.NAT20_PARTY_PROXIMITY);
 

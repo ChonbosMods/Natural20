@@ -5,7 +5,7 @@ import com.chonbosmods.settlement.NpcRecord;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
 import com.hypixel.hytale.server.core.universe.world.ParticleUtil;
 import com.hypixel.hytale.server.core.universe.world.World;
@@ -132,7 +132,7 @@ public class QuestMarkerManager {
 
             Vector3d npcPos = transform.getPosition();
             Vector3d particlePos = new Vector3d(
-                npcPos.getX(), npcPos.getY() + MARKER_Y_OFFSET, npcPos.getZ());
+                npcPos.x(), npcPos.y() + MARKER_Y_OFFSET, npcPos.z());
 
             String particleId = state == QuestMarkerState.QUEST_AVAILABLE
                 ? PARTICLE_QUEST_AVAILABLE : PARTICLE_QUEST_TURN_IN;

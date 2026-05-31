@@ -6,7 +6,7 @@ import com.chonbosmods.settlement.SettlementRecord;
 import com.chonbosmods.settlement.SettlementRegistry;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
@@ -62,9 +62,9 @@ public class KillNpcCommand extends AbstractPlayerCommand {
                 UUID uuid = npc.getEntityUUID();
                 if (uuid == null) continue; // dead NPC
 
-                double dx = npc.getSpawnX() - playerPos.getX();
-                double dy = npc.getSpawnY() - playerPos.getY();
-                double dz = npc.getSpawnZ() - playerPos.getZ();
+                double dx = npc.getSpawnX() - playerPos.x();
+                double dy = npc.getSpawnY() - playerPos.y();
+                double dz = npc.getSpawnZ() - playerPos.z();
                 double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
                 if (dist < closestDist && dist <= MAX_DISTANCE) {

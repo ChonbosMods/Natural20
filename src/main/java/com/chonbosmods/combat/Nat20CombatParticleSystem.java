@@ -7,7 +7,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.component.SystemGroup;
 import com.hypixel.hytale.component.query.Query;
-import com.hypixel.hytale.math.vector.Vector3d;
+import org.joml.Vector3d;
 import com.hypixel.hytale.protocol.SoundCategory;
 import com.hypixel.hytale.server.core.asset.type.soundevent.config.SoundEvent;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
@@ -79,9 +79,9 @@ public class Nat20CombatParticleSystem extends DamageEventSystem {
         if (transform == null) return;
 
         Vector3d pos = transform.getPosition();
-        double x = pos.getX();
-        double y = pos.getY() + TORSO_OFFSET_Y;
-        double z = pos.getZ();
+        double x = pos.x();
+        double y = pos.y() + TORSO_OFFSET_Y;
+        double z = pos.z();
 
         try {
             ParticleUtil.spawnParticleEffect(particleId, new Vector3d(x, y, z), store);

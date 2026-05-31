@@ -171,7 +171,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         appliedPendingPoints = data.getPendingAbilityPoints();
 
         // Header: name + level + chosen background
-        cmd.set("#CSName.Text", player.getDisplayName());
+        cmd.set("#CSName.Text", player.getPlayerRef().getUsername());
         cmd.set("#CSLevel.Text", "Lvl " + data.getLevel());
         Background bg = data.getBackground();
         cmd.set("#CSBackground.Text", bg != null ? bg.displayName() : "");
@@ -707,7 +707,7 @@ public class CharacterSheetPage extends InteractiveCustomUIPage<CharacterSheetPa
         Ref<EntityStore> entityRef = world.getEntityRef(uuid);
         if (entityRef == null) return null;
         Player player = store.getComponent(entityRef, Player.getComponentType());
-        return player != null ? player.getDisplayName() : null;
+        return player != null ? player.getPlayerRef().getUsername() : null;
     }
 
     /** Walk {@code world.getPlayerRefs()} for a PlayerRef matching the given

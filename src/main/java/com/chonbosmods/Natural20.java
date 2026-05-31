@@ -134,8 +134,8 @@ import com.hypixel.hytale.server.npc.entities.NPCEntity;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.util.Config;
 import com.hypixel.hytale.component.RemoveReason;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
@@ -814,7 +814,7 @@ public class Natural20 extends JavaPlugin {
 
             // Cache display name so offline partymates can still render a
             // name instead of "Unknown" once this player disconnects later.
-            partyRegistry.recordName(uuid, event.getPlayer().getDisplayName());
+            partyRegistry.recordName(uuid, event.getPlayer().getPlayerRef().getUsername());
 
             // Ensure the player has a party (default size-1) and is flagged
             // online so the ghost-leader rule can fire correctly on long-gone
@@ -960,7 +960,7 @@ public class Natural20 extends JavaPlugin {
                 initWorldScopedRegistries(defaultWorld);
                 firstChunk = true;
             }
-            // WorldChunk.getX()/getZ() return chunk coordinates: multiply by 32 for block coords
+            // WorldChunk.x()/getZ() return chunk coordinates: multiply by 32 for block coords
             int chunkBlockX = chunk.getX() * 32;
             int chunkBlockZ = chunk.getZ() * 32;
             worldGenListener.onChunkLoad(chunk.getWorld(), chunkBlockX, chunkBlockZ);

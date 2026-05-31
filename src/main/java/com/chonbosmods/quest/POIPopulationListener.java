@@ -1,9 +1,10 @@
 package com.chonbosmods.quest;
 
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.npc.NPCPlugin;
@@ -67,7 +68,7 @@ public class POIPopulationListener {
             double offsetX = (rng.nextDouble() - 0.5) * 3;
             double offsetZ = (rng.nextDouble() - 0.5) * 3;
             Vector3d spawnPos = new Vector3d(poiX + offsetX, poiY + 1.0, poiZ + offsetZ);
-            Vector3f rotation = new Vector3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
+            Rotation3f rotation = new Rotation3f(0, (float)(rng.nextDouble() * 2 - 1), 0);
 
             var result = NPCPlugin.get().spawnEntity(store, roleIndex, spawnPos, rotation, null, null);
             if (result != null) {

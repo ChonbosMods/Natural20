@@ -11,7 +11,7 @@ import com.chonbosmods.world.Nat20FluidSweeper;
 import com.chonbosmods.world.Nat20HeightmapSampler;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabRotation;
 import com.hypixel.hytale.server.core.prefab.PrefabStore;
@@ -217,12 +217,12 @@ public class UndergroundStructurePlacer {
 
                     PrefabRotation rot = PrefabRotation.fromRotation(rotation);
                     Vector3i t = placed.translation();
-                    int swMinX = buffer.getMinX(rot) + t.getX() - 2;
-                    int swMaxX = buffer.getMaxX(rot) + t.getX() + 2;
-                    int swMinY = buffer.getMinY()    + t.getY() - 2;
-                    int swMaxY = buffer.getMaxY()    + t.getY() + 2;
-                    int swMinZ = buffer.getMinZ(rot) + t.getZ() - 2;
-                    int swMaxZ = buffer.getMaxZ(rot) + t.getZ() + 2;
+                    int swMinX = buffer.getMinX(rot) + t.x() - 2;
+                    int swMaxX = buffer.getMaxX(rot) + t.x() + 2;
+                    int swMinY = buffer.getMinY()    + t.y() - 2;
+                    int swMaxY = buffer.getMaxY()    + t.y() + 2;
+                    int swMinZ = buffer.getMinZ(rot) + t.z() - 2;
+                    int swMaxZ = buffer.getMaxZ(rot) + t.z() + 2;
                     Nat20FluidSweeper.clearLavaInVolume(world,
                             swMinX, swMinY, swMinZ, swMaxX, swMaxY, swMaxZ);
 

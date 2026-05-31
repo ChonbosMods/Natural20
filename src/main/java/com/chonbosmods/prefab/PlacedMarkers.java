@@ -1,7 +1,7 @@
 package com.chonbosmods.prefab;
 
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3i;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 
 import java.util.List;
 
