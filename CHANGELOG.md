@@ -17,6 +17,7 @@ Natural 20 now runs on Hytale Update 5. This is a compatibility release: the foc
 
 ### Fixed
 
+- Affix loot now spawns reliably and exactly once in world-generated chests, and no longer leaks into chests it should not. Previously a chest could hand out a duplicate of a non-stackable item (shown as a stack of two), its contents could briefly render as "invalid item" when opened, and nat20 loot could reappear in chests you had already emptied, broken and replaced, or crafted and placed yourself. Loot is now rolled once when a chest's area first generates, only in natural world-generated loot chests.
 - Longswords, clubs, and one-handed axes can now block on right-click, with the proper guard reticle and stamina cost. Hytale ships these three weapon groups without a wired-up block (only the guard animation played, with no actual damage reduction); Natural 20 binds them to the standard melee guard.
 - Quest area markers (the ring outlining a quest's location) again appear only while the world map is open, not on the compass. Update 5 removed the signal the mod used to detect an open map; the early plugin now restores it.
 
