@@ -77,11 +77,10 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
-import com.chonbosmods.loot.chest.Nat20ChestAffixInjectionSystem;
 import com.chonbosmods.loot.chest.Nat20ChestLootConfig;
 import com.chonbosmods.loot.chest.Nat20ChestLootPicker;
 import com.chonbosmods.loot.chest.Nat20ChestLootRoller;
-import com.chonbosmods.loot.chest.Nat20ChestRollRegistry;
+import com.chonbosmods.loot.chest.Nat20ChestLootSystem;
 import com.chonbosmods.quest.CollectResourceTrackingSystem;
 import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
@@ -173,7 +172,6 @@ public class Natural20 extends JavaPlugin {
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
-    private Nat20ChestRollRegistry chestRollRegistry;
     private final Nat20HostilePool hostilePool = new Nat20HostilePool();
     private final com.chonbosmods.world.Nat20ZoneRegistry zoneRegistry = new com.chonbosmods.world.Nat20ZoneRegistry();
     private final Nat20MobThemeRegistry mobThemeRegistry = new Nat20MobThemeRegistry();
@@ -281,10 +279,6 @@ public class Natural20 extends JavaPlugin {
         return mobGroupRegistry;
     }
 
-    public Nat20ChestRollRegistry getChestRollRegistry() {
-        return chestRollRegistry;
-    }
-
     public Nat20HostilePool getHostilePool() {
         return hostilePool;
     }
@@ -339,9 +333,6 @@ public class Natural20 extends JavaPlugin {
 
             mobGroupRegistry.setSaveDirectory(worldDataDir);
             mobGroupRegistry.load();
-
-            chestRollRegistry.setSaveDirectory(worldDataDir);
-            chestRollRegistry.load();
 
             caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
             caveVoidRegistry.load();
@@ -910,18 +901,19 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
 
-        // Chest affix-loot injection. Save path is bound to the world-scoped directory
-        // in the first-chunk-load hook below; any save/load before that throws.
+        // Chest affix-loot injection. Runs on the ChunkStore: when a native worldgen
+        // loot chest first spawns (droplist != null), we inject affix loot into its
+        // empty container before the engine's StashSystem fills the rest. Player-placed,
+        // re-placed, and quest chests have a null droplist and are skipped. No per-chest
+        // registry is needed: the engine's droplist field is the persisted eligibility +
+        // dedup flag, and AddReason.SPAWN guards against re-injection on reload.
         Nat20ChestLootConfig chestLootConfig = Nat20ChestLootConfig.load();
-        chestRollRegistry = new Nat20ChestRollRegistry();
         Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
         Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
-        QuestChestPlacer.setChestRollRegistry(chestRollRegistry);
-        getEntityStoreRegistry().registerSystem(new Nat20ChestAffixInjectionSystem(
-                chestLootConfig, chestLootRoller, chestRollRegistry, scalingConfig, chestLootPicker));
-        com.hypixel.hytale.logger.HytaleLogger.get("Nat20|ChestInject").atInfo()
-                .log("Chest affix injection wired: %d block types; primary=%.2f secondary=%.2f (lowRarityBias=%.2f; combined=%.3f)",
-                        chestLootConfig.blockTypeCount(),
+        getChunkStoreRegistry().registerSystem(new Nat20ChestLootSystem(
+                chestLootConfig, chestLootRoller, chestLootPicker, scalingConfig));
+        com.hypixel.hytale.logger.HytaleLogger.get("Nat20|ChestLoot").atInfo()
+                .log("Chest loot system wired (droplist-gated, chunk-load): primary=%.2f secondary=%.2f (lowRarityBias=%.2f; combined=%.3f)",
                         chestLootConfig.getPrimaryChance(),
                         chestLootConfig.getSecondaryChance(),
                         chestLootConfig.getSecondaryLowRarityBias(),
