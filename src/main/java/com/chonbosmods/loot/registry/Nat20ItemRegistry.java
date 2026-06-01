@@ -25,6 +25,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Nat20ItemRegistry {
@@ -37,6 +39,17 @@ public class Nat20ItemRegistry {
     private final Map<String, RegistryEntry> registered = new ConcurrentHashMap<>();
     private final Nat20ItemRenderer itemRenderer;
     private Path registryFile;
+
+    // Batched client sync. Chunk generation mints one item per world-gen loot chest, so a
+    // burst of chunks would otherwise fire one translations broadcast + one asset load +
+    // one full-map disk write PER item, flooding clients with AssetUpdate traffic while
+    // travelling. registerItem() enqueues here; flushBatch() collapses each burst into one
+    // packet, one loadAssets call, and one save on a short debounce.
+    private static final long BATCH_FLUSH_DELAY_MS = 750L;
+    private final Map<String, Item> pendingVariants = new ConcurrentHashMap<>();
+    private final Map<String, String> pendingTranslations = new ConcurrentHashMap<>();
+    private final AtomicBoolean flushScheduled = new AtomicBoolean(false);
+    private final AtomicLong batchSeq = new AtomicLong();
 
     @Nullable
     private Field languagesField;
@@ -105,27 +118,54 @@ public class Nat20ItemRegistry {
                 description, System.currentTimeMillis() / 1000L
         );
         registered.put(uniqueId, entry);
-        saveToDisk();
 
-        // Register on a separate thread to avoid deadlock:
-        // loadAssets() acquires AssetRegistry.ASSET_LOCK which conflicts with
-        // the ECS thread context that commands execute on. Stack-side durability
-        // does NOT depend on this completing before the caller mints the ItemStack:
-        // the three Nat20 mint sites read maxDurability straight off the base item
-        // and stamp it via withRestoredDurability, so the variant's late arrival
-        // here only matters for tooltip lookups, salvage, and the repair UI.
-        HytaleServer.SCHEDULED_EXECUTOR.submit(() -> {
-            try {
-                // Send just our new description key to connected clients
-                broadcastTranslations(Map.of(descKey, entry.description()));
-                // Then register the item asset
-                Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
-            } catch (Exception e) {
-                LOGGER.atSevere().withCause(e).log("Failed to register item asset: %s", uniqueId);
-            }
-        });
+        // Defer + batch the client-facing work instead of broadcasting and writing to disk
+        // per item. The minted stack does not depend on this completing: durability is read
+        // off the base item and stamped via withRestoredDurability, so the variant's late
+        // arrival only affects tooltip, salvage, and repair lookups. Deferring also keeps
+        // loadAssets() (which acquires AssetRegistry.ASSET_LOCK) off the ECS command thread.
+        pendingVariants.put(uniqueId, variant);
+        pendingTranslations.put(descKey, description);
+        if (flushScheduled.compareAndSet(false, true)) {
+            HytaleServer.SCHEDULED_EXECUTOR.schedule(this::flushBatch, BATCH_FLUSH_DELAY_MS, TimeUnit.MILLISECONDS);
+        }
 
         return uniqueId;
+    }
+
+    /**
+     * Drain the pending mint buffer on the scheduled executor: one translations broadcast,
+     * one batched asset load, and one disk write for the whole burst. Entries enqueued after
+     * the snapshot ride the next flush (their enqueue arms a fresh schedule).
+     */
+    private void flushBatch() {
+        flushScheduled.set(false);
+        List<String> ids = new ArrayList<>(pendingVariants.keySet());
+        if (ids.isEmpty()) return;
+
+        Map<String, String> translations = new HashMap<>();
+        List<Item> variants = new ArrayList<>(ids.size());
+        for (String uniqueId : ids) {
+            Item variant = pendingVariants.remove(uniqueId);
+            if (variant != null) variants.add(variant);
+            String descKey = "server.nat20.item." + uniqueId + ".description";
+            String desc = pendingTranslations.remove(descKey);
+            if (desc != null) translations.put(descKey, desc);
+        }
+
+        try {
+            if (!translations.isEmpty()) broadcastTranslations(translations);
+            if (!variants.isEmpty()) {
+                // Fresh per-batch source mirrors the original per-item unique source, so the
+                // load is a pure add and never diffs against / unloads prior minted items.
+                String source = "nat20:batch:" + batchSeq.incrementAndGet();
+                Item.getAssetStore().loadAssets(source, variants);
+            }
+        } catch (Exception e) {
+            LOGGER.atSevere().withCause(e).log("Batched asset flush failed (%d items)", variants.size());
+        }
+
+        saveToDisk();
     }
 
     public void unregisterItem(String uniqueId) {
@@ -148,6 +188,10 @@ public class Nat20ItemRegistry {
     public void rehydrateAll() {
         if (registered.isEmpty()) return;
 
+        // Build every variant first, then load them in a single batched call so boot does
+        // not fire one asset load per registered item (the registry persists across sessions
+        // and can hold thousands of entries).
+        List<Item> variants = new ArrayList<>(registered.size());
         for (Map.Entry<String, RegistryEntry> e : registered.entrySet()) {
             String uniqueId = e.getKey();
             RegistryEntry entry = e.getValue();
@@ -167,16 +211,19 @@ public class Nat20ItemRegistry {
                 LOGGER.atWarning().log("Failed to set fields on rehydrated item: %s", uniqueId);
                 continue;
             }
-
-            try {
-                Item.getAssetStore().loadAssets(uniqueId, List.of(variant));
-            } catch (Exception ex) {
-                LOGGER.atWarning().withCause(ex).log("Failed to rehydrate item: %s", uniqueId);
-                continue;
-            }
+            variants.add(variant);
         }
 
-        LOGGER.atInfo().log("Rehydrated %d unique item definitions", registered.size());
+        try {
+            if (!variants.isEmpty()) {
+                String source = "nat20:batch:" + batchSeq.incrementAndGet();
+                Item.getAssetStore().loadAssets(source, variants);
+            }
+        } catch (Exception ex) {
+            LOGGER.atWarning().withCause(ex).log("Failed to rehydrate item assets (batched)");
+        }
+
+        LOGGER.atInfo().log("Rehydrated %d unique item definitions (batched)", variants.size());
     }
 
     public void reinjectAllI18n() {
