@@ -24,9 +24,9 @@ public class QuestChestPlacer {
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|QuestChest");
     private static final String CHEST_BLOCK_NAME = "Furniture_Dungeon_Chest_Epic";
 
-    // Quest chests are built with an explicit container and no droplist, so
-    // Nat20ChestLootSystem (which only injects into droplist-bearing worldgen chests)
-    // skips them automatically: no opt-out registry is needed.
+    // Quest chests are built with an explicit container and no droplist, so the chest
+    // eligibility stamp system (which only marks droplist-bearing worldgen chests) never
+    // stamps them and the open-injection system skips them: no opt-out registry is needed.
 
     public static boolean placeQuestChest(World world, int x, int y, int z,
                                            String itemTypeId, String itemLabel) {

@@ -77,10 +77,12 @@ import com.chonbosmods.dialogue.DialogueLoader;
 import com.chonbosmods.dialogue.DialogueManager;
 import com.chonbosmods.loot.Nat20EquipmentListener;
 import com.chonbosmods.loot.Nat20LootSystem;
+import com.chonbosmods.loot.chest.Nat20ChestEligibilityRegistry;
+import com.chonbosmods.loot.chest.Nat20ChestEligibilityStampSystem;
 import com.chonbosmods.loot.chest.Nat20ChestLootConfig;
 import com.chonbosmods.loot.chest.Nat20ChestLootPicker;
 import com.chonbosmods.loot.chest.Nat20ChestLootRoller;
-import com.chonbosmods.loot.chest.Nat20ChestLootSystem;
+import com.chonbosmods.loot.chest.Nat20ChestOpenInjectionSystem;
 import com.chonbosmods.quest.CollectResourceTrackingSystem;
 import com.chonbosmods.quest.FetchItemTrackingSystem;
 import com.chonbosmods.quest.POIKillTrackingSystem;
@@ -172,6 +174,7 @@ public class Natural20 extends JavaPlugin {
     private final Nat20EquipmentListener equipmentListener = new Nat20EquipmentListener(lootSystem);
     private SettlementRegistry settlementRegistry;
     private Nat20MobGroupRegistry mobGroupRegistry;
+    private Nat20ChestEligibilityRegistry chestEligibilityRegistry;
     private final Nat20HostilePool hostilePool = new Nat20HostilePool();
     private final com.chonbosmods.world.Nat20ZoneRegistry zoneRegistry = new com.chonbosmods.world.Nat20ZoneRegistry();
     private final Nat20MobThemeRegistry mobThemeRegistry = new Nat20MobThemeRegistry();
@@ -333,6 +336,9 @@ public class Natural20 extends JavaPlugin {
 
             mobGroupRegistry.setSaveDirectory(worldDataDir);
             mobGroupRegistry.load();
+
+            chestEligibilityRegistry.setSaveDirectory(worldDataDir);
+            chestEligibilityRegistry.load();
 
             caveVoidRegistry.setSaveFile(worldDataDir.resolve("cave_voids.json"));
             caveVoidRegistry.load();
@@ -901,19 +907,22 @@ public class Natural20 extends JavaPlugin {
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupCombatStampSystem());
         getEntityStoreRegistry().registerSystem(new Nat20MobGroupLeashSystem(mobGroupRegistry));
 
-        // Chest affix-loot injection. Runs on the ChunkStore: when a native worldgen
-        // loot chest first spawns (droplist != null), we inject affix loot into its
-        // empty container before the engine's StashSystem fills the rest. Player-placed,
-        // re-placed, and quest chests have a null droplist and are skipped. No per-chest
-        // registry is needed: the engine's droplist field is the persisted eligibility +
-        // dedup flag, and AddReason.SPAWN guards against re-injection on reload.
+        // Chest affix-loot injection (on-demand, double-tap open). A cheap ChunkStore stamp
+        // system records every native worldgen loot chest (droplist != null) as eligible at
+        // generation, before StashSystem consumes the droplist. Loot is then minted + injected
+        // only when a player actually opens an eligible chest, so chests that generate but are
+        // never opened cost nothing (no minting, no AssetUpdate traffic). Player-placed,
+        // re-placed, and quest chests (null droplist) are never stamped, so they never receive
+        // loot. The eligibility set is consumed on first open and persisted across reloads.
         Nat20ChestLootConfig chestLootConfig = Nat20ChestLootConfig.load();
         Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
         Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
-        getChunkStoreRegistry().registerSystem(new Nat20ChestLootSystem(
-                chestLootConfig, chestLootRoller, chestLootPicker, scalingConfig));
+        chestEligibilityRegistry = new Nat20ChestEligibilityRegistry();
+        getChunkStoreRegistry().registerSystem(new Nat20ChestEligibilityStampSystem(chestEligibilityRegistry));
+        getEntityStoreRegistry().registerSystem(new Nat20ChestOpenInjectionSystem(
+                chestLootConfig, chestLootRoller, chestLootPicker, scalingConfig, chestEligibilityRegistry));
         com.hypixel.hytale.logger.HytaleLogger.get("Nat20|ChestLoot").atInfo()
-                .log("Chest loot system wired (droplist-gated, chunk-load): primary=%.2f secondary=%.2f (lowRarityBias=%.2f; combined=%.3f)",
+                .log("Chest loot wired (on-demand, eligibility-stamped): primary=%.2f secondary=%.2f (lowRarityBias=%.2f; combined=%.3f)",
                         chestLootConfig.getPrimaryChance(),
                         chestLootConfig.getSecondaryChance(),
                         chestLootConfig.getSecondaryLowRarityBias(),
