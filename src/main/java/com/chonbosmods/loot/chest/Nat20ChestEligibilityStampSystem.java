@@ -10,6 +10,7 @@ import com.hypixel.hytale.component.dependency.Dependency;
 import com.hypixel.hytale.component.dependency.RootDependency;
 import com.hypixel.hytale.component.query.Query;
 import com.hypixel.hytale.component.system.RefSystem;
+import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.modules.block.BlockModule;
 import com.hypixel.hytale.server.core.modules.block.components.ItemContainerBlock;
@@ -32,6 +33,8 @@ import java.util.Set;
  * client traffic — just a position added to {@link Nat20ChestEligibilityRegistry}.
  */
 public class Nat20ChestEligibilityStampSystem extends RefSystem<ChunkStore> {
+
+    private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|ChestEligibility");
 
     private final ComponentType<ChunkStore, ItemContainerBlock> itemContainerType;
     private final ComponentType<ChunkStore, BlockModule.BlockStateInfo> blockStateInfoType;
@@ -62,9 +65,12 @@ public class Nat20ChestEligibilityStampSystem extends RefSystem<ChunkStore> {
     @Override
     public void onEntityAdded(Ref<ChunkStore> ref, AddReason reason,
                               Store<ChunkStore> store, CommandBuffer<ChunkStore> cb) {
-        if (reason != AddReason.SPAWN) return;
-
         ItemContainerBlock block = store.getComponent(ref, itemContainerType);
+        // Gate on droplist only (not AddReason): a worldgen loot chest carries a droplist on
+        // its first appearance whether that is SPAWN or a prefab-placed LOAD. StashSystem
+        // clears the droplist after it populates, so re-adds on reload see null and do not
+        // re-stamp. (N20 settlement/POI prefab chests have no droplist and are instead stamped
+        // at paste time by Nat20PrefabPaster.)
         if (block == null || block.getDroplist() == null) return;
 
         BlockModule.BlockStateInfo info = store.getComponent(ref, blockStateInfoType);
@@ -73,11 +79,15 @@ public class Nat20ChestEligibilityStampSystem extends RefSystem<ChunkStore> {
         if (chunk == null) return;
 
         int idx = info.getIndex();
-        int wx = ChunkUtil.worldCoordFromLocalCoord(chunk.getX(), ChunkUtil.xFromIndex(idx));
-        int wy = ChunkUtil.yFromIndex(idx);
-        int wz = ChunkUtil.worldCoordFromLocalCoord(chunk.getZ(), ChunkUtil.zFromIndex(idx));
+        // BlockStateInfo holds a column-block index: X/Z are 5-bit local coords, Y is the
+        // full world height (HEIGHT_MASK at bit 10). Use the *BlockInColumn decoders so the
+        // stamped position matches the world position UseBlockEvent reports on open.
+        int wx = ChunkUtil.worldCoordFromLocalCoord(chunk.getX(), ChunkUtil.xFromBlockInColumn(idx));
+        int wy = ChunkUtil.yFromBlockInColumn(idx);
+        int wz = ChunkUtil.worldCoordFromLocalCoord(chunk.getZ(), ChunkUtil.zFromBlockInColumn(idx));
 
         registry.markEligible(wx, wy, wz);
+        LOGGER.atFine().log("Stamped eligible chest at %d,%d,%d", wx, wy, wz);
     }
 
     @Override

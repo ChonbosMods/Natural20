@@ -1,6 +1,7 @@
 package com.chonbosmods.loot.chest;
 
-import com.hypixel.hytale.component.Holder;
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
@@ -12,13 +13,16 @@ import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 
 /**
- * Helpers for chest block access + on-open loot injection. The injection path mutates the
- * {@code ItemContainerBlock} component directly and marks the block for saving, with NO
- * {@code chunk.setState(...)} call: the full block-state rebroadcast that {@code setState}
- * performs is what caused the "invalid item" render glitch (handoff Theory 2b). Injecting on
- * the first of a double-tap open (before any container window is built for this press) lets
- * the second press open a settled container, the same way the engine's StashSystem populates
- * a chest before it is ever viewed.
+ * Helpers for chest block access + on-open loot injection. Injection mutates the
+ * <b>live</b> {@link ItemContainerBlock} component (reached via the block's ChunkStore ref,
+ * the same object the chunk-generation path mutates) and marks the block for saving, with NO
+ * {@code chunk.setState(...)} call. The full block-state rebroadcast that {@code setState}
+ * performs is what caused the "invalid item" render glitch (handoff Theory 2b).
+ *
+ * <p>Crucial: {@link WorldChunk#getBlockComponentHolder} returns a <em>clone</em> of the
+ * container — mutating it is discarded. {@link WorldChunk#getBlockComponentEntity} returns the
+ * live {@link Ref}, and {@code ref.getStore().getComponent(ref, type)} the live component, so
+ * the write actually takes effect and the container window built on the next open reflects it.
  *
  * <p>All methods must be called from the world thread.
  */
@@ -34,10 +38,10 @@ public final class Nat20ChestContainerWriter {
     }
 
     /**
-     * Write {@code stack} into the chest's first empty slot by mutating the
-     * {@link ItemContainerBlock} component in place and marking the block for saving. No
+     * Write {@code stack} into the chest's first empty slot by mutating the live
+     * {@link ItemContainerBlock} component and marking the block for saving. No
      * {@code setState} rebroadcast: the container window built on the next open reads the
-     * mutated component directly.
+     * mutated live component directly.
      *
      * @return true if the stack was placed.
      */
@@ -48,10 +52,12 @@ public final class Nat20ChestContainerWriter {
             return false;
         }
 
-        Holder<ChunkStore> holder = chunk.getBlockComponentHolder(x, y, z);
-        if (holder == null) return false;
+        Ref<ChunkStore> blockRef = chunk.getBlockComponentEntity(x, y, z);
+        if (blockRef == null) return false;
+        Store<ChunkStore> store = blockRef.getStore();
+        if (store == null) return false;
 
-        ItemContainerBlock containerBlock = holder.getComponent(ItemContainerBlock.getComponentType());
+        ItemContainerBlock containerBlock = store.getComponent(blockRef, ItemContainerBlock.getComponentType());
         if (containerBlock == null) return false;
 
         SimpleItemContainer container = containerBlock.getItemContainer();
@@ -69,10 +75,10 @@ public final class Nat20ChestContainerWriter {
 
         container.setItemStackForSlot(emptySlot, stack);
 
-        BlockModule.BlockStateInfo info = holder.getComponent(BlockModule.BlockStateInfo.getComponentType());
+        BlockModule.BlockStateInfo info = store.getComponent(blockRef, BlockModule.BlockStateInfo.getComponentType());
         if (info != null) info.markNeedsSaving();
 
-        LOGGER.atInfo().log("Injected %s into chest at %d, %d, %d slot %d", stack.getItemId(), x, y, z, emptySlot);
+        LOGGER.atFine().log("Injected %s into chest at %d, %d, %d slot %d", stack.getItemId(), x, y, z, emptySlot);
         return true;
     }
 }

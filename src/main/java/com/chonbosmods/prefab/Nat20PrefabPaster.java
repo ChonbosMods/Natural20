@@ -1,12 +1,15 @@
 package com.chonbosmods.prefab;
 
+import com.chonbosmods.loot.chest.Nat20ChestEligibilityRegistry;
 import com.hypixel.hytale.component.ComponentAccessor;
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.math.util.ChunkUtil;
 import org.joml.Vector3d;
 import org.joml.Vector3i;
+import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.Rotation;
 import com.hypixel.hytale.server.core.prefab.PrefabRotation;
+import com.hypixel.hytale.server.core.prefab.selection.buffer.PrefabBufferCall;
 import com.hypixel.hytale.server.core.prefab.selection.buffer.impl.IPrefabBuffer;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -43,6 +46,15 @@ public final class Nat20PrefabPaster {
 
     private static final HytaleLogger LOGGER = HytaleLogger.get("Nat20|Paster");
     private static final int DEFER_TICKS = 5;
+
+    // Set once at startup. When present, every chest block in a pasted N20 prefab
+    // (settlement / POI) is stamped eligible for affix loot, since N20-placed prefab
+    // chests carry no engine droplist and so are not caught by the chunk-load stamp system.
+    private static Nat20ChestEligibilityRegistry chestEligibilityRegistry;
+
+    public static void setChestEligibilityRegistry(Nat20ChestEligibilityRegistry registry) {
+        chestEligibilityRegistry = registry;
+    }
 
     private Nat20PrefabPaster() {
         // utility class
@@ -137,6 +149,7 @@ public final class Nat20PrefabPaster {
                                     "Nat20 prefab pasted: translation=(%d,%d,%d) rot=%s anchorWorld=(%d,%d,%d)",
                                     translation.x(), translation.y(), translation.z(), yaw,
                                     desiredAnchorWorld.x(), desiredAnchorWorld.y(), desiredAnchorWorld.z());
+                            stampChestBlocks(buffer, rot, translation);
                             result.complete(buildPlacedMarkers(scan, rot, translation));
                         } catch (Exception e) {
                             LOGGER.atSevere().withCause(e).log(
@@ -170,6 +183,42 @@ public final class Nat20PrefabPaster {
                 rotateAndTranslate(scan.npcSpawnsLocal(), rot, t),
                 rotateAndTranslate(scan.mobGroupSpawnsLocal(), rot, t),
                 rotateAndTranslate(scan.chestSpawnsLocal(), rot, t));
+    }
+
+    /**
+     * Stamp every chest block in the pasted prefab as eligible for affix loot. N20 places
+     * these prefabs, so their chests are "ours" (not player-placed) and should carry loot
+     * even though they have no engine droplist. Resolves each block id to its type and
+     * matches "chest" in the type id (skipping Nat20 marker blocks). Positions are rotated +
+     * translated the same way the actual blocks were placed.
+     */
+    private static void stampChestBlocks(IPrefabBuffer buffer, PrefabRotation rot, Vector3i t) {
+        Nat20ChestEligibilityRegistry registry = chestEligibilityRegistry;
+        if (registry == null) return;
+
+        int[] count = {0};
+        buffer.forEach(
+                IPrefabBuffer.iterateAllColumns(),
+                (x, y, z, blockId, holder, supportValue, rotation, filler, call, fluidId, fluidLevel) -> {
+                    if (blockId == 0) return;
+                    Object asset = BlockType.getAssetMap().getAsset(blockId);
+                    if (!(asset instanceof BlockType bt)) return;
+                    String id = bt.getId();
+                    if (id == null) return;
+                    if (id.startsWith("Nat20")) return;
+                    if (!id.toLowerCase().contains("chest")) return;
+
+                    Vector3i r = rotateInt(rot, new Vector3i(x, y, z));
+                    registry.markEligible(r.x() + t.x(), r.y() + t.y(), r.z() + t.z());
+                    count[0]++;
+                },
+                (x, z, entities, call) -> { },
+                (x, y, z, path, fitHeightmap, inheritSeed, inheritHeightCondition, weights, rotation, call) -> { },
+                new PrefabBufferCall(new Random(), PrefabRotation.ROTATION_0));
+
+        if (count[0] > 0) {
+            LOGGER.atInfo().log("Stamped %d prefab chest(s) eligible for affix loot", count[0]);
+        }
     }
 
     private static List<Vector3d> rotateAndTranslate(List<Vector3i> locals, PrefabRotation rot, Vector3i t) {

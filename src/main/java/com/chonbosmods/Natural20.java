@@ -918,6 +918,7 @@ public class Natural20 extends JavaPlugin {
         Nat20ChestLootRoller chestLootRoller = new Nat20ChestLootRoller(chestLootConfig);
         Nat20ChestLootPicker chestLootPicker = new Nat20ChestLootPicker(lootSystem);
         chestEligibilityRegistry = new Nat20ChestEligibilityRegistry();
+        com.chonbosmods.prefab.Nat20PrefabPaster.setChestEligibilityRegistry(chestEligibilityRegistry);
         getChunkStoreRegistry().registerSystem(new Nat20ChestEligibilityStampSystem(chestEligibilityRegistry));
         getEntityStoreRegistry().registerSystem(new Nat20ChestOpenInjectionSystem(
                 chestLootConfig, chestLootRoller, chestLootPicker, scalingConfig, chestEligibilityRegistry));
